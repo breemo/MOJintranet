@@ -6,3 +6,10 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="News.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.News.News" %>
+
+        <%--public int ID { get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Date { get; set; }
+        public string Picture { get; set; }  Attachment   --%>
