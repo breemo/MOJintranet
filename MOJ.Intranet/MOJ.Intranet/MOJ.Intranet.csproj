@@ -102,6 +102,9 @@
     <None Include="Features\Feature1\Feature1.feature">
       <FeatureId>{b4f5a10c-a7e1-4d8c-9aac-39948750b021}</FeatureId>
     </None>
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0b32c85a-4763-4ef1-af1e-e528a638af6c}</SharePointProjectItemId>
+    </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
       <PackageId>{0b8ed690-51a8-4800-9986-9096e8f5e334}</PackageId>
@@ -148,6 +151,12 @@
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Content>
+    <Content Include="Images\default.jpeg" />
+    <Content Include="Images\pdf.jpeg" />
+    <Content Include="Images\ppt.jpeg" />
+    <Content Include="Images\servicesArchv.png" />
+    <Content Include="Images\word.jpeg" />
+    <Content Include="Images\xcl.jpeg" />
     <Content Include="Webparts\Home\AllNews\AllNewsUserControl.ascx" />
     <Content Include="Webparts\Home\AllNews\Elements.xml" />
     <Content Include="Webparts\Home\HomeMemos\Elements.xml" />
@@ -159,7 +168,9 @@
     <Content Include="Webparts\Inner Pages\NewsDetails\Elements.xml" />
     <Content Include="Webparts\Inner Pages\NewsDetails\NewsDetailsUserControl.ascx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\MOJ.Intranet\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

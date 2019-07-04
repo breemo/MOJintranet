@@ -38,13 +38,15 @@ namespace SP.Common
         #endregion
 
         #region Url
-        public const string URL_NO_IMAGE = "/_layouts/images/MOJ/Noimages.jpeg";
         //"../../../_layouts/YSA.SP.Portal/en/images/No-attachment-1.png";
+        public const string URL_NO_IMAGE = "/_layouts/images/MOJ/Noimages.jpeg";
 
         #endregion
 
-
-
+        #region Lists
+        public const string NewsListUrl = "/Lists/News/AllItems.aspx";
+        public const string MemosListUrl = "/Lists/Circulars/AllItems.aspx";
+        #endregion
 
 
 
@@ -115,8 +117,7 @@ namespace SP.Common
         #region YSA Lists URLs
         public const string EventsCalendarListUrl = "/Lists/EventsCalendar/calendar.aspx";
         public const string AnnouncementListUrl = "/Lists/Announcements/AllItems.aspx";
-        public const string NewsListUrl = "/Lists/News/AllItems.aspx";
-        public const string MemosListUrl = "/Lists/Memos/AllItems.aspx";
+
         public const string MyCalendarListUrl = "/Lists/MyCalendar/calendar.aspx";
         public const string QAsListUrl = "/Lists/QA/AllItems.aspx";
         public const string QAsCategoriesListUrl = "/Lists/FAQsCategories/AllItems.aspx";

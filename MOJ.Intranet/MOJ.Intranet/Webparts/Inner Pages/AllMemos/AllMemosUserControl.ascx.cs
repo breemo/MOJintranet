@@ -42,7 +42,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
 
         protected void grdMemosLst_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            grdCirculars.PageIndex = e.NewPageIndex;
+            grdMemosLst.PageIndex = e.NewPageIndex;
             BindData();
         }
 
