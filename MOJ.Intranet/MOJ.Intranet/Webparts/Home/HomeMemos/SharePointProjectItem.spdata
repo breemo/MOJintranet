@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="HomeMemosUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="HomeMemos\" Type="ElementManifest" />
+    <ProjectItemFile Source="HomeMemos.webpart" Target="HomeMemos\" Type="ElementFile" />
+    <ProjectItemFile Source="HomeMemosUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.Home\HomeMemos\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.Home.HomeMemos" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

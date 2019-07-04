@@ -7,6 +7,47 @@ namespace SP.Common
 {
     public struct SharedConstants
     {
+        #region MOJ Lists Columns
+
+        #region Common
+        public const string ID = "ID";
+        public const string Title = "Title";
+        public const string Created = "Created";
+        #endregion
+
+        #region News
+        public const string Body = "Body";
+        public const string Date = "Date";
+        #endregion
+
+        #region Memos
+        public const string MemoNumber = "MemoNumber";
+        #endregion
+
+        //public const string Description = "Description";
+        //public const string EventDate = "EventDate";
+        //public const string EndDate = "EndDate";
+        //public const string Active = "Active";
+        //public const string Question = "Question";
+        //public const string Answer = "Answer";
+        //public const string FIELD_INTERNALNAME_IMAGE_OR_VIDEO_ID = "ImageOrVideoId";
+        //public const string Details = "Details";
+        //public const string Summary = "Summary";
+        //public const string PressReleaseDocumentType = "PressReleaseDocumentType";
+
+        #endregion
+
+        #region Url
+        public const string URL_NO_IMAGE = "/_layouts/images/MOJ/Noimages.jpeg";
+        //"../../../_layouts/YSA.SP.Portal/en/images/No-attachment-1.png";
+
+        #endregion
+
+
+
+
+
+
         #region CssClass
         //public const string CSS_CLASS_BOX_IMG = "box_img";
         //public const string CSS_CLASS_PEOPLE_IMG = "people-img";
@@ -69,24 +110,7 @@ namespace SP.Common
         public const string PictureURL = "PictureURL";
         public const string UserPictureURL = "SPS-JobTitle";
 
-        #region YSA Lists Columns
-        public const string ID = "ID";
-        public const string Title = "Title";
-        public const string Body = "Body";
-        public const string Created = "Created";
-        public const string Date = "Date";
-        public const string Description = "Description";
-        public const string EventDate = "EventDate";
-        public const string EndDate = "EndDate";
-        public const string Active = "Active";
-        public const string Question = "Question";
-        public const string Answer = "Answer";
-        public const string FIELD_INTERNALNAME_IMAGE_OR_VIDEO_ID = "ImageOrVideoId";
-        public const string Details = "Details";
-        public const string Summary = "Summary";
-        public const string PressReleaseDocumentType = "PressReleaseDocumentType";
-        
-        #endregion
+
 
         #region YSA Lists URLs
         public const string EventsCalendarListUrl = "/Lists/EventsCalendar/calendar.aspx";
@@ -177,10 +201,7 @@ namespace SP.Common
 
         #endregion
 
-        #region Url
-        public const string URL_NO_IMAGE = "/_layouts/images/YSA/Noimages.jpeg";
 
-        #endregion
 
         #region ListUrl
 

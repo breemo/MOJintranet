@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="MOJNews" List="113" Url="_catalogs/wp">
+    <File Path="MOJNews\MOJNews.webpart" Url="MOJ.Intranet_MOJNews.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>

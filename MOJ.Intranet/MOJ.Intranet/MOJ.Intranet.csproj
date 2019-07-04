@@ -57,13 +57,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Webparts\Home\News\News.ascx.cs">
-      <DependentUpon>News.ascx</DependentUpon>
+    <Compile Include="Webparts\Home\AllNews\AllNews.cs" />
+    <Compile Include="Webparts\Home\AllNews\AllNewsUserControl.ascx.cs">
+      <DependentUpon>AllNewsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webparts\Home\News\News.ascx.g.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>News.ascx</DependentUpon>
+    <Compile Include="Webparts\Home\AllNews\AllNewsUserControl.ascx.designer.cs">
+      <DependentUpon>AllNewsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\HomeMemos\HomeMemos.cs" />
+    <Compile Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx.cs">
+      <DependentUpon>HomeMemosUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx.designer.cs">
+      <DependentUpon>HomeMemosUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\MOJNews\MOJNews.cs" />
+    <Compile Include="Webparts\Home\MOJNews\MOJNewsUserControl.ascx.cs">
+      <DependentUpon>MOJNewsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\MOJNews\MOJNewsUserControl.ascx.designer.cs">
+      <DependentUpon>MOJNewsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\AllMemos\AllMemos.cs" />
+    <Compile Include="Webparts\Inner Pages\AllMemos\AllMemosUserControl.ascx.cs">
+      <DependentUpon>AllMemosUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\AllMemos\AllMemosUserControl.ascx.designer.cs">
+      <DependentUpon>AllMemosUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\NewsDetails\NewsDetails.cs" />
+    <Compile Include="Webparts\Inner Pages\NewsDetails\NewsDetailsUserControl.ascx.cs">
+      <DependentUpon>NewsDetailsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\NewsDetails\NewsDetailsUserControl.ascx.designer.cs">
+      <DependentUpon>NewsDetailsUserControl.ascx.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -77,22 +109,57 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
-    <None Include="Webparts\Home\News\News.webpart" />
-    <None Include="Webparts\Home\News\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{62e8c333-4a71-43e0-835b-71f66f559256}</SharePointProjectItemId>
+    <None Include="Webparts\Home\AllNews\AllNews.webpart" />
+    <None Include="Webparts\Home\AllNews\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f71e58a8-2488-4ac6-a8cd-eb48422deea7}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\HomeMemos\HomeMemos.webpart" />
+    <None Include="Webparts\Home\HomeMemos\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4523326a-657a-42fa-965b-b3ce293f0a17}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\MOJNews\MOJNews.webpart" />
+    <None Include="Webparts\Home\MOJNews\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{50fbc2bc-d2c4-428b-b6e8-0efe6bae1365}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Inner Pages\AllMemos\AllMemos.webpart" />
+    <None Include="Webparts\Inner Pages\AllMemos\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{21e85882-a096-4e2c-a5cf-133dffd86f93}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Inner Pages\NewsDetails\NewsDetails.webpart" />
+    <None Include="Webparts\Inner Pages\NewsDetails\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f1e82ef8-0d6f-46ad-9d9d-a8c777d46df1}</SharePointProjectItemId>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MOJ.Business\MOJ.Business.csproj">
+      <Project>{c011e7cf-a28c-4ef8-b315-c8e0acdbb38f}</Project>
+      <Name>MOJ.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MOJ.Entities\MOJ.Entities.csproj">
+      <Project>{e4a95be2-93bf-4934-906b-5879924cbda0}</Project>
+      <Name>MOJ.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SP.Common\SP.Common.csproj">
+      <Project>{87de11f8-8181-4b51-9f5e-ca1bae8acc0a}</Project>
+      <Name>SP.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Content>
-    <Content Include="Webparts\Home\News\Elements.xml" />
-    <Content Include="Webparts\Home\News\News.ascx">
-      <Generator>SharePointWebPartCodeGenerator</Generator>
-      <LastGenOutput>News.ascx.g.cs</LastGenOutput>
-    </Content>
+    <Content Include="Webparts\Home\AllNews\AllNewsUserControl.ascx" />
+    <Content Include="Webparts\Home\AllNews\Elements.xml" />
+    <Content Include="Webparts\Home\HomeMemos\Elements.xml" />
+    <Content Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx" />
+    <Content Include="Webparts\Home\MOJNews\Elements.xml" />
+    <Content Include="Webparts\Home\MOJNews\MOJNewsUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\AllMemos\AllMemosUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\AllMemos\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\NewsDetails\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\NewsDetails\NewsDetailsUserControl.ascx" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
