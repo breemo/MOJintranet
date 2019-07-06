@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MOJ.Entities
 {
-    public class NewsEntity
+    public class NewsEntity 
     {
         public int ID { get; set; }
         public string Title { get; set; }
