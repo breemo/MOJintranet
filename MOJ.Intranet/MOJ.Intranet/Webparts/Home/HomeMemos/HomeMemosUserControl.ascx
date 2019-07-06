@@ -13,41 +13,7 @@
 
         <a href="#" class="slide morebuttoncss arrow">المزيد</a>
     </div>
-
-
     <div class="boxsec">
-        <div class="itemboxc">
-
-
-
-            <div class="itenewfo">
-                <h5>
-                    <a href="#">سلطان البادي: المحامون الشريك الأساسي في تقديم الخدمات العدلية وتحقيق العدالة
-
-                    </a>
-                </h5>
-                <span class="newdatefo">02-12-2018
-                </span>
-            </div>
-
-        </div>
-        <div class="itemboxc">
-
-
-
-            <div class="itenewfo">
-                <h5>
-                    <a href="#">سلطان البادي: المحامون الشريك الأساسي في تقديم الخدمات العدلية وتحقيق العدالة
-
-                    </a>
-                </h5>
-                <span class="newdatefo">02-12-2018
-                </span>
-            </div>
-
-        </div>
-
+        <asp:Label ID="lblDrawItems" runat="server" Text=""></asp:Label>
     </div>
-
-
 </div>

@@ -8,106 +8,14 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MOJNewsUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.MOJNews.MOJNewsUserControl" %>
 
 
-
-
 <div class="headlineflex">
     <h4 class="TitleHead">الاخبار</h4>
     <a href="#" class="slide morebuttoncss arrow">المزيد من الاخبار</a>
 
 </div>
-
 <div class="blockbox minhe">
-
     <div class="newsdivbox">
-
-        <div class="newsitem">
-            <div class="newsbox">
-
-                <p class="date">
-                    مارس 20
-                </p>
-                <div class="imgdi">
-                    <img src="/Style%20Library/MOJ-Theme-Ar/images/img01.png" class="img-fluid">
-                </div>
-                <div class="descipt">
-                    رئيس الدولة يصدر مرسوماً اتحادياً بتعيين قاضيتين في القضاء الاتحادي أصدر صاحب السمو الشيخ خليفة بن زايد آل نهيان رئيس الدولة "حفظه الله" المرسوم الاتحادي رقم 27 لسنة 2019 بتعيين القاضي خديجة
-                </div>
-                <div class="morebtn">
-
-                    <a href="#" class="slide newmorebuttoncss arrow">المزيد
-                    </a>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="newsitem">
-            <div class="newsbox">
-
-                <p class="date">
-                    مارس 20
-                </p>
-                <div class="imgdi">
-                    <img src="/Style%20Library/MOJ-Theme-Ar/images/img02.png" class="img-fluid">
-                </div>
-                <div class="descipt">
-                    رئيس الدولة يصدر مرسوماً اتحادياً بتعيين قاضيتين في القضاء الاتحادي أصدر صاحب السمو الشيخ خليفة بن زايد آل نهيان رئيس الدولة "حفظه الله" المرسوم الاتحادي رقم 27 لسنة 2019 بتعيين القاضي خديجة
-                </div>
-                <div class="morebtn">
-
-                    <a href="#" class="slide newmorebuttoncss arrow">المزيد
-                    </a>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="newsitem">
-            <div class="newsbox">
-
-                <p class="date">
-                    مارس 20
-                </p>
-                <div class="imgdi">
-                    <img src="/Style%20Library/MOJ-Theme-Ar/images/img03.png" class="img-fluid">
-                </div>
-                <div class="descipt">
-                    رئيس الدولة يصدر مرسوماً اتحادياً بتعيين قاضيتين في القضاء الاتحادي أصدر صاحب السمو الشيخ خليفة بن زايد آل نهيان رئيس الدولة "حفظه الله" المرسوم الاتحادي رقم 27 لسنة 2019 بتعيين القاضي خديجة
-                </div>
-                <div class="morebtn">
-
-                    <a href="#" class="slide newmorebuttoncss arrow">المزيد
-                    </a>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="newsitem">
-            <div class="newsbox">
-
-                <p class="date">
-                    مارس 20
-                </p>
-                <div class="imgdi">
-                    <img src="/Style%20Library/MOJ-Theme-Ar/images/img04.png" class="img-fluid">
-                </div>
-                <div class="descipt">
-                    رئيس الدولة يصدر مرسوماً اتحادياً بتعيين قاضيتين في القضاء الاتحادي أصدر صاحب السمو الشيخ خليفة بن زايد آل نهيان رئيس الدولة "حفظه الله" المرسوم الاتحادي رقم 27 لسنة 2019 بتعيين القاضي خديجة
-                </div>
-                <div class="morebtn">
-
-                    <a href="#" class="slide newmorebuttoncss arrow">المزيد
-                    </a>
-
-                </div>
-            </div>
-
-        </div>
+        <asp:Label ID="lblDrawItems" runat="server" Text=""></asp:Label>
     </div>
-
 </div>
 
