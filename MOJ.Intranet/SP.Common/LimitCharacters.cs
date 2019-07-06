@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 namespace SP.Common
 {
-    public class LimitCharacters
+    public class LimitCharacters //sam
     {
 
         public static string Limit(object Desc, int length)
