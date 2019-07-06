@@ -47,6 +47,7 @@ namespace SP.Common
         public const string NewsListUrl = "/Lists/News/AllItems.aspx";
         public const string MemosListUrl = "/Lists/Circulars/AllItems.aspx";
         //updated by samir...
+        //by ibrahim
         #endregion
 
 
