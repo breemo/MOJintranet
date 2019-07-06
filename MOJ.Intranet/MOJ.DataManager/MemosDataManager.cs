@@ -33,7 +33,7 @@ namespace MOJ.DataManager
                                     oQuery.Query = SharedConstants.MemosQuery;
                                     oQuery.ViewFields = SharedConstants.MemosViewfields;
 
-                                    oQuery.RowLimit = 3;
+                                    oQuery.RowLimit = 2;
 
                                     SPListItemCollection lstItems = lstMemos.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
@@ -126,44 +126,44 @@ namespace MOJ.DataManager
         public MemosEntity GetMemosDataByID(int id)
         {
             MemosEntity memos = new MemosEntity();
-            try
-            {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
-                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
-                    {
-                        using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
-                        {
-                            if (oWeb != null)
-                            {
-                                SPList lstMemos = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MemosListUrl);
-                                if (lstMemos != null)
-                                {
-                                    SPListItem MemosItem = lstMemos.GetItemById(id);
+            //try
+            //{
+            //    SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //    {
+            //        using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+            //        {
+            //            using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+            //            {
+            //                if (oWeb != null)
+            //                {
+            //                    SPList lstMemos = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MemosListUrl);
+            //                    if (lstMemos != null)
+            //                    {
+            //                        SPListItem MemosItem = lstMemos.GetItemById(id);
 
-                                    memos.ID = Convert.ToInt16(MemosItem[SharedConstants.ID]);
-                                    memos.Title = Convert.ToString(MemosItem[SharedConstants.Title]);
-                                    memos.Body = Convert.ToString(MemosItem[SharedConstants.Body]);
-                                    memos.Created = Convert.ToDateTime(MemosItem[SharedConstants.Created]);
-                                    memos.Date = Convert.ToDateTime(MemosItem[SharedConstants.Date]);
-                                    memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
+            //                        memos.ID = Convert.ToInt16(MemosItem[SharedConstants.ID]);
+            //                        memos.Title = Convert.ToString(MemosItem[SharedConstants.Title]);
+            //                        memos.Body = Convert.ToString(MemosItem[SharedConstants.Body]);
+            //                        memos.Created = Convert.ToDateTime(MemosItem[SharedConstants.Created]);
+            //                        memos.Date = Convert.ToDateTime(MemosItem[SharedConstants.Date]);
+            //                        memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
 
-                                    string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, MemosItem);
-                                    memos.AttachmentsInfo = FileUrl;
+            //                        string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, MemosItem);
+            //                        memos.AttachmentsInfo = FileUrl;
 
-                                    string ext = FileUrl.Split('.')[FileUrl.Split('.').Length - 1];
-                                    memos.AttachmentPicture = SP.Common.Methods.CheckFileType(ext);
-                                }
-                            }
-                        }
-                    }
-                });
+            //                        string ext = FileUrl.Split('.')[FileUrl.Split('.').Length - 1];
+            //                        memos.AttachmentPicture = SP.Common.Methods.CheckFileType(ext);
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    });
 
-            }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    LoggingService.LogError("WebParts", ex.Message);
+            //}
             return memos;
         }
 

@@ -2,12 +2,12 @@
 <webParts>
   <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
     <metaData>
-      <type name="MOJ.Intranet.Webparts.Home.HomeMemos.HomeMemos, $SharePoint.Project.AssemblyFullName$" />
+      <type name="MOJ.Intranet.Webparts.Home.EventsCorner.EventsCorner, $SharePoint.Project.AssemblyFullName$" />
       <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
     </metaData>
     <data>
       <properties>
-        <property name="Title" type="string">MOJ.Intranet - HomeMemos</property>
+        <property name="Title" type="string">MOJ.Intranet - EventsCorner</property>
         <property name="Description" type="string">My Visual Web Part</property>
         <property name="ChromeType" type="chrometype">None</property>
       </properties>

@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOJ.Intranet.Webparts.Home.HomeMemos {
+namespace MOJ.Intranet.Webparts.Home.AttendanceChart {
     
     
-    public partial class HomeMemosUserControl {
+    public partial class AttendanceChartUserControl {
     }
 }

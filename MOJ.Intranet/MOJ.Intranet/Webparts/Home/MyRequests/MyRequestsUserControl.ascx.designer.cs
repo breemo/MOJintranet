@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOJ.Intranet.Webparts.Home.HomeMemos {
+namespace MOJ.Intranet.Webparts.Home.MyRequests {
     
     
-    public partial class HomeMemosUserControl {
+    public partial class MyRequestsUserControl {
     }
 }

@@ -65,6 +65,38 @@
     <Compile Include="Webparts\Home\AllNews\AllNewsUserControl.ascx.designer.cs">
       <DependentUpon>AllNewsUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Home\AttendanceChart\AttendanceChart.cs" />
+    <Compile Include="Webparts\Home\AttendanceChart\AttendanceChartUserControl.ascx.cs">
+      <DependentUpon>AttendanceChartUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\AttendanceChart\AttendanceChartUserControl.ascx.designer.cs">
+      <DependentUpon>AttendanceChartUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\Attendance\Attendance.cs" />
+    <Compile Include="Webparts\Home\Attendance\AttendanceUserControl.ascx.cs">
+      <DependentUpon>AttendanceUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\Attendance\AttendanceUserControl.ascx.designer.cs">
+      <DependentUpon>AttendanceUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\EventsCorner\EventsCorner.cs" />
+    <Compile Include="Webparts\Home\EventsCorner\EventsCornerUserControl.ascx.cs">
+      <DependentUpon>EventsCornerUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\EventsCorner\EventsCornerUserControl.ascx.designer.cs">
+      <DependentUpon>EventsCornerUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\HomeGalary\HomeGalary.cs" />
+    <Compile Include="Webparts\Home\HomeGalary\HomeGalaryUserControl.ascx.cs">
+      <DependentUpon>HomeGalaryUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\HomeGalary\HomeGalaryUserControl.ascx.designer.cs">
+      <DependentUpon>HomeGalaryUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Home\HomeMemos\HomeMemos.cs" />
     <Compile Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx.cs">
       <DependentUpon>HomeMemosUserControl.ascx</DependentUpon>
@@ -73,6 +105,22 @@
     <Compile Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx.designer.cs">
       <DependentUpon>HomeMemosUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Home\judgment\judgment.cs" />
+    <Compile Include="Webparts\Home\judgment\judgmentUserControl.ascx.cs">
+      <DependentUpon>judgmentUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\judgment\judgmentUserControl.ascx.designer.cs">
+      <DependentUpon>judgmentUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\Meetings\Meetings.cs" />
+    <Compile Include="Webparts\Home\Meetings\MeetingsUserControl.ascx.cs">
+      <DependentUpon>MeetingsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\Meetings\MeetingsUserControl.ascx.designer.cs">
+      <DependentUpon>MeetingsUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Home\MOJNews\MOJNews.cs" />
     <Compile Include="Webparts\Home\MOJNews\MOJNewsUserControl.ascx.cs">
       <DependentUpon>MOJNewsUserControl.ascx</DependentUpon>
@@ -80,6 +128,30 @@
     </Compile>
     <Compile Include="Webparts\Home\MOJNews\MOJNewsUserControl.ascx.designer.cs">
       <DependentUpon>MOJNewsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\MyRequests\MyRequests.cs" />
+    <Compile Include="Webparts\Home\MyRequests\MyRequestsUserControl.ascx.cs">
+      <DependentUpon>MyRequestsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\MyRequests\MyRequestsUserControl.ascx.designer.cs">
+      <DependentUpon>MyRequestsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\Polls\Polls.cs" />
+    <Compile Include="Webparts\Home\Polls\PollsUserControl.ascx.cs">
+      <DependentUpon>PollsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\Polls\PollsUserControl.ascx.designer.cs">
+      <DependentUpon>PollsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Home\StickyNotes\StickyNotes.cs" />
+    <Compile Include="Webparts\Home\StickyNotes\StickyNotesUserControl.ascx.cs">
+      <DependentUpon>StickyNotesUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\StickyNotes\StickyNotesUserControl.ascx.designer.cs">
+      <DependentUpon>StickyNotesUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\Inner Pages\AllMemos\AllMemos.cs" />
     <Compile Include="Webparts\Inner Pages\AllMemos\AllMemosUserControl.ascx.cs">
@@ -116,14 +188,50 @@
     <None Include="Webparts\Home\AllNews\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f71e58a8-2488-4ac6-a8cd-eb48422deea7}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Home\AttendanceChart\AttendanceChart.webpart" />
+    <None Include="Webparts\Home\AttendanceChart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d05699c8-f20a-421b-a4dc-bc38e39908e1}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\Attendance\Attendance.webpart" />
+    <None Include="Webparts\Home\Attendance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{114fc2a2-6d9d-4e3d-a177-f1fdbbbcd97d}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\EventsCorner\EventsCorner.webpart" />
+    <None Include="Webparts\Home\EventsCorner\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{83c30674-4740-4e25-9da4-d623b8c2feca}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\HomeGalary\HomeGalary.webpart" />
+    <None Include="Webparts\Home\HomeGalary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e8ec51e0-7fbd-4d24-a008-ebb34d85dc5f}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Home\HomeMemos\HomeMemos.webpart" />
     <None Include="Webparts\Home\HomeMemos\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{4523326a-657a-42fa-965b-b3ce293f0a17}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\judgment\judgment.webpart" />
+    <None Include="Webparts\Home\judgment\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0ee449e3-5728-4910-a2b8-e2f9e16aced1}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\Meetings\Meetings.webpart" />
+    <None Include="Webparts\Home\Meetings\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0152739e-1de1-4d97-bcfa-aa2a224c1126}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\Home\MOJNews\MOJNews.webpart" />
     <None Include="Webparts\Home\MOJNews\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{50fbc2bc-d2c4-428b-b6e8-0efe6bae1365}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Home\MyRequests\MyRequests.webpart" />
+    <None Include="Webparts\Home\MyRequests\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a718d735-465a-454d-b5cb-cbe9d30f4052}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\Polls\Polls.webpart" />
+    <None Include="Webparts\Home\Polls\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7c3bdd2d-f161-465b-9d3b-a513c87bbd3d}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\StickyNotes\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cbeead0a-0b8e-47bb-9053-1d964776d129}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Home\StickyNotes\StickyNotes.webpart" />
     <None Include="Webparts\Inner Pages\AllMemos\AllMemos.webpart" />
     <None Include="Webparts\Inner Pages\AllMemos\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{21e85882-a096-4e2c-a5cf-133dffd86f93}</SharePointProjectItemId>
@@ -159,10 +267,28 @@
     <Content Include="Images\xcl.jpeg" />
     <Content Include="Webparts\Home\AllNews\AllNewsUserControl.ascx" />
     <Content Include="Webparts\Home\AllNews\Elements.xml" />
+    <Content Include="Webparts\Home\AttendanceChart\AttendanceChartUserControl.ascx" />
+    <Content Include="Webparts\Home\AttendanceChart\Elements.xml" />
+    <Content Include="Webparts\Home\Attendance\AttendanceUserControl.ascx" />
+    <Content Include="Webparts\Home\Attendance\Elements.xml" />
+    <Content Include="Webparts\Home\EventsCorner\Elements.xml" />
+    <Content Include="Webparts\Home\EventsCorner\EventsCornerUserControl.ascx" />
+    <Content Include="Webparts\Home\HomeGalary\Elements.xml" />
+    <Content Include="Webparts\Home\HomeGalary\HomeGalaryUserControl.ascx" />
     <Content Include="Webparts\Home\HomeMemos\Elements.xml" />
     <Content Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx" />
+    <Content Include="Webparts\Home\judgment\Elements.xml" />
+    <Content Include="Webparts\Home\judgment\judgmentUserControl.ascx" />
+    <Content Include="Webparts\Home\Meetings\Elements.xml" />
+    <Content Include="Webparts\Home\Meetings\MeetingsUserControl.ascx" />
     <Content Include="Webparts\Home\MOJNews\Elements.xml" />
     <Content Include="Webparts\Home\MOJNews\MOJNewsUserControl.ascx" />
+    <Content Include="Webparts\Home\MyRequests\Elements.xml" />
+    <Content Include="Webparts\Home\MyRequests\MyRequestsUserControl.ascx" />
+    <Content Include="Webparts\Home\Polls\Elements.xml" />
+    <Content Include="Webparts\Home\Polls\PollsUserControl.ascx" />
+    <Content Include="Webparts\Home\StickyNotes\Elements.xml" />
+    <Content Include="Webparts\Home\StickyNotes\StickyNotesUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\AllMemos\AllMemosUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\AllMemos\Elements.xml" />
     <Content Include="Webparts\Inner Pages\NewsDetails\Elements.xml" />

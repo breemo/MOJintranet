@@ -9,6 +9,7 @@
       <properties>
         <property name="Title" type="string">MOJ.Intranet - MOJNews</property>
         <property name="Description" type="string">My Visual Web Part</property>
+        <property name="ChromeType" type="chrometype">None</property>
       </properties>
     </data>
   </webPart>
