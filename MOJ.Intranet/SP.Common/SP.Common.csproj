@@ -34,7 +34,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>comm.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SPCommon.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
@@ -55,7 +55,7 @@
     <Compile Include="SharedConstants.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="comm.snk" />
+    <None Include="SPCommon.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
