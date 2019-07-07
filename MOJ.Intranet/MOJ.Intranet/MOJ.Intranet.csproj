@@ -188,6 +188,9 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
+    <None Include="Resources\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{13398b7b-f0fc-4051-b318-da84a13749ba}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Home\AllNews\AllNews.webpart" />
     <None Include="Webparts\Home\AllNews\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f71e58a8-2488-4ac6-a8cd-eb48422deea7}</SharePointProjectItemId>
@@ -300,6 +303,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\MOJ.Intranet\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Resource.ar-SA.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Resource.en-US.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

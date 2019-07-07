@@ -9,7 +9,7 @@
 
 
 
-<h4 class="TitleHead">الحضور </h4>
+<h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, Attendees%>" /></h4>
 <div class="blockbox minhe bgx">
 
     <div class="boxline">

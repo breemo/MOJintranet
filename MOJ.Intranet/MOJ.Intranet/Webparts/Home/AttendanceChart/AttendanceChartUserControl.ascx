@@ -9,7 +9,8 @@
 
 
 
-<h4 class="TitleHead">الحضور اليومي خلال الاسبوع الحالي</h4>
+<h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, AttendeesChartTitle%>" /></h4>
+
 <div class="blockbox minhe">
 
     <div class="chaid">
