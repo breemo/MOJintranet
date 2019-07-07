@@ -9,9 +9,8 @@
 
 <div class="Desciosion">
     <div class="headlineflex">
-        <h4 class="TitleHead">القرارات و التعاميم</h4>
-
-        <a href="#" class="slide morebuttoncss arrow">المزيد</a>
+        <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCirculars%>" /></h4>
+        <a href="#" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
     </div>
     <div class="boxsec">
         <asp:Label ID="lblDrawItems" runat="server" Text=""></asp:Label>

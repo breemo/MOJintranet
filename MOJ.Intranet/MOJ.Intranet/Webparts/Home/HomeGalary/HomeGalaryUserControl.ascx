@@ -8,12 +8,14 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HomeGalaryUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.HomeGalary.HomeGalaryUserControl" %>
 
 <div class="headlineflex">
-    <h4 class="TitleHead">معرض الصور </h4>
-
-    <a href="#" class="slide morebuttoncss arrow">المزيد من الصور</a>
+    <h4 class="TitleHead">
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadGallery%>" />
+    </h4>
+    <a href="#" class="slide morebuttoncss arrow">
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, MorePictures%>" /></a>
 </div>
 
-<div class="boxgallery" style="width:1072px">
+<div class="boxgallery" style="width: 1072px">
 
     <div class="boxcd">
 

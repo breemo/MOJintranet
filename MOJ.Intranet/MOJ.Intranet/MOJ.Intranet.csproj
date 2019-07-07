@@ -56,11 +56,18 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LimitCharacters.cs" />
-    <Compile Include="LoggingService.cs" />
-    <Compile Include="Methods.cs" />
+    <Compile Include="Classes\Business\Memos.cs" />
+    <Compile Include="Classes\Business\News.cs" />
+    <Compile Include="Classes\Common\LimitCharacters.cs" />
+    <Compile Include="Classes\Common\LoggingService.cs" />
+    <Compile Include="Classes\Common\Methods.cs" />
+    <Compile Include="Classes\Data Manager\MemosDataManager.cs" />
+    <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
+    <Compile Include="Classes\Entities\MemosEntity.cs" />
+    <Compile Include="Classes\Entities\NewsEntity.cs" />
+    <Compile Include="Classes\Entities\StickyNotesEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SharedConstants.cs" />
+    <Compile Include="Classes\Common\SharedConstants.cs" />
     <Compile Include="Webparts\Home\AllNews\AllNews.cs" />
     <Compile Include="Webparts\Home\AllNews\AllNewsUserControl.ascx.cs">
       <DependentUpon>AllNewsUserControl.ascx</DependentUpon>
@@ -247,20 +254,6 @@
     <None Include="Webparts\Inner Pages\NewsDetails\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f1e82ef8-0d6f-46ad-9d9d-a8c777d46df1}</SharePointProjectItemId>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MOJ.Business\MOJ.Business.csproj">
-      <Project>{c011e7cf-a28c-4ef8-b315-c8e0acdbb38f}</Project>
-      <Name>MOJ.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MOJ.Entities\MOJ.Entities.csproj">
-      <Project>{e4a95be2-93bf-4934-906b-5879924cbda0}</Project>
-      <Name>MOJ.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SP.Common\SP.Common.csproj">
-      <Project>{87de11f8-8181-4b51-9f5e-ca1bae8acc0a}</Project>
-      <Name>SP.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">

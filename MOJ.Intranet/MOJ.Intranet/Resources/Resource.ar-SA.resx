@@ -123,4 +123,22 @@
   <data name="AttendeesChartTitle" xml:space="preserve">
     <value>الحضور اليومي خلال الاسبوع الحالي</value>
   </data>
+  <data name="HeadCirculars" xml:space="preserve">
+    <value>القرارات و التعاميم</value>
+  </data>
+  <data name="HeadGallery" xml:space="preserve">
+    <value>معرض الصور</value>
+  </data>
+  <data name="HeadNews" xml:space="preserve">
+    <value>الاخبار</value>
+  </data>
+  <data name="more" xml:space="preserve">
+    <value>المزيد</value>
+  </data>
+  <data name="MoreNews" xml:space="preserve">
+    <value>المزيد من الاخبار</value>
+  </data>
+  <data name="MorePictures" xml:space="preserve">
+    <value>المزيد من الصور</value>
+  </data>
 </root>
