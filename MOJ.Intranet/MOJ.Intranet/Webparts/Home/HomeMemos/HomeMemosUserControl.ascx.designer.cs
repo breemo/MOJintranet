@@ -19,6 +19,6 @@ namespace MOJ.Intranet.Webparts.Home.HomeMemos {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDrawItems;
+        protected global::System.Web.UI.WebControls.Literal lblDrawItems;
     }
 }

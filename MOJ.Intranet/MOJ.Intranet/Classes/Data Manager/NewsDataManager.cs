@@ -21,11 +21,13 @@ namespace MOJ.DataManager
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
-                        using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
                         {
                             if (oWeb != null)
                             {
-                                SPList lstNews = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.NewsListUrl);
+                                //SPList lstNews = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.NewsListUrl);
+                                SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.MemosListUrl);
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
@@ -75,13 +77,20 @@ namespace MOJ.DataManager
             {
                 SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
+
+                    //using (SPSite oSite = new SPSite(web.Site.ID))
+                    //{
+                    //    using (SPWeb elevatedWeb = elevatedSite.RootWeb)
+
+
+
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
-                        using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
                         {
                             if (oWeb != null)
                             {
-                                SPList lstNews = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.NewsListUrl);
+                                SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.NewsListUrl);
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
@@ -133,11 +142,12 @@ namespace MOJ.DataManager
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
-                        using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
                         {
                             if (oWeb != null)
                             {
-                                SPList lstNews = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.NewsListUrl);
+                                SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.NewsListUrl);
                                 if (lstNews != null)
                                 {
                                     SPListItem NewsItem = lstNews.GetItemById(id);
@@ -171,7 +181,6 @@ namespace MOJ.DataManager
             }
             return news;
         }
-
         public List<NewsEntity> SrchNews(string srch)
         {
             List<NewsEntity> newsLst = new List<NewsEntity>();
@@ -181,11 +190,12 @@ namespace MOJ.DataManager
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
-                        using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
                         {
                             if (oWeb != null)
                             {
-                                SPList lstNews = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.NewsListUrl);
+                                SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.NewsListUrl);
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();

@@ -13,6 +13,6 @@
         <a href="#" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
     </div>
     <div class="boxsec">
-        <asp:Label ID="lblDrawItems" runat="server" Text=""></asp:Label>
+        <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
     </div>
 </div>

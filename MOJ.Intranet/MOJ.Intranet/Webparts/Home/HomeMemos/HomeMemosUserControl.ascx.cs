@@ -45,12 +45,12 @@ namespace MOJ.Intranet.Webparts.Home.HomeMemos
                 foreach (MemosEntity item in MemosLst) //check all items
                 {
                     //string title =SP.Common.LimitCharacters.Limit(item.Title, 35);
-                    string des = LimitCharacters.Limit(item.Body, 40);
+                    string des = LimitCharacters.Limit(item.Body, 120);
 
                     lblDrawItems.Text +=
                     string.Format(@"
                                     <div class='itemboxc'>
-                                        < div class='itenewfo'>
+                                        <div class='itenewfo'>
                                             <h5>
                                                 <a href='{0}'>{1}
                                                 </a>

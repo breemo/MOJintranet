@@ -51,6 +51,13 @@ namespace CommonLibrary
         //by ibrahim
         #endregion
 
+        #region Query
+        public const string NewsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
+        public const string NewsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Date'/><FieldRef Name='Body'/><FieldRef Name='Created' LinkToItem='true'/>";
+
+        public const string MemosQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        public const string MemosViewfields = "<FieldRef Name='Title'/><FieldRef Name='MemoNumber'/><FieldRef Name='Date'/><FieldRef Name='ID'/><FieldRef Name='Body'/>";
+        #endregion
 
 
         #region CssClass
@@ -133,14 +140,10 @@ namespace CommonLibrary
         public const string AnnouncementQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
         public const string AnnouncementViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Date'/><FieldRef Name='Body'/><FieldRef Name='Created' LinkToItem='true'/>";
 
-        public const string NewsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
-        public const string NewsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Date'/><FieldRef Name='Description'/><FieldRef Name='Created' LinkToItem='true'/>";
 
         public const string EventsCalendarQuery = "<OrderBy><FieldRef Name='ID' Ascending='True' /></OrderBy>";
         public const string EventsCalendarfields = "<FieldRef Name='Title'/><FieldRef Name='Active'/><FieldRef Name='EventDate'/><FieldRef Name='EndDate'/><FieldRef Name='Description'/><FieldRef Name='ID'/>";
 
-        public const string MemosQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
-        public const string MemosViewfields = "<FieldRef Name='Title'/><FieldRef Name='Date'/><FieldRef Name='ID'/><FieldRef Name='Description'/>";
 
         public const string MyCalendarQuery = "<OrderBy><FieldRef Name='ID' Ascending='True' /></OrderBy>";
         public const string MyCalendarfields = "<FieldRef Name='Title'/><FieldRef Name='Active'/><FieldRef Name='EventDate'/><FieldRef Name='Description'/><FieldRef Name='ID'/>";

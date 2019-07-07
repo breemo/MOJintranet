@@ -14,6 +14,6 @@
 </div>
 <div class="blockbox minhe">
     <div class="newsdivbox">
-        <asp:Label ID="lblDrawItems" runat="server" Text=""></asp:Label>
+        <asp:Literal ID="lblDrawItems" runat="server"/>
     </div>
 </div>

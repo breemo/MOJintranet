@@ -22,11 +22,14 @@ namespace MOJ.DataManager
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
-                        using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Site.Url))
+                        using (SPWeb oWeb = oSite.RootWeb)
                         {
                             if (oWeb != null)
                             {
                                 SPList lstMemos = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MemosListUrl);
+                                //SPList lstMemos = oWeb.GetListFromUrl(oSite.Url + SharedConstants.MemosListUrl);
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
@@ -67,7 +70,6 @@ namespace MOJ.DataManager
             }
             return memosLst;
         }
-
         public List<MemosEntity> GetMemosData()
         {
             List<MemosEntity> memosLst = new List<MemosEntity>();
@@ -77,11 +79,12 @@ namespace MOJ.DataManager
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
-                        using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
                         {
                             if (oWeb != null)
                             {
-                                SPList lstMemos = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MemosListUrl);
+                                SPList lstMemos = oWeb.GetListFromUrl(oSite.Url + SharedConstants.MemosListUrl);
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
@@ -122,7 +125,6 @@ namespace MOJ.DataManager
             }
             return memosLst;
         }
-
         public MemosEntity GetMemosDataByID(int id)
         {
             MemosEntity memos = new MemosEntity();
@@ -166,7 +168,6 @@ namespace MOJ.DataManager
             //}
             return memos;
         }
-
         public List<MemosEntity> GetMemosData(string srch)
         {
             List<MemosEntity> memosLst = new List<MemosEntity>();
@@ -176,11 +177,12 @@ namespace MOJ.DataManager
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
-                        using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
                         {
                             if (oWeb != null)
                             {
-                                SPList lstMemos = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MemosListUrl);
+                                SPList lstMemos = oWeb.GetListFromUrl(oSite.Url + SharedConstants.MemosListUrl);
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
@@ -221,9 +223,6 @@ namespace MOJ.DataManager
             }
             return memosLst;
         }
-
-        
-
         # endregion
     }
 }
