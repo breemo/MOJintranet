@@ -56,7 +56,11 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LimitCharacters.cs" />
+    <Compile Include="LoggingService.cs" />
+    <Compile Include="Methods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharedConstants.cs" />
     <Compile Include="Webparts\Home\AllNews\AllNews.cs" />
     <Compile Include="Webparts\Home\AllNews\AllNewsUserControl.ascx.cs">
       <DependentUpon>AllNewsUserControl.ascx</DependentUpon>
@@ -249,10 +253,6 @@
     <ProjectReference Include="..\MOJ.Entities\MOJ.Entities.csproj">
       <Project>{e4a95be2-93bf-4934-906b-5879924cbda0}</Project>
       <Name>MOJ.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SP.Common\SP.Common.csproj">
-      <Project>{87de11f8-8181-4b51-9f5e-ca1bae8acc0a}</Project>
-      <Name>SP.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -6,8 +6,7 @@ using System.Web.UI.WebControls.WebParts;
 using Microsoft.SharePoint;
 using MOJ.Business;
 using MOJ.Entities;
-using SP.Common;
-//using SP.Common;
+using CommonLibrary;
 
 namespace MOJ.Intranet.Webparts.Home.MOJNews
 {
@@ -47,7 +46,7 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                 foreach (NewsEntity item in NewsLst) //check all items
                 {
                     //string title =SP.Common.LimitCharacters.Limit(item.Title, 35);
-                    string des = SP.Common.LimitCharacters.Limit(item.Body, 40);
+                    string des = LimitCharacters.Limit(item.Body, 40);
 
                     lblDrawItems.Text +=
                     string.Format(@"

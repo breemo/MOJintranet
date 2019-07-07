@@ -1,11 +1,11 @@
 ﻿using Microsoft.SharePoint;
 using MOJ.Entities;
-using SP.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonLibrary;
 
 namespace MOJ.DataManager
 {
@@ -46,11 +46,11 @@ namespace MOJ.DataManager
                                         memos.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                         memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
 
-                                        string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, lstItem);
+                                        string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         memos.AttachmentsInfo = FileUrl;
 
                                         string ext = FileUrl.Split('.')[FileUrl.Split('.').Length - 1];
-                                        memos.AttachmentPicture = SP.Common.Methods.CheckFileType(ext);
+                                        memos.AttachmentPicture = Methods.CheckFileType(ext);
 
                                         memosLst.Add(memos);
                                     }
@@ -101,11 +101,11 @@ namespace MOJ.DataManager
                                         memos.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                         memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
 
-                                        string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, lstItem);
+                                        string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         memos.AttachmentsInfo = FileUrl;
 
                                         string ext = FileUrl.Split('.')[FileUrl.Split('.').Length - 1];
-                                        memos.AttachmentPicture = SP.Common.Methods.CheckFileType(ext);
+                                        memos.AttachmentPicture = Methods.CheckFileType(ext);
 
                                         memosLst.Add(memos);
                                     }
@@ -200,11 +200,11 @@ namespace MOJ.DataManager
                                         memos.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                         memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
 
-                                        string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, lstItem);
+                                        string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         memos.AttachmentsInfo = FileUrl;
 
                                         string ext = FileUrl.Split('.')[FileUrl.Split('.').Length - 1];
-                                        memos.AttachmentPicture = SP.Common.Methods.CheckFileType(ext);
+                                        memos.AttachmentPicture = Methods.CheckFileType(ext);
 
                                         memosLst.Add(memos);
                                     }

@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>DataManager.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -51,10 +57,9 @@
       <Project>{e4a95be2-93bf-4934-906b-5879924cbda0}</Project>
       <Name>MOJ.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SP.Common\SP.Common.csproj">
-      <Project>{87de11f8-8181-4b51-9f5e-ca1bae8acc0a}</Project>
-      <Name>SP.Common</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataManager.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

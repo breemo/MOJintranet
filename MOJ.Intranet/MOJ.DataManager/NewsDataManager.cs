@@ -5,7 +5,7 @@ using System.Text;
 
 using Microsoft.SharePoint;
 using MOJ.Entities;
-using SP.Common;
+using CommonLibrary;
 
 namespace MOJ.DataManager
 {
@@ -43,7 +43,7 @@ namespace MOJ.DataManager
                                         news.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         news.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
 
-                                        string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, lstItem);
+                                        string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         news.Picture = FileUrl;
 
                                         //try
@@ -101,7 +101,7 @@ namespace MOJ.DataManager
                                         news.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         news.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
 
-                                        string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, lstItem);
+                                        string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         news.Picture = FileUrl;
 
                                         //try
@@ -149,7 +149,7 @@ namespace MOJ.DataManager
                                     news.Created = Convert.ToDateTime(NewsItem[SharedConstants.Created]);
                                     news.Date = Convert.ToDateTime(NewsItem[SharedConstants.Date]);
 
-                                    string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, NewsItem);
+                                    string FileUrl = Methods.ReturnAttachmentFile(oWeb, NewsItem);
                                     news.Picture = FileUrl;
 
                                     //try
@@ -203,7 +203,7 @@ namespace MOJ.DataManager
                                         news.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         news.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
 
-                                        string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, lstItem);
+                                        string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         news.Picture = FileUrl;
 
                                         //try

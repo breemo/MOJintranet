@@ -1,6 +1,6 @@
-﻿using MOJ.Business;
+﻿using CommonLibrary;
+using MOJ.Business;
 using MOJ.Entities;
-using SP.Common;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
@@ -45,7 +45,7 @@ namespace MOJ.Intranet.Webparts.Home.HomeMemos
                 foreach (MemosEntity item in MemosLst) //check all items
                 {
                     //string title =SP.Common.LimitCharacters.Limit(item.Title, 35);
-                    string des = SP.Common.LimitCharacters.Limit(item.Body, 40);
+                    string des = LimitCharacters.Limit(item.Body, 40);
 
                     lblDrawItems.Text +=
                     string.Format(@"
