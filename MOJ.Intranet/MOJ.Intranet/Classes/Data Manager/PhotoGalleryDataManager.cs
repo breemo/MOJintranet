@@ -25,7 +25,8 @@ namespace MOJ.DataManager
                         {
                             if (oWeb != null)
                             {
-                                SPList lstPhotos = oWeb.GetListFromUrl(oSite.Url + SharedConstants.PhotoGalleryListUrl);
+                                //SPList lstPhotos = oWeb.GetListFromUrl(oSite.Url + SharedConstants.PhotoGalleryListUrl);
+                                SPList lstPhotos = oWeb.Lists["MOJGallery"];
                                 if (lstPhotos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
@@ -37,11 +38,13 @@ namespace MOJ.DataManager
                                     {
                                         PhotoGalleryEntity photo = new PhotoGalleryEntity();
                                         photo.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        photo.Title = Convert.ToString(lstItem[SharedConstants.Title]);
+                                        photo.Title = Convert.ToString(lstItem[SharedConstants.Name]);
                                         photo.Description = Convert.ToString(lstItem[SharedConstants.Description]);
                                         photo.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         photo.PictureThumbnailURL = Convert.ToString(lstItem["Thumbnail URL"]);
-                                        string ImageName = Convert.ToString(lstItem["Name"]);
+                                        photo.PictureURL = Convert.ToString(lstItem["EncodedAbsUrl"]);
+
+                                        //string ImageName = Convert.ToString(lstItem["Name"]);
 
                                         galleryLst.Add(photo);
                                     }

@@ -39,27 +39,24 @@ namespace MOJ.Intranet.Webparts.Home.HomeGalary
         {
             try
             {
-                List<PhotoGalleryEntity> MemosLst = new PhotoGallery().GetAllActivePhotos();
+                List<PhotoGalleryEntity> PhotosLst = new PhotoGallery().GetAllActivePhotos();
 
                 lblDrawItems.Text = "";
 
-                foreach (MemosEntity item in MemosLst) //check all items
+                foreach (PhotoGalleryEntity item in PhotosLst) //check all items
                 {
                     //string title =SP.Common.LimitCharacters.Limit(item.Title, 35);
-                    string des = LimitCharacters.Limit(item.Body, 120);
+                    //string des = LimitCharacters.Limit(item.Description, 120);
 
                     lblDrawItems.Text +=
-                    string.Format(@"
-                                    <div class='itemboxc'>
-                                        <div class='itenewfo'>
-                                            <h5>
-                                                <a href='{0}'>{1}
-                                                </a>
-                                            </h5>
-                                            <span class='newdatefo'>{2}
-                                            </span>
-                                        </div>
-                                    </div>", "#", des, Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"));
+                    string.Format(@"<li>
+                                        <a href='{2}' data-lightbox='gallery-item'>
+                                            <img src='{0}' alt='{1}' class='mCS_img_loaded'>
+                                            <div class='overlay'>
+                                                <div class='overlay-wrap'><i class='icon-line-plus'></i></div>
+                                            </div>
+                                        </a>
+                                    </li>", item.PictureThumbnailURL, item.Title,item.PictureURL);
                 }
             }
             catch (Exception ex)

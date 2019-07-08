@@ -18,6 +18,7 @@ namespace CommonLibrary
         public const string Body = "Body";
         public const string Date = "Date";
         public const string Description = "Description";
+        public const string Name = "Name";
 
         #endregion
 
@@ -72,7 +73,7 @@ namespace CommonLibrary
 
 
         //updated by samir...StickyNotes...Query
-        public const string StickyNotesQuery = "<Query><Where><Eq><FieldRef Name='IsDeleted' /><Value Type='Boolean'>No</Value></Eq></Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy></Query>";
+        public const string StickyNotesQuery = "<Query><Where><Eq><FieldRef Name='IsDeleted' /><Value Type='Integer'>0</Value></Eq></Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy></Query>";
         public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Title_x0020_En'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
 
         public const string GalleryQuery = "<Query>" +

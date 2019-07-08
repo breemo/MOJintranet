@@ -57,14 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Business\Memos.cs" />
+    <Compile Include="Classes\Business\PhotoGallery.cs" />
     <Compile Include="Classes\Business\News.cs" />
     <Compile Include="Classes\Business\StickyNote.cs" />
     <Compile Include="Classes\Common\LimitCharacters.cs" />
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\MemosDataManager.cs" />
+    <Compile Include="Classes\Data Manager\PhotoGalleryDataManager.cs" />
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\PhotoGalleryEntity.cs" />
     <Compile Include="Classes\Entities\MemosEntity.cs" />
     <Compile Include="Classes\Entities\NewsEntity.cs" />
     <Compile Include="Classes\Entities\StickyNotesEntities.cs" />
