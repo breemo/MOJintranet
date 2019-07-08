@@ -141,4 +141,7 @@
   <data name="MorePictures" xml:space="preserve">
     <value>المزيد من الصور</value>
   </data>
+  <data name="remind" xml:space="preserve">
+    <value>تذكير</value>
+  </data>
 </root>

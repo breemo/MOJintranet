@@ -20,7 +20,10 @@
 
 
     <div class="d-flex ordercontainer">
-        <div class="col-sm-4 ">
+
+         <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
+
+  <%--      <div class="col-sm-4 ">
             <div class="STICKB STCIKEY_C1 alert  fade show" role="alert">
                 <p>
                     تذكير: متابعة طلب التوريد يوم الاحد 20-01
@@ -31,60 +34,15 @@
                 </button>
             </div>
 
-        </div>
-
-        <div class="col-sm-4 ">
-            <div class="STICKB STCIKEY_C2 alert  fade show" role="alert">
-                <p>
-                    تذكير: متابعة طلب التوريد يوم الاحد 20-01
-                </p>
-
-                <button type="button" class="close xClose" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-
-        </div>
-
-        <div class="col-sm-4 ">
-            <div class="STICKB STCIKEY_C3 alert  fade show" role="alert">
-                <p>
-                    تذكير: متابعة طلب التوريد يوم الاحد 20-01
-                </p>
-
-                <button type="button" class="close xClose" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-
-        </div>
+        </div>--%>
 
 
-        <div class="col-sm-4 ">
-            <div class="STICKB STCIKEY_C4 alert  fade show" role="alert">
-                <p>
-                    تذكير: متابعة طلب التوريد يوم الاحد 20-01
-                </p>
 
-                <button type="button" class="close xClose" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
 
-        </div>
 
-        <div class="col-sm-4 ">
-            <div class="STICKB STCIKEY_C5 alert  fade show" role="alert">
-                <p>
-                    تذكير: متابعة طلب التوريد يوم الاحد 20-01
-                </p>
 
-                <button type="button" class="close xClose" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
 
-        </div>
+
 
 
 

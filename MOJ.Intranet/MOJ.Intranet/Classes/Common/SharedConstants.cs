@@ -14,15 +14,23 @@ namespace CommonLibrary
         public const string ID = "ID";
         public const string Title = "Title";
         public const string Created = "Created";
+        public const string ISActive = "isActive";
+        public const string Body = "Body";
+        public const string Date = "Date";
+        public const string Description = "Description";
+
         #endregion
 
         #region News
-        public const string Body = "Body";
-        public const string Date = "Date";
         #endregion
 
         #region Memos
         public const string MemoNumber = "MemoNumber";
+        #endregion
+
+        #region StickyNotes
+        public const string TitleAr = "Title Ar";
+        public const string TitleEn = "Title En";
         #endregion
 
         //public const string Description = "Description";
@@ -45,10 +53,14 @@ namespace CommonLibrary
         #endregion
 
         #region Lists
+        //by ibrahim
         public const string NewsListUrl = "/Lists/News/AllItems.aspx";
         public const string MemosListUrl = "/Lists/Circulars/AllItems.aspx";
-        //updated by samir...
-        //by ibrahim
+        public const string PhotoGalleryListUrl = "MOJGallery/Forms/Thumbnails.aspx";
+
+        //updated by samir...Sticky Notes List
+        public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
+
         #endregion
 
         #region Query
@@ -57,6 +69,20 @@ namespace CommonLibrary
 
         public const string MemosQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
         public const string MemosViewfields = "<FieldRef Name='Title'/><FieldRef Name='MemoNumber'/><FieldRef Name='Date'/><FieldRef Name='ID'/><FieldRef Name='Body'/>";
+
+
+        //updated by samir...StickyNotes...Query
+        public const string StickyNotesQuery = "<Query><Where><Eq><FieldRef Name='IsDeleted' /><Value Type='Boolean'>No</Value></Eq></Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy></Query>";
+        public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Title_x0020_En'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
+
+        public const string GalleryQuery = "<Query>" +
+                                                "<Where>" +
+                                                    "<Eq><FieldRef Name='isActive'/><Value Type='Boolean'>1</Value></Eq>" +
+                                                "</Where>" +
+                                            "</Query>" +
+                                            "<OrderBy><FieldRef Name='Created' Ascending='False'/></OrderBy>";
+        public const string GalleryViewfields = "<FieldRef Name='Title'/><FieldRef Name='Created'/><FieldRef Name='isActive'/>";
+                        
         #endregion
 
 
