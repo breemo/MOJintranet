@@ -9,6 +9,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsDetails
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
     }
 }
