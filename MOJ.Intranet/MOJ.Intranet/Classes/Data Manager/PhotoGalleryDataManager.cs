@@ -45,7 +45,7 @@ namespace MOJ.DataManager
                                         photo.PictureURL = Convert.ToString(lstItem["EncodedAbsUrl"]);
 
                                         //string ImageName = Convert.ToString(lstItem["Name"]);
-
+                                        //test git by spadmin
                                         galleryLst.Add(photo);
                                     }
                                 }
