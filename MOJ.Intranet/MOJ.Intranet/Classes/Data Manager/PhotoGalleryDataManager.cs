@@ -43,7 +43,7 @@ namespace MOJ.DataManager
                                         photo.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         photo.PictureThumbnailURL = Convert.ToString(lstItem["Thumbnail URL"]);
                                         photo.PictureURL = Convert.ToString(lstItem["EncodedAbsUrl"]);
-
+                                        //test git by spadmin2
                                         //string ImageName = Convert.ToString(lstItem["Name"]);
 
                                         galleryLst.Add(photo);
