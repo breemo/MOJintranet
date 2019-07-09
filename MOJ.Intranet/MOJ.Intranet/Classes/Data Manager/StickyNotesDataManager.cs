@@ -36,12 +36,16 @@ namespace MOJ.DataManager
                                     SPListItemCollection lstItems = lstStickyNote.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
                                     {
-                                        StickyNotesEntities sticky = new StickyNotesEntities();
-                                        sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
-                                        sticky.TitleEn = Convert.ToString(lstItem[SharedConstants.TitleEn]);
-                                        sticky.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
+                                        if (lstItem["IsDeleted"].ToString() == "False")
+                                        {
+                                            StickyNotesEntities sticky = new StickyNotesEntities();
+                                            sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
+                                            sticky.TitleEn = Convert.ToString(lstItem[SharedConstants.TitleEn]);
+                                            sticky.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
+                                            sticky.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
 
-                                        StickyNoteLst.Add(sticky);
+                                            StickyNoteLst.Add(sticky);
+                                        }
                                     }
                                 }
                             }

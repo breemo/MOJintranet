@@ -144,4 +144,10 @@
   <data name="remind" xml:space="preserve">
     <value>remind</value>
   </data>
+  <data name="reminder" xml:space="preserve">
+    <value>reminder</value>
+  </data>
+  <data name="ViewAll" xml:space="preserve">
+    <value>View All</value>
+  </data>
 </root>

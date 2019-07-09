@@ -55,7 +55,7 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
                                     <p>
                                         {0}:{1} {2}
                                     </p>
-                                    <button type = 'button' class='close xClose' data-dismiss='alert' aria-label='Close'>
+                                    <button type = 'button' onclick='updateListItem(" + item.ID + @")' class='close xClose' data-dismiss='alert' aria-label='Close'>
                                         <span aria-hidden='true'>×</span>
                                     </button>
                                 </div>
