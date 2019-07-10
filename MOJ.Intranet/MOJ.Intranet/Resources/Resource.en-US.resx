@@ -163,7 +163,7 @@
     <value>نص قرار</value>
   </data>
   <data name="reminder" xml:space="preserve">
-    <value>reminder</value>
+    <value>Reminder</value>
   </data>
   <data name="ViewAll" xml:space="preserve">
     <value>View All</value>
@@ -173,5 +173,8 @@
   </data>
   <data name="MoreEvents" xml:space="preserve">
     <value>مزيد من الاحداث</value>
+  </data>
+  <data name="Titlebilingual" xml:space="preserve">
+    <value>Title En</value>
   </data>
 </root>

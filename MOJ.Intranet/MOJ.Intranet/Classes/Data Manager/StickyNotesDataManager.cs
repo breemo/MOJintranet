@@ -1,5 +1,6 @@
 ﻿using CommonLibrary;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 using MOJ.Entities;
 using System;
 using System.Collections.Generic;
@@ -39,8 +40,9 @@ namespace MOJ.DataManager
                                         if (lstItem["IsDeleted"].ToString() == "False")
                                         {
                                             StickyNotesEntities sticky = new StickyNotesEntities();
-                                            sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
-                                            sticky.TitleEn = Convert.ToString(lstItem[SharedConstants.TitleEn]);
+                                            //sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
+                                            //sticky.TitleEn = Convert.ToString(lstItem[SharedConstants.TitleEn]);
+                                            sticky.TitleAr = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: Titlebilingual", "Resource", SPContext.Current.Web.Language)]);
                                             sticky.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                             sticky.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
 

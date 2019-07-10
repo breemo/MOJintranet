@@ -174,4 +174,7 @@
   <data name="MoreEvents" xml:space="preserve">
     <value>مزيد من الاحداث</value>
   </data>
+  <data name="Titlebilingual" xml:space="preserve">
+    <value>Title Ar</value>
+  </data>
 </root>
