@@ -13,11 +13,13 @@ namespace CommonLibrary
         #region Common
         public const string ID = "ID";
         public const string Title = "Title";
+        public const string Title_En = "TitleEn";
         public const string Created = "Created";
         public const string ISActive = "isActive";
         public const string Body = "Body";
         public const string Date = "Date";
         public const string Description = "Description";
+        public const string DescriptionEn = "DescriptionEn";
         public const string Name = "Name";
 
         #endregion
@@ -58,6 +60,7 @@ namespace CommonLibrary
         public const string NewsListUrl = "/Lists/News/AllItems.aspx";
         public const string MemosListUrl = "/Lists/Circulars/AllItems.aspx";
         public const string PhotoGalleryListUrl = "MOJGallery/Forms/Thumbnails.aspx";
+        public const string OccasionsListUrl = "/Lists/Occasions/AllItems.aspx";
 
         //updated by samir...Sticky Notes List
         public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
@@ -98,7 +101,10 @@ namespace CommonLibrary
                                             "<OrderBy><FieldRef Name='Created' Ascending='False'/></OrderBy>";
 
         public const string GalleryViewfields = "<FieldRef Name='Title'/><FieldRef Name='Created'/><FieldRef Name='isActive'/>";
-                        
+
+        public const string OccasionsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        public const string OccasionsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Description'/><FieldRef Name='TitleEn'/><FieldRef Name='DescriptionEn'/><FieldRef Name='Created' LinkToItem='true'/>";
+
         #endregion
 
 

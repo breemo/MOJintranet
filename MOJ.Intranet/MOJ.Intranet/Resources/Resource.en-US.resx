@@ -168,4 +168,10 @@
   <data name="ViewAll" xml:space="preserve">
     <value>View All</value>
   </data>
+  <data name="HeadEvents" xml:space="preserve">
+    <value>ركن المناسبات</value>
+  </data>
+  <data name="MoreEvents" xml:space="preserve">
+    <value>مزيد من الاحداث</value>
+  </data>
 </root>

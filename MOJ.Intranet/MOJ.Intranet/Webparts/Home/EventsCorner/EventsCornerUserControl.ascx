@@ -8,109 +8,12 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EventsCornerUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.EventsCorner.EventsCornerUserControl" %>
 
 <div class="headlineflex">
-    <h4 class="TitleHead">ركن المناسبات</h4>
-    <a href="#" class="slide morebuttoncss arrow">مزيد من الاحداث</a>
-
+    <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEvents%>" /></h4>
+    <a href="#" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, MoreEvents%>" /></a>
 </div>
 
 <div class="blockbox evediv">
-
-
     <div class="eventcontainer ">
-        <div class="col-md-4 col-sm-12">
-            <div class="eventbox">
-
-                <div class="eventopbox">
-
-                    <div class="Evbetdatebox">
-                        <span>20
-                                                            <font>Dec</font>
-
-                        </span>
-
-                    </div>
-
-                    <div class="EventboxTitle">
-                        افتتاح ملتقي التميز الحكومي لوزارة العدل
-                    </div>
-
-                </div>
-
-                <div class="eventmorebutton">
-                    <div class="morebtn2">
-
-                        <a href="#" class="slide newmorebuttoncss arrow">المزيد
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-md-4 col-sm-12">
-            <div class="eventbox">
-
-                <div class="eventopbox">
-
-                    <div class="Evbetdatebox">
-                        <span>20
-                                                            <font>Dec</font>
-
-                        </span>
-
-                    </div>
-
-                    <div class="EventboxTitle">
-                        افتتاح ملتقي التميز الحكومي لوزارة العدل
-                    </div>
-
-                </div>
-
-                <div class="eventmorebutton">
-                    <div class="morebtn2">
-
-                        <a href="#" class="slide newmorebuttoncss arrow">المزيد
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-md-4 col-sm-12">
-            <div class="eventbox">
-
-                <div class="eventopbox">
-
-                    <div class="Evbetdatebox">
-                        <span>20
-                                                            <font>Dec</font>
-
-                        </span>
-
-                    </div>
-
-                    <div class="EventboxTitle">
-                        افتتاح ملتقي التميز الحكومي لوزارة العدل
-                    </div>
-
-                </div>
-
-                <div class="eventmorebutton">
-                    <div class="morebtn2">
-
-                        <a href="#" class="slide newmorebuttoncss arrow">المزيد
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
+        <asp:Literal ID="lblDrawItems" runat="server"/>
     </div>
-
-
 </div>
