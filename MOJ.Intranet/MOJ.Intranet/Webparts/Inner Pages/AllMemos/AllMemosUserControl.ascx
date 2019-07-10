@@ -7,10 +7,46 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AllMemosUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.AllMemos.AllMemosUserControl" %>
 
-<asp:TextBox ID="txtSrch" runat="server" Width="200px"></asp:TextBox>
-<asp:Button ID="btnSrch" runat="server" Text='Search' OnClick="btnSrch_Click" />
 
-<asp:GridView ID="grdMemosLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="No Archives Found"
+
+<h4>
+    <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCirculars%>" />
+</h4>
+
+<div class="searchboxne">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-1">
+                    <label class="lbel"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCircularTitle%>" /></label>
+                </div>
+                <div class="col-md-5">
+                    <input runat="server" type="text" ID="txtSrch" class="form-control" placeholder="نص قرار" />
+                </div>
+                <div class="col-md-1">
+                    <label class="lbel"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCircularNumber%>" /></label>
+
+                </div>
+                <div class="col-md-5">
+                    <input runat="server" type="text" ID="txtNumber" class="form-control" placeholder="1001" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+             <asp:Button ID="btnSrch" runat="server" Text='<%$ Resources:Resource, btnSearch%>' class="btnclass" OnClick="btnSrch_Click" />
+            <asp:Button ID="bntClear" runat="server" Text='<%$ Resources:Resource, btnClear%>' class="btnclass" OnClick="btnClear_Click" />
+        </div>
+
+    </div>
+</div>
+
+
+<h4>
+    <asp:Literal runat="server" Text="<%$ Resources:Resource, innerHeadCirculars%>" />
+</h4>
+<div id="posts" class="small-thumbs alt">
+
+    <asp:GridView ID="grdMemosLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="No Archives Found"
     BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
     EnableModelValidation="True" AllowPaging="true" OnPageIndexChanging="grdMemosLst_PageIndexChanging"
     OnRowDataBound="grdMemosLst_RowDataBound" PageSize="5">
@@ -20,23 +56,66 @@
     <PagerStyle HorizontalAlign="Center" CssClass="Gridpagination" />
     <EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />
     <Columns>
-        <asp:TemplateField ItemStyle-Width="40px">
-            <ItemTemplate>
-                <img width="30" src='<%# Eval("AttachmentPicture") %>' />
-            </ItemTemplate>
-        </asp:TemplateField>
         <asp:TemplateField>
             <ItemTemplate>
-                <a class='fancybox fancybox.iframe' style='text-decoration: underline; color: #0072BC; font-weight: bold; font-size: 14px' href='<%# Eval("AttachmentsInfo") %>'>
-                    <asp:Label ID="lblTitle" runat="server" Text='<%# Bind("Title") %>'
-                        Style='text-decoration: underline; color: #0072BC; font-weight: bold; font-size: 14px'></asp:Label></a>
-                <asp:Label ID="Label1" runat="server" Text='<%# Bind("MemoNumber") %>'
-                        Style='text-decoration: underline; color: #0072BC; font-weight: bold; font-size: 14px'></asp:Label>
-                <span>
-                    <%#  Convert.ToDateTime(Eval("Date")).ToString("dd-MMM-yyyy")%></span>
-                <asp:Label ID="lblBody" runat="server" Text='<%# Bind("Body") %>'
-                    Style='text-decoration: underline; color: #0072BC; font-weight: bold; font-size: 14px'></asp:Label>
+                <div class="entry entryitem clearfix">
+                    <div class="entry-image bgeb">
+                        <p>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, innerCircularsLstItemHead%>" />
+                        </p>
+                        <span>
+                            <%# Eval("MemoNumber") %>
+                        </span>
+                    </div>
+                    <div class="entry-c entryitemx">
+
+                        <span class="dateut"><%#  Convert.ToDateTime(Eval("Date")).ToString("dd-MMM-yyyy")%></span>
+                        <h6>
+                            <a href="<%# Eval("AttachmentsInfo") %>"><%# Eval("Title") %>
+                            </a>
+                        </h6>
+                        <p>
+                            <%# Eval("Body") %>
+                        </p>
+
+                    </div>
+                </div>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
+
+</div>
+<!-- #posts end -->
+
+
+<%--<div class="pagi">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link pageright" href="#"><i class="icon-angle-right"></i>
+        </a></li>
+        <li class="page-item"><a class="page-link activepage" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li class="page-item"><a class="page-link" href="#">7</a></li>
+        <li class="page-item"><a class="page-link" href="#">8</a></li>
+        <li class="page-item"><a class="page-link" href="#">9</a></li>
+        <li class="page-item"><a class="page-link" href="#">10</a></li>
+        <li class="page-item"><a class="page-link pageleft" href="#">
+            <i class="icon-angle-left"></i></a></li>
+    </ul>
+</div>--%>
+
+
+
+
+
+
+
+
+
+
+
+

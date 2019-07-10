@@ -32,9 +32,9 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
             }
         }
 
-        private void FillData(string srchString)
+        private void FillData(string srchString, string number)
         {
-            List<MemosEntity> NewsLst = new Memos().GetMemos(srchString);
+            List<MemosEntity> NewsLst = new Memos().GetMemos(srchString, number);
 
             grdMemosLst.DataSource = NewsLst;
             grdMemosLst.DataBind();
@@ -43,14 +43,23 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
         protected void grdMemosLst_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdMemosLst.PageIndex = e.NewPageIndex;
-            BindData();
+            if (!string.IsNullOrEmpty(txtSrch.Value))
+                BindData();
+            else
+                FillData(txtSrch.Value,txtNumber.Value);
         }
 
         protected void grdMemosLst_RowDataBound(object sender, GridViewRowEventArgs e) { }
 
         protected void btnSrch_Click(object sender, EventArgs e)
         {
-            FillData(txtSrch.Text);
+            FillData(txtSrch.Value, txtNumber.Value);
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtNumber.Value = "";
+            txtSrch.Value = "";
         }
     }
 }

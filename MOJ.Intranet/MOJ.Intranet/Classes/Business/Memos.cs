@@ -18,9 +18,9 @@ namespace MOJ.Business
         {
             return new MemosDataManager().GetMemosData();
         }
-        public List<MemosEntity> GetMemos(string srch)
+        public List<MemosEntity> GetMemos(string srch,string number)
         {
-            return new MemosDataManager().GetMemosData(srch);
+            return new MemosDataManager().GetMemosData(srch, number);
         }
         public MemosEntity GetMemos(int id)
         {

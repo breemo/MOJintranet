@@ -7,6 +7,7 @@ using Microsoft.SharePoint;
 using MOJ.Business;
 using MOJ.Entities;
 using CommonLibrary;
+using Microsoft.SharePoint.Utilities;
 
 namespace MOJ.Intranet.Webparts.Home.MOJNews
 {
@@ -66,7 +67,7 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                                   </a>
                             </div>
                         </div>
-                    </div>", Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"), item.Picture, des, "المزيد","#");
+                    </div>", Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"), item.Picture, des, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language), "#");
                 }
             }
             catch (Exception ex)

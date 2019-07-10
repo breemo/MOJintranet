@@ -78,10 +78,11 @@ namespace CommonLibrary
 
         public const string GalleryQuery = "<Query>" +
                                                 "<Where>" +
-                                                    "<Eq><FieldRef Name='isActive'/><Value Type='Boolean'>1</Value></Eq>" +
+                                                    "<Eq><FieldRef Name='isActive'/><Value Type='Integer'>1</Value></Eq>" +
                                                 "</Where>" +
                                             "</Query>" +
                                             "<OrderBy><FieldRef Name='Created' Ascending='False'/></OrderBy>";
+
         public const string GalleryViewfields = "<FieldRef Name='Title'/><FieldRef Name='Created'/><FieldRef Name='isActive'/>";
                         
         #endregion

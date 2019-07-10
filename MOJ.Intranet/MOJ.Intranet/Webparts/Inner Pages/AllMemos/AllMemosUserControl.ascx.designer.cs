@@ -19,7 +19,16 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSrch;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtSrch;
+        
+        /// <summary>
+        /// txtNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumber;
         
         /// <summary>
         /// btnSrch control.
@@ -29,6 +38,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSrch;
+        
+        /// <summary>
+        /// bntClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bntClear;
         
         /// <summary>
         /// grdMemosLst control.

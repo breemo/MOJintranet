@@ -168,7 +168,7 @@ namespace MOJ.DataManager
             //}
             return memos;
         }
-        public List<MemosEntity> GetMemosData(string srch)
+        public List<MemosEntity> GetMemosData(string srch, string number)
         {
             List<MemosEntity> memosLst = new List<MemosEntity>();
             try
@@ -186,10 +186,19 @@ namespace MOJ.DataManager
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = "<Where><Contains><FieldRef Name='Title' /><Value Type='Text'>" + srch + @"</Value></Contains></Where>" + SharedConstants.MemosQuery;
-                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
+                                    oQuery.Query = 
+                                        "<Where>" +
+                                        "<Or>" +
+                                            "<Contains>" +
+                                                "<FieldRef Name='Title' /><Value Type='Text'>" + srch + @"</Value>
+                                            </Contains>" +
+                                            "<Contains>" +
+                                                "<FieldRef Name='Title' /><Value Type='MemoNumber'>" + number + @"</Value>
+                                            </Contains>
+                                        </Or>
+                                        </Where>" + SharedConstants.MemosQuery;
 
-                                    //oQuery.RowLimit = 3;
+                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
 
                                     SPListItemCollection lstItems = lstMemos.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
@@ -215,7 +224,6 @@ namespace MOJ.DataManager
                         }
                     }
                 });
-
             }
             catch (Exception ex)
             {

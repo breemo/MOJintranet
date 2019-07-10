@@ -144,4 +144,22 @@
   <data name="remind" xml:space="preserve">
     <value>remind</value>
   </data>
+  <data name="btnClear" xml:space="preserve">
+    <value>clear</value>
+  </data>
+  <data name="btnSearch" xml:space="preserve">
+    <value>search</value>
+  </data>
+  <data name="HeadCircularNumber" xml:space="preserve">
+    <value>Circular Number</value>
+  </data>
+  <data name="HeadCircularTitle" xml:space="preserve">
+    <value>Circular Title</value>
+  </data>
+  <data name="innerCircularsLstItemHead" xml:space="preserve">
+    <value>قرار رقم</value>
+  </data>
+  <data name="innerHeadCirculars" xml:space="preserve">
+    <value>نص قرار</value>
+  </data>
 </root>
