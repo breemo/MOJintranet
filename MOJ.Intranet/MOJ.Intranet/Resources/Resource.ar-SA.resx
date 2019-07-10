@@ -144,6 +144,12 @@
   <data name="remind" xml:space="preserve">
     <value>تذكير</value>
   </data>
+  <data name="reminder" xml:space="preserve">
+    <value>تذكير</value>
+  </data>
+  <data name="ViewAll" xml:space="preserve">
+    <value>جميع الطلبات</value>
+  </data>
   <data name="btnClear" xml:space="preserve">
     <value>تفريغ</value>
   </data>

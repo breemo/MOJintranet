@@ -13,6 +13,24 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes {
     public partial class StickyNotesUserControl {
         
         /// <summary>
+        /// ScriptLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.ScriptLink ScriptLink1;
+        
+        /// <summary>
+        /// FormDigest1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.SharePoint.WebControls.FormDigest FormDigest1;
+        
+        /// <summary>
         /// lblDrawItems control.
         /// </summary>
         /// <remarks>

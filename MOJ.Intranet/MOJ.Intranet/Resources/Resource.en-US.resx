@@ -162,4 +162,10 @@
   <data name="innerHeadCirculars" xml:space="preserve">
     <value>نص قرار</value>
   </data>
+  <data name="reminder" xml:space="preserve">
+    <value>reminder</value>
+  </data>
+  <data name="ViewAll" xml:space="preserve">
+    <value>View All</value>
+  </data>
 </root>

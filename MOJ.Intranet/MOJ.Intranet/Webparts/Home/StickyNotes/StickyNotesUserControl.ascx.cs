@@ -44,17 +44,18 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
             {
                 List<StickyNotesEntities> StickyNotesLst = new StickyNote().GetStickyNotes();
                 lblDrawItems.Text = "";
-
+                int Count = 0;
                 foreach (StickyNotesEntities item in StickyNotesLst)
                 {
+                    Count++;
                     lblDrawItems.Text +=
                         string.Format(@"
                             <div class='col-sm-4'>
-                                <div class='STICKB STCIKEY_C1 alert  fade show' role='alert'>
+                                <div class='STICKB STCIKEY_C"+ Count + @" alert  fade show' role='alert'>
                                     <p>
                                         {0}:{1} {2}
                                     </p>
-                                    <button type = 'button' class='close xClose' data-dismiss='alert' aria-label='Close'>
+                                    <button type = 'button' onclick='updateListItem(" + item.ID + @")' class='close xClose' data-dismiss='alert' aria-label='Close'>
                                         <span aria-hidden='true'>×</span>
                                     </button>
                                 </div>

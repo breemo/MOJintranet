@@ -61,6 +61,7 @@ namespace CommonLibrary
 
         //updated by samir...Sticky Notes List
         public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
+             
 
         #endregion
 
@@ -73,7 +74,20 @@ namespace CommonLibrary
 
 
         //updated by samir...StickyNotes...Query
-        public const string StickyNotesQuery = "<Query><Where><Eq><FieldRef Name='IsDeleted' /><Value Type='Integer'>0</Value></Eq></Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy></Query>";
+        public const string StickyNotesQuery = @"<Query>
+                                                   <Where>
+                                                      <Eq>
+                                                         <FieldRef Name = 'IsDeleted' />
+                                                         < Value Type='Bool'>FALSE</Value>
+                                                      </Eq>
+                                                   </Where>
+                                                   <OrderBy>
+                                                      <FieldRef Name = 'Created' Ascending='False' />
+                                                   </OrderBy>
+                                                </Query>";
+
+
+
         public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Title_x0020_En'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
 
         public const string GalleryQuery = "<Query>" +
