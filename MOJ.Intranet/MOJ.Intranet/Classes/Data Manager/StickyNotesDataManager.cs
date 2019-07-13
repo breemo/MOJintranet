@@ -35,9 +35,25 @@ namespace MOJ.DataManager
                                     oQuery.RowLimit = 6;
 
                                     SPListItemCollection lstItems = lstStickyNote.GetItems(oQuery);
+
+                                    string userName = "";
+                                    string CurrentUser = "";
+                                    string CurrentUserWithoutDot = "";
+                                    SPContext currentContext;
+                                    currentContext = SPContext.Current;
+
+
+                                    if (currentContext != null && currentContext.Web.CurrentUser != null)
+                                    {
+                                        userName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1].ToLower();
+                                        CurrentUserWithoutDot = userName.Contains(".") ? userName.Replace(".", null).ToLower() : userName.ToLower();
+                                    }
+
+
                                     foreach (SPListItem lstItem in lstItems)
                                     {
-                                        if (lstItem["IsDeleted"].ToString() == "False")
+                                        CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
+                                        if (lstItem["IsDeleted"].ToString() == "False" && CurrentUser == CurrentUserWithoutDot)
                                         {
                                             StickyNotesEntities sticky = new StickyNotesEntities();
                                             //sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
@@ -48,6 +64,7 @@ namespace MOJ.DataManager
 
                                             StickyNoteLst.Add(sticky);
                                         }
+
                                     }
                                 }
                             }
