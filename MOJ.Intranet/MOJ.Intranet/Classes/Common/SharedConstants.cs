@@ -17,6 +17,7 @@ namespace CommonLibrary
         public const string Created = "Created";
         public const string ISActive = "isActive";
         public const string Body = "Body";
+        public const string BodyEn = "BodyEn";
         public const string Date = "Date";
         public const string Description = "Description";
         public const string DescriptionEn = "DescriptionEn";

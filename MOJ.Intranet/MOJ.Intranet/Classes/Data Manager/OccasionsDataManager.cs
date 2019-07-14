@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonLibrary;
+using Microsoft.SharePoint.Utilities;
 
 namespace MOJ.DataManager
 {
@@ -39,11 +40,9 @@ namespace MOJ.DataManager
                                     {
                                         OccasionsEntity occasions = new OccasionsEntity();
                                         occasions.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        occasions.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        occasions.Description = Convert.ToString(lstItem[SharedConstants.Description]);
                                         occasions.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
-                                        occasions.TitleEn = Convert.ToString(lstItem[SharedConstants.Title_En]);
-                                        occasions.DescriptionEn = Convert.ToString(lstItem[SharedConstants.DescriptionEn]);
+                                        occasions.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        occasions.Description = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colDescription", "Resource", SPContext.Current.Web.Language)]);
 
                                         memosLst.Add(occasions);
                                     }
@@ -85,11 +84,9 @@ namespace MOJ.DataManager
                                     {
                                         OccasionsEntity occasions = new OccasionsEntity();
                                         occasions.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        occasions.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        occasions.Description = Convert.ToString(lstItem[SharedConstants.Description]);
                                         occasions.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
-                                        occasions.TitleEn = Convert.ToString(lstItem[SharedConstants.Title_En]);
-                                        occasions.DescriptionEn = Convert.ToString(lstItem[SharedConstants.DescriptionEn]);
+                                        occasions.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        occasions.Description = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colDescription", "Resource", SPContext.Current.Web.Language)]);
 
                                         memosLst.Add(occasions);
                                     }
@@ -125,11 +122,9 @@ namespace MOJ.DataManager
                                     SPListItem lstItem = lstOccasions.GetItemById(id);
 
                                     OccasionItem.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                    OccasionItem.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                    OccasionItem.Description = Convert.ToString(lstItem[SharedConstants.Description]);
                                     OccasionItem.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
-                                    OccasionItem.TitleEn = Convert.ToString(lstItem[SharedConstants.Title_En]);
-                                    OccasionItem.DescriptionEn = Convert.ToString(lstItem[SharedConstants.DescriptionEn]);
+                                    OccasionItem.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                    OccasionItem.Description = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colDescription", "Resource", SPContext.Current.Web.Language)]);
                                 }
                             }
                         }
