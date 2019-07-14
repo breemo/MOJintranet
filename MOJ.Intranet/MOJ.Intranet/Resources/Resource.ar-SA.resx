@@ -187,12 +187,12 @@
     <value>ar</value>
   </data>
   <data name="colBody" xml:space="preserve">
-    <value>BodyEn</value>
+    <value>Body</value>
   </data>
   <data name="colDescription" xml:space="preserve">
-    <value>DescriptionEn</value>
+    <value>Description</value>
   </data>
   <data name="colTitle" xml:space="preserve">
-    <value>TitleEn</value>
+    <value>Title</value>
   </data>
 </root>
