@@ -84,6 +84,14 @@
     <Compile Include="Webparts\Home\AllNews\AllNewsUserControl.ascx.designer.cs">
       <DependentUpon>AllNewsUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Home\AllPolls\AllPolls.cs" />
+    <Compile Include="Webparts\Home\AllPolls\AllPollsUserControl.ascx.cs">
+      <DependentUpon>AllPollsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\AllPolls\AllPollsUserControl.ascx.designer.cs">
+      <DependentUpon>AllPollsUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Home\AttendanceChart\AttendanceChart.cs" />
     <Compile Include="Webparts\Home\AttendanceChart\AttendanceChartUserControl.ascx.cs">
       <DependentUpon>AttendanceChartUserControl.ascx</DependentUpon>
@@ -210,6 +218,10 @@
     <None Include="Webparts\Home\AllNews\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f71e58a8-2488-4ac6-a8cd-eb48422deea7}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Home\AllPolls\AllPolls.webpart" />
+    <None Include="Webparts\Home\AllPolls\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{396e7aa7-5df1-4373-8e3b-0b4b0167dc5d}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Home\AttendanceChart\AttendanceChart.webpart" />
     <None Include="Webparts\Home\AttendanceChart\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{d05699c8-f20a-421b-a4dc-bc38e39908e1}</SharePointProjectItemId>
@@ -275,6 +287,8 @@
     <Content Include="Images\xcl.jpeg" />
     <Content Include="Webparts\Home\AllNews\AllNewsUserControl.ascx" />
     <Content Include="Webparts\Home\AllNews\Elements.xml" />
+    <Content Include="Webparts\Home\AllPolls\AllPollsUserControl.ascx" />
+    <Content Include="Webparts\Home\AllPolls\Elements.xml" />
     <Content Include="Webparts\Home\AttendanceChart\AttendanceChartUserControl.ascx" />
     <Content Include="Webparts\Home\AttendanceChart\Elements.xml" />
     <Content Include="Webparts\Home\Attendance\AttendanceUserControl.ascx" />

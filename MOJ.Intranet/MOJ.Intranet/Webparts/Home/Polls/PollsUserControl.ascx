@@ -9,43 +9,15 @@
 
 <div class="polls">
     <div class="headlineflex">
-        <h4 class="TitleHead">الأستبيانات</h4>
+        <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, Questionnaire%>" /></h4>
 
-        <a href="#" class="slide morebuttoncss arrow">المزيد</a>
+        <a href="#" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
     </div>
 
 
     <div class="boxsec">
-        <div class="itemboxc">
-
-            <div class="boxcic">
-                <span>1
-                </span>
-            </div>
-
-            <div class="ques">
-
-                <h5>استبيان
-                </h5>
-                <span>مشاركة</span>
-            </div>
-
-        </div>
-
-        <div class="itemboxc">
-
-            <div class="boxcic">
-                <span>1
-                </span>
-            </div>
-
-            <div class="ques">
-
-                <h5>استبيان
-                </h5>
-                <span>مشاركة</span>
-            </div>
-
-        </div>
+      
+         <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
+  
     </div>
 </div>

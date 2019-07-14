@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOJ.Intranet.Webparts.Home.Polls {
+namespace MOJ.Intranet.Webparts.Home.AllPolls {
     
     
-    public partial class PollsUserControl {
+    public partial class AllPollsUserControl {
         
         /// <summary>
         /// lblDrawItems control.

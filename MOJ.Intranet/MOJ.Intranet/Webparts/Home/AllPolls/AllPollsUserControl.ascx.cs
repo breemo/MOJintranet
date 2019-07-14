@@ -1,17 +1,14 @@
 ﻿using CommonLibrary;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
-using MOJ.Business;
-using MOJ.Entities;
 using System;
-using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-namespace MOJ.Intranet.Webparts.Home.Polls
+namespace MOJ.Intranet.Webparts.Home.AllPolls
 {
-    public partial class PollsUserControl : UserControl
+    public partial class AllPollsUserControl : UserControl
     {
         #region Events
         protected void Page_Load(object sender, EventArgs e)
@@ -32,7 +29,6 @@ namespace MOJ.Intranet.Webparts.Home.Polls
                 }
             }
         }
-
         #endregion
 
         #region Methods
@@ -52,8 +48,6 @@ namespace MOJ.Intranet.Webparts.Home.Polls
                             if (oList.BaseType == SPBaseType.Survey)
                             {
                                 count++;
-                                if (count <= 2)
-                                {
                                     lblDrawItems.Text +=
                                        string.Format(@"
                                          <div class='itemboxc'>
@@ -68,8 +62,6 @@ namespace MOJ.Intranet.Webparts.Home.Polls
                                                 </div>
                                             </div>    
                                         ", oList.Title, oList.DefaultNewFormUrl, SPUtility.GetLocalizedString("$Resources: Participate", "Resource", SPContext.Current.Web.Language));
-                                }
-
                             }
                         }
                     }

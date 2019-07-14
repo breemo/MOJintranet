@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="AllPollsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="AllPolls\" Type="ElementManifest" />
+    <ProjectItemFile Source="AllPolls.webpart" Target="AllPolls\" Type="ElementFile" />
+    <ProjectItemFile Source="AllPollsUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.Home\AllPolls\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.Home.AllPolls" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

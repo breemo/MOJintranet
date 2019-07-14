@@ -177,4 +177,13 @@
   <data name="Titlebilingual" xml:space="preserve">
     <value>Title En</value>
   </data>
+  <data name="Participate" xml:space="preserve">
+    <value>Participate</value>
+  </data>
+  <data name="Questionnaire" xml:space="preserve">
+    <value>Questionnaire</value>
+  </data>
+  <data name="SiteURL" xml:space="preserve">
+    <value>en</value>
+  </data>
 </root>
