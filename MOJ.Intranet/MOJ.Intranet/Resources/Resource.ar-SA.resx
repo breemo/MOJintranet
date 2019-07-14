@@ -186,4 +186,13 @@
   <data name="SiteURL" xml:space="preserve">
     <value>ar</value>
   </data>
+  <data name="colBody" xml:space="preserve">
+    <value>BodyEn</value>
+  </data>
+  <data name="colDescription" xml:space="preserve">
+    <value>DescriptionEn</value>
+  </data>
+  <data name="colTitle" xml:space="preserve">
+    <value>TitleEn</value>
+  </data>
 </root>
