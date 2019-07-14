@@ -1,10 +1,12 @@
 ﻿using CommonLibrary;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
+using Microsoft.SharePoint.WebControls;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -22,6 +24,9 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
                 {
                     if (!IsPostBack)
                     {
+                        //SPWeb theSite = SPControl.GetContextWeb(Context);
+                        //SPUser theUser = theSite.CurrentUser;
+                        //string strUserName = theUser.LoginName;
                         BindData();
                     }
                 }

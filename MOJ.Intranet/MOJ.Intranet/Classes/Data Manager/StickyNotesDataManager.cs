@@ -1,5 +1,6 @@
 ﻿using CommonLibrary;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 using MOJ.Entities;
 using System;
 using System.Collections.Generic;
@@ -34,18 +35,36 @@ namespace MOJ.DataManager
                                     oQuery.RowLimit = 6;
 
                                     SPListItemCollection lstItems = lstStickyNote.GetItems(oQuery);
+
+                                    string userName = "";
+                                    string CurrentUser = "";
+                                    string CurrentUserWithoutDot = "";
+                                    SPContext currentContext;
+                                    currentContext = SPContext.Current;
+
+
+                                    if (currentContext != null && currentContext.Web.CurrentUser != null)
+                                    {
+                                        userName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1].ToLower();
+                                        CurrentUserWithoutDot = userName.Contains(".") ? userName.Replace(".", null).ToLower() : userName.ToLower();
+                                    }
+
+
                                     foreach (SPListItem lstItem in lstItems)
                                     {
-                                        if (lstItem["IsDeleted"].ToString() == "False")
+                                        CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
+                                        if (lstItem["IsDeleted"].ToString() == "False" && CurrentUser == CurrentUserWithoutDot)
                                         {
                                             StickyNotesEntities sticky = new StickyNotesEntities();
-                                            sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
-                                            sticky.TitleEn = Convert.ToString(lstItem[SharedConstants.TitleEn]);
+                                            //sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
+                                            //sticky.TitleEn = Convert.ToString(lstItem[SharedConstants.TitleEn]);
+                                            sticky.TitleAr = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: Titlebilingual", "Resource", SPContext.Current.Web.Language)]);
                                             sticky.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                             sticky.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
 
                                             StickyNoteLst.Add(sticky);
                                         }
+
                                     }
                                 }
                             }
