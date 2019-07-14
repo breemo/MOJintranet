@@ -5,12 +5,12 @@ using System.Text;
 using Microsoft.SharePoint;
 using MOJ.Entities;
 using CommonLibrary;
+using Microsoft.SharePoint.Utilities;
 
 namespace MOJ.DataManager
 {
     public class NewsDataManager
     {
-
         #region News
         public List<NewsEntity> GetAllNewsData()
         {
@@ -39,8 +39,9 @@ namespace MOJ.DataManager
                                     {
                                         NewsEntity news = new NewsEntity();
                                         news.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        news.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        news.Body = Convert.ToString(lstItem[SharedConstants.Body]);
+                                        news.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        news.Body = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
+
                                         news.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         news.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
 
@@ -104,8 +105,9 @@ namespace MOJ.DataManager
                                     {
                                         NewsEntity news = new NewsEntity();
                                         news.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        news.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        news.Body = Convert.ToString(lstItem[SharedConstants.Body]);
+                                        news.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        news.Body = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
+
                                         news.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         news.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
 
@@ -153,8 +155,9 @@ namespace MOJ.DataManager
                                     SPListItem NewsItem = lstNews.GetItemById(id);
 
                                     news.ID = Convert.ToInt16(NewsItem[SharedConstants.ID]);
-                                    news.Title = Convert.ToString(NewsItem[SharedConstants.Title]);
-                                    news.Body = Convert.ToString(NewsItem[SharedConstants.Body]);
+                                    news.Title = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                    news.Body = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
+
                                     news.Created = Convert.ToDateTime(NewsItem[SharedConstants.Created]);
                                     news.Date = Convert.ToDateTime(NewsItem[SharedConstants.Date]);
 
@@ -207,10 +210,10 @@ namespace MOJ.DataManager
                                     {
                                         NewsEntity news = new NewsEntity();
                                         news.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        news.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        news.Body = Convert.ToString(lstItem[SharedConstants.Body]);
                                         news.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         news.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
+                                        news.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        news.Body = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
 
                                         string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         news.Picture = FileUrl;

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonLibrary;
+using Microsoft.SharePoint.Utilities;
 
 namespace MOJ.DataManager
 {
@@ -39,11 +40,9 @@ namespace MOJ.DataManager
                                     {
                                         OccasionsEntity occasions = new OccasionsEntity();
                                         occasions.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        occasions.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        occasions.Description = Convert.ToString(lstItem[SharedConstants.Description]);
                                         occasions.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
-                                        occasions.TitleEn = Convert.ToString(lstItem[SharedConstants.Title_En]);
-                                        occasions.DescriptionEn = Convert.ToString(lstItem[SharedConstants.DescriptionEn]);
+                                        occasions.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        occasions.Description = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colDescription", "Resource", SPContext.Current.Web.Language)]);
 
                                         memosLst.Add(occasions);
                                     }
@@ -85,11 +84,9 @@ namespace MOJ.DataManager
                                     {
                                         OccasionsEntity occasions = new OccasionsEntity();
                                         occasions.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        occasions.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        occasions.Description = Convert.ToString(lstItem[SharedConstants.Description]);
                                         occasions.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
-                                        occasions.TitleEn = Convert.ToString(lstItem[SharedConstants.Title_En]);
-                                        occasions.DescriptionEn = Convert.ToString(lstItem[SharedConstants.DescriptionEn]);
+                                        occasions.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        occasions.Description = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colDescription", "Resource", SPContext.Current.Web.Language)]);
 
                                         memosLst.Add(occasions);
                                     }
@@ -105,6 +102,41 @@ namespace MOJ.DataManager
                 LoggingService.LogError("WebParts", ex.Message);
             }
             return memosLst;
+        }
+        public OccasionsEntity GetOccasionByID(int id)
+        {
+            OccasionsEntity OccasionItem = new OccasionsEntity();
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lstOccasions = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.OccasionsListUrl);
+                                if (lstOccasions != null)
+                                {
+                                    SPListItem lstItem = lstOccasions.GetItemById(id);
+
+                                    OccasionItem.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
+                                    OccasionItem.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
+                                    OccasionItem.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                    OccasionItem.Description = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colDescription", "Resource", SPContext.Current.Web.Language)]);
+                                }
+                            }
+                        }
+                    }
+                });
+
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return OccasionItem;
         }
         # endregion
     }

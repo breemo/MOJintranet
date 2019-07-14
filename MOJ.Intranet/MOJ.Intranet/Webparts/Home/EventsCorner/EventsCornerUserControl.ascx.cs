@@ -60,11 +60,11 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
                                             </div>
                                             <div class='eventmorebutton'>
                                                 <div class='morebtn2'>
-                                                    <a href='{3}' class='slide newmorebuttoncss arrow'>{4}</a>
+                                                    <a href='Details.aspx?id={3}&type=occasion' class='slide newmorebuttoncss arrow'>{4}</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>", Convert.ToDateTime(item.Created).ToString("MMMM"), Convert.ToDateTime(item.Created).Month, title,"#", SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language));
+                                    </div>", Convert.ToDateTime(item.Created).ToString("MMMM"), Convert.ToDateTime(item.Created).Month, title,item.ID, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language));
                 }
             }
             catch (Exception ex)

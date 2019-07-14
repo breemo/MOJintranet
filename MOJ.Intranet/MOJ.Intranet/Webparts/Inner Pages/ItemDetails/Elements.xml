@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
-  <Module Name="AllMemos" List="113" Url="_catalogs/wp">
-    <File Path="AllMemos\AllMemos.webpart" Url="MOJ.Intranet_AllMemos.webpart" Type="GhostableInLibrary" >
+  <Module Name="ItemDetails" List="113" Url="_catalogs/wp">
+    <File Path="ItemDetails\ItemDetails.webpart" Url="MOJ.Intranet_ItemDetails.webpart" Type="GhostableInLibrary" >
       <Property Name="Group" Value="MOJ.InnerPages" />
     </File>
   </Module>

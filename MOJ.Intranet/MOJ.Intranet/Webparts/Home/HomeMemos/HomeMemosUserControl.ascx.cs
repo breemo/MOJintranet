@@ -52,13 +52,13 @@ namespace MOJ.Intranet.Webparts.Home.HomeMemos
                                     <div class='itemboxc'>
                                         <div class='itenewfo'>
                                             <h5>
-                                                <a href='{0}'>{1}
+                                                <a href='Details.aspx?id={0}&type=circular'>{1}
                                                 </a>
                                             </h5>
                                             <span class='newdatefo'>{2}
                                             </span>
                                         </div>
-                                    </div>","#", des, Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"));
+                                    </div>", item.ID, des, Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"));
                 }
             }
             catch (Exception ex)

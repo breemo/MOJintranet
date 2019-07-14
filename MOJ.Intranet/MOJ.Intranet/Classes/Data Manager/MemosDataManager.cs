@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CommonLibrary;
+using Microsoft.SharePoint.Utilities;
 
 namespace MOJ.DataManager
 {
     public class MemosDataManager
     {
-
         # region Memos
         public List<MemosEntity> GetMemosDataHome()
         {
@@ -43,11 +43,11 @@ namespace MOJ.DataManager
                                     {
                                         MemosEntity memos = new MemosEntity();
                                         memos.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        memos.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        memos.Body = Convert.ToString(lstItem[SharedConstants.Body]);
                                         memos.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         memos.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                         memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
+                                        memos.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        memos.Body = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
 
                                         string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         memos.AttachmentsInfo = FileUrl;
@@ -98,8 +98,8 @@ namespace MOJ.DataManager
                                     {
                                         MemosEntity memos = new MemosEntity();
                                         memos.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        memos.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        memos.Body = Convert.ToString(lstItem[SharedConstants.Body]);
+                                        memos.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        memos.Body = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
                                         memos.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         memos.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                         memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
@@ -128,44 +128,44 @@ namespace MOJ.DataManager
         public MemosEntity GetMemosDataByID(int id)
         {
             MemosEntity memos = new MemosEntity();
-            //try
-            //{
-            //    SPSecurity.RunWithElevatedPrivileges(delegate ()
-            //    {
-            //        using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
-            //        {
-            //            using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
-            //            {
-            //                if (oWeb != null)
-            //                {
-            //                    SPList lstMemos = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MemosListUrl);
-            //                    if (lstMemos != null)
-            //                    {
-            //                        SPListItem MemosItem = lstMemos.GetItemById(id);
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lstMemos = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MemosListUrl);
+                                if (lstMemos != null)
+                                {
+                                    SPListItem MemosItem = lstMemos.GetItemById(id);
 
-            //                        memos.ID = Convert.ToInt16(MemosItem[SharedConstants.ID]);
-            //                        memos.Title = Convert.ToString(MemosItem[SharedConstants.Title]);
-            //                        memos.Body = Convert.ToString(MemosItem[SharedConstants.Body]);
-            //                        memos.Created = Convert.ToDateTime(MemosItem[SharedConstants.Created]);
-            //                        memos.Date = Convert.ToDateTime(MemosItem[SharedConstants.Date]);
-            //                        memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
+                                    memos.ID = Convert.ToInt16(MemosItem[SharedConstants.ID]);
+                                    memos.Created = Convert.ToDateTime(MemosItem[SharedConstants.Created]);
+                                    memos.Date = Convert.ToDateTime(MemosItem[SharedConstants.Date]);
+                                    memos.MemoNumber = Convert.ToString(MemosItem[SharedConstants.MemoNumber]);
+                                    memos.Title = Convert.ToString(MemosItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                    memos.Body = Convert.ToString(MemosItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
 
-            //                        string FileUrl = SP.Common.Methods.ReturnAttachmentFile(oWeb, MemosItem);
-            //                        memos.AttachmentsInfo = FileUrl;
+                                    string FileUrl = Methods.ReturnAttachmentFile(oWeb, MemosItem);
+                                    memos.AttachmentsInfo = FileUrl;
 
-            //                        string ext = FileUrl.Split('.')[FileUrl.Split('.').Length - 1];
-            //                        memos.AttachmentPicture = SP.Common.Methods.CheckFileType(ext);
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    });
+                                    string ext = FileUrl.Split('.')[FileUrl.Split('.').Length - 1];
+                                    memos.AttachmentPicture = Methods.CheckFileType(ext);
+                                }
+                            }
+                        }
+                    }
+                });
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    LoggingService.LogError("WebParts", ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
             return memos;
         }
         public List<MemosEntity> GetMemosData(string srch, string number)
@@ -205,11 +205,11 @@ namespace MOJ.DataManager
                                     {
                                         MemosEntity memos = new MemosEntity();
                                         memos.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
-                                        memos.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                        memos.Body = Convert.ToString(lstItem[SharedConstants.Body]);
                                         memos.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         memos.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                         memos.MemoNumber = Convert.ToString(lstItem[SharedConstants.MemoNumber]);
+                                        memos.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        memos.Body = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
 
                                         string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         memos.AttachmentsInfo = FileUrl;

@@ -18,5 +18,9 @@ namespace MOJ.Business
         {
             return new OccasionsDataManager().GetAllOccasionsData();
         }
+        public OccasionsEntity GetOccasionById(int id)
+        {
+            return new OccasionsDataManager().GetOccasionByID(id);
+        }
     }
 }

@@ -177,13 +177,4 @@
   <data name="Titlebilingual" xml:space="preserve">
     <value>Title Ar</value>
   </data>
-  <data name="Participate" xml:space="preserve">
-    <value>مشاركة</value>
-  </data>
-  <data name="Questionnaire" xml:space="preserve">
-    <value>الأستبيانات</value>
-  </data>
-  <data name="SiteURL" xml:space="preserve">
-    <value>ar</value>
-  </data>
 </root>

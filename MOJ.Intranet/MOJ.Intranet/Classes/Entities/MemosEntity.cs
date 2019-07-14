@@ -11,6 +11,8 @@ namespace MOJ.Entities
         public int ID { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
+        public string TitleEn { get; set; }
+        public string BodyEn { get; set; }
         public DateTime Created { get; set; }
         public DateTime Date { get; set; }
         public string AttachmentsInfo { get; set; }
