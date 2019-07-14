@@ -195,4 +195,7 @@
   <data name="colTitle" xml:space="preserve">
     <value>TitleEn</value>
   </data>
+  <data name="ViewAllQuestionnaireURL" xml:space="preserve">
+    <value>/En/Pages/ViewAllQuestionnaire.aspx</value>
+  </data>
 </root>
