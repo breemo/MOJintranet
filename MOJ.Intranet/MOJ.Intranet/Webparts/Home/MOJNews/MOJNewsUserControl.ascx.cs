@@ -44,7 +44,7 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
 
                 lblDrawItems.Text = "";
 
-                foreach (NewsEntity item in NewsLst) //check all items
+                foreach (NewsEntity item in NewsLst)
                 {
                     //string title =SP.Common.LimitCharacters.Limit(item.Title, 35);
                     string des = LimitCharacters.Limit(item.Body, 40);
@@ -63,11 +63,11 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                                 {2}
                             </div>
                             <div class='morebtn'>
-                                <a href = '{4}' class='slide newmorebuttoncss arrow'>{3}
+                                <a href='Details.aspx?id={4}&type=news' class='slide newmorebuttoncss arrow'>{3}
                                   </a>
                             </div>
                         </div>
-                    </div>", Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"), item.Picture, des, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language), "#");
+                    </div>", Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"), item.Picture, des, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language), item.ID);
                 }
             }
             catch (Exception ex)

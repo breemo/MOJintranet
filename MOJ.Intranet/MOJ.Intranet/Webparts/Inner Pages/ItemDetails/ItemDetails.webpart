@@ -2,14 +2,13 @@
 <webParts>
   <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
     <metaData>
-      <type name="MOJ.Intranet.Webparts.Inner_Pages.NewsDetails.NewsDetails, $SharePoint.Project.AssemblyFullName$" />
+      <type name="MOJ.Intranet.Webparts.Inner_Pages.ItemDetails.ItemDetails, $SharePoint.Project.AssemblyFullName$" />
       <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
     </metaData>
     <data>
       <properties>
-        <property name="Title" type="string">MOJ.Intranet - NewsDetails</property>
+        <property name="Title" type="string">MOJ.Intranet - ItemDetails</property>
         <property name="Description" type="string">My Visual Web Part</property>
-        <property name="ChromeType" type="chrometype">None</property>
       </properties>
     </data>
   </webPart>

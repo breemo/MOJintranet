@@ -106,6 +106,43 @@ namespace MOJ.DataManager
             }
             return memosLst;
         }
+        public OccasionsEntity GetOccasionByID(int id)
+        {
+            OccasionsEntity OccasionItem = new OccasionsEntity();
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lstOccasions = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.OccasionsListUrl);
+                                if (lstOccasions != null)
+                                {
+                                    SPListItem lstItem = lstOccasions.GetItemById(id);
+
+                                    OccasionItem.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
+                                    OccasionItem.Title = Convert.ToString(lstItem[SharedConstants.Title]);
+                                    OccasionItem.Description = Convert.ToString(lstItem[SharedConstants.Description]);
+                                    OccasionItem.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
+                                    OccasionItem.TitleEn = Convert.ToString(lstItem[SharedConstants.Title_En]);
+                                    OccasionItem.DescriptionEn = Convert.ToString(lstItem[SharedConstants.DescriptionEn]);
+                                }
+                            }
+                        }
+                    }
+                });
+
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return OccasionItem;
+        }
         # endregion
     }
 }
