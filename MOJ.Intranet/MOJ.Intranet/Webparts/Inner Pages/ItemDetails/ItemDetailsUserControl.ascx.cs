@@ -43,7 +43,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                     case "news":
                         {
                             NewsEntity NewsItem = new News().GetNews(Convert.ToInt32(ID));
-                            string imgUrl = "";
+                            //string imgUrl = "";
 
                             lblDetails.Text +=
                                 string.Format(@"<li>
@@ -52,7 +52,10 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                                                         <p style='text-align: justify; font-weight:normal'>
                                                             </br>{2}{1} 
                                                         </p>  
-                                                </li>", NewsItem.Title, NewsItem.Body, setImg(imgUrl, "news"), Convert.ToDateTime(NewsItem.Date).ToString("dd-MMM-yyyy"));
+                                                </li>", NewsItem.Title, NewsItem.Body,
+                                                //setImg(imgUrl, "news")
+                                                setImg(NewsItem.Picture, "news"), 
+                                                Convert.ToDateTime(NewsItem.Date).ToString("dd-MMM-yyyy"));
                             break;
                         }
                     case "occasion":

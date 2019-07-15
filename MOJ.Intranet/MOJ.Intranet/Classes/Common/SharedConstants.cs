@@ -71,10 +71,10 @@ namespace CommonLibrary
 
         #region Query
         public const string NewsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
-        public const string NewsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Date'/><FieldRef Name='Body'/><FieldRef Name='Created' LinkToItem='true'/>";
+        public const string NewsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Date'/><FieldRef Name='Body'/><FieldRef Name='TitleEn'/><FieldRef Name='Date'/><FieldRef Name='BodyEn'/><FieldRef Name='Created' LinkToItem='true'/>";
 
         public const string MemosQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
-        public const string MemosViewfields = "<FieldRef Name='Title'/><FieldRef Name='MemoNumber'/><FieldRef Name='Date'/><FieldRef Name='ID'/><FieldRef Name='Body'/>";
+        public const string MemosViewfields = "<FieldRef Name='Title'/><FieldRef Name='TitleEn'/><FieldRef Name='MemoNumber'/><FieldRef Name='Date'/><FieldRef Name='ID'/><FieldRef Name='Body'/><FieldRef Name='BodyEn'/>";
 
 
         //updated by samir...StickyNotes...Query
