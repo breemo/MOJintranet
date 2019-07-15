@@ -42,6 +42,10 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.SharePoint.Publishing, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\Common Files\microsoft shared\Web Server Extensions\16\ISAPI\Microsoft.SharePoint.Publishing.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -131,6 +135,14 @@
     </Compile>
     <Compile Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx.designer.cs">
       <DependentUpon>HomeMemosUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\InnerNavigation\InnerNavigation.cs" />
+    <Compile Include="Webparts\Inner Pages\InnerNavigation\InnerNavigationUserControl.ascx.cs">
+      <DependentUpon>InnerNavigationUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\InnerNavigation\InnerNavigationUserControl.ascx.designer.cs">
+      <DependentUpon>InnerNavigationUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\Home\judgment\judgment.cs" />
     <Compile Include="Webparts\Home\judgment\judgmentUserControl.ascx.cs">
@@ -242,6 +254,10 @@
     <None Include="Webparts\Home\HomeMemos\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{4523326a-657a-42fa-965b-b3ce293f0a17}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Inner Pages\InnerNavigation\InnerNavigation.webpart" />
+    <None Include="Webparts\Inner Pages\InnerNavigation\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{04346407-b376-43ba-a6d5-db3706bea8ca}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Home\judgment\judgment.webpart" />
     <None Include="Webparts\Home\judgment\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0ee449e3-5728-4910-a2b8-e2f9e16aced1}</SharePointProjectItemId>
@@ -299,6 +315,8 @@
     <Content Include="Webparts\Home\HomeGalary\HomeGalaryUserControl.ascx" />
     <Content Include="Webparts\Home\HomeMemos\Elements.xml" />
     <Content Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\InnerNavigation\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\InnerNavigation\InnerNavigationUserControl.ascx" />
     <Content Include="Webparts\Home\judgment\Elements.xml" />
     <Content Include="Webparts\Home\judgment\judgmentUserControl.ascx" />
     <Content Include="Webparts\Home\Meetings\Elements.xml" />
