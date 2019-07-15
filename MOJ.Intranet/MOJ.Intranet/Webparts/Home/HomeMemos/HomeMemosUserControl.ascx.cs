@@ -1,4 +1,5 @@
 ﻿using CommonLibrary;
+using Microsoft.SharePoint;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
@@ -46,19 +47,20 @@ namespace MOJ.Intranet.Webparts.Home.HomeMemos
                 {
                     //string title =SP.Common.LimitCharacters.Limit(item.Title, 35);
                     string des = LimitCharacters.Limit(item.Body, 120);
+                    string siteURL = SPContext.Current.RootFolderUrl;
 
                     lblDrawItems.Text +=
                     string.Format(@"
                                     <div class='itemboxc'>
                                         <div class='itenewfo'>
                                             <h5>
-                                                <a href='Details.aspx?id={0}&type=circular'>{1}
+                                                <a href='{3}/Details.aspx?id={0}&type=circular'>{1}
                                                 </a>
                                             </h5>
                                             <span class='newdatefo'>{2}
                                             </span>
                                         </div>
-                                    </div>", item.ID, des, Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"));
+                                    </div>", item.ID, des, Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"),siteURL);
                 }
             }
             catch (Exception ex)

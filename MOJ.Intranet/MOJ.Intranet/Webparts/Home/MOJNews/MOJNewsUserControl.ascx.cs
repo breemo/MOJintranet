@@ -48,6 +48,7 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                 {
                     //string title =SP.Common.LimitCharacters.Limit(item.Title, 35);
                     string des = LimitCharacters.Limit(item.Body, 40);
+                    string siteURL = SPContext.Current.RootFolderUrl;
 
                     lblDrawItems.Text +=
                     string.Format(@"
@@ -63,11 +64,11 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                                 {2}
                             </div>
                             <div class='morebtn'>
-                                <a href='Details.aspx?id={4}&type=news' class='slide newmorebuttoncss arrow'>{3}
+                                <a href='{5}/Details.aspx?id={4}&type=news' class='slide newmorebuttoncss arrow'>{3}
                                   </a>
                             </div>
                         </div>
-                    </div>", Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"), item.Picture, des, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language), item.ID);
+                    </div>", Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"), item.Picture, des, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language), item.ID,siteURL);
                 }
             }
             catch (Exception ex)

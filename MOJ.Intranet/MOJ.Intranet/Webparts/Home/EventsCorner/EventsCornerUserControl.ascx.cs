@@ -48,6 +48,7 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
                 {
                     string title =LimitCharacters.Limit(item.Title, 35);
                     string des = LimitCharacters.Limit(item.Description, 40);
+                    string siteURL = SPContext.Current.RootFolderUrl;
 
                     lblDrawItems.Text +=
                     string.Format(@"<div class='col-md-4 col-sm-12'>
@@ -60,11 +61,11 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
                                             </div>
                                             <div class='eventmorebutton'>
                                                 <div class='morebtn2'>
-                                                    <a href='Details.aspx?id={3}&type=occasion' class='slide newmorebuttoncss arrow'>{4}</a>
+                                                    <a href='{5}/Details.aspx?id={3}&type=occasion' class='slide newmorebuttoncss arrow'>{4}</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>", Convert.ToDateTime(item.Created).ToString("MMMM"), Convert.ToDateTime(item.Created).Month, title,item.ID, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language));
+                                    </div>", Convert.ToDateTime(item.Created).ToString("MMMM"), Convert.ToDateTime(item.Created).Month, title,item.ID, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language),siteURL);
                 }
             }
             catch (Exception ex)
