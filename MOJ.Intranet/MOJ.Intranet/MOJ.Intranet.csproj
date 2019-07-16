@@ -60,6 +60,7 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Business\MeetingsBL.cs" />
     <Compile Include="Classes\Business\Occasions.cs" />
     <Compile Include="Classes\Business\Memos.cs" />
     <Compile Include="Classes\Business\PhotoGallery.cs" />
@@ -68,11 +69,13 @@
     <Compile Include="Classes\Common\LimitCharacters.cs" />
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
+    <Compile Include="Classes\Data Manager\MeetingsDataManager.cs" />
     <Compile Include="Classes\Data Manager\OccasionsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MemosDataManager.cs" />
     <Compile Include="Classes\Data Manager\PhotoGalleryDataManager.cs" />
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\MeetingsEntity.cs" />
     <Compile Include="Classes\Entities\OccasionsEntity.cs" />
     <Compile Include="Classes\Entities\PhotoGalleryEntity.cs" />
     <Compile Include="Classes\Entities\MemosEntity.cs" />
