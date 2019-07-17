@@ -106,6 +106,8 @@ namespace CommonLibrary
         public const string OccasionsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
         public const string OccasionsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Description'/><FieldRef Name='TitleEn'/><FieldRef Name='DescriptionEn'/><FieldRef Name='Created' LinkToItem='true'/>";
 
+        public const string LiveEventsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+
         #endregion
 
 
