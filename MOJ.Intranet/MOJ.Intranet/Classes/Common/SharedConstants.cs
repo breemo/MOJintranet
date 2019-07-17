@@ -65,8 +65,8 @@ namespace CommonLibrary
 
         //updated by samir...Sticky Notes List
         public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
-             
 
+        public const string MeetingsListUrl = "/Lists/Meetings/calendar.aspx";
         #endregion
 
         #region Query
@@ -91,8 +91,10 @@ namespace CommonLibrary
                                                 </Query>";
 
 
-
         public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Title_x0020_En'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
+
+        public const string MeetingsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
+        public const string MeetingsViewfields = "<FieldRef Name='Title'/><FieldRef Name='EventDate'/>";
 
         public const string GalleryQuery = "<Query>" +
                                                 "<Where>" +

@@ -15,32 +15,8 @@
 
 
     <div class="smallbox">
-        <div class="mettingitem">
-            <h6>
-                <a href="#">الأجتماعات</a>
-            </h6>
-            <p class="medate ">
-                <span class="icon-calendar-alt1"></span>
-                15-01-2019
-            </p>
-            <p class="meclock">
-                <span class="icon-time"></span>
-                12:00 PM- 02:00 PM
-            </p>
-        </div>
 
-        <div class="mettingitem">
-            <h6>
-                <a href="#">محاضرة الدكتور سليم العلي</a>
-            </h6>
-            <p class="medate ">
-                <span class="icon-calendar-alt1"></span>
-                15-01-2019
-            </p>
-            <p class="meclock">
-                <span class="icon-time"></span>
-                12:00 PM- 02:00 PM
-            </p>
-        </div>
+         <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
+       
     </div>
 </div>
