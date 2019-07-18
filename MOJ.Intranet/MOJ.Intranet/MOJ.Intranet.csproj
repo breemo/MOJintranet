@@ -217,21 +217,19 @@
     <Compile Include="Webparts\Inner Pages\ItemDetails\ItemDetailsUserControl.ascx.designer.cs">
       <DependentUpon>ItemDetailsUserControl.ascx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Webparts\LiveEventsWP\LiveEventsWP.cs" />
-    <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.cs">
-      <DependentUpon>LiveEventsWPUserControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.designer.cs">
-      <DependentUpon>LiveEventsWPUserControl.ascx.cs</DependentUpon>
-    </Compile>
     <Compile Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPart.cs" />
     <Compile Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPartUserControl.ascx.cs">
-      <DependentUpon>MinistryFilesWebPartUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPartUserControl.ascx.designer.cs">
       <DependentUpon>MinistryFilesWebPartUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\LiveEventsWP\LiveEventsWP.cs" />
+    <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.designer.cs">
+      <DependentUpon>LiveEventsWPUserControl.ascx.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -315,6 +313,14 @@
     <None Include="Webparts\Inner Pages\ItemDetails\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6811b4d5-443e-4b19-9895-3433873d3b9b}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPart.webpart" />
+    <None Include="Webparts\Inner Pages\MinistryFilesWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{45638b55-25c3-4388-b6bb-f5f9e88fa874}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\LiveEventsWP\LiveEventsWP.webpart" />
+    <None Include="Webparts\LiveEventsWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a023d941-1aae-42b2-b266-211a22b2b513}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">
@@ -358,6 +364,10 @@
     <Content Include="Webparts\Inner Pages\AllMemos\Elements.xml" />
     <Content Include="Webparts\Inner Pages\ItemDetails\Elements.xml" />
     <Content Include="Webparts\Inner Pages\ItemDetails\ItemDetailsUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\MinistryFilesWebPart\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPartUserControl.ascx" />
+    <Content Include="Webparts\LiveEventsWP\Elements.xml" />
+    <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\MOJ.Intranet\" />
