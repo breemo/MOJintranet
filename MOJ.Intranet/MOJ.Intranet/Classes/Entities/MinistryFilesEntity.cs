@@ -17,6 +17,7 @@ namespace MOJ.Entities
         public string AttachmentsInfo { get; set; }
         public string AttachmentPicture { get; set; }
         public string CreatedBy { get; set; }
+        public string BookImage { get; set; }
 
     }
 }

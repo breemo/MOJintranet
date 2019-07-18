@@ -1017,7 +1017,7 @@
                                             <div class="boxsearchbook">
 
                                                 <div class="imgboxbook">
-                                                    <img src="/Style%20Library/MOJ-Theme/images/filebbok.png" />
+                                                    <img src='<%# Eval("BookImage") %>' />
                                                 </div>
                                                 <div class="titlebook">
                                                     <h4>
@@ -1031,7 +1031,7 @@
                                                 <div class="uploadediv">
                                                     <p>
                                                         تم الرفع بواسطة
-                                                        <span></span>
+                                                        <span><%# Eval("CreatedBy") %></span>
 
                                                     </p>
 

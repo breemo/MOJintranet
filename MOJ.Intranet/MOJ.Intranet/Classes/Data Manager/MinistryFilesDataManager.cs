@@ -35,11 +35,14 @@ namespace MOJ.DataManager
                                     SPListItemCollection lstItems = lstMinistryFiles.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
                                     {
-
+                                        string BookImgURL = Convert.ToString(lstItem["Book Image"]).Split(',')[0];
+                                        string CreatedUser = lstItem["Created By"].ToString().Split('#')[1].ToString();
                                         MinistryFilesEntity Books = new MinistryFilesEntity();
                                         Books.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
                                         Books.BookTitle = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: MinistryFilesBookTitle", "Resource", SPContext.Current.Web.Language)]);
                                         Books.BookDescAr = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: MinistryFilesBookDesc", "Resource", SPContext.Current.Web.Language)]);
+                                        Books.BookImage = BookImgURL;
+                                        Books.CreatedBy = CreatedUser;
 
                                         string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
                                         Books.AttachmentsInfo = FileUrl;
