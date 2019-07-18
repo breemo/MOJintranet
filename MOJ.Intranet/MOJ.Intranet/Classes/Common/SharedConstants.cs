@@ -67,6 +67,8 @@ namespace CommonLibrary
         public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
 
         public const string MeetingsListUrl = "/Lists/Meetings/calendar.aspx";
+
+        public const string MinistryFilesListUrl = "/Lists/MinistryFiles/AllItems.aspx";
         #endregion
 
         #region Query
@@ -76,6 +78,9 @@ namespace CommonLibrary
         public const string MemosQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
         public const string MemosViewfields = "<FieldRef Name='Title'/><FieldRef Name='TitleEn'/><FieldRef Name='MemoNumber'/><FieldRef Name='Date'/><FieldRef Name='ID'/><FieldRef Name='Body'/><FieldRef Name='BodyEn'/>";
 
+
+        public const string MinistryFilesQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        public const string MinistryFilesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Book_x0020_Title_x0020_En'/><FieldRef Name='Book_x0020_Desc_x0020_Ar'/><FieldRef Name='Book Desc En'/><FieldRef Name='ID'/>";
 
         //updated by samir...StickyNotes...Query
         public const string StickyNotesQuery = @"<Query>
@@ -107,6 +112,7 @@ namespace CommonLibrary
 
         public const string OccasionsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
         public const string OccasionsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Description'/><FieldRef Name='TitleEn'/><FieldRef Name='DescriptionEn'/><FieldRef Name='Created' LinkToItem='true'/>";
+
 
         #endregion
 

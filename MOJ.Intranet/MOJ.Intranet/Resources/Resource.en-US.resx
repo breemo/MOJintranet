@@ -198,4 +198,10 @@
   <data name="ViewAllQuestionnaireURL" xml:space="preserve">
     <value>/En/Pages/ViewAllQuestionnaire.aspx</value>
   </data>
+  <data name="MinistryFilesBookDesc" xml:space="preserve">
+    <value>Book Desc En</value>
+  </data>
+  <data name="MinistryFilesBookTitle" xml:space="preserve">
+    <value>Book Title En</value>
+  </data>
 </root>
