@@ -64,6 +64,7 @@
     <Compile Include="Classes\Business\MinistryFiles.cs" />
     <Compile Include="Classes\Business\Occasions.cs" />
     <Compile Include="Classes\Business\Memos.cs" />
+    <Compile Include="Classes\Business\liveEvents.cs" />
     <Compile Include="Classes\Business\PhotoGallery.cs" />
     <Compile Include="Classes\Business\News.cs" />
     <Compile Include="Classes\Business\StickyNote.cs" />
@@ -74,12 +75,14 @@
     <Compile Include="Classes\Data Manager\MinistryFilesDataManager.cs" />
     <Compile Include="Classes\Data Manager\OccasionsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MemosDataManager.cs" />
+    <Compile Include="Classes\Data Manager\liveEventsDataManager.cs" />
     <Compile Include="Classes\Data Manager\PhotoGalleryDataManager.cs" />
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\MeetingsEntity.cs" />
     <Compile Include="Classes\Entities\MinistryFilesEntity.cs" />
     <Compile Include="Classes\Entities\OccasionsEntity.cs" />
+    <Compile Include="Classes\Entities\liveEventsEntity.cs" />
     <Compile Include="Classes\Entities\PhotoGalleryEntity.cs" />
     <Compile Include="Classes\Entities\MemosEntity.cs" />
     <Compile Include="Classes\Entities\NewsEntity.cs" />
@@ -214,6 +217,14 @@
     <Compile Include="Webparts\Inner Pages\ItemDetails\ItemDetailsUserControl.ascx.designer.cs">
       <DependentUpon>ItemDetailsUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\LiveEventsWP\LiveEventsWP.cs" />
+    <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.cs">
+      <DependentUpon>LiveEventsWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.designer.cs">
+      <DependentUpon>LiveEventsWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPart.cs" />
     <Compile Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPartUserControl.ascx.cs">
       <DependentUpon>MinistryFilesWebPartUserControl.ascx</DependentUpon>
@@ -304,10 +315,6 @@
     <None Include="Webparts\Inner Pages\ItemDetails\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6811b4d5-443e-4b19-9895-3433873d3b9b}</SharePointProjectItemId>
     </None>
-    <None Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPart.webpart" />
-    <None Include="Webparts\Inner Pages\MinistryFilesWebPart\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{32039755-9225-4749-b1f6-3cf3b35e407a}</SharePointProjectItemId>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">
@@ -351,8 +358,6 @@
     <Content Include="Webparts\Inner Pages\AllMemos\Elements.xml" />
     <Content Include="Webparts\Inner Pages\ItemDetails\Elements.xml" />
     <Content Include="Webparts\Inner Pages\ItemDetails\ItemDetailsUserControl.ascx" />
-    <Content Include="Webparts\Inner Pages\MinistryFilesWebPart\Elements.xml" />
-    <Content Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPartUserControl.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\MOJ.Intranet\" />

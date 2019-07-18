@@ -198,6 +198,21 @@
   <data name="ViewAllQuestionnaireURL" xml:space="preserve">
     <value>/Ar/Pages/ViewAllQuestionnaire.aspx</value>
   </data>
+  <data name="colName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="colLiveDescription" xml:space="preserve">
+    <value>VideoSetDescription</value>
+  </data>
+  <data name="HeadLiveEvents" xml:space="preserve">
+    <value>الفعاليات المباشرة</value>
+  </data>
+  <data name="HeadLiveArchive" xml:space="preserve">
+    <value>أرشيف البث المباشر</value>
+  </data>
+  <data name="HeadLiveLastMonth" xml:space="preserve">
+    <value>البث المباشر السابق هذا الشهر</value>
+  </data>
   <data name="MinistryFilesBookDesc" xml:space="preserve">
     <value>Book Desc Ar</value>
   </data>
