@@ -10,7 +10,7 @@
 
     <!-- External JavaScripts
     ============================================= -->
-<script src="/Style%20Library/MOJ-Theme/js/jquery.js"></script>
+<script src="/Style%20Library/MOJTheme/js/jquery.js"></script>
 
 <h3>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadLiveEvents%>" /></h3>
@@ -36,10 +36,10 @@
         <asp:Literal runat="server" ID="lblArchive" />
     </div>
 </div>
-<script src="/Style%20Library/MOJ-Theme/js/functions.js"></script>
-<script src="/Style%20Library/MOJ-Theme/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/Style%20Library/MOJTheme/js/functions.js"></script>
+<script src="/Style%20Library/MOJTheme/js/jquery.overlayScrollbars.min.js"></script>
 
-<link href="/Style%20Library/MOJ-Theme/css/OverlayScrollbars.min.css" rel="stylesheet" />
+<link href="/Style%20Library/MOJTheme/css/OverlayScrollbars.min.css" rel="stylesheet" />
 
 
 <script>
