@@ -230,7 +230,7 @@
 
                             </div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" id="txtSearchBookName" runat="server" class="form-control" placeholder="">
                             </div>
                         </div>
 
@@ -242,7 +242,7 @@
 
                             </div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" id="txtsearchBook" runat="server" class="form-control" placeholder="">
                             </div>
                         </div>
 
@@ -255,14 +255,16 @@
 
                             </div>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder=" ">
+                                <input type="text" id="txtSearchCreatedby" runat="server" class="form-control" placeholder=" ">
+    
                             </div>
                         </div>
 
                         <div class="row d-flex justify-content-center mt-3">
 
 
-                            <input type="button" class="btnclass radix" value="بحث">
+                            <%--<input type="button" class="btnclass radix" value="بحث">--%>
+                            <asp:Button Text="بحث" runat="server" CssClass="btnclass radix" OnClick="Unnamed1_Click" />
                             <input type="button" class="btnclass radix" value="واضح">
                         </div>
 

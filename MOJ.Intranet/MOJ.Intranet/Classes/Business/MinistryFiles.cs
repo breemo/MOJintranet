@@ -14,5 +14,10 @@ namespace MOJ.Business
         {
             return new MinistryFilesDataManager().GetMinistryFilesData();
         }
+
+        public List<MinistryFilesEntity> GetMinistryFilesSearch(string BookName,string CreatedBy)
+        {
+            return new MinistryFilesDataManager().GetMinistryFilesSearch(BookName, CreatedBy);
+        }
     }
 }

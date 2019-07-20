@@ -74,5 +74,16 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
             PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
             BindData();
         }
+
+        protected void Unnamed1_Click(object sender, EventArgs e)
+        {
+            FillData(txtSearchBookName.Value,txtSearchCreatedby.Value);
+        }
+        private void FillData(string BookName,string Created)
+        {
+            List<MinistryFilesEntity> Books = new MinistryFiles().GetMinistryFilesSearch(BookName, Created);
+            grdBookslsts.DataSource = Books;
+            grdBookslsts.DataBind();
+        }
     }
 }
