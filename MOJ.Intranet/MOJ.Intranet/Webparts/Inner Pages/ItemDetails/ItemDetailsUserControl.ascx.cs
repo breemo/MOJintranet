@@ -22,7 +22,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
 
             try
             {
-                lblDetails.Text = "<ul class='list_item2'>";
+                //lblDetails.Text = "<ul class='list_item2'>";
+                lblDetails.Text = "";
 
                 switch (Type.ToLower())
                 {
@@ -43,156 +44,129 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                     case "news":
                         {
                             NewsEntity NewsItem = new News().GetNews(Convert.ToInt32(ID));
-                        
 
-                    //        lblDetails.Text +=
-                    //            string.Format(@"
-                    //    <div class='postcontent nobottommargin col_last clearfix'>
-                    //        <div class='boxleftbor'>
-                    //            <div class='topbarprint'>
-                    //                <h4>
-                    //                    الاخبار
-                    //                </h4>
-                    //                <a href='' id='printpagebutton' onclick='printpage()'>
-                    //                    <span class='icon-line2-printer'></span>
-                    //                </a>
-                    //            </div>
-                    //            <div class='newdetailnewdiv'>
-                    //                <div class='newitemtitlediv'>
-                    //                    <span class='datenewitem'>
-                    //                       {3} 
-                    //                    </span>
-                    //                    <h5>
-                    //                        {0}
-                    //                    </h5>
-                    //                </div>
-                    //                <section id='newdetailnew' >
-                    //                    <div class='row'>
-                    //                        <div id='newsdtailsim' class='carousel slide col-md-9 col-sm-12' data-ride='carousel'>
-                    //                            <ol class='carousel-indicators'>
-                    //                                <li data-target='#newsdtailsim' data-slide-to='0' class='active'></li>
-                                                
-                    //                            </ol>
-                    //                            <div class='carousel-inner'>
-                    //                                <div class='carousel-item active'>
-                    //                                    <div class='row'>
-                    //                                        <div class='col-sm-12 '>
-                    //                                            <img src='{2}' class='img-fluid  d-block ' alt=''>
-                    //                                        </div>
-                    //                                    </div>
-                    //                                </div>
-                    //                            </div>
-                    //                            <a class='carousel-control-prev' href='#newsdtailsim' role='button' data-slide='prev'>
-                    //                                <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                    //                                <span class='sr-only'>Previous</span>
-                    //                            </a>
-                    //                            <a class='carousel-control-next' href='#newsdtailsim' role='button' data-slide='next'>
-                    //                                <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                    //                                <span class='sr-only'>Next</span>
-                    //                            </a>
-                    //                        </div>
-                    //                    </div>
-                    //                </section>
-                    //            </div>
-                    //            <div id='posts' class='small-thumbs alt'>
-                    //                <div class='newsdetailsi'>
-                    //                    {1}
-                    //                </div>
-                    //                <div class='reladinfobox'>
-                    //                    <div class='relatednewsico'>
-                    //                        <h2>الأخبار متعلقة</h2>
-                    //                    </div>
-                    //                    <div id='oc-events'
-                    //                         class='owl-carousel events-carousel carousel-widget'
-                    //                         data-margin='20' data-nav='true' data-pagi='false'
-                    //                         data-items-md='1' data-items-lg='2' data-items-xl='2'>
-                    //                        <div class='oc-item'>
-                    //                            <div class='ievent clearfix newdscroll'>
-                    //                                <div class='entry-image'>
-                    //                                    <a href='#' >
-                    //                                        <img src='images/news/01.jpg' alt='دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة'>
-                    //                                    </a>
-                    //                                </div>
-                    //                                <div class='entry-c'>
-                    //                                    <div class='entry-title'>
-                    //                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
-                    //                                        <h2><a href='#' > دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة</a></h2>
-                    //                                    </div>
-                    //                                </div>
-                    //                            </div>
-                    //                        </div>
-                    //                        <div class='oc-item'>
-                    //                            <div class='ievent clearfix newdscroll'>
-                    //                                <div class='entry-image'>
-                    //                                    <a href='#' >
-                    //                                        <img src='images/news/04.jpg' alt='سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني'>
-                    //                                    </a>
-                    //                                </div>
-                    //                                <div class='entry-c'>
-                    //                                    <div class='entry-title'>
-                    //                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
-                    //                                        <h2>
-                    //                                            <a href='#' >
-                    //                                                سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني
-                    //                                            </a>
-                    //                                        </h2>
-                    //                                    </div>
-                    //                                </div>
-                    //                            </div>
-                    //                        </div>
-                    //                        <div class='oc-item'>
-                    //                            <div class='ievent clearfix newdscroll'>
-                    //                                <div class='entry-image'>
-                    //                                    <a href='#' >
-                    //                                        <img src='images/news/03.jpg' alt='دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة'>
-                    //                                    </a>
-                    //                                </div>
-                    //                                <div class='entry-c'>
-                    //                                    <div class='entry-title'>
-                    //                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
-                    //                                        <h2><a href='#' > دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة</a></h2>
-                    //                                    </div>
-                    //                                </div>
-                    //                            </div>
-                    //                        </div>
-                    //                        <div class='oc-item'>
-                    //                            <div class='ievent clearfix newdscroll'>
-                    //                                <div class='entry-image'>
-                    //                                    <a href='#' >
-                    //                                        <img src='images/news/02.jpg' alt='سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني'>
-                    //                                    </a>
-                    //                                </div>
-                    //                                <div class='entry-c'>
-                    //                                    <div class='entry-title'>
-                    //                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
-                    //                                        <h2>
-                    //                                            <a href='#' >
-                    //                                                سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني
-                    //                                            </a>
-                    //                                        </h2>
-                    //                                    </div>
-                    //                                </div>
-                    //                            </div>
-                    //                        </div>
-                    //                    </div>
-                    //                </div>
-                    //            </div>
-                    //        </div>
-                    //    </div>"
+                            lblDetails.Text +=
+                                string.Format(@"
+                                <div class='newdetailnewdiv'>
+                                    <div class='newitemtitlediv'>
+                                        <span class='datenewitem'>{4}, {3}
+                                        </span>
+                                        <h5>{0}
+                                        </h5>
+                                    </div>
 
-                    //, NewsItem.Title, NewsItem.Body, setImg(NewsItem.Picture, "news"), Convert.ToDateTime(NewsItem.Date).ToString("dd-MMM-yyyy"));
+                                    <section id='newdetailnew'>
+                                        <div class='row'>
+                                            <div id='newsdtailsim' class='carousel slide col-md-9 col-sm-12' data-ride='carousel'>
+                                                <div class='carousel-inner'>
+                                                    <div class='carousel-item active'>
+                                                        <div class='row'>
+                                                            <div class='col-sm-12 '>
+                                                                <img src='{2}' class='img-fluid  d-block ' alt='' width='100%'>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div id='posts' class='small-thumbs alt'>
+                                    <div class='newsdetailsi'>
+                                    {1}
+                                    </div>
 
+                                <div class='reladinfobox'>
+                                    <div class='relatednewsico'>
+                                        <h2>الأخبار متعلقة</h2>
+                                    </div>
+                                    <div id='oc-events'
+                                         class='owl-carousel events-carousel carousel-widget'
+                                         data-margin='20' data-nav='true' data-pagi='false'
+                                         data-items-md='1' data-items-lg='2' data-items-xl='2'>
+                                        <div class='oc-item'>
+                                            <div class='ievent clearfix newdscroll'>
+                                                <div class='entry-image'>
+                                                    <a href='#'>
+                                                        <img src='images/news/01.jpg' alt='دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة'>
+                                                    </a>
+                                                </div>
+                                                <div class='entry-c'>
+                                                    <div class='entry-title'>
+                                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
+                                                        <h2><a href='#'> دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة</a></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='oc-item'>
+                                            <div class='ievent clearfix newdscroll'>
+                                                <div class='entry-image'>
+                                                    <a href='#' >
+                                                        <img src='images/news/04.jpg' alt='سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني'>
+                                                    </a>
+                                                </div>
+                                                <div class='entry-c'>
+                                                    <div class='entry-title'>
+                                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
+                                                        <h2>
+                                                            <a href='#'>
+                                                                سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني
+                                                            </a>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='oc-item'>
+                                            <div class='ievent clearfix newdscroll'>
+                                                <div class='entry-image'>
+                                                    <a href='#'>
+                                                        <img src='images/news/03.jpg' alt='دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة'>
+                                                    </a>
+                                                </div>
+                                                <div class='entry-c'>
+                                                    <div class='entry-title'>
+                                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
+                                                        <h2><a href='#'> دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة</a></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='oc-item'>
+                                            <div class='ievent clearfix newdscroll'>
+                                                <div class='entry-image'>
+                                                    <a href='#'>
+                                                        <img src='images/news/02.jpg' alt='سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني'>
+                                                    </a>
+                                                </div>
+                                                <div class='entry-c'>
+                                                    <div class='entry-title'>
+                                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
+                                                        <h2>
+                                                            <a href='#'>
+                                                                سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني
+                                                            </a>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                            lblDetails.Text += string.Format(@"
-                                                <li>
-                                                    <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                                                        <span >{3}</span>
-                                                        <p style='text-align: justify; font-weight:normal'>
-                                                            </br>{2}{1} 
-                                                        </p>  
-                                                </li>", NewsItem.Title, NewsItem.Body,
-                                                setImg(NewsItem.Picture, "news"), 
-                                                Convert.ToDateTime(NewsItem.Date).ToString("dd-MMM-yyyy"));
+                                </div>", NewsItem.Title, NewsItem.Body,NewsItem.Picture,Convert.ToDateTime(NewsItem.Date).ToString("dd MMM yyyy"), Convert.ToDateTime(NewsItem.Date).ToString("dddd"));
+
+                            //lblDetails.Text += string.Format(@"
+                            //                    <li>
+                            //                        <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
+                            //                            <span >{3}</span>
+                            //                            <p style='text-align: justify; font-weight:normal'>
+                            //                                </br>{2}{1} 
+                            //                            </p>  
+                            //                    </li>", NewsItem.Title, NewsItem.Body,
+                            //                    setImg(NewsItem.Picture, "news"), 
+                            //                    Convert.ToDateTime(NewsItem.Date).ToString("dd-MMM-yyyy"));
                             break;
                         }
                     case "occasion":
@@ -279,7 +253,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                         //    }
                 }
 
-                lblDetails.Text += "</ul>";
+                //lblDetails.Text += "</ul>";
+                lblDetails.Text += "";
             }
             catch (Exception ex)
             {
