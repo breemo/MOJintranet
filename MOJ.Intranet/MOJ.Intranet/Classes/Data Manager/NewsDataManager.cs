@@ -193,7 +193,6 @@ namespace MOJ.DataManager
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
-                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
                         using (SPWeb oWeb = oSite.RootWeb)
                         {
                             if (oWeb != null)
@@ -232,7 +231,6 @@ namespace MOJ.DataManager
                         }
                     }
                 });
-
             }
             catch (Exception ex)
             {
@@ -240,6 +238,67 @@ namespace MOJ.DataManager
             }
             return newsLst;
         }
+        public List<NewsEntity> SrchNews(string year, string Smonth, string Emonth, string Sday, string Eday)
+        {
+            List<NewsEntity> newsLst = new List<NewsEntity>();
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.NewsListUrl);
+                                if (lstNews != null)
+                                {
+                                    SPQuery oQuery = new SPQuery();
+
+                                    oQuery.Query = @"<Where>
+                                                      <And>
+                                                         <Geq>
+                                                            <FieldRef Name='Created' />
+                                                            <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Smonth + "-"+ Sday + @"-T12:00:00Z</Value>
+                                                         </Geq>
+                                                         <Leq>
+                                                            <FieldRef Name='Created' />
+                                                            <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Emonth + "-" + Eday + @"-T12:00:00Z</Value>
+                                                         </Leq>
+                                                      </And>
+                                                   </Where>";
+                                    
+                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
+
+                                    SPListItemCollection lstItems = lstNews.GetItems(oQuery);
+                                    foreach (SPListItem lstItem in lstItems)
+                                    {
+                                        NewsEntity news = new NewsEntity();
+                                        news.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
+                                        news.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
+                                        news.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
+                                        news.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        news.Body = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
+
+                                        string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
+                                        news.Picture = FileUrl;
+
+                                        newsLst.Add(news);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return newsLst;
+        }
+
         # endregion
     }
 }

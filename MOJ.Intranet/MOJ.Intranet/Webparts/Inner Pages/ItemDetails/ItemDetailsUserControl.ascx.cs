@@ -1,6 +1,10 @@
-﻿using MOJ.Business;
+﻿using CommonLibrary;
+using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
+using MOJ.Business;
 using MOJ.Entities;
 using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -15,6 +19,59 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                 FillDetails();
         }
 
+        public string FillRelatedNews(string title)
+        {
+            List<NewsEntity> NewsItem = new News().GetNews(title);
+            string relatedNews = "";
+
+            if (NewsItem.Count > 0)
+            {
+                relatedNews +=
+               string.Format(@"
+                <div class='reladinfobox'>
+		            <div class='relatednewsico'>
+			            <h2>{0}</h2>
+		            </div>
+		            <div id='oc-events'
+			             class='owl-carousel events-carousel carousel-widget'
+			             data-margin='20' data-nav='true' data-pagi='false'
+			             data-items-md='1' data-items-lg='2' data-items-xl='2'>
+                        ", SPUtility.GetLocalizedString("$Resources: HeadRelatedNews", "Resource", SPContext.Current.Web.Language));
+
+                foreach (NewsEntity lstItem in NewsItem)
+                {
+                    string des = LimitCharacters.Limit(lstItem.Body, 40);
+                    string siteURL = SPContext.Current.RootFolderUrl;
+
+                    relatedNews +=
+                    string.Format(@"
+			                    <div class='oc-item'>
+				                    <div class='ievent clearfix newdscroll'>
+					                    <div class='entry-image'>
+						                    <a href='#'>
+							                    <img src='{0}' alt='{1}'>
+						                    </a>
+					                    </div>
+
+					                    <div class='entry-c'>
+						                    <div class='entry-title'>
+							                    <span class='endate'>{3}, {2}</span>
+							                    <h2><a href='{5}/Details.aspx?id={4}&type=news'>{1}</a></h2>
+						                    </div>
+					                    </div>
+				                    </div>
+			                    </div>
+                 ", lstItem.Picture,
+                     LimitCharacters.Limit(lstItem.Title, 40),
+                     Convert.ToDateTime(lstItem.Date).ToString("dd MMM yyyy"),
+                     Convert.ToDateTime(lstItem.Date).ToString("dddd"),
+                     lstItem.ID, siteURL);
+                }
+                relatedNews += "</div></div>";
+            }
+
+            return relatedNews;
+        }
         public void FillDetails()
         {
             string ID = Request.QueryString["Id"].ToString();
@@ -22,13 +79,13 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
 
             try
             {
-                //lblDetails.Text = "<ul class='list_item2'>";
                 lblDetails.Text = "";
 
                 switch (Type.ToLower())
                 {
                     case "circular":
                         {
+                            lblHead.Text = SPUtility.GetLocalizedString("$Resources: HeadCirculars", "Resource", SPContext.Current.Web.Language);
                             MemosEntity memoItem = new Memos().GetMemos(Convert.ToInt32(ID));
 
                             lblDetails.Text +=
@@ -43,6 +100,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                         }
                     case "news":
                         {
+                            lblHead.Text = SPUtility.GetLocalizedString("$Resources: HeadNews", "Resource", SPContext.Current.Web.Language);
                             NewsEntity NewsItem = new News().GetNews(Convert.ToInt32(ID));
 
                             lblDetails.Text +=
@@ -75,102 +133,20 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                                     <div class='newsdetailsi'>
                                     {1}
                                     </div>
+                                    {5}
+                                </div>", 
+                                NewsItem.Title, 
+                                NewsItem.Body, 
+                                NewsItem.Picture, 
+                                Convert.ToDateTime(NewsItem.Date).ToString("dd MMM yyyy"), 
+                                Convert.ToDateTime(NewsItem.Date).ToString("dddd"),
+                                FillRelatedNews(NewsItem.Title));
 
-                                <div class='reladinfobox'>
-                                    <div class='relatednewsico'>
-                                        <h2>الأخبار متعلقة</h2>
-                                    </div>
-                                    <div id='oc-events'
-                                         class='owl-carousel events-carousel carousel-widget'
-                                         data-margin='20' data-nav='true' data-pagi='false'
-                                         data-items-md='1' data-items-lg='2' data-items-xl='2'>
-                                        <div class='oc-item'>
-                                            <div class='ievent clearfix newdscroll'>
-                                                <div class='entry-image'>
-                                                    <a href='#'>
-                                                        <img src='http://moj-dev:2019/Style%20Library/MOJTheme/images/news/02.jpg' alt='دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة'>
-                                                    </a>
-                                                </div>
-                                                <div class='entry-c'>
-                                                    <div class='entry-title'>
-                                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
-                                                        <h2><a href='#'> دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة</a></h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='oc-item'>
-                                            <div class='ievent clearfix newdscroll'>
-                                                <div class='entry-image'>
-                                                    <a href='#' >
-                                                        <img src='http://moj-dev:2019/Lists/News/Attachments/3/img03.png' alt='سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني'>
-                                                    </a>
-                                                </div>
-                                                <div class='entry-c'>
-                                                    <div class='entry-title'>
-                                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
-                                                        <h2>
-                                                            <a href='#'>
-                                                                سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني
-                                                            </a>
-                                                        </h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='oc-item'>
-                                            <div class='ievent clearfix newdscroll'>
-                                                <div class='entry-image'>
-                                                    <a href='#'>
-                                                        <img src='http://moj-dev:2019/Lists/News/Attachments/1/img01.png' alt='دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة'>
-                                                    </a>
-                                                </div>
-                                                <div class='entry-c'>
-                                                    <div class='entry-title'>
-                                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
-                                                        <h2><a href='#'> دعوة وزير العدل لحضور توقيع المعاهدة الدولية لاتفاقات التسوية للوساطة بسنغافورة</a></h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class='oc-item'>
-                                            <div class='ievent clearfix newdscroll'>
-                                                <div class='entry-image'>
-                                                    <a href='#'>
-                                                        <img src='http://moj-dev:2019/MOJGallery/_t/4_jpg.jpg' alt='سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني'>
-                                                    </a>
-                                                </div>
-                                                <div class='entry-c'>
-                                                    <div class='entry-title'>
-                                                        <span class='endate'>الثلاثاء, 26 مارس 2019</span>
-                                                        <h2>
-                                                            <a href='#'>
-                                                                سلطان البادي يتقدم المشاركين بمسيرة وزارة العدل في اليوم الرياضي الوطني
-                                                            </a>
-                                                        </h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                </div>", NewsItem.Title, NewsItem.Body, NewsItem.Picture, Convert.ToDateTime(NewsItem.Date).ToString("dd MMM yyyy"), Convert.ToDateTime(NewsItem.Date).ToString("dddd"));
-
-                            //lblDetails.Text += string.Format(@"
-                            //                    <li>
-                            //                        <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                            //                            <span >{3}</span>
-                            //                            <p style='text-align: justify; font-weight:normal'>
-                            //                                </br>{2}{1} 
-                            //                            </p>  
-                            //                    </li>", NewsItem.Title, NewsItem.Body,
-                            //                    setImg(NewsItem.Picture, "news"), 
-                            //                    Convert.ToDateTime(NewsItem.Date).ToString("dd-MMM-yyyy"));
                             break;
                         }
                     case "occasion":
                         {
+                            lblHead.Text = SPUtility.GetLocalizedString("$Resources: HeadEvents", "Resource", SPContext.Current.Web.Language);
                             OccasionsEntity occasionItem = new Occasions().GetOccasionById(Convert.ToInt32(ID));
 
                             lblDetails.Text +=
@@ -183,78 +159,9 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                                                 </li>", occasionItem.Title, occasionItem.Description, Convert.ToDateTime(occasionItem.Created).ToString("dd-MMM-yyyy"));
                             break;
                         }
-                        //case "announcement":
-                        //    {
-                        //        AnnouncementEntity AnnouncementItem = new Announcements().GetAnnounces(Convert.ToInt32(ID));
-
-                        //        string imgUrl = "";
-                        //        //try
-                        //        //{
-                        //        //    imgUrl = webMain.Url + "/" + Convert.ToString(GetGlobalResourceObject("SZM", "CurrentSimbol")) + "/" + item.ParentList.RootFolder.SubFolders["Attachments"].SubFolders[item.ID.ToString()].Files[0].Url;
-                        //        //}
-                        //        //catch { imgUrl = ""; }
-
-                        //        //Date
-                        //        lblDetails.Text +=
-                        //            string.Format(@"<li>
-                        //                                        <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                        //                                            <span >{3}</span>
-                        //                                            <p style='text-align: justify; font-weight:normal'>
-                        //                                              </br>{2}{1} 
-                        //                                            </p>  
-                        //                                    </li>", AnnouncementItem.Title, AnnouncementItem.Body, setImg(imgUrl, "announcement"), Convert.ToDateTime(AnnouncementItem.Date).ToString("dd-MMM-yyyy"));
-                        //        break;
-                        //    }
-                        //case "calendar":
-                        //    {
-                        //        EventsEntity EventItem = new EventsCalendar().GetEvents(Convert.ToInt32(ID));
-
-                        //        //Date
-                        //        lblDetails.Text +=
-                        //            string.Format(@"<li>
-                        //                                        <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                        //                                            <span >{2}</span>
-                        //                                            <p style='text-align: justify; font-weight:normal'>
-                        //                                              </br>{1} 
-                        //                                            </p>  
-                        //                                    </li>", EventItem.Title, EventItem.Description, Convert.ToDateTime(EventItem.EventDate).ToString("dd-MMM-yyyy"));
-                        //        break;
-                        //    }
-                        //case "p-calendar":
-                        //    {
-                        //        MyCalendarEntity EventItem = new MyCalendar().GetEvents(Convert.ToInt32(ID));
-
-                        //        //Date
-                        //        lblDetails.Text +=
-                        //            string.Format(@"<li>
-                        //                                        <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                        //                                            <span >{2}</span>
-                        //                                            <p style='text-align: justify; font-weight:normal'>
-                        //                                              </br>{1} 
-                        //                                            </p>  
-                        //                                    </li>", EventItem.Title, EventItem.Description, Convert.ToDateTime(EventItem.EventDate).ToString("dd-MMM-yyyy"));
-                        //        break;
-                        //    }
-
-                        //case "press":
-                        //    {
-                        //        PressReleaseEntity PressReleaseItem = new PressRelease().GetPressRelease(Convert.ToInt32(ID));
-
-                        //        //Date
-                        //        lblDetails.Text +=
-                        //            string.Format(@"<li>
-                        //                                        <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                        //                                            <span >{2}</span>
-                        //                                            <p style='text-align: justify; font-weight:normal'>
-                        //                                              </br>{1} 
-                        //                                            </p>  
-                        //                                    </li>", PressReleaseItem.PressReleaseTitle, PressReleaseItem.PressReleaseSummary, Convert.ToDateTime(PressReleaseItem.PressReleaseDate).ToString("dd-MMM-yyyy"));
-                        //        break;
-                        //    }
                 }
 
-                //lblDetails.Text += "</ul>";
-                lblDetails.Text += "";
+                //lblDetails.Text += "";
             }
             catch (Exception ex)
             {

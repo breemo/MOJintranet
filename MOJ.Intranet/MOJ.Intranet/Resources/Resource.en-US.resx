@@ -219,4 +219,25 @@
   <data name="MinistryFilesBookTitle" xml:space="preserve">
     <value>Book Title En</value>
   </data>
+  <data name="HeadPopularNews" xml:space="preserve">
+    <value>Popular News</value>
+  </data>
+  <data name="HeadRelatedNews" xml:space="preserve">
+    <value>Related News</value>
+  </data>
+  <data name="HeadSrchNews" xml:space="preserve">
+    <value>بحث الاخبار</value>
+  </data>
+  <data name="month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>Year</value>
+  </data>
 </root>

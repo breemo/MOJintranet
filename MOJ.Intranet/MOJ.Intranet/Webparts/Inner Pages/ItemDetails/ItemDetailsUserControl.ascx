@@ -26,7 +26,8 @@
 </style>
 
 <div class="topbarprint">
-    <h4>الاخبار
+    <h4>
+        <asp:Literal ID="lblHead" runat="server" Text="" />
     </h4>
     <a href="" id="printpagebutton" onclick="printpage()">
         <span class="icon-line2-printer"></span>

@@ -224,6 +224,14 @@
     <Compile Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPartUserControl.ascx.designer.cs">
       <DependentUpon>MinistryFilesWebPartUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Inner Pages\NewsList\NewsList.cs" />
+    <Compile Include="Webparts\Inner Pages\NewsList\NewsListUserControl.ascx.cs">
+      <DependentUpon>NewsListUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\NewsList\NewsListUserControl.ascx.designer.cs">
+      <DependentUpon>NewsListUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWP.cs" />
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -317,6 +325,10 @@
     <None Include="Webparts\Inner Pages\MinistryFilesWebPart\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{45638b55-25c3-4388-b6bb-f5f9e88fa874}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Inner Pages\NewsList\NewsList.webpart" />
+    <None Include="Webparts\Inner Pages\NewsList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3f3322cb-8daf-44dc-9bad-20e34e808631}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\LiveEventsWP\LiveEventsWP.webpart" />
     <None Include="Webparts\LiveEventsWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a023d941-1aae-42b2-b266-211a22b2b513}</SharePointProjectItemId>
@@ -366,6 +378,8 @@
     <Content Include="Webparts\Inner Pages\ItemDetails\ItemDetailsUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\MinistryFilesWebPart\Elements.xml" />
     <Content Include="Webparts\Inner Pages\MinistryFilesWebPart\MinistryFilesWebPartUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\NewsList\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\NewsList\NewsListUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
   </ItemGroup>

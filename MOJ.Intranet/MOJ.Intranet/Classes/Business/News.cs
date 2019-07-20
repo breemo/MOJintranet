@@ -25,5 +25,9 @@ namespace MOJ.Business
         {
             return new NewsDataManager().SrchNews(srch);
         }
+        public List<NewsEntity> GetSrchNews(string year, string Smonth, string Emonth, string Sday, string Eday)
+        {
+            return new NewsDataManager().SrchNews(year, Smonth,Emonth,Sday,Eday);
+        }
     }
 }
