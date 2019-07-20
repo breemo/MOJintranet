@@ -67,60 +67,99 @@
 
                         </div>--%>
 
-                        <asp:Repeater ID="grdBookslsts" runat="server"> 
+                        <asp:Repeater ID="grdBookslsts" runat="server">
                             <HeaderTemplate>
-                             </HeaderTemplate>
+                            </HeaderTemplate>
                             <ItemTemplate>
 
-                            
-                                        <div class="col-md-4 col-sm-6">
 
-                                            <div class="boxsearchbook">
+                                <div class="col-md-4 col-sm-6">
 
-                                                <div class="imgboxbook">
-                                                    <img src='<%# Eval("BookImage") %>' />
-                                                </div>
-                                                <div class="titlebook">
-                                                    <h4>
-                                                        <%# Eval("BookTitle") %>
-                                                    </h4>
-                                                    <span class="desco">
-                                                        <%# Eval("BookDescAr") %>
-                                                    </span>
-                                                </div>
+                                    <div class="boxsearchbook">
 
-                                                <div class="uploadediv">
-                                                    <p>
-                                                        تم الرفع بواسطة
+                                        <div class="imgboxbook">
+                                            <img src='<%# Eval("BookImage") %>' />
+                                        </div>
+                                        <div class="titlebook">
+                                            <h4>
+                                                <%# Eval("BookTitle") %>
+                                            </h4>
+                                            <span class="desco">
+                                                <%# Eval("BookDescAr") %>
+                                            </span>
+                                        </div>
+
+                                        <div class="uploadediv">
+                                            <p>
+                                                تم الرفع بواسطة
                                                         <span><%# Eval("CreatedBy") %></span>
 
-                                                    </p>
+                                            </p>
 
-
-                                                </div>
-                                                <div class="dowmloadbook">
-                                                    <div class="row d-flex justify-content-center mt-3">
-
-
-                                                        
-                                                            <a runat="server" id="link" href='<%# Eval("AttachmentsInfo") %>'>
-                                                            
-                                                            <input type="button" class="btnclass radix" value="تحميل">
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-
-
-                                            </div>
 
                                         </div>
-                                    </ItemTemplate>
-                               </asp:Repeater>
+                                        <div class="dowmloadbook">
+                                            <div class="row d-flex justify-content-center mt-3">
+
+
+
+                                                <a runat="server" id="link" href='<%# Eval("AttachmentsInfo") %>'>
+
+                                                    <input type="button" class="btnclass radix" value="تحميل">
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
 
                     </div>
 
                 </div>
+                <div class="pagi">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link pageright" href="#">
+                                <i class="icon-angle-right"></i>
+                            </a>
+                        </li>
+
+                      
+
+                            <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+                                <ItemTemplate>
+
+                                    <li class="page-item">
+
+                                        <asp:LinkButton ID="btnPage"
+                                             CssClass="page-link"
+                                            CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                                            runat="server" ForeColor="White" Font-Bold="True">
+                                         <%# Container.DataItem %> </asp:LinkButton>
+
+                                    </li>
+
+
+
+
+
+                                </ItemTemplate>
+                            </asp:Repeater>
+
+                    
+                        <li class="page-item">
+                            <a class="page-link pageleft" href="#">
+                                <i class="icon-angle-left"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
             <!-- #posts end -->
 
