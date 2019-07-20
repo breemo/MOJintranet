@@ -213,4 +213,10 @@
   <data name="HeadLiveLastMonth" xml:space="preserve">
     <value>البث المباشر السابق هذا الشهر</value>
   </data>
+  <data name="MinistryFilesBookDesc" xml:space="preserve">
+    <value>Book Desc Ar</value>
+  </data>
+  <data name="MinistryFilesBookTitle" xml:space="preserve">
+    <value>Book Title</value>
+  </data>
 </root>

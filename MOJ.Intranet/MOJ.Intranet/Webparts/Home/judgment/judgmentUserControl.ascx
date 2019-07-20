@@ -20,31 +20,31 @@
             <div class="slider-content">
                 <div class="slider-single active">
 
-                    <img class="slider-single-image" src="/Style%20Library/MOJ-Theme-Ar/images/PIC1.png" alt="1">
+                    <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC1.png" alt="1">
                     <h1 class="slider-single-title">Adel Judg</h1>
 
                 </div>
                 <div class="slider-single proactive">
-                    <img class="slider-single-image" src="/Style%20Library/MOJ-Theme-Ar/images/PIC2.png" alt="2">
+                    <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC2.png" alt="2">
                     <a class="slider-single-download" href="javascript:void(0);">Download <i class="fa fa-download"></i></a>
                     <h1 class="slider-single-title">Ibrahim Judg</h1>
 
                 </div>
                 <div class="slider-single proactivede">
-                    <img class="slider-single-image" src="/Style%20Library/MOJ-Theme-Ar/images/PIC3.png" alt="3">
+                    <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC3.png" alt="3">
                     <h1 class="slider-single-title">Ibrahim Judg</h1>
 
 
                 </div>
 
                 <div class="slider-single proactivede">
-                    <img class="slider-single-image" src="/Style%20Library/MOJ-Theme-Ar/images/PIC1.png" alt="4">
+                    <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC1.png" alt="4">
                     <h1 class="slider-single-title">Ibrahim Judg</h1>
 
                 </div>
 
                 <div class="slider-single preactive">
-                    <img class="slider-single-image" src="/Style%20Library/MOJ-Theme-Ar/images/PIC2.png" alt="5">
+                    <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC2.png" alt="5">
                     <h1 class="slider-single-title">Ibrahim Judg</h1>
 
                 </div>
