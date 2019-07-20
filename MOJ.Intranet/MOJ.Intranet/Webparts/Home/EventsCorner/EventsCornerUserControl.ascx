@@ -9,7 +9,7 @@
 
 <div class="headlineflex">
     <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEvents%>" /></h4>
-    <a href="Occasions.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, MoreEvents%>" /></a>
+    <a href="<%= SPContext.Current.RootFolderUrl %>/Occasions.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, MoreEvents%>" /></a>
 </div>
 
 <div class="blockbox evediv">

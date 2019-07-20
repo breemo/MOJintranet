@@ -231,11 +231,50 @@
   <data name="month" xml:space="preserve">
     <value>الشهر</value>
   </data>
+  <data name="Month1" xml:space="preserve">
+    <value>يناير</value>
+  </data>
+  <data name="Month10" xml:space="preserve">
+    <value>أكتوبر</value>
+  </data>
+  <data name="Month11" xml:space="preserve">
+    <value>نوفمبر</value>
+  </data>
+  <data name="Month12" xml:space="preserve">
+    <value>ديسمبر</value>
+  </data>
+  <data name="Month2" xml:space="preserve">
+    <value>فبراير</value>
+  </data>
+  <data name="Month3" xml:space="preserve">
+    <value>مارس</value>
+  </data>
+  <data name="Month4" xml:space="preserve">
+    <value>ابريل</value>
+  </data>
+  <data name="Month5" xml:space="preserve">
+    <value>مايو</value>
+  </data>
+  <data name="Month6" xml:space="preserve">
+    <value>يونيو</value>
+  </data>
+  <data name="Month7" xml:space="preserve">
+    <value>يوليو</value>
+  </data>
+  <data name="Month8" xml:space="preserve">
+    <value>أغسطس</value>
+  </data>
+  <data name="Month9" xml:space="preserve">
+    <value>سبتمبر</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>التالي</value>
   </data>
   <data name="Previous" xml:space="preserve">
     <value>السابق</value>
+  </data>
+  <data name="select" xml:space="preserve">
+    <value>الرجاء الإختيار...</value>
   </data>
   <data name="year" xml:space="preserve">
     <value>السنة</value>

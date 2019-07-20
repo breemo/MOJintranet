@@ -42,6 +42,7 @@ namespace MOJ.DataManager
                                         liveVideo.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
                                         //liveVideo.VideoThumbnailURL = Convert.ToString(lstItem["Thumbnail URL"]);
                                         liveVideo.VideoThumbnailURL = Convert.ToString(lstItem["AlternateThumbnailUrl"]);
+                                        //liveVideo.VideoThumbnailURL = Convert.ToString(lstItem["ThumbnailOnForm"]);
 
                                         liveVideo.VideoURL = Convert.ToString(lstItem["EncodedAbsUrl"]);
 

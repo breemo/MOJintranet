@@ -13,7 +13,8 @@
 <script src="/Style%20Library/MOJTheme/js/jquery.js"></script>
 
 <h3>
-    <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadLiveEvents%>" /></h3>
+    <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadLiveEvents%>" />
+</h3>
 <div class="insidebox insidebox2">
     <asp:Literal runat="server" ID="lblLiveEvents" />
 </div>

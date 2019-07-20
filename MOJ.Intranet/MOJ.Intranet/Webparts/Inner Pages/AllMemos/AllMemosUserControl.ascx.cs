@@ -43,7 +43,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
         protected void grdMemosLst_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdMemosLst.PageIndex = e.NewPageIndex;
-            if (!string.IsNullOrEmpty(txtSrch.Value))
+            if (string.IsNullOrEmpty(txtSrch.Value))
                 BindData();
             else
                 FillData(txtSrch.Value,txtNumber.Value);

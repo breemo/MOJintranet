@@ -7,7 +7,65 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AllMemosUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.AllMemos.AllMemosUserControl" %>
 
+<style>
+    .gridview {
+        background-color: #fff;
+        padding: 2px;
+        margin: 2% auto;
+    }
+    /*.gridview a {
+        margin: auto 1%;
+        border-radius: 50%;
+        background-color: #ae8b51 !important;
+        padding: 5px 10px 5px 10px;
+        color: #fff;
+        text-decoration: none;
+        -o-box-shadow: 1px 1px 1px #111;
+        -moz-box-shadow: 1px 1px 1px #111;
+        -webkit-box-shadow: 1px 1px 1px #111;
+        box-shadow: 1px 1px 1px #111;
+    }*/
 
+    .pagi .pagination a.pageright, .pagi .pagination a.pageleft {
+        color: #fff !important;
+        border: 2px solid #bd995d;
+        border-radius: 8px;
+        font-size: 22px;
+    }
+
+
+    .gridview a, .gridview a:focus, .gridview a:hover {
+        color: #fff !important;
+        background-color: #ae8b51 !important;
+        border-color: #ae8b51 !important;
+    }
+
+    .gridview a, .gridview.span {
+        margin: 2px;
+        border: 0px;
+        color: #9b9a9a;
+        border-radius: 7px;
+        border: 2px solid #fff;
+        font-size: 13px;
+        height: 28px;
+    }
+
+
+    .gridview a:hover {
+            background-color: #1e8d12;
+            color: #fff;
+        }
+    .gridview span {
+        background-color: #ae2676;
+        color: #fff;
+        -o-box-shadow: 1px 1px 1px #111;
+        -moz-box-shadow: 1px 1px 1px #111;
+        -webkit-box-shadow: 1px 1px 1px #111;
+        box-shadow: 1px 1px 1px #111;
+        border-radius: 50%;
+        padding: 5px 10px 5px 10px;
+    }
+</style>
 
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCirculars%>" />
@@ -21,14 +79,14 @@
                     <label class="lbel"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCircularTitle%>" /></label>
                 </div>
                 <div class="col-md-5">
-                    <input runat="server" type="text" ID="txtSrch" class="form-control" placeholder="نص قرار" />
+                    <input runat="server" type="text" ID="txtSrch" class="form-control"/>
                 </div>
                 <div class="col-md-1">
                     <label class="lbel"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCircularNumber%>" /></label>
 
                 </div>
                 <div class="col-md-5">
-                    <input runat="server" type="text" ID="txtNumber" class="form-control" placeholder="1001" />
+                    <input runat="server" type="text" ID="txtNumber" class="form-control"/>
                 </div>
             </div>
         </div>
@@ -53,7 +111,7 @@
     <%--<PagerStyle CssClass="Gridpagination" HorizontalAlign="Left" />--%>
     <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
         Mode="NumericFirstLast" PageButtonCount="5" />
-    <PagerStyle HorizontalAlign="Center" CssClass="Gridpagination" />
+    <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
     <EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />
     <Columns>
         <asp:TemplateField>

@@ -31,22 +31,22 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList {
         protected global::System.Web.UI.WebControls.Literal lblPopularNewsCarouselInner;
         
         /// <summary>
-        /// slctYear control.
+        /// ddlYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect slctYear;
+        protected global::System.Web.UI.WebControls.DropDownList ddlYear;
         
         /// <summary>
-        /// slctMonth control.
+        /// ddlMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect slctMonth;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMonth;
         
         /// <summary>
         /// btnSrch control.
@@ -58,12 +58,12 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList {
         protected global::System.Web.UI.WebControls.Button btnSrch;
         
         /// <summary>
-        /// lblSrchResult control.
+        /// grdNewsLst control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblSrchResult;
+        protected global::System.Web.UI.WebControls.GridView grdNewsLst;
     }
 }

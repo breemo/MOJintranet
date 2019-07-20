@@ -18,6 +18,11 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
             {
                 FillRelatedNewsCarousel();
                 FillRelatedNewsCarouselInner();
+
+                for(int startYear = 2019 ; startYear>=2015; startYear--)
+                {
+                    ddlYear.Items.Add(new ListItem(startYear.ToString(), startYear.ToString()));
+                }
             }
         }
 
@@ -48,6 +53,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
         public void FillRelatedNewsCarouselInner()
         {
             List<NewsEntity> NewsItem = new News().GetLast4News();
+            string siteURL = SPContext.Current.RootFolderUrl;
             string relatedNews = "";
 
             relatedNews = "<div class='carousel-inner'>";
@@ -92,11 +98,11 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
 
         protected void btnSrch_Click(object sender, EventArgs e)
         {
-            int year = int.Parse(slctYear.Value);
+            int year = int.Parse(ddlYear.SelectedValue);
 
-            if (!string.IsNullOrEmpty(slctMonth.Value))
+            if (ddlMonth.SelectedValue !="0")
             {
-                int month = int.Parse(slctMonth.Value);
+                int month = int.Parse(ddlMonth.SelectedValue);
                 int daysInMonth = DateTime.DaysInMonth(year, month);
 
                 FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
@@ -111,8 +117,29 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
         {
             List<NewsEntity> NewsLst = new News().GetSrchNews(srchYear, sMonth,eMonth,sDay,eDay);
 
-            //grdMemosLst.DataSource = NewsLst;
-            //grdMemosLst.DataBind();
+            grdNewsLst.DataSource = NewsLst;
+            grdNewsLst.DataBind();
         }
+
+        protected void grdNewsLst_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdNewsLst.PageIndex = e.NewPageIndex;
+            int year = int.Parse(ddlYear.SelectedValue);
+
+            if (ddlMonth.SelectedValue != "0")
+            {
+                int month = int.Parse(ddlMonth.SelectedValue);
+                int daysInMonth = DateTime.DaysInMonth(year, month);
+
+                FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
+            }
+            else
+            {
+                FillData(year.ToString(), "1", "12", "1", "31");
+            }
+        }
+
+        protected void grdNewsLst_RowDataBound(object sender, GridViewRowEventArgs e) { }
+
     }
 }

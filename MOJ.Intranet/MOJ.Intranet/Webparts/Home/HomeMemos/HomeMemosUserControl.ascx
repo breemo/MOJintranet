@@ -10,7 +10,7 @@
 <div class="Desciosion">
     <div class="headlineflex">
         <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCirculars%>" /></h4>
-        <a href="DecsionCircular.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
+        <a href="<%= SPContext.Current.RootFolderUrl %>/DecsionCircular.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
     </div>
     <div class="boxsec">
         <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
