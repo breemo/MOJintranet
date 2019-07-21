@@ -44,7 +44,7 @@ namespace MOJ.DataManager
                                         liveVideo.VideoThumbnailURL = Convert.ToString(lstItem["AlternateThumbnailUrl"]);
                                         //liveVideo.VideoThumbnailURL = Convert.ToString(lstItem["ThumbnailOnForm"]);
 
-                                        liveVideo.VideoURL = Convert.ToString(lstItem["EncodedAbsUrl"]);
+                                        liveVideo.VideoURL = Convert.ToString(lstItem["VideoSetEmbedCode"]);
 
                                         liveEventsLst.Add(liveVideo);
                                     }

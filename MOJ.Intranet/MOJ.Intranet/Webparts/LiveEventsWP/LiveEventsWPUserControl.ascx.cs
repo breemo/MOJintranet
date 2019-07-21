@@ -57,13 +57,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                                 <div class='vidcs'>
                                     {1}
                                 </div>
-                                <div class='positbtns'>
-                                    <a href='#' onclick='playPause()' title='Play video'
-                                        class='play'></a>
-                                    <a class='btnpl plbut' style='display: none;'>
-                                        <span class='icon-play-circle2'></span>
-                                    </a>
-                                </div>
+                                
                             </div>
                             <div class='col-md-5'>
                                 <div class='evenlifesection'>

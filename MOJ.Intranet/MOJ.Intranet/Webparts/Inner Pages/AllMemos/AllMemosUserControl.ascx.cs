@@ -6,11 +6,27 @@ using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Collections;
 
 namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
 {
     public partial class AllMemosUserControl : UserControl
     {
+        public int PageNumber
+        {
+            get
+            {
+                if (ViewState["PageNumber"] != null)
+                {
+                    return Convert.ToInt32(ViewState["PageNumber"]);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            set { ViewState["PageNumber"] = value; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -23,7 +39,31 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
             {
                 List<MemosEntity> NewsLst = new Memos().GetMemos();
 
-                grdMemosLst.DataSource = NewsLst;
+                PagedDataSource pgitems = new PagedDataSource();
+                pgitems.DataSource = NewsLst;
+                pgitems.AllowPaging = true;
+
+                //Control page size from here 
+                pgitems.PageSize = 8;
+                pgitems.CurrentPageIndex = PageNumber;
+
+                if (pgitems.PageCount > 1)
+                {
+                    rptPaging.Visible = true;
+                    ArrayList pages = new ArrayList();
+                    for (int i = 0; i <= pgitems.PageCount - 1; i++)
+                    {
+                        pages.Add((i + 1).ToString());
+                    }
+                    rptPaging.DataSource = pages;
+                    rptPaging.DataBind();
+                }
+                else
+                {
+                    rptPaging.Visible = false;
+                }
+
+                grdMemosLst.DataSource = pgitems;
                 grdMemosLst.DataBind();
             }
             catch (Exception ex)
@@ -32,24 +72,63 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
             }
         }
 
+        //protected void Unnamed1_Click(object sender, EventArgs e)
+        //{
+        //    FillData(txtSrch.Value, txtNumber.Value);
+        //}
+
         private void FillData(string srchString, string number)
         {
             List<MemosEntity> NewsLst = new Memos().GetMemos(srchString, number);
 
-            grdMemosLst.DataSource = NewsLst;
-            grdMemosLst.DataBind();
+            if (NewsLst.Count > 0)
+            {
+                pgng.Visible = true;
+
+                PagedDataSource pgitems = new PagedDataSource();
+                pgitems.DataSource = NewsLst;
+                pgitems.AllowPaging = true;
+
+                //Control page size from here 
+                pgitems.PageSize = 8;
+                pgitems.CurrentPageIndex = PageNumber;
+
+                if (pgitems.PageCount > 1)
+                {
+                    rptPaging.Visible = true;
+                    ArrayList pages = new ArrayList();
+                    for (int i = 0; i <= pgitems.PageCount - 1; i++)
+                    {
+                        pages.Add((i + 1).ToString());
+                    }
+                    rptPaging.DataSource = pages;
+                    rptPaging.DataBind();
+                }
+                else
+                {
+                    rptPaging.Visible = false;
+                }
+
+                grdMemosLst.DataSource = pgitems;
+                grdMemosLst.DataBind();
+            }
+            else
+            {
+                pgng.Visible = false;
+                grdMemosLst.DataSource = NewsLst;
+                grdMemosLst.DataBind();
+            }
         }
 
-        protected void grdMemosLst_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void rptPaging_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
-            grdMemosLst.PageIndex = e.NewPageIndex;
+            PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
+
             if (string.IsNullOrEmpty(txtSrch.Value))
                 BindData();
             else
-                FillData(txtSrch.Value,txtNumber.Value);
+                FillData(txtSrch.Value, txtNumber.Value);
         }
-
-        protected void grdMemosLst_RowDataBound(object sender, GridViewRowEventArgs e) { }
 
         protected void btnSrch_Click(object sender, EventArgs e)
         {
