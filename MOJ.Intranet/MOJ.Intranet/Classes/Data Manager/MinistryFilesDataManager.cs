@@ -95,15 +95,15 @@ namespace MOJ.DataManager
                                            "<Where>" +
                                               "<Or>" +
                                                  "<Contains>" +
-                                                    "<FieldRef Name = 'Author' />" +
-                                                     "<Value Type = 'User' >" + CreatedBy + @"</ Value >" +
-                                                       "</Contains >" +
+                                                    "<FieldRef Name='Author'/>" +
+                                                     "<Value Type='User'>" + CreatedBy + @"</Value>" +
+                                                       "</Contains>" +
                                                        "<Contains>" +
-                                                     "<FieldRef Name = 'Title' />" +
-                                                           "<Value Type = 'Text' >" + BookName + @"</ Value >" +
-                                                       "</Contains >" +
-                                                          "</Or >" +
-                                                       "</Where >" + SharedConstants.MinistryFilesQuery;
+                                                     "<FieldRef Name='Title'/>" +
+                                                           "<Value Type='Text'>" + BookName + @"</Value>" +
+                                                       "</Contains>" +
+                                                          "</Or>" +
+                                                       "</Where>" + SharedConstants.MinistryFilesQuery;
 
                                     oQuery.ViewFields = SharedConstants.MinistryFilesViewfields;
 
