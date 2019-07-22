@@ -72,11 +72,6 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
             }
         }
 
-        //protected void Unnamed1_Click(object sender, EventArgs e)
-        //{
-        //    FillData(txtSrch.Value, txtNumber.Value);
-        //}
-
         private void FillData(string srchString, string number)
         {
             List<MemosEntity> NewsLst = new Memos().GetMemos(srchString, number);

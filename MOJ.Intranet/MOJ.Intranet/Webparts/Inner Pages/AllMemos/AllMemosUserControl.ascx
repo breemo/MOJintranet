@@ -8,64 +8,10 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AllMemosUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.AllMemos.AllMemosUserControl" %>
 
 <style>
-    .gridview {
-        background-color: #fff;
-        padding: 2px;
-        margin: 2% auto;
-    }
-    /*.gridview a {
-        margin: auto 1%;
-        border-radius: 50%;
-        background-color: #ae8b51 !important;
-        padding: 5px 10px 5px 10px;
-        color: #fff;
-        text-decoration: none;
-        -o-box-shadow: 1px 1px 1px #111;
-        -moz-box-shadow: 1px 1px 1px #111;
-        -webkit-box-shadow: 1px 1px 1px #111;
-        box-shadow: 1px 1px 1px #111;
-    }*/
-
-    .pagi .pagination a.pageright, .pagi .pagination a.pageleft {
-        color: #fff !important;
-        border: 2px solid #bd995d;
-        border-radius: 8px;
-        font-size: 22px;
-    }
-
-
-    .gridview a, .gridview a:focus, .gridview a:hover {
-        color: #fff !important;
-        background-color: #ae8b51 !important;
-        border-color: #ae8b51 !important;
-    }
-
-    .gridview a, .gridview.span {
-        margin: 2px;
-        border: 0px;
-        color: #9b9a9a;
-        border-radius: 7px;
-        border: 2px solid #fff;
-        font-size: 13px;
-        height: 28px;
-    }
-
-
-        .gridview a:hover {
-            background-color: #1e8d12;
-            color: #fff;
-        }
-
-    .gridview span {
-        background-color: #ae2676;
-        color: #fff;
-        -o-box-shadow: 1px 1px 1px #111;
-        -moz-box-shadow: 1px 1px 1px #111;
-        -webkit-box-shadow: 1px 1px 1px #111;
-        box-shadow: 1px 1px 1px #111;
-        border-radius: 50%;
-        padding: 5px 10px 5px 10px;
-    }
+    .entryitemx {
+    min-height: 125px;
+    height: auto !important;
+}
 </style>
 
 <h4>
@@ -106,15 +52,10 @@
     <asp:Literal runat="server" Text="<%$ Resources:Resource, innerHeadCirculars%>" />
 </h4>
 <div id="posts" class="small-thumbs alt">
-
-            <%--AllowPaging="true" OnPageIndexChanging="grdMemosLst_PageIndexChanging"
-        OnRowDataBound="grdMemosLst_RowDataBound" PageSize="5"--%>
-
     <asp:GridView ID="grdMemosLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="No Archives Found"
         BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
         EnableModelValidation="True" 
         >
-        <%--<PagerStyle CssClass="Gridpagination" HorizontalAlign="Left" />--%>
         <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
             Mode="NumericFirstLast" PageButtonCount="5" />
         <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
@@ -133,7 +74,9 @@
                         </div>
                         <div class="entry-c entryitemx">
 
-                            <span class="dateut"><%#  Convert.ToDateTime(Eval("Date")).ToString("dd-MMM-yyyy")%></span>
+                            <span class="dateut">
+                                <%#  Convert.ToDateTime(Eval("Date")).ToString("dddd")%>, <%#  Convert.ToDateTime(Eval("Date")).ToString("dd MMM yyyy")%>
+                            </span>
                             <h6>
                                 <a href="<%# Eval("AttachmentsInfo") %>"><%# Eval("Title") %>
                                 </a>
@@ -177,34 +120,3 @@
         </li>
     </ul>
 </div>
-
-<%--<div class="pagi">
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link pageright" href="#"><i class="icon-angle-right"></i>
-        </a></li>
-        <li class="page-item"><a class="page-link activepage" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">5</a></li>
-        <li class="page-item"><a class="page-link" href="#">6</a></li>
-        <li class="page-item"><a class="page-link" href="#">7</a></li>
-        <li class="page-item"><a class="page-link" href="#">8</a></li>
-        <li class="page-item"><a class="page-link" href="#">9</a></li>
-        <li class="page-item"><a class="page-link" href="#">10</a></li>
-        <li class="page-item"><a class="page-link pageleft" href="#">
-            <i class="icon-angle-left"></i></a></li>
-    </ul>
-</div>--%>
-
-
-
-
-
-
-
-
-
-
-
-

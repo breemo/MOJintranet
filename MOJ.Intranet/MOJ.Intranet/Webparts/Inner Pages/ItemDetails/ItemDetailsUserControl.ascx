@@ -36,6 +36,16 @@
 
 <asp:Literal ID="lblDetails" runat="server"></asp:Literal>
 
+
+<%--<div class="bottomdiv">
+    <div class="container-fullwidth">
+        <div class="insfo">
+            <a class="arrow" href="#">الذهاب الى الوراء
+                        </a>
+        </div>
+    </div>
+</div>--%>
+
 <script src="/Style%20Library/MOJ-Theme/js/functions.js"></script>
 
 <script type="text/javascript">

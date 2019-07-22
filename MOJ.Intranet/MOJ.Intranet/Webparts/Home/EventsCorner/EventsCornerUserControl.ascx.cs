@@ -55,7 +55,11 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
                                         <div class='eventbox'>
                                             <div class='eventopbox'>
                                                 <div class='Evbetdatebox'>
-                                                    <span>{0}<font>{1}</font></span>
+
+                                                    <span>
+                                                            {1}
+                                                            <font>{0}</font>
+                                                    </span>
                                                 </div>
                                                 <div class='EventboxTitle'>{2}</div>
                                             </div>
@@ -65,7 +69,7 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>", Convert.ToDateTime(item.Created).ToString("MMMM"), Convert.ToDateTime(item.Created).Month, title,item.ID, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language),siteURL);
+                                    </div>", Convert.ToDateTime(item.Created).ToString("MMM"), Convert.ToDateTime(item.Created).ToString("d"), title,item.ID, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language),siteURL);
                 }
             }
             catch (Exception ex)

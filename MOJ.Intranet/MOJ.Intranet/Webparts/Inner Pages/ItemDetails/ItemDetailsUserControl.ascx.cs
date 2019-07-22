@@ -28,15 +28,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
             {
                 relatedNews +=
                string.Format(@"
-                <div class='reladinfobox'>
-		            <div class='relatednewsico'>
-			            <h2>{0}</h2>
-		            </div>
-		            <div id='oc-events'
-			             class='owl-carousel events-carousel carousel-widget'
-			             data-margin='20' data-nav='true' data-pagi='false'
-			             data-items-md='1' data-items-lg='2' data-items-xl='2'>
-                        ", SPUtility.GetLocalizedString("$Resources: HeadRelatedNews", "Resource", SPContext.Current.Web.Language));
+                                <div class='reladinfobox'>
+                                    <div class='relatednewsico'>
+                                        <h2>{0}</h2>
+                                    </div>
+                                    <div id='oc-events'
+                                         class='owl-carousel events-carousel carousel-widget'
+                                         data-margin='20' data-nav='true' data-pagi='false'
+                                         data-items-md='1' data-items-lg='2' data-items-xl='2'>", 
+                                         SPUtility.GetLocalizedString("$Resources: HeadRelatedNews", "Resource", SPContext.Current.Web.Language));
 
                 foreach (NewsEntity lstItem in NewsItem)
                 {
@@ -45,23 +45,22 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
 
                     relatedNews +=
                     string.Format(@"
-			                    <div class='oc-item'>
-				                    <div class='ievent clearfix newdscroll'>
-					                    <div class='entry-image'>
-						                    <a href='#'>
-							                    <img src='{0}' alt='{1}'>
-						                    </a>
-					                    </div>
-
-					                    <div class='entry-c'>
-						                    <div class='entry-title'>
-							                    <span class='endate'>{3}, {2}</span>
-							                    <h2><a href='{5}/Details.aspx?id={4}&type=news'>{1}</a></h2>
-						                    </div>
-					                    </div>
-				                    </div>
-			                    </div>
-                 ", lstItem.Picture,
+                    <div class='oc-item'>
+                        <div class='ievent clearfix newdscroll'>
+                            <div class='entry-image'>
+                                <a href='#'>
+                                    <img src='{0}' alt='{1}'>
+                                </a>
+                            </div>
+                            <div class='entry-c'>
+                                <div class='entry-title'>
+                                    <span class='endate'>{3}, {2}</span>
+                                    <h2><a href='{5}/Details.aspx?id={4}&type=news'>{1}</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>", 
+                     lstItem.Picture,
                      LimitCharacters.Limit(lstItem.Title, 40),
                      Convert.ToDateTime(lstItem.Date).ToString("dd MMM yyyy"),
                      Convert.ToDateTime(lstItem.Date).ToString("dddd"),
