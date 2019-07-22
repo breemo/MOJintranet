@@ -51,10 +51,11 @@
     }
 
 
-    .gridview a:hover {
+        .gridview a:hover {
             background-color: #1e8d12;
             color: #fff;
         }
+
     .gridview span {
         background-color: #ae2676;
         color: #fff;
@@ -76,22 +77,24 @@
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-1">
-                    <label class="lbel"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCircularTitle%>" /></label>
+                    <label class="lbel">
+                        <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCircularTitle%>" /></label>
                 </div>
                 <div class="col-md-5">
-                    <input runat="server" type="text" ID="txtSrch" class="form-control"/>
+                    <input runat="server" type="text" id="txtSrch" class="form-control" />
                 </div>
                 <div class="col-md-1">
-                    <label class="lbel"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCircularNumber%>" /></label>
+                    <label class="lbel">
+                        <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCircularNumber%>" /></label>
 
                 </div>
                 <div class="col-md-5">
-                    <input runat="server" type="text" ID="txtNumber" class="form-control"/>
+                    <input runat="server" type="text" id="txtNumber" class="form-control" />
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-             <asp:Button ID="btnSrch" runat="server" Text='<%$ Resources:Resource, btnSearch%>' class="btnclass" OnClick="btnSrch_Click" />
+            <asp:Button ID="btnSrch" runat="server" Text='<%$ Resources:Resource, btnSearch%>' class="btnclass" OnClick="btnSrch_Click" />
             <asp:Button ID="bntClear" runat="server" Text='<%$ Resources:Resource, btnClear%>' class="btnclass" OnClick="btnClear_Click" />
         </div>
 
@@ -104,48 +107,76 @@
 </h4>
 <div id="posts" class="small-thumbs alt">
 
+            <%--AllowPaging="true" OnPageIndexChanging="grdMemosLst_PageIndexChanging"
+        OnRowDataBound="grdMemosLst_RowDataBound" PageSize="5"--%>
+
     <asp:GridView ID="grdMemosLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="No Archives Found"
-    BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
-    EnableModelValidation="True" AllowPaging="true" OnPageIndexChanging="grdMemosLst_PageIndexChanging"
-    OnRowDataBound="grdMemosLst_RowDataBound" PageSize="5">
-    <%--<PagerStyle CssClass="Gridpagination" HorizontalAlign="Left" />--%>
-    <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
-        Mode="NumericFirstLast" PageButtonCount="5" />
-    <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
-    <EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />
-    <Columns>
-        <asp:TemplateField>
-            <ItemTemplate>
-                <div class="entry entryitem clearfix">
-                    <div class="entry-image bgeb">
-                        <p>
-                            <asp:Literal runat="server" Text="<%$ Resources:Resource, innerCircularsLstItemHead%>" />
-                        </p>
-                        <span>
-                            <%# Eval("MemoNumber") %>
-                        </span>
-                    </div>
-                    <div class="entry-c entryitemx">
+        BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
+        EnableModelValidation="True" 
+        >
+        <%--<PagerStyle CssClass="Gridpagination" HorizontalAlign="Left" />--%>
+        <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
+            Mode="NumericFirstLast" PageButtonCount="5" />
+        <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
+        <EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />
+        <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <div class="entry entryitem clearfix">
+                        <div class="entry-image bgeb">
+                            <p>
+                                <asp:Literal runat="server" Text="<%$ Resources:Resource, innerCircularsLstItemHead%>" />
+                            </p>
+                            <span>
+                                <%# Eval("MemoNumber") %>
+                            </span>
+                        </div>
+                        <div class="entry-c entryitemx">
 
-                        <span class="dateut"><%#  Convert.ToDateTime(Eval("Date")).ToString("dd-MMM-yyyy")%></span>
-                        <h6>
-                            <a href="<%# Eval("AttachmentsInfo") %>"><%# Eval("Title") %>
-                            </a>
-                        </h6>
-                        <p>
-                            <%# Eval("Body") %>
-                        </p>
+                            <span class="dateut"><%#  Convert.ToDateTime(Eval("Date")).ToString("dd-MMM-yyyy")%></span>
+                            <h6>
+                                <a href="<%# Eval("AttachmentsInfo") %>"><%# Eval("Title") %>
+                                </a>
+                            </h6>
+                            <p>
+                                <%# Eval("Body") %>
+                            </p>
 
+                        </div>
                     </div>
-                </div>
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 
 </div>
 <!-- #posts end -->
 
+<div class="pagi" runat="server" id="pgng">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link pageright" href="#">
+                <i class="icon-angle-right"></i>
+            </a>
+        </li>
+        <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+            <ItemTemplate>
+                <li class="page-item">
+                    <asp:LinkButton ID="btnPage"
+                        CssClass="page-link"
+                        CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                        runat="server" ForeColor="White" Font-Bold="True">
+                        <%# Container.DataItem %> </asp:LinkButton>
+                </li>
+            </ItemTemplate>
+        </asp:Repeater>
+        <li class="page-item">
+            <a class="page-link pageleft" href="#">
+                <i class="icon-angle-left"></i>
+            </a>
+        </li>
+    </ul>
+</div>
 
 <%--<div class="pagi">
     <ul class="pagination">

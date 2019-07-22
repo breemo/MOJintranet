@@ -23,8 +23,8 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                     if (!IsPostBack)
                     {
                         GetLatestLiveEvent();
-                        //GetCurrentMonthLiveEvent();
-                        //GetArchiveLiveEvent();
+                        GetCurrentMonthLiveEvent();
+                        GetArchiveLiveEvent();
                     }
                 }
                 catch (Exception ex)
@@ -55,18 +55,9 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                         <div class='row'>
                             <div class='col-md-7'>
                                 <div class='vidcs'>
-                                    <video poster='{0}' height='400' id='myVideo'>
-                                        <source src='{1}' type='video/mp4'>
-                                        Your browser does not support HTML5 video.
-                                    </video>
+                                    {1}
                                 </div>
-                                <div class='positbtns'>
-                                    <a href='#' onclick='playPause()' title='Play video'
-                                        class='play'></a>
-                                    <a class='btnpl plbut' style='display: none;'>
-                                        <span class='icon-play-circle2'></span>
-                                    </a>
-                                </div>
+                                
                             </div>
                             <div class='col-md-5'>
                                 <div class='evenlifesection'>
@@ -132,10 +123,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                                     </div>
                                     <div class='modal-body'>
                                         <div class='newvidoeo'>
-                                            <video controls>
-                                                <source src='{3}' type='video/mp4'>
-                                                <p>Your browser does not support H.264/MP4.</p>
-                                            </video>
+                                            {3}
                                         </div>
                                     </div>
                                 </div>
@@ -168,7 +156,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                         <div class='videlivebox'>
                             <div class='entry-image'>
                                 <a href='{0}' data-lightbox='image'>
-                                    < img class='image_fade' src='{0}'
+                                    <img class='image_fade' src='{0}'
                                         alt='{1}'>
                                 </a>
                                 <a data-toggle='modal' class='newpos' data-target='#myModal'>
@@ -195,10 +183,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                                     </div>
                                     <div class='modal-body'>
                                         <div class='newvidoeo'>
-                                            <video controls>
-                                                <source src='{3}' type='video/mp4'>
-                                                <p>Your browser does not support H.264/MP4.</p>
-                                            </video>
+                                            {3}
                                         </div>
                                     </div>
                                 </div>

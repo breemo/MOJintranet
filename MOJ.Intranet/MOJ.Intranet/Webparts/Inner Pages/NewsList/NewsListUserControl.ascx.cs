@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,6 +13,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
 {
     public partial class NewsListUserControl : UserControl
     {
+        #region events
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -19,34 +21,82 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                 FillRelatedNewsCarousel();
                 FillRelatedNewsCarouselInner();
 
-                for(int startYear = 2019 ; startYear>=2015; startYear--)
+                for (int startYear = 2019; startYear >= 2015; startYear--)
                 {
                     ddlYear.Items.Add(new ListItem(startYear.ToString(), startYear.ToString()));
                 }
             }
         }
+        protected void btnSrch_Click(object sender, EventArgs e)
+        {
+            int year = int.Parse(ddlYear.SelectedValue);
 
+            if (ddlMonth.SelectedValue != "0")
+            {
+                int month = int.Parse(ddlMonth.SelectedValue);
+                int daysInMonth = DateTime.DaysInMonth(year, month);
+
+                FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
+            }
+            else
+            {
+                FillData(year.ToString(), "1", "12", "1", "31");
+            }
+        }
+
+        protected void rptPaging_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
+        {
+            PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
+
+            int year = int.Parse(ddlYear.SelectedValue);
+            if (ddlMonth.SelectedValue != "0")
+            {
+                int month = int.Parse(ddlMonth.SelectedValue);
+                int daysInMonth = DateTime.DaysInMonth(year, month);
+
+                FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
+            }
+            else
+            {
+                FillData(year.ToString(), "1", "12", "1", "31");
+            }
+        }
+        #endregion
+
+        #region methods
+        public int PageNumber
+        {
+            get
+            {
+                if (ViewState["PageNumber"] != null)
+                {
+                    return Convert.ToInt32(ViewState["PageNumber"]);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            set { ViewState["PageNumber"] = value; }
+        }
         public void FillRelatedNewsCarousel()
         {
             List<NewsEntity> NewsItem = new News().GetLast4News();
             string relatedNews = "";
 
+            relatedNews = "<ol class='carousel-indicators'>";
+            int itemIndex = 0;
 
-                relatedNews = "<ol class='carousel-indicators'>";
-                int itemIndex = 0;
-
-                foreach (NewsEntity lstItem in NewsItem)
-                {
-                    if(itemIndex == 0)
-                    relatedNews +="<li data-target='#carouselReviews' data-slide-to='0' class='active'></li>"; 
-
-                    else
-                        relatedNews += "<li data-target='#carouselReviews' data-slide-to='" + itemIndex + "'></li>";
+            foreach (NewsEntity lstItem in NewsItem)
+            {
+                if (itemIndex == 0)
+                    relatedNews += "<li data-target='#carouselReviews' data-slide-to='0' class='active'></li>";
+                else
+                    relatedNews += "<li data-target='#carouselReviews' data-slide-to='" + itemIndex + "'></li>";
 
                 itemIndex++;
-                    
-                }
-                relatedNews += "</ol>";
+            }
+            relatedNews += "</ol>";
 
             lblPopularNewsCarousel.Text = relatedNews;
         }
@@ -95,51 +145,48 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
 
             lblPopularNewsCarouselInner.Text = relatedNews;
         }
-
-        protected void btnSrch_Click(object sender, EventArgs e)
+        private void FillData(string srchYear, string sMonth, string eMonth, string sDay, string eDay)
         {
-            int year = int.Parse(ddlYear.SelectedValue);
+            List<NewsEntity> NewsLst = new News().GetSrchNews(srchYear, sMonth, eMonth, sDay, eDay);
 
-            if (ddlMonth.SelectedValue !="0")
+            if (NewsLst.Count > 0)
             {
-                int month = int.Parse(ddlMonth.SelectedValue);
-                int daysInMonth = DateTime.DaysInMonth(year, month);
+                pgng.Visible = true;
 
-                FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
+                PagedDataSource pgitems = new PagedDataSource();
+                pgitems.DataSource = NewsLst;
+                pgitems.AllowPaging = true;
+
+                //Control page size from here 
+                pgitems.PageSize = 1;
+                pgitems.CurrentPageIndex = PageNumber;
+
+                if (pgitems.PageCount > 1)
+                {
+                    rptPaging.Visible = true;
+                    ArrayList pages = new ArrayList();
+                    for (int i = 0; i <= pgitems.PageCount - 1; i++)
+                    {
+                        pages.Add((i + 1).ToString());
+                    }
+                    rptPaging.DataSource = pages;
+                    rptPaging.DataBind();
+                }
+                else
+                {
+                    rptPaging.Visible = false;
+                }
+
+                grdNewsLst.DataSource = pgitems;
+                grdNewsLst.DataBind();
             }
             else
             {
-                FillData(year.ToString(), "1", "12", "1", "31");
+                pgng.Visible = false;
+                grdNewsLst.DataSource = NewsLst;
+                grdNewsLst.DataBind();
             }
         }
-
-        private void FillData(string srchYear, string sMonth, string eMonth, string sDay,string eDay)
-        {
-            List<NewsEntity> NewsLst = new News().GetSrchNews(srchYear, sMonth,eMonth,sDay,eDay);
-
-            grdNewsLst.DataSource = NewsLst;
-            grdNewsLst.DataBind();
-        }
-
-        protected void grdNewsLst_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            grdNewsLst.PageIndex = e.NewPageIndex;
-            int year = int.Parse(ddlYear.SelectedValue);
-
-            if (ddlMonth.SelectedValue != "0")
-            {
-                int month = int.Parse(ddlMonth.SelectedValue);
-                int daysInMonth = DateTime.DaysInMonth(year, month);
-
-                FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
-            }
-            else
-            {
-                FillData(year.ToString(), "1", "12", "1", "31");
-            }
-        }
-
-        protected void grdNewsLst_RowDataBound(object sender, GridViewRowEventArgs e) { }
-
+        #endregion
     }
 }
