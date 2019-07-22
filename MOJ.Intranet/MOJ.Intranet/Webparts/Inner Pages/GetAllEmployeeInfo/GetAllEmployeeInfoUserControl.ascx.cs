@@ -52,6 +52,10 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
                 foreach (EmployeeMasterDataEntity item in EmployeeValues)
                 {
                     lblEmployeeNameAr.Text= item.employeeNameArabicField.ToString();
+                    lblDepartmentAr.Text = item.departmentNameField_AR.ToString();
+                    lblContactNo.Text = item.contactNumberField.ToString();
+                    lblEmail.Text = item.employeeEmailField.ToString();
+                    lblJobtitle.Text = item.positionNameField_AR.ToString();
                 }
                     
             }
