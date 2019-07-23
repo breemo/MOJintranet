@@ -19,22 +19,30 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
             {
                 try
                 {
-                    if (!IsPostBack)
+
+                    using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
                     {
-                        using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
+                        using (SPWeb myweb = mySitesCollection.OpenWeb())
                         {
-                            using (SPWeb myweb = mySitesCollection.OpenWeb())
+                            SPUser currentUser = myweb.CurrentUser;
+                            string currentUserlogin = currentUser.LoginName;
+                            SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
+                            UserProfileManager profileManager = new UserProfileManager(context);
+                            UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
+
+                            if (currentProfile.GetProfileValueCollection("Pager").Count != 0)
                             {
-                                SPUser currentUser = myweb.CurrentUser;
-                                string currentUserlogin = currentUser.LoginName;
-                                SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
-                                UserProfileManager profileManager = new UserProfileManager(context);
-                                UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
                                 ProfileValueCollectionBase EmployeeNumber = currentProfile.GetProfileValueCollection("Pager");
                                 BindData(EmployeeNumber.ToString());
                             }
+                            else
+                            {
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showModalPopUp()", true);
+                                //ScriptManager.RegisterStartupScript(this, GetType(), "CallMyFunction", "alert('This pops up');", true);
+                            }
+
+
                         }
-                        
                     }
                 }
                 catch (Exception ex)
@@ -51,13 +59,13 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
                 List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().EmployeeMasterDataByEmployeeNumber(EmployeeNumber);
                 foreach (EmployeeMasterDataEntity item in EmployeeValues)
                 {
-                    lblEmployeeNameAr.Text= item.employeeNameArabicField.ToString();
+                    lblEmployeeNameAr.Text = item.employeeNameArabicField.ToString();
                     lblDepartmentAr.Text = item.departmentNameField_AR.ToString();
                     lblContactNo.Text = item.contactNumberField.ToString();
                     lblEmail.Text = item.employeeEmailField.ToString();
                     lblJobtitle.Text = item.positionNameField_AR.ToString();
                 }
-                    
+
             }
             catch (Exception ex)
             {
