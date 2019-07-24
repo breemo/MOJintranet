@@ -39,20 +39,24 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
                 PublishingWeb publishingWeb = PublishingWeb.GetPublishingWeb(web);
                 PublishingPageCollection pages = publishingWeb.GetPublishingPages();
                 //Path.GetFileName(Request.Path);
-               
+
                 string Class = "<li>";
                 foreach (var page in pages)
                 {
                     string CurrentPage = Path.GetFileName(Request.Url.AbsolutePath);
                     if (page.Name != "default.aspx") //ToDO Remove this Page :AddEmployeeNumber.aspx
                     {
-                        if (CurrentPage == page.Name)
-                        { Class = "<li class='uk-active'>"; }
-                        else { Class = "<li>"; }
-                        lblDrawItems.Text +=
-                             string.Format(@"
-                                    "+ Class + @"<a href='{0}' >{1}</a></li>
+                        if (page.Name != "AddEmployeeNumber.aspx")
+                        {
+
+                            if (CurrentPage == page.Name)
+                            { Class = "<li class='uk-active'>"; }
+                            else { Class = "<li>"; }
+                            lblDrawItems.Text +=
+                                 string.Format(@"
+                                    " + Class + @"<a href='{0}' >{1}</a></li>
                                     ", page.Uri, page.Title);
+                        }
                     }
 
                 }

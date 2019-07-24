@@ -9,10 +9,6 @@
 
 <script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script language="javascript" type="text/javascript">  
-    $(document).ready(function () {
-        SP.SOD.executeFunc('sp.js', 'SP.ClientContext', showModalPopUp);
-    });
-
     function showModalPopUp() {
         //Set options for Modal PopUp  
         var options = {
@@ -26,7 +22,8 @@
         //Invoke the modal dialog by passing in the options array variable  
         SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
         return false;
-    }  
+    
+    } 
 </script>
 
 <div class="ndl">

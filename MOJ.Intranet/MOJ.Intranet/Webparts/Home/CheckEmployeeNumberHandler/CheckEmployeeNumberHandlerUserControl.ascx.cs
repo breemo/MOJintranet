@@ -1,17 +1,14 @@
 ﻿using CommonLibrary;
 using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
-using MOJ.Business;
-using MOJ.Entities;
 using System;
-using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
+namespace MOJ.Intranet.Webparts.Home.CheckEmployeeNumberHandler
 {
-    public partial class GetAllEmployeeInfoUserControl : UserControl
+    public partial class CheckEmployeeNumberHandlerUserControl : UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +16,6 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
             {
                 try
                 {
-
                     using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb myweb = mySitesCollection.OpenWeb())
@@ -30,47 +26,18 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
                             UserProfileManager profileManager = new UserProfileManager(context);
                             UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
 
-                            if (currentProfile.GetProfileValueCollection("Pager").Count != 0)
-                            {
-                                ProfileValueCollectionBase EmployeeNumber = currentProfile.GetProfileValueCollection("Pager");
-                                BindData(EmployeeNumber.ToString());
-                            }
-                            else
+                            if (currentProfile.GetProfileValueCollection("Pager").Count == 0)
                             {
                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "showModalPopUp();", true);
                                 ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "MyFun1", "showModalPopUp();", true);
                             }
-
-
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-
                     LoggingService.LogError("WebParts", ex.Message);
                 }
-            }
-        }
-        private void BindData(string EmployeeNumber)
-        {
-            try
-            {
-                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().EmployeeMasterDataByEmployeeNumber(EmployeeNumber);
-                foreach (EmployeeMasterDataEntity item in EmployeeValues)
-                {
-                    lblEmployeeNameAr.Text = item.employeeNameArabicField.ToString();
-                    lblDepartmentAr.Text = item.departmentNameField_AR.ToString();
-                    lblContactNo.Text = item.contactNumberField.ToString();
-                    lblEmail.Text = item.employeeEmailField.ToString();
-                    lblJobtitle.Text = item.positionNameField_AR.ToString();
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                LoggingService.LogError("WebParts", ex.Message);
             }
         }
     }

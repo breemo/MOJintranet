@@ -137,6 +137,14 @@
     <Compile Include="Webparts\Home\Attendance\AttendanceUserControl.ascx.designer.cs">
       <DependentUpon>AttendanceUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Home\CheckEmployeeNumberHandler\CheckEmployeeNumberHandler.cs" />
+    <Compile Include="Webparts\Home\CheckEmployeeNumberHandler\CheckEmployeeNumberHandlerUserControl.ascx.cs">
+      <DependentUpon>CheckEmployeeNumberHandlerUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Home\CheckEmployeeNumberHandler\CheckEmployeeNumberHandlerUserControl.ascx.designer.cs">
+      <DependentUpon>CheckEmployeeNumberHandlerUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Home\EventsCorner\EventsCorner.cs" />
     <Compile Include="Webparts\Home\EventsCorner\EventsCornerUserControl.ascx.cs">
       <DependentUpon>EventsCornerUserControl.ascx</DependentUpon>
@@ -306,6 +314,10 @@
     <None Include="Webparts\Home\Attendance\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{114fc2a2-6d9d-4e3d-a177-f1fdbbbcd97d}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Home\CheckEmployeeNumberHandler\CheckEmployeeNumberHandler.webpart" />
+    <None Include="Webparts\Home\CheckEmployeeNumberHandler\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e8fe9696-06ed-4165-b308-d6043845088c}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Home\EventsCorner\EventsCorner.webpart" />
     <None Include="Webparts\Home\EventsCorner\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{83c30674-4740-4e25-9da4-d623b8c2feca}</SharePointProjectItemId>
@@ -393,6 +405,8 @@
     <Content Include="Webparts\Home\AttendanceChart\Elements.xml" />
     <Content Include="Webparts\Home\Attendance\AttendanceUserControl.ascx" />
     <Content Include="Webparts\Home\Attendance\Elements.xml" />
+    <Content Include="Webparts\Home\CheckEmployeeNumberHandler\CheckEmployeeNumberHandlerUserControl.ascx" />
+    <Content Include="Webparts\Home\CheckEmployeeNumberHandler\Elements.xml" />
     <Content Include="Webparts\Home\EventsCorner\Elements.xml" />
     <Content Include="Webparts\Home\EventsCorner\EventsCornerUserControl.ascx" />
     <Content Include="Webparts\Home\HomeGalary\Elements.xml" />

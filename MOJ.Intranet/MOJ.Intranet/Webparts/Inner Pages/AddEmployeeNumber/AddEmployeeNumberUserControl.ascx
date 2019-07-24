@@ -15,8 +15,8 @@
     .sticky-style-2 {
         display: none !important;
     }
-    #s4-titlerow
-    {
+
+    #s4-titlerow {
         background-color: transparent !important;
     }
 </style>
@@ -24,6 +24,28 @@
     <div class="row rt">
 
         <div class="col-md-6">
+
+            <%--   <div class="row">
+
+                <div class="col-md-2">
+                    <label>يرجى ادخال بريدك الإلكتروني</label>
+                </div>
+
+                <div class="col-md-9">
+                    <input type="text" runat="server" id="Text1" class="form-control" placeholder="">
+                </div>
+            </div>--%>
+
+            <div class="row">
+
+                <div class="col-md-2">
+                    <label>يرجى ادخال بريدك الإلكتروني</label>
+                </div>
+
+                <div class="col-md-9">
+                    <input type="text" runat="server" id="txtEmail" class="form-control" placeholder="">
+                </div>
+            </div>
 
             <div class="row">
 
@@ -33,6 +55,30 @@
 
                 <div class="col-md-9">
                     <input type="text" runat="server" id="txtEmployeeNumber" class="form-control" placeholder="">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-2">
+                    <label>اعادة إدخال رقم الوظيفي</label>
+                </div>
+
+                <div class="col-md-9">
+                    <input type="text" runat="server" id="txtEmployeeNumberMatch" class="form-control" placeholder="">
+                </div>
+            </div>
+
+            <div id="errormsg" runat="server" style="display:none">
+                <div class="row">
+
+                    <div class="col-md-2">
+                        
+                    </div>
+
+                    <div class="col-md-9">
+                        <label style="color:red">الرقم الوظيفي المدخل غير مطابق أو البريد الإلكتروني غير صحيح</label>
+                    </div>
                 </div>
             </div>
 

@@ -13,12 +13,11 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AddEmployeeNumber
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            errormsg.Style.Add("display", "none");
         }
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-
             try
             {
                 using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
@@ -26,15 +25,28 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AddEmployeeNumber
                     using (SPWeb myweb = mySitesCollection.OpenWeb())
                     {
                         SPUser currentUser = myweb.CurrentUser;
-                        if (txtEmployeeNumber.Value !="")
+                        string currentUserlogin = currentUser.LoginName;
+                        SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
+                        UserProfileManager profileManager = new UserProfileManager(context);
+                        UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
+                        string email = currentProfile[PropertyConstants.WorkEmail].Value != null ? currentProfile[PropertyConstants.WorkEmail].Value.ToString() : string.Empty;
+
+                        if (txtEmployeeNumber.Value != "" && txtEmployeeNumber.Value == txtEmployeeNumberMatch.Value && txtEmail.Value == email)
                         {
+                            errormsg.Style.Add("display", "none");
                             bool UpdateUserProfile = new AddEmployeeNumberBL().AddEmployeeEnumber(currentUser, txtEmployeeNumber.Value);
                             if (UpdateUserProfile == true)
                             {
                                 Context.Response.Write("<script type='text/javascript'>window.frameElement.commitPopup();</script>");
+                                Context.Response.Write("<script type='text/javascript'>window.opener.location.reload();</script>");
+                                Context.Response.Write("<script type='text/javascript'>window.location.reload();</script>");
                                 Context.Response.Flush();
                                 Context.Response.End();
                             }
+                        }
+                        else
+                        {
+                            errormsg.Style.Add("display", "block");
                         }
                     }
                 }

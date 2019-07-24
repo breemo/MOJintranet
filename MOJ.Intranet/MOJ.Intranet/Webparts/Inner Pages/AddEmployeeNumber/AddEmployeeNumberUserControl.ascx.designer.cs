@@ -13,6 +13,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AddEmployeeNumber {
     public partial class AddEmployeeNumberUserControl {
         
         /// <summary>
+        /// txtEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
+        
+        /// <summary>
         /// txtEmployeeNumber control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,24 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AddEmployeeNumber {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmployeeNumber;
+        
+        /// <summary>
+        /// txtEmployeeNumberMatch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmployeeNumberMatch;
+        
+        /// <summary>
+        /// errormsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errormsg;
         
         /// <summary>
         /// btnsubmit control.
