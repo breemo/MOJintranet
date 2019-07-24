@@ -46,7 +46,7 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
 
                 foreach (OccasionsEntity item in OccasionsLst) //check all items
                 {
-                    string title =LimitCharacters.Limit(item.Title, 35);
+                    string title =LimitCharacters.Limit(item.Title, 60);
                     string des = LimitCharacters.Limit(item.Description, 40);
                     string siteURL = SPContext.Current.RootFolderUrl;
 
@@ -69,7 +69,7 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>", Convert.ToDateTime(item.Created).ToString("MMM"), Convert.ToDateTime(item.Created).ToString("d"), title,item.ID, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language),siteURL);
+                                    </div>", Convert.ToDateTime(item.Created).ToString("MMM"), Convert.ToDateTime(item.Created).Day, title,item.ID, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language),siteURL);
                 }
             }
             catch (Exception ex)

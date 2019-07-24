@@ -279,4 +279,7 @@
   <data name="year" xml:space="preserve">
     <value>السنة</value>
   </data>
+  <data name="welcome" xml:space="preserve">
+    <value>مرحبا</value>
+  </data>
 </root>
