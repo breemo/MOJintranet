@@ -7,6 +7,28 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GetAllEmployeeInfoUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo.GetAllEmployeeInfoUserControl" %>
 
+<script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">  
+    $(document).ready(function () {
+        SP.SOD.executeFunc('sp.js', 'SP.ClientContext', showModalPopUp);
+    });
+
+    function showModalPopUp() {
+        //Set options for Modal PopUp  
+        var options = {
+            url: '/Ar/Pages/AddEmployeeNumber.aspx?IsDlg=1', //Set the url of the page  
+            title: 'Enter Employee Number', //Set the title for the pop up  
+            allowMaximize: false,
+            showClose: true,
+            width: 600,
+            height: 400
+        };
+        //Invoke the modal dialog by passing in the options array variable  
+        SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
+        return false;
+    }  
+</script>
+
 <div class="ndl">
     <div class="col-md-5 col-sm-12 bgdivindf">
 
@@ -40,7 +62,7 @@
                                 <td>
 
                                     <span class="nnamele">
-                                         <asp:Literal ID="lblEmployeeNameAr" runat="server"></asp:Literal>
+                                        <asp:Literal ID="lblEmployeeNameAr" runat="server"></asp:Literal>
                                     </span></td>
                             </tr>
                             <tr>
@@ -85,7 +107,8 @@
                                 </td>
                                 <td>
 
-                                    <span class="nnamele"><asp:Literal ID="lblEmail" runat="server"></asp:Literal>
+                                    <span class="nnamele">
+                                        <asp:Literal ID="lblEmail" runat="server"></asp:Literal>
                                     </span>
 
                                 </td>
@@ -101,7 +124,8 @@
                                 </td>
                                 <td>
 
-                                    <span class="nnamele"><asp:Literal ID="lblContactNo" runat="server"></asp:Literal>
+                                    <span class="nnamele">
+                                        <asp:Literal ID="lblContactNo" runat="server"></asp:Literal>
                                     </span>
 
                                 </td>

@@ -44,7 +44,7 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
                 foreach (var page in pages)
                 {
                     string CurrentPage = Path.GetFileName(Request.Url.AbsolutePath);
-                    if (page.Name != "default.aspx")
+                    if (page.Name != "default.aspx") //ToDO Remove this Page :AddEmployeeNumber.aspx
                     {
                         if (CurrentPage == page.Name)
                         { Class = "<li class='uk-active'>"; }
