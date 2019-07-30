@@ -22,6 +22,7 @@ namespace CommonLibrary
         public const string Description = "Description";
         public const string DescriptionEn = "DescriptionEn";
         public const string Name = "Name";
+        public const string PageName = "PageName";
 
         #endregion
 
@@ -52,7 +53,7 @@ namespace CommonLibrary
 
         #region Url
         //"../../../_layouts/YSA.SP.Portal/en/images/No-attachment-1.png";
-        public const string URL_NO_IMAGE = "/_layouts/images/MOJ/Noimages.jpeg";
+        public const string URL_NO_IMAGE = "_layouts/15/images/NoImage.png";
 
         #endregion
 
@@ -69,6 +70,8 @@ namespace CommonLibrary
         public const string MeetingsListUrl = "/Lists/Meetings/calendar.aspx";
 
         public const string MinistryFilesListUrl = "/Lists/MinistryFiles/AllItems.aspx";
+
+        public const string ServicesListUrl = "/Lists/Services/AllItems.aspx";
         #endregion
 
         #region Query
@@ -101,11 +104,9 @@ namespace CommonLibrary
         public const string MeetingsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
         public const string MeetingsViewfields = "<FieldRef Name='Title'/><FieldRef Name='EventDate'/>";
 
-        public const string GalleryQuery = "<Query>" +
-                                                "<Where>" +
+        public const string GalleryQuery = @"<Where>" +
                                                     "<Eq><FieldRef Name='isActive'/><Value Type='Integer'>1</Value></Eq>" +
                                                 "</Where>" +
-                                            "</Query>" +
                                             "<OrderBy><FieldRef Name='Created' Ascending='False'/></OrderBy>";
 
         public const string GalleryViewfields = "<FieldRef Name='Title'/><FieldRef Name='Created'/><FieldRef Name='isActive'/>";
@@ -115,6 +116,12 @@ namespace CommonLibrary
 
         public const string LiveEventsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
 
+        public const string ServicesQuery = @"<Where>
+                                                <Eq>
+	                                                <FieldRef Name='isActive' />
+	                                                <Value Type='Boolean'>1</Value>
+                                                </Eq>
+                                            </Where><OrderBy><FieldRef Name='Order0' Ascending='True' /></OrderBy>";
         #endregion
 
 

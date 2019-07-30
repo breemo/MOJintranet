@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="AllServicesListUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="AllServicesList\" Type="ElementManifest" />
+    <ProjectItemFile Source="AllServicesList.webpart" Target="AllServicesList\" Type="ElementFile" />
+    <ProjectItemFile Source="AllServicesListUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.Inner_Pages\AllServicesList\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.Inner_Pages.AllServicesList" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

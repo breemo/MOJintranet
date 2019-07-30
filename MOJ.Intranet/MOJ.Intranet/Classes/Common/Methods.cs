@@ -18,6 +18,7 @@ namespace CommonLibrary
                 FileUrl = oWeb.Url + "/" + lstItem.ParentList.RootFolder.SubFolders["Attachments"].SubFolders[lstItem.ID.ToString()].Files[0].Url;
             }
             catch { FileUrl = "#"; }
+
             return FileUrl;
         }
 
