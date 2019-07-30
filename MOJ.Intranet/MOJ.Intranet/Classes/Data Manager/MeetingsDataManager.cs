@@ -36,32 +36,32 @@ namespace MOJ.DataManager
 
                                     SPListItemCollection lstItems = lstMeetings.GetItems(oQuery);
 
-                                    //string userName = "";
-                                    //string CurrentUser = "";
-                                    //string CurrentUserWithoutDot = "";
-                                    //SPContext currentContext;
-                                    //currentContext = SPContext.Current;
+                                    string userName = "";
+                                    string CurrentUser = "";
+                                    string CurrentUserWithoutDot = "";
+                                    SPContext currentContext;
+                                    currentContext = SPContext.Current;
 
 
-                                    //if (currentContext != null && currentContext.Web.CurrentUser != null)
-                                    //{
-                                    //    userName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1].ToLower();
-                                    //    CurrentUserWithoutDot = userName.Contains(".") ? userName.Replace(".", null).ToLower() : userName.ToLower();
-                                    //}
+                                    if (currentContext != null && currentContext.Web.CurrentUser != null)
+                                    {
+                                        userName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1].ToLower();
+                                        CurrentUserWithoutDot = userName.Contains(".") ? userName.Replace(".", null).ToLower() : userName.ToLower();
+                                    }
 
 
                                     foreach (SPListItem lstItem in lstItems)
                                     {
-                                        //CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
-                                        //if (CurrentUser == CurrentUserWithoutDot)
-                                        //{
+                                        CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
+                                        if (CurrentUser == CurrentUserWithoutDot)
+                                        {
                                             MeetingsEntity Meeting = new MeetingsEntity();
                                             Meeting.Title = Convert.ToString(lstItem[SharedConstants.Title]);
                                             Meeting.StartTime = Convert.ToDateTime(lstItem["Start Time"]);
                                             Meeting.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
 
                                             MeetingsLst.Add(Meeting);
-                                        //}
+                                        }
 
                                     }
                                 }

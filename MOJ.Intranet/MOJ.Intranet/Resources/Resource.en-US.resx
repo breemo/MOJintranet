@@ -282,4 +282,22 @@
   <data name="welcome" xml:space="preserve">
     <value>مرحبا</value>
   </data>
+  <data name="EmployeeIDErrorMsg" xml:space="preserve">
+    <value>The Employee ID Or email is incorrect</value>
+  </data>
+  <data name="EmployeeIdPage" xml:space="preserve">
+    <value>/En/Pages/AddEmployeeNumber.aspx</value>
+  </data>
+  <data name="EnterEmailAddress" xml:space="preserve">
+    <value>Please enter Your Email</value>
+  </data>
+  <data name="EnterEmployeeID" xml:space="preserve">
+    <value>Please Enter Your Employee ID</value>
+  </data>
+  <data name="ReEnterEmployeeID" xml:space="preserve">
+    <value>Confirm Your Employee ID</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
 </root>

@@ -39,7 +39,7 @@
             <div class="row">
 
                 <div class="col-md-2">
-                    <label>يرجى ادخال بريدك الإلكتروني</label>
+                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EnterEmailAddress%>" /></label>
                 </div>
 
                 <div class="col-md-9">
@@ -50,7 +50,7 @@
             <div class="row">
 
                 <div class="col-md-2">
-                    <label>يرجى ادخال رقمك الوظيفي</label>
+                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EnterEmployeeID%>" /></label>
                 </div>
 
                 <div class="col-md-9">
@@ -61,7 +61,7 @@
             <div class="row">
 
                 <div class="col-md-2">
-                    <label>اعادة إدخال رقم الوظيفي</label>
+                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ReEnterEmployeeID%>" /></label>
                 </div>
 
                 <div class="col-md-9">
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="col-md-9">
-                        <label style="color:red">الرقم الوظيفي المدخل غير مطابق أو البريد الإلكتروني غير صحيح</label>
+                        <label style="color:red"><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeIDErrorMsg%>" /></label>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
         </div>
 
         <div class="row rt  botx" style="padding: 40px;">
-            <asp:Button Text="ارسال" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+            <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
         </div>
         <div class="col-md-6">
         </div>

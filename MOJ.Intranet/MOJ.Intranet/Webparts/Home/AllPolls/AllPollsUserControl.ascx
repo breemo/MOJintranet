@@ -7,6 +7,25 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AllPollsUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.AllPolls.AllPollsUserControl" %>
 
+<script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script language="javascript" type="text/javascript">  
+    function Poll(PollsURL) {
+        //Set options for Modal PopUp  
+        var NewPollsURL = PollsURL;
+        var options = {
+            url: NewPollsURL + '?IsDlg=1', //Set the url of the page  
+            allowMaximize: false,
+            showClose: true,
+            width: 600,
+            height: 400
+        };
+        //Invoke the modal dialog by passing in the options array variable  
+        SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
+        return false;
+
+    } 
+</script>
+
 <div class="polls">
     <div class="headlineflex">
         <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, Questionnaire%>" /></h4>

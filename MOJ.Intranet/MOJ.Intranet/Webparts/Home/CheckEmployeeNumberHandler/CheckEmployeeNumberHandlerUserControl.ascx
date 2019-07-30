@@ -10,12 +10,19 @@
 <script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script language="javascript" type="text/javascript">  
     function showModalPopUp() {
+        var EmployeeIDPage = '';
+        var lcid = _spPageContextInfo.currentLanguage;
+        //alert(lcid);
+        if (lcid == 1025)
+            EmployeeIDPage = '/Ar/Pages/AddEmployeeNumber.aspx?IsDlg=1';
+        else
+            EmployeeIDPage = '/En/Pages/AddEmployeeNumber.aspx?IsDlg=1';
         //Set options for Modal PopUp  
         var options = {
-            url: '/Ar/Pages/AddEmployeeNumber.aspx?IsDlg=1', //Set the url of the page  
-            title: 'Enter Employee Number', //Set the title for the pop up  
+            url: EmployeeIDPage, //Set the url of the page  
+            //title: 'Enter Employee Number', //Set the title for the pop up  
             allowMaximize: false,
-            showClose: true,
+            showClose: false,
             width: 600,
             height: 400
         };
