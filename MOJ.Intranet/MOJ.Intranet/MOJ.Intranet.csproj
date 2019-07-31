@@ -462,6 +462,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\MOJ.Intranet\" />
+    <Folder Include="Webparts\My Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Resource.ar-SA.resx" />
