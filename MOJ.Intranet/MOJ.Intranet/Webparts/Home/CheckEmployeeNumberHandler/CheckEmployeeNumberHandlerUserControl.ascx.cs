@@ -2,6 +2,7 @@
 using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
 using System;
+using System.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -26,7 +27,7 @@ namespace MOJ.Intranet.Webparts.Home.CheckEmployeeNumberHandler
                             UserProfileManager profileManager = new UserProfileManager(context);
                             UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
 
-                            if (currentProfile.GetProfileValueCollection("Pager").Count == 0)
+                            if (currentProfile.GetProfileValueCollection(ConfigurationManager.AppSettings["ADAttributesEmployeeID"].ToString()).Count == 0)
                             {
                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "showModalPopUp();", true);
                                 ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "MyFun1", "showModalPopUp();", true);
