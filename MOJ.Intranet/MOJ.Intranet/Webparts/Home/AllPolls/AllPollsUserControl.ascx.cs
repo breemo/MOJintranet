@@ -58,7 +58,7 @@ namespace MOJ.Intranet.Webparts.Home.AllPolls
                                                 <div class='ques'>
                                                     <h5>{0}
                                                     </h5>
-                                                    <span><a href='{1}'>{2}</a></span>
+                                                    <span><a href='javascript:Poll(""{1}"")'>{2}</a></span>
                                                 </div>
                                             </div>    
                                         ", oList.Title, oList.DefaultNewFormUrl, SPUtility.GetLocalizedString("$Resources: Participate", "Resource", SPContext.Current.Web.Language));

@@ -102,7 +102,7 @@ namespace CommonLibrary
         public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Title_x0020_En'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
 
         public const string MeetingsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
-        public const string MeetingsViewfields = "<FieldRef Name='Title'/><FieldRef Name='EventDate'/>";
+        public const string MeetingsViewfields = "<FieldRef Name='Title'/><FieldRef Name='EventDate'/><FieldRef Name='Author'/>";
 
         public const string GalleryQuery = @"<Where>" +
                                                     "<Eq><FieldRef Name='isActive'/><Value Type='Integer'>1</Value></Eq>" +

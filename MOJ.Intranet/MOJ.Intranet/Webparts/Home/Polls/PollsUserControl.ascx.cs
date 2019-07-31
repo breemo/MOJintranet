@@ -56,6 +56,7 @@ namespace MOJ.Intranet.Webparts.Home.Polls
                                 {
                                     lblDrawItems.Text +=
                                        string.Format(@"
+                                        <div style='display:none'></div>
                                          <div class='itemboxc'>
                                                 <div class='boxcic'>
                                                     <span>" + count + @"
@@ -64,10 +65,10 @@ namespace MOJ.Intranet.Webparts.Home.Polls
                                                 <div class='ques'>
                                                     <h5>{0}
                                                     </h5>
-                                                    <span><a href='{1}'>{2}</a></span>
+                                                    <span><a href='javascript:Poll(""{2}"")'>{1}</a></span>
                                                 </div>
                                             </div>    
-                                        ", oList.Title, oList.DefaultNewFormUrl, SPUtility.GetLocalizedString("$Resources: Participate", "Resource", SPContext.Current.Web.Language));
+                                        ", oList.Title, SPUtility.GetLocalizedString("$Resources: Participate", "Resource", SPContext.Current.Web.Language),oList.DefaultNewFormUrl);
                                 }
 
                             }
