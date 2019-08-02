@@ -14,9 +14,24 @@
 <script src="/Style%20Library/MOJTheme/js/jquery.js"></script>
 <script src="/Style%20Library/MOJTheme/s/plugins.js"></script>
 
-<h4>طلب أستضافة
+<script>
+    var counter = 1;
+    var limit = 3;
+    function addInput(divName) {
+
+        var newdiv = document.createElement('div');
+        newdiv.innerHTML = "<input type='text' name='Passenger' class='form-control' id='txtPassengerName" + counter + "'>";
+        document.getElementById(divName).appendChild(newdiv);
+        counter++;
+        document.getElementById('hdnPassenger').value = counter;
+    }
+
+</script>
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPassenger" runat="server" />
+<h4>أمر مهمة سيارة
 </h4>
-<div id="posts" class="small-thumbs alt">
+<div id="posts" runat="server" class="small-thumbs alt">
     <div class="tabs tabs-responsive clearfix fullwidthtabs ui-tabs ui-corner-all ui-widget ui-widget-content">
         <div class="inskdnew">
             <div class="row rt">
@@ -56,7 +71,7 @@
                     class="checkbox-click-target">
                     <span class="checkbox-box"></span>خارج ابوظبي
                 </label>--%>
-                        <asp:CheckBoxList ID="cbTravelNeeds" CssClass="checkbox-click-target" runat="server">
+                        <asp:CheckBoxList ID="cbTravelNeeds" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                             <asp:ListItem Text="سائق" Value="WithDriver" />
                             <asp:ListItem Text="بدون سائق" Value="WithoutDriver" />
                             <asp:ListItem Text="داخل ابوظبي" Value="InsideAbuDhabi" />
@@ -95,14 +110,16 @@
                             <label>لنقل السادة</label>
                         </div>
 
-                        <div class="col-md-9">
-                            <input type="text" runat="server" id="txtPassengerName" class="form-control" placeholder="">
+                        <div id="dynamicInput" class="col-md-9">
+                            <input type="text" name="Passenger" runat="server" id="txtPassengerName0" class="form-control" placeholder="">
                         </div>
+
                     </div>
 
 
                 </div>
                 <div class="col-md-6">
+                    <a href="#" onclick="addInput('dynamicInput');" class="morebutovn">اضافة</a>
                 </div>
             </div>
             <div class="row rt">
@@ -197,6 +214,9 @@
             </div>
         </div>
     </div>
+</div>
+<div id="SuccessMsgDiv" runat="server" style="display:none">
+    <h4 class="ta3m" style="text-align: center;"><asp:Literal ID="lblSuccessMsg" runat="server"></asp:Literal></h4>
 </div>
 <script src="/Style%20Library/MOJTheme/js/functions.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
