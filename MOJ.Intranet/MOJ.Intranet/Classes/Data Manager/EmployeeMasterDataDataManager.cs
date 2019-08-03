@@ -3,6 +3,7 @@ using MOJ.Entities;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace MOJ.DataManager
             List<EmployeeMasterDataEntity> Employee = new List<EmployeeMasterDataEntity>();
             try
             {
-                var client = new RestClient("http://esbdev.fahr.gov.ae/services/EmployeeMasterDataService?wsdl");
+                var client = new RestClient(ConfigurationManager.AppSettings["EmployeeMasterDataServiceWebService"].ToString());
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("content-type", "text/xml");
                 request.AddParameter("text/xml",

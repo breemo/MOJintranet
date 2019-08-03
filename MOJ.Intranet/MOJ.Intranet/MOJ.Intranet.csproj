@@ -59,6 +59,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -72,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\CarOrderServiceBL.cs" />
     <Compile Include="Classes\Business\EmployeeMasterData.cs" />
     <Compile Include="Classes\Business\MeetingsBL.cs" />
     <Compile Include="Classes\Business\MinistryFiles.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\AddEmployeeNumberDataManger.cs" />
+    <Compile Include="Classes\Data Manager\CarOrderServiceDataManager.cs" />
     <Compile Include="Classes\Data Manager\EmployeeMasterDataDataManager.cs" />
     <Compile Include="Classes\Data Manager\MeetingsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MinistryFilesDataManager.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\CarOrderServiceEntity.cs" />
     <Compile Include="Classes\Entities\RoomBookingEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeMasterDataEntity.cs" />
     <Compile Include="Classes\Entities\MeetingsEntity.cs" />
@@ -111,6 +115,14 @@
     <Compile Include="Classes\Entities\StickyNotesEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\Common\SharedConstants.cs" />
+    <Compile Include="Webparts\CarOrderServiceWP\CarOrderServiceWP.cs" />
+    <Compile Include="Webparts\CarOrderServiceWP\CarOrderServiceWPUserControl.ascx.cs">
+      <DependentUpon>CarOrderServiceWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\CarOrderServiceWP\CarOrderServiceWPUserControl.ascx.designer.cs">
+      <DependentUpon>CarOrderServiceWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Home\AllNews\AllNews.cs" />
     <Compile Include="Webparts\Home\AllNews\AllNewsUserControl.ascx.cs">
       <DependentUpon>AllNewsUserControl.ascx</DependentUpon>
@@ -328,6 +340,10 @@
     <None Include="Resources\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{13398b7b-f0fc-4051-b318-da84a13749ba}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\CarOrderServiceWP\CarOrderServiceWP.webpart" />
+    <None Include="Webparts\CarOrderServiceWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8bb62985-f75b-476f-8652-cfd4142bc3f1}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Home\AllNews\AllNews.webpart" />
     <None Include="Webparts\Home\AllNews\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f71e58a8-2488-4ac6-a8cd-eb48422deea7}</SharePointProjectItemId>
@@ -440,6 +456,8 @@
     <Content Include="Images\servicesArchv.png" />
     <Content Include="Images\word.jpeg" />
     <Content Include="Images\xcl.jpeg" />
+    <Content Include="Webparts\CarOrderServiceWP\CarOrderServiceWPUserControl.ascx" />
+    <Content Include="Webparts\CarOrderServiceWP\Elements.xml" />
     <Content Include="Webparts\Home\AllNews\AllNewsUserControl.ascx" />
     <Content Include="Webparts\Home\AllNews\Elements.xml" />
     <Content Include="Webparts\Home\AllPolls\AllPollsUserControl.ascx" />

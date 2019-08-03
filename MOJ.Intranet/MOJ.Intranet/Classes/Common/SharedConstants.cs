@@ -65,6 +65,8 @@ namespace CommonLibrary
         public const string OccasionsListUrl = "/Lists/Occasions/AllItems.aspx";
 
         //updated by samir...Sticky Notes List
+        public const string CarOrderServiceName = "CarOrderService";
+
         public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
 
         public const string MeetingsListUrl = "/Lists/Meetings/calendar.aspx";

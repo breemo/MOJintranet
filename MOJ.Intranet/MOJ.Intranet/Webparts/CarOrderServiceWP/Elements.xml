@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="CarOrderServiceWP" List="113" Url="_catalogs/wp">
+    <File Path="CarOrderServiceWP\CarOrderServiceWP.webpart" Url="MOJ.Intranet_CarOrderServiceWP.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="MOJ.Services" />
+    </File>
+  </Module>
+</Elements>
