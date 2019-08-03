@@ -26,8 +26,10 @@ namespace MOJ.DataManager
                     {
                         try
                         {
+                            SPUser currentUser = web.CurrentUser;
+
                             web.AllowUnsafeUpdates = true;
-                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.HostingRequestUrl);
+                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.RoomBookingUrl);
                             SPListItem item = null;
 
                             if (HostingRequestItem.Id > 0)
@@ -41,22 +43,24 @@ namespace MOJ.DataManager
                             }
 
                             item["AttendeesNumber"] = HostingRequestItem.AttendeesNumber;
-                            item["DateForm"] = HostingRequestItem.DateForm;
-                            item["DateTo"] = HostingRequestItem.DateTo;
+                            item["DateFrom"] = SPUtility.CreateISO8601DateTimeFromSystemDateTime(HostingRequestItem.DateFrom);
+                            item["DateTo"] = SPUtility.CreateISO8601DateTimeFromSystemDateTime(HostingRequestItem.DateTo);
                             item["Department"] = HostingRequestItem.Department;
                             item["Mission"] = HostingRequestItem.Mission;
                             item["Place"] = HostingRequestItem.Place;
                             item["ResourcesNeeded"] = HostingRequestItem.ResourcesNeeded;
-                            item["Status"] = HostingRequestItem.Status;
+                            item["Created By"] = currentUser;
 
                             item.Update();
 
                             //AddAttendees(HostingRequestItem, isUpdate, web);
 
                             list.Update();
+                            isFormSaved = true;
                         }
                         catch (Exception ex)
                         {
+                            isFormSaved = false;
                             LoggingService.LogError("WebParts", ex.Message);
                             throw ex;
                         }
