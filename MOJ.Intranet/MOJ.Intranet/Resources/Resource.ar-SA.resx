@@ -300,4 +300,13 @@
   <data name="Submit" xml:space="preserve">
     <value>ارسال</value>
   </data>
+  <data name="headHostingRequest" xml:space="preserve">
+    <value>طلب استضافة</value>
+  </data>
+  <data name="AttendeesNumber" xml:space="preserve">
+    <value>عدد الاشخاص</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
 </root>

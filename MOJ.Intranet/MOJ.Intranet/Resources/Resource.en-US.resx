@@ -172,7 +172,7 @@
     <value>ركن المناسبات</value>
   </data>
   <data name="MoreEvents" xml:space="preserve">
-    <value>مزيد من الاحداث</value>
+    <value>More Events</value>
   </data>
   <data name="Titlebilingual" xml:space="preserve">
     <value>Title En</value>
@@ -280,7 +280,7 @@
     <value>Year</value>
   </data>
   <data name="welcome" xml:space="preserve">
-    <value>مرحبا</value>
+    <value>welcome</value>
   </data>
   <data name="EmployeeIDErrorMsg" xml:space="preserve">
     <value>The Employee ID Or email is incorrect</value>
@@ -299,5 +299,14 @@
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
+  </data>
+  <data name="headHostingRequest" xml:space="preserve">
+    <value>Hosting Request</value>
+  </data>
+  <data name="AttendeesNumber" xml:space="preserve">
+    <value>Attendees Number</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Day</value>
   </data>
 </root>

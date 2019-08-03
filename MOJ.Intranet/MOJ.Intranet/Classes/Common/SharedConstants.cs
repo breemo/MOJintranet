@@ -23,7 +23,7 @@ namespace CommonLibrary
         public const string DescriptionEn = "DescriptionEn";
         public const string Name = "Name";
         public const string PageName = "PageName";
-
+        
         #endregion
 
         #region News
@@ -72,6 +72,9 @@ namespace CommonLibrary
         public const string MinistryFilesListUrl = "/Lists/MinistryFiles/AllItems.aspx";
 
         public const string ServicesListUrl = "/Lists/Services/AllItems.aspx";
+        public const string HostingRequestUrl = "/Lists/HostingRequest/AllItems.aspx";
+        public const string DepartmentsUrl = "/Lists/Departments/AllItems.aspx";
+
         #endregion
 
         #region Query

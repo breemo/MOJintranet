@@ -75,6 +75,7 @@
     <Compile Include="Classes\Business\EmployeeMasterData.cs" />
     <Compile Include="Classes\Business\MeetingsBL.cs" />
     <Compile Include="Classes\Business\MinistryFiles.cs" />
+    <Compile Include="Classes\Business\RoomBooking.cs" />
     <Compile Include="Classes\Business\Occasions.cs" />
     <Compile Include="Classes\Business\Memos.cs" />
     <Compile Include="Classes\Business\liveEvents.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Classes\Data Manager\EmployeeMasterDataDataManager.cs" />
     <Compile Include="Classes\Data Manager\MeetingsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MinistryFilesDataManager.cs" />
+    <Compile Include="Classes\Data Manager\RoomBookingDataManager.cs" />
     <Compile Include="Classes\Data Manager\OccasionsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MemosDataManager.cs" />
     <Compile Include="Classes\Data Manager\liveEventsDataManager.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\RoomBookingEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeMasterDataEntity.cs" />
     <Compile Include="Classes\Entities\MeetingsEntity.cs" />
     <Compile Include="Classes\Entities\MinistryFilesEntity.cs" />
@@ -290,6 +293,22 @@
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.designer.cs">
       <DependentUpon>LiveEventsWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\HostingRequestWP\HostingRequestWP.cs" />
+    <Compile Include="Webparts\My Services\HostingRequestWP\HostingRequestWPUserControl.ascx.cs">
+      <DependentUpon>HostingRequestWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\HostingRequestWP\HostingRequestWPUserControl.ascx.designer.cs">
+      <DependentUpon>HostingRequestWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\My Services\HostingRequest\HostingRequest.ascx.cs">
+      <DependentUpon>HostingRequest.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\My Services\HostingRequest\HostingRequest.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HostingRequest.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Features\Feature1\Feature1.feature">
@@ -401,6 +420,14 @@
     <None Include="Webparts\LiveEventsWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a023d941-1aae-42b2-b266-211a22b2b513}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\HostingRequestWP\HostingRequestWP.webpart" />
+    <None Include="Webparts\My Services\HostingRequestWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{30463a34-2d57-49ac-9d76-662bdd727597}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\My Services\HostingRequest\HostingRequest.webpart" />
+    <None Include="Webparts\My Services\HostingRequest\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{967daa02-38a6-455b-87a0-647314935a65}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">
@@ -459,10 +486,16 @@
     <Content Include="Webparts\Inner Pages\NewsList\NewsListUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\HostingRequestWP\Elements.xml" />
+    <Content Include="Webparts\My Services\HostingRequestWP\HostingRequestWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\HostingRequest\Elements.xml" />
+    <Content Include="Webparts\My Services\HostingRequest\HostingRequest.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>HostingRequest.ascx.g.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\MOJ.Intranet\" />
-    <Folder Include="Webparts\My Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Resource.ar-SA.resx" />
