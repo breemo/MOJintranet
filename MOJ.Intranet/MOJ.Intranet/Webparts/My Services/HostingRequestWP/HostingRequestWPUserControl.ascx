@@ -18,26 +18,19 @@
     <div class="tabs tabs-responsive clearfix fullwidthtabs">
 
         <ul class="tab-nav clearfix">
-            <li><a href="#tab-responsive-1">أستضافة فندقية</a></li>
-            <li><a href="#tab-responsive-2">حجز قاعة</a></li>
+            <li><a href="#tab-responsive-1"><asp:Literal runat="server" Text="<%$ Resources:Resource, HotelHosting%>" /></a></li>
+            <li><a href="#tab-responsive-2"><asp:Literal runat="server" Text="<%$ Resources:Resource, RoomBooking%>" /></a></li>
         </ul>
 
         <div class="tab-container">
-
             <div class="tab-content clearfix" id="tab-responsive-1">
-
                 <div class="inskdnew inskdnew2">
-
                     <div class="row rt">
-
                         <div class="col-md-6">
-
                             <div class="row">
-
                                 <div class="col-md-2">
                                     <label>الاماره</label>
                                 </div>
-
                                 <div class="col-md-9">
                                     <select class="form-control">
                                         <option>اختر</option>
@@ -46,14 +39,10 @@
                                     </select>
                                 </div>
                             </div>
-
-
                         </div>
                         <div class="col-md-6">
                         </div>
                     </div>
-
-
 
                     <div class="row">
                         <div class="col-sm-12">
@@ -74,8 +63,6 @@
                                     <tfoot>
                                         <tr>
                                             <td class="foot" colspan="7">
-
-
                                                 <div class="pagi">
                                                     <ul class="pagination">
                                                         <li class="page-item">
@@ -101,7 +88,6 @@
                                                     </ul>
                                                 </div>
                                             </td>
-
                                         </tr>
                                     </tfoot>
                                     <tr>
@@ -112,7 +98,6 @@
                                         <td>24/12/2009</td>
                                         <td>فصل كانتا شموليةً كل</td>
                                         <td>
-
                                             <span class="icon-trash-alt"></span>
                                         </td>
                                     </tr>
@@ -124,7 +109,6 @@
                                         <td>24/12/2009</td>
                                         <td>فصل كانتا شموليةً كل</td>
                                         <td>
-
                                             <span class="icon-trash-alt"></span>
                                         </td>
                                     </tr>
@@ -211,7 +195,7 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <label>
-                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Day%>" /></label>
+                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, fromDate%>" /></label>
                                 </div>
                                 <div class="col-md-9">
                                     <div class="input-group date" data-provide="datepicker">
@@ -226,7 +210,7 @@
                         <div class="col-md-6">
                             <div class="row newrowtime">
                                 <div class="col-md-2">
-                                    <label>الوقت</label>
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, time%>" /></label>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group timenew">
@@ -237,59 +221,81 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-3">
-
+                                <%--<div class="col-md-3">
                                     <div class="input-group timenew">
                                         <input id="timepicker" class="timepicker form-control" />
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="col-md-4">
-
                                     <a href="#" class="morebutovn">اضافة ايام
                                                                     <span class="icon-plus-sign"></span>
                                     </a>
-
-                                </div>
-
+                                </div>--%>
                             </div>
-
-
                         </div>
                     </div>
-
-
-
-                    <div class="row rt fleb">
-
-                        <div class="col-md-1">
-
-                            <label>المهمة</label>
-
-
-                        </div>
-                        <div class="col-md-11">
-
-                            <textarea class="form-control" runat="server" id="txtMission" rows="3"></textarea>
-
-
-
-
-
-
-                        </div>
-                    </div>
-
-
 
                     <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label>
+                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, toDate%>" /></label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="input-group date" data-provide="datepicker">
+                                        <input type="text" runat="server" id="txtBookingDateTo" class="form-control">
+                                        <div class="input-group-addon">
+                                            <span class="icon-calendar-alt1"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row newrowtime">
+                                <div class="col-md-2">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, time%>" /></label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group timenew">
+                                        <input  runat="server" id="txtBookingTimeTo" class="timepicker form-control" />
+                                        <div class="input-group-addon">
+                                            <span class="icon-calendar-alt1"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%--<div class="col-md-3">
+                                    <div class="input-group timenew">
+                                        <input id="timepicker" class="timepicker form-control" />
+                                        <div class="input-group-addon">
+                                            <span class="icon-calendar-alt1"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="#" class="morebutovn">اضافة ايام
+                                                                    <span class="icon-plus-sign"></span>
+                                    </a>
+                                </div>--%>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rt fleb">
+                        <div class="col-md-1">
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, mission%>" /></label>
+                        </div>
+                        <div class="col-md-11">
+                            <textarea class="form-control" runat="server" id="txtMission" rows="3"></textarea>
+                        </div>
+                    </div>
 
-
+                    <div class="row rt">
                         <div class="col-md-12">
-                            <h5>المطلوب توفيره
+                            <h5><asp:Literal runat="server" Text="<%$ Resources:Resource, resources%>" />
                             </h5>
                             <div>
                                 <%--<input type="checkbox"
@@ -319,17 +325,11 @@
                         </div>
                     </div>
 
-
                     <div class="row rt  botx">
                         <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnSaveRoomBooking_Click" />
-
                         <%--<a href="#" class="morebutovn2">تقديم
-
-
-
                         </a>--%>
                     </div>
-
                 </div>
             </div>
 

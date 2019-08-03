@@ -58,6 +58,24 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBookingTimeFrom;
         
         /// <summary>
+        /// txtBookingDateTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBookingDateTo;
+        
+        /// <summary>
+        /// txtBookingTimeTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtBookingTimeTo;
+        
+        /// <summary>
         /// txtMission control.
         /// </summary>
         /// <remarks>

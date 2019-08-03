@@ -97,26 +97,30 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
         {
             string RecordPrfix = "";
             RecordPrfix = "Room-" + DateTime.Now.ToString("yyMMdd") + "-" + GetNextRoomRequestNumber().PadLeft(5, '0').ToString();
-
             RoomBookingEntity itemSumbit = new RoomBookingEntity();
+
+            if (!string.IsNullOrEmpty(txtBookingDateFrom.Value))
+            {
+                DateTime sDate = DateTime.ParseExact(txtBookingDateFrom.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
+                TimeSpan tsSdate = TimeSpan.Parse(pmSdate[0]);
+                sDate = (pmSdate[1] == "PM") ? (sDate.Date + tsSdate).AddHours(12) : sDate.Date + tsSdate;
+                itemSumbit.DateFrom = sDate;
+            }
+
+            if (!string.IsNullOrEmpty(txtBookingDateTo.Value))
+            {
+                DateTime tDate = DateTime.ParseExact(txtBookingDateTo.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                string[] pmTdate = txtBookingTimeTo.Value.Split(' ');
+                TimeSpan tsTdate = TimeSpan.Parse(pmTdate[0]);
+                tDate = (pmTdate[1] == "PM") ? (tDate.Date + tsTdate).AddHours(12) : tDate.Date + tsTdate;
+                itemSumbit.DateTo = tDate;
+            }
 
             itemSumbit.AttendeesNumber = txtAttendeesNumber.Value;
             itemSumbit.Mission = txtMission.Value;
             itemSumbit.Place = cbPlace.SelectedValue;
-
-
-            DateTime s = DateTime.ParseExact(txtBookingDateFrom.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-            TimeSpan ts = TimeSpan.Parse(txtBookingTimeFrom.Value);
-            s = s.Date + ts;
-
-            //DateTime dtFrom = DateTime.ParseExact(txtBookingDateFrom.Value + "T" + txtBookingTimeFrom.Value, "MM/dd/yyyy HH:mm", CultureInfo.InvariantCulture);
-            //DateTime dtTo = DateTime.ParseExact(txtBookingDateTo.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-
-            itemSumbit.DateFrom = DateTime.Now;
-            itemSumbit.DateTo = DateTime.Now;
             itemSumbit.Department = "1";
-
-
 
             SPFieldMultiChoiceValue multiValue = new SPFieldMultiChoiceValue();
             foreach (ListItem item in cbResources.Items)

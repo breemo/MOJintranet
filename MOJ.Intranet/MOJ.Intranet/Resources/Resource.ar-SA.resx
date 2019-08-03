@@ -375,4 +375,25 @@
   <data name="WithoutDriver" xml:space="preserve">
     <value>بدون سائق</value>
   </data>
+  <data name="fromDate" xml:space="preserve">
+    <value>بتاريخ</value>
+  </data>
+  <data name="HotelHosting" xml:space="preserve">
+    <value>أستضافة فندقية</value>
+  </data>
+  <data name="mission" xml:space="preserve">
+    <value>المهمة</value>
+  </data>
+  <data name="resources" xml:space="preserve">
+    <value>يرجى توفير</value>
+  </data>
+  <data name="RoomBooking" xml:space="preserve">
+    <value>حجز قاعة</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="toDate" xml:space="preserve">
+    <value>لغاية</value>
+  </data>
 </root>

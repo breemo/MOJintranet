@@ -375,4 +375,25 @@
   <data name="WithoutDriver" xml:space="preserve">
     <value>Without Driver</value>
   </data>
+  <data name="fromDate" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="HotelHosting" xml:space="preserve">
+    <value>Hotel Hosting</value>
+  </data>
+  <data name="mission" xml:space="preserve">
+    <value>Mission</value>
+  </data>
+  <data name="resources" xml:space="preserve">
+    <value>يرجى توفير</value>
+  </data>
+  <data name="RoomBooking" xml:space="preserve">
+    <value>Room Booking</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="toDate" xml:space="preserve">
+    <value>To</value>
+  </data>
 </root>
