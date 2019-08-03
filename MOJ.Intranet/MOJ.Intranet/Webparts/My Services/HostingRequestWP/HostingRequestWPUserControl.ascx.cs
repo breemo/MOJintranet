@@ -13,7 +13,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
 {
     public partial class HostingRequestWPUserControl : UserControl
     {
-        private static int _RoomNumber = 000001;
+        //private static int _RoomNumber = 000001;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -87,16 +87,16 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
-        public static string GetNextRoomRequestNumber()
-        {
-            _RoomNumber++;
-            return _RoomNumber.ToString();
-        }
+        //public static string GetNextRoomRequestNumber()
+        //{
+        //    _RoomNumber++;
+        //    return _RoomNumber.ToString();
+        //}
 
         protected void btnSaveRoomBooking_Click(object sender, EventArgs e)
         {
             string RecordPrfix = "";
-            RecordPrfix = "Room-" + DateTime.Now.ToString("yyMMdd") + "-" + GetNextRoomRequestNumber().PadLeft(5, '0').ToString();
+            RecordPrfix = "Room-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("RoomBooking");
             RoomBookingEntity itemSumbit = new RoomBookingEntity();
 
             if (!string.IsNullOrEmpty(txtBookingDateFrom.Value))
