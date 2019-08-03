@@ -330,6 +330,9 @@
   <data name="Category" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="ddlSelect" xml:space="preserve">
+    <value>Choose</value>
+  </data>
   <data name="Download" xml:space="preserve">
     <value>Download</value>
   </data>

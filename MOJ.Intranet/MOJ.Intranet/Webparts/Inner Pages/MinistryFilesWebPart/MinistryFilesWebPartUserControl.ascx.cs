@@ -1,4 +1,6 @@
 ﻿using CommonLibrary;
+using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
@@ -29,7 +31,40 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            GetCategory();
             BindData();
+        }
+        private void GetCategory()
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.MinistryFilesListUrl);
+                                if (lst != null)
+                                {
+                                    SPFieldChoice CategoryChoice = (SPFieldChoice)lst.Fields["Category"];
+                                    ddlCategory.Items.Insert(0, new ListItem(SPUtility.GetLocalizedString("$Resources: ddlSelect", "Resource", SPContext.Current.Web.Language), ""));
+                                    for (int i = 0; i < CategoryChoice.Choices.Count; i++)
+                                    {
+                                        ddlCategory.Items.Add(CategoryChoice.Choices[i].ToString());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
         }
         private void BindData()
         {

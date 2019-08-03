@@ -330,6 +330,9 @@
   <data name="Category" xml:space="preserve">
     <value>الفئة</value>
   </data>
+  <data name="ddlSelect" xml:space="preserve">
+    <value>اختر</value>
+  </data>
   <data name="Download" xml:space="preserve">
     <value>تحميل</value>
   </data>

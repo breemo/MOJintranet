@@ -216,11 +216,13 @@
 
                             </div>
                             <div class="col-md-9">
-                                <select class="form-control">
+                                <asp:DropDownList ID="ddlCategory" class="form-control" runat="server">
+                                </asp:DropDownList>
+                               <%-- <select class="form-control">
                                     <option>اختر</option>
                                     <option>2</option>
                                     <option>3</option>
-                                </select>
+                                </select>--%>
                             </div>
                         </div>
                         <div class="row">
