@@ -29,14 +29,14 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-                BindData();
+            BindData();
         }
         private void BindData()
         {
             try
             {
                 List<MinistryFilesEntity> Books = new MinistryFiles().GetMinistryFilesData();
-                
+
                 PagedDataSource pgitems = new PagedDataSource();
                 pgitems.DataSource = Books;
                 pgitems.AllowPaging = true;
@@ -77,13 +77,18 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            FillData(txtSearchBookName.Value,txtSearchCreatedby.Value);
+            FillData(txtSearchBookName.Value, txtSearchCreatedby.Value);
         }
-        private void FillData(string BookName,string Created)
+        private void FillData(string BookName, string Created)
         {
             List<MinistryFilesEntity> Books = new MinistryFiles().GetMinistryFilesSearch(BookName, Created);
             grdBookslsts.DataSource = Books;
             grdBookslsts.DataBind();
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

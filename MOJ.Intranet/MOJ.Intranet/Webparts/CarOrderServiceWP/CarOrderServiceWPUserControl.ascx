@@ -29,7 +29,8 @@
 </script>
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPassenger" runat="server" />
-<h4>أمر مهمة سيارة
+<h4>
+    <asp:Literal runat="server" Text="<%$ Resources:Resource, CarRequestService%>" />
 </h4>
 <div id="posts" runat="server" class="small-thumbs alt">
     <div class="tabs tabs-responsive clearfix fullwidthtabs ui-tabs ui-corner-all ui-widget ui-widget-content">
@@ -39,7 +40,8 @@
 
                 <div class="col-md-12">
 
-                    <h5>يلزم بتأمين سيارة
+                    <h5>
+                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Carwith%>" />
                     </h5>
                     <div>
                         <%--                <input type="checkbox"
@@ -72,10 +74,10 @@
                     <span class="checkbox-box"></span>خارج ابوظبي
                 </label>--%>
                         <asp:CheckBoxList ID="cbTravelNeeds" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
-                            <asp:ListItem Text="سائق" Value="WithDriver" />
-                            <asp:ListItem Text="بدون سائق" Value="WithoutDriver" />
-                            <asp:ListItem Text="داخل ابوظبي" Value="InsideAbuDhabi" />
-                            <asp:ListItem Text="خارج ابوظبي" Value="OutSideAbuDhabi" />
+                            <asp:ListItem Text="<%$ Resources:Resource, WithDriver%>" Value="WithDriver" />
+                            <asp:ListItem Text="<%$ Resources:Resource, WithoutDriver%>" Value="WithoutDriver" />
+                            <asp:ListItem Text="<%$ Resources:Resource, insideAbuDhabi%>" Value="InsideAbuDhabi" />
+                            <asp:ListItem Text="<%$ Resources:Resource, outsideAbuDhabi%>" Value="OutSideAbuDhabi" />
                         </asp:CheckBoxList>
                     </div>
                 </div>
@@ -87,7 +89,7 @@
                     <div class="row">
 
                         <div class="col-md-2">
-                            <label>الذهاب الى</label>
+                            <label> <asp:Literal runat="server" Text="<%$ Resources:Resource, GoingTo%>" /></label>
                         </div>
 
                         <div class="col-md-9">
@@ -107,7 +109,7 @@
                     <div class="row">
 
                         <div class="col-md-2">
-                            <label>لنقل السادة</label>
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, PassengerName%>" /></label>
                         </div>
 
                         <div id="dynamicInput" class="col-md-9">
@@ -119,7 +121,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <a href="#" onclick="addInput('dynamicInput');" class="morebutovn">اضافة</a>
+                    <a href="#" onclick="addInput('dynamicInput');" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
                 </div>
             </div>
             <div class="row rt">
@@ -129,7 +131,7 @@
                     <div class="row">
 
                         <div class="col-md-2">
-                            <label>لغرض</label>
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelReason%>" /></label>
                         </div>
 
                         <div class="col-md-9">
@@ -149,7 +151,7 @@
                     <div class="row">
 
                         <div class="col-md-2">
-                            <label>على ان تتواجد السيارة أمام</label>
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CarPlace%>" /></label>
                         </div>
 
                         <div class="col-md-9">
@@ -169,7 +171,7 @@
                     <div class="row">
 
                         <div class="col-md-2">
-                            <label>الموافق</label>
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelDate%>" /></label>
                         </div>
 
                         <div class="col-md-9">
@@ -196,7 +198,7 @@
                     <div class="row">
 
                         <div class="col-md-2">
-                            <label>مدة المهمة</label>
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelDuration%>" /></label>
                         </div>
 
                         <div class="col-md-9">

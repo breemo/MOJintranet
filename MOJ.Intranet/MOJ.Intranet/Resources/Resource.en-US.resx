@@ -309,4 +309,67 @@
   <data name="Day" xml:space="preserve">
     <value>Day</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="BookName" xml:space="preserve">
+    <value>Book Name</value>
+  </data>
+  <data name="CarPlace" xml:space="preserve">
+    <value>Car Place</value>
+  </data>
+  <data name="CarRequestService" xml:space="preserve">
+    <value>Car Request Service</value>
+  </data>
+  <data name="Carwith" xml:space="preserve">
+    <value>Car With</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="FilterBy" xml:space="preserve">
+    <value>Filter By</value>
+  </data>
+  <data name="GoingTo" xml:space="preserve">
+    <value>Going to</value>
+  </data>
+  <data name="insideAbuDhabi" xml:space="preserve">
+    <value>Inside AbuDhabi</value>
+  </data>
+  <data name="MinistryFiles" xml:space="preserve">
+    <value>Ministry Files</value>
+  </data>
+  <data name="outsideAbuDhabi" xml:space="preserve">
+    <value>Outside AbuDhabi</value>
+  </data>
+  <data name="PassengerName" xml:space="preserve">
+    <value>Passengers Name</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="TravelDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="TravelDuration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="TravelReason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="UploadedBy" xml:space="preserve">
+    <value>Uploaded By</value>
+  </data>
+  <data name="WithDriver" xml:space="preserve">
+    <value>With Driver</value>
+  </data>
+  <data name="WithoutDriver" xml:space="preserve">
+    <value>Without Driver</value>
+  </data>
 </root>

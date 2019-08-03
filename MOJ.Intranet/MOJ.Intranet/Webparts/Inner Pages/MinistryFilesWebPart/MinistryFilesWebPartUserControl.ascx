@@ -13,7 +13,8 @@
                     ============================================= -->
     <div class="postcontent nobottommargin col_last clearfix">
         <div class="boxleftbor">
-            <h4>مكتبة الوزارة
+            <h4>
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, MinistryFiles%>" />
             </h4>
 
 
@@ -91,7 +92,7 @@
 
                                         <div class="uploadediv">
                                             <p>
-                                                تم الرفع بواسطة
+                                                <asp:Literal runat="server" Text="<%$ Resources:Resource, UploadedBy%>" />
                                                         <span><%# Eval("CreatedBy") %></span>
 
                                             </p>
@@ -103,9 +104,8 @@
 
 
 
-                                                <a runat="server" id="link" href='<%# Eval("AttachmentsInfo") %>'>
-
-                                                    <input type="button" class="btnclass radix" value="تحميل">
+                                                <a runat="server" class="btnclass radix" id="link" href='<%# Eval("AttachmentsInfo") %>'>
+                                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Download%>" />
                                                 </a>
                                             </div>
                                         </div>
@@ -202,14 +202,15 @@
                 <div class="searchboxinside">
 
                     <div class="formdiv formby">
-                        <h5>البحث بواسطة
+                        <h5>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, FilterBy%>" />
                         </h5>
 
 
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="labelri">
-                                    الفئة
+                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, Category%>" />
                                 </label>
 
 
@@ -225,7 +226,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="labelri">
-                                    اسم الكتاب
+                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, BookName%>" />
                                 </label>
 
                             </div>
@@ -237,7 +238,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="labelri">
-                                    كاتب
+                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Author%>" />
                                 </label>
 
                             </div>
@@ -249,13 +250,15 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="labelri">
-                                    تم الرفع بواسطة
+                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, UploadedBy%>" />
                                 </label>
 
 
                             </div>
                             <div class="col-md-9">
                                 <input type="text" id="txtSearchCreatedby" runat="server" class="form-control" placeholder=" ">
+    
+    
     
                             </div>
                         </div>
@@ -264,8 +267,8 @@
 
 
                             <%--<input type="button" class="btnclass radix" value="بحث">--%>
-                            <asp:Button Text="بحث" runat="server" CssClass="btnclass radix" OnClick="Unnamed1_Click" />
-                            <input type="button" class="btnclass radix" value="واضح">
+                            <asp:Button Text="<%$ Resources:Resource, Search%>" runat="server" CssClass="btnclass radix" OnClick="Unnamed1_Click" />
+                            <asp:Button Text="<%$ Resources:Resource, btnClear%>" runat="server" CssClass="btnclass radix" ID="btnClear" OnClick="btnClear_Click" />
                         </div>
 
                     </div>
