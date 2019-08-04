@@ -122,7 +122,7 @@
 
                 </div>
                 <div class="pagi">
-                    <ul class="pagination">
+                    <ul class="pagination" id="PaginUI" runat="server">
                         <li class="page-item">
                             <a class="page-link pageright" href="#">
                                 <i class="icon-angle-right"></i>
@@ -245,7 +245,7 @@
 
                             </div>
                             <div class="col-md-9">
-                                <input type="text" id="txtsearchBook" runat="server" class="form-control" placeholder="">
+                                <input type="text" id="txtAuthor" runat="server" class="form-control" placeholder="">
                             </div>
                         </div>
 

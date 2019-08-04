@@ -396,4 +396,10 @@
   <data name="toDate" xml:space="preserve">
     <value>To</value>
   </data>
+  <data name="successfullyMsg" xml:space="preserve">
+    <value>Your request has been sent successfully</value>
+  </data>
+  <data name="YourRequestNumber" xml:space="preserve">
+    <value>Your Request Number is</value>
+  </data>
 </root>

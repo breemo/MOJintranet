@@ -31,8 +31,11 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetCategory();
-            BindData();
+            if (!Page.IsPostBack)
+            {
+                GetCategory();
+                BindData();
+            }
         }
         private void GetCategory()
         {
@@ -94,6 +97,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
                 else
                 {
                     rptPaging.Visible = false;
+                    PaginUI.Visible = false;
                 }
 
                 grdBookslsts.DataSource = pgitems;
@@ -112,18 +116,46 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            FillData(txtSearchBookName.Value, txtSearchCreatedby.Value);
+            FillData(txtSearchBookName.Value, txtSearchCreatedby.Value, ddlCategory.SelectedValue.ToString(), txtAuthor.Value);
         }
-        private void FillData(string BookName, string Created)
+        private void FillData(string BookName, string Created, string Category, string Author)
         {
-            List<MinistryFilesEntity> Books = new MinistryFiles().GetMinistryFilesSearch(BookName, Created);
-            grdBookslsts.DataSource = Books;
+            List<MinistryFilesEntity> Books = new MinistryFiles().GetMinistryFilesSearch(BookName, Created, Category, Author);
+            PagedDataSource pgitems = new PagedDataSource();
+            pgitems.DataSource = Books;
+            pgitems.AllowPaging = true;
+
+            //Control page size from here 
+            pgitems.PageSize = 12;
+            pgitems.CurrentPageIndex = PageNumber;
+
+            if (pgitems.PageCount > 1)
+            {
+                rptPaging.Visible = true;
+                ArrayList pages = new ArrayList();
+                for (int i = 0; i <= pgitems.PageCount - 1; i++)
+                {
+                    pages.Add((i + 1).ToString());
+                }
+                rptPaging.DataSource = pages;
+                rptPaging.DataBind();
+            }
+            else
+            {
+                rptPaging.Visible = false;
+                PaginUI.Visible = false;
+            }
+            grdBookslsts.DataSource = pgitems;
             grdBookslsts.DataBind();
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-
+            ddlCategory.SelectedIndex = 0;
+            txtAuthor.Value = "";
+            txtSearchBookName.Value = "";
+            txtSearchCreatedby.Value = "";
+            BindData();
         }
     }
 }

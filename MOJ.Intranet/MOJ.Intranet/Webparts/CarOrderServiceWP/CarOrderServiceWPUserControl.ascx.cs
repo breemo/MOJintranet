@@ -1,5 +1,6 @@
 ﻿using CommonLibrary;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using System;
 using System.Globalization;
@@ -31,7 +32,7 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
                         SPUser currentUser = myweb.CurrentUser;
 
                         string RecordPrfix = "";
-                        RecordPrfix = "Car-" + DateTime.Now.ToString("yyMMdd") + "-" + GetNextCarRequestNumber().PadLeft(5, '0').ToString();
+                        RecordPrfix = "Car-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("CarOrderService");
                         string TravelNeedsValues = string.Empty;
                         string tPassengerNames = string.Empty;
                         foreach (ListItem item in this.cbTravelNeeds.Items)
@@ -50,7 +51,7 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
 
                         if (AddCarRequest == true)
                         {
-                            lblSuccessMsg.Text = @"تم ارسال طلبك بنجاح" + Environment.NewLine + "رقم طلبك هو" + Environment.NewLine + RecordPrfix;
+                            lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
                             posts.Style.Add("display", "none");
                             SuccessMsgDiv.Style.Add("display", "block");
                         }

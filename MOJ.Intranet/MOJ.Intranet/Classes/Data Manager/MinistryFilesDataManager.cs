@@ -66,7 +66,7 @@ namespace MOJ.DataManager
             return Fileslst;
         }
 
-        public List<MinistryFilesEntity> GetMinistryFilesSearch(string BookName, string CreatedBy)
+        public List<MinistryFilesEntity> GetMinistryFilesSearch(string BookName, string CreatedBy, string Category, string Author)
         {
             if (BookName == "")
                 BookName = " ";
@@ -92,18 +92,43 @@ namespace MOJ.DataManager
                                     SPQuery oQuery = new SPQuery();
                                     oQuery.Query =
 
-                                           "<Where>" +
-                                              "<Or>" +
-                                                 "<Contains>" +
-                                                    "<FieldRef Name='Author'/>" +
-                                                     "<Value Type='User'>" + CreatedBy + @"</Value>" +
-                                                       "</Contains>" +
-                                                       "<Contains>" +
-                                                     "<FieldRef Name='Title'/>" +
-                                                           "<Value Type='Text'>" + BookName + @"</Value>" +
-                                                       "</Contains>" +
-                                                          "</Or>" +
-                                                       "</Where>" + SharedConstants.MinistryFilesQuery;
+                                    //"<Where>" +
+                                    //   "<Or>" +
+                                    //      "<Contains>" +
+                                    //         "<FieldRef Name='Author'/>" +
+                                    //          "<Value Type='User'>" + CreatedBy + @"</Value>" +
+                                    //            "</Contains>" +
+                                    //            "<Contains>" +
+                                    //          "<FieldRef Name='Title'/>" +
+                                    //                "<Value Type='Text'>" + BookName + @"</Value>" +
+                                    //            "</Contains>" +
+                                    //               "</Or>" +
+                                    //            "</Where>" + SharedConstants.MinistryFilesQuery;
+
+                                    "<Where>" +
+                                          "<Or>" +
+                                             "<Eq>" +
+                                                "<FieldRef Name='Title' />" +
+                                                "<Value Type='Text'>"+ BookName + @"</Value>" +
+                                             "</Eq>" +
+                                             "<Or>" +
+                                                "<Eq>" +
+                                                   "<FieldRef Name='Author' />" +
+                                                   "<Value Type='User'>"+ CreatedBy + "@</Value>" +
+                                                "</Eq>" +
+                                                "<Or>" +
+                                                   "<Eq>" +
+                                                      "<FieldRef Name='Category' />" +
+                                                      "<Value Type='Choice'>"+ Category + @"</Value>" +
+                                                   "</Eq>" +
+                                                   "<Eq>" +
+                                                      "<FieldRef Name='Author0' />" +
+                                                      "<Value Type='Text'>"+ Author + @"</Value>" +
+                                                   "</Eq>" +
+                                                "</Or>" +
+                                             "</Or>" +
+                                          "</Or>" +
+                                       "</Where>" + SharedConstants.MinistryFilesQuery;
 
                                     oQuery.ViewFields = SharedConstants.MinistryFilesViewfields;
 

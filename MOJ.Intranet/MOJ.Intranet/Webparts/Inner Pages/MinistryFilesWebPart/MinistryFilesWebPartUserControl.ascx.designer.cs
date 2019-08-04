@@ -22,6 +22,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart {
         protected global::System.Web.UI.WebControls.Repeater grdBookslsts;
         
         /// <summary>
+        /// PaginUI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PaginUI;
+        
+        /// <summary>
         /// rptPaging control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtSearchBookName;
         
         /// <summary>
-        /// txtsearchBook control.
+        /// txtAuthor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtsearchBook;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAuthor;
         
         /// <summary>
         /// txtSearchCreatedby control.

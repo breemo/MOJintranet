@@ -396,4 +396,10 @@
   <data name="toDate" xml:space="preserve">
     <value>لغاية</value>
   </data>
+  <data name="successfullyMsg" xml:space="preserve">
+    <value>تم ارسال طلبك بنجاح</value>
+  </data>
+  <data name="YourRequestNumber" xml:space="preserve">
+    <value>رقم طلبك هو</value>
+  </data>
 </root>

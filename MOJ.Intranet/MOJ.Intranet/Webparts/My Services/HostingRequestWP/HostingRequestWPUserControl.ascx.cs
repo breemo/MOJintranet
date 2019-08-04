@@ -136,7 +136,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
 
             if (isSaved == true)
             {
-                lblSuccessMsg.Text = @"تم ارسال طلبك بنجاح" + Environment.NewLine + "رقم طلبك هو" + Environment.NewLine + RecordPrfix;
+                lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
             }
@@ -146,19 +146,19 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
         {
             //fireach
             //{
-                //HotelHostingEntity itemSumbit = new HotelHostingEntity();
+            //HotelHostingEntity itemSumbit = new HotelHostingEntity();
 
-                ////itemSumbit.AttendeesNumber = ;
-                ////itemSumbit.DateForm = ;
-                ////itemSumbit.DateTo = ;
-                ////itemSumbit.Department = ;
-                ////itemSumbit.Mission = ;
-                ////itemSumbit.Place = ;
-                ////itemSumbit.ResourcesNeeded = ;
-                //itemSumbit.Status = "Submitted";
+            ////itemSumbit.AttendeesNumber = ;
+            ////itemSumbit.DateForm = ;
+            ////itemSumbit.DateTo = ;
+            ////itemSumbit.Department = ;
+            ////itemSumbit.Mission = ;
+            ////itemSumbit.Place = ;
+            ////itemSumbit.ResourcesNeeded = ;
+            //itemSumbit.Status = "Submitted";
 
-                //HotelHosting rb = new HotelHosting();
-                //bool isSaved = rb.SaveUpdate(itemSumbit);
+            //HotelHosting rb = new HotelHosting();
+            //bool isSaved = rb.SaveUpdate(itemSumbit);
             //}
         }
     }
