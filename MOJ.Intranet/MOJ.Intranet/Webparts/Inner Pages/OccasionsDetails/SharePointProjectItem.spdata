@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="OccasionsDetailsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="OccasionsDetails\" Type="ElementManifest" />
+    <ProjectItemFile Source="OccasionsDetails.webpart" Target="OccasionsDetails\" Type="ElementFile" />
+    <ProjectItemFile Source="OccasionsDetailsUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.Inner_Pages\OccasionsDetails\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.Inner_Pages.OccasionsDetails" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>
