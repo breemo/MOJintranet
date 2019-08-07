@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="ViewTask" List="113" Url="_catalogs/wp">
+    <File Path="ViewTask\ViewTask.webpart" Url="MOJ.Intranet_ViewTask.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="MOJ.MyServices" />
+    </File>
+  </Module>
+</Elements>

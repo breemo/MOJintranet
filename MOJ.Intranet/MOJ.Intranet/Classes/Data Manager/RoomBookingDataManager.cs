@@ -73,6 +73,53 @@ namespace MOJ.DataManager
             });
             return isFormSaved;
         }
+               
+        public RoomBookingEntity GetRoomBookingByID(int id)
+        {
+            RoomBookingEntity RoomBooking = new RoomBookingEntity();
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.RoomBookingUrl);
+                                if (lstRoom != null)
+                                {
+                                    SPListItem Item = lstRoom.GetItemById(id);
+
+                                    RoomBooking.Place = Convert.ToString(Item["Place"]);
+                                   
+                                    RoomBooking.AttendeesNumber = Convert.ToString(Item["AttendeesNumber"]); 
+
+                                    RoomBooking.Mission = Convert.ToString(Item["Mission"]);
+                                    RoomBooking.DateFrom = Convert.ToDateTime(Item["DateFrom"]);
+                                RoomBooking.DateTo = Convert.ToDateTime(Item["DateTo"]);
+
+                                    RoomBooking.ResourcesNeeded = new SPFieldMultiChoiceValue(Item["ResourcesNeeded"].ToString());
+
+
+
+                                }
+                            }
+                        }
+                    }
+                });
+
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return RoomBooking;
+        }
+
+
 
         //public void AddAttendees(RoomBookingEntity HostingRequestItem, bool isUpdate, SPWeb web)
         //{

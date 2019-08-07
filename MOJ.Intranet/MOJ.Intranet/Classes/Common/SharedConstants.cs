@@ -77,6 +77,7 @@ namespace CommonLibrary
         public const string HostingRequestUrl = "/Lists/HostingRequest/AllItems.aspx";
         public const string DepartmentsUrl = "/Lists/Departments/AllItems.aspx";
         public const string RoomBookingUrl = "/Lists/RoomBooking/AllItems.aspx";
+        public const string WorkflowTasksUrl = "/WorkflowTasks/AllItems.aspx";
 
         #endregion
 
