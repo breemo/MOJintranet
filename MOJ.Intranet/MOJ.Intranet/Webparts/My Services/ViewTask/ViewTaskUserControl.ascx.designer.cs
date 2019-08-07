@@ -22,40 +22,13 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
-        /// valAttendeesNumber control.
+        /// AllData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label valAttendeesNumber;
-        
-        /// <summary>
-        /// valBookingDateFrom control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label valBookingDateFrom;
-        
-        /// <summary>
-        /// valBookingDateTo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label valBookingDateTo;
-        
-        /// <summary>
-        /// valMission control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label valMission;
+        protected global::System.Web.UI.WebControls.Label AllData;
         
         /// <summary>
         /// ValTaskName control.
@@ -65,15 +38,6 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ValTaskName;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// txtMission control.
@@ -92,6 +56,15 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnapprove;
+        
+        /// <summary>
+        /// btReject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btReject;
         
         /// <summary>
         /// SuccessMsgDiv control.

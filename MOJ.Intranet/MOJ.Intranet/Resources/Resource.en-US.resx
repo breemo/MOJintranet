@@ -405,4 +405,25 @@
   <data name="Emirate" xml:space="preserve">
     <value>Emirate</value>
   </data>
+  <data name="WorkflowTask" xml:space="preserve">
+    <value>Workflow Task</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>Approve</value>
+  </data>
+  <data name="NoTasks" xml:space="preserve">
+    <value>No tasks available</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>Reject</value>
+  </data>
+  <data name="successfullyTask" xml:space="preserve">
+    <value>The task is completed successfully</value>
+  </data>
+  <data name="TaskName" xml:space="preserve">
+    <value>Task Name</value>
+  </data>
 </root>

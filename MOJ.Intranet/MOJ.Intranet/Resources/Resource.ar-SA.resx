@@ -405,4 +405,25 @@
   <data name="Emirate" xml:space="preserve">
     <value>الامارة</value>
   </data>
+  <data name="WorkflowTask" xml:space="preserve">
+    <value>مهمة سير العمل</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>الملاحظات</value>
+  </data>
+  <data name="Approve" xml:space="preserve">
+    <value>موافقة</value>
+  </data>
+  <data name="NoTasks" xml:space="preserve">
+    <value>لا توجد مهام متوفرة</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>رفض</value>
+  </data>
+  <data name="successfullyTask" xml:space="preserve">
+    <value>تم انجاز المهمة بنجاح</value>
+  </data>
+  <data name="TaskName" xml:space="preserve">
+    <value>اسم المهمة</value>
+  </data>
 </root>
