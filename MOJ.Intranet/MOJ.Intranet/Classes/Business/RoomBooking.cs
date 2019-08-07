@@ -13,5 +13,13 @@ namespace MOJ.Business
         {
             return new RoomBookingDataManager().AddOrUpdateHostingRequest(obj);
         }
+
+        
+
+
+             public RoomBookingEntity GetRoomBooking(int id)
+        {
+            return new RoomBookingDataManager().GetRoomBookingByID(id);
+        }
     }
 }

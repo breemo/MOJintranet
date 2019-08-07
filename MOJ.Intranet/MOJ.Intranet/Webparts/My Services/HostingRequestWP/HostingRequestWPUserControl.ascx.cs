@@ -121,6 +121,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
             itemSumbit.Mission = txtMission.Value;
             itemSumbit.Place = cbPlace.SelectedValue;
             itemSumbit.Department = "1";
+            itemSumbit.RequestNumber = RecordPrfix;
 
             SPFieldMultiChoiceValue multiValue = new SPFieldMultiChoiceValue();
             foreach (ListItem item in cbResources.Items)
@@ -129,7 +130,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                     multiValue.Add(item.Value);
             }
             itemSumbit.ResourcesNeeded = multiValue;
-            itemSumbit.Status = "Submitted";
+            //itemSumbit.Status = "Submitted";
 
             RoomBooking rb = new RoomBooking();
             bool isSaved = rb.SaveUpdate(itemSumbit);

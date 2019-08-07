@@ -54,10 +54,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                     string.Format(@"
                         <div class='row'>
                             <div class='col-md-7'>
-                                <div class='vidcs'>
                                     {1}
-                                </div>
-                                
                             </div>
                             <div class='col-md-5'>
                                 <div class='evenlifesection'>
@@ -81,10 +78,11 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
         {
             try
             {
-                List<liveEventsEntity> liveEventsLst = new liveEvents().GetLatestHomeliveVideosItems();
+                List<liveEventsEntity> liveEventsLst = new liveEvents().GetCurrentMonthliveVideosItems();
 
                 lblbLiveEventsCurrentMonth.Text = "";
-
+                int vIndex = 1;
+                
                 foreach (liveEventsEntity item in liveEventsLst)
                 {
                     string des = LimitCharacters.Limit(item.Description, 25);
@@ -95,11 +93,10 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                     <div class='col-md-3 col-sm-6'>
                         <div class='videlivebox'>
                             <div class='entry-image'>
-                                <a href='{0}'>
-                                    <img class='image_fade' src='{0}'
-                                        alt='{1}'>
+                                <a href=''>
+                                    <img src='http://img.youtube.com/vi/{0}/0.jpg' alt='{1}'>
                                 </a>
-                                <a data-toggle='modal' class='newpos' data-target='#myModal'>
+                                <a data-toggle='modal' class='newpos' data-target='#myModal" + vIndex + @"'>
                                     <i class='icon-play1'></i>
                                 </a>
                             </div>
@@ -111,7 +108,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                             </div>
                         </div>
                         <!-- Modal -->
-                        <div class='modal fade bd-example-modal-lg fade' id='myModal' tabindex='-1' role='dialog'
+                        <div class='modal fade bd-example-modal-lg fade' id='myModal" + vIndex + @"' tabindex='-1' role='dialog'
                             aria-labelledby='exampleModalLabel' aria-hidden='true'>
                             <div class='modal-dialog modal-lg' role='document'>
                                 <div class='modal-content'>
@@ -129,7 +126,9 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                                 </div>
                             </div>
                         </div>
-                    </div>", item.VideoThumbnailURL, item.Name, item.Description, item.VideoURL);
+                    </div>", item.VideoThumbnailURL, item.Name, des, item.VideoURL);
+
+                    vIndex++;
                 }
             }
             catch (Exception ex)
@@ -141,7 +140,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
         {
             try
             {
-                List<liveEventsEntity> liveEventsLst = new liveEvents().GetLatestHomeliveVideosItems();
+                List<liveEventsEntity> liveEventsLst = new liveEvents().GetArchiveliveVideosItems();
 
                 lblArchive.Text = "";
 
@@ -150,14 +149,13 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                     string des = LimitCharacters.Limit(item.Description, 25);
                     //string siteURL = SPContext.Current.RootFolderUrl;
 
-                    lblbLiveEventsCurrentMonth.Text +=
+                    lblArchive.Text +=
                     string.Format(@"
                     <div class='col-md-3 col-sm-6'>
                         <div class='videlivebox'>
                             <div class='entry-image'>
                                 <a href='{0}' data-lightbox='image'>
-                                    <img class='image_fade' src='{0}'
-                                        alt='{1}'>
+                                    <img src='http://img.youtube.com/vi/{0}/0.jpg' alt='{1}'>
                                 </a>
                                 <a data-toggle='modal' class='newpos' data-target='#myModal'>
                                     <i class='icon-play1'></i>
@@ -189,7 +187,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                                 </div>
                             </div>
                         </div>
-                    </div>", item.VideoThumbnailURL, item.Name, item.Description, item.VideoURL);
+                    </div>", item.VideoThumbnailURL, item.Name, des, item.VideoURL);
                 }
             }
             catch (Exception ex)
