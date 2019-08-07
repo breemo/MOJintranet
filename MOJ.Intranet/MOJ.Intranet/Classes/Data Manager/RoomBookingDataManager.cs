@@ -50,6 +50,7 @@ namespace MOJ.DataManager
                             item["Place"] = HostingRequestItem.Place;
                             item["ResourcesNeeded"] = HostingRequestItem.ResourcesNeeded;
                             item["Created By"] = currentUser;
+                            item["Title"] = HostingRequestItem.RequestNumber;
 
                             item.Update();
 
@@ -94,23 +95,16 @@ namespace MOJ.DataManager
                                     SPListItem Item = lstRoom.GetItemById(id);
 
                                     RoomBooking.Place = Convert.ToString(Item["Place"]);
-                                   
-                                    RoomBooking.AttendeesNumber = Convert.ToString(Item["AttendeesNumber"]); 
-
+                                    RoomBooking.AttendeesNumber = Convert.ToString(Item["AttendeesNumber"]);
                                     RoomBooking.Mission = Convert.ToString(Item["Mission"]);
                                     RoomBooking.DateFrom = Convert.ToDateTime(Item["DateFrom"]);
-                                RoomBooking.DateTo = Convert.ToDateTime(Item["DateTo"]);
-
+                                    RoomBooking.DateTo = Convert.ToDateTime(Item["DateTo"]);
                                     RoomBooking.ResourcesNeeded = new SPFieldMultiChoiceValue(Item["ResourcesNeeded"].ToString());
-
-
-
                                 }
                             }
                         }
                     }
                 });
-
             }
             catch (Exception ex)
             {
@@ -118,8 +112,6 @@ namespace MOJ.DataManager
             }
             return RoomBooking;
         }
-
-
 
         //public void AddAttendees(RoomBookingEntity HostingRequestItem, bool isUpdate, SPWeb web)
         //{

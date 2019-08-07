@@ -11,6 +11,7 @@ namespace MOJ.Entities
     {
         public int Id { get; set; }
         //public string Emirate { get; set; }
+        public string RequestNumber { get; set; }
         public string Place { get; set; }
         public SPFieldMultiChoiceValue  ResourcesNeeded { get; set; }
         public string AttendeesNumber { get; set; }
