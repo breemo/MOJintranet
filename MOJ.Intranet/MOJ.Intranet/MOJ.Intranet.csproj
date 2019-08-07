@@ -77,6 +77,7 @@
     <Compile Include="Classes\Business\EmployeeMasterData.cs" />
     <Compile Include="Classes\Business\MeetingsBL.cs" />
     <Compile Include="Classes\Business\MinistryFiles.cs" />
+    <Compile Include="Classes\Business\Task.cs" />
     <Compile Include="Classes\Business\RoomBooking.cs" />
     <Compile Include="Classes\Business\Occasions.cs" />
     <Compile Include="Classes\Business\Memos.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Classes\Data Manager\EmployeeMasterDataDataManager.cs" />
     <Compile Include="Classes\Data Manager\MeetingsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MinistryFilesDataManager.cs" />
+    <Compile Include="Classes\Data Manager\TaskDataManager.cs" />
     <Compile Include="Classes\Data Manager\RoomBookingDataManager.cs" />
     <Compile Include="Classes\Data Manager\OccasionsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MemosDataManager.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\CarOrderServiceEntity.cs" />
+    <Compile Include="Classes\Entities\TaskEntity .cs" />
     <Compile Include="Classes\Entities\RoomBookingEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeMasterDataEntity.cs" />
     <Compile Include="Classes\Entities\MeetingsEntity.cs" />
@@ -329,6 +332,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HostingRequest.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\ViewTask\ViewTask.cs" />
+    <Compile Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx.cs">
+      <DependentUpon>ViewTaskUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx.designer.cs">
+      <DependentUpon>ViewTaskUserControl.ascx.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Features\Feature1\Feature1.feature">
@@ -456,6 +467,10 @@
     <None Include="Webparts\My Services\HostingRequest\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{967daa02-38a6-455b-87a0-647314935a65}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\ViewTask\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{628e8c58-8827-4328-a97b-32f218cf8dd4}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\My Services\ViewTask\ViewTask.webpart" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">
@@ -525,6 +540,8 @@
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>HostingRequest.ascx.g.cs</LastGenOutput>
     </Content>
+    <Content Include="Webparts\My Services\ViewTask\Elements.xml" />
+    <Content Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\MOJ.Intranet\" />

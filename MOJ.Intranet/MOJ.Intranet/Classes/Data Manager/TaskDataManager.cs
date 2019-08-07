@@ -7,13 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using CommonLibrary;
 using Microsoft.SharePoint.Utilities;
+using Microsoft.SharePoint.Workflow;
+using System.Collections;
 
 namespace MOJ.DataManager
 {
-    public class RoomBookingDataManager
+    public class TaskDataManager
     {
         #region HostingRequest
-        public bool AddOrUpdateHostingRequest(RoomBookingEntity HostingRequestItem)
+        public bool AddOrUpdateHostingRequest(TaskEntity HostingRequestItem)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -26,36 +28,39 @@ namespace MOJ.DataManager
                     {
                         try
                         {
-                            SPUser currentUser = web.CurrentUser;
-
                             web.AllowUnsafeUpdates = true;
-                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.RoomBookingUrl);
+                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.WorkflowTasksUrl);
                             SPListItem item = null;
 
-                            if (HostingRequestItem.Id > 0)
-                            {
-                                item = list.GetItemById(HostingRequestItem.Id);
+                            //if (HostingRequestItem.Id > 0)
+                            //{
+                                item = list.GetItemById(10);
                                 isUpdate = true;
-                            }
-                            else
-                            {
-                                item = list.AddItem();
-                            }
+                            //}
+                            //else
+                            //{
+                            //    item = list.AddItem();
+                            //}
+                            
+                           SPWorkflowTask taskedit = null;
+                           SPWorkflowTask task = item.Tasks[Convert.ToInt32(HostingRequestItem.Id)];
+                           taskedit = task;                             
+                           if (taskedit == null)   // no matching task
+                              return;                              
+                           // alter the task
+                           Hashtable ht = new Hashtable();
+                           ht["TaskStatus"] = "#";    // Mark the entry as approved
+                           SPWorkflowTask.AlterTask((taskedit as SPListItem), ht, true);
 
-                            item["AttendeesNumber"] = HostingRequestItem.AttendeesNumber;
-                            item["DateFrom"] = SPUtility.CreateISO8601DateTimeFromSystemDateTime(HostingRequestItem.DateFrom);
-                            item["DateTo"] = SPUtility.CreateISO8601DateTimeFromSystemDateTime(HostingRequestItem.DateTo);
-                            item["Department"] = HostingRequestItem.Department;
-                            item["Mission"] = HostingRequestItem.Mission;
-                            item["Place"] = HostingRequestItem.Place;
-                            item["ResourcesNeeded"] = HostingRequestItem.ResourcesNeeded;
-                            item["Created By"] = currentUser;
 
-                            item.Update();
 
-                            //AddAttendees(HostingRequestItem, isUpdate, web);
 
-                            list.Update();
+                            //item["Comment"] = HostingRequestItem.Comment;                          
+                            //item["WorkflowOutcome"] = HostingRequestItem.WorkflowOutcome;
+                            //item["Status"] = HostingRequestItem.Status;
+                            //item.Update();
+                            
+                            //list.Update();
                             isFormSaved = true;
                         }
                         catch (Exception ex)
@@ -73,10 +78,10 @@ namespace MOJ.DataManager
             });
             return isFormSaved;
         }
-               
-        public RoomBookingEntity GetRoomBookingByID(int id)
+
+        public TaskEntity GetTaskByID(int id)
         {
-            RoomBookingEntity RoomBooking = new RoomBookingEntity();
+            TaskEntity task = new TaskEntity();
             try
             {
                 SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -88,24 +93,22 @@ namespace MOJ.DataManager
                         {
                             if (oWeb != null)
                             {
-                                SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.RoomBookingUrl);
-                                if (lstRoom != null)
+                                SPList lsttask = oWeb.GetListFromUrl(oSite.Url + SharedConstants.WorkflowTasksUrl);
+                                if (lsttask != null)
                                 {
-                                    SPListItem Item = lstRoom.GetItemById(id);
+                                    SPListItem Item = lsttask.GetItemById(id);
+                                    task.Title = Convert.ToString(Item["Title"]);
+                                    task.Id = id;
+                                    task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
+                                    SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString()); String Requestlink = Convert.ToString(spfvRequest.Url);
+                                    string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);task.RequestID = Convert.ToString(Request[1]);
+                                    task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
+                                    task.Status = Convert.ToString(Item["Status"]);
+                                    task.PercentComplete = Convert.ToString(Item["PercentComplete"]);
+                                    task.Comment = Convert.ToString(Item["Comment"]);
 
-                                    RoomBooking.Place = Convert.ToString(Item["Place"]);
-                                   
-                                    RoomBooking.AttendeesNumber = Convert.ToString(Item["AttendeesNumber"]); 
-
-                                    RoomBooking.Mission = Convert.ToString(Item["Mission"]);
-                                    RoomBooking.DateFrom = Convert.ToDateTime(Item["DateFrom"]);
-                                RoomBooking.DateTo = Convert.ToDateTime(Item["DateTo"]);
-
-
-
-
-
-    }
+                                }
+                                
                             }
                         }
                     }
@@ -116,7 +119,7 @@ namespace MOJ.DataManager
             {
                 LoggingService.LogError("WebParts", ex.Message);
             }
-            return RoomBooking;
+            return task;
         }
 
 

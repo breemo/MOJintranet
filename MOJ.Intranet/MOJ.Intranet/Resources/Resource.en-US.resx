@@ -402,4 +402,7 @@
   <data name="YourRequestNumber" xml:space="preserve">
     <value>Your Request Number is</value>
   </data>
+  <data name="Emirate" xml:space="preserve">
+    <value>Emirate</value>
+  </data>
 </root>
