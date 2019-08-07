@@ -13,5 +13,13 @@ namespace MOJ.Business
         {
             return new liveEventsDataManager().GetLatestHomeliveVideosItems();
         }
+        public List<liveEventsEntity> GetCurrentMonthliveVideosItems()
+        {
+            return new liveEventsDataManager().GetCurrentMonthLiveVideosItems();
+        }
+        public List<liveEventsEntity> GetArchiveliveVideosItems()
+        {
+            return new liveEventsDataManager().GetArchiveLiveVideosItems();
+        }
     }
 }
