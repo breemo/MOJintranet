@@ -426,4 +426,43 @@
   <data name="TaskName" xml:space="preserve">
     <value>اسم المهمة</value>
   </data>
+  <data name="CircularBody" xml:space="preserve">
+    <value>تفاصيل التعميم</value>
+  </data>
+  <data name="CircularDate" xml:space="preserve">
+    <value>تاريخ التعميم</value>
+  </data>
+  <data name="CircularTitle" xml:space="preserve">
+    <value>عنوان التعميم</value>
+  </data>
+  <data name="DepartmentCirculars" xml:space="preserve">
+    <value>قرارات و تعاميم الأدارة</value>
+  </data>
+  <data name="DepartmentCircularsListName" xml:space="preserve">
+    <value>قرارات و تعاميم الإدارة</value>
+  </data>
+  <data name="DepartmentDocumentsListName" xml:space="preserve">
+    <value>ملفات الادارة</value>
+  </data>
+  <data name="DepartmentProceduresListName" xml:space="preserve">
+    <value>أجراءات الأدارة</value>
+  </data>
+  <data name="DepartmentProceduresTitle" xml:space="preserve">
+    <value>أجراءات الأدارة</value>
+  </data>
+  <data name="MyDepartmentTitle" xml:space="preserve">
+    <value>أدارتي</value>
+  </data>
+  <data name="ProcedureBody" xml:space="preserve">
+    <value>تفاصيل الاجراء</value>
+  </data>
+  <data name="ProcedureDate" xml:space="preserve">
+    <value>تاريخ الاجراء</value>
+  </data>
+  <data name="ProcedureTitle" xml:space="preserve">
+    <value>عنوان الاجراء</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
 </root>

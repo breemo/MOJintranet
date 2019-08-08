@@ -74,6 +74,9 @@
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
     <Compile Include="Classes\Business\CarOrderServiceBL.cs" />
+    <Compile Include="Classes\Business\DepartmentCirculars.cs" />
+    <Compile Include="Classes\Business\DepartmentDocumentsBL.cs" />
+    <Compile Include="Classes\Business\DepartmentProcedures.cs" />
     <Compile Include="Classes\Business\EmployeeMasterData.cs" />
     <Compile Include="Classes\Business\MeetingsBL.cs" />
     <Compile Include="Classes\Business\MinistryFiles.cs" />
@@ -91,6 +94,9 @@
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\AddEmployeeNumberDataManger.cs" />
     <Compile Include="Classes\Data Manager\CarOrderServiceDataManager.cs" />
+    <Compile Include="Classes\Data Manager\DepartmentCircularsDataManager.cs" />
+    <Compile Include="Classes\Data Manager\DepartmentDocumentsDataManager.cs" />
+    <Compile Include="Classes\Data Manager\DepartmentProceduresDataManager.cs" />
     <Compile Include="Classes\Data Manager\EmployeeMasterDataDataManager.cs" />
     <Compile Include="Classes\Data Manager\MeetingsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MinistryFilesDataManager.cs" />
@@ -104,6 +110,9 @@
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\CarOrderServiceEntity.cs" />
+    <Compile Include="Classes\Entities\DepartmentCircularsEntity.cs" />
+    <Compile Include="Classes\Entities\DepartmentDocumentsEntity.cs" />
+    <Compile Include="Classes\Entities\DepartmentProceduresEntity.cs" />
     <Compile Include="Classes\Entities\TaskEntity .cs" />
     <Compile Include="Classes\Entities\RoomBookingEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeMasterDataEntity.cs" />
@@ -340,6 +349,30 @@
     <Compile Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx.designer.cs">
       <DependentUpon>ViewTaskUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\MyDepartment\DepartmentCircularsWP\DepartmentCircularsWP.cs" />
+    <Compile Include="Webparts\MyDepartment\DepartmentCircularsWP\DepartmentCircularsWPUserControl.ascx.cs">
+      <DependentUpon>DepartmentCircularsWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\MyDepartment\DepartmentCircularsWP\DepartmentCircularsWPUserControl.ascx.designer.cs">
+      <DependentUpon>DepartmentCircularsWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\MyDepartment\DepartmentDocuments\DepartmentDocuments.cs" />
+    <Compile Include="Webparts\MyDepartment\DepartmentDocuments\DepartmentDocumentsUserControl.ascx.cs">
+      <DependentUpon>DepartmentDocumentsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\MyDepartment\DepartmentDocuments\DepartmentDocumentsUserControl.ascx.designer.cs">
+      <DependentUpon>DepartmentDocumentsUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\MyDepartment\DepartmentProceduresWP\DepartmentProceduresWP.cs" />
+    <Compile Include="Webparts\MyDepartment\DepartmentProceduresWP\DepartmentProceduresWPUserControl.ascx.cs">
+      <DependentUpon>DepartmentProceduresWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\MyDepartment\DepartmentProceduresWP\DepartmentProceduresWPUserControl.ascx.designer.cs">
+      <DependentUpon>DepartmentProceduresWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Features\Feature1\Feature1.feature">
@@ -471,6 +504,18 @@
       <SharePointProjectItemId>{628e8c58-8827-4328-a97b-32f218cf8dd4}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\My Services\ViewTask\ViewTask.webpart" />
+    <None Include="Webparts\MyDepartment\DepartmentCircularsWP\DepartmentCircularsWP.webpart" />
+    <None Include="Webparts\MyDepartment\DepartmentCircularsWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0919a786-e608-4682-88dc-5e99180ac57a}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\MyDepartment\DepartmentDocuments\DepartmentDocuments.webpart" />
+    <None Include="Webparts\MyDepartment\DepartmentDocuments\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{61aec101-54fe-429a-951a-11dbae1a0b6b}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\MyDepartment\DepartmentProceduresWP\DepartmentProceduresWP.webpart" />
+    <None Include="Webparts\MyDepartment\DepartmentProceduresWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c76050ef-4b06-49c2-b227-59a739f72047}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">
@@ -542,6 +587,12 @@
     </Content>
     <Content Include="Webparts\My Services\ViewTask\Elements.xml" />
     <Content Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx" />
+    <Content Include="Webparts\MyDepartment\DepartmentCircularsWP\DepartmentCircularsWPUserControl.ascx" />
+    <Content Include="Webparts\MyDepartment\DepartmentCircularsWP\Elements.xml" />
+    <Content Include="Webparts\MyDepartment\DepartmentDocuments\DepartmentDocumentsUserControl.ascx" />
+    <Content Include="Webparts\MyDepartment\DepartmentDocuments\Elements.xml" />
+    <Content Include="Webparts\MyDepartment\DepartmentProceduresWP\DepartmentProceduresWPUserControl.ascx" />
+    <Content Include="Webparts\MyDepartment\DepartmentProceduresWP\Elements.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\MOJ.Intranet\" />

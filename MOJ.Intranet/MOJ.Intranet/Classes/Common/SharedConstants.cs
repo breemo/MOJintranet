@@ -82,6 +82,13 @@ namespace CommonLibrary
         #endregion
 
         #region Query
+
+        public const string DepartmentProceduresQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        public const string DepartmentProceduresfields = "<FieldRef Name='Title'/><FieldRef Name='ProcedureDate'/><FieldRef Name='ProcedureBody'/><FieldRef Name='ID'/>";
+
+        public const string DepartmentCircularsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        public const string DepartmentCircularsfields = "<FieldRef Name='Title'/><FieldRef Name='CircularDate'/><FieldRef Name='CircularBody'/><FieldRef Name='ID'/>";
+
         public const string NewsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
         public const string NewsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Date'/><FieldRef Name='Body'/><FieldRef Name='TitleEn'/><FieldRef Name='Date'/><FieldRef Name='BodyEn'/><FieldRef Name='Created' LinkToItem='true'/>";
 

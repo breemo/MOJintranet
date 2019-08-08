@@ -426,4 +426,43 @@
   <data name="TaskName" xml:space="preserve">
     <value>Task Name</value>
   </data>
+  <data name="CircularBody" xml:space="preserve">
+    <value>CircularBody</value>
+  </data>
+  <data name="CircularDate" xml:space="preserve">
+    <value>CircularDate</value>
+  </data>
+  <data name="CircularTitle" xml:space="preserve">
+    <value>CircularTitle</value>
+  </data>
+  <data name="DepartmentCirculars" xml:space="preserve">
+    <value>Directions And Updates Of Managment</value>
+  </data>
+  <data name="DepartmentCircularsListName" xml:space="preserve">
+    <value>DepartmentCirculars</value>
+  </data>
+  <data name="DepartmentDocumentsListName" xml:space="preserve">
+    <value>DepartmentDocuments</value>
+  </data>
+  <data name="DepartmentProceduresListName" xml:space="preserve">
+    <value>DepartmentProcedures</value>
+  </data>
+  <data name="DepartmentProceduresTitle" xml:space="preserve">
+    <value>Procedures of Managment</value>
+  </data>
+  <data name="MyDepartmentTitle" xml:space="preserve">
+    <value>Managment</value>
+  </data>
+  <data name="ProcedureBody" xml:space="preserve">
+    <value>ProcedureBody</value>
+  </data>
+  <data name="ProcedureDate" xml:space="preserve">
+    <value>ProcedureDate</value>
+  </data>
+  <data name="ProcedureTitle" xml:space="preserve">
+    <value>ProcedureTitle</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read More</value>
+  </data>
 </root>
