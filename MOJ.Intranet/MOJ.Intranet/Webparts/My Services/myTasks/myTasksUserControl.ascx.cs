@@ -21,10 +21,6 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             if (!Page.IsPostBack)
             {
 
-
-
-
-
                 List<TaskEntity> taskollection = new Task().GetMyTask();
                 foreach (TaskEntity task in taskollection)
                 {
@@ -35,7 +31,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                     <td>" + task.Status + @"</td>
                     <td>" + task.WorkflowOutcome + @"</td>
                     <td>" + task.Created.ToString("dd MMM yyyy hh:mm tt") + @"</td>                                        
-                    <td><a href='"+ task.RequestURL + @"'><span class='icon-edit'></span></a></td>
+                    <td><a href='"+ task.TaskURL + @"'><span class='icon-edit'> </span></a></td>
                 </tr>";
 
                 }

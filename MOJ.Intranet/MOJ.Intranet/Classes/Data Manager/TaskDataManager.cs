@@ -147,12 +147,10 @@ namespace MOJ.DataManager
                                         {
                                             if (singlevalue.User == null) // value is a SharePoint group if User is null
                                             {
-
                                                 SPGroup group = oWeb.Groups[singlevalue.LookupValue];
-
                                                 SPUser user = SPContext.Current.Web.CurrentUser;
-
-                                                if (!user.Groups.Cast<SPGroup>().Any(g => g.Name.Equals(group)))
+                                                bool userExsists = user.Groups.Cast<SPGroup>().Any(g => g.Name.ToLower() == group.Name.ToLower());
+                                                if (userExsists)
                                                 {
                                                     TaskEntity task = new TaskEntity();
                                                     task.Title = Convert.ToString(Item["Title"]);
@@ -161,16 +159,14 @@ namespace MOJ.DataManager
                                                     task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
                                                     task.Status = Convert.ToString(Item["Status"]);
                                                     task.Comment = Convert.ToString(Item["Comment"]);
-                                                    task.Created = Convert.ToDateTime(Item["Created"]);
-                                                    
+                                                    task.Created = Convert.ToDateTime(Item["Created"]);                                                 
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                                     String Requestlink = Convert.ToString(spfvRequest.Url);
                                                     string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
                                                     task.RequestID = Convert.ToString(Request[1]);
                                                     task.RequestName = Convert.ToString(spfvRequest.Description);
-                                                    task.RequestURL = spfvRequest.Url;
+                                                    task.TaskURL = "ViewTask.aspx?TID=" + Convert.ToInt32(Item["ID"]);
                                                     TaskCollection.Add(task);
-
                                                 }
                                             }
                                             else
@@ -186,13 +182,12 @@ namespace MOJ.DataManager
                                                     task.Status = Convert.ToString(Item["Status"]);
                                                     task.Comment = Convert.ToString(Item["Comment"]);
                                                     task.Created = Convert.ToDateTime(Item["Created"]);
-
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                                     String Requestlink = Convert.ToString(spfvRequest.Url);
                                                     string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
                                                     task.RequestID = Convert.ToString(Request[1]);
                                                     task.RequestName = Convert.ToString(spfvRequest.Description);
-                                                    task.RequestURL = spfvRequest.Url;
+                                                    task.TaskURL = "ViewTask.aspx?TID=" + Convert.ToInt32(Item["ID"]);
                                                     TaskCollection.Add(task);
 
                                                 }
@@ -218,7 +213,6 @@ namespace MOJ.DataManager
             {
                 using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                 {
-
                     using (SPWeb oWeb = oSite.RootWeb)
                     {
                         if (oWeb != null)
@@ -237,15 +231,12 @@ namespace MOJ.DataManager
                                     {
                                         if (singlevalue.User == null) // value is a SharePoint group if User is null
                                         {
-
                                             SPGroup group = oWeb.Groups[singlevalue.LookupValue];
-
                                             SPUser user = SPContext.Current.Web.CurrentUser;
-
-                                            if (!user.Groups.Cast<SPGroup>().Any(g => g.Name.Equals(group)))
+                                            bool userExsists = user.Groups.Cast<SPGroup>().Any(g => g.Name.ToLower() == group.Name.ToLower());
+                                            if (userExsists)
                                             {
-                                                Result = false;
-
+                                                Result = true;
                                             }
                                         }
                                         else
@@ -253,7 +244,7 @@ namespace MOJ.DataManager
                                             SPUser currentUser = SPContext.Current.Web.CurrentUser;
                                             if (singlevalue.User.Sid.Equals(currentUser.Sid))
                                             {
-                                                Result = false;
+                                                Result = true;
 
                                             }
 
