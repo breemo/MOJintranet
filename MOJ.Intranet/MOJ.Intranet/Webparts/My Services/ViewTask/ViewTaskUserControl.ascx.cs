@@ -33,19 +33,30 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         private void GetTaskandRequest()
         {
             TaskEntity task = new Task().GetTask(Convert.ToInt32(Request.Params["TID"]));
-            ValTaskName.Text = task.Title;
-            AllData.Text = task.AssignedToGroup;
+            ValTaskName.Text = task.Title; 
            
+            if (task.Status == "Completed")
+            {
+                btnapprove.Enabled = false;
+                btReject.Enabled = false;
+                LabelAnswer.Text=  SPUtility.GetLocalizedString("$Resources: " + task.WorkflowOutcome, "Resource", SPContext.Current.Web.Language);
+
+            }
+            txtMission.InnerText = task.Comment;
             bool havePermission = new Task().HavePermission(Convert.ToInt32(Request.Params["TID"]));
             if (havePermission)
             {
                 string valResourcesNeeded = "";
-                RoomBookingEntity Room = new RoomBooking().GetRoomBooking(Convert.ToInt32(task.RequestID));
+                  RoomBookingEntity Room = new RoomBooking().GetRoomBooking(Convert.ToInt32(task.RequestID));
                 SPFieldMultiChoiceValue choices = Room.ResourcesNeeded;
-                for (int i = 0; i < choices.Count; i++)
+                if (choices!=null)
                 {
-                    valResourcesNeeded += "&nbsp;&nbsp;" + choices[i] + "&nbsp;&nbsp;";
+                    for (int i = 0; i < choices.Count; i++)
+                    {
+                        valResourcesNeeded += "&nbsp;&nbsp;" + choices[i] + "&nbsp;&nbsp;";
+                    }
                 }
+                addtopage("Place", Room.Place);
                 addtopage("AttendeesNumber", Room.AttendeesNumber);
                 addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
                 addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
@@ -60,7 +71,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
             }
-            
+
         }
 
         protected void addtopage(string text,string value)

@@ -22,17 +22,19 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             {
 
                 List<TaskEntity> taskollection = new Task().GetMyTask();
+                int i = 1;
                 foreach (TaskEntity task in taskollection)
-                {
-                    
+                {                   
                     tasks.Text += @"<tr>
-                   <td>" + task.RequestName + @"</td>
+                   <td>" + i + @"</td>
+                    <td><a href='" + task.TaskURL + @"'>" + task.RequestName + @"</a></td>
                     <td>" + task.Title + @"</td>
                     <td>" + task.Status + @"</td>
                     <td>" + task.WorkflowOutcome + @"</td>
                     <td>" + task.Created.ToString("dd MMM yyyy hh:mm tt") + @"</td>                                        
                     <td><a href='"+ task.TaskURL + @"'><span class='icon-edit'> </span></a></td>
-                </tr>";
+                    </tr>";
+                    i++;
 
                 }
 

@@ -471,4 +471,13 @@
   <data name="Tasks" xml:space="preserve">
     <value>المهام</value>
   </data>
+  <data name="Approved" xml:space="preserve">
+    <value>النتيجة تمت الموافقة</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>النتيجة تم الرفض</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>المكان</value>
+  </data>
 </root>

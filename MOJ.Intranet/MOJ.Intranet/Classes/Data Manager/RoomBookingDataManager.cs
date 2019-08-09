@@ -18,8 +18,8 @@ namespace MOJ.DataManager
             bool isFormSaved = false;
             bool isUpdate = false;
 
-            SPSecurity.RunWithElevatedPrivileges(delegate ()
-            {
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
                 using (SPSite site = new SPSite(SPContext.Current.Site.Url))
                 {
                     using (SPWeb web = site.RootWeb)
@@ -49,7 +49,8 @@ namespace MOJ.DataManager
                             item["Mission"] = HostingRequestItem.Mission;
                             item["Place"] = HostingRequestItem.Place;
                             item["ResourcesNeeded"] = HostingRequestItem.ResourcesNeeded;
-                            item["Created By"] = currentUser;
+                            //item["Created By"] = SPContext.Current.Web.CurrentUser;
+                            //item["Modified By"] = SPContext.Current.Web.CurrentUser;
                             item["Title"] = HostingRequestItem.RequestNumber;
 
                             item.Update();
@@ -71,7 +72,7 @@ namespace MOJ.DataManager
                         }
                     }
                 }
-            });
+            //});
             return isFormSaved;
         }
                

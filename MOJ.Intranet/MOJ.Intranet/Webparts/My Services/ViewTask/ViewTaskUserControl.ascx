@@ -41,7 +41,10 @@
                              </div>
                             </div>
                          </div>
-
+                   
+                    <div class="row rt  botx">
+                       <asp:Label id="LabelAnswer" runat="server"></asp:Label>
+                    </div>
                     <div class="row rt  botx">
                         <asp:Button Text="<%$ Resources:Resource, Approve%>" CssClass="morebutovn2" runat="server" ID="btnapprove" OnClick="btnapprove_Click" />
                        <asp:Button Text="<%$ Resources:Resource, Reject%>" CssClass="morebutovn2" runat="server" ID="btReject" OnClick="btnReject_Click" />

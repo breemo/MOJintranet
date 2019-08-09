@@ -19,13 +19,14 @@
                             <div class="table-responsive">
                                 <table class="table table-hover table-bordered newtableb">
                                     <thead>
+                                         <th>#</th>                                        
                                         <th>اسم الطلب</th>
                                         <th>اسم المهمة</th>
                                         <th>الحالة</th>
                                         <th>النتيجة</th>
                                         <th>تاريخ المهمة</th>                                                                   
                                         <th>
-                                            <span class=""></span>
+                                            <span class=""> تعديل</span>
                                         </th>
                                     </thead>
 

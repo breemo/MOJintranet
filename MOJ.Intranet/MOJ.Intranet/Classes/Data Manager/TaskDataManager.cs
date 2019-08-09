@@ -13,7 +13,6 @@ using MOJ.Business;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
-
 using System.Globalization;
 
 
@@ -50,6 +49,7 @@ namespace MOJ.DataManager
                                         ht["PercentComplete"] = 1.0f;
                                         ht["TaskStatus"] = HostingRequestItem.WorkflowOutcome;
                                         ht["Comment"] = HostingRequestItem.Comment;
+                                    ht["AnswerBy"] = SPContext.Current.Web.CurrentUser;
                                     SPWorkflowTask.AlterTask((taskedit as SPListItem), ht, true);
 
                                 }
@@ -94,8 +94,10 @@ namespace MOJ.DataManager
                                     task.Title = Convert.ToString(Item["Title"]);
                                     task.id = id;
                                     task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
-                                    SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString()); String Requestlink = Convert.ToString(spfvRequest.Url);
-                                    string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None); task.RequestID = Convert.ToString(Request[1]);
+                                    SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
+                                    String Requestlink = Convert.ToString(spfvRequest.Url);
+                                    string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
+                                    task.RequestID = Convert.ToString(Request[1]);
                                     task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
                                     task.Status = Convert.ToString(Item["Status"]);
                                     task.PercentComplete = Convert.ToString(Item["PercentComplete"]);
@@ -137,7 +139,7 @@ namespace MOJ.DataManager
                                 if (lsttask != null)
                                 {
                                     SPQuery qry1 = new SPQuery();
-                                    string camlquery1 = "<Where></Where>";
+                                    string camlquery1 = "<Where></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
                                     qry1.Query = camlquery1;
                                     SPListItemCollection listItemsCollection1 = lsttask.GetItems(qry1);
                                     foreach (SPListItem Item in listItemsCollection1)
@@ -171,8 +173,9 @@ namespace MOJ.DataManager
                                             }
                                             else
                                             {
-                                                SPUser currentUser = SPContext.Current.Web.CurrentUser;
-                                                if (singlevalue.User.Sid.Equals(currentUser.Sid))
+                                                string currentUser = SPContext.Current.Web.CurrentUser.Name.ToLower();
+                                                string singlevalueis = singlevalue.User.Name.ToLower();
+                                                if (singlevalueis.Equals(currentUser))
                                                 {
                                                     TaskEntity task = new TaskEntity();
                                                     task.Title = Convert.ToString(Item["Title"]);
@@ -241,9 +244,11 @@ namespace MOJ.DataManager
                                         }
                                         else
                                         {
-                                            SPUser currentUser = SPContext.Current.Web.CurrentUser;
-                                            if (singlevalue.User.Sid.Equals(currentUser.Sid))
+                                            string currentUser = SPContext.Current.Web.CurrentUser.Name.ToLower();
+                                            string singlevalueis = singlevalue.User.Name.ToLower();
+                                            if (singlevalueis.Equals(currentUser))
                                             {
+                                                
                                                 Result = true;
 
                                             }
