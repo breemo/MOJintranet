@@ -27,46 +27,40 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: NoTasks", "Resource", SPContext.Current.Web.Language) + "<br />";
                     posts.Style.Add("display", "none");
                     SuccessMsgDiv.Style.Add("display", "block");
-
-                }                   
-
+                }
             }
         }
         private void GetTaskandRequest()
         {
             TaskEntity task = new Task().GetTask(Convert.ToInt32(Request.Params["TID"]));
             ValTaskName.Text = task.Title;
-
-            //SPFieldUserValueCollection itemAssignedTo = task.AssignedTo;
-            //for (int i = 0; i < itemAssignedTo.Count; i++)
-            //{
-            //    SPFieldUserValue singlevalue = itemAssignedTo[i];
-            //    AllData.Text += singlevalue.User;
-            //    if (singlevalue.User == null) // value is a SharePoint group if User is null
-            //    {
-            //        SPGroup group = web.Groups[singlevalue.LookupValue];
-            //        foreach (SPUser user in group.Users)
-            //        {
-            //            //do stuff with the user
-            //        }
-            //    }
-            //    else // singlevalue.User value is a user
-            //    {
-            //        //do stuff for the singlevalue.User
-            //    }
-            //}
-            string valResourcesNeeded="";
-            RoomBookingEntity Room = new RoomBooking().GetRoomBooking(Convert.ToInt32(task.RequestID));
-            SPFieldMultiChoiceValue choices = Room.ResourcesNeeded;
-            for (int i = 0; i < choices.Count; i++)
+            AllData.Text = task.AssignedToGroup;
+           
+            bool havePermission = new Task().HavePermission(Convert.ToInt32(Request.Params["TID"]));
+            if (havePermission)
             {
-                valResourcesNeeded += "&nbsp;&nbsp;" + choices[i] + "&nbsp;&nbsp;";
+                string valResourcesNeeded = "";
+                RoomBookingEntity Room = new RoomBooking().GetRoomBooking(Convert.ToInt32(task.RequestID));
+                SPFieldMultiChoiceValue choices = Room.ResourcesNeeded;
+                for (int i = 0; i < choices.Count; i++)
+                {
+                    valResourcesNeeded += "&nbsp;&nbsp;" + choices[i] + "&nbsp;&nbsp;";
+                }
+                addtopage("AttendeesNumber", Room.AttendeesNumber);
+                addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
+                addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
+                addtopage("mission", Room.Mission);
+                addtopage("resources", valResourcesNeeded);
+
             }
-            addtopage("AttendeesNumber", Room.AttendeesNumber);
-            addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
-            addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
-            addtopage("mission", Room.Mission);
-            addtopage("resources", valResourcesNeeded);
+            else
+            {
+
+                lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: noPermission", "Resource", SPContext.Current.Web.Language) + "<br />";
+                posts.Style.Add("display", "none");
+                SuccessMsgDiv.Style.Add("display", "block");
+            }
+            
         }
 
         protected void addtopage(string text,string value)

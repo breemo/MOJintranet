@@ -465,4 +465,10 @@
   <data name="ReadMore" xml:space="preserve">
     <value>تفاصيل</value>
   </data>
+  <data name="noPermission" xml:space="preserve">
+    <value>ليس لديك إذن</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>المهام</value>
+  </data>
 </root>

@@ -341,6 +341,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HostingRequest.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\myTasks\myTasks.cs" />
+    <Compile Include="Webparts\My Services\myTasks\myTasksUserControl.ascx.cs">
+      <DependentUpon>myTasksUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\myTasks\myTasksUserControl.ascx.designer.cs">
+      <DependentUpon>myTasksUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\ViewTask\ViewTask.cs" />
     <Compile Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx.cs">
       <DependentUpon>ViewTaskUserControl.ascx</DependentUpon>
@@ -500,6 +508,10 @@
     <None Include="Webparts\My Services\HostingRequest\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{967daa02-38a6-455b-87a0-647314935a65}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\myTasks\myTasks.webpart" />
+    <None Include="Webparts\My Services\myTasks\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{42a1ccae-8b17-4e42-82cc-d5c7f323aaa7}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\ViewTask\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{628e8c58-8827-4328-a97b-32f218cf8dd4}</SharePointProjectItemId>
     </None>
@@ -585,6 +597,8 @@
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>HostingRequest.ascx.g.cs</LastGenOutput>
     </Content>
+    <Content Include="Webparts\My Services\myTasks\Elements.xml" />
+    <Content Include="Webparts\My Services\myTasks\myTasksUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewTask\Elements.xml" />
     <Content Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx" />
     <Content Include="Webparts\MyDepartment\DepartmentCircularsWP\DepartmentCircularsWPUserControl.ascx" />
