@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="AffirmationSocialSituationUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="AffirmationSocialSituation\" Type="ElementManifest" />
+    <ProjectItemFile Source="AffirmationSocialSituation.webpart" Target="AffirmationSocialSituation\" Type="ElementFile" />
+    <ProjectItemFile Source="AffirmationSocialSituationUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.My_Services\AffirmationSocialSituation\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

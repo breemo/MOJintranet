@@ -480,4 +480,46 @@
   <data name="Place" xml:space="preserve">
     <value>Place</value>
   </data>
+  <data name="AffirmationSocialSituation" xml:space="preserve">
+    <value>Affirmation of the social situation</value>
+  </data>
+  <data name="age" xml:space="preserve">
+    <value>age</value>
+  </data>
+  <data name="ChangeDate" xml:space="preserve">
+    <value>Change Date</value>
+  </data>
+  <data name="ChangeReason" xml:space="preserve">
+    <value>Change Reason</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="HasGovernmentHousingAllowance" xml:space="preserve">
+    <value>Has government housing allowance</value>
+  </data>
+  <data name="HasGovernmentHousingPercentageAllowance" xml:space="preserve">
+    <value>Has government housing percentage allowance</value>
+  </data>
+  <data name="HiringDate" xml:space="preserve">
+    <value>Hiring date</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="RelationshipType" xml:space="preserve">
+    <value>Relationship Type</value>
+  </data>
+  <data name="WorkSector" xml:space="preserve">
+    <value>Work Sector</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="DateMarriage" xml:space="preserve">
+    <value>Date of marriage</value>
+  </data>
+  <data name="Employer" xml:space="preserve">
+    <value>Employer</value>
+  </data>
 </root>

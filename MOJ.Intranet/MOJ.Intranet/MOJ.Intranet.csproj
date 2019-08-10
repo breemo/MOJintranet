@@ -325,6 +325,14 @@
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.designer.cs">
       <DependentUpon>LiveEventsWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituation.cs" />
+    <Compile Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx.cs">
+      <DependentUpon>AffirmationSocialSituationUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx.designer.cs">
+      <DependentUpon>AffirmationSocialSituationUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\HostingRequestWP\HostingRequestWP.cs" />
     <Compile Include="Webparts\My Services\HostingRequestWP\HostingRequestWPUserControl.ascx.cs">
       <DependentUpon>HostingRequestWPUserControl.ascx</DependentUpon>
@@ -500,6 +508,10 @@
     <None Include="Webparts\LiveEventsWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a023d941-1aae-42b2-b266-211a22b2b513}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituation.webpart" />
+    <None Include="Webparts\My Services\AffirmationSocialSituation\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5a3ffcae-d7a3-4496-80a4-cb538a1d63ef}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\HostingRequestWP\HostingRequestWP.webpart" />
     <None Include="Webparts\My Services\HostingRequestWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{30463a34-2d57-49ac-9d76-662bdd727597}</SharePointProjectItemId>
@@ -590,6 +602,8 @@
     <Content Include="Webparts\Inner Pages\OccasionsDetails\OccasionsDetailsUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx" />
+    <Content Include="Webparts\My Services\AffirmationSocialSituation\Elements.xml" />
     <Content Include="Webparts\My Services\HostingRequestWP\Elements.xml" />
     <Content Include="Webparts\My Services\HostingRequestWP\HostingRequestWPUserControl.ascx" />
     <Content Include="Webparts\My Services\HostingRequest\Elements.xml" />

@@ -480,4 +480,46 @@
   <data name="Place" xml:space="preserve">
     <value>المكان</value>
   </data>
+  <data name="AffirmationSocialSituation" xml:space="preserve">
+    <value>أقرار بالحالة الأجتماعية</value>
+  </data>
+  <data name="age" xml:space="preserve">
+    <value>العمر</value>
+  </data>
+  <data name="ChangeDate" xml:space="preserve">
+    <value>تاريخ التغيير</value>
+  </data>
+  <data name="ChangeReason" xml:space="preserve">
+    <value>سبب التغيير</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>بيانات</value>
+  </data>
+  <data name="DateMarriage" xml:space="preserve">
+    <value>تاريخ الزواج</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>الجنس</value>
+  </data>
+  <data name="HasGovernmentHousingAllowance" xml:space="preserve">
+    <value>يمنح سكن حكومي</value>
+  </data>
+  <data name="HasGovernmentHousingPercentageAllowance" xml:space="preserve">
+    <value>يمنح علاوة سكن بنسبة</value>
+  </data>
+  <data name="HiringDate" xml:space="preserve">
+    <value>تاريخ التعيين</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="RelationshipType" xml:space="preserve">
+    <value>نوع القرابة</value>
+  </data>
+  <data name="WorkSector" xml:space="preserve">
+    <value>قطاع العمل</value>
+  </data>
+  <data name="Employer" xml:space="preserve">
+    <value>جهة العمل</value>
+  </data>
 </root>
