@@ -6,7 +6,17 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewTaskUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.My_Services.ViewTask.ViewTaskUserControl" %>
+<style>
+.evenRow{
+background-color: #f5e9b6;
 
+}
+.rt {
+    margin-bottom: 5px;
+    
+}
+
+</style>
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, WorkflowTask%>" />
 </h4>

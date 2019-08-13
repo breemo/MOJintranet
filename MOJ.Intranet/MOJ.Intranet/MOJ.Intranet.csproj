@@ -80,7 +80,7 @@
     <Compile Include="Classes\Business\EmployeeMasterData.cs" />
     <Compile Include="Classes\Business\MeetingsBL.cs" />
     <Compile Include="Classes\Business\MinistryFiles.cs" />
-    <Compile Include="Classes\Business\AffirmationSocialSituation.cs" />
+    <Compile Include="Classes\Business\AffirmationSocialSituationB.cs" />
     <Compile Include="Classes\Business\Task.cs" />
     <Compile Include="Classes\Business\RoomBooking.cs" />
     <Compile Include="Classes\Business\Occasions.cs" />

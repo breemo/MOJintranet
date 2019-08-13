@@ -4,6 +4,7 @@ using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -45,9 +46,76 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             txtMission.InnerText = task.Comment;
             bool havePermission = new Task().HavePermission(Convert.ToInt32(Request.Params["TID"]));
             if (havePermission)
+            { // add new workflow
+                if(task.WorkflowName == "RoomBooking")
+                GetRoomBookingData(task.RequestID);
+                if (task.WorkflowName == "AffirmationSocialSituationWF")
+                    GetAffirmationSocialSituationData(task.RequestID);
+            }
+            else
             {
-                string valResourcesNeeded = "";
-                  RoomBookingEntity Room = new RoomBooking().GetRoomBooking(Convert.ToInt32(task.RequestID));
+
+                lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: noPermission", "Resource", SPContext.Current.Web.Language) + "<br />";
+                posts.Style.Add("display", "none");
+                SuccessMsgDiv.Style.Add("display", "block");
+            }
+
+        }
+        public void GetAffirmationSocialSituationData(string RequestID)
+        {
+
+            AffirmationSocialSituationEntity AffirmationSocial = new AffirmationSocialSituationB().GetAffirmationSocialSituation(Convert.ToInt32(RequestID));           
+            addtopage("Data", AffirmationSocial.HusbandORWife);
+
+            List<HusbandORWifeEntity> HusbandORWifeis = new AffirmationSocialSituationB().GetHusbandORWife(AffirmationSocial.RequestNumber);
+            int i = 0;
+            foreach (HusbandORWifeEntity HW in HusbandORWifeis)
+            {
+                if (i % 2 == 0)
+                AllData.Text += "<div>";                
+                else
+                AllData.Text += "<div class='evenRow'>";                
+                addtopage("Name", HW.Name);
+                addtopage("DateMarriage", Convert.ToDateTime(HW.DateOfMarriage).ToString("dd MMM yyyy"), "Employer", HW.Employer);
+                addtopage("WorkSector", HW.workSector, "HiringDate", Convert.ToDateTime(HW.HiringDate).ToString("dd MMM yyyy"));
+                var HasGovernmentHousingAllowanceHtml = "<span class='icon-times'></span>";
+                var HasGovernmentHousingPercentageAllowanceHtml = "<span class='icon-times'></span>";
+                if (HW.HasGovernmentHousingAllowance)
+                HasGovernmentHousingAllowanceHtml = "<span class='icon-check'></span>";                if (HW.HasGovernmentHousingPercentageAllowance)
+                HasGovernmentHousingPercentageAllowanceHtml = "<span class='icon-check'></span>";
+                addtopage("HasGovernmentHousingAllowance", HasGovernmentHousingAllowanceHtml, "HasGovernmentHousingPercentageAllowance", HasGovernmentHousingPercentageAllowanceHtml);
+               AllData.Text += "</div>";
+                i++;
+            }
+            AllData.Text +="<hr>";
+            //-------------------------------------------------------
+            string textChildren = SPUtility.GetLocalizedString("$Resources: Children", "Resource", SPContext.Current.Web.Language);
+            AllData.Text += "<div class='row rt  botx'><label>" + textChildren + "</label></div>";
+            
+            List<SonsEntity> sons = new AffirmationSocialSituationB().Getsons(AffirmationSocial.RequestNumber);
+            int conter = 0;
+            foreach (SonsEntity son in sons)
+            {
+                if (conter % 2 == 0)
+                   AllData.Text += "<div>";
+                else
+                   AllData.Text += "<div class='evenRow'>";
+               addtopage("Name", son.Name);
+               addtopage("Gender", son.Gender, "age", son.age);
+               AllData.Text += "</div>";
+               conter++;
+            }
+            AllData.Text += "<hr>";
+            //--------------------------------------
+            string ChangeSS = SPUtility.GetLocalizedString("$Resources: ChangeSocialStatus", "Resource", SPContext.Current.Web.Language);
+             AllData.Text += "<div class='row rt  botx'><label>"+ ChangeSS + "</label></div>";        addtopage("Name", AffirmationSocial.Name);            
+            addtopage("RelationshipType", AffirmationSocial.RelationshipType);
+            addtopage("ChangeReason", AffirmationSocial.ChangeReason);
+            addtopage("ChangeDate", Convert.ToDateTime(AffirmationSocial.ChangeDate).ToString("dd MMM yyyy"));                    
+        }
+        public void GetRoomBookingData(string RequestID) { 
+          string valResourcesNeeded = "";
+                RoomBookingEntity Room = new RoomBooking().GetRoomBooking(Convert.ToInt32(RequestID));
                 SPFieldMultiChoiceValue choices = Room.ResourcesNeeded;
                 if (choices!=null)
                 {
@@ -62,16 +130,6 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
                 addtopage("mission", Room.Mission);
                 addtopage("resources", valResourcesNeeded);
-
-            }
-            else
-            {
-
-                lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: noPermission", "Resource", SPContext.Current.Web.Language) + "<br />";
-                posts.Style.Add("display", "none");
-                SuccessMsgDiv.Style.Add("display", "block");
-            }
-
         }
 
         protected void addtopage(string text,string value)
@@ -88,6 +146,33 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                                 </div>
                             </div>
                         </div>                        
+                    </div>";
+        }
+        protected void addtopage(string text, string value, string text2, string value2)
+        {
+            string textla = SPUtility.GetLocalizedString("$Resources: " + text, "Resource", SPContext.Current.Web.Language);
+            string textlb = SPUtility.GetLocalizedString("$Resources: " + text2, "Resource", SPContext.Current.Web.Language);
+            AllData.Text += @"<div class='row rt'>
+                        <div class='col-md-6'>
+                            <div class='row'>
+                                <div class='col-md-4'>
+                                <label >" + textla + @"</label>
+                               </div>
+                                <div class='col-md-8'>
+                        <label >" + value + @"</label>                               
+                                </div>
+                            </div>
+                        </div> 
+                            <div class='col-md-6'>
+                            <div class='row'>
+                                <div class='col-md-4'>
+                                <label >" + textlb + @"</label>
+                               </div>
+                                <div class='col-md-8'>
+                        <label >" + value2 + @"</label>                               
+                                </div>
+                            </div>
+                        </div>
                     </div>";
         }
         protected void btnapprove_Click(object sender, EventArgs e)

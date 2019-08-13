@@ -24,6 +24,22 @@ namespace MOJ.Business
             return new AffirmationSocialSituationDataManager().AddOrUpdateHusbandORWife(obj);
         }
 
+        public AffirmationSocialSituationEntity GetAffirmationSocialSituation(int id)
+        {
+            return new AffirmationSocialSituationDataManager().GetAffirmationSocialSituationByID(id);
+        }
+        
+
+            public List<HusbandORWifeEntity> GetHusbandORWife(string title)
+        {
+            return new AffirmationSocialSituationDataManager().GetHusbandORWife(title);
+        }
+        
+         public List<SonsEntity> Getsons(string title)
+        {
+            return new AffirmationSocialSituationDataManager().Getsons(title);
+        }
+
         //     public RoomBookingEntity GetRoomBooking(int id)
         //{
         //    return new RoomBookingDataManager().GetRoomBookingByID(id);

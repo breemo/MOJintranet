@@ -33,7 +33,7 @@ namespace MOJ.DataManager
                         try
                         {
                             web.AllowUnsafeUpdates = true;
-                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.RoomBookingUrl);
+                            SPList list = web.GetListFromUrl(web.Url + HostingRequestItem.RequestURL);
                             SPListItem item = null;                            
                                 item = list.GetItemById(Convert.ToInt32(HostingRequestItem.RequestID));
                             SPWorkflowTask taskedit = null;
@@ -108,6 +108,10 @@ namespace MOJ.DataManager
                                     if (Convert.ToString(Item["WorkflowName"])== "RoomBooking")
                                     {
                                         task.RequestURL = SharedConstants.RoomBookingUrl;
+                                    }
+                                    if (Convert.ToString(Item["WorkflowName"]) == "AffirmationSocialSituationWF")
+                                    {
+                                        task.RequestURL = SharedConstants.AffirmationSocialSituationUrl;
                                     }
                                 }             
                             }
