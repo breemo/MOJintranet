@@ -79,6 +79,7 @@ namespace CommonLibrary
         public const string RoomBookingUrl = "/Lists/RoomBooking/AllItems.aspx";
         public const string AffirmationSocialSituationUrl = "/Lists/AffirmationSocialSituation/AllItems.aspx";
         public const string HusbandORWifeUrl = "/Lists/HusbandORWife/AllItems.aspx";
+        public const string SonsUrl = "/Lists/Sons/AllItems.aspx";
         public const string WorkflowTasksUrl = "/WorkflowTasks/AllItems.aspx";
 
         #endregion

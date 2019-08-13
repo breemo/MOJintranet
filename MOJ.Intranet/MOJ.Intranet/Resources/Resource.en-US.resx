@@ -522,4 +522,10 @@
   <data name="Employer" xml:space="preserve">
     <value>Employer</value>
   </data>
+  <data name="ChangeSocialStatus" xml:space="preserve">
+    <value>Change in social status</value>
+  </data>
+  <data name="Children" xml:space="preserve">
+    <value>Children</value>
+  </data>
 </root>

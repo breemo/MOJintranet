@@ -13,13 +13,22 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation {
     public partial class AffirmationSocialSituationUserControl {
         
         /// <summary>
-        /// hdnPassenger control.
+        /// hdnHusbandORWife control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnPassenger;
+        protected global::System.Web.UI.WebControls.HiddenField hdnHusbandORWife;
+        
+        /// <summary>
+        /// hdnChildren control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnChildren;
         
         /// <summary>
         /// posts control.
@@ -103,40 +112,76 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation {
         protected global::System.Web.UI.WebControls.CheckBox HasGovernmentHousingPercentageAllowance0;
         
         /// <summary>
-        /// txtTravelReson control.
+        /// ChildrenName0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTravelReson;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ChildrenName0;
         
         /// <summary>
-        /// txtCarPlace control.
+        /// Gender0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCarPlace;
+        protected global::System.Web.UI.WebControls.RadioButtonList Gender0;
         
         /// <summary>
-        /// txtTravelDate control.
+        /// Age0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTravelDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Age0;
         
         /// <summary>
-        /// txtduration control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtduration;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtName;
+        
+        /// <summary>
+        /// RelationshipType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText RelationshipType;
+        
+        /// <summary>
+        /// ChangeReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ChangeReason;
+        
+        /// <summary>
+        /// ChangeDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ChangeDate;
+        
+        /// <summary>
+        /// btnsubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsubmit;
         
         /// <summary>
         /// SuccessMsgDiv control.
@@ -155,5 +200,23 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblSuccessMsg;
+        
+        /// <summary>
+        /// Div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        
+        /// <summary>
+        /// Literal1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal1;
     }
 }

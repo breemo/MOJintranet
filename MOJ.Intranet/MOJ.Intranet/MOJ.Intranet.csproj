@@ -80,6 +80,7 @@
     <Compile Include="Classes\Business\EmployeeMasterData.cs" />
     <Compile Include="Classes\Business\MeetingsBL.cs" />
     <Compile Include="Classes\Business\MinistryFiles.cs" />
+    <Compile Include="Classes\Business\AffirmationSocialSituation.cs" />
     <Compile Include="Classes\Business\Task.cs" />
     <Compile Include="Classes\Business\RoomBooking.cs" />
     <Compile Include="Classes\Business\Occasions.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Classes\Data Manager\EmployeeMasterDataDataManager.cs" />
     <Compile Include="Classes\Data Manager\MeetingsDataManager.cs" />
     <Compile Include="Classes\Data Manager\MinistryFilesDataManager.cs" />
+    <Compile Include="Classes\Data Manager\AffirmationSocialSituationDataManager.cs" />
     <Compile Include="Classes\Data Manager\TaskDataManager.cs" />
     <Compile Include="Classes\Data Manager\RoomBookingDataManager.cs" />
     <Compile Include="Classes\Data Manager\OccasionsDataManager.cs" />
@@ -109,10 +111,13 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\HusbandORWifeEntity.cs" />
+    <Compile Include="Classes\Entities\SonsEntity .cs" />
     <Compile Include="Classes\Entities\CarOrderServiceEntity.cs" />
     <Compile Include="Classes\Entities\DepartmentCircularsEntity.cs" />
     <Compile Include="Classes\Entities\DepartmentDocumentsEntity.cs" />
     <Compile Include="Classes\Entities\DepartmentProceduresEntity.cs" />
+    <Compile Include="Classes\Entities\AffirmationSocialSituationEntity.cs" />
     <Compile Include="Classes\Entities\TaskEntity .cs" />
     <Compile Include="Classes\Entities\RoomBookingEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeMasterDataEntity.cs" />

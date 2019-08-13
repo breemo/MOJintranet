@@ -522,4 +522,10 @@
   <data name="Employer" xml:space="preserve">
     <value>جهة العمل</value>
   </data>
+  <data name="ChangeSocialStatus" xml:space="preserve">
+    <value>التغيير في الحالة الأجتماعية</value>
+  </data>
+  <data name="Children" xml:space="preserve">
+    <value>الابناء</value>
+  </data>
 </root>
