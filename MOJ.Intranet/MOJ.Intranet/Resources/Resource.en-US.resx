@@ -528,4 +528,19 @@
   <data name="Children" xml:space="preserve">
     <value>Children</value>
   </data>
+  <data name="ContactReason" xml:space="preserve">
+    <value>Contact Reason</value>
+  </data>
+  <data name="HappinessHotline" xml:space="preserve">
+    <value>Happiness Hotline</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="RequestNumber" xml:space="preserve">
+    <value>Request Number</value>
+  </data>
+  <data name="Mandatory" xml:space="preserve">
+    <value>  *  Mandatory field</value>
+  </data>
 </root>

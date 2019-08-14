@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\HappinessHotline.cs" />
     <Compile Include="Classes\Business\CarOrderServiceBL.cs" />
     <Compile Include="Classes\Business\DepartmentCirculars.cs" />
     <Compile Include="Classes\Business\DepartmentDocumentsBL.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\AddEmployeeNumberDataManger.cs" />
+    <Compile Include="Classes\Data Manager\HappinessHotlineDataManager.cs" />
     <Compile Include="Classes\Data Manager\CarOrderServiceDataManager.cs" />
     <Compile Include="Classes\Data Manager\DepartmentCircularsDataManager.cs" />
     <Compile Include="Classes\Data Manager\DepartmentDocumentsDataManager.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\HappinessHotlineEntity.cs" />
     <Compile Include="Classes\Entities\HusbandORWifeEntity.cs" />
     <Compile Include="Classes\Entities\SonsEntity .cs" />
     <Compile Include="Classes\Entities\CarOrderServiceEntity.cs" />
@@ -338,6 +341,14 @@
     <Compile Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx.designer.cs">
       <DependentUpon>AffirmationSocialSituationUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWP.cs" />
+    <Compile Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWPUserControl.ascx.cs">
+      <DependentUpon>HappinessHotlineWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWPUserControl.ascx.designer.cs">
+      <DependentUpon>HappinessHotlineWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\HostingRequestWP\HostingRequestWP.cs" />
     <Compile Include="Webparts\My Services\HostingRequestWP\HostingRequestWPUserControl.ascx.cs">
       <DependentUpon>HostingRequestWPUserControl.ascx</DependentUpon>
@@ -517,6 +528,10 @@
     <None Include="Webparts\My Services\AffirmationSocialSituation\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{5a3ffcae-d7a3-4496-80a4-cb538a1d63ef}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWP.webpart" />
+    <None Include="Webparts\My Services\HappinessHotlineWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{96a6f0c8-2811-4c10-bc98-4ec93909cd9e}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\HostingRequestWP\HostingRequestWP.webpart" />
     <None Include="Webparts\My Services\HostingRequestWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{30463a34-2d57-49ac-9d76-662bdd727597}</SharePointProjectItemId>
@@ -609,6 +624,8 @@
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationSocialSituation\Elements.xml" />
+    <Content Include="Webparts\My Services\HappinessHotlineWP\Elements.xml" />
+    <Content Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWPUserControl.ascx" />
     <Content Include="Webparts\My Services\HostingRequestWP\Elements.xml" />
     <Content Include="Webparts\My Services\HostingRequestWP\HostingRequestWPUserControl.ascx" />
     <Content Include="Webparts\My Services\HostingRequest\Elements.xml" />

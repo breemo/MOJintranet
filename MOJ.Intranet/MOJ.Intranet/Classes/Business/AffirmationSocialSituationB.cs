@@ -40,9 +40,6 @@ namespace MOJ.Business
             return new AffirmationSocialSituationDataManager().Getsons(title);
         }
 
-        //     public RoomBookingEntity GetRoomBooking(int id)
-        //{
-        //    return new RoomBookingDataManager().GetRoomBookingByID(id);
-        //}
+        
     }
 }

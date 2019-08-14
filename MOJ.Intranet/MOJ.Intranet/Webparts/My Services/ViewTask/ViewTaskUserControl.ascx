@@ -15,6 +15,12 @@ background-color: #f5e9b6;
     margin-bottom: 5px;
     
 }
+.RequestTitle {
+    background-color: #bd995d;
+    color: white;
+    font-size: 19px;
+    padding-right: 3px;
+}
 
 </style>
 <h4>

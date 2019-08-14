@@ -528,4 +528,19 @@
   <data name="Children" xml:space="preserve">
     <value>الابناء</value>
   </data>
+  <data name="ContactReason" xml:space="preserve">
+    <value>سبب التواصل</value>
+  </data>
+  <data name="HappinessHotline" xml:space="preserve">
+    <value>الخط الساخن للسعادة</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>الرسالة</value>
+  </data>
+  <data name="RequestNumber" xml:space="preserve">
+    <value>رقم الطلب</value>
+  </data>
+  <data name="Mandatory" xml:space="preserve">
+    <value>  *  حقل اجباري</value>
+  </data>
 </root>

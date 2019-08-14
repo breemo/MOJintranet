@@ -46,11 +46,13 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             txtMission.InnerText = task.Comment;
             bool havePermission = new Task().HavePermission(Convert.ToInt32(Request.Params["TID"]));
             if (havePermission)
-            { // add new workflow
+            { // add new workflow-----------------------------------
                 if(task.WorkflowName == "RoomBooking")
                 GetRoomBookingData(task.RequestID);
                 if (task.WorkflowName == "AffirmationSocialSituationWF")
                     GetAffirmationSocialSituationData(task.RequestID);
+                if (task.WorkflowName == "HappinessHotlineWF")
+                    GetHappinessHotlineData(task.RequestID);
             }
             else
             {
@@ -59,12 +61,20 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
             }
-
+        }
+        public void GetHappinessHotlineData(string RequestID)
+        {           
+            HappinessHotlineEntity HappinessHotlin = new HappinessHotline().GetHappinessHotline(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", HappinessHotlin.RequestNumber, "title");
+            addtopage("ContactReason", HappinessHotlin.ContactReason);
+            string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + HappinessHotlin.Message + "</textarea>";
+            addtopage("Message", Messaghtm);
         }
         public void GetAffirmationSocialSituationData(string RequestID)
         {
 
-            AffirmationSocialSituationEntity AffirmationSocial = new AffirmationSocialSituationB().GetAffirmationSocialSituation(Convert.ToInt32(RequestID));           
+            AffirmationSocialSituationEntity AffirmationSocial = new AffirmationSocialSituationB().GetAffirmationSocialSituation(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", AffirmationSocial.RequestNumber, "title");
             addtopage("Data", AffirmationSocial.HusbandORWife);
 
             List<HusbandORWifeEntity> HusbandORWifeis = new AffirmationSocialSituationB().GetHusbandORWife(AffirmationSocial.RequestNumber);
@@ -124,6 +134,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                         valResourcesNeeded += "&nbsp;&nbsp;" + choices[i] + "&nbsp;&nbsp;";
                     }
                 }
+                addtopage("RequestNumber", Room.RequestNumber, "title");
                 addtopage("Place", Room.Place);
                 addtopage("AttendeesNumber", Room.AttendeesNumber);
                 addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
@@ -132,10 +143,12 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 addtopage("resources", valResourcesNeeded);
         }
 
-        protected void addtopage(string text,string value)
+        protected void addtopage(string text,string value,string title="")
         {
             string textla = SPUtility.GetLocalizedString("$Resources: "+text, "Resource", SPContext.Current.Web.Language);
-            AllData.Text += @"<div class='row rt'>
+            if(title!="")
+            AllData.Text += "<div class='RequestTitle'>";
+           AllData.Text += @"<div class='row rt'>
                         <div class='col-md-12'>
                             <div class='row'>
                                 <div class='col-md-3'>
@@ -147,6 +160,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                             </div>
                         </div>                        
                     </div>";
+            if (title != "")
+                AllData.Text += "</div>";
         }
         protected void addtopage(string text, string value, string text2, string value2)
         {

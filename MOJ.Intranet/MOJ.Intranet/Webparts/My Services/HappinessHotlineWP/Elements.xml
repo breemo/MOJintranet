@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="HappinessHotlineWP" List="113" Url="_catalogs/wp">
+    <File Path="HappinessHotlineWP\HappinessHotlineWP.webpart" Url="MOJ.Intranet_HappinessHotlineWP.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="MOJ.MyServices" />
+    </File>
+  </Module>
+</Elements>

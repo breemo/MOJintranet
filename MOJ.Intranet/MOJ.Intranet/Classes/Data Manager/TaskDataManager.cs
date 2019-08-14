@@ -113,6 +113,10 @@ namespace MOJ.DataManager
                                     {
                                         task.RequestURL = SharedConstants.AffirmationSocialSituationUrl;
                                     }
+                                    if (Convert.ToString(Item["WorkflowName"]) == "HappinessHotlineWF")
+                                    {
+                                        task.RequestURL = SharedConstants.HappinessHotlineUrl;
+                                    }
                                 }             
                             }
                         }

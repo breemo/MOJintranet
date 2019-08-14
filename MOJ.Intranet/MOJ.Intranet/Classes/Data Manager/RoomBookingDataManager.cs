@@ -94,7 +94,7 @@ namespace MOJ.DataManager
                                 if (lstRoom != null)
                                 {
                                     SPListItem Item = lstRoom.GetItemById(id);
-
+                                    RoomBooking.RequestNumber = Convert.ToString(Item["Title"]);
                                     RoomBooking.Place = Convert.ToString(Item["Place"]);
                                     RoomBooking.AttendeesNumber = Convert.ToString(Item["AttendeesNumber"]);
                                     RoomBooking.Mission = Convert.ToString(Item["Mission"]);
