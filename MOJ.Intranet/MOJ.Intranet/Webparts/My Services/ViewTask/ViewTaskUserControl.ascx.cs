@@ -49,9 +49,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             { // add new workflow-----------------------------------
                 if(task.WorkflowName == "RoomBooking")
                 GetRoomBookingData(task.RequestID);
-                if (task.WorkflowName == "AffirmationSocialSituationWF")
+                if (task.WorkflowName == "AffirmationSocialSituation")
                     GetAffirmationSocialSituationData(task.RequestID);
-                if (task.WorkflowName == "HappinessHotlineWF")
+                if (task.WorkflowName == "HappinessHotline")
                     GetHappinessHotlineData(task.RequestID);
             }
             else

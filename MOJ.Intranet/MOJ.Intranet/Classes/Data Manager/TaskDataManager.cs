@@ -104,19 +104,9 @@ namespace MOJ.DataManager
                                     task.Comment = Convert.ToString(Item["Comment"]);                                  
                                     SPFieldUserValueCollection itemAssignedTo = new SPFieldUserValueCollection(Item.Web.Site.RootWeb, Item["AssignedTo"].ToString());
                                     task.AssignedTo = itemAssignedTo;
-                                    //add if add new workflow in new list
-                                    if (Convert.ToString(Item["WorkflowName"])== "RoomBooking")
-                                    {
-                                        task.RequestURL = SharedConstants.RoomBookingUrl;
-                                    }
-                                    if (Convert.ToString(Item["WorkflowName"]) == "AffirmationSocialSituationWF")
-                                    {
-                                        task.RequestURL = SharedConstants.AffirmationSocialSituationUrl;
-                                    }
-                                    if (Convert.ToString(Item["WorkflowName"]) == "HappinessHotlineWF")
-                                    {
-                                        task.RequestURL = SharedConstants.HappinessHotlineUrl;
-                                    }
+                                    task.RequestURL = "/Lists/" + Convert.ToString(Item["WorkflowName"]) + "/AllItems.aspx" ;
+                                    
+                                   
                                 }             
                             }
                         }
