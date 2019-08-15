@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\MyRequests.cs" />
     <Compile Include="Classes\Business\HappinessHotline.cs" />
     <Compile Include="Classes\Business\CarOrderServiceBL.cs" />
     <Compile Include="Classes\Business\DepartmentCirculars.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\AddEmployeeNumberDataManger.cs" />
+    <Compile Include="Classes\Data Manager\MyRequestsDataManager.cs" />
     <Compile Include="Classes\Data Manager\HappinessHotlineDataManager.cs" />
     <Compile Include="Classes\Data Manager\CarOrderServiceDataManager.cs" />
     <Compile Include="Classes\Data Manager\DepartmentCircularsDataManager.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Classes\Entities\DepartmentDocumentsEntity.cs" />
     <Compile Include="Classes\Entities\DepartmentProceduresEntity.cs" />
     <Compile Include="Classes\Entities\AffirmationSocialSituationEntity.cs" />
+    <Compile Include="Classes\Entities\MyRequestsEntity.cs" />
     <Compile Include="Classes\Entities\TaskEntity .cs" />
     <Compile Include="Classes\Entities\RoomBookingEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeMasterDataEntity.cs" />
@@ -365,6 +368,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HostingRequest.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\MyRequestsWP\MyRequestsWP.cs" />
+    <Compile Include="Webparts\My Services\MyRequestsWP\MyRequestsWPUserControl.ascx.cs">
+      <DependentUpon>MyRequestsWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\MyRequestsWP\MyRequestsWPUserControl.ascx.designer.cs">
+      <DependentUpon>MyRequestsWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\myTasks\myTasks.cs" />
     <Compile Include="Webparts\My Services\myTasks\myTasksUserControl.ascx.cs">
       <DependentUpon>myTasksUserControl.ascx</DependentUpon>
@@ -409,6 +420,9 @@
   <ItemGroup>
     <None Include="Features\Feature1\Feature1.feature">
       <FeatureId>{b4f5a10c-a7e1-4d8c-9aac-39948750b021}</FeatureId>
+    </None>
+    <None Include="Features\Feature2\Feature2.feature">
+      <FeatureId>{4b66d63b-a767-45e0-90ae-9ab56ce4df42}</FeatureId>
     </None>
     <None Include="Images\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0b32c85a-4763-4ef1-af1e-e528a638af6c}</SharePointProjectItemId>
@@ -540,6 +554,10 @@
     <None Include="Webparts\My Services\HostingRequest\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{967daa02-38a6-455b-87a0-647314935a65}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\MyRequestsWP\MyRequestsWP.webpart" />
+    <None Include="Webparts\My Services\MyRequestsWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f700d92c-8a29-4d60-ba51-dc2b1e84fbda}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\myTasks\myTasks.webpart" />
     <None Include="Webparts\My Services\myTasks\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{42a1ccae-8b17-4e42-82cc-d5c7f323aaa7}</SharePointProjectItemId>
@@ -564,6 +582,9 @@
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
+    <Content Include="Features\Feature2\Feature2.Template.xml">
+      <DependentUpon>Feature2.feature</DependentUpon>
     </Content>
     <Content Include="Images\default.jpeg" />
     <Content Include="Images\NoImage.png" />
@@ -633,6 +654,8 @@
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>HostingRequest.ascx.g.cs</LastGenOutput>
     </Content>
+    <Content Include="Webparts\My Services\MyRequestsWP\Elements.xml" />
+    <Content Include="Webparts\My Services\MyRequestsWP\MyRequestsWPUserControl.ascx" />
     <Content Include="Webparts\My Services\myTasks\Elements.xml" />
     <Content Include="Webparts\My Services\myTasks\myTasksUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewTask\Elements.xml" />

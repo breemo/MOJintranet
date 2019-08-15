@@ -21,13 +21,14 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             if (!Page.IsPostBack)
             {
 
-                List<TaskEntity> taskollection = new Task().GetMyTask();
+                List<TaskEntity> taskollection = new Task().GetMyTasks();
                 int i = 1;
                 foreach (TaskEntity task in taskollection)
                 {                   
                     tasks.Text += @"<tr>
                    <td>" + i + @"</td>
                     <td><a href='" + task.TaskURL + @"'>" + task.RequestName + @"</a></td>
+                    <td>" + task.ServiceName + @"</td>                    
                     <td>" + task.Title + @"</td>
                     <td>" + task.Status + @"</td>
                     <td>" + task.WorkflowOutcome + @"</td>

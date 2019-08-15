@@ -25,5 +25,6 @@ namespace MOJ.Entities
         public SPFieldUserValueCollection AssignedTo { get; set; }
         public string AssignedTotype { get; set; }
         public string AssignedToGroup { get; set; }
+        public string ServiceName { get; set; }
     }
 }

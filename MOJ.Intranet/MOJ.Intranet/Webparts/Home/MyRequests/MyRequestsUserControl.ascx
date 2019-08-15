@@ -12,7 +12,7 @@
 <div class="headlineflex">
     <h4 class="TitleHead">طلـباتــي</h4>
 
-    <a href="#" class="slide morebuttoncss arrow">جميع الطلبات</a>
+    <a href="ar/MyServices/Pages/MyRequests.aspx" class="slide morebuttoncss arrow">جميع الطلبات</a>
 </div>
 
 <div class="blockbox minhe newhri">

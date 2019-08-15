@@ -367,7 +367,7 @@ background-color: #f5e9b6;
     function addInput() {
         $("#FirstItemAA")[0].innerHTML = $("#FirstItem")[0].innerHTML;
         var Itemhtml = $("#FirstItemAA");
-        
+
         Itemhtml.find(".DivName")[0].innerHTML = "<input name='Name' type=text' id='Name" + counter + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivDateMarriage")[0].innerHTML = "<input name='DateMarriage' type='text' id='DateMarriage" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
         Itemhtml.find(".DivEmployer")[0].innerHTML = "<input name='Employer' type=text' id='Employer" + counter + "' class='form-control' placeholder=''>";
@@ -384,6 +384,9 @@ background-color: #f5e9b6;
         Itemhtml.find(".DivHasGovernmentHousingAllowance")[0].innerHTML = "<input id='HasGovernmentHousingAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingAllowance" + counter + "'>";
         Itemhtml.find(".DivHasGovernmentHousingPercentageAllowance")[0].innerHTML = "<input id='HasGovernmentHousingPercentageAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingPercentageAllowance" + counter + "'>";
         var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "MoreThanOneWife";
+        newdiv.setAttributeNode(att);
         var classis = "";
         if (counter % 2 === 0) {
             classis = "oddRow";
@@ -434,6 +437,9 @@ background-color: #f5e9b6;
             $('#AddWife').show();
         }
         else {
+            document.getElementById('hdnHusbandORWife').value = "";
+            counter = 1;
+            $(".MoreThanOneWife").remove();
             $('#AddWife').hide();
         }
     });

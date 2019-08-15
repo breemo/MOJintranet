@@ -93,7 +93,8 @@ namespace MOJ.DataManager
                                     SPListItem Item = lsttask.GetItemById(id);
                                     task.Title = Convert.ToString(Item["Title"]);
                                     task.id = id;
-                                    task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
+                                    task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);                                    
+                                    task.ServiceName = Convert.ToString(Item["ServiceName"]);
                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                     String Requestlink = Convert.ToString(spfvRequest.Url);
                                     string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
@@ -119,7 +120,7 @@ namespace MOJ.DataManager
             }
             return task;
         }
-        public List<TaskEntity> GetMyTask()
+        public List<TaskEntity> GetMyTasks()
         {
            
             List<TaskEntity> TaskCollection = new List<TaskEntity>();
@@ -158,7 +159,8 @@ namespace MOJ.DataManager
                                                     task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
                                                     task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
                                                     task.Status = Convert.ToString(Item["Status"]);
-                                                    task.Comment = Convert.ToString(Item["Comment"]);
+                                                    task.Comment = Convert.ToString(Item["Comment"]); 
+                                                    task.ServiceName = Convert.ToString(Item["ServiceName"]); 
                                                     task.Created = Convert.ToDateTime(Item["Created"]);                                                 
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                                     String Requestlink = Convert.ToString(spfvRequest.Url);

@@ -543,4 +543,25 @@
   <data name="Mandatory" xml:space="preserve">
     <value>  *  Mandatory field</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="ServiceType" xml:space="preserve">
+    <value>Service Type</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TaskDate" xml:space="preserve">
+    <value>Task Date</value>
+  </data>
+  <data name="RequestDate" xml:space="preserve">
+    <value>Request Date</value>
+  </data>
+  <data name="MyRequests" xml:space="preserve">
+    <value>MyRequests</value>
+  </data>
 </root>

@@ -5,9 +5,10 @@
 <%@ Register Tagprefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="myTasksUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.My_Services.myTasks.myTasksUserControl" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MyRequestsWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.My_Services.MyRequestsWP.MyRequestsWPUserControl" %>
+
 <h4>
-    <asp:Literal runat="server" Text="<%$ Resources:Resource, Tasks%>" />
+    <asp:Literal runat="server" Text="<%$ Resources:Resource, MyRequests%>" />
 </h4>
 <h4></h4>
 <h4></h4>
@@ -21,11 +22,9 @@
 								  <thead>
                                          <th>#</th>                                        
                                         <th><asp:Literal runat="server" Text="<%$ Resources:Resource, RequestNumber%>" /></th>
-										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, ServiceType%>" /></th>
-										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, TaskName%>" /></th>
-										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, Status%>" /></th>
+										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, ServiceType%>" /></th>										
 										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, Result%>" /></th>
-										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, TaskDate%>" /></th>									                                                                
+										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, RequestDate%>" /></th>									                                                                
                                         <th>
                                             <span class=""><asp:Literal runat="server" Text="<%$ Resources:Resource, Edit%>" /></span>
                                         </th>
@@ -57,7 +56,7 @@
                                             </td>
                                         </tr>
                                     </tfoot>
-                                  <asp:Label id="tasks" runat="server"></asp:Label>
+                                  <asp:Label id="lbMyRequests" runat="server"></asp:Label>
                                       
                                 </table>
                             </div>
