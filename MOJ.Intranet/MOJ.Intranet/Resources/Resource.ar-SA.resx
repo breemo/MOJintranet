@@ -564,4 +564,10 @@
   <data name="MyRequests" xml:space="preserve">
     <value>طلباتي</value>
   </data>
+  <data name="Comment" xml:space="preserve">
+    <value>الملاحظات</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>قيد الانتظار</value>
+  </data>
 </root>

@@ -220,6 +220,7 @@ namespace MOJ.DataManager
                                     obitem.ChangeReason = Convert.ToString(Item["ChangeReason"]);
                                     obitem.HusbandORWife = Convert.ToString(Item["HusbandORWife"]);
                                     obitem.RequestNumber = Convert.ToString(Item["Title"]);
+                                    obitem.Status = Convert.ToString(Item["Status"]);
 
                             }
                             }

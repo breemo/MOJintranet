@@ -20,7 +20,7 @@ namespace MOJ.DataManager
 {
     public class TaskDataManager
     {
-        #region HostingRequest
+        #region task
         public bool AddOrUpdateHostingRequest(TaskEntity HostingRequestItem)
         {           
             bool isUpdate = false;
@@ -161,6 +161,8 @@ namespace MOJ.DataManager
                                                     task.Status = Convert.ToString(Item["Status"]);
                                                     task.Comment = Convert.ToString(Item["Comment"]); 
                                                     task.ServiceName = Convert.ToString(Item["ServiceName"]); 
+                                                    task.ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
+                                                   
                                                     task.Created = Convert.ToDateTime(Item["Created"]);                                                 
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                                     String Requestlink = Convert.ToString(spfvRequest.Url);
@@ -184,6 +186,9 @@ namespace MOJ.DataManager
                                                     task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
                                                     task.Status = Convert.ToString(Item["Status"]);
                                                     task.Comment = Convert.ToString(Item["Comment"]);
+                                                    task.ServiceName = Convert.ToString(Item["ServiceName"]);
+                                                    task.ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
+
                                                     task.Created = Convert.ToDateTime(Item["Created"]);
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                                     String Requestlink = Convert.ToString(spfvRequest.Url);
@@ -208,6 +213,61 @@ namespace MOJ.DataManager
                     }
                 });
                      return TaskCollection;
+        }
+        public List<TaskEntity> GetTasksRequest(string RequestID,string RequestName)
+        {
+
+            List<TaskEntity> TaskCollection = new List<TaskEntity>();
+
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lsttask = oWeb.GetListFromUrl(oSite.Url + SharedConstants.WorkflowTasksUrl);//oWeb.Lists["Workflow Tasks"];//
+                            if (lsttask != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><And><Eq><FieldRef Name='RequestID' /><Value Type='Text'>"+ RequestID + "</Value></Eq><Eq><FieldRef Name='ServiceName' /><Value Type='Text'>"+RequestName+"</Value></Eq></And></Where><OrderBy><FieldRef Name='ID' Ascending='true' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lsttask.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {         
+                                            
+                                    TaskEntity task = new TaskEntity();
+                                    task.Title = Convert.ToString(Item["Title"]);
+                                    task.id = Convert.ToInt32(Item["ID"]);
+                                    task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
+                                    task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
+                                    task.Status = Convert.ToString(Item["Status"]);
+                                    task.Comment = Convert.ToString(Item["Comment"]);
+                                    task.ServiceName = Convert.ToString(Item["ServiceName"]);
+                                    task.ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
+                                    task.AnswerBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["AnswerBy"]));
+                                    task.AssignedToOneUserValue = new SPFieldUserValue(oWeb, Convert.ToString(Item["AssignedTo"]));
+                                    task.Created = Convert.ToDateTime(Item["Created"]);
+                                    SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
+                                    String Requestlink = Convert.ToString(spfvRequest.Url);
+                                    string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
+                                    task.RequestID = Convert.ToString(Request[1]);
+                                    task.RequestName = Convert.ToString(spfvRequest.Description);
+                                    task.TaskURL = "ViewTask.aspx?TID=" + Convert.ToInt32(Item["ID"]);
+                                    TaskCollection.Add(task);                               
+                                  }
+
+                                }
+
+                            
+                        }
+
+                    }
+                }
+            });
+            return TaskCollection;
         }
         public bool TaskPermission(int Tid)
         {

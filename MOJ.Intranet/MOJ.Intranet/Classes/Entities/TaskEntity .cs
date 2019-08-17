@@ -23,8 +23,11 @@ namespace MOJ.Entities
         public string Comment { get; set; }
         public DateTime Created { get; set; }
         public SPFieldUserValueCollection AssignedTo { get; set; }
+        public SPFieldUserValue AssignedToOneUserValue { get; set; }
         public string AssignedTotype { get; set; }
         public string AssignedToGroup { get; set; }
         public string ServiceName { get; set; }
+        public string ServiceNameAr { get; set; }
+        public SPFieldUserValue AnswerBy { get; set; }
     }
 }

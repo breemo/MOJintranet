@@ -83,6 +83,7 @@ namespace MOJ.DataManager
                                     obitem.ContactReason = Convert.ToString(Item["ContactReason"]);
                                     obitem.Message = Convert.ToString(Item["Message"]);
                                     obitem.RequestNumber = Convert.ToString(Item["Title"]);
+                                    obitem.Status = Convert.ToString(Item["Status"]);
 
                                 }
                             }

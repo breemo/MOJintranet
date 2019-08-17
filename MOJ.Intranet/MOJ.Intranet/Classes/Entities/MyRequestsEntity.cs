@@ -18,6 +18,7 @@ namespace MOJ.Entities
         public string ServiceNameEn { get; set; }
         public string StatusEn { get; set; }
         public string StatusAr { get; set; }
+        public string RequestURL { get; set; }
         public SPFieldUserValue RequestBy { get; set; }       
         public DateTime Created { get; set; }
       

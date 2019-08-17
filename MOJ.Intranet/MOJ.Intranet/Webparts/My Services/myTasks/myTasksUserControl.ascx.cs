@@ -28,7 +28,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                     tasks.Text += @"<tr>
                    <td>" + i + @"</td>
                     <td><a href='" + task.TaskURL + @"'>" + task.RequestName + @"</a></td>
-                    <td>" + task.ServiceName + @"</td>                    
+                    <td>" + task.ServiceNameAr + @"</td>                    
                     <td>" + task.Title + @"</td>
                     <td>" + task.Status + @"</td>
                     <td>" + task.WorkflowOutcome + @"</td>

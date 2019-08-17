@@ -98,6 +98,7 @@ namespace MOJ.DataManager
                                     RoomBooking.Place = Convert.ToString(Item["Place"]);
                                     RoomBooking.AttendeesNumber = Convert.ToString(Item["AttendeesNumber"]);
                                     RoomBooking.Mission = Convert.ToString(Item["Mission"]);
+                                    RoomBooking.Status = Convert.ToString(Item["Status"]);
                                     RoomBooking.DateFrom = Convert.ToDateTime(Item["DateFrom"]);
                                     RoomBooking.DateTo = Convert.ToDateTime(Item["DateTo"]);
                                     RoomBooking.ResourcesNeeded = new SPFieldMultiChoiceValue(Item["ResourcesNeeded"].ToString());

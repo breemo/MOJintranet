@@ -22,6 +22,10 @@ namespace MOJ.Business
         {
             return new TaskDataManager().GetMyTasks();
         }
+        public List<TaskEntity> GetTasksRequest(string ID, string Name )
+        {
+            return new TaskDataManager().GetTasksRequest(ID , Name);
+        }
         public bool HavePermission(int TID)
         {
             return new TaskDataManager().TaskPermission(TID);

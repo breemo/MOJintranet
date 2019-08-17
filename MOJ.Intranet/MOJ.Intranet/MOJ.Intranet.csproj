@@ -384,6 +384,14 @@
     <Compile Include="Webparts\My Services\myTasks\myTasksUserControl.ascx.designer.cs">
       <DependentUpon>myTasksUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\ViewRequestWP\ViewRequestWP.cs" />
+    <Compile Include="Webparts\My Services\ViewRequestWP\ViewRequestWPUserControl.ascx.cs">
+      <DependentUpon>ViewRequestWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\ViewRequestWP\ViewRequestWPUserControl.ascx.designer.cs">
+      <DependentUpon>ViewRequestWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\ViewTask\ViewTask.cs" />
     <Compile Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx.cs">
       <DependentUpon>ViewTaskUserControl.ascx</DependentUpon>
@@ -562,6 +570,10 @@
     <None Include="Webparts\My Services\myTasks\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{42a1ccae-8b17-4e42-82cc-d5c7f323aaa7}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\ViewRequestWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{547c76ae-1cff-4d4f-a95b-5b73b01f7afc}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\My Services\ViewRequestWP\ViewRequestWP.webpart" />
     <None Include="Webparts\My Services\ViewTask\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{628e8c58-8827-4328-a97b-32f218cf8dd4}</SharePointProjectItemId>
     </None>
@@ -658,6 +670,8 @@
     <Content Include="Webparts\My Services\MyRequestsWP\MyRequestsWPUserControl.ascx" />
     <Content Include="Webparts\My Services\myTasks\Elements.xml" />
     <Content Include="Webparts\My Services\myTasks\myTasksUserControl.ascx" />
+    <Content Include="Webparts\My Services\ViewRequestWP\Elements.xml" />
+    <Content Include="Webparts\My Services\ViewRequestWP\ViewRequestWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewTask\Elements.xml" />
     <Content Include="Webparts\My Services\ViewTask\ViewTaskUserControl.ascx" />
     <Content Include="Webparts\MyDepartment\DepartmentCircularsWP\DepartmentCircularsWPUserControl.ascx" />
