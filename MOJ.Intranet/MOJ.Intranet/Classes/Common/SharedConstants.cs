@@ -83,6 +83,7 @@ namespace CommonLibrary
         public const string SonsUrl = "/Lists/Sons/AllItems.aspx";
         public const string WorkflowTasksUrl = "/WorkflowTasks/AllItems.aspx";
         public const string MyRequestsUrl = "/Lists/AllRequest/AllItems.aspx";
+        public const string CarOrderServiceUrl = "/Lists/CarOrderService/AllItems.aspx";
 
         #endregion
 

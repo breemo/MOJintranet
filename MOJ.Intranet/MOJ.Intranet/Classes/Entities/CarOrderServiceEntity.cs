@@ -19,5 +19,7 @@ namespace MOJ.Entities
         public DateTime TravelDate { get; set; }
         public string Duration { get; set; }
         public string ApprovalBy { get; set; }
+        public string ID { get; set; }
+        public string Status { get; set; }
     }
 }

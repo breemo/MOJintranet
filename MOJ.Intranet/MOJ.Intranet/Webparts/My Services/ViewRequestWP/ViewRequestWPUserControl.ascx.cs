@@ -42,12 +42,26 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status= GetAffirmationSocialSituationData(RequestID);
                 if (listName == "HappinessHotline")
                 Status= GetHappinessHotlineData(RequestID);
+            if (listName == "CarOrderService")
+                Status= GetCarOrderServiceData(RequestID);
 
 
             GetTasksRequest(RequestID, listName);
             AllData.Text += "<hr>";
             addtopage(Status, "");
 
+        }
+        public string GetCarOrderServiceData(string RequestID)
+        {
+            CarOrderServiceEntity caritem = new CarOrderServiceBL().GetCarOrderServiceByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", caritem.RequestNumber, "title");
+            addtopage("Carwith", caritem.TravelNeeds);
+            addtopage("GoingTo", caritem.TravelTo);
+            addtopage("PassengerName", caritem.NameOfPassengers);
+            addtopage("TravelReason", caritem.TravelReason, "CarPlace", caritem.CarPlace);
+            string Tdate = Convert.ToDateTime(caritem.TravelDate).ToString("dd MMM yyyy");
+            addtopage("TravelDate", Tdate, "TravelDuration", caritem.Duration);
+            return caritem.Status;
         }
         public void GetTasksRequest(string RequestID, string RequestName)
         {

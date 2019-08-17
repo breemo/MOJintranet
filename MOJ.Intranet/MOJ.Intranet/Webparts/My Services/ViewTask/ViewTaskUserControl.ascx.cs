@@ -53,6 +53,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     GetAffirmationSocialSituationData(task.RequestID);
                 if (task.WorkflowName == "HappinessHotline")
                     GetHappinessHotlineData(task.RequestID);
+                if (task.WorkflowName == "CarOrderService")
+                    GetCarOrderServiceData(task.RequestID);
             }
             else
             {
@@ -61,6 +63,18 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
             }
+        }
+
+        public void GetCarOrderServiceData(string RequestID)
+        {
+            CarOrderServiceEntity caritem = new CarOrderServiceBL().GetCarOrderServiceByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", caritem.RequestNumber, "title");
+            addtopage("Carwith", caritem.TravelNeeds);
+            addtopage("GoingTo", caritem.TravelTo);
+            addtopage("PassengerName", caritem.NameOfPassengers);
+            addtopage("TravelReason", caritem.TravelReason, "CarPlace", caritem.CarPlace);
+            string Tdate = Convert.ToDateTime(caritem.TravelDate).ToString("dd MMM yyyy");
+            addtopage("TravelDate", Tdate, "TravelDuration", caritem.Duration);
         }
         public void GetHappinessHotlineData(string RequestID)
         {           
