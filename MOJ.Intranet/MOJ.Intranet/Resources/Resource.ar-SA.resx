@@ -570,4 +570,25 @@
   <data name="Pending" xml:space="preserve">
     <value>قيد الانتظار</value>
   </data>
+  <data name="BasicSalary" xml:space="preserve">
+    <value>الراتب الأساسي</value>
+  </data>
+  <data name="Degree" xml:space="preserve">
+    <value>الدرجة</value>
+  </data>
+  <data name="EmployeeNumber" xml:space="preserve">
+    <value>الرقم الوظيفي</value>
+  </data>
+  <data name="MaritalStatus" xml:space="preserve">
+    <value>الحالة الأجتماعية</value>
+  </data>
+  <data name="Nationality" xml:space="preserve">
+    <value>الجنسية</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>الوظيفة</value>
+  </data>
+  <data name="Department" xml:space="preserve">
+    <value>الأدارة</value>
+  </data>
 </root>

@@ -1,9 +1,14 @@
 ﻿using CommonLibrary;
+using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -16,10 +21,44 @@ namespace MOJ.Intranet.Webparts.My_Services.HappinessHotlineWP
         {
             if (!Page.IsPostBack)
             {
+                currentUserData();
                 GetChoices();
 
             }
 
+        }
+       
+
+        private void currentUserData()
+        {
+            try
+            {
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant(); 
+                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                {
+                    Enumber.Value = item.employeeNumberField.ToString();
+                   
+                    if (languageCode == "ar")
+                    {
+                        Ename.Value = item.employeeNameArabicField.ToString();
+                       
+                    }
+                    else
+                    {
+                        Ename.Value = item.employeeNameEnglishField.ToString();
+                       
+                    }
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                LoggingService.LogError("WebParts", ex.Message);
+            }
         }
 
         private void GetChoices()

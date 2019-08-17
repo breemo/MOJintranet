@@ -2,8 +2,11 @@
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
+using MOJ.Entities;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -15,7 +18,46 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
         private static int _CarNumber = 000001;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                currentUserData();
+               
+
+            }
         }
+
+        private void currentUserData()
+        {
+            try
+            {
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                {
+                    Enumber.Value = item.employeeNumberField.ToString();
+
+                    if (languageCode == "ar")
+                    {
+                        Ename.Value = item.employeeNameArabicField.ToString();
+                        EDepartment.Value = item.departmentNameField_AR.ToString();
+                    }
+                    else
+                    {
+                        Ename.Value = item.employeeNameEnglishField.ToString();
+                        EDepartment.Value = item.departmentNameField_US.ToString();
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
         public static string GetNextCarRequestNumber()
         {
             _CarNumber++;

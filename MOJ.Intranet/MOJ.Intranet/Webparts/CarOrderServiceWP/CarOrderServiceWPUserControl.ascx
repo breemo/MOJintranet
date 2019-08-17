@@ -33,6 +33,58 @@
     <asp:Literal runat="server" Text="<%$ Resources:Resource, CarRequestService%>" />
 </h4>
 <div id="posts" runat="server" class="small-thumbs alt">
+
+    <div id="Edata">
+                    <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
+                                </div>
+                                <div  class="col-md-8">
+                                    <input type="text" name="Ename" disabled runat="server" id="Ename" class="form-control" placeholder="">
+                                </div>                       
+                            </div>
+                            </div>
+                        <div class="col-md-6">
+                               <div class="row">
+                                    <div class="col-md-4">
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeNumber%>" /></label>
+                            </div>
+                            <div class="col-md-8 ">
+                                      <input type="text" disabled name="Enumber" runat="server" id="Enumber" class="form-control" placeholder="">
+                                
+									    </div>
+                              </div>
+					    </div>                  
+                    </div>
+        <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" /></label>
+                                </div>
+                                <div  class="col-md-8">
+                                    <input type="text" name="EDepartment" disabled runat="server" id="EDepartment" class="form-control" placeholder="">
+                                </div>                       
+                            </div>
+                            </div>
+                        <div class="col-md-6">
+                               <div class="row">
+                                    <div class="col-md-4">
+                            </div>
+                            <div class="col-md-8 ">
+                                      </div>
+                              </div>
+					    </div>                  
+                    </div>
+                     
+               
+               </div>
+
+                   <hr />
+
+
     <div class="tabs tabs-responsive clearfix fullwidthtabs ui-tabs ui-corner-all ui-widget ui-widget-content">
         <div class="inskdnew">
             <div class="row rt">
@@ -244,3 +296,10 @@
         scrollbar: true
     });
 </script>
+<style>
+
+#Edata .rt{
+     margin-bottom: 1px;
+
+}
+</style>

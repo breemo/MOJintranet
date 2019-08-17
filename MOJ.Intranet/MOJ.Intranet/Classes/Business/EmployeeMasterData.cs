@@ -13,6 +13,9 @@ namespace MOJ.Business
         public List<EmployeeMasterDataEntity> EmployeeMasterDataByEmployeeNumber(string EmployeeNumber)
         {
             return new EmployeeMasterDataDataManager().EmployeeMasterDataByEmployeeNumber(EmployeeNumber);
+        } public List<EmployeeMasterDataEntity> GetCurrentEmployeeMasterDataByEmployeeNumber()
+        {
+            return new EmployeeMasterDataDataManager().GetCurrentEmployeeMasterDataByEmployeeNumber();
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using CommonLibrary;
+using Microsoft.Office.Server.UserProfiles;
+using Microsoft.SharePoint;
 using MOJ.Entities;
 using RestSharp;
 using System;
@@ -146,5 +148,41 @@ namespace MOJ.DataManager
             }
             return Employee;
         }
+
+
+        public List<EmployeeMasterDataEntity> GetCurrentEmployeeMasterDataByEmployeeNumber()
+        {
+            List<EmployeeMasterDataEntity> EmployeeValues = new List<EmployeeMasterDataEntity>();
+            try
+            {
+                using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb myweb = mySitesCollection.OpenWeb())
+                    {
+                        SPUser currentUser = myweb.CurrentUser;
+                        string currentUserlogin = currentUser.LoginName;
+                        SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
+                        UserProfileManager profileManager = new UserProfileManager(context);
+                        UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
+
+                        if (currentProfile.GetProfileValueCollection("Pager").Count != 0)
+                        {
+                            ProfileValueCollectionBase EmployeeNumber = currentProfile.GetProfileValueCollection("Pager");
+                            EmployeeValues = EmployeeMasterDataByEmployeeNumber(EmployeeNumber.ToString());
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return EmployeeValues;
+
+
+        }
+
     }
+
 }

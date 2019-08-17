@@ -10,6 +10,7 @@ using MOJ.DataManager;
 using MOJ.Business;
 using Microsoft.SharePoint.Utilities;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
 {
@@ -19,10 +20,49 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
         {
             if (!Page.IsPostBack)
             {
+                currentUserData();
                 GetChoices();
                 
             }
         }
+        private void currentUserData()
+        {
+            try
+            {
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                {
+                    Enumber.Value = item.employeeNumberField.ToString();
+                    EHiringDate.Value = item.employementDateField.ToString();
+                    if (languageCode == "ar")
+                    {
+                        Ename.Value = item.employeeNameArabicField.ToString();
+                        ENationality.Value = item.nationality_ARField.ToString();
+                        EPosition.Value = item.positionNameField_AR.ToString();
+                        EMaritalStatus.Value = item.maritalStatus_ARField.ToString();
+                    }
+                    else
+                    {
+                        Ename.Value = item.employeeNameEnglishField.ToString();
+                        ENationality.Value = item.nationality_USField.ToString();
+                        EPosition.Value = item.positionNameField_US.ToString();
+                        EMaritalStatus.Value = item.maritalStatus_USField.ToString();
+                    }
+                    EDegree.Value = "";// item.employementDateField.ToString(); 
+
+                    EBasicSalary.Value = "";// item.positionNameField_AR.ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
         private void GetChoices()
         {
             try
