@@ -642,4 +642,19 @@
   <data name="WorkPhoneEx" xml:space="preserve">
     <value>Work Phone Ex</value>
   </data>
+  <data name="EmptyData" xml:space="preserve">
+    <value>No Items Found</value>
+  </data>
+  <data name="HeadMyServices" xml:space="preserve">
+    <value>My Services</value>
+  </data>
+  <data name="HeadCoartServices" xml:space="preserve">
+    <value>Court Services</value>
+  </data>
+  <data name="HeadEmployeesServices" xml:space="preserve">
+    <value>Employees Services</value>
+  </data>
+  <data name="HeadEServices" xml:space="preserve">
+    <value>E-Services</value>
+  </data>
 </root>

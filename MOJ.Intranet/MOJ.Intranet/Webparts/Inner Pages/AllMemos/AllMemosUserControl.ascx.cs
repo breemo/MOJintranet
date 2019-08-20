@@ -35,6 +35,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
 
         private void BindData()
         {
+            lblHead.Visible = true;
+
             try
             {
                 List<MemosEntity> NewsLst = new Memos().GetMemos();
@@ -60,7 +62,9 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
                 }
                 else
                 {
+                    pgng.Visible = false;
                     rptPaging.Visible = false;
+                    lblHead.Visible = false;
                 }
 
                 grdMemosLst.DataSource = pgitems;
@@ -74,6 +78,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
 
         private void FillData(string srchString, string number)
         {
+            lblHead.Visible = true;
             List<MemosEntity> NewsLst = new Memos().GetMemos(srchString, number);
 
             if (NewsLst.Count > 0)
@@ -112,6 +117,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
                 pgng.Visible = false;
                 grdMemosLst.DataSource = NewsLst;
                 grdMemosLst.DataBind();
+
+                lblHead.Visible = false;
             }
         }
 
@@ -127,6 +134,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
 
         protected void btnSrch_Click(object sender, EventArgs e)
         {
+            PageNumber = 0;
             FillData(txtSrch.Value, txtNumber.Value);
         }
 
@@ -134,6 +142,9 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
         {
             txtNumber.Value = "";
             txtSrch.Value = "";
+
+            PageNumber = 0;
+            BindData();
         }
     }
 }

@@ -642,4 +642,19 @@
   <data name="WorkPhoneEx" xml:space="preserve">
     <value>هاتف العمل</value>
   </data>
+  <data name="EmptyData" xml:space="preserve">
+    <value>لا يوجد عناصر لعرضها</value>
+  </data>
+  <data name="HeadMyServices" xml:space="preserve">
+    <value>خدماتي</value>
+  </data>
+  <data name="HeadCoartServices" xml:space="preserve">
+    <value>خدمات المحاكم</value>
+  </data>
+  <data name="HeadEmployeesServices" xml:space="preserve">
+    <value>خدمات الموظفين</value>
+  </data>
+  <data name="HeadEServices" xml:space="preserve">
+    <value>الخدمات الالكترونية</value>
+  </data>
 </root>

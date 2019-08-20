@@ -158,7 +158,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                 pgitems.AllowPaging = true;
 
                 //Control page size from here 
-                pgitems.PageSize = 1;
+                pgitems.PageSize = 8;
                 pgitems.CurrentPageIndex = PageNumber;
 
                 if (pgitems.PageCount > 1)

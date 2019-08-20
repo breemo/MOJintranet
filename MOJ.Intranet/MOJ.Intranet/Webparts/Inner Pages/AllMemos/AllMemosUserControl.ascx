@@ -49,17 +49,17 @@
 
 
 <h4>
-    <asp:Literal runat="server" Text="<%$ Resources:Resource, innerHeadCirculars%>" />
+    <asp:Literal runat="server" id="lblHead" Text="<%$ Resources:Resource, innerHeadCirculars%>" />
 </h4>
 <div id="posts" class="small-thumbs alt">
-    <asp:GridView ID="grdMemosLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="No Archives Found"
+    <asp:GridView ID="grdMemosLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="<%$ Resources:Resource, EmptyData%>"
         BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
         EnableModelValidation="True" 
         >
         <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
             Mode="NumericFirstLast" PageButtonCount="5" />
         <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
-        <EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />
+        <EmptyDataRowStyle Font-Bold="true" ForeColor="#646464" Font-Size="1.5em" />
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
