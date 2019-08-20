@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\GovernmentHousing.cs" />
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
     <Compile Include="Classes\Business\ContactWithHR.cs" />
     <Compile Include="Classes\Business\MyRequestsB.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\AddEmployeeNumberDataManger.cs" />
+    <Compile Include="Classes\Data Manager\GovernmentHousingDataManager.cs" />
     <Compile Include="Classes\Data Manager\FazaaCardRequestDataManager.cs" />
     <Compile Include="Classes\Data Manager\ContactWithHRDataManager.cs" />
     <Compile Include="Classes\Data Manager\MyRequestsDataManager.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\GovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\FazaaCardRequestEntity.cs" />
     <Compile Include="Classes\Entities\ContactWithHREntity.cs" />
     <Compile Include="Classes\Entities\HappinessHotlineEntity.cs" />

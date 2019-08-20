@@ -606,4 +606,40 @@
   <data name="AllRequests" xml:space="preserve">
     <value>جميع الطلبات</value>
   </data>
+  <data name="AffirmationReceiptGovernmentHousing" xml:space="preserve">
+    <value>اقرار أستلام سكن حكومي</value>
+  </data>
+  <data name="agent" xml:space="preserve">
+    <value>الوكيل</value>
+  </data>
+  <data name="ApportionmentDate" xml:space="preserve">
+    <value>تاريخ التخصيص</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>البريد الالكتروني</value>
+  </data>
+  <data name="FinancialNumber" xml:space="preserve">
+    <value>الرقم المالي</value>
+  </data>
+  <data name="HomeAddress" xml:space="preserve">
+    <value>عنوان السكن</value>
+  </data>
+  <data name="MobileNumber" xml:space="preserve">
+    <value>الهاتف النقال</value>
+  </data>
+  <data name="NumberOfRooms" xml:space="preserve">
+    <value>عدد الغرف</value>
+  </data>
+  <data name="Owner" xml:space="preserve">
+    <value>المالك</value>
+  </data>
+  <data name="VilaApartmentNumber" xml:space="preserve">
+    <value>رقم الفيلا / الشقة</value>
+  </data>
+  <data name="WorkLocation" xml:space="preserve">
+    <value>مقر العمل</value>
+  </data>
+  <data name="WorkPhoneEx" xml:space="preserve">
+    <value>هاتف العمل</value>
+  </data>
 </root>
