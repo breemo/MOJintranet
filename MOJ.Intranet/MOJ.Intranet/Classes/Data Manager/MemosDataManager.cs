@@ -186,17 +186,37 @@ namespace MOJ.DataManager
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = 
-                                        "<Where>" +
-                                        "<Or>" +
-                                            "<Contains>" +
-                                                "<FieldRef Name='Title' /><Value Type='Text'>" + srch + @"</Value>
-                                            </Contains>" +
-                                            "<Contains>" +
-                                                "<FieldRef Name='Title' /><Value Type='MemoNumber'>" + number + @"</Value>
-                                            </Contains>
-                                        </Or>
-                                        </Where>" + SharedConstants.MemosQuery;
+                                    
+                                    string query = string.Format(
+                                        @"<Where>
+                                            {0}
+                                                {2}
+                                                {3}
+                                            {1}
+                                        </Where>", 
+                                        !string.IsNullOrEmpty(srch) && !string.IsNullOrEmpty(number) ? "<Or>" : "", 
+                                        !string.IsNullOrEmpty(srch) && !string.IsNullOrEmpty(number) ? "</Or>":"",
+                                        !string.IsNullOrEmpty(srch) ? 
+                                                @"<Contains>
+                                                    <FieldRef Name='Title'/><Value Type='Text'>"+ srch +@"</Value>
+                                                  </Contains>" : "",
+                                        !string.IsNullOrEmpty(number) ?
+                                                @"<Contains>
+                                                    <FieldRef Name='MemoNumber'/><Value Type='Text'>" + number + @"</Value>
+                                                  </Contains>" : "");
+
+
+                                    oQuery.Query = query + SharedConstants.MemosQuery;
+                                        //"<Where>" +
+                                        //"<Or>" +
+                                        //    "<Contains>" +
+                                        //        "<FieldRef Name='Title' /><Value Type='Text'>" + srch + @"</Value>
+                                        //    </Contains>" +
+                                        //    "<Contains>" +  
+                                        //        "<FieldRef Name='MemoNumber' /><Value Type='Text'>" + number + @"</Value>
+                                        //    </Contains>
+                                        //</Or>
+                                        //</Where>" + SharedConstants.MemosQuery;
 
                                     oQuery.ViewFields = SharedConstants.MemosViewfields;
 

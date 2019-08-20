@@ -37,7 +37,7 @@ background-color: #f5e9b6;
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TaskName%>" /></label>
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, AssignTo%>" /></label>
                                 </div>
                                 <div class="col-md-9">
                                      <asp:Label id="ValTaskName" runat="server"></asp:Label>                       

@@ -22,13 +22,22 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
-        /// tasks control.
+        /// MyTasks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tasks;
+        protected global::System.Web.UI.WebControls.Label MyTasks;
+        
+        /// <summary>
+        /// MyAccomplishedTasks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MyAccomplishedTasks;
         
         /// <summary>
         /// SuccessMsgDiv control.

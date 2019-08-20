@@ -59,6 +59,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     GetFazaaCardRequestData(task.RequestID);
                 if (task.WorkflowName == "ContactWithHR")
                     GetContactWithHRData(task.RequestID);
+
+                GetTasksRequest(task.RequestID, task.WorkflowName);
+
             }
             else
             {
@@ -66,6 +69,38 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: noPermission", "Resource", SPContext.Current.Web.Language) + "<br />";
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
+            }
+
+        }
+        public void GetTasksRequest(string RequestID, string RequestName)
+        {
+            List<TaskEntity> task = new Task().GetTasksRequest(RequestID, RequestName, "Completed");
+            if (task.Count>0) { 
+            AllData.Text += "<hr>";
+            addtopage("Tasks", "", "title");
+        }
+            
+            int i = 0;
+            foreach (TaskEntity item in task)
+            {
+                if (i % 2 == 0)
+                    AllData.Text += "<div>";
+                else
+                    AllData.Text += "<div class='evenRow'>";
+                string OutcomeWf = item.WorkflowOutcome;
+                if (string.IsNullOrEmpty(OutcomeWf))
+
+                    OutcomeWf = "Pending";
+                string Answer = item.AnswerBy.LookupValue;
+                if (string.IsNullOrEmpty(item.AnswerBy.LookupValue))
+                    Answer = item.AssignedToOneUserValue.LookupValue;
+                addtopage("AssignTo", Answer, OutcomeWf, "");
+                string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' class='form-control'cols='120' rows='3'>" + item.Comment + "</textarea>";
+
+                addtopage("Comment", Commenthtm);
+
+                AllData.Text += "</div>";
+                i++;
             }
 
         }
