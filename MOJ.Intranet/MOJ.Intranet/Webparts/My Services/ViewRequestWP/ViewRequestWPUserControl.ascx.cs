@@ -94,7 +94,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 string Answer  = item.AnswerBy.LookupValue;
                 if (string.IsNullOrEmpty(item.AnswerBy.LookupValue))
                     Answer = item.AssignedToOneUserValue.LookupValue;
-                addtopage("Name", Answer, OutcomeWf, "");
+                addtopage("AssignTo", Answer, OutcomeWf, "");
                 string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' class='form-control'cols='120' rows='3'>" + item.Comment + "</textarea>";
 
                 addtopage("Comment", Commenthtm);

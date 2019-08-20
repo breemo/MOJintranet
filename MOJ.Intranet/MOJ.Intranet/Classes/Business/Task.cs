@@ -18,13 +18,13 @@ namespace MOJ.Business
         {
             return new TaskDataManager().GetTaskByID(id);
         }
-        public List<TaskEntity> GetMyTasks()
+        public List<TaskEntity> GetMyTasks(string isCompleted)
         {
-            return new TaskDataManager().GetMyTasks();
+            return new TaskDataManager().GetMyTasks(isCompleted);
         }
-        public List<TaskEntity> GetTasksRequest(string ID, string Name )
+        public List<TaskEntity> GetTasksRequest(string ID, string Name ,string All="Yes" )
         {
-            return new TaskDataManager().GetTasksRequest(ID , Name);
+            return new TaskDataManager().GetTasksRequest(ID , Name,All);
         }
         public bool HavePermission(int TID)
         {

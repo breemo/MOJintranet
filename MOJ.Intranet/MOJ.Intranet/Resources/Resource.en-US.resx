@@ -657,4 +657,28 @@
   <data name="HeadEServices" xml:space="preserve">
     <value>E-Services</value>
   </data>
+  <data name="AssignTo" xml:space="preserve">
+    <value>AssignTo</value>
+  </data>
+  <data name="CarOrderService" xml:space="preserve">
+    <value>Car Order Service</value>
+  </data>
+  <data name="DirectManger" xml:space="preserve">
+    <value>Direct Manger</value>
+  </data>
+  <data name="FinancialResourcesAndProcurementDepartment" xml:space="preserve">
+    <value>Financial Resources And Procurement Department</value>
+  </data>
+  <data name="HappinessDepartment" xml:space="preserve">
+    <value>Happiness Department</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>HR</value>
+  </data>
+  <data name="MyAccomplishedTasks" xml:space="preserve">
+    <value>My Accomplished Tasks</value>
+  </data>
+  <data name="MyTasks" xml:space="preserve">
+    <value>MyTasks</value>
+  </data>
 </root>

@@ -120,7 +120,7 @@ namespace MOJ.DataManager
             }
             return task;
         }
-        public List<TaskEntity> GetMyTasks()
+        public List<TaskEntity> GetMyTasks(string statusis)
         {
            
             List<TaskEntity> TaskCollection = new List<TaskEntity>();
@@ -138,7 +138,19 @@ namespace MOJ.DataManager
                                 if (lsttask != null)
                                 {
                                     SPQuery qry1 = new SPQuery();
-                                    string camlquery1 = "<Where></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                    string sta = "";
+                                    if (statusis== "Completed")
+                                    {
+                                        sta = "<Eq><FieldRef Name='Status'  /> <Value Type='Choice'>Completed</Value></Eq>";
+
+                                    }
+                                    else
+                                    {
+                                        sta = "<Neq><FieldRef Name='Status'  /> <Value Type='Choice'>Completed</Value></Neq>";
+
+
+                                    }
+                                    string camlquery1 = "<Where>"+ sta + "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
                                     qry1.Query = camlquery1;
                                     SPListItemCollection listItemsCollection1 = lsttask.GetItems(qry1);
                                     foreach (SPListItem Item in listItemsCollection1)
@@ -214,7 +226,7 @@ namespace MOJ.DataManager
                 });
                      return TaskCollection;
         }
-        public List<TaskEntity> GetTasksRequest(string RequestID,string RequestName)
+        public List<TaskEntity> GetTasksRequest(string RequestID,string RequestName, string all)
         {
 
             List<TaskEntity> TaskCollection = new List<TaskEntity>();
@@ -233,6 +245,11 @@ namespace MOJ.DataManager
                             {
                                 SPQuery qry1 = new SPQuery();
                                 string camlquery1 = "<Where><And><Eq><FieldRef Name='RequestID' /><Value Type='Text'>"+ RequestID + "</Value></Eq><Eq><FieldRef Name='ServiceName' /><Value Type='Text'>"+RequestName+"</Value></Eq></And></Where><OrderBy><FieldRef Name='ID' Ascending='true' /></OrderBy>";
+                                if (all == "Completed")
+                                {
+                                    camlquery1 = "<Where><And><And><Eq><FieldRef Name='RequestID' /><Value Type='Text'>" + RequestID + "</Value></Eq><Eq><FieldRef Name='ServiceName' /><Value Type='Text'>" + RequestName + "</Value></Eq></And><Eq><FieldRef Name='Status'  /> <Value Type='Choice'>Completed</Value></Eq></And></Where><OrderBy><FieldRef Name='ID' Ascending='true' /></OrderBy>";
+
+                                }
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lsttask.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)

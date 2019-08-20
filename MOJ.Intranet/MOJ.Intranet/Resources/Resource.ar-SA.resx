@@ -642,6 +642,30 @@
   <data name="WorkPhoneEx" xml:space="preserve">
     <value>هاتف العمل</value>
   </data>
+  <data name="AssignTo" xml:space="preserve">
+    <value>تعيين إلى</value>
+  </data>
+  <data name="CarOrderService" xml:space="preserve">
+    <value>أمر مهمة سيارة</value>
+  </data>
+  <data name="DirectManger" xml:space="preserve">
+    <value>المدير المباشر</value>
+  </data>
+  <data name="FinancialResourcesAndProcurementDepartment" xml:space="preserve">
+    <value>الموارد المالية وقسم المشتريات</value>
+  </data>
+  <data name="HappinessDepartment" xml:space="preserve">
+    <value>قسم السعادة</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>الموارد البشرية</value>
+  </data>
+  <data name="MyAccomplishedTasks" xml:space="preserve">
+    <value>مهامي المنجزة</value>
+  </data>
+  <data name="MyTasks" xml:space="preserve">
+    <value>مهامي</value>
+  </data>
   <data name="EmptyData" xml:space="preserve">
     <value>لا يوجد عناصر لعرضها</value>
   </data>
