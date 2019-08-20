@@ -44,12 +44,23 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status= GetHappinessHotlineData(RequestID);
             if (listName == "CarOrderService")
                 Status= GetCarOrderServiceData(RequestID);
-
+            if (listName == "FazaaCardRequest")
+                Status = GetFazaaCardRequestData(RequestID);
+            if (listName == "ContactWithHR")
+                Status = GetContactWithHRData(RequestID);
 
             GetTasksRequest(RequestID, listName);
             AllData.Text += "<hr>";
             addtopage(Status, "");
 
+        }
+        public string GetFazaaCardRequestData(string RequestID)
+        {
+            FazaaCardRequestEntity Fazaaitem = new FazaaCardRequest().GetFazaaCardRequest(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", Fazaaitem.RequestNumber, "title");
+            string Commenthtml = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + Fazaaitem.Comment + "</textarea>";
+            addtopage("Comment", Commenthtml);
+            return Fazaaitem.Status;
         }
         public string GetCarOrderServiceData(string RequestID)
         {
@@ -93,6 +104,16 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             }
             
        }
+        public string GetContactWithHRData(string RequestID)
+        {
+            ContactWithHREntity item = new ContactWithHR().GetContactWithHR(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", item.RequestNumber, "title");
+            addtopage("ContactReason", item.ContactReason);
+            string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + item.Message + "</textarea>";
+            addtopage("Message", Messaghtm);
+            return item.Status;
+        }
+
         public string GetHappinessHotlineData(string RequestID)
         {
             HappinessHotlineEntity HappinessHotlin = new HappinessHotline().GetHappinessHotline(Convert.ToInt32(RequestID));

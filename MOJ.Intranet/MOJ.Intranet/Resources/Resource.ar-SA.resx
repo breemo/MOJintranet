@@ -591,4 +591,19 @@
   <data name="Department" xml:space="preserve">
     <value>الأدارة</value>
   </data>
+  <data name="FazaaCardRequest" xml:space="preserve">
+    <value>طلب التسجيل لفزعة</value>
+  </data>
+  <data name="FullNameArabic" xml:space="preserve">
+    <value>الأسم كامل(عربي)</value>
+  </data>
+  <data name="FullNameEnglish" xml:space="preserve">
+    <value>الإسم كامل(إنجليزي)</value>
+  </data>
+  <data name="ContactWithHR" xml:space="preserve">
+    <value>التواصل مع الموارد البشرية</value>
+  </data>
+  <data name="AllRequests" xml:space="preserve">
+    <value>جميع الطلبات</value>
+  </data>
 </root>

@@ -10,106 +10,18 @@
 
 
 <div class="headlineflex">
-    <h4 class="TitleHead">طلـباتــي</h4>
+    <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, MyRequests%>" /></h4>
 
-    <a href="ar/MyServices/Pages/MyRequests.aspx" class="slide morebuttoncss arrow">جميع الطلبات</a>
+    <a href="ar/MyServices/Pages/MyRequests.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, AllRequests%>" /></a>
 </div>
 
 <div class="blockbox minhe newhri">
 
 
     <div class="d-flex ordercontainer">
-        <div class="col-sm-4 ">
-            <div class="orderbox">
-                <div class="topnot">
-                    <p>
-                        أشعارعودة
-                    </p>
-
-                </div>
-
-                <div class="botonot">
-                    <a href="#" class="btnstatus btnstatusc1">بأنتظارالموافقة
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-sm-4">
-            <div class="orderbox">
-                <div class="topnot">
-                    <p>
-                        طلب اشتراك
-                                                        في مجلس معرفة
-
-                    </p>
-
-                </div>
-
-                <div class="botonot">
-                    <a href="#" class="btnstatus btnstatusc2">تمت الموافقة
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-sm-4">
-            <div class="orderbox">
-                <div class="topnot">
-                    <p>
-                        أسأل خبير
-
-                    </p>
-                </div>
-
-                <div class="botonot">
-                    <a href="#" class="btnstatus btnstatusc3">تمت الاجابة
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-sm-4">
-            <div class="orderbox">
-                <div class="topnot">
-                    <p>
-                        طلب اشتراك
-                                                        في مجلس معرفة
-
-
-                    </p>
-
-                </div>
-
-                <div class="botonot">
-                    <a href="#" class="btnstatus btnstatusc2">تمت الموافقة
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-sm-4">
-            <div class="orderbox">
-                <div class="topnot">
-                    <p>
-                        أسأل خبير
-
-                    </p>
-
-
-                </div>
-
-                <div class="botonot">
-                    <a href="#" class="btnstatus btnstatusc3">تمت الاجابة
-                    </a>
-                </div>
-            </div>
-
-        </div>
+        <asp:Label id="lbMyRequests" runat="server"></asp:Label>
+                                      
+       
     </div>
 
 

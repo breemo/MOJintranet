@@ -18,17 +18,13 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
 
             if (!Page.IsPostBack)
             {
-
-                List<MyRequestsEntity> Requestsollection = new MyRequests().GetMyRequests();
-                int i = 1;
-                
+                List<MyRequestsEntity> Requestsollection = new MyRequestsB().GetMyRequests();
+                int i = 1;                
                 CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                 string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
-
-                for (int cont= Requestsollection.Count-1; cont >= 0; cont--)
-                  
+                foreach (MyRequestsEntity item in Requestsollection)                  
                 {
-                   MyRequestsEntity item = Requestsollection[cont];
+                  
                         string ServiceName="";
                     string Status="";
                          if (languageCode == "ar")

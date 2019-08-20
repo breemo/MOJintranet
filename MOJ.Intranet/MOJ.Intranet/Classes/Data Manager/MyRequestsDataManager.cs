@@ -13,7 +13,7 @@ namespace MOJ.DataManager
 {
     public class MyRequestsDataManager
     {
-        public List<MyRequestsEntity> GetMyRequests()
+        public List<MyRequestsEntity> GetMyRequests(int intRowLimit)
         {
             List<MyRequestsEntity> ItemsCollection = new List<MyRequestsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -28,8 +28,12 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='RequestBy' LookupId='TRUE' /><Value Type='User'>"+ SPContext.Current.Web.CurrentUser.ID + "</Value> </Eq></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='RequestBy' LookupId='TRUE' /><Value Type='User'>" + SPContext.Current.Web.CurrentUser.ID + "</Value> </Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+
                                 qry1.Query = camlquery1;
+                                if(intRowLimit!=0)
+                                qry1.RowLimit =(uint)intRowLimit;
+                                
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
                                 {

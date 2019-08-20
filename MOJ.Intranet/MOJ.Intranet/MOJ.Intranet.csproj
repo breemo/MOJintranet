@@ -73,7 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
-    <Compile Include="Classes\Business\MyRequests.cs" />
+    <Compile Include="Classes\Business\FazaaCardRequest.cs" />
+    <Compile Include="Classes\Business\ContactWithHR.cs" />
+    <Compile Include="Classes\Business\MyRequestsB.cs" />
     <Compile Include="Classes\Business\HappinessHotline.cs" />
     <Compile Include="Classes\Business\CarOrderServiceBL.cs" />
     <Compile Include="Classes\Business\DepartmentCirculars.cs" />
@@ -96,6 +98,8 @@
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\AddEmployeeNumberDataManger.cs" />
+    <Compile Include="Classes\Data Manager\FazaaCardRequestDataManager.cs" />
+    <Compile Include="Classes\Data Manager\ContactWithHRDataManager.cs" />
     <Compile Include="Classes\Data Manager\MyRequestsDataManager.cs" />
     <Compile Include="Classes\Data Manager\HappinessHotlineDataManager.cs" />
     <Compile Include="Classes\Data Manager\CarOrderServiceDataManager.cs" />
@@ -115,6 +119,8 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\FazaaCardRequestEntity.cs" />
+    <Compile Include="Classes\Entities\ContactWithHREntity.cs" />
     <Compile Include="Classes\Entities\HappinessHotlineEntity.cs" />
     <Compile Include="Classes\Entities\HusbandORWifeEntity.cs" />
     <Compile Include="Classes\Entities\SonsEntity .cs" />
@@ -344,6 +350,22 @@
     <Compile Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx.designer.cs">
       <DependentUpon>AffirmationSocialSituationUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWP.cs" />
+    <Compile Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWPUserControl.ascx.cs">
+      <DependentUpon>ContactWithHRWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWPUserControl.ascx.designer.cs">
+      <DependentUpon>ContactWithHRWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWP.cs" />
+    <Compile Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWPUserControl.ascx.cs">
+      <DependentUpon>FazaaCardRequestWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWPUserControl.ascx.designer.cs">
+      <DependentUpon>FazaaCardRequestWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWP.cs" />
     <Compile Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWPUserControl.ascx.cs">
       <DependentUpon>HappinessHotlineWPUserControl.ascx</DependentUpon>
@@ -550,6 +572,14 @@
     <None Include="Webparts\My Services\AffirmationSocialSituation\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{5a3ffcae-d7a3-4496-80a4-cb538a1d63ef}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWP.webpart" />
+    <None Include="Webparts\My Services\ContactWithHRWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{68a3856a-1fe5-4002-8d65-badeba7d1305}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWP.webpart" />
+    <None Include="Webparts\My Services\FazaaCardRequestWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0e4ebd8c-c0fd-4e92-89f6-ac5163809aa7}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWP.webpart" />
     <None Include="Webparts\My Services\HappinessHotlineWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{96a6f0c8-2811-4c10-bc98-4ec93909cd9e}</SharePointProjectItemId>
@@ -657,6 +687,10 @@
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationSocialSituation\Elements.xml" />
+    <Content Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\ContactWithHRWP\Elements.xml" />
+    <Content Include="Webparts\My Services\FazaaCardRequestWP\Elements.xml" />
+    <Content Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWPUserControl.ascx" />
     <Content Include="Webparts\My Services\HappinessHotlineWP\Elements.xml" />
     <Content Include="Webparts\My Services\HappinessHotlineWP\HappinessHotlineWPUserControl.ascx" />
     <Content Include="Webparts\My Services\HostingRequestWP\Elements.xml" />

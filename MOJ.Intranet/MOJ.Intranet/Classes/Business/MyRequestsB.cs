@@ -7,13 +7,13 @@ using MOJ.Entities;
 
 namespace MOJ.Business 
 {
-    public class MyRequests
+    public class MyRequestsB
     {
       
 
-            public List<MyRequestsEntity> GetMyRequests()
+            public List<MyRequestsEntity> GetMyRequests(int limit =0)
         {
-            return new MyRequestsDataManager().GetMyRequests();
+            return new MyRequestsDataManager().GetMyRequests(limit);
         }
         
         

@@ -84,6 +84,8 @@ namespace CommonLibrary
         public const string WorkflowTasksUrl = "/WorkflowTasks/AllItems.aspx";
         public const string MyRequestsUrl = "/Lists/AllRequest/AllItems.aspx";
         public const string CarOrderServiceUrl = "/Lists/CarOrderService/AllItems.aspx";
+        public const string FazaaCardRequestUrl = "/Lists/FazaaCardRequest/AllItems.aspx";
+        public const string ContactWithHRUrl = "/Lists/ContactWithHR/AllItems.aspx";
 
         #endregion
 

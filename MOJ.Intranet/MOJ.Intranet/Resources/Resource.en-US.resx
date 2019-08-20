@@ -591,4 +591,19 @@
   <data name="Department" xml:space="preserve">
     <value>Department</value>
   </data>
+  <data name="FazaaCardRequest" xml:space="preserve">
+    <value>Fazaa Card Request</value>
+  </data>
+  <data name="FullNameArabic" xml:space="preserve">
+    <value>Full Name Arabic</value>
+  </data>
+  <data name="FullNameEnglish" xml:space="preserve">
+    <value>Full Name English</value>
+  </data>
+  <data name="ContactWithHR" xml:space="preserve">
+    <value>Contact With HR</value>
+  </data>
+  <data name="AllRequests" xml:space="preserve">
+    <value>All Requests</value>
+  </data>
 </root>

@@ -55,6 +55,10 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     GetHappinessHotlineData(task.RequestID);
                 if (task.WorkflowName == "CarOrderService")
                     GetCarOrderServiceData(task.RequestID);
+                if (task.WorkflowName == "FazaaCardRequest")
+                    GetFazaaCardRequestData(task.RequestID);
+                if (task.WorkflowName == "ContactWithHR")
+                    GetContactWithHRData(task.RequestID);
             }
             else
             {
@@ -63,8 +67,23 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
             }
-        }
 
+        }
+        public void GetContactWithHRData(string RequestID)
+        {
+            ContactWithHREntity ContactWithHRitm = new ContactWithHR().GetContactWithHR(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", ContactWithHRitm.RequestNumber, "title");
+            addtopage("ContactReason", ContactWithHRitm.ContactReason);
+            string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + ContactWithHRitm.Message + "</textarea>";
+            addtopage("Message", Messaghtm);
+        }
+        public void GetFazaaCardRequestData(string RequestID)
+        {
+            FazaaCardRequestEntity Fazaaitem = new FazaaCardRequest().GetFazaaCardRequest(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", Fazaaitem.RequestNumber, "title");           
+            string Commenthtml = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + Fazaaitem.Comment + "</textarea>";
+            addtopage("Comment", Commenthtml);
+        }
         public void GetCarOrderServiceData(string RequestID)
         {
             CarOrderServiceEntity caritem = new CarOrderServiceBL().GetCarOrderServiceByID(Convert.ToInt32(RequestID));
