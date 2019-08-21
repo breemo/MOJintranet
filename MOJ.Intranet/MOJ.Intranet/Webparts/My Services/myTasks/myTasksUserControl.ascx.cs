@@ -23,33 +23,31 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             {
                 BindDataCompleted();
                 BindDataNOTCompleted();
+                HeaderRowG();
             }
         }
-
-       
-
-
-    
-    public void HeaderRowG()
-    {
-           
+        public void HeaderRowG()
+        {
             string RequestNumber = SPUtility.GetLocalizedString("$Resources: RequestNumber", "Resource", SPContext.Current.Web.Language);
             string ServiceType = SPUtility.GetLocalizedString("$Resources: ServiceType", "Resource", SPContext.Current.Web.Language);
             string AssignTo = SPUtility.GetLocalizedString("$Resources: AssignTo", "Resource", SPContext.Current.Web.Language);
-string Result = SPUtility.GetLocalizedString("$Resources: Result", "Resource", SPContext.Current.Web.Language); ;
+            string Result = SPUtility.GetLocalizedString("$Resources: Result", "Resource", SPContext.Current.Web.Language); ;
             string TaskDate = SPUtility.GetLocalizedString("$Resources: TaskDate", "Resource", SPContext.Current.Web.Language);
             string Edit = SPUtility.GetLocalizedString("$Resources: Edit", "Resource", SPContext.Current.Web.Language);
             GridViewRow row = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
             TableHeaderCell cell = new TableHeaderCell();
-            cell.Text = RequestNumber;            
+            cell.Text = RequestNumber;
             row.Controls.Add(cell);
-            cell = new TableHeaderCell();            
+            cell = new TableHeaderCell();
             cell.Text = ServiceType;
             row.Controls.Add(cell);
+            cell = new TableHeaderCell();
             cell.Text = AssignTo;
             row.Controls.Add(cell);
+            cell = new TableHeaderCell();
             cell.Text = TaskDate;
             row.Controls.Add(cell);
+            cell = new TableHeaderCell();
             cell.Text = Edit;
             row.Controls.Add(cell);
             row.BackColor = ColorTranslator.FromHtml("#bd995d");
@@ -62,27 +60,35 @@ string Result = SPUtility.GetLocalizedString("$Resources: Result", "Resource", S
             cell2 = new TableHeaderCell();
             cell2.Text = ServiceType;
             row2.Controls.Add(cell2);
+            cell2 = new TableHeaderCell();
             cell2.Text = AssignTo;
             row2.Controls.Add(cell2);
+            cell2 = new TableHeaderCell();
             cell2.Text = Result;
             row2.Controls.Add(cell2);
+            cell2 = new TableHeaderCell();
             cell2.Text = TaskDate;
             row2.Controls.Add(cell2);
+            cell2 = new TableHeaderCell();
             cell2.Text = Edit;
             row2.Controls.Add(cell2);
             row2.BackColor = ColorTranslator.FromHtml("#bd995d");
-            grdMyTasks.HeaderRow.Parent.Controls.AddAt(0, row2);
+            grdMyAccomplishedTasks.HeaderRow.Parent.Controls.AddAt(0, row2);
         }
-        
+
         protected void rptPaging_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
             PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
             BindDataCompleted();
+            BindDataNOTCompleted();
+            HeaderRowG();
         }
         protected void rpt2Paging_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
             PageNumber2 = Convert.ToInt32(e.CommandArgument) - 1;
+            BindDataCompleted();
             BindDataNOTCompleted();
+            HeaderRowG();
         }
         public int PageNumber
         {
@@ -115,6 +121,10 @@ string Result = SPUtility.GetLocalizedString("$Resources: Result", "Resource", S
             }
             set { ViewState["PageNumber2"] = value; }
         }
+
+
+
+
         private void BindDataNOTCompleted()
         {
             try

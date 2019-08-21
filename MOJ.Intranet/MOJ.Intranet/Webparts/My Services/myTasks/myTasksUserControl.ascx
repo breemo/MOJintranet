@@ -39,7 +39,8 @@
 												<tbody>
 													<tr>
 													 <td><a href="<%# Eval("TaskURL") %>"><%# Eval("RequestName") %> </a></td>
-													<td><asp:Label Text='<%# System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLower()  == "ar-eg" ? Eval("ServiceNameAr") : Eval("ServiceName") %>' runat="server" /></td>                    
+													
+													<td><%# Eval("ServiceNameAr") %></td>
 													<td><%# Eval("Title") %></td> 
 													<td><%#  Convert.ToDateTime(Eval("Created")).ToString("dd MMM yyyy hh:mm tt")%></td>                                        
 													<td><a href="<%# Eval("TaskURL") %>"><span class='icon-edit'> </span></a></td>
@@ -101,7 +102,7 @@
 												<ItemTemplate>
 													<tr>
 													 <td><a href="<%# Eval("TaskURL") %>"><%# Eval("RequestName") %> </a></td>							
-													<td><%# Eval("ServiceName") %></td>													
+														<td><%# Eval("ServiceNameAr") %></td> 											
 													<td><%# Eval("Title") %></td> 
 													<td><%# Eval("WorkflowOutcome") %></td> 
 													<td><%#  Convert.ToDateTime(Eval("Created")).ToString("dd MMM yyyy hh:mm tt")%></td>                                        
@@ -159,6 +160,17 @@
  
     background: #bd995d;
 }
+.HeaderRow{
+    color: #ffffff;
+}
+#tab-responsive-2 tr:nth-child(even) {
+    border-bottom: 1px solid #d0a659;
+}
+
+#tab-responsive-1 tbody:nth-child(even) {
+    border-bottom: 1px solid #d0a659;
+}
+
 </style>
 <script src="/Style%20Library/MOJTheme/js/functions.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>

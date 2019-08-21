@@ -198,8 +198,13 @@ namespace MOJ.DataManager
                                                     task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
                                                     task.Status = Convert.ToString(Item["Status"]);
                                                     task.Comment = Convert.ToString(Item["Comment"]);
-                                                    task.ServiceName = Convert.ToString(Item["ServiceName"]);
                                                     task.ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
+                                                    string Sn = Convert.ToString(Item["ServiceName"]);
+                                                    task.ServiceName = Sn;
+                                                    task.ServiceNameLG = SPUtility.GetLocalizedString("$Resources:" + Sn + "", "Resource", SPContext.Current.Web.Language);
+                                                    //task.TitleLG = SPUtility.GetLocalizedString("$Resources: "+ Convert.ToString(Item["Title"]), "Resource", SPContext.Current.Web.Language);
+                                                    //if(!string.IsNullOrWhiteSpace(Convert.ToString(Item["WorkflowOutcome"])))
+                                                    //task.WorkflowOutcomeLG = SPUtility.GetLocalizedString("$Resources: "+ Convert.ToString(Item["WorkflowOutcome"]), "Resource", SPContext.Current.Web.Language);
 
                                                     task.Created = Convert.ToDateTime(Item["Created"]);
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
@@ -208,6 +213,9 @@ namespace MOJ.DataManager
                                                     task.RequestID = Convert.ToString(Request[1]);
                                                     task.RequestName = Convert.ToString(spfvRequest.Description);
                                                     task.TaskURL = "ViewTask.aspx?TID=" + Convert.ToInt32(Item["ID"]);
+
+
+
                                                     TaskCollection.Add(task);
 
                                                 }
@@ -262,8 +270,15 @@ namespace MOJ.DataManager
                                     task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
                                     task.Status = Convert.ToString(Item["Status"]);
                                     task.Comment = Convert.ToString(Item["Comment"]);
-                                    task.ServiceName = Convert.ToString(Item["ServiceName"]);
+                                    
                                     task.ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
+                                    string Sn = Convert.ToString(Item["ServiceName"]);
+                                    task.ServiceName = Sn;
+                                    task.ServiceNameLG = SPUtility.GetLocalizedString("$Resources:" + Sn+"", "Resource", SPContext.Current.Web.Language);
+                                    //task.TitleLG = SPUtility.GetLocalizedString("$Resources: " + Convert.ToString(Item["Title"]), "Resource", SPContext.Current.Web.Language);
+                                    //if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["WorkflowOutcome"])))
+                                    //    task.WorkflowOutcomeLG = SPUtility.GetLocalizedString("$Resources: " + Convert.ToString(Item["WorkflowOutcome"]), "Resource", SPContext.Current.Web.Language);
+
                                     task.AnswerBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["AnswerBy"]));
                                     task.AssignedToOneUserValue = new SPFieldUserValue(oWeb, Convert.ToString(Item["AssignedTo"]));
                                     task.Created = Convert.ToDateTime(Item["Created"]);

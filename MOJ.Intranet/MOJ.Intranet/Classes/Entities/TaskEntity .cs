@@ -12,7 +12,9 @@ namespace MOJ.Entities
         public int id { get; set; }
         //public string Emirate { get; set; }
         public string Title { get; set; }
+        public string TitleLG { get; set; }
         public  string WorkflowOutcome { get; set; }
+        public  string WorkflowOutcomeLG { get; set; }
         public string RequestID { get; set; }
         public string RequestURL { get; set; }
         public string TaskURL { get; set; }
@@ -27,6 +29,7 @@ namespace MOJ.Entities
         public string AssignedTotype { get; set; }
         public string AssignedToGroup { get; set; }
         public string ServiceName { get; set; }
+        public string ServiceNameLG { get; set; }
         public string ServiceNameAr { get; set; }
         public SPFieldUserValue AnswerBy { get; set; }
     }
