@@ -88,13 +88,11 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                             MemosEntity memoItem = new Memos().GetMemos(Convert.ToInt32(ID));
 
                             lblDetails.Text +=
-                                string.Format(@"<li>
-                                                    <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                                                        <span >{2}</span>
-                                                        <p style='text-align: justify; font-weight:normal'>
-                                                            </br>{1} 
-                                                        </p>  
-                                                </li>", memoItem.MemoNumber, memoItem.Body, Convert.ToDateTime(memoItem.Date).ToString("dd-MMM-yyyy"));
+                                string.Format(@"<h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
+                                                <span >{2}</span>
+                                                <p style='text-align: justify; font-weight:normal'>
+                                                    </br>{1} 
+                                                </p>", memoItem.MemoNumber, memoItem.Body, Convert.ToDateTime(memoItem.Date).ToString("dd-MMM-yyyy"));
                             break;
                         }
                     case "news":
@@ -149,13 +147,11 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                             OccasionsEntity occasionItem = new Occasions().GetOccasionById(Convert.ToInt32(ID));
 
                             lblDetails.Text +=
-                                string.Format(@"<li>
-                                                    <h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                                                        <span >{2}</span>
-                                                        <p style='text-align: justify; font-weight:normal'>
-                                                            </br>{1} 
-                                                        </p>  
-                                                </li>", occasionItem.Title, occasionItem.Description, Convert.ToDateTime(occasionItem.Created).ToString("dd-MMM-yyyy"));
+                                string.Format(@"<h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
+                                                <span >{2}</span>
+                                                <p style='text-align: justify; font-weight:normal'>
+                                                    </br>{1} 
+                                                </p>", occasionItem.Title, occasionItem.Description, Convert.ToDateTime(occasionItem.Created).ToString("dd-MMM-yyyy"));
                             break;
                         }
                 }
