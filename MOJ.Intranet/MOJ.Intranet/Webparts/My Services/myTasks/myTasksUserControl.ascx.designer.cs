@@ -22,22 +22,58 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
-        /// MyTasks control.
+        /// grdMyTasks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MyTasks;
+        protected global::System.Web.UI.WebControls.GridView grdMyTasks;
         
         /// <summary>
-        /// MyAccomplishedTasks control.
+        /// pgng control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MyAccomplishedTasks;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pgng;
+        
+        /// <summary>
+        /// rptPaging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptPaging;
+        
+        /// <summary>
+        /// grdMyAccomplishedTasks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdMyAccomplishedTasks;
+        
+        /// <summary>
+        /// pgng2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pgng2;
+        
+        /// <summary>
+        /// rpt2Paging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt2Paging;
         
         /// <summary>
         /// SuccessMsgDiv control.
