@@ -260,18 +260,19 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         }
         protected void btnapprove_Click(object sender, EventArgs e)
         {
-            CompleteTask("Approved");
+            CompleteTask("Approved","تمت الموافقة");
 
         }
         protected void btnReject_Click(object sender, EventArgs e)
         {
-            CompleteTask("Rejected");
+            CompleteTask("Rejected","تم الرفض");
         }
-        private void CompleteTask(string Outcome)
+        private void CompleteTask(string Outcome ,string OutcomeArab)
         {
             TaskEntity Taskitem = new Task().GetTask(Convert.ToInt32(Request.Params["TID"]));
             Taskitem.Comment = txtMission.Value;
             Taskitem.WorkflowOutcome = Outcome;
+            Taskitem.WorkflowOutcomeAr = OutcomeArab;
             Taskitem.id = Convert.ToInt32(Request.Params["TID"]);
             Taskitem.Title = Convert.ToString(ValTaskName.Text);
             Taskitem.Status = "Completed";

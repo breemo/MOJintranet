@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using System.Drawing;
+using System.Threading;
 
 namespace MOJ.Intranet.Webparts.My_Services.myTasks
 {
@@ -129,7 +130,10 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
         {
             try
             {
-                List<TaskEntity> taskollectionC = new Task().GetMyTasks("NOCompleted");
+                CultureInfo currentCulture2 = Thread.CurrentThread.CurrentUICulture;
+                string languageCode2 = currentCulture2.TwoLetterISOLanguageName.ToLowerInvariant();
+
+                List<TaskEntity> taskollectionC = new Task().GetMyTasks("NOCompleted", languageCode2);
                 PagedDataSource pgitems = new PagedDataSource();
                 pgitems.DataSource = taskollectionC;
                 pgitems.AllowPaging = true;
@@ -165,7 +169,10 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
         {
             try
             {
-                List<TaskEntity> taskollectionC = new Task().GetMyTasks("Completed");
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+
+                List<TaskEntity> taskollectionC = new Task().GetMyTasks("Completed", languageCode);
                 PagedDataSource pgitems = new PagedDataSource();
                 pgitems.DataSource = taskollectionC;
                 pgitems.AllowPaging = true;

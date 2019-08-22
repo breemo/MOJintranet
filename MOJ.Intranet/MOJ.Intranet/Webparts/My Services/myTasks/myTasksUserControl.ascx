@@ -40,8 +40,8 @@
 													<tr>
 													 <td><a href="<%# Eval("TaskURL") %>"><%# Eval("RequestName") %> </a></td>
 													
-													<td><%# Eval("ServiceNameAr") %></td>
-													<td><%# Eval("Title") %></td> 
+													<td><%# Eval("ServiceNameLG") %></td>
+													<td><%# Eval("TitleLG") %></td> 
 													<td><%#  Convert.ToDateTime(Eval("Created")).ToString("dd MMM yyyy hh:mm tt")%></td>                                        
 													<td><a href="<%# Eval("TaskURL") %>"><span class='icon-edit'> </span></a></td>
 													</tr>  
@@ -102,9 +102,9 @@
 												<ItemTemplate>
 													<tr>
 													 <td><a href="<%# Eval("TaskURL") %>"><%# Eval("RequestName") %> </a></td>							
-														<td><%# Eval("ServiceNameAr") %></td> 											
-													<td><%# Eval("Title") %></td> 
-													<td><%# Eval("WorkflowOutcome") %></td> 
+														<td><%# Eval("ServiceNameLG") %></td> 											
+													<td><%# Eval("TitleLG") %></td> 
+													<td><%# Eval("WorkflowOutcomeLG") %></td> 
 													<td><%#  Convert.ToDateTime(Eval("Created")).ToString("dd MMM yyyy hh:mm tt")%></td>                                        
 													<td><a href="<%# Eval("TaskURL") %>"><span class='icon-edit'> </span></a></td>
 													</tr>     

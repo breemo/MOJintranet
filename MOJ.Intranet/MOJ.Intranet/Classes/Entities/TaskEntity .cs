@@ -12,8 +12,10 @@ namespace MOJ.Entities
         public int id { get; set; }
         //public string Emirate { get; set; }
         public string Title { get; set; }
+        public string TitleAr { get; set; }
         public string TitleLG { get; set; }
         public  string WorkflowOutcome { get; set; }
+        public  string WorkflowOutcomeAr { get; set; }
         public  string WorkflowOutcomeLG { get; set; }
         public string RequestID { get; set; }
         public string RequestURL { get; set; }

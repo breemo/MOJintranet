@@ -48,6 +48,7 @@ namespace MOJ.DataManager
                                         ht["Status"] = "Completed";
                                         ht["PercentComplete"] = 1.0f;
                                         ht["TaskStatus"] = HostingRequestItem.WorkflowOutcome;
+                                        ht["WorkflowOutcomeAr"] = HostingRequestItem.WorkflowOutcomeAr;
                                         ht["Comment"] = HostingRequestItem.Comment;
                                     ht["AnswerBy"] = SPContext.Current.Web.CurrentUser;
                                     SPWorkflowTask.AlterTask((taskedit as SPListItem), ht, true);
@@ -120,7 +121,7 @@ namespace MOJ.DataManager
             }
             return task;
         }
-        public List<TaskEntity> GetMyTasks(string statusis)
+        public List<TaskEntity> GetMyTasks(string statusis, string Currentlanguage)
         {
            
             List<TaskEntity> TaskCollection = new List<TaskEntity>();
@@ -166,15 +167,40 @@ namespace MOJ.DataManager
                                                 if (userExsists)
                                                 {
                                                     TaskEntity task = new TaskEntity();
-                                                    task.Title = Convert.ToString(Item["Title"]);
+                                                    
                                                     task.id = Convert.ToInt32(Item["ID"]);
-                                                    task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
-                                                    task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
                                                     task.Status = Convert.ToString(Item["Status"]);
-                                                    task.Comment = Convert.ToString(Item["Comment"]); 
-                                                    task.ServiceName = Convert.ToString(Item["ServiceName"]); 
-                                                    task.ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
-                                                   
+                                                    task.Comment = Convert.ToString(Item["Comment"]);
+                                                    task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
+
+                                                    string WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
+                                                    string WorkflowOutcomeAr = Convert.ToString(Item["WorkflowOutcomeAr"]);
+                                                    string Title = Convert.ToString(Item["Title"]);
+                                                    string TitleAr = Convert.ToString(Item["TitleAr"]);
+                                                    string ServiceName = Convert.ToString(Item["ServiceName"]);
+                                                    string ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
+
+                                                    task.WorkflowOutcome = WorkflowOutcome;
+                                                    task.WorkflowOutcomeAr = WorkflowOutcomeAr;
+                                                    task.Title = Title;
+                                                    task.TitleAr = TitleAr;
+                                                    task.ServiceName = ServiceName;
+                                                    task.ServiceNameAr = ServiceNameAr;
+
+
+                                                    if (Currentlanguage=="ar")
+                                                    {                                                       
+                                                        task.WorkflowOutcomeLG = WorkflowOutcomeAr;                                                       
+                                                        task.TitleLG = TitleAr;                                                      
+                                                        task.ServiceNameLG = ServiceNameAr;
+                                                    }
+                                                    else
+                                                    {
+                                                        task.WorkflowOutcomeLG = WorkflowOutcome;
+                                                        task.TitleLG = Title;
+                                                        task.ServiceNameLG = ServiceName;
+                                                    }
+
                                                     task.Created = Convert.ToDateTime(Item["Created"]);                                                 
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                                     String Requestlink = Convert.ToString(spfvRequest.Url);
@@ -191,20 +217,37 @@ namespace MOJ.DataManager
                                                 string singlevalueis = singlevalue.User.Name.ToLower();
                                                 if (singlevalueis.Equals(currentUser))
                                                 {
-                                                    TaskEntity task = new TaskEntity();
-                                                    task.Title = Convert.ToString(Item["Title"]);
-                                                    task.id = Convert.ToInt32(Item["ID"]);
-                                                    task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
+                                                    TaskEntity task = new TaskEntity();                                             
+                                                    task.id = Convert.ToInt32(Item["ID"]);                                                 
                                                     task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
                                                     task.Status = Convert.ToString(Item["Status"]);
                                                     task.Comment = Convert.ToString(Item["Comment"]);
-                                                    task.ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
-                                                    string Sn = Convert.ToString(Item["ServiceName"]);
-                                                    task.ServiceName = Sn;
-                                                    task.ServiceNameLG = SPUtility.GetLocalizedString("$Resources:" + Sn + "", "Resource", SPContext.Current.Web.Language);
-                                                    //task.TitleLG = SPUtility.GetLocalizedString("$Resources: "+ Convert.ToString(Item["Title"]), "Resource", SPContext.Current.Web.Language);
-                                                    //if(!string.IsNullOrWhiteSpace(Convert.ToString(Item["WorkflowOutcome"])))
-                                                    //task.WorkflowOutcomeLG = SPUtility.GetLocalizedString("$Resources: "+ Convert.ToString(Item["WorkflowOutcome"]), "Resource", SPContext.Current.Web.Language);
+                                                    string WorkflowOutcome2 = Convert.ToString(Item["WorkflowOutcome"]);
+                                                    string WorkflowOutcomeAr2 = Convert.ToString(Item["WorkflowOutcomeAr"]);
+                                                    string Title2 = Convert.ToString(Item["Title"]);
+                                                    string TitleAr2 = Convert.ToString(Item["TitleAr"]);
+                                                    string ServiceName2 = Convert.ToString(Item["ServiceName"]);
+                                                    string ServiceNameAr2 = Convert.ToString(Item["ServiceNameAr"]);
+
+                                                    task.WorkflowOutcome = WorkflowOutcome2;
+                                                    task.WorkflowOutcomeAr = WorkflowOutcomeAr2;
+                                                    task.Title = Title2;
+                                                    task.TitleAr = TitleAr2;
+                                                    task.ServiceName = ServiceName2;
+                                                    task.ServiceNameAr = ServiceNameAr2;
+
+                                                    if (Currentlanguage == "ar")
+                                                    {
+                                                        task.WorkflowOutcomeLG = WorkflowOutcomeAr2;
+                                                        task.TitleLG = TitleAr2;
+                                                        task.ServiceNameLG = ServiceNameAr2;
+                                                    }
+                                                    else
+                                                    {
+                                                        task.WorkflowOutcomeLG = WorkflowOutcome2;
+                                                        task.TitleLG = Title2;
+                                                        task.ServiceNameLG = ServiceName2;
+                                                    }
 
                                                     task.Created = Convert.ToDateTime(Item["Created"]);
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());

@@ -18,9 +18,9 @@ namespace MOJ.Business
         {
             return new TaskDataManager().GetTaskByID(id);
         }
-        public List<TaskEntity> GetMyTasks(string isCompleted)
+        public List<TaskEntity> GetMyTasks(string isCompleted , string Currentlanguage)
         {
-            return new TaskDataManager().GetMyTasks(isCompleted);
+            return new TaskDataManager().GetMyTasks(isCompleted , Currentlanguage);
         }
         public List<TaskEntity> GetTasksRequest(string ID, string Name ,string All="Yes" )
         {
