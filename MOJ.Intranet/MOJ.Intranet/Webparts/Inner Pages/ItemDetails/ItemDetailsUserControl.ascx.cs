@@ -93,6 +93,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                                                 <p style='text-align: justify; font-weight:normal'>
                                                     </br>{1} 
                                                 </p>", memoItem.MemoNumber, memoItem.Body, Convert.ToDateTime(memoItem.Date).ToString("dd-MMM-yyyy"));
+
+                            if (memoItem.AttachmentsInfo != "#")
+                            {
+                                lblDetails.Text +=
+                                        string.Format(@"<a href='{0}'>
+                                                            <img src='{1}' width='7%'/>
+                                                        </a>", memoItem.AttachmentsInfo, memoItem.AttachmentPicture);
+                            }
+
                             break;
                         }
                     case "news":
