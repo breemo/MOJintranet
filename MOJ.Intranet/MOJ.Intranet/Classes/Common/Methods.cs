@@ -33,35 +33,35 @@ namespace CommonLibrary
             switch (ext.ToLower())
             {
                 case "pdf":
-                    return "/_layouts/images/pdf.jpeg";
+                    return "_layouts/15/images//pdf.jpeg";
                 //break;
 
                 case "xlsx":
-                    return "/_layouts/images/xcl.jpeg";
+                    return "_layouts/15/images/xcl.jpeg";
                 //break;
 
                 case "xls":
-                    return "/_layouts/images/xcl.jpeg";
+                    return "_layouts/15/images/xcl.jpeg";
                 //break;
 
                 case "doc":
-                    return "/_layouts/images/word.jpeg";
+                    return "_layouts/15/images/word.jpeg";
                 //break;
 
                 case "docx":
-                    return "/_layouts/images/word.jpeg";
+                    return "_layouts/15/images/word.jpeg";
                 //break;
 
                 case "ppt":
-                    return "/_layouts/images/ppt.jpeg";
+                    return "_layouts/15/images/ppt.jpeg";
                 //break;
 
                 case "pptx":
-                    return "/_layouts/images/ppt.jpeg";
+                    return "_layouts/15/images/ppt.jpeg";
                 //break;
 
                 default:
-                    return "/_layouts/images/default.jpeg";
+                    return "_layouts/15/images/default.jpeg";
                     //break;
             }
         }
