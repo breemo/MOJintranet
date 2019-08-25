@@ -6,7 +6,7 @@
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HostingRequestWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.My_Services.HostingRequestWP.HostingRequestWPUserControl" %>
-
+<asp:HiddenField ClientIDMode="Static" ID="hdncounter" runat="server" />
 
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, headHostingRequest%>" />
@@ -23,20 +23,75 @@
         </ul>
 
         <div class="tab-container">
-            <div class="tab-content clearfix" id="tab-responsive-1">
-                <div class="inskdnew inskdnew2">
+              <div id="Edata">
                     <div class="row rt">
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-2">
-                                    <label>الاماره</label>
+                                <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
                                 </div>
-                                <div class="col-md-9">
-                                    <select class="form-control">
-                                        <option>اختر</option>
-                                        <option>الاماره </option>
-                                        <option>الاماره</option>
-                                    </select>
+                                <div  class="col-md-8">
+                                    <input type="text" name="Ename" disabled runat="server" id="Ename" class="form-control" placeholder="">
+                                </div>                       
+                            </div>
+                            </div>
+                        <div class="col-md-6">
+                               <div class="row">
+                                    <div class="col-md-4">
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeNumber%>" /></label>
+                            </div>
+                            <div class="col-md-8 ">
+                                      <input type="text" disabled name="Enumber" runat="server" id="Enumber" class="form-control" placeholder="">
+                                
+									    </div>
+                              </div>
+					    </div>                  
+                    </div>
+                   <div class="row rt">
+                          <div class="col-md-6">
+                               <div class="row">
+                                    <div class="col-md-4">
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>
+                            </div>
+                            <div class="col-md-8 ">
+                                      <input type="text" disabled name="EPosition" runat="server" id="EPosition" class="form-control" placeholder="">
+                                
+									    </div>
+                              </div>
+					    </div>  
+                        <div class="col-md-6">
+                               <div class="row">
+                                    <div class="col-md-4">
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Degree%>" /></label>
+                            </div>
+                            <div class="col-md-8 ">
+                                      <input type="text" disabled name="EDegree" runat="server" id="EDegree" class="form-control" placeholder="">
+                                
+									    </div>
+                              </div>
+					    </div>                  
+                    </div>               
+               </div>
+            <div class="tab-content clearfix" id="tab-responsive-1">
+                <div class="inskdnew inskdnew2">
+
+                   
+               <hr />
+
+
+
+                    <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                      <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Emirate%>" /></label>
+                                </div>
+                                <div class="col-md-8">
+                                   <label><asp:Literal runat="server" id="DDE"/></label>
+                        
+                                    <asp:DropDownList ID="DropDownEmirates" runat="server">
+</asp:DropDownList>
+
                                 </div>
                             </div>
                         </div>
@@ -44,117 +99,94 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-bordered newtableb">
-                                    <thead>
-                                        <th>اسم الموظف</th>
-                                        <th>المسمي الوظيفي</th>
-                                        <th>الدرجة الوظيفبة</th>
-                                        <th>الفترة من </th>
-                                        <th>الفترة الي</th>
-                                        <th>المهمة</th>
-                                        <th>
-                                            <span class="fsiz  icon-plus-sign"></span>
-                                        </th>
-                                    </thead>
-
-                                    <tfoot>
-                                        <tr>
-                                            <td class="foot" colspan="7">
-                                                <div class="pagi">
-                                                    <ul class="pagination">
-                                                        <li class="page-item">
-                                                            <a class="page-link pageright" href="#">
-                                                                <i class="icon-angle-right"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link activepage" href="#">1</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">9</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                                                        <li class="page-item">
-                                                            <a class="page-link pageleft" href="#">
-                                                                <i class="icon-angle-left"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                    <tr>
-                                        <td>محمد اكمل بت</td>
-                                        <td>الفريق المتصدر</td>
-                                        <td>A++</td>
-                                        <td>24/12/2006</td>
-                                        <td>24/12/2009</td>
-                                        <td>فصل كانتا شموليةً كل</td>
-                                        <td>
-                                            <span class="icon-trash-alt"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>محمد اكمل بت</td>
-                                        <td>الفريق المتصدر</td>
-                                        <td>A++</td>
-                                        <td>24/12/2006</td>
-                                        <td>24/12/2009</td>
-                                        <td>فصل كانتا شموليةً كل</td>
-                                        <td>
-                                            <span class="icon-trash-alt"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>محمد اكمل بت</td>
-                                        <td>الفريق المتصدر</td>
-                                        <td>A++</td>
-                                        <td>24/12/2006</td>
-                                        <td>24/12/2009</td>
-                                        <td>فصل كانتا شموليةً كل</td>
-                                        <td>
-
-                                            <span class="icon-trash-alt"></span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>محمد اكمل بت</td>
-                                        <td>الفريق المتصدر</td>
-                                        <td>A++</td>
-                                        <td>24/12/2006</td>
-                                        <td>24/12/2009</td>
-                                        <td>فصل كانتا شموليةً كل</td>
-                                        <td>
-
-                                            <span class="icon-trash-alt"></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>محمد اكمل بت</td>
-                                        <td>الفريق المتصدر</td>
-                                        <td>A++</td>
-                                        <td>24/12/2006</td>
-                                        <td>24/12/2009</td>
-                                        <td>فصل كانتا شموليةً كل</td>
-                                        <td>
-
-                                            <span class="icon-trash-alt"></span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-
+                   <div  id="dynamicInput">
+			 <div  id="FirstItemAA" style="display:none" >
+                 </div>
+               <div  id="FirstItem" >                  
+					<div class="row rt">
+                        <div class="col-md-6">
+                           <div class="row">
+                                <div class="col-md-4">
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
+                        </div>
+                        <div class="col-md-8 DivName">
+                                    <input type="text" name="PName" runat="server" id="PName0" class="form-control" placeholder="">
+                                </div>
+                                </div>
+					</div>
+                       <div class="col-md-6">
+                            <div class="row">
+								<div  class="col-md-4">
+									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Job%>" /></label>
+								</div>
+								<div  class="col-md-8 DivJob">
+									<input type="text" name="Job" runat="server" id="Job0" class="form-control" placeholder="">
+								</div> 
+                              </div>
+                       </div>
+                </div>
+				<div class="row rt">
+                        <div class="col-md-6">
+                           <div class="row">
+                                <div class="col-md-4">
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, from%>" /></label>
+                        </div>
+                        <div class="col-md-8">
+						
+                                 <div class="input-group date Divfrom" data-provide="datepicker">
+										<input  type="text" runat="server" id="from0" class="form-control">
+										<div class="input-group-addon">
+											<span class="icon-calendar-alt1"></span>
+										</div>
+									</div>
+                                </div>
+                                </div>
+					</div>
+                       <div class="col-md-6">
+                            <div class="row">
+								<div  class="col-md-4">
+									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, to%>" /></label>
+								</div>
+								<div  class="col-md-8">
+									<div class="input-group date Divto" data-provide="datepicker">
+										<input  type="text" runat="server" id="to0" class="form-control">
+										<div class="input-group-addon">
+											<span class="icon-calendar-alt1"></span>
+										</div>
+									</div>
+								</div> 
+                              </div>
+                       </div>
+                </div>
+				<div class="row rt fleb">
+                        <div class="col-md-1">
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, mission%>" /></label>
+                        </div>
+                        <div class="col-md-11 DivpMission ">
+                            <textarea class="form-control" runat="server" id="pMission0" rows="3"></textarea>
                         </div>
                     </div>
+				
+				
+				
+				
+             </div>
+			 
+			 
+  </div>
+	
+                     <div class="row rt ">
+    <div class="col-md-6">
+                    <a href="#" onclick="addInput();" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+                </div>
+        </div>
 
+    <hr />
+ <div class="row rt  botx">
+                        <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="Button1" OnClick="btnSaveReserveHotel_Click" />
+                        <%--<a href="#" class="morebutovn2">تقديم
+                        </a>--%>
+                    </div>
 
 
                 </div>
@@ -164,9 +196,19 @@
             <div class="tab-content clearfix" id="tab-responsive-2">
                 <div class="inskdnew">
                     <div class="row rt">
+
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                   <label>
+                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, PleaseKindlyReserveARoomAt%>" /></label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12  RadiB ">
                                     <asp:RadioButtonList ID="cbPlace" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
                                 </div>
@@ -182,7 +224,7 @@
                                         <asp:Literal runat="server" Text="<%$ Resources:Resource, AttendeesNumber%>" /></label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" runat="server" id="txtAttendeesNumber" class="form-control" placeholder="">
+                                    <input type="text" runat="server" id="txtAttendeesNumber" class="form-control only-numeric" placeholder="">
                                 </div>
                             </div>
                         </div>
@@ -368,3 +410,84 @@
     });
 </script>
 
+
+	<style>
+#dynamicInput >div:nth-child(odd) {
+    background-color: #f5e9b6;
+}
+.row.rt {
+    margin-bottom: 1px;
+    margin-top: 1px;
+    padding: 1px;
+}
+#dynamicInput .row table {
+    margin-bottom: 1px;
+}
+#Edata .rt{
+     margin-bottom: 1px;
+}
+span.removerow {
+    padding-right: 25px;
+    margin-top: -15px;
+}
+span.evenRow {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+span.oddRow {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.RadiB table {
+    padding: 0;
+    margin: 0;
+}
+</style>
+<script>
+
+    $(document).ready(function () {
+        $(".only-numeric").bind("keypress", function (e) {
+            var keyCode = e.which ? e.which : e.keyCode
+
+            if (!(keyCode >= 48 && keyCode <= 57)) {
+                $(".error").css("display", "inline");
+                return false;
+            } else {
+                $(".error").css("display", "none");
+            }
+        });
+    });
+    var counter = 1;
+    function addInput() {
+        $("#FirstItemAA")[0].innerHTML = $("#FirstItem")[0].innerHTML;
+        var Itemhtml = $("#FirstItemAA");
+        Itemhtml.find(".DivName")[0].innerHTML = "<input name='PName' type=text' id='PName" + counter + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivJob")[0].innerHTML = "<input name='Job' type='text' id='Job" + counter + "' class='form-control'></div>";
+        Itemhtml.find(".Divfrom")[0].innerHTML = "<input name='from' type='text' id='from" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".Divto")[0].innerHTML = "<input name='to' type='text' id='to" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivpMission")[0].innerHTML = "<textarea name='pMission' rows='3' id='pMission" + counter + "' class='form-control' ></textarea>";
+        var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "new";
+        newdiv.setAttributeNode(att);
+        var classis = "";
+        if (counter % 2 === 0) {
+            classis = "oddRow";
+        } else { classis = "evenRow"; }
+        var allhtml = "<div class='" + classis + "'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerow(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
+        newdiv.innerHTML = allhtml;
+        document.getElementById('dynamicInput').appendChild(newdiv);
+        counter++;
+        document.getElementById('hdncounter').value = counter;
+        $("#FirstItemAA")[0].innerHTML = "";
+    }
+
+    function removerow(thi) {
+        counter--;
+        document.getElementById('hdncounter').value = counter;
+        thi.closest('.new').remove();
+    }
+
+
+
+</script>

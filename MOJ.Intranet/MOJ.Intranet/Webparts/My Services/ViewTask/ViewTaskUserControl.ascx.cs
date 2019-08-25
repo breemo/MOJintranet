@@ -6,6 +6,7 @@ using MOJ.Entities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -59,6 +60,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     GetFazaaCardRequestData(task.RequestID);
                 if (task.WorkflowName == "ContactWithHR")
                     GetContactWithHRData(task.RequestID);
+                if (task.WorkflowName == "ReserveHotel")
+                    GetReserveHotelData(task.RequestID);
 
                 GetTasksRequest(task.RequestID, task.WorkflowName);
 
@@ -72,6 +75,44 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             }
 
         }
+
+
+        public string GetReserveHotelData(string RequestID)
+        {
+
+            ReserveHotelEntity RHotel = new ReserveHotel().GetByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", RHotel.RequestNumber, "title");
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                addtopage("Emirate", RHotel.EmirateAr);
+            }
+            else
+            {
+                addtopage("Emirate", RHotel.EmirateEn);
+            }
+
+            List<ReserveHotelPeopleEntity> RHPeople = new ReserveHotel().GetReserveHotelPeople(RHotel.RequestNumber);
+            int i = 0;
+            foreach (ReserveHotelPeopleEntity HW in RHPeople)
+            {
+                if (i % 2 == 0)
+                    AllData.Text += "<div>";
+                else
+                    AllData.Text += "<div class='evenRow'>";
+                addtopage("Name", HW.Name, "Job", HW.Job);
+
+                addtopage("from", Convert.ToDateTime(HW.from).ToString("dd MMM yyyy"), "to", Convert.ToDateTime(HW.to).ToString("dd MMM yyyy"));
+                addtopage("mission", HW.Task);
+                AllData.Text += "</div>";
+                i++;
+            }
+           
+
+            return RHotel.Status;
+        }
+
         public void GetTasksRequest(string RequestID, string RequestName)
         {
             List<TaskEntity> task = new Task().GetTasksRequest(RequestID, RequestName, "Completed");

@@ -19,7 +19,7 @@
 
 
     <div class="d-flex ordercontainer">
-        <asp:Label id="lbMyRequests" runat="server"></asp:Label>
+        <asp:Label id="lbMyRequests" runat="server" style="width: 100%;"></asp:Label>
                                       
        
     </div>

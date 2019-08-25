@@ -4,7 +4,10 @@ using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -13,15 +16,74 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
 {
     public partial class HostingRequestWPUserControl : UserControl
     {
-        //private static int _RoomNumber = 000001;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
+                currentUserData();
                 GetPlaces();
                 GetResources();
+                GetEmirates();
             }
+        }
+        private void currentUserData()
+        {
+            try
+            {
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                {
+                    Enumber.Value = item.employeeNumberField.ToString();
+                   
+                    if (languageCode == "ar")
+                    {
+                        Ename.Value = item.employeeNameArabicField.ToString();
+                       
+                        EPosition.Value = item.positionNameField_AR.ToString();
+                       
+                    }
+                    else
+                    {
+                        Ename.Value = item.employeeNameEnglishField.ToString();
+                       
+                        EPosition.Value = item.positionNameField_US.ToString();
+                        
+                    }
+                    EDegree.Value = "";// item.employementDateField.ToString(); 
+
+                   
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
+        private void GetEmirates()
+        {
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            DataTable ReserveHoteldata = new ReserveHotel().GetEmirates();
+            DropDownEmirates.DataSource = ReserveHoteldata;
+            DropDownEmirates.DataValueField = "ID";
+            if (languageCode == "ar")
+            {
+                DropDownEmirates.DataTextField = "TitleAr";
+            }
+            else
+            {
+                DropDownEmirates.DataTextField = "Title";
+            }
+
+            DropDownEmirates.DataBind();
+            
+           
         }
 
         private void GetPlaces()
@@ -87,12 +149,67 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
-        //public static string GetNextRoomRequestNumber()
-        //{
-        //    _RoomNumber++;
-        //    return _RoomNumber.ToString();
-        //}
+       
+        protected void btnSaveReserveHotel_Click(object sender, EventArgs e)
+        {
+            string RecordPrfix = "";
+            RecordPrfix = "Hotel-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ReserveHotel");
+            ReserveHotelEntity itemSumbit = new ReserveHotelEntity();
+            itemSumbit.RequestNumber = RecordPrfix;
+            itemSumbit.EmirateID = DropDownEmirates.SelectedValue.ToString();
+            ReserveHotel rb = new ReserveHotel();
+            bool isSaved = rb.SaveUpdate(itemSumbit);
 
+            /////////////////////////////////////////////////////////////////////
+            List<ReserveHotelPeopleEntity> listReserveHotelPeople = new List<ReserveHotelPeopleEntity>();
+            if (!string.IsNullOrEmpty(PName0.Value))
+            {
+                ReserveHotelPeopleEntity itemPeople = new ReserveHotelPeopleEntity();
+                itemPeople.RequestNumber = RecordPrfix;
+                itemPeople.Name = PName0.Value;
+                itemPeople.Job = Job0.Value;             
+                    itemPeople.from =from0.Value;               
+                    itemPeople.to = to0.Value;
+                itemPeople.Task = pMission0.Value;            
+
+                listReserveHotelPeople.Add(itemPeople);
+            }
+            if (hdncounter.Value != "")
+            {
+                string[] Name = Request.Form.GetValues("PName");
+                string[] Job = Request.Form.GetValues("Job");
+                string[] from = Request.Form.GetValues("from");
+                string[] to = Request.Form.GetValues("to");
+                string[] pMission = Request.Form.GetValues("pMission");
+                for (int x = 0; x < Convert.ToInt32(Name.Length); x++)
+                {
+                    if (!string.IsNullOrEmpty(Name[x]))
+                    {
+                        ReserveHotelPeopleEntity itemPeople = new ReserveHotelPeopleEntity();
+                        itemPeople.RequestNumber = RecordPrfix;
+                        itemPeople.Name = Name[x];
+                        itemPeople.Job = Job[x];
+                       
+                        itemPeople.from = from[x];
+                       
+                            itemPeople.to = to[x];
+                        itemPeople.Task = pMission[x];
+
+
+                        listReserveHotelPeople.Add(itemPeople);
+                    }
+                }
+            }
+          
+             rb.SaveUpdateReserveHotelPeople(listReserveHotelPeople);
+            if (isSaved == true)
+            {
+                lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                posts.Style.Add("display", "none");
+                SuccessMsgDiv.Style.Add("display", "block");
+            }
+
+        }
         protected void btnSaveRoomBooking_Click(object sender, EventArgs e)
         {
             string RecordPrfix = "";
@@ -143,24 +260,6 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
             }
         }
 
-        protected void btnSaveHotelHostingRequest_Click(object sender, EventArgs e)
-        {
-            //fireach
-            //{
-            //HotelHostingEntity itemSumbit = new HotelHostingEntity();
-
-            ////itemSumbit.AttendeesNumber = ;
-            ////itemSumbit.DateForm = ;
-            ////itemSumbit.DateTo = ;
-            ////itemSumbit.Department = ;
-            ////itemSumbit.Mission = ;
-            ////itemSumbit.Place = ;
-            ////itemSumbit.ResourcesNeeded = ;
-            //itemSumbit.Status = "Submitted";
-
-            //HotelHosting rb = new HotelHosting();
-            //bool isSaved = rb.SaveUpdate(itemSumbit);
-            //}
-        }
+       
     }
 }

@@ -681,4 +681,16 @@
   <data name="HeadEServices" xml:space="preserve">
     <value>الخدمات الالكترونية</value>
   </data>
+  <data name="PleaseKindlyReserveARoomAt" xml:space="preserve">
+    <value>يرجى التفضل بحجز غرفة في:</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>الوظيفة</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>الى</value>
+  </data>
 </root>

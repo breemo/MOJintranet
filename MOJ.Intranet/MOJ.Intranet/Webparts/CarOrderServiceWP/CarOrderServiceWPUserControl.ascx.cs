@@ -81,7 +81,17 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
                             if (item.Selected)
                                 TravelNeedsValues += item + ",";
 
-                        DateTime TravelDate = DateTime.ParseExact(txtTravelDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                        DateTime TravelDate = new DateTime(); ;
+
+                        if (!string.IsNullOrEmpty(txtTravelDate.Value))
+                        {
+                            DateTime sDate = DateTime.ParseExact(txtTravelDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
+                            TimeSpan tsSdate = TimeSpan.Parse(pmSdate[0]);
+                            sDate = (pmSdate[1] == "PM") ? (sDate.Date + tsSdate).AddHours(12) : sDate.Date + tsSdate;
+
+                            TravelDate = sDate;
+                        }
 
                         if (hdnPassenger.Value != "")
                             tPassengerNames += String.Format("{0}", Request.Form["Passenger"] + ",");

@@ -43,8 +43,8 @@ namespace MOJ.DataManager
                             }
 
                             item["AttendeesNumber"] = HostingRequestItem.AttendeesNumber;
-                            item["DateFrom"] = SPUtility.CreateISO8601DateTimeFromSystemDateTime(HostingRequestItem.DateFrom);
-                            item["DateTo"] = SPUtility.CreateISO8601DateTimeFromSystemDateTime(HostingRequestItem.DateTo);
+                            item["DateFrom"] = Convert.ToDateTime(HostingRequestItem.DateFrom);
+                            item["DateTo"] = Convert.ToDateTime(HostingRequestItem.DateTo);
                             item["Department"] = HostingRequestItem.Department;
                             item["Mission"] = HostingRequestItem.Mission;
                             item["Place"] = HostingRequestItem.Place;

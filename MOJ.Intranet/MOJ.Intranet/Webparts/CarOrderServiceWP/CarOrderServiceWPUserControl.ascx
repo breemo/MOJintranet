@@ -136,15 +136,15 @@
             </div>
             <div class="row rt">
 
-                <div class="col-md-6">
+                <div class="col-md-10">
 
                     <div class="row">
 
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <label> <asp:Literal runat="server" Text="<%$ Resources:Resource, GoingTo%>" /></label>
                         </div>
 
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             <input type="text" runat="server" id="txtTravelTo" class="form-control" placeholder="">
                         </div>
                     </div>
@@ -156,15 +156,15 @@
             </div>
             <div class="row rt">
 
-                <div class="col-md-6">
+                <div class="col-md-10">
 
                     <div class="row">
 
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, PassengerName%>" /></label>
                         </div>
 
-                        <div id="dynamicInput" class="col-md-9">
+                        <div id="dynamicInput" class="col-md-6">
                             <input type="text" name="Passenger" runat="server" id="txtPassengerName0" class="form-control" placeholder="">
                         </div>
 
@@ -172,21 +172,21 @@
 
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-2">
                     <a href="#" onclick="addInput('dynamicInput');" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
                 </div>
             </div>
             <div class="row rt">
 
-                <div class="col-md-6">
+                <div class="col-md-10">
 
                     <div class="row">
 
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelReason%>" /></label>
                         </div>
 
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             <input type="text" runat="server" id="txtTravelReson" class="form-control" placeholder="">
                         </div>
                     </div>
@@ -198,15 +198,15 @@
             </div>
             <div class="row rt">
 
-                <div class="col-md-6">
+                <div class="col-md-10">
 
                     <div class="row">
 
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CarPlace%>" /></label>
                         </div>
 
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             <input type="text" id="txtCarPlace" runat="server" class="form-control" placeholder="">
                         </div>
                     </div>
@@ -217,32 +217,38 @@
                 </div>
             </div>
             <div class="row rt">
-
-                <div class="col-md-6">
-
-                    <div class="row">
-
-                        <div class="col-md-2">
-                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelDate%>" /></label>
-                        </div>
-
-                        <div class="col-md-9">
-
-                            <div class="input-group date" data-provide="datepicker">
-                                <input type="text" runat="server" id="txtTravelDate" class="form-control">
-                                <div class="input-group-addon">
-                                    <span class="icon-calendar-alt1"></span>
+		<div class="col-md-10">
+			<div class="row">
+				<div class="col-md-4">
+					<label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelDate%>" /></label>
+				</div>
+				<div class="col-md-9">
+					<div class="input-group date" data-provide="datepicker">
+						<input type="text" runat="server" id="txtTravelDate" class="form-control">
+						<div class="input-group-addon">
+							<span class="icon-calendar-alt1"></span>
+						</div>
+					</div>
+				</div>		
+			</div>
+	</div>
+	
+	<div class="col-md-2">
+			<div class="row">			
+			 <div class="col-md-5">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, time%>" /></label>
                                 </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-md-6">
-                </div>
-            </div>
+                                <div class="col-md-7">
+                                    <div class="input-group timenew">
+                                        <input  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
+                                        <div class="input-group-addon">
+                                            <span class="icon-calendar-alt1"></span>
+                                        </div>
+                                    </div>
+                                </div>	
+				</div>
+			</div>               
+  </div>
             <div class="row rt">
 
                 <div class="col-md-6">

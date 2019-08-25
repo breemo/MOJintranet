@@ -87,6 +87,9 @@ namespace CommonLibrary
         public const string FazaaCardRequestUrl = "/Lists/FazaaCardRequest/AllItems.aspx";
         public const string ContactWithHRUrl = "/Lists/ContactWithHR/AllItems.aspx";
         public const string GovernmentHousingUrl = "/Lists/AffirmationReceiptGovernmentHousing/AllItems.aspx";
+        public const string EmiratesUrl = "/Lists/Emirates/AllItems.aspx";
+        public const string ReserveHotelUrl = "/Lists/ReserveHotel/AllItems.aspx";
+        public const string ReserveHotelPeopleUrl = "/Lists/ReserveHotelPeople/AllItems.aspx";
 
         #endregion
 

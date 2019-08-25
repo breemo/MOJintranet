@@ -681,4 +681,16 @@
   <data name="MyTasks" xml:space="preserve">
     <value>MyTasks</value>
   </data>
+  <data name="PleaseKindlyReserveARoomAt" xml:space="preserve">
+    <value>Please kindly reserve a room at:</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>from</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>to</value>
+  </data>
 </root>

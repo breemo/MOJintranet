@@ -4,6 +4,8 @@ using MOJ.Business;
 using MOJ.Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -48,12 +50,52 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetFazaaCardRequestData(RequestID);
             if (listName == "ContactWithHR")
                 Status = GetContactWithHRData(RequestID);
+            if (listName == "ReserveHotel")
+                Status = GetReserveHotelData(RequestID);
+
+
 
             GetTasksRequest(RequestID, listName);
             AllData.Text += "<hr>";
             addtopage(Status, "");
 
         }
+        public string GetReserveHotelData(string RequestID)
+        {
+
+            ReserveHotelEntity RHotel = new ReserveHotel().GetByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", RHotel.RequestNumber, "title");
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();         
+                if (languageCode == "ar")
+                {
+                addtopage("Emirate", RHotel.EmirateAr);
+                 }
+                else
+                {
+                addtopage("Emirate", RHotel.EmirateEn);
+                 }
+                
+            List<ReserveHotelPeopleEntity> RHPeople = new ReserveHotel().GetReserveHotelPeople(RHotel.RequestNumber);
+            int i = 0;
+            foreach (ReserveHotelPeopleEntity HW in RHPeople)
+            {
+                if (i % 2 == 0)
+                    AllData.Text += "<div>";
+                else
+                    AllData.Text += "<div class='evenRow'>";
+                addtopage("Name", HW.Name, "Job", HW.Job);
+               
+                addtopage("from", Convert.ToDateTime(HW.from).ToString("dd MMM yyyy"), "to", Convert.ToDateTime(HW.to).ToString("dd MMM yyyy"));
+                addtopage("mission", HW.Task);
+                AllData.Text += "</div>";
+                i++;
+            }
+            AllData.Text += "<hr>";
+            
+           return RHotel.Status;
+        }
+
         public string GetFazaaCardRequestData(string RequestID)
         {
             FazaaCardRequestEntity Fazaaitem = new FazaaCardRequest().GetFazaaCardRequest(Convert.ToInt32(RequestID));
@@ -70,7 +112,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage("GoingTo", caritem.TravelTo);
             addtopage("PassengerName", caritem.NameOfPassengers);
             addtopage("TravelReason", caritem.TravelReason, "CarPlace", caritem.CarPlace);
-            string Tdate = Convert.ToDateTime(caritem.TravelDate).ToString("dd MMM yyyy");
+            string Tdate = Convert.ToDateTime(caritem.TravelDate).ToString("dd MMM yyyy hh:mm tt");
             addtopage("TravelDate", Tdate, "TravelDuration", caritem.Duration);
             return caritem.Status;
         }
