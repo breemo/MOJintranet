@@ -65,7 +65,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 if (task.WorkflowName == "AffirmationReceiptGovernmentHousing")
                     GetAffirmationGHousingHotelData(task.RequestID);
 
-
+                ////
                 GetTasksRequest(task.RequestID, task.WorkflowName);
 
             }
