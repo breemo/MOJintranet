@@ -41,10 +41,10 @@ namespace MOJ.DataManager
                             item = list.AddItem();
                         }                   
                         item["MobileNumber"] = Item.MobileNumber;
-                        item["ApportionmentDate"] = Convert.ToDateTime(Item.ApportionmentDate);
+                        item["ApportionmentDate"] = Item.ApportionmentDate ;
                         item["HomeAddress"] = Item.HomeAddress;
                         item["VilaApartmentNumber"] = Item.VilaApartmentNumber;
-                        item["MobileNuNumberOfRoomsmber"] = Item.NumberOfRooms;
+                        item["NumberOfRooms"] = Item.NumberOfRooms;
                         item["Owner"] = Item.Owner;
                         item["agent"] = Item.agent;
                        
@@ -94,7 +94,7 @@ namespace MOJ.DataManager
                                     obitem.RequestNumber = Convert.ToString(Item["Title"]);
                                     obitem.Status = Convert.ToString(Item["Status"]);
                                     obitem.MobileNumber = Convert.ToString(Item["MobileNumber"]);
-                                    obitem.ApportionmentDate = Convert.ToString(Convert.ToDateTime(Item["ApportionmentDate"]));
+                                    obitem.ApportionmentDate = Convert.ToDateTime(Item["ApportionmentDate"]);
                                     obitem.HomeAddress = Convert.ToString(Item["HomeAddress"]);
                                     obitem.VilaApartmentNumber = Convert.ToString(Item["VilaApartmentNumber"]);
                                     obitem.NumberOfRooms = Convert.ToString(Item["NumberOfRooms"]);

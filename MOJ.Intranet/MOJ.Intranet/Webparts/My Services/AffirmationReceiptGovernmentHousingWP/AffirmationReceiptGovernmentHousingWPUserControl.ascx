@@ -47,7 +47,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, department%>" /></label>
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" /></label>
                                 </div>
                                 <div  class="col-md-8">
                                     <input type="text" name="Edepartment" disabled runat="server" id="Edepartment" class="form-control" placeholder="">
@@ -70,7 +70,7 @@
 				     <div class="col-md-6">
                                <div class="row">
                                     <div class="col-md-4">
-                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, category%>" /></label>
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Category%>" /></label>
                             </div>
                             <div class="col-md-8 ">
                                       <input type="text" disabled name="Ecategory" runat="server" id="Ecategory" class="form-control" placeholder="">
@@ -95,7 +95,7 @@
 				 <div class="col-md-6">
                                <div class="row">
                                     <div class="col-md-4">
-                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Worklocation%>" /></label>
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, WorkLocation%>" /></label>
                             </div>
                             <div class="col-md-8 ">
                                       <input type="text" disabled name="EWorklocation" runat="server" id="EWorklocation" class="form-control" placeholder="">
@@ -157,19 +157,8 @@
                
                </div>
 
-               <hr />     
-                  
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
-                                </div>
-                                <div  class="col-md-4 DivName">
-                                    <input type="text" name="Name" runat="server" id="Name0" class="form-control" placeholder="">
-                                </div>                       
-                            </div>
-                            </div>							
-                        </div>
+               <hr />               						
+                     
 					<div class="row rt">
 					  <div class="col-md-6">
                             <div class="row">
@@ -178,6 +167,9 @@
 								</div>
 								<div  class="col-md-8 DivEmployer">
 									<input type="text" name="MobileNumber" runat="server" id="MobileNumber" class="form-control" placeholder="">
+								<asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="MobileNumber" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
 								</div> 
                               </div>
                        </div>
@@ -193,6 +185,9 @@
 											<span class="icon-calendar-alt1"></span>
 										</div>
 									</div>
+									<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="ApportionmentDate" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
 								</div>
                            </div>
 					</div>                    
@@ -205,6 +200,9 @@
 								</div>
 								<div  class="col-md-8 DivEmployer">
 									<input type="text" name="HomeAddress" runat="server" id="HomeAddress" class="form-control" placeholder="">
+								<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="HomeAddress" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
 								</div> 
                               </div>
                        </div>
@@ -215,6 +213,9 @@
 								</div>
 								<div  class="col-md-8 DivEmployer">
 									<input type="text" name="VilaApartmentNumber" runat="server" id="VilaApartmentNumber" class="form-control" placeholder="">
+								<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="VilaApartmentNumber" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
 								</div> 
                               </div>
                        </div>                   
@@ -227,6 +228,9 @@
 								</div>
 								<div  class="col-md-8 DivEmployer">
 									<input type="text" name="NumberOfRooms" runat="server" id="NumberOfRooms" class="form-control" placeholder="">
+								<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="NumberOfRooms" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
 								</div> 
                               </div>
                        </div>
@@ -237,6 +241,10 @@
 								</div>
 								<div  class="col-md-8 DivEmployer">
 									<input type="text" name="Owner" runat="server" id="Owner" class="form-control" placeholder="">
+									
+										<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="Owner" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
 								</div> 
                               </div>
                        </div>                   
@@ -249,6 +257,9 @@
 								</div>
 								<div  class="col-md-8 DivEmployer">
 									<input type="text" name="agent" runat="server" id="agent" class="form-control" placeholder="">
+									<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="agent" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
 								</div> 
                               </div>
                        </div>

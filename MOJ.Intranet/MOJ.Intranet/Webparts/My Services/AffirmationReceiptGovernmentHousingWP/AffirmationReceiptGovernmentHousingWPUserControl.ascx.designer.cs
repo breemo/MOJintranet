@@ -121,15 +121,6 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
         protected global::System.Web.UI.HtmlControls.HtmlInputText EEmail;
         
         /// <summary>
-        /// Name0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Name0;
-        
-        /// <summary>
         /// MobileNumber control.
         /// </summary>
         /// <remarks>
@@ -137,6 +128,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText MobileNumber;
+        
+        /// <summary>
+        /// RequiredFieldValidatorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage;
         
         /// <summary>
         /// ApportionmentDate control.
@@ -148,6 +148,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
         protected global::System.Web.UI.HtmlControls.HtmlInputText ApportionmentDate;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// HomeAddress control.
         /// </summary>
         /// <remarks>
@@ -155,6 +164,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText HomeAddress;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// VilaApartmentNumber control.
@@ -166,6 +184,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
         protected global::System.Web.UI.HtmlControls.HtmlInputText VilaApartmentNumber;
         
         /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        
+        /// <summary>
         /// NumberOfRooms control.
         /// </summary>
         /// <remarks>
@@ -173,6 +200,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText NumberOfRooms;
+        
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
         /// Owner control.
@@ -184,6 +220,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
         protected global::System.Web.UI.HtmlControls.HtmlInputText Owner;
         
         /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        
+        /// <summary>
         /// agent control.
         /// </summary>
         /// <remarks>
@@ -191,6 +236,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText agent;
+        
+        /// <summary>
+        /// RequiredFieldValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
         /// btnsubmit control.

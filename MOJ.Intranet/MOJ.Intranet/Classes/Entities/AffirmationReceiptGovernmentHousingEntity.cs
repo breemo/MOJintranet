@@ -20,7 +20,7 @@ namespace MOJ.Entities
         
         public string MobileNumber { get; set; }
 
-        public string ApportionmentDate { get; set; }
+        public DateTime ApportionmentDate { get; set; }
         public string HomeAddress { get; set; }
         public string VilaApartmentNumber { get; set; }
         public string NumberOfRooms { get; set; }

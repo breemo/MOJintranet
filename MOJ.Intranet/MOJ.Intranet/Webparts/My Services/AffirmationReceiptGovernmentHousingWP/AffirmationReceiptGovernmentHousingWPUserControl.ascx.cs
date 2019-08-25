@@ -74,7 +74,14 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
                 AffirmationReceiptGovernmentHousingEntity itemSumbit = new AffirmationReceiptGovernmentHousingEntity();
 
                 itemSumbit.MobileNumber = MobileNumber.Value;
-                itemSumbit.ApportionmentDate = ApportionmentDate.Value;
+                if (!string.IsNullOrEmpty(ApportionmentDate.Value))
+                {
+                    DateTime sDate = DateTime.ParseExact(ApportionmentDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                  
+                    itemSumbit.ApportionmentDate = sDate;
+                }
+
+                
                 itemSumbit.HomeAddress = HomeAddress.Value;
                 itemSumbit.VilaApartmentNumber = VilaApartmentNumber.Value;
                 itemSumbit.NumberOfRooms = NumberOfRooms.Value;
