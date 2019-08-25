@@ -76,6 +76,7 @@
     <Compile Include="Classes\Business\GovernmentHousing.cs" />
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
     <Compile Include="Classes\Business\ContactWithHR.cs" />
+    <Compile Include="Classes\Business\AffirmationReceiptGovernmentHousing.cs" />
     <Compile Include="Classes\Business\ReserveHotel.cs" />
     <Compile Include="Classes\Business\MyRequestsB.cs" />
     <Compile Include="Classes\Business\HappinessHotline.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Classes\Common\LimitCharacters.cs" />
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
+    <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
     <Compile Include="Classes\Data Manager\ReserveHotelDataManger.cs" />
     <Compile Include="Classes\Data Manager\AddEmployeeNumberDataManger.cs" />
     <Compile Include="Classes\Data Manager\EmiratesDataManager.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\ReserveHotelPeopleEntity.cs" />
     <Compile Include="Classes\Entities\ReserveHotelEntity.cs" />
     <Compile Include="Classes\Entities\GovernmentHousingEntity.cs" />
@@ -351,6 +354,14 @@
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.designer.cs">
       <DependentUpon>LiveEventsWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\AffirmationReceiptGovernmentHousingWP.cs" />
+    <Compile Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\AffirmationReceiptGovernmentHousingWPUserControl.ascx.cs">
+      <DependentUpon>AffirmationReceiptGovernmentHousingWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\AffirmationReceiptGovernmentHousingWPUserControl.ascx.designer.cs">
+      <DependentUpon>AffirmationReceiptGovernmentHousingWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituation.cs" />
     <Compile Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx.cs">
       <DependentUpon>AffirmationSocialSituationUserControl.ascx</DependentUpon>
@@ -577,6 +588,10 @@
     <None Include="Webparts\LiveEventsWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a023d941-1aae-42b2-b266-211a22b2b513}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\AffirmationReceiptGovernmentHousingWP.webpart" />
+    <None Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1820373b-7fe6-4f63-b4d5-1a5016137168}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituation.webpart" />
     <None Include="Webparts\My Services\AffirmationSocialSituation\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{5a3ffcae-d7a3-4496-80a4-cb538a1d63ef}</SharePointProjectItemId>
@@ -694,6 +709,8 @@
     <Content Include="Webparts\Inner Pages\OccasionsDetails\OccasionsDetailsUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\AffirmationReceiptGovernmentHousingWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\Elements.xml" />
     <Content Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationSocialSituation\Elements.xml" />
     <Content Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWPUserControl.ascx" />

@@ -52,6 +52,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetContactWithHRData(RequestID);
             if (listName == "ReserveHotel")
                 Status = GetReserveHotelData(RequestID);
+            if (listName == "AffirmationReceiptGovernmentHousing")
+                Status = GetAffirmationGHousingHotelData(RequestID);
 
 
 
@@ -60,6 +62,18 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage(Status, "");
 
         }
+        public string GetAffirmationGHousingHotelData(string RequestID)
+        {
+
+            AffirmationReceiptGovernmentHousingEntity AGHousing = new AffirmationReceiptGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", AGHousing.RequestNumber, "title");       
+                addtopage("MobileNumber", AGHousing.MobileNumber, "ApportionmentDate", Convert.ToDateTime(AGHousing.ApportionmentDate).ToString("dd MMM yyyy"));               
+                addtopage("HomeAddress", AGHousing.HomeAddress, "VilaApartmentNumber", AGHousing.VilaApartmentNumber);               
+                addtopage("NumberOfRooms", AGHousing.NumberOfRooms, "Owner", AGHousing.Owner);               
+                addtopage("agent", AGHousing.agent);       
+            return AGHousing.Status;
+        }
+        
         public string GetReserveHotelData(string RequestID)
         {
 

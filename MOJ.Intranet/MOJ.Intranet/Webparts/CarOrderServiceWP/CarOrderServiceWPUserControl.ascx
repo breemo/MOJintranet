@@ -88,43 +88,11 @@
     <div class="tabs tabs-responsive clearfix fullwidthtabs ui-tabs ui-corner-all ui-widget ui-widget-content">
         <div class="inskdnew">
             <div class="row rt">
-
-
                 <div class="col-md-12">
-
                     <h5>
                         <asp:Literal runat="server" Text="<%$ Resources:Resource, Carwith%>" />
                     </h5>
-                    <div>
-                        <%--                <input type="checkbox"
-                    class="checkbox"
-                    id="checkbox-1" />
-                <label for="checkbox-1"
-                    class="checkbox-click-target">
-                    <span class="checkbox-box"></span>سائق
-                </label>
-                <input type="checkbox"
-                    class="checkbox"
-                    id="checkbox-2" />
-                <label for="checkbox-2"
-                    class="checkbox-click-target">
-                    <span class="checkbox-box"></span>بدون سائق
-                </label>
-                <input type="checkbox"
-                    class="checkbox"
-                    id="checkbox-3" />
-                <label for="checkbox-3"
-                    class="checkbox-click-target">
-                    <span class="checkbox-box"></span>داخل ابوظبي
-                </label>
-
-                <input type="checkbox"
-                    class="checkbox"
-                    id="checkbox-4" />
-                <label for="checkbox-4"
-                    class="checkbox-click-target">
-                    <span class="checkbox-box"></span>خارج ابوظبي
-                </label>--%>
+                    <div>                      
                         <asp:CheckBoxList ID="cbTravelNeeds" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                             <asp:ListItem Text="<%$ Resources:Resource, WithDriver%>" Value="WithDriver" />
                             <asp:ListItem Text="<%$ Resources:Resource, WithoutDriver%>" Value="WithoutDriver" />
@@ -136,11 +104,11 @@
             </div>
             <div class="row rt">
 
-                <div class="col-md-10">
+                <div class="col-md-8">
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <label> <asp:Literal runat="server" Text="<%$ Resources:Resource, GoingTo%>" /></label>
                         </div>
 
@@ -151,16 +119,16 @@
 
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                 </div>
             </div>
             <div class="row rt">
 
-                <div class="col-md-10">
+                <div class="col-md-8">
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, PassengerName%>" /></label>
                         </div>
 
@@ -178,11 +146,11 @@
             </div>
             <div class="row rt">
 
-                <div class="col-md-10">
+                <div class="col-md-8">
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelReason%>" /></label>
                         </div>
 
@@ -193,16 +161,16 @@
 
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                 </div>
             </div>
             <div class="row rt">
 
-                <div class="col-md-10">
+                <div class="col-md-8">
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CarPlace%>" /></label>
                         </div>
 
@@ -213,16 +181,16 @@
 
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                 </div>
             </div>
             <div class="row rt">
-		<div class="col-md-10">
+		<div class="col-md-8">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelDate%>" /></label>
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-6">
 					<div class="input-group date" data-provide="datepicker">
 						<input type="text" runat="server" id="txtTravelDate" class="form-control">
 						<div class="input-group-addon">
@@ -233,12 +201,12 @@
 			</div>
 	</div>
 	
-	<div class="col-md-2">
+	<div class="col-md-4">
 			<div class="row">			
-			 <div class="col-md-5">
+			 <div class="col-md-4">
                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, time%>" /></label>
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-md-8">
                                     <div class="input-group timenew">
                                         <input  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
                                         <div class="input-group-addon">
@@ -251,22 +219,22 @@
   </div>
             <div class="row rt">
 
-                <div class="col-md-6">
+                <div class="col-md-8">
 
                     <div class="row">
 
-                        <div class="col-md-2">
+                        <div class="col-md-5">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelDuration%>" /></label>
                         </div>
 
-                        <div class="col-md-9">
+                        <div class="col-md-6">
                             <input type="text" runat="server" id="txtduration" class="form-control" placeholder="">
                         </div>
                     </div>
 
 
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                 </div>
             </div>
             <div class="row rt  botx">

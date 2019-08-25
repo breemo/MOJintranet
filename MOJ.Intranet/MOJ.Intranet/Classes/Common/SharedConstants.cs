@@ -90,6 +90,7 @@ namespace CommonLibrary
         public const string EmiratesUrl = "/Lists/Emirates/AllItems.aspx";
         public const string ReserveHotelUrl = "/Lists/ReserveHotel/AllItems.aspx";
         public const string ReserveHotelPeopleUrl = "/Lists/ReserveHotelPeople/AllItems.aspx";
+        public const string AffirmationReceiptGovernmentHousingUrl = "/Lists/AffirmationReceiptGovernmentHousing/AllItems.aspx";
 
         #endregion
 
