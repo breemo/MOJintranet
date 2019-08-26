@@ -696,4 +696,10 @@
   <data name="HeadProcedure" xml:space="preserve">
     <value>Department Procedures</value>
   </data>
+  <data name="ReturnToDutyNoticeMembersOfTheJudiciary" xml:space="preserve">
+    <value>Return to duty notice (Members of the judiciary)</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
 </root>

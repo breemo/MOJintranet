@@ -696,4 +696,10 @@
   <data name="HeadProcedure" xml:space="preserve">
     <value>أجراءات الأدارة</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="ReturnToDutyNoticeMembersOfTheJudiciary" xml:space="preserve">
+    <value>أشعار عودة للسلطة القضائية</value>
+  </data>
 </root>

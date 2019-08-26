@@ -11,7 +11,7 @@ using System.Data;
 
 namespace MOJ.DataManager
 {
-    public class EmiratesDataManager
+    public class DaysDataManager
     {
 
 
@@ -29,7 +29,7 @@ namespace MOJ.DataManager
                     {
                         if (oWeb != null)
                         {
-                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.EmiratesUrl);
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.DaysUrl);
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
@@ -38,10 +38,11 @@ namespace MOJ.DataManager
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
                                 {
+
                                     DataRow dr = dt.NewRow();
                                     dr["ID"] = Convert.ToInt32(Item["ID"]);
                                     dr["Title"] = Convert.ToString(Item["Title"]);
-                                    dr["TitleAr"] = Convert.ToString(Item["EmirateAr"]);
+                                    dr["TitleAr"] = Convert.ToString(Item["DayAr"]);
                                     dt.Rows.Add(dr);
                                 }
 
