@@ -14,5 +14,9 @@ namespace MOJ.Business
         {
             return new DepartmentCircularsDataManager().GetDepartmentCirculars();
         }
+        public DepartmentCircularsEntity GetDepartmentCircularsByID(int id)
+        {
+            return new DepartmentCircularsDataManager().GetDepartmentCircularsByID(id);
+        }
     }
 }

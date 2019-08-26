@@ -14,5 +14,9 @@ namespace MOJ.Business
         {
             return new DepartmentProceduresDataManager().GetDepartmentProcedures();
         }
+        public DepartmentProceduresEntity GetDepartmentProceduresByID(int id)
+        {
+            return new DepartmentProceduresDataManager().GetDepartmentProceduresByID(id);
+        }
     }
 }

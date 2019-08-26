@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="MyDepartmentItemDetailsWPUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="MyDepartmentItemDetailsWP\" Type="ElementManifest" />
+    <ProjectItemFile Source="MyDepartmentItemDetailsWP.webpart" Target="MyDepartmentItemDetailsWP\" Type="ElementFile" />
+    <ProjectItemFile Source="MyDepartmentItemDetailsWPUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.MyDepartment\MyDepartmentItemDetailsWP\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.MyDepartment.MyDepartmentItemDetailsWP" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

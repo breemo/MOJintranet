@@ -693,4 +693,7 @@
   <data name="to" xml:space="preserve">
     <value>الى</value>
   </data>
+  <data name="HeadProcedure" xml:space="preserve">
+    <value>أجراءات الأدارة</value>
+  </data>
 </root>

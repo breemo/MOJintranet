@@ -48,7 +48,7 @@ namespace MOJ.Intranet.Webparts.MyDepartment.DepartmentProceduresWP
                             <p>
                             {2}
                             </p>
-                            <a href = '{3}/Details.aspx?id={4}&type=Procedures' class='detailbtn'>"+ SPUtility.GetLocalizedString("$Resources: ReadMore", "Resource", SPContext.Current.Web.Language) + @"</a>
+                            <a href = '{3}/Pages/Details.aspx?id={4}&type=Procedures' class='detailbtn'>" + SPUtility.GetLocalizedString("$Resources: ReadMore", "Resource", SPContext.Current.Web.Language) + @"</a>
                         </div>", Convert.ToDateTime(item.ProcedureDate).ToString("dd-MMM-yyyy"),item.ProcedureTitle, des, siteURL, item.ID);
 
                 }

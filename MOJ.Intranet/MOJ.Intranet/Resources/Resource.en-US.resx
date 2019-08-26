@@ -693,4 +693,7 @@
   <data name="to" xml:space="preserve">
     <value>to</value>
   </data>
+  <data name="HeadProcedure" xml:space="preserve">
+    <value>Department Procedures</value>
+  </data>
 </root>

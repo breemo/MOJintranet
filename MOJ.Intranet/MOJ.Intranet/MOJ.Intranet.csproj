@@ -466,6 +466,14 @@
     <Compile Include="Webparts\MyDepartment\DepartmentProceduresWP\DepartmentProceduresWPUserControl.ascx.designer.cs">
       <DependentUpon>DepartmentProceduresWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\MyDepartment\MyDepartmentItemDetailsWP\MyDepartmentItemDetailsWP.cs" />
+    <Compile Include="Webparts\MyDepartment\MyDepartmentItemDetailsWP\MyDepartmentItemDetailsWPUserControl.ascx.cs">
+      <DependentUpon>MyDepartmentItemDetailsWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\MyDepartment\MyDepartmentItemDetailsWP\MyDepartmentItemDetailsWPUserControl.ascx.designer.cs">
+      <DependentUpon>MyDepartmentItemDetailsWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Features\Feature1\Feature1.feature">
@@ -644,6 +652,10 @@
     <None Include="Webparts\MyDepartment\DepartmentProceduresWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{c76050ef-4b06-49c2-b227-59a739f72047}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\MyDepartment\MyDepartmentItemDetailsWP\MyDepartmentItemDetailsWP.webpart" />
+    <None Include="Webparts\MyDepartment\MyDepartmentItemDetailsWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{69cc5083-65f7-4c7a-9be1-5c631f64dc0c}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\Feature1\Feature1.Template.xml">
@@ -740,6 +752,8 @@
     <Content Include="Webparts\MyDepartment\DepartmentDocuments\Elements.xml" />
     <Content Include="Webparts\MyDepartment\DepartmentProceduresWP\DepartmentProceduresWPUserControl.ascx" />
     <Content Include="Webparts\MyDepartment\DepartmentProceduresWP\Elements.xml" />
+    <Content Include="Webparts\MyDepartment\MyDepartmentItemDetailsWP\Elements.xml" />
+    <Content Include="Webparts\MyDepartment\MyDepartmentItemDetailsWP\MyDepartmentItemDetailsWPUserControl.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\MOJ.Intranet\" />
