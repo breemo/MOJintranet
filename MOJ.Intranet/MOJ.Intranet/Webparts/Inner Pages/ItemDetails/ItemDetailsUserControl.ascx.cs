@@ -150,19 +150,19 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
 
                             break;
                         }
-                    case "occasion":
-                        {
-                            lblHead.Text = SPUtility.GetLocalizedString("$Resources: HeadEvents", "Resource", SPContext.Current.Web.Language);
-                            OccasionsEntity occasionItem = new Occasions().GetOccasionById(Convert.ToInt32(ID));
+                    //case "occasion":
+                    //    {
+                    //        lblHead.Text = SPUtility.GetLocalizedString("$Resources: HeadEvents", "Resource", SPContext.Current.Web.Language);
+                    //        OccasionsEntity occasionItem = new Occasions().GetOccasionById(Convert.ToInt32(ID));
 
-                            lblDetails.Text +=
-                                string.Format(@"<h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
-                                                <span >{2}</span>
-                                                <p style='text-align: justify; font-weight:normal'>
-                                                    </br>{1} 
-                                                </p>", occasionItem.Title, occasionItem.Description, Convert.ToDateTime(occasionItem.Created).ToString("dd-MMM-yyyy"));
-                            break;
-                        }
+                    //        lblDetails.Text +=
+                    //            string.Format(@"<h2 style='font-size: 22px; line-height: 25px;'>{0}</h2>
+                    //                            <span >{2}</span>
+                    //                            <p style='text-align: justify; font-weight:normal'>
+                    //                                </br>{1} 
+                    //                            </p>", occasionItem.Title, occasionItem.Description, Convert.ToDateTime(occasionItem.Created).ToString("dd-MMM-yyyy"));
+                    //        break;
+                    //    }
                 }
 
                 //lblDetails.Text += "";

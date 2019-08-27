@@ -11,5 +11,23 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.OccasionsDetails {
     
     
     public partial class OccasionsDetailsUserControl {
+        
+        /// <summary>
+        /// lblTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblTitle;
+        
+        /// <summary>
+        /// lblBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblBody;
     }
 }
