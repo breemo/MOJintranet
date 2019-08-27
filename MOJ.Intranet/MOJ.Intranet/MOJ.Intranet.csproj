@@ -352,6 +352,14 @@
     <Compile Include="Webparts\Inner Pages\OccasionsDetails\OccasionsDetailsUserControl.ascx.designer.cs">
       <DependentUpon>OccasionsDetailsUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetails.cs" />
+    <Compile Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetailsUserControl.ascx.cs">
+      <DependentUpon>wpOccasionDetailsUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetailsUserControl.ascx.designer.cs">
+      <DependentUpon>wpOccasionDetailsUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWP.cs" />
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -605,6 +613,10 @@
     <None Include="Webparts\Inner Pages\OccasionsDetails\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f8c2260b-acda-4541-851a-6761f6dc3df1}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Inner Pages\wpOccasionDetails\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9c4c1d62-8071-438c-9920-b9160107e17c}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetails.webpart" />
     <None Include="Webparts\LiveEventsWP\LiveEventsWP.webpart" />
     <None Include="Webparts\LiveEventsWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a023d941-1aae-42b2-b266-211a22b2b513}</SharePointProjectItemId>
@@ -736,6 +748,8 @@
     <Content Include="Webparts\Inner Pages\NewsList\NewsListUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\OccasionsDetails\Elements.xml" />
     <Content Include="Webparts\Inner Pages\OccasionsDetails\OccasionsDetailsUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\wpOccasionDetails\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetailsUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\AffirmationReceiptGovernmentHousingWPUserControl.ascx" />
