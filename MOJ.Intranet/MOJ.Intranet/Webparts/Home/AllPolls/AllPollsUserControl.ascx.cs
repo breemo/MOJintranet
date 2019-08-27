@@ -48,6 +48,32 @@ namespace MOJ.Intranet.Webparts.Home.AllPolls
                             if (oList.BaseType == SPBaseType.Survey)
                             {
                                 count++;
+
+                                SPQuery q = new SPQuery();
+                                var userId = SPContext.Current.Web.CurrentUser.ID;
+                                q.Query = string.Format("<Where><And><Eq><FieldRef Name=\"Completed\" /><Value Type=\"Boolean\">1</Value></Eq><Eq><FieldRef Name=\"Author\" LookupId=\"True\"/><Value Type=\"User\">{0}</Value></Eq></And></Where>", userId);
+                                SPListItemCollection items = oList.GetItems(q);
+
+                                if (items.Count > 0)
+                                {
+                                    lblDrawItems.Text +=
+                                       string.Format(@"
+                                        <div style='display:none'></div>
+                                         <div class='itemboxc'>
+                                                <div class='boxcic'>
+                                                    <span>" + count + @"
+                                                    </span>
+                                                </div>
+                                                <div class='ques'>
+                                                    <h5>{0}
+                                                    </h5>
+                                                    <span>{1}</span>
+                                                </div>
+                                            </div>    
+                                        ", oList.Title, SPUtility.GetLocalizedString("$Resources: Shared", "Resource", SPContext.Current.Web.Language), SPContext.Current.Web.Language);
+                                }
+                                else
+                                {
                                     lblDrawItems.Text +=
                                        string.Format(@"
                                          <div class='itemboxc'>
@@ -62,6 +88,7 @@ namespace MOJ.Intranet.Webparts.Home.AllPolls
                                                 </div>
                                             </div>    
                                         ", oList.Title, oList.DefaultNewFormUrl, SPUtility.GetLocalizedString("$Resources: Participate", "Resource", SPContext.Current.Web.Language));
+                                }
                             }
                         }
                     }

@@ -702,4 +702,7 @@
   <data name="ReturnToDutyNoticeMembersOfTheJudiciary" xml:space="preserve">
     <value>أشعار عودة للسلطة القضائية</value>
   </data>
+  <data name="Shared" xml:space="preserve">
+    <value>تمت المشاركة</value>
+  </data>
 </root>
