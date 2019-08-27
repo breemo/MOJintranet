@@ -54,7 +54,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetReserveHotelData(RequestID);
             if (listName == "AffirmationReceiptGovernmentHousing")
                 Status = GetAffirmationGHousingHotelData(RequestID);
-
+            if (listName == "ReturnToDutyNoticeMembersOfTheJudiciary")
+                Status = GetReturnNoticeData(RequestID);
 
 
             GetTasksRequest(RequestID, listName);
@@ -62,6 +63,25 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage(Status, "");
 
         }
+        public string GetReturnNoticeData(string RequestID)
+        {
+            ReturnToDutyNoticeMembersOfTheJudiciaryEntity obitem = new ReturnToDutyNoticeMembersOfTheJudiciary().GetByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", obitem.RequestNumber, "title");
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                addtopage("Emirate", obitem.DayAr);
+            }
+            else
+            {
+                addtopage("Emirate", obitem.DayEn);
+            }
+            addtopage("Date", Convert.ToDateTime(obitem.date).ToString("dd MMM yyyy"));           
+            AllData.Text += "<hr>";
+            return obitem.Status;
+        }
+
         public string GetAffirmationGHousingHotelData(string RequestID)
         {
 

@@ -72,7 +72,7 @@
                                 <div class="col-md-2">
                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Day%>" /></label>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-4">
                                    <label><asp:Literal runat="server" id="DDE"/></label>
                         
                                     <asp:DropDownList ID="DropDownDay" runat="server">
@@ -89,7 +89,7 @@
 								<div class="col-md-2">
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Date%>" /></label>
 								</div>
-								<div class="col-md-9">
+								<div class="col-md-4">
 									<div class="input-group date DivDateApportionmentDate" data-provide="datepicker">
 										<input  type="text" runat="server" id="Date" class="form-control">
 										<div class="input-group-addon">

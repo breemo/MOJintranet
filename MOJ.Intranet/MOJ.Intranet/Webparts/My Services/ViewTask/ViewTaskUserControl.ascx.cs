@@ -64,6 +64,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     GetReserveHotelData(task.RequestID);
                 if (task.WorkflowName == "AffirmationReceiptGovernmentHousing")
                     GetAffirmationGHousingHotelData(task.RequestID);
+                if (task.WorkflowName == "ReturnToDutyNoticeMembersOfTheJudiciary")
+                    GetReturnNoticeData(task.RequestID);
+
 
                 ////
                 GetTasksRequest(task.RequestID, task.WorkflowName);
@@ -71,16 +74,32 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             }
             else
             {
-
                 lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: noPermission", "Resource", SPContext.Current.Web.Language) + "<br />";
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
             }
 
         }
+        public string GetReturnNoticeData(string RequestID)
+        {
+            ReturnToDutyNoticeMembersOfTheJudiciaryEntity obitem = new ReturnToDutyNoticeMembersOfTheJudiciary().GetByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", obitem.RequestNumber, "title");
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                addtopage("Emirate", obitem.DayAr);
+            }
+            else
+            {
+                addtopage("Emirate", obitem.DayEn);
+            }
+            addtopage("Date", Convert.ToDateTime(obitem.date).ToString("dd MMM yyyy"));
+            AllData.Text += "<hr>";
+            return obitem.Status;
+        }
         public string GetAffirmationGHousingHotelData(string RequestID)
         {
-
             AffirmationReceiptGovernmentHousingEntity AGHousing = new AffirmationReceiptGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", AGHousing.RequestNumber, "title");
             addtopage("MobileNumber", AGHousing.MobileNumber, "ApportionmentDate", Convert.ToDateTime(AGHousing.ApportionmentDate).ToString("dd MMM yyyy"));
@@ -89,7 +108,6 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             addtopage("agent", AGHousing.agent);
             return AGHousing.Status;
         }
-
         public string GetReserveHotelData(string RequestID)
         {
 
