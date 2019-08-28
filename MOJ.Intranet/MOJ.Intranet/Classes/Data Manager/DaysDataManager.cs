@@ -38,22 +38,18 @@ namespace MOJ.DataManager
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
                                 {
-
                                     DataRow dr = dt.NewRow();
                                     dr["ID"] = Convert.ToInt32(Item["ID"]);
                                     dr["Title"] = Convert.ToString(Item["Title"]);
                                     dr["TitleAr"] = Convert.ToString(Item["DayAr"]);
                                     dt.Rows.Add(dr);
                                 }
-
                             }
                         }
-
                     }
                 }
             });
             return dt;
         }
     }
-    
 }

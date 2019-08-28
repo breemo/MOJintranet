@@ -140,4 +140,102 @@ namespace MOJ.DataManager
         }
         # endregion
     }
+
+    public class OccasionCommentsDataManager
+    {
+        public bool AddOrUpdate(OccasionCommentsEntity Item)
+        {
+            bool isFormSaved = false;
+
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.ReserveHotelUrl);
+                        SPListItem item = null;
+                        if (Item.ID > 0)
+                        {
+                            item = list.GetItemById(Item.ID);
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+                        item["OccasionID"] = Item.OccasionID;
+                        item["Description"] = Item.Description;
+                        item.Update();
+                        list.Update();
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+        public List<OccasionCommentsEntity> GetOccasionCommentsByOccasionID(int OccasionId)
+        {
+            List<OccasionCommentsEntity> OccasionCommentsItems = new List<OccasionCommentsEntity>();
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lstOccasionComments = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.OccasionCommentsListUrl);
+                                if (lstOccasionComments != null)
+                                {
+                                    SPQuery oQuery = new SPQuery();
+                                    oQuery.Query = @"<Where>
+                                                        <Eq>
+	                                                        <FieldRef Name='OccasionId' />
+	                                                        <Value Type='integer'>" + OccasionId + @"</Value>
+                                                        </Eq>
+                                                    </Where><OrderBy><FieldRef Name='Order0' Ascending='True' /></OrderBy>";
+
+                                    SPListItemCollection lstItems = lstOccasionComments.GetItems(oQuery);
+                                    foreach (SPListItem lstItem in lstItems)
+                                    {
+                                        OccasionCommentsEntity comments = new OccasionCommentsEntity();
+                                        comments.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
+                                        comments.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
+                                        comments.OccasionID = Convert.ToInt16(lstItem[SharedConstants.OccasionID]);
+                                        comments.Description = Convert.ToString(lstItem[SharedConstants.Description]);
+
+                                        OccasionCommentsItems.Add(comments);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return OccasionCommentsItems;
+        }
+    }
 }

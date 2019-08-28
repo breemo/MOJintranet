@@ -13,13 +13,13 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails {
     public partial class wpOccasionDetailsUserControl {
         
         /// <summary>
-        /// lblOccasionTitle control.
+        /// lblPublishedBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblOccasionTitle;
+        protected global::System.Web.UI.WebControls.Literal lblPublishedBy;
         
         /// <summary>
         /// lblPublishDate control.
@@ -31,15 +31,6 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails {
         protected global::System.Web.UI.WebControls.Literal lblPublishDate;
         
         /// <summary>
-        /// lblPublishedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblPublishedBy;
-        
-        /// <summary>
         /// lblOccasionBody control.
         /// </summary>
         /// <remarks>
@@ -47,5 +38,23 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblOccasionBody;
+        
+        /// <summary>
+        /// txtComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtComments;
+        
+        /// <summary>
+        /// bntSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bntSubmit;
     }
 }

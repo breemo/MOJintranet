@@ -753,4 +753,7 @@
   <data name="PublishedDate" xml:space="preserve">
     <value>Published Date</value>
   </data>
+  <data name="btnSubmit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
 </root>
