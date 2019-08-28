@@ -15,7 +15,7 @@ namespace MOJ.DataManager
     {
        
       
-        public bool AddOrUpdateHostingChildren(List<SonsEntity> listHostingRequestItem)
+        public bool AddOrUpdateHostingChildren(List<SonsEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -32,11 +32,11 @@ namespace MOJ.DataManager
                         SPList list = web.GetListFromUrl(web.Url + SharedConstants.SonsUrl);
                         SPListItem item = null;
 
-                        foreach (SonsEntity HostingRequestItem in listHostingRequestItem)
+                        foreach (SonsEntity Item in Items)
                         {
-                            if (HostingRequestItem.id > 0)
+                            if (Item.id > 0)
                             {
-                                item = list.GetItemById(HostingRequestItem.id);
+                                item = list.GetItemById(Item.id);
                                 isUpdate = true;
                             }
                             else
@@ -44,15 +44,16 @@ namespace MOJ.DataManager
                                 item = list.AddItem();
                             }
                             
-                            item["Name"] = HostingRequestItem.Name;
-                            item["age"] = HostingRequestItem.age;
-                            item["Gender"] = HostingRequestItem.Gender;                                                     
-                            item["Title"] = HostingRequestItem.RequestNumber;
-                            item["LastEntryDate"] = HostingRequestItem.LastEntryDate;
-                            item["TitlLastExitDatee"] = HostingRequestItem.LastExitDate;
-                            item["BasicSalary"] = HostingRequestItem.BasicSalary;
-                            item["Career"] = HostingRequestItem.Career;
-                            item["HousingAllowance"] = HostingRequestItem.HousingAllowance;
+                            item["Name"] = Item.Name;
+                            item["age"] = Item.age;
+                            item["Gender"] = Item.Gender;                                                     
+                            item["Title"] = Item.RequestNumber;
+
+                            item["LastEntryDate"] = Item.LastEntryDate;
+                            item["LastExitDate"] = Item.LastExitDate;
+                            item["BasicSalary"] = Item.BasicSalary;
+                            item["Career"] = Item.Career;
+                            item["HousingAllowance"] = Item.HousingAllowance;
                            
                            
                             item.Update();

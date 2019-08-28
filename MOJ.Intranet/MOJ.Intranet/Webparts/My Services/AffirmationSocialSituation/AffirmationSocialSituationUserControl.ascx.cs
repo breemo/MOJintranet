@@ -137,6 +137,8 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                     sons.age = Age0.Value;
                     sons.Name = ChildrenName0.Value;
                     sons.Gender = Gender0.SelectedValue;
+                    sons.HousingAllowance = false;
+                    
                     listChildren.Add(sons);
                 }
                 if (hdnChildren.Value != "")
