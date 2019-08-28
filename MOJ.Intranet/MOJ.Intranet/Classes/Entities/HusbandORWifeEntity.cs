@@ -19,5 +19,8 @@ namespace MOJ.Entities
         public string DateOfMarriage { get; set; }
         public bool HasGovernmentHousingAllowance { get; set; }
         public bool HasGovernmentHousingPercentageAllowance { get; set; }
+        public string LastExitDate { get; set; }
+        public string LastEntryDate { get; set; }
+        public string BasicSalary { get; set; }
     }
 }

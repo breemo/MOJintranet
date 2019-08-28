@@ -7,11 +7,11 @@ using MOJ.Entities;
 
 namespace MOJ.Business 
 {
-    public class AffirmationSocialSituationB
+    public class PeriodicalFormForGovernmentHousing
     {
-        public bool SaveUpdate(AffirmationSocialSituationEntity obj)
+        public bool SaveUpdate(PeriodicalFormForGovernmentHousingEntity obj)
         {
-            return new AffirmationSocialSituationDataManager().AddOrUpdateHostingRequest(obj);
+            return new PeriodicalFormForGovernmentHousingDataManager().AddOrUpdate(obj);
         }
         
             public bool SaveUpdateChildren(List<SonsEntity> obj)
@@ -24,9 +24,9 @@ namespace MOJ.Business
             return new HusbandORWifeDataManager().AddOrUpdateHusbandORWife(obj);
         }
 
-        public AffirmationSocialSituationEntity GetAffirmationSocialSituation(int id)
+        public PeriodicalFormForGovernmentHousingEntity GetAffirmationSocialSituation(int id)
         {
-            return new AffirmationSocialSituationDataManager().GetAffirmationSocialSituationByID(id);
+            return new PeriodicalFormForGovernmentHousingDataManager().GetByID(id);
         }
         
 

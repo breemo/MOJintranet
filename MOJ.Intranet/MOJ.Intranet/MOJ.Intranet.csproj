@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\PeriodicalFormForGovernmentHousing.cs" />
     <Compile Include="Classes\Business\GovernmentHousing.cs" />
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
     <Compile Include="Classes\Business\ContactWithHR.cs" />
@@ -102,6 +103,9 @@
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\PeriodicalFormForGovernmentHousingDataManager.cs" />
+    <Compile Include="Classes\Data Manager\HusbandORWifeDataManager.cs" />
+    <Compile Include="Classes\Data Manager\SonsDataManager.cs" />
     <Compile Include="Classes\Data Manager\DaysDataManager.cs" />
     <Compile Include="Classes\Data Manager\ReturnToDutyNoticeMembersOfTheJudiciaryDataManger.cs" />
     <Compile Include="Classes\Data Manager\ReserveHotelDataManger.cs" />
@@ -130,6 +134,7 @@
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
+    <Compile Include="Classes\Entities\PeriodicalFormForGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\DaysEntity.cs" />
     <Compile Include="Classes\Entities\ReturnToDutyNoticeMembersOfTheJudiciaryEntity.cs" />
     <Compile Include="Classes\Entities\ReserveHotelPeopleEntity.cs" />
@@ -439,6 +444,14 @@
     <Compile Include="Webparts\My Services\myTasks\myTasksUserControl.ascx.designer.cs">
       <DependentUpon>myTasksUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\PeriodicalFormForGovernmentHousingWP.cs" />
+    <Compile Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\PeriodicalFormForGovernmentHousingWPUserControl.ascx.cs">
+      <DependentUpon>PeriodicalFormForGovernmentHousingWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\PeriodicalFormForGovernmentHousingWPUserControl.ascx.designer.cs">
+      <DependentUpon>PeriodicalFormForGovernmentHousingWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWP.cs" />
     <Compile Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx.cs">
       <DependentUpon>ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx</DependentUpon>
@@ -657,6 +670,10 @@
     <None Include="Webparts\My Services\myTasks\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{42a1ccae-8b17-4e42-82cc-d5c7f323aaa7}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\PeriodicalFormForGovernmentHousingWP.webpart" />
+    <None Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{716f623c-c9d0-4cae-b125-87c86e767fd0}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWP.webpart" />
     <None Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fe29b231-4329-498a-82b5-7572ef087018}</SharePointProjectItemId>
@@ -773,6 +790,8 @@
     <Content Include="Webparts\My Services\MyRequestsWP\MyRequestsWPUserControl.ascx" />
     <Content Include="Webparts\My Services\myTasks\Elements.xml" />
     <Content Include="Webparts\My Services\myTasks\myTasksUserControl.ascx" />
+    <Content Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\Elements.xml" />
+    <Content Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\PeriodicalFormForGovernmentHousingWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\Elements.xml" />
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewRequestWP\Elements.xml" />
