@@ -29,7 +29,7 @@ namespace MOJ.DataManager
                             SPUser currentUser = web.CurrentUser;
 
                             web.AllowUnsafeUpdates = true;
-                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.AffirmationSocialSituationUrl);
+                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.PeriodicalFormForGovernmentHousingUrl);
                             SPListItem item = null;
 
                             if (Item.id > 0)
@@ -42,7 +42,7 @@ namespace MOJ.DataManager
                                 item = list.AddItem();
                             }
                         
-                            item["Name"] = Item.ContractNumber;
+                            item["ContractNumber"] = Item.ContractNumber;
                             item["ApartmentNumber"] = Item.ApartmentNumber;
                             item["Owner"] = Item.Owner;
                             item["NumberOfRooms"] = Item.NumberOfRooms;                            
