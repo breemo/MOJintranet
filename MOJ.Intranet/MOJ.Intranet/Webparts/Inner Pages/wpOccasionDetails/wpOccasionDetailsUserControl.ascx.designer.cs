@@ -22,6 +22,24 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails {
         protected global::System.Web.UI.WebControls.Literal lblOccasionTitle;
         
         /// <summary>
+        /// lblPublishDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblPublishDate;
+        
+        /// <summary>
+        /// lblPublishedBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblPublishedBy;
+        
+        /// <summary>
         /// lblOccasionBody control.
         /// </summary>
         /// <remarks>

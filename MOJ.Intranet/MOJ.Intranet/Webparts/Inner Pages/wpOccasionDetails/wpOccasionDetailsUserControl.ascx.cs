@@ -1,4 +1,5 @@
-﻿using MOJ.Business;
+﻿using Microsoft.SharePoint;
+using MOJ.Business;
 using MOJ.Entities;
 using System;
 using System.Web.UI;
@@ -12,20 +13,24 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-                FillDetails();
+            {
+                if (Request.QueryString["OccasionId"] != null)
+                    FillDetails();
+                else
+                    Response.Redirect(SPContext.Current.RootFolderUrl);
+            }
         }
         public void FillDetails()
         {
             try
             {
-                string ID = Request.QueryString["Id"].ToString();
-                //string Type = Request.QueryString["Type"].ToString();
-                OccasionsEntity occasionItem = new Occasions().GetOccasionById(Convert.ToInt32(ID));
+                string OccasionID = Request.QueryString["OccasionId"].ToString();
+                OccasionsEntity occasionItem = new Occasions().GetOccasionById(Convert.ToInt32(OccasionID));
 
                 lblOccasionTitle.Text = occasionItem.Title;
                 lblOccasionBody.Text = occasionItem.Description;
-
-                //Convert.ToDateTime(occasionItem.Created).ToString("dd-MMM-yyyy")
+                lblPublishDate.Text = Convert.ToDateTime(occasionItem.Created).ToString("dd yyyy MMM"); // "10 ديسمبر 2012";
+                lblPublishedBy.Text = occasionItem.CreatedBy;
             }
             catch (Exception ex)
             {

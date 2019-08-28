@@ -123,6 +123,7 @@ namespace MOJ.DataManager
 
                                     OccasionItem.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
                                     OccasionItem.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
+                                    OccasionItem.CreatedBy = Convert.ToString(lstItem["Author"]);
                                     OccasionItem.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
                                     OccasionItem.Description = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colDescription", "Resource", SPContext.Current.Web.Language)]);
                                 }
@@ -130,7 +131,6 @@ namespace MOJ.DataManager
                         }
                     }
                 });
-
             }
             catch (Exception ex)
             {
