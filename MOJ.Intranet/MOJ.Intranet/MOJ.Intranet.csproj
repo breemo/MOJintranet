@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\PeriodicalFormForGovernmentHousing.cs" />
     <Compile Include="Classes\Business\GovernmentHousing.cs" />
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
     <Compile Include="Classes\Business\ContactWithHR.cs" />
