@@ -102,6 +102,9 @@
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\PeriodicalFormForGovernmentHousingDataManager.cs" />
+    <Compile Include="Classes\Data Manager\HusbandORWifeDataManager.cs" />
+    <Compile Include="Classes\Data Manager\SonsDataManager.cs" />
     <Compile Include="Classes\Data Manager\DaysDataManager.cs" />
     <Compile Include="Classes\Data Manager\ReturnToDutyNoticeMembersOfTheJudiciaryDataManger.cs" />
     <Compile Include="Classes\Data Manager\ReserveHotelDataManger.cs" />
@@ -130,6 +133,7 @@
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
+    <Compile Include="Classes\Entities\PeriodicalFormForGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\DaysEntity.cs" />
     <Compile Include="Classes\Entities\ReturnToDutyNoticeMembersOfTheJudiciaryEntity.cs" />
     <Compile Include="Classes\Entities\ReserveHotelPeopleEntity.cs" />

@@ -16,12 +16,12 @@ namespace MOJ.Business
         
             public bool SaveUpdateChildren(List<SonsEntity> obj)
         {
-            return new AffirmationSocialSituationDataManager().AddOrUpdateHostingChildren(obj);
+            return new SonsDataManager().AddOrUpdateHostingChildren(obj);
         }
         
                 public bool SaveUpdateHusbandORWife(List<HusbandORWifeEntity> obj)
         {
-            return new AffirmationSocialSituationDataManager().AddOrUpdateHusbandORWife(obj);
+            return new HusbandORWifeDataManager().AddOrUpdateHusbandORWife(obj);
         }
 
         public AffirmationSocialSituationEntity GetAffirmationSocialSituation(int id)
@@ -32,12 +32,12 @@ namespace MOJ.Business
 
             public List<HusbandORWifeEntity> GetHusbandORWife(string title)
         {
-            return new AffirmationSocialSituationDataManager().GetHusbandORWife(title);
+            return new HusbandORWifeDataManager().GetHusbandORWife(title);
         }
         
          public List<SonsEntity> Getsons(string title)
         {
-            return new AffirmationSocialSituationDataManager().Getsons(title);
+            return new SonsDataManager().Getsons(title);
         }
 
         

@@ -11,10 +11,10 @@ using System.Globalization;
 
 namespace MOJ.DataManager
 {
-    public class AffirmationSocialSituationDataManager
+    public class  PeriodicalFormForGovernmentHousingDataManager
     {
        
-        public bool AddOrUpdateHostingRequest(AffirmationSocialSituationEntity HostingRequestItem)
+        public bool AddOrUpdate(PeriodicalFormForGovernmentHousingEntity Item)
         {
             bool isFormSaved = false;          
             bool isUpdate=false;
@@ -32,26 +32,31 @@ namespace MOJ.DataManager
                             SPList list = web.GetListFromUrl(web.Url + SharedConstants.AffirmationSocialSituationUrl);
                             SPListItem item = null;
 
-                            if (HostingRequestItem.id > 0)
+                            if (Item.id > 0)
                             {
-                                item = list.GetItemById(HostingRequestItem.id);
+                                item = list.GetItemById(Item.id);
                                 isUpdate = true;
                             }
                             else
                             {
                                 item = list.AddItem();
                             }
-                        if (!string.IsNullOrEmpty(HostingRequestItem.ChangeDate))
+                        if (!string.IsNullOrEmpty(Item.ChangeDate))
                         {
-                            DateTime ChangeDateV = DateTime.ParseExact(HostingRequestItem.ChangeDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            DateTime ChangeDateV = DateTime.ParseExact(Item.ChangeDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             item["ChangeDate"] = SPUtility.CreateISO8601DateTimeFromSystemDateTime(ChangeDateV);
 
                         }
-                        item["Name"] = HostingRequestItem.Name;
-                            item["RelationshipType"] = HostingRequestItem.RelationshipType;
-                            item["ChangeReason"] = HostingRequestItem.ChangeReason;
-                            item["HusbandORWife"] = HostingRequestItem.HusbandORWife;                            
-                            item["Title"] = HostingRequestItem.RequestNumber;
+                            item["Name"] = Item.ContractNumber;
+                            item["ApartmentNumber"] = Item.ApartmentNumber;
+                            item["Owner"] = Item.Owner;
+                            item["NumberOfRooms"] = Item.NumberOfRooms;                            
+                            item["ACtype"] = Item.ACtype;                            
+                            item["LeasingContractEndDate"] = Item.LeasingContractEndDate;                            
+                            item["Mobile"] = Item.Mobile;                            
+                            item["HomePhone"] = Item.HomePhone;                            
+                            item["WorkPhone"] = Item.WorkPhone;                            
+                            item["Title"] = Item.RequestNumber;
                             item.Update();
                             list.Update();
                             isFormSaved = true;
@@ -73,9 +78,9 @@ namespace MOJ.DataManager
         }
 
 
-            public AffirmationSocialSituationEntity GetAffirmationSocialSituationByID(int id)
+            public PeriodicalFormForGovernmentHousingEntity GetByID(int id)
         {
-            AffirmationSocialSituationEntity obitem = new AffirmationSocialSituationEntity();
+            PeriodicalFormForGovernmentHousingEntity obitem = new PeriodicalFormForGovernmentHousingEntity();
             try
             {
                 SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -87,18 +92,22 @@ namespace MOJ.DataManager
                         {
                             if (oWeb != null)
                             {
-                                SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.AffirmationSocialSituationUrl);
+                                SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.PeriodicalFormForGovernmentHousingUrl);
                                 if (lstRoom != null)
                                 {
                                     SPListItem Item = lstRoom.GetItemById(id);
 
-                                 obitem.ChangeDate = Convert.ToDateTime(Item["ChangeDate"]).ToString();
-                                    obitem.Name = Convert.ToString(Item["Name"]);
-                                    obitem.RelationshipType = Convert.ToString(Item["RelationshipType"]);
-                                    obitem.ChangeReason = Convert.ToString(Item["ChangeReason"]);
-                                    obitem.HusbandORWife = Convert.ToString(Item["HusbandORWife"]);
-                                    obitem.RequestNumber = Convert.ToString(Item["Title"]);
-                                    obitem.Status = Convert.ToString(Item["Status"]);
+                                   obitem.ContractNumber = Convert.ToString(Item["ContractNumber"]);
+                                   obitem.ApartmentNumber = Convert.ToString(Item["ApartmentNumber"]);
+                                   obitem.Owner = Convert.ToString(Item["Owner"]);
+                                   obitem.NumberOfRooms = Convert.ToString(Item["NumberOfRooms"]);
+                                   obitem.ACtype = Convert.ToString(Item["ACtype"]);
+                                   obitem.LeasingContractEndDate = Convert.ToString(Item["LeasingContractEndDate"]);
+                                   obitem.Mobile = Convert.ToString(Item["Mobile"]);
+                                   obitem.HomePhone = Convert.ToString(Item["HomePhone"]);
+                                   obitem.WorkPhone = Convert.ToString(Item["WorkPhone"]);                                    
+                                   obitem.RequestNumber = Convert.ToString(Item["Title"]);
+                                   obitem.Status = Convert.ToString(Item["Status"]);
 
                             }
                             }

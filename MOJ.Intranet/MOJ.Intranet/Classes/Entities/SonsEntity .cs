@@ -14,6 +14,11 @@ namespace MOJ.Entities
         public string Gender { get; set; }        
         public string Name { get; set; }       
         public string age { get; set; }        
+        public string Career { get; set; }        
+        public string BasicSalary { get; set; }        
+        public bool HousingAllowance { get; set; }        
+        public string LastEntryDate { get; set; }        
+        public string LastExitDate { get; set; }        
 
     }
 }

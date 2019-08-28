@@ -702,4 +702,46 @@
   <data name="ReturnToDutyNoticeMembersOfTheJudiciary" xml:space="preserve">
     <value>أشعار عودة للسلطة القضائية</value>
   </data>
+  <data name="ACtype" xml:space="preserve">
+    <value>نوع التكييف</value>
+  </data>
+  <data name="ApartmentNumber" xml:space="preserve">
+    <value>رقم الشقة</value>
+  </data>
+  <data name="Career" xml:space="preserve">
+    <value>المهنة</value>
+  </data>
+  <data name="ContractNumber" xml:space="preserve">
+    <value>نوع العقد</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>موظف</value>
+  </data>
+  <data name="HomePhone" xml:space="preserve">
+    <value>هاتف المنزل</value>
+  </data>
+  <data name="HousingAllowance" xml:space="preserve">
+    <value>علاوة سكن</value>
+  </data>
+  <data name="LastEntryDate" xml:space="preserve">
+    <value>تاريخ اخر دخول</value>
+  </data>
+  <data name="LastExitDate" xml:space="preserve">
+    <value>تاريخ اخر خروج</value>
+  </data>
+  <data name="LeasingContractEndDate" xml:space="preserve">
+    <value>تاريخ انتهاء عقد الأيجار</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>هاتف محمول</value>
+  </data>
+  <data name="PeriodicalFormForGovernmentHousing" xml:space="preserve">
+    <value>أستمارة دورية خاصة بالسكن الحكومي</value>
+  </data>
+  <data name="Student" xml:space="preserve">
+    <value>طالب</value>
+  </data>
+  <data name="WorkPhone" xml:space="preserve">
+    <value>هاتف العمل</value>
+  </data>
 </root>
