@@ -41,12 +41,7 @@ namespace MOJ.DataManager
                             {
                                 item = list.AddItem();
                             }
-                        if (!string.IsNullOrEmpty(Item.ChangeDate))
-                        {
-                            DateTime ChangeDateV = DateTime.ParseExact(Item.ChangeDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                            item["ChangeDate"] = SPUtility.CreateISO8601DateTimeFromSystemDateTime(ChangeDateV);
-
-                        }
+                        
                             item["Name"] = Item.ContractNumber;
                             item["ApartmentNumber"] = Item.ApartmentNumber;
                             item["Owner"] = Item.Owner;
