@@ -744,4 +744,7 @@
   <data name="WorkPhone" xml:space="preserve">
     <value>Work phone</value>
   </data>
+  <data name="Shared" xml:space="preserve">
+    <value>Shared</value>
+  </data>
 </root>

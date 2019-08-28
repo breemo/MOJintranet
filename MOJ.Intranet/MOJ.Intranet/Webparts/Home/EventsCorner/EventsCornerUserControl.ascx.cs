@@ -65,7 +65,7 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
                                             </div>
                                             <div class='eventmorebutton'>
                                                 <div class='morebtn2'>
-                                                    <a href='{5}/Details.aspx?id={3}&type=occasion' class='slide newmorebuttoncss arrow'>{4}</a>
+                                                    <a href='{5}/OccasionDetails.aspx?id={3}' class='slide newmorebuttoncss arrow'>{4}</a>
                                                 </div>
                                             </div>
                                         </div>

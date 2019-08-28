@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOJ.Intranet.Webparts.Inner_Pages.OccasionsDetails {
+namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails {
     
     
-    public partial class OccasionsDetailsUserControl {
+    public partial class wpOccasionDetailsUserControl {
         
         /// <summary>
-        /// lblTitle control.
+        /// lblOccasionTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblTitle;
+        protected global::System.Web.UI.WebControls.Literal lblOccasionTitle;
         
         /// <summary>
-        /// lblBody control.
+        /// lblOccasionBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblBody;
+        protected global::System.Web.UI.WebControls.Literal lblOccasionBody;
     }
 }

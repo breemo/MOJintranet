@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="wpOccasionDetailsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="wpOccasionDetails\" Type="ElementManifest" />
+    <ProjectItemFile Source="wpOccasionDetails.webpart" Target="wpOccasionDetails\" Type="ElementFile" />
+    <ProjectItemFile Source="wpOccasionDetailsUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.Inner_Pages\wpOccasionDetails\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>
