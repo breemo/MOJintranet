@@ -48,7 +48,8 @@ namespace MOJ.DataManager
                             item["NumberOfRooms"] = Item.NumberOfRooms;                            
                             item["ACtype"] = Item.ACtype;                            
                             item["LeasingContractEndDate"] = Item.LeasingContractEndDate;                            
-                            item["Mobile"] = Item.Mobile;                            
+                            item["Mobile"] = Item.Mobile;
+                            item["HusbandORWife"] = Item.HusbandORWife;
                             item["HomePhone"] = Item.HomePhone;                            
                             item["WorkPhone"] = Item.WorkPhone;                            
                             item["Title"] = Item.RequestNumber;
@@ -91,7 +92,7 @@ namespace MOJ.DataManager
                                 if (lstRoom != null)
                                 {
                                     SPListItem Item = lstRoom.GetItemById(id);
-
+                                   obitem.HusbandORWife = Convert.ToString(Item["HusbandORWife"]);
                                    obitem.ContractNumber = Convert.ToString(Item["ContractNumber"]);
                                    obitem.ApartmentNumber = Convert.ToString(Item["ApartmentNumber"]);
                                    obitem.Owner = Convert.ToString(Item["Owner"]);
