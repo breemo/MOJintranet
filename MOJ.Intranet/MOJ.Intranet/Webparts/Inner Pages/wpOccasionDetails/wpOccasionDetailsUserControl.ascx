@@ -8,7 +8,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wpOccasionDetailsUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails.wpOccasionDetailsUserControl" %>
 
 
-<h3>المناسبات</h3>
+<h3><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEvents%>" /></h3>
 
 <div class="comment">
     <div class="commentnewhead">
@@ -21,15 +21,13 @@
             </div>
             <div class="comment-header-meta">
                 <p>
-                    تاريخ النشر
+                    <asp:Literal runat="server" Text="<%$ Resources:Resource, PublishedDate%>" />
                 </p>
-                <span>10 ديسمبر 2012</span>
+                <span><asp:Literal runat="server" ID="lblPublishDate"></asp:Literal></span>
             </div>
             <div class="comment-header-meta">
-                <p>
-                    نشرت من قبل
-                </p>
-                <span>10 ديسمبر 2012</span>
+                <p><asp:Literal runat="server" Text="<%$ Resources:Resource, PublishedBy%>" /></p>
+                <span><asp:Literal runat="server" ID="lblPublishedBy"></asp:Literal></span>
             </div>
         </div>
         <div class="comment-body">

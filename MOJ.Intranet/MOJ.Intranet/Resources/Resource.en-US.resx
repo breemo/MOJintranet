@@ -747,4 +747,10 @@
   <data name="Shared" xml:space="preserve">
     <value>Shared</value>
   </data>
+  <data name="PublishedBy" xml:space="preserve">
+    <value>Published By</value>
+  </data>
+  <data name="PublishedDate" xml:space="preserve">
+    <value>Published Date</value>
+  </data>
 </root>

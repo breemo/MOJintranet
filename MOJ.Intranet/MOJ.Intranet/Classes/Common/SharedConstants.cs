@@ -62,7 +62,7 @@ namespace CommonLibrary
         public const string NewsListUrl = "/Lists/News/AllItems.aspx";
         public const string MemosListUrl = "/Lists/Circulars/AllItems.aspx";
         public const string PhotoGalleryListUrl = "MOJGallery/Forms/Thumbnails.aspx";
-        public const string OccasionsListUrl = "/Lists/Occasions/AllItems.aspx";
+        public const string OccasionsListUrl = "/Lists/MinistryOccasions/AllItems.aspx";
 
         //updated by samir...Sticky Notes List
         public const string CarOrderServiceName = "CarOrderService";
