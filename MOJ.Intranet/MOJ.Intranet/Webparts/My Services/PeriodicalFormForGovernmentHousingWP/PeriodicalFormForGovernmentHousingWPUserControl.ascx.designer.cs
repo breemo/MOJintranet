@@ -130,6 +130,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         protected global::System.Web.UI.HtmlControls.HtmlInputText ContractNumber;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// ApartmentNumber control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText ApartmentNumber;
+        
+        /// <summary>
+        /// RequiredFieldValidatorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage;
         
         /// <summary>
         /// Owner control.
@@ -148,6 +166,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         protected global::System.Web.UI.HtmlControls.HtmlInputText Owner;
         
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// NumberOfRooms control.
         /// </summary>
         /// <remarks>
@@ -155,6 +182,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText NumberOfRooms;
+        
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// ACtype control.
@@ -166,6 +202,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         protected global::System.Web.UI.HtmlControls.HtmlInputText ACtype;
         
         /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
         /// LeasingContractEndDate control.
         /// </summary>
         /// <remarks>
@@ -173,6 +218,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText LeasingContractEndDate;
+        
+        /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
         /// Mobile control.
@@ -184,6 +238,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         protected global::System.Web.UI.HtmlControls.HtmlInputText Mobile;
         
         /// <summary>
+        /// RequiredFieldValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        
+        /// <summary>
         /// HomePhone control.
         /// </summary>
         /// <remarks>
@@ -193,6 +256,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         protected global::System.Web.UI.HtmlControls.HtmlInputText HomePhone;
         
         /// <summary>
+        /// RequiredFieldValidator7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        
+        /// <summary>
         /// WorkPhone control.
         /// </summary>
         /// <remarks>
@@ -200,6 +272,15 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText WorkPhone;
+        
+        /// <summary>
+        /// RequiredFieldValidator8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
         /// RBHusbandORWife control.

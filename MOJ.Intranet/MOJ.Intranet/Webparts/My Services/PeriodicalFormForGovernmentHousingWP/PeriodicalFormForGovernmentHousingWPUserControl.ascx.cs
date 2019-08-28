@@ -131,6 +131,7 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                 RecordPrfix = "Periodical-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("PeriodicalFormForGovernmentHousing");
                 PeriodicalFormForGovernmentHousingEntity itemSumbit = new PeriodicalFormForGovernmentHousingEntity();
 
+                itemSumbit.HusbandORWife = RBHusbandORWife.SelectedValue;
                 itemSumbit.ContractNumber = ContractNumber.Value;
                 itemSumbit.ApartmentNumber = ApartmentNumber.Value;
                 itemSumbit.Owner = Owner.Value;
@@ -167,8 +168,8 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                     string[] Career = Request.Form.GetValues("Career");
                     string[] SBasicSalary = Request.Form.GetValues("SBasicSalary");
                     string[] SLastEntryDate = Request.Form.GetValues("SLastEntryDate");
-                    string[] SLastExitDatea = Request.Form.GetValues("SLastExitDate");
-                    string[] SLastEntryDatea = Request.Form.GetValues("SLastEntryDate");
+                    string[] SLastExitDate = Request.Form.GetValues("SLastExitDate");
+                  
                     for (int x = 0; x < Convert.ToInt32(ChildrenName.Length); x++)
                     {
                         if (!string.IsNullOrEmpty(ChildrenName[x]))
@@ -178,14 +179,9 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                             sonsob.age = age[x];
                             sonsob.Name = ChildrenName[x];
                             sonsob.Gender = GenderR[x];
-                            sonsob.Gender = GenderR[x];
-                            sonsob.Gender = GenderR[x];
-                            sonsob.Gender = GenderR[x];
-
-
-
-
-
+                            sonsob.BasicSalary = SBasicSalary[x];
+                            sonsob.LastEntryDate = SLastEntryDate[x];
+                            sonsob.LastExitDate = SLastExitDate[x];
                             if (Request.Form["HousingAllowance" + x] != null && Request.Form["HousingAllowance" + x] == "on")
                             {
                                 sonsob.HousingAllowance = true;
@@ -199,33 +195,30 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                     }
                 }
                 Ass.SaveUpdateChildren(listChildren);
-
-
                 /////////////////////////////////////////////////////////////////////
                 List<HusbandORWifeEntity> listHusbandORWife = new List<HusbandORWifeEntity>();
                 if (!string.IsNullOrEmpty(Name0.Value))
                 {
                     HusbandORWifeEntity HusbandORWife = new HusbandORWifeEntity();
                     HusbandORWife.RequestNumber = RecordPrfix;
-                    //HusbandORWife.workSector = WorkSector0.SelectedValue;
-                    //HusbandORWife.Name = Name0.Value;
-                    //HusbandORWife.HusbandORWife = RBHusbandORWife.SelectedValue;
-                    //HusbandORWife.Employer = Employer0.Value;
-                    //HusbandORWife.HiringDate = HiringDate0.Value;
-                    //HusbandORWife.DateOfMarriage = DateMarriage0.Value;
-                    //HusbandORWife.HasGovernmentHousingAllowance = HasGovernmentHousingAllowance0.Checked;
-                    //HusbandORWife.HasGovernmentHousingPercentageAllowance = HasGovernmentHousingPercentageAllowance0.Checked;
-
-
+                    HusbandORWife.workSector = WorkSector0.SelectedValue;
+                    HusbandORWife.Name = Name0.Value;
+                    HusbandORWife.HusbandORWife = RBHusbandORWife.SelectedValue;
+                    HusbandORWife.HiringDate = HiringDate0.Value;
+                    HusbandORWife.BasicSalary = BasicSalary0.Value;                    
+                    HusbandORWife.LastEntryDate = LastEntryDate0.Value;
+                    HusbandORWife.LastExitDate = LastExitDate0.Value;
+                    HusbandORWife.HasGovernmentHousingPercentageAllowance = HasGovernmentHousingPercentageAllowance0.Checked;
                     listHusbandORWife.Add(HusbandORWife);
                 }
                 if (hdnHusbandORWife.Value != "")
                 {
                     string[] Name = Request.Form.GetValues("Name");
-                    string[] DateMarriage = Request.Form.GetValues("DateMarriage");
-                    string[] Employer = Request.Form.GetValues("Employer");
-                    string[] WorkSector = Request.Form.GetValues("WorkSector");
                     string[] HiringDate = Request.Form.GetValues("HiringDate");
+                    string[] WorkSector = Request.Form.GetValues("WorkSector");
+                    string[] BasicSalary = Request.Form.GetValues("BasicSalary");
+                    string[] LastEntryDate = Request.Form.GetValues("LastEntryDate");
+                    string[] LastExitDate = Request.Form.GetValues("LastExitDate");
                     for (int x = 0; x < Convert.ToInt32(Name.Length); x++)
                     {
                         if (!string.IsNullOrEmpty(Name[x]))
@@ -235,17 +228,10 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                             HusbandORWifeitems.workSector = WorkSector[x];
                             HusbandORWifeitems.Name = Name[x];
                             HusbandORWifeitems.HusbandORWife = RBHusbandORWife.SelectedValue;
-                            HusbandORWifeitems.Employer = Employer[x];
+                            HusbandORWifeitems.BasicSalary = BasicSalary[x];
                             HusbandORWifeitems.HiringDate = HiringDate[x];
-                            HusbandORWifeitems.DateOfMarriage = DateMarriage[x];
-                            if (Request.Form["HasGovernmentHousingAllowance" + x] != null && Request.Form["HasGovernmentHousingAllowance" + x] == "on")
-                            {
-                                HusbandORWifeitems.HasGovernmentHousingAllowance = true;
-                            }
-                            else
-                            {
-                                HusbandORWifeitems.HasGovernmentHousingAllowance = false;
-                            }
+                            HusbandORWifeitems.LastEntryDate = LastEntryDate[x];                           
+                            HusbandORWifeitems.LastExitDate = LastExitDate[x];                           
                             if (Request.Form["HasGovernmentHousingPercentageAllowance" + x] != null && Request.Form["HasGovernmentHousingPercentageAllowance" + x] == "on")
                             {
                                 HusbandORWifeitems.HasGovernmentHousingPercentageAllowance = true;
@@ -255,31 +241,22 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                                 HusbandORWifeitems.HasGovernmentHousingPercentageAllowance = false;
 
                             }
-
                             listHusbandORWife.Add(HusbandORWifeitems);
                         }
                     }
                 }
                 Ass.SaveUpdateHusbandORWife(listHusbandORWife);
-
-
                 if (isSaved == true)
                 {
                     lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
                     posts.Style.Add("display", "none");
                     SuccessMsgDiv.Style.Add("display", "block");
                 }
-
-
-
             }
             catch (Exception ex)
             {
                 LoggingService.LogError("WebParts", ex.Message);
             }
-
-
-
         }
     }
 }

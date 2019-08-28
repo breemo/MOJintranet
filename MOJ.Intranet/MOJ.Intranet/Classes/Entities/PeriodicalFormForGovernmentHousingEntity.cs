@@ -15,8 +15,8 @@ namespace MOJ.Entities
         
         public string Status { get; set; }
         
-        public DateTime Created { get; set; }       
-        
+        public DateTime Created { get; set; }
+        public string HusbandORWife { get; set; }
         public string ContractNumber { get; set; }
         public string ApartmentNumber { get; set; }
         public string Owner { get; set; }
