@@ -753,4 +753,7 @@
   <data name="PublishedDate" xml:space="preserve">
     <value>تاريخ النشر</value>
   </data>
+  <data name="btnSubmit" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
 </root>

@@ -23,7 +23,8 @@ namespace CommonLibrary
         public const string DescriptionEn = "DescriptionEn";
         public const string Name = "Name";
         public const string PageName = "PageName";
-        
+        public const string OccasionID = "OccasionID";
+
         #endregion
 
         #region News
@@ -63,6 +64,7 @@ namespace CommonLibrary
         public const string MemosListUrl = "/Lists/Circulars/AllItems.aspx";
         public const string PhotoGalleryListUrl = "MOJGallery/Forms/Thumbnails.aspx";
         public const string OccasionsListUrl = "/Lists/MinistryOccasions/AllItems.aspx";
+        public const string OccasionCommentsListUrl = "/Lists/OccasionComments/AllItems.aspx";
 
         //updated by samir...Sticky Notes List
         public const string CarOrderServiceName = "CarOrderService";
@@ -142,6 +144,13 @@ namespace CommonLibrary
         public const string GalleryViewfields = "<FieldRef Name='Title'/><FieldRef Name='Created'/><FieldRef Name='isActive'/>";
 
         public const string OccasionsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        //public const string OccasionCommentsQuery = @"<Where>
+                                                  //     <Eq>
+	                                              //         <FieldRef Name='OccasionId' />
+	                                              //         <Value Type='Boolean'>1</Value>
+                                                  //     </Eq>
+                                                  // </Where><OrderBy><FieldRef Name='Order0' Ascending='True' /></OrderBy>";
+
         public const string OccasionsViewfields = "<FieldRef Name='ID'/><FieldRef Name='Title'/><FieldRef Name='Description'/><FieldRef Name='TitleEn'/><FieldRef Name='DescriptionEn'/><FieldRef Name='Created' LinkToItem='true'/>";
 
         public const string LiveEventsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";

@@ -23,4 +23,16 @@ namespace MOJ.Business
             return new OccasionsDataManager().GetOccasionByID(id);
         }
     }
+
+    public class OccasionComments
+    {
+        public List<OccasionCommentsEntity> GetCommentsByOccasionId(int OccasionId)
+        {
+            return new OccasionCommentsDataManager().GetOccasionCommentsByOccasionID(OccasionId);
+        }
+        public bool SaveUpdate(OccasionCommentsEntity obj)
+        {
+            return new OccasionCommentsDataManager().AddOrUpdate(obj);
+        }
+    }
 }

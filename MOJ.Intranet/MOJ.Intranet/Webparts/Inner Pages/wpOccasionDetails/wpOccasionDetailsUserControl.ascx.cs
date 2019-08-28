@@ -1,4 +1,5 @@
 ﻿using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
@@ -20,6 +21,22 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
                     Response.Redirect(SPContext.Current.RootFolderUrl);
             }
         }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            OccasionCommentsEntity itemSumbit = new OccasionCommentsEntity();
+            itemSumbit.OccasionID = int.Parse(Request.QueryString["OccasionId"]);
+            itemSumbit.Description = txtComments.Value;
+
+            OccasionComments comments = new OccasionComments();
+            bool isSaved = comments.SaveUpdate(itemSumbit);
+
+            //if (isSaved == true)
+            //{
+            //    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+            //    posts.Style.Add("display", "none");
+            //    SuccessMsgDiv.Style.Add("display", "block");
+            //}
+        }
         public void FillDetails()
         {
             try
@@ -27,9 +44,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
                 string OccasionID = Request.QueryString["OccasionId"].ToString();
                 OccasionsEntity occasionItem = new Occasions().GetOccasionById(Convert.ToInt32(OccasionID));
 
-                lblOccasionTitle.Text = occasionItem.Title;
                 lblOccasionBody.Text = occasionItem.Description;
-                lblPublishDate.Text = Convert.ToDateTime(occasionItem.Created).ToString("dd yyyy MMM"); // "10 ديسمبر 2012";
+                lblPublishDate.Text = Convert.ToDateTime(occasionItem.Created).ToString("dd MMM yyyy"); // "10 ديسمبر 2012";
                 lblPublishedBy.Text = occasionItem.CreatedBy;
             }
             catch (Exception ex)

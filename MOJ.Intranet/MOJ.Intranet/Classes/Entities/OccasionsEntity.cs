@@ -15,4 +15,13 @@ namespace MOJ.Entities
         public string CreatedBy { get; set; }
         public DateTime Created { get; set; }
     }
+
+    public class OccasionCommentsEntity
+    {
+        public int ID { get; set; }
+        public int OccasionID { get; set; }
+        public string Description { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime Created { get; set; }
+    }
 }

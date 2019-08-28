@@ -17,7 +17,7 @@
                 style="background-image: url(images/OccUSer.jpg);">
             </div>
             <div class="comment-header-username">
-                <asp:Literal runat="server" ID="lblOccasionTitle"></asp:Literal>
+                <asp:Literal runat="server" ID="lblPublishedBy"></asp:Literal>
             </div>
             <div class="comment-header-meta">
                 <p>
@@ -25,10 +25,10 @@
                 </p>
                 <span><asp:Literal runat="server" ID="lblPublishDate"></asp:Literal></span>
             </div>
-            <div class="comment-header-meta">
+<%--            <div class="comment-header-meta">
                 <p><asp:Literal runat="server" Text="<%$ Resources:Resource, PublishedBy%>" /></p>
-                <span><asp:Literal runat="server" ID="lblPublishedBy"></asp:Literal></span>
-            </div>
+                <span></span>
+            </div>--%>
         </div>
         <div class="comment-body">
             <asp:Literal runat="server" ID="lblOccasionBody"></asp:Literal>
@@ -66,7 +66,10 @@
                     <img src="images/commentuser.jpg" class="img-circle img-fluid" />
                 </div>
                 <div class="ricom">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea runat="server" class="form-control" id="txtComments" rows="3"></textarea>
+                </div>
+                <div class="col-md-3">
+                    <asp:Button ID="bntSubmit" runat="server" Text='<%$ Resources:Resource, btnSubmit%>' class="btnclass" OnClick="btnSubmit_Click" />
                 </div>
             </div>
         </div>
