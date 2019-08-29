@@ -56,6 +56,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetAffirmationGHousingHotelData(RequestID);
             if (listName == "ReturnToDutyNoticeMembersOfTheJudiciary")
                 Status = GetReturnNoticeData(RequestID);
+            if (listName == "PeriodicalFormForGovernmentHousing")
+                Status = GetPeriodicalFormForGovernmentHousingData(RequestID);
+
 
 
             GetTasksRequest(RequestID, listName);
@@ -63,6 +66,68 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage(Status, "");
 
         }
+        public string GetPeriodicalFormForGovernmentHousingData(string RequestID)
+        {
+            PeriodicalFormForGovernmentHousingEntity masteritem = new PeriodicalFormForGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.RequestNumber, "title"); 
+           addtopage("ContractNumber", masteritem.ContractNumber, "ApartmentNumber", masteritem.ApartmentNumber);
+           addtopage("Owner", masteritem.Owner, "NumberOfRooms", masteritem.NumberOfRooms);
+           addtopage("ACtype", masteritem.ACtype, "LeasingContractEndDate", masteritem.LeasingContractEndDate);
+           addtopage("Mobile", masteritem.Mobile, "HomePhone", masteritem.HomePhone);           
+           addtopage("WorkPhone", masteritem.WorkPhone);         
+
+            AllData.Text += "<hr>";
+            addtopage("Data", masteritem.HusbandORWife);
+            List<HusbandORWifeEntity> HusbandORWifeis = new PeriodicalFormForGovernmentHousing().GetHusbandORWife(masteritem.RequestNumber);
+            int i = 0;
+            foreach (HusbandORWifeEntity HW in HusbandORWifeis)
+            {
+                if (i % 2 == 0)
+                    AllData.Text += "<div>";
+                else
+                    AllData.Text += "<div class='evenRow'>";
+                addtopage("Name", HW.Name, "HiringDate", Convert.ToDateTime(HW.HiringDate).ToString("dd MMM yyyy"));
+                addtopage("WorkSector", HW.workSector, "BasicSalary", HW.BasicSalary);
+                addtopage("LastEntryDate", HW.LastEntryDate, "LastExitDate", HW.LastExitDate);               
+
+                 var HasGovernmentHousingPercentageAllowanceHtml = "<span class='icon-times'></span>";              
+                if (HW.HasGovernmentHousingPercentageAllowance)
+                    HasGovernmentHousingPercentageAllowanceHtml = "<span class='icon-check'></span>";
+                addtopage("HasGovernmentHousingPercentageAllowance", HasGovernmentHousingPercentageAllowanceHtml);
+                AllData.Text += "</div>";
+                i++;
+            }
+            AllData.Text += "<hr>";
+            //-------------------------------------------------------
+            string textChildren = SPUtility.GetLocalizedString("$Resources: Children", "Resource", SPContext.Current.Web.Language);
+            AllData.Text += "<div class='row rt  botx'><label>" + textChildren + "</label></div>";
+            List<SonsEntity> sons = new PeriodicalFormForGovernmentHousing().Getsons(masteritem.RequestNumber);
+            int conter = 0;
+            foreach (SonsEntity son in sons)
+            {
+                if (conter % 2 == 0)
+                    AllData.Text += "<div>";
+                else
+                    AllData.Text += "<div class='evenRow'>";
+                addtopage("Name", son.Name, "Gender", son.Gender);
+                addtopage("age", son.age, "Career" ,son.Career);
+                addtopage("age", son.age, "Career" ,son.Career);
+                if (son.Career!= "Student" && son.Career!="طالب")
+                {
+                    var HousingAllowanceHtml = "<span class='icon-times'></span>";
+                    if (son.HousingAllowance)
+                        HousingAllowanceHtml = "<span class='icon-check'></span>";
+                    addtopage("BasicSalary", son.BasicSalary, "Career", HousingAllowanceHtml);
+                }
+
+                addtopage("LastEntryDate", son.LastEntryDate, "LastExitDate", son.LastExitDate);
+
+                AllData.Text += "</div>";
+                conter++;
+            }            
+            return masteritem.Status;
+        }
+
         public string GetReturnNoticeData(string RequestID)
         {
             ReturnToDutyNoticeMembersOfTheJudiciaryEntity obitem = new ReturnToDutyNoticeMembersOfTheJudiciary().GetByID(Convert.ToInt32(RequestID));

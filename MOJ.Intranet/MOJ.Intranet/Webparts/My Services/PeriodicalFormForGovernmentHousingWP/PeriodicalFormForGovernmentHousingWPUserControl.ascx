@@ -436,7 +436,7 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Career%>" /></label>
                         </div>
                         <div class="col-md-8 DivCareer">
-                               <asp:RadioButtonList ID="Career0" name="Career0" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
+                               <asp:RadioButtonList ID="Career0" name="Career0" CssClass="checkbox-click-target firstCareer " RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
 									</div>
                                 </div>
@@ -444,7 +444,7 @@
 					   
                 </div>
 				
-				<div class="row rt">
+				<div class="row rt employeeid">
 				 <div class="col-md-6">
                             <div class="row">
 								<div  class="col-md-4">
@@ -587,6 +587,10 @@ background-color: #f5e9b6;
 
 
 <script>
+
+    $(".firstCareer  input").eq(0).attr("onchange", "handleChangefirstCareer(0,'none');");
+    $(".firstCareer  input").eq(1).attr("onchange", "handleChangefirstCareer(0,'flex');");
+
     var counter = 1;
     var limit = 3;
     function addInput() {
@@ -646,9 +650,9 @@ background-color: #f5e9b6;
         var radiob = Itemhtml.find(".DivCareer label")[1].innerHTML;
         var CareerhtmlR = "<input name='Career' type='text' id='Careerr" + counter2 + "' style='display:none' placeholder=''>";
         CareerhtmlR += "<table id='Career" + counter2 + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td> ";
-        CareerhtmlR += "<input onchange=\"handleChange('Careerr" + counter2 + "','" + radioa + "');\" id='Career" + counter2 + "_0' type='radio' name='Careers" + counter2 + "' value='" + radioa + "'> ";
+        CareerhtmlR += "<input onchange=\"handleChangeCareerr(" + counter2 + ",'Careerr" + counter2 + "','none','" + radioa + "');\" id='Career" + counter2 + "_0' type='radio' name='Careers" + counter2 + "' value='" + radioa + "'> ";
         CareerhtmlR += "<label >" + radioa + "</label></td><td>";
-        CareerhtmlR += "<input onchange=\"handleChange('Careerr" + counter2 + "','" + radiob + "');\" id='Career" + counter2 + "_1' type='radio' name='Careers" + counter2 + "' value='" + radiob + "'>";
+        CareerhtmlR += "<input onchange=\"handleChangeCareerr(" + counter2 + ",'Careerr" + counter2 + "','flex','" + radiob + "');\" id='Career" + counter2 + "_1' type='radio' name='Careers" + counter2 + "' value='" + radiob + "'>";
         CareerhtmlR += "<label>" + radiob + "</label></td></tr></tbody></table>";
         Itemhtml.find(".DivCareer")[0].innerHTML = CareerhtmlR;
         Itemhtml.find(".DivBasicSalary")[0].innerHTML = "<input name='SBasicSalary' type=text' id='SBasicSalary" + counter2 + "' class='form-control' placeholder=''>";
@@ -670,13 +674,25 @@ background-color: #f5e9b6;
         var allhtml = "<div class='" + classis + "'> <hr>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
         document.getElementById('dynamicInputChildren').appendChild(newdiv);
+        $("#FirstItemChildrenAA")[0].innerHTML = "";
+        $(".employeeid").eq(counter2).css("display", "flex");
         counter2++;
         document.getElementById('hdnChildren').value = counter2;
-        $("#FirstItemChildrenAA")[0].innerHTML = "";
+
+
+
     }
 
     function handleChange(ID, radio1) {
-        $("#" + ID).val(radio1)
+        $("#" + ID).val(radio1);
+    }
+
+    function handleChangeCareerr(Career, ID, dis, radio1) {
+        $("#" + ID).val(radio1);
+        $(".employeeid").eq(Career).css("display", dis);
+    }
+    function handleChangefirstCareer(Career, dis) {
+        $(".employeeid").eq(Career).css("display", dis);
     }
     $('.HusbandORWife input').change(function () {
         if (this.value == "الزوجة") {
@@ -689,6 +705,4 @@ background-color: #f5e9b6;
             $('#AddWife').hide();
         }
     });
-
-
 </script>

@@ -24,7 +24,7 @@ namespace MOJ.Business
             return new HusbandORWifeDataManager().AddOrUpdateHusbandORWife(obj);
         }
 
-        public PeriodicalFormForGovernmentHousingEntity GetAffirmationSocialSituation(int id)
+        public PeriodicalFormForGovernmentHousingEntity GetByID(int id)
         {
             return new PeriodicalFormForGovernmentHousingDataManager().GetByID(id);
         }
