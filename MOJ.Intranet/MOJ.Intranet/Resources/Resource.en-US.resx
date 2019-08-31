@@ -756,4 +756,7 @@
   <data name="btnSubmit" xml:space="preserve">
     <value>Submit</value>
   </data>
+  <data name="comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
 </root>

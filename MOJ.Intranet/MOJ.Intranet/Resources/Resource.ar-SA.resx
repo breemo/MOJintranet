@@ -756,4 +756,7 @@
   <data name="btnSubmit" xml:space="preserve">
     <value>إرسال</value>
   </data>
+  <data name="comments" xml:space="preserve">
+    <value>التعليقات</value>
+  </data>
 </root>

@@ -40,21 +40,12 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails {
         protected global::System.Web.UI.WebControls.Literal lblOccasionBody;
         
         /// <summary>
-        /// txtComments control.
+        /// rptrComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtComments;
-        
-        /// <summary>
-        /// bntSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bntSubmit;
+        protected global::System.Web.UI.WebControls.Repeater rptrComments;
     }
 }
