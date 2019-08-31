@@ -13,7 +13,7 @@ namespace MOJ.DataManager
 {
     public class MyRequestsDataManager
     {
-        public List<MyRequestsEntity> GetMyRequests(int intRowLimit)
+        public List<MyRequestsEntity> GetMyRequests(int intRowLimit,string languageCodes)
         {
             List<MyRequestsEntity> ItemsCollection = new List<MyRequestsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -37,12 +37,22 @@ namespace MOJ.DataManager
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
                                 {
-
                                     MyRequestsEntity itemis = new MyRequestsEntity();
                                     itemis.RequestNumber = Convert.ToString(Item["Title"]);
                                     itemis.id = Convert.ToInt32(Item["ID"]);
                                     itemis.ServiceName = Convert.ToString(Item["ServiceName"]);
                                     itemis.ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
+
+                                    if (languageCodes == "ar")
+                                    {
+                                        itemis.ServiceNameLG = Convert.ToString(Item["ServiceNameAr"]);
+                                        itemis.StatusLG = Convert.ToString(Item["StatusAr"]);
+                                    }
+                                    else
+                                    {
+                                        itemis.ServiceNameLG = Convert.ToString(Item["ServiceNameEn"]);
+                                        itemis.StatusLG = Convert.ToString(Item["StatusEn"]);
+                                    }
                                     itemis.ServiceNameEn = Convert.ToString(Item["ServiceNameEn"]);
                                     itemis.StatusAr = Convert.ToString(Item["StatusAr"]);
                                     itemis.StatusEn = Convert.ToString(Item["StatusEn"]);

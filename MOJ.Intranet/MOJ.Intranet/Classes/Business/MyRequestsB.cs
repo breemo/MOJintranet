@@ -11,13 +11,12 @@ namespace MOJ.Business
     {
       
 
-            public List<MyRequestsEntity> GetMyRequests(int limit =0)
+            public List<MyRequestsEntity> GetMyRequests(int limit =0 ,string languageCode="en")
         {
-            return new MyRequestsDataManager().GetMyRequests(limit);
+            return new MyRequestsDataManager().GetMyRequests(limit, languageCode);
         }
-        
-        
 
-        
+      
+
     }
 }
