@@ -22,13 +22,31 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
-        /// lbMyRequests control.
+        /// grdMyAccomplishedTasks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbMyRequests;
+        protected global::System.Web.UI.WebControls.GridView grdMyAccomplishedTasks;
+        
+        /// <summary>
+        /// pgng2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pgng2;
+        
+        /// <summary>
+        /// rpt2Paging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt2Paging;
         
         /// <summary>
         /// SuccessMsgDiv control.

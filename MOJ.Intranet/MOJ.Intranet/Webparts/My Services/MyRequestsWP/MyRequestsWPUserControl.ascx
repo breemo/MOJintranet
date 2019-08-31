@@ -6,65 +6,91 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MyRequestsWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.My_Services.MyRequestsWP.MyRequestsWPUserControl" %>
+<style>
+.pagi .pagination li a {
+ 
+    background: #bd995d;
+}
+.HeaderRow{
+    color: #ffffff;
+}
+.table-responsive tr:nth-child(even) {
+    border-bottom: 1px solid #d0a659;
+}
 
+
+</style>
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, MyRequests%>" />
 </h4>
 <h4></h4>
 <h4></h4>
 <div id="posts" runat="server" class="small-thumbs alt">
-    
-                <div class="inskdnew inskdnew2">
-                    <div class="row">
+      <div class="tab-container">        
+		   <div class="" id="tab-">
+                <div class="inskdnew">
+				  <div class="row">
                         <div class="col-sm-12">
-                            <div class="table-responsive">
-                                <table class="table table-hover table-bordered newtableb">
-								  <thead>
-                                         <th>#</th>                                        
-                                        <th><asp:Literal runat="server" Text="<%$ Resources:Resource, RequestNumber%>" /></th>
-										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, ServiceType%>" /></th>										
-										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, Result%>" /></th>
-										<th><asp:Literal runat="server" Text="<%$ Resources:Resource, RequestDate%>" /></th>									                                                                
-                                        <th>
-                                            <span class=""><asp:Literal runat="server" Text="<%$ Resources:Resource, Edit%>" /></span>
-                                        </th>
-                                    </thead>
-
-                                    <tfoot>
-                                        <tr>
-                                            <td class="foot" colspan="7">
-                                                <div class="pagi">
-                                                    <ul class="pagination">
-                                                        <li class="page-item">
-                                                            <a class="page-link pageright" href="#">
-                                                                <i class="icon-angle-right"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link activepage" href="#">1</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                                        
-                                                        <li class="page-item">
-                                                            <a class="page-link pageleft" href="#">
-                                                                <i class="icon-angle-left"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                  <asp:Label id="lbMyRequests" runat="server"></asp:Label>
-                                      
-                                </table>
+                            <div class="table-responsive">                            
+							 <asp:GridView ID="grdMyAccomplishedTasks" CssClass="inner_cnt" GridLines="None" EmptyDataText="<%$ Resources:Resource, EmptyData%>"
+										BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
+										EnableModelValidation="True" 
+										>
+										<PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
+											Mode="NumericFirstLast" PageButtonCount="5" />
+										<PagerStyle HorizontalAlign="Center" CssClass="gridview" />
+										<EmptyDataRowStyle Font-Bold="true" ForeColor="#646464" Font-Size="1.5em" />
+										<Columns>
+											<asp:TemplateField>											
+											 <HeaderTemplate>
+											</HeaderTemplate>											
+												<ItemTemplate>
+													<tr>
+													 <td><a href="<%# Eval("RequestURL") %>"><%# Eval("RequestNumber") %> </a></td>							
+														<td><%# Eval("ServiceNameLG") %></td> 											
+													<td><%# Eval("StatusLG") %></td> 
+													<td><%#  Convert.ToDateTime(Eval("Created")).ToString("dd MMM yyyy hh:mm tt")%></td>                                        
+													<td><a href="<%# Eval("RequestURL") %>"><span class='icon-edit'> </span></a></td>
+													</tr>     
+												</ItemTemplate>
+												
+											</asp:TemplateField>
+										</Columns>
+									</asp:GridView>                              
                             </div>
-
-                        </div>
+							</div>
                     </div>
-                </div>
-
+				
+				      </div>
+				
+				<div class="pagi" runat="server" id="pgng2">
+					<ul class="pagination">
+						<li class="page-item">
+							<a class="page-link pageright" href="#">
+								<i class="icon-angle-right"></i>
+							</a>
+						</li>
+						<asp:Repeater ID="rpt2Paging" runat="server" OnItemCommand="rpt2Paging_ItemCommand">
+							<ItemTemplate>
+								<li class="page-item">
+									<asp:LinkButton ID="btn2Page"
+										CssClass="page-link"
+										CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+										runat="server" ForeColor="White" Font-Bold="True">
+										<%# Container.DataItem %> </asp:LinkButton>
+								</li>
+							</ItemTemplate>
+						</asp:Repeater>
+						<li class="page-item">
+							<a class="page-link pageleft" href="#">
+								<i class="icon-angle-left"></i>
+							</a>
+						</li>
+					</ul>
+			</div>
+			</div>
+    </div>
+   
 </div>
 <!-- #posts end -->
 <div id="SuccessMsgDiv" runat="server" style="display: none">
