@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SharePoint;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,5 +22,6 @@ namespace MOJ.Entities
         public string ApprovalBy { get; set; }
         public string ID { get; set; }
         public string Status { get; set; }
+        public SPFieldUserValue CreatedBy { get; set; }
     }
 }

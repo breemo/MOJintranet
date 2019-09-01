@@ -17,6 +17,6 @@ namespace MOJ.Entities
         public string Comment { get; set; }
         public string Status { get; set; }
 
-
+        public SPFieldUserValue CreatedBy { get; set; }
     }
 }

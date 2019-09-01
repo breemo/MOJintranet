@@ -101,7 +101,8 @@ namespace MOJ.DataManager
                                     }
                                     obitem.date = Convert.ToDateTime(Item["Date"]);
                                     obitem.RequestNumber = Convert.ToString(Item["Title"]);
-                                    obitem.Status = Convert.ToString(Item["Status"]);
+                                    obitem.Status = Convert.ToString(Item["Status"]);                                  
+                                    obitem.CreatedBy  = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
 
                                 }
                             }

@@ -23,7 +23,7 @@ namespace MOJ.Entities
         public string RelationshipType { get; set; }
         public string ChangeReason { get; set; }
         public string HusbandORWife { get; set; }
-        
 
+        public SPFieldUserValue CreatedBy { get; set; }
     }
 }

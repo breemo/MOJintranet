@@ -20,6 +20,6 @@ namespace MOJ.Entities
 
         public string Status { get; set; }
 
-
+        public SPFieldUserValue CreatedBy { get; set; }
     }
 }

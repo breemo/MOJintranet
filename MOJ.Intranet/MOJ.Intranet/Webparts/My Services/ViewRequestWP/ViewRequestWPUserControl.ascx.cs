@@ -1,4 +1,5 @@
-﻿using Microsoft.SharePoint;
+﻿using CommonLibrary;
+using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
@@ -66,10 +67,54 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage(Status, "");
 
         }
+      
+        private void UserData(string userloginName)
+        {
+            try
+            {
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetEmployeeMasterDataByEmployeeNumber(userloginName);
+                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                {
+                    Enumber.Value = item.employeeNumberField.ToString();
+                    EFullNameArabic.Value = item.employeeNameArabicField.ToString();
+                    EFullNameEnglish.Value = item.employeeNameEnglishField.ToString();
+                    EEmail.Value = item.employeeEmailField.ToString();
+                    if (languageCode == "ar")
+                    {
+                        EDepartment.Value = item.departmentNameField_AR.ToString();
+                        ENationality.Value = item.nationality_ARField.ToString();
+                        EPosition.Value = item.positionNameField_AR.ToString();
+                        EMaritalStatus.Value = item.maritalStatus_ARField.ToString();
+                    }
+                    else
+                    {
+                        EDepartment.Value = item.departmentNameField_US.ToString();
+                        ENationality.Value = item.nationality_USField.ToString();
+                        EPosition.Value = item.positionNameField_US.ToString();
+                        EMaritalStatus.Value = item.maritalStatus_USField.ToString();
+
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
+
+
         public string GetPeriodicalFormForGovernmentHousingData(string RequestID)
         {
             PeriodicalFormForGovernmentHousingEntity masteritem = new PeriodicalFormForGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", masteritem.RequestNumber, "title"); 
+            addtopage("RequestNumber", masteritem.RequestNumber, "title");
+            UserData(masteritem.CreatedBy.LoginName.ToString());
            addtopage("ContractNumber", masteritem.ContractNumber, "ApartmentNumber", masteritem.ApartmentNumber);
            addtopage("Owner", masteritem.Owner, "NumberOfRooms", masteritem.NumberOfRooms);
            addtopage("ACtype", masteritem.ACtype, "LeasingContractEndDate", masteritem.LeasingContractEndDate);
@@ -129,9 +174,11 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         }
 
         public string GetReturnNoticeData(string RequestID)
+
         {
             ReturnToDutyNoticeMembersOfTheJudiciaryEntity obitem = new ReturnToDutyNoticeMembersOfTheJudiciary().GetByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", obitem.RequestNumber, "title");
+            UserData(obitem.CreatedBy.LoginName.ToString());
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
             if (languageCode == "ar")
@@ -151,8 +198,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         {
 
             AffirmationReceiptGovernmentHousingEntity AGHousing = new AffirmationReceiptGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", AGHousing.RequestNumber, "title");       
-                addtopage("MobileNumber", AGHousing.MobileNumber, "ApportionmentDate", Convert.ToDateTime(AGHousing.ApportionmentDate).ToString("dd MMM yyyy"));               
+            addtopage("RequestNumber", AGHousing.RequestNumber, "title");
+            UserData(AGHousing.CreatedBy.LoginName.ToString());
+            addtopage("MobileNumber", AGHousing.MobileNumber, "ApportionmentDate", Convert.ToDateTime(AGHousing.ApportionmentDate).ToString("dd MMM yyyy"));               
                 addtopage("HomeAddress", AGHousing.HomeAddress, "VilaApartmentNumber", AGHousing.VilaApartmentNumber);               
                 addtopage("NumberOfRooms", AGHousing.NumberOfRooms, "Owner", AGHousing.Owner);               
                 addtopage("agent", AGHousing.agent);       
@@ -164,6 +212,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
 
             ReserveHotelEntity RHotel = new ReserveHotel().GetByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", RHotel.RequestNumber, "title");
+            UserData(RHotel.CreatedBy.LoginName.ToString());
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();         
                 if (languageCode == "ar")
@@ -199,6 +248,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         {
             FazaaCardRequestEntity Fazaaitem = new FazaaCardRequest().GetFazaaCardRequest(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", Fazaaitem.RequestNumber, "title");
+            UserData(Fazaaitem.CreatedBy.LoginName.ToString());
             string Commenthtml = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + Fazaaitem.Comment + "</textarea>";
             addtopage("Comment", Commenthtml);
             return Fazaaitem.Status;
@@ -207,6 +257,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         {
             CarOrderServiceEntity caritem = new CarOrderServiceBL().GetCarOrderServiceByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", caritem.RequestNumber, "title");
+            UserData(caritem.CreatedBy.LoginName.ToString());
             addtopage("Carwith", caritem.TravelNeeds);
             addtopage("GoingTo", caritem.TravelTo);
             addtopage("PassengerName", caritem.NameOfPassengers);
@@ -249,6 +300,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         {
             ContactWithHREntity item = new ContactWithHR().GetContactWithHR(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", item.RequestNumber, "title");
+            UserData(item.CreatedBy.LoginName.ToString());
             addtopage("ContactReason", item.ContactReason);
             string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + item.Message + "</textarea>";
             addtopage("Message", Messaghtm);
@@ -259,6 +311,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         {
             HappinessHotlineEntity HappinessHotlin = new HappinessHotline().GetHappinessHotline(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", HappinessHotlin.RequestNumber, "title");
+            UserData(HappinessHotlin.CreatedBy.LoginName.ToString());
             addtopage("ContactReason", HappinessHotlin.ContactReason);
             string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + HappinessHotlin.Message + "</textarea>";
             addtopage("Message", Messaghtm);
@@ -269,6 +322,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
 
             AffirmationSocialSituationEntity AffirmationSocial = new AffirmationSocialSituationB().GetAffirmationSocialSituation(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", AffirmationSocial.RequestNumber, "title");
+            UserData(AffirmationSocial.CreatedBy.LoginName.ToString());
             addtopage("Data", AffirmationSocial.HusbandORWife);
             List<HusbandORWifeEntity> HusbandORWifeis = new AffirmationSocialSituationB().GetHusbandORWife(AffirmationSocial.RequestNumber);
             int i = 0;
@@ -333,6 +387,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 }
             }
             addtopage("RequestNumber", Room.RequestNumber, "title");
+            UserData(Room.CreatedBy.LoginName.ToString());
             addtopage("Place", Room.Place);
             addtopage("AttendeesNumber", Room.AttendeesNumber);
             addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));

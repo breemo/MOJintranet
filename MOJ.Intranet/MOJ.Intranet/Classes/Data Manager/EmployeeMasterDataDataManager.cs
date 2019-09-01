@@ -150,7 +150,7 @@ namespace MOJ.DataManager
         }
 
 
-        public List<EmployeeMasterDataEntity> GetCurrentEmployeeMasterDataByEmployeeNumber()
+        public List<EmployeeMasterDataEntity> GetCurrentEmployeeMasterDataByEmployeeNumber(string Userlogin =null)
         {
             List<EmployeeMasterDataEntity> EmployeeValues = new List<EmployeeMasterDataEntity>();
             try
@@ -159,8 +159,16 @@ namespace MOJ.DataManager
                 {
                     using (SPWeb myweb = mySitesCollection.OpenWeb())
                     {
-                        SPUser currentUser = myweb.CurrentUser;
-                        string currentUserlogin = currentUser.LoginName;
+                        string currentUserlogin;
+                        if (Userlogin == null)
+                        {
+                            SPUser currentUser = myweb.CurrentUser;
+                            currentUserlogin = currentUser.LoginName;
+                        }
+                        else
+                        {
+                            currentUserlogin = Userlogin;
+                        }
                         SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
                         UserProfileManager profileManager = new UserProfileManager(context);
                         UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);

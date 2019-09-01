@@ -29,6 +29,104 @@ background-color: #f5e9b6;
 
 <h4></h4>
 <div id="posts" runat="server" class="small-thumbs alt">
+
+       <div id="Edata">
+                    <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FullNameArabic%>" /></label>
+                                </div>
+                                <div  class="col-md-8">
+                                    <input type="text" name="EFullNameArabic" disabled runat="server" id="EFullNameArabic" class="form-control" placeholder="">
+                                </div>                       
+                            </div>
+                            </div>
+                        <div class="col-md-6">
+                               <div class="row">
+                                    <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FullNameEnglish%>" /></label>
+                                </div>
+                                <div  class="col-md-8">
+                                    <input type="text" name="EFullNameEnglish" disabled runat="server" id="EFullNameEnglish" class="form-control" placeholder="">
+                                </div> 
+                              </div>
+					    </div>                  
+                    </div>
+               <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeNumber%>" /></label>
+                            </div>
+                            <div class="col-md-8 ">
+                                      <input type="text" disabled name="Enumber" runat="server" id="Enumber" class="form-control" placeholder="">
+                                
+									    </div>
+                                                      
+                            </div>
+                            </div>
+                        <div class="col-md-6">
+                               <div class="row">
+                                  <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" /></label>
+                                </div>
+                                <div  class="col-md-8">
+                                    <input type="text" name="EDepartment" disabled runat="server" id="EDepartment" class="form-control" placeholder="">
+                                </div> 
+                              </div>
+					    </div>                  
+                    </div>
+                 
+           <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Nationality%>" /></label>
+                                </div>
+                                <div  class="col-md-8">
+                                    <input type="text" name="ENationality" disabled runat="server" id="ENationality" class="form-control" placeholder="">
+                                </div>                       
+                            </div>
+                            </div>
+                        <div class="col-md-6">
+                               <div class="row">
+                                    <div class="col-md-4">
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>
+                            </div>
+                            <div class="col-md-8 ">
+                                      <input type="text" disabled name="EPosition" runat="server" id="EPosition" class="form-control" placeholder="">
+                                
+									    </div>
+                              </div>
+					    </div>                  
+                    </div>
+               
+           <div class="row rt">
+                        <div class="col-md-6">
+                           <div class="row">
+                                <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, MaritalStatus%>" /></label>
+                                </div>
+                                <div  class="col-md-8">
+                                    <input type="text" disabled name="EMaritalStatus" runat="server" id="EMaritalStatus" class="form-control" placeholder="">
+                                </div>                       
+                            </div>
+                            </div>
+                        <div class="col-md-6">
+                               <div class="row">
+                                <div class="col-md-4">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Email%>" /></label>
+                                </div>
+                                <div  class="col-md-8">
+                                    <input type="text" disabled name="EEmail" runat="server" id="EEmail" class="form-control" placeholder="">
+                                </div>                       
+                            </div>
+					    </div>                  
+                    </div>
+               </div>
+
+                   <hr />  
         <div class="tab-container">        
                 <div class="inskdnew">
                     <asp:Label id="AllData" runat="server"></asp:Label>
