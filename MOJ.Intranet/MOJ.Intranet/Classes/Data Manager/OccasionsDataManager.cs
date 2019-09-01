@@ -138,6 +138,51 @@ namespace MOJ.DataManager
             }
             return OccasionItem;
         }
+
+        public bool Add(OccasionsEntity Item)
+        {
+            bool isFormSaved = false;
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.OccasionsListUrl);
+                        SPListItem item = null;
+                        if (Item.ID > 0)
+                        {
+                            item = list.GetItemById(Item.ID);
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+                        item["Title"] = Item.Title;
+                        item["TitleEn"] = Item.TitleEn;
+                        item["Description"] = Item.Description;
+                        item["DescriptionEn"] = Item.DescriptionEn;
+                        item.Update();
+                        list.Update();
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            return isFormSaved;
+        }
         # endregion
     }
 

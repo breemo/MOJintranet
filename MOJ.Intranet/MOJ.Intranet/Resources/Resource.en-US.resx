@@ -759,4 +759,13 @@
   <data name="comments" xml:space="preserve">
     <value>Comments</value>
   </data>
+  <data name="EmployeeBirthdayParagraph" xml:space="preserve">
+    <value>The entire ministry of justice team would like to wish you a very Happy Birthday!</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
 </root>

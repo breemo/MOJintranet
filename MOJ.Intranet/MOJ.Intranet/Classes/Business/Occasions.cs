@@ -22,6 +22,10 @@ namespace MOJ.Business
         {
             return new OccasionsDataManager().GetOccasionByID(id);
         }
+        public bool AddOccasion(OccasionsEntity obj)
+        {
+            return new OccasionsDataManager().Add(obj);
+        }
     }
 
     public class OccasionComments
