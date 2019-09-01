@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="CheckEmployeeBirthdayDateHandlerUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="CheckEmployeeBirthdayDateHandler\" Type="ElementManifest" />
+    <ProjectItemFile Source="CheckEmployeeBirthdayDateHandler.webpart" Target="CheckEmployeeBirthdayDateHandler\" Type="ElementFile" />
+    <ProjectItemFile Source="CheckEmployeeBirthdayDateHandlerUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.Home\CheckEmployeeBirthdayDateHandler\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.Home.CheckEmployeeBirthdayDateHandler" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

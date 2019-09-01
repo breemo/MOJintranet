@@ -138,6 +138,51 @@ namespace MOJ.DataManager
             }
             return OccasionItem;
         }
+
+        public bool Add(OccasionsEntity Item)
+        {
+            bool isFormSaved = false;
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.OccasionsListUrl);
+                        SPListItem item = null;
+                        if (Item.ID > 0)
+                        {
+                            item = list.GetItemById(Item.ID);
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+                        item["Title"] = Item.Title;
+                        item["TitleEn"] = Item.TitleEn;
+                        item["Description"] = Item.Description;
+                        item["DescriptionEn"] = Item.DescriptionEn;
+                        item.Update();
+                        list.Update();
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            return isFormSaved;
+        }
         # endregion
     }
 
@@ -158,7 +203,7 @@ namespace MOJ.DataManager
                         SPUser currentUser = web.CurrentUser;
 
                         web.AllowUnsafeUpdates = true;
-                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.ReserveHotelUrl);
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.OccasionCommentsListUrl);
                         SPListItem item = null;
                         if (Item.ID > 0)
                         {
@@ -209,10 +254,10 @@ namespace MOJ.DataManager
                                     SPQuery oQuery = new SPQuery();
                                     oQuery.Query = @"<Where>
                                                         <Eq>
-	                                                        <FieldRef Name='OccasionId' />
-	                                                        <Value Type='integer'>" + OccasionId + @"</Value>
+	                                                        <FieldRef Name='OccasionID_x003a_ID' />
+	                                                        <Value Type='Lookup'>" + OccasionId + @"</Value>
                                                         </Eq>
-                                                    </Where><OrderBy><FieldRef Name='Order0' Ascending='True' /></OrderBy>";
+                                                    </Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
 
                                     SPListItemCollection lstItems = lstOccasionComments.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
@@ -220,8 +265,9 @@ namespace MOJ.DataManager
                                         OccasionCommentsEntity comments = new OccasionCommentsEntity();
                                         comments.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
                                         comments.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
-                                        comments.OccasionID = Convert.ToInt16(lstItem[SharedConstants.OccasionID]);
+                                        //comments.OccasionID = Convert.ToInt16(lstItem["OccasionID_x003a_ID"]);
                                         comments.Description = Convert.ToString(lstItem[SharedConstants.Description]);
+                                        comments.CreatedBy = Convert.ToString(lstItem["Author"]);
 
                                         OccasionCommentsItems.Add(comments);
                                     }

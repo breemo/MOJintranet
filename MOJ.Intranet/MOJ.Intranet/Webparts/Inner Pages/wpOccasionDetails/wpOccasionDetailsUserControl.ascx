@@ -7,7 +7,6 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wpOccasionDetailsUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails.wpOccasionDetailsUserControl" %>
 
-
 <h3><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEvents%>" /></h3>
 
 <div class="comment">
@@ -34,44 +33,43 @@
             <asp:Literal runat="server" ID="lblOccasionBody"></asp:Literal>
         </div>
         <div class="commentsfooter">
-            <h5>تعليق</h5>
             <div class="commentfooterinside">
-                <div class="commentitself">
+            <asp:Repeater ID="rptrComments" runat="server">
+                <HeaderTemplate>
+                    <h5><asp:Literal runat="server" Text="<%$ Resources:Resource, comments%>" /></h5>
+                    <div class="commentitself">
+                </HeaderTemplate>
+
+                <ItemTemplate>
                     <div class="Commentitemlist">
                         <div class="cmmeninfbix">
                             <img src="images/newx1.jpg" class="img-circle img-fluid" />
                         </div>
                         <div class="ricom">
-                            <p class="urnamex">محمد عبير عابد</p>
+                            <p class="urnamex"><%# Eval("CreatedBy") %></p>
                             <p class="dateurx">أمس الساعة 8:03</p>
                             <p class="ricomdesc">
-                                تقدم معالي سلطان سعيد البادي وزير العدل المشاركين في مسيرة اليوم الرياضي الوطني
+                                <%# Eval("Description") %>
                             </p>
                         </div>
                     </div>
-                    <div class="Commentitemlist">
-                        <div class="cmmeninfbix">
-                            <img src="images/newx2.jpg" class="img-circle img-fluid" />
-                        </div>
-                        <div class="ricom">
-                            <p class="urnamex">فاطمة حسن</p>
-                            <p class="dateurx">أمس الساعة 8:03</p>
-                            <p class="ricomdesc">
-                                وفد قضائي سعودي يطلع على أفضل الممارسات بوزارة العدل: استقبل المستشار سلطان راشد المطروشي
-                            </p>
-                        </div>
+                </ItemTemplate>
+                <FooterTemplate>
                     </div>
-                </div>
-                <div class="cmmeninfbix">
-                    <img src="images/commentuser.jpg" class="img-circle img-fluid" />
-                </div>
-                <div class="ricom">
-                    <textarea runat="server" class="form-control" id="txtComments" rows="3"></textarea>
-                </div>
-                <div class="col-md-3">
-                    <asp:Button ID="bntSubmit" runat="server" Text='<%$ Resources:Resource, btnSubmit%>' class="btnclass" OnClick="btnSubmit_Click" />
-                </div>
-            </div>
+                    <div class="cmmeninfbix">
+                        <img src="images/commentuser.jpg" class="img-circle img-fluid" />
+                    </div>
+                    <div class="ricom">
+                        <asp:TextBox runat="server" class="form-control" id="txtComments" rows="3"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvComments" runat="server" ErrorMessage="*" ControlToValidate="txtComments"></asp:RequiredFieldValidator>
+                    </div>
+                    <div class="col-md-3">
+                        <asp:Button ID="bntSubmit" runat="server" Text='<%$ Resources:Resource, btnSubmit%>' class="btnclass" OnClick="btnSubmit_Click" />
+                    </div>
+                </FooterTemplate>
+            </asp:Repeater>
+
+</div>
         </div>
     </div>
 </div>
