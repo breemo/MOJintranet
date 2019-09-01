@@ -7,11 +7,45 @@ using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+using System.Web;
+//using MOJ.Intranet.Classes.Common;
 
 namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
 {
     public partial class wpOccasionDetailsUserControl : UserControl
     {
+        #region RefreshChecking
+
+        public bool _refreshState;
+        public bool _isRefresh;
+        public bool IsRefresh
+        {
+            get { return _isRefresh; }
+        }
+        protected override void LoadViewState(object savedState)
+        {
+            object[] allStates = (object[])savedState;
+            base.LoadViewState(allStates[0]);
+            _refreshState = (bool)allStates[1];
+            //if (HttpContext.Current.Session["__ISREFRESH"] != null)
+            //    _isRefresh = _refreshState == (bool)HttpContext.Current.Session["__ISREFRESH"];
+            //else
+            //    _isRefresh = _refreshState;
+
+            if (HttpContext.Current.Session["__ISREFRESH"] != null)
+                _isRefresh = _refreshState == (bool)HttpContext.Current.Session["__ISREFRESH"];
+            else
+                _isRefresh = _refreshState;
+        }
+        protected override object SaveViewState()
+        {
+            HttpContext.Current.Session["__ISREFRESH"] = _refreshState;
+            object[] allStates = new object[2];
+            allStates[0] = base.SaveViewState();
+            allStates[1] = !_refreshState;
+            return allStates;
+        }
+        #endregion RefreshChecking
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -24,24 +58,27 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            OccasionCommentsEntity itemSumbit = new OccasionCommentsEntity();
-            itemSumbit.OccasionID = int.Parse(Request.QueryString["OccasionId"]);
+            if (!_isRefresh)
+            {
+                OccasionCommentsEntity itemSumbit = new OccasionCommentsEntity();
+                itemSumbit.OccasionID = int.Parse(Request.QueryString["OccasionId"]);
 
-            TextBox strComment = ((TextBox) rptrComments.Controls[rptrComments.Controls.Count - 1].Controls[0].FindControl("txtComments"));
-            itemSumbit.Description = strComment.Text;
-            strComment.Text = "";
+                TextBox strComment = ((TextBox)rptrComments.Controls[rptrComments.Controls.Count - 1].Controls[0].FindControl("txtComments"));
+                itemSumbit.Description = strComment.Text;
+                strComment.Text = "";
 
-            OccasionComments comments = new OccasionComments();
-            bool isSaved = comments.SaveUpdate(itemSumbit);
+                OccasionComments comments = new OccasionComments();
+                bool isSaved = comments.SaveUpdate(itemSumbit);
 
-            BindComments(itemSumbit.OccasionID.ToString());
+                BindComments(itemSumbit.OccasionID.ToString());
 
-            //if (isSaved == true)
-            //{
-            //    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-            //    posts.Style.Add("display", "none");
-            //    SuccessMsgDiv.Style.Add("display", "block");
-            //}
+                //if (isSaved == true)
+                //{
+                //    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                //    posts.Style.Add("display", "none");
+                //    SuccessMsgDiv.Style.Add("display", "block");
+                //}
+            }
         }
         public void FillDetails()
         {

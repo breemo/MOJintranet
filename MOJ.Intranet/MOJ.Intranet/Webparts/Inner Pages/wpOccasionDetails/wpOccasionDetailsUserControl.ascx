@@ -7,7 +7,6 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wpOccasionDetailsUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails.wpOccasionDetailsUserControl" %>
 
-
 <h3><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEvents%>" /></h3>
 
 <div class="comment">
