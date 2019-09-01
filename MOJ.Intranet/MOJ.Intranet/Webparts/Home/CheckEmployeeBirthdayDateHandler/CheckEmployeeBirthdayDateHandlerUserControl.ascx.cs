@@ -35,8 +35,12 @@ namespace MOJ.Intranet.Webparts.Home.CheckEmployeeBirthdayDateHandler
                                 string TodayDate = string.Format("{0:MMMM dd}", date);
                                 if (EmployeeBithdayOnlyMonth == TodayDate)
                                 {
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "EmployeeBirthdayPopUp();", true);
-                                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "MyFun1", "EmployeeBirthdayPopUp();", true);
+                                    if (currentProfile[PropertyConstants.DelveFlags].Value == null || currentProfile[PropertyConstants.DelveFlags].Value.ToString() != DateTime.Now.Year.ToString())
+                                    {
+                                        Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "EmployeeBirthdayPopUp();", true);
+                                        ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "MyFun1", "EmployeeBirthdayPopUp();", true);
+
+                                    }
                                 }
                             }
                         }
