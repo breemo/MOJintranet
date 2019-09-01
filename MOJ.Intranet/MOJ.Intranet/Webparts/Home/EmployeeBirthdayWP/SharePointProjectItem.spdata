@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="EmployeeBirthdayWPUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="EmployeeBirthdayWP\" Type="ElementManifest" />
+    <ProjectItemFile Source="EmployeeBirthdayWP.webpart" Target="EmployeeBirthdayWP\" Type="ElementFile" />
+    <ProjectItemFile Source="EmployeeBirthdayWPUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.Home\EmployeeBirthdayWP\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.Home.EmployeeBirthdayWP" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>
