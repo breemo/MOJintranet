@@ -102,6 +102,9 @@
     <Compile Include="Classes\Common\LimitCharacters.cs" />
     <Compile Include="Classes\Common\LoggingService.cs" />
     <Compile Include="Classes\Common\Methods.cs" />
+    <Compile Include="Classes\Common\SiteUI.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
     <Compile Include="Classes\Data Manager\PeriodicalFormForGovernmentHousingDataManager.cs" />
     <Compile Include="Classes\Data Manager\HusbandORWifeDataManager.cs" />

@@ -23,6 +23,11 @@ namespace MOJ.Intranet.Classes.Common
             object[] allStates = (object[])savedState;
             base.LoadViewState(allStates[0]);
             _refreshState = (bool)allStates[1];
+            //if (HttpContext.Current.Session["__ISREFRESH"] != null)
+            //    _isRefresh = _refreshState == (bool)HttpContext.Current.Session["__ISREFRESH"];
+            //else
+            //    _isRefresh = _refreshState;
+
             if (HttpContext.Current.Session["__ISREFRESH"] != null)
                 _isRefresh = _refreshState == (bool)HttpContext.Current.Session["__ISREFRESH"];
             else

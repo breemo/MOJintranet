@@ -8,44 +8,44 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web;
-//using MOJ.Intranet.Classes.Common;
+using MOJ.Intranet.Classes.Common;
 
 namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
 {
-    public partial class wpOccasionDetailsUserControl : UserControl
+    public partial class wpOccasionDetailsUserControl : SiteUI
     {
-        #region RefreshChecking
+        //#region RefreshChecking
 
-        public bool _refreshState;
-        public bool _isRefresh;
-        public bool IsRefresh
-        {
-            get { return _isRefresh; }
-        }
-        protected override void LoadViewState(object savedState)
-        {
-            object[] allStates = (object[])savedState;
-            base.LoadViewState(allStates[0]);
-            _refreshState = (bool)allStates[1];
-            //if (HttpContext.Current.Session["__ISREFRESH"] != null)
-            //    _isRefresh = _refreshState == (bool)HttpContext.Current.Session["__ISREFRESH"];
-            //else
-            //    _isRefresh = _refreshState;
+        //public bool _refreshState;
+        //public bool _isRefresh;
+        //public bool IsRefresh
+        //{
+        //    get { return _isRefresh; }
+        //}
+        //protected override void LoadViewState(object savedState)
+        //{
+        //    object[] allStates = (object[])savedState;
+        //    base.LoadViewState(allStates[0]);
+        //    _refreshState = (bool)allStates[1];
+        //    //if (HttpContext.Current.Session["__ISREFRESH"] != null)
+        //    //    _isRefresh = _refreshState == (bool)HttpContext.Current.Session["__ISREFRESH"];
+        //    //else
+        //    //    _isRefresh = _refreshState;
 
-            if (HttpContext.Current.Session["__ISREFRESH"] != null)
-                _isRefresh = _refreshState == (bool)HttpContext.Current.Session["__ISREFRESH"];
-            else
-                _isRefresh = _refreshState;
-        }
-        protected override object SaveViewState()
-        {
-            HttpContext.Current.Session["__ISREFRESH"] = _refreshState;
-            object[] allStates = new object[2];
-            allStates[0] = base.SaveViewState();
-            allStates[1] = !_refreshState;
-            return allStates;
-        }
-        #endregion RefreshChecking
+        //    if (HttpContext.Current.Session["__ISREFRESH"] != null)
+        //        _isRefresh = _refreshState == (bool)HttpContext.Current.Session["__ISREFRESH"];
+        //    else
+        //        _isRefresh = _refreshState;
+        //}
+        //protected override object SaveViewState()
+        //{
+        //    HttpContext.Current.Session["__ISREFRESH"] = _refreshState;
+        //    object[] allStates = new object[2];
+        //    allStates[0] = base.SaveViewState();
+        //    allStates[1] = !_refreshState;
+        //    return allStates;
+        //}
+        //#endregion RefreshChecking
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
