@@ -24,10 +24,6 @@
                 </p>
                 <span><asp:Literal runat="server" ID="lblPublishDate"></asp:Literal></span>
             </div>
-<%--            <div class="comment-header-meta">
-                <p><asp:Literal runat="server" Text="<%$ Resources:Resource, PublishedBy%>" /></p>
-                <span></span>
-            </div>--%>
         </div>
         <div class="comment-body">
             <asp:Literal runat="server" ID="lblOccasionBody"></asp:Literal>

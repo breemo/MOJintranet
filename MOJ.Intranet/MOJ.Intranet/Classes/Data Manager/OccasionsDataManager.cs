@@ -77,7 +77,7 @@ namespace MOJ.DataManager
                                 {
                                     SPQuery oQuery = new SPQuery();
                                     oQuery.Query = SharedConstants.OccasionsQuery;
-                                    oQuery.ViewFields = SharedConstants.OccasionsViewfields;
+                                    //oQuery.ViewFields = SharedConstants.OccasionsViewfields;
 
                                     SPListItemCollection lstItems = lstOccasions.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
