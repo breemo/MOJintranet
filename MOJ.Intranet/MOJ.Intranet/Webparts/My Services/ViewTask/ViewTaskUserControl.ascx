@@ -29,7 +29,11 @@ background-color: #f5e9b6;
 
 <h4></h4>
 <div id="posts" runat="server" class="small-thumbs alt">
-
+      <div class="tab-container">        
+                <div class="inskdnew">
+                    <asp:Label id="TitleData" runat="server"></asp:Label>
+                    </div>
+          </div>
        <div id="Edata">
                     <div class="row rt">
                         <div class="col-md-6">

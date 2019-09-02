@@ -81,7 +81,7 @@ namespace MOJ.DataManager
                                 {
                                     SPListItem Item = lstRoom.GetItemById(id);                                   
                                     obitem.Comment = Convert.ToString(Item["Comment"]);
-                                
+                                    obitem.Created = Convert.ToDateTime(Item["Created"]);
                                     obitem.RequestNumber = Convert.ToString(Item["Title"]);
                                     obitem.Status = Convert.ToString(Item["Status"]);
                                     obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));

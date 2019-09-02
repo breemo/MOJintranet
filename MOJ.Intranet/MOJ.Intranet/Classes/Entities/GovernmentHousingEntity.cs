@@ -27,7 +27,7 @@ namespace MOJ.Entities
         public string NumberOfRooms { get; set; }
         public string Owner { get; set; }
         public string agent { get; set; }
-        
+        public SPFieldUserValue CreatedBy { get; set; }
 
     }
 }

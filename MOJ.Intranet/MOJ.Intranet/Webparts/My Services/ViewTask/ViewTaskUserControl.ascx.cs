@@ -126,7 +126,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         public string GetPeriodicalFormForGovernmentHousingData(string RequestID)
         {
             PeriodicalFormForGovernmentHousingEntity masteritem = new PeriodicalFormForGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", masteritem.RequestNumber, "title");
+            addtopage("RequestNumber", masteritem.RequestNumber, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
             addtopage("ContractNumber", masteritem.ContractNumber, "ApartmentNumber", masteritem.ApartmentNumber);
             addtopage("Owner", masteritem.Owner, "NumberOfRooms", masteritem.NumberOfRooms);
@@ -188,7 +189,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         public string GetReturnNoticeData(string RequestID)
         {
             ReturnToDutyNoticeMembersOfTheJudiciaryEntity obitem = new ReturnToDutyNoticeMembersOfTheJudiciary().GetByID(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", obitem.RequestNumber, "title");
+            addtopage("RequestNumber", obitem.RequestNumber, "RequestDate", obitem.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(obitem.CreatedBy.User.LoginName));
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
@@ -207,7 +209,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         public string GetAffirmationGHousingHotelData(string RequestID)
         {
             AffirmationReceiptGovernmentHousingEntity AGHousing = new AffirmationReceiptGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", AGHousing.RequestNumber, "title");
+            addtopage("RequestNumber", AGHousing.RequestNumber, "RequestDate", AGHousing.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(AGHousing.CreatedBy.User.LoginName));
             addtopage("MobileNumber", AGHousing.MobileNumber, "ApportionmentDate", Convert.ToDateTime(AGHousing.ApportionmentDate).ToString("dd MMM yyyy"));
             addtopage("HomeAddress", AGHousing.HomeAddress, "VilaApartmentNumber", AGHousing.VilaApartmentNumber);
@@ -219,7 +222,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         {
 
             ReserveHotelEntity RHotel = new ReserveHotel().GetByID(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", RHotel.RequestNumber, "title");
+            addtopage("RequestNumber", RHotel.RequestNumber, "RequestDate", RHotel.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(RHotel.CreatedBy.User.LoginName));          
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
@@ -287,7 +291,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         public void GetContactWithHRData(string RequestID)
         {
             ContactWithHREntity ContactWithHRitm = new ContactWithHR().GetContactWithHR(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", ContactWithHRitm.RequestNumber, "title");
+            addtopage("RequestNumber", ContactWithHRitm.RequestNumber, "RequestDate", ContactWithHRitm.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(ContactWithHRitm.CreatedBy.User.LoginName));
             addtopage("ContactReason", ContactWithHRitm.ContactReason);
             string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + ContactWithHRitm.Message + "</textarea>";
@@ -296,7 +301,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         public void GetFazaaCardRequestData(string RequestID)
         {
             FazaaCardRequestEntity Fazaaitem = new FazaaCardRequest().GetFazaaCardRequest(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", Fazaaitem.RequestNumber, "title");
+            addtopage("RequestNumber", Fazaaitem.RequestNumber, "RequestDate", Fazaaitem.Created.ToString("dd MMM yyyy"), "title");
             UserData(Convert.ToString(Fazaaitem.CreatedBy.User.LoginName));
             string Commenthtml = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + Fazaaitem.Comment + "</textarea>";
             addtopage("Comment", Commenthtml);
@@ -304,7 +309,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         public void GetCarOrderServiceData(string RequestID)
         {
             CarOrderServiceEntity caritem = new CarOrderServiceBL().GetCarOrderServiceByID(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", caritem.RequestNumber, "title");
+            addtopage("RequestNumber", caritem.RequestNumber, "RequestDate", caritem.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(caritem.CreatedBy.User.LoginName));
             addtopage("Carwith", caritem.TravelNeeds);
             addtopage("GoingTo", caritem.TravelTo);
@@ -316,7 +322,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         public void GetHappinessHotlineData(string RequestID)
         {           
             HappinessHotlineEntity HappinessHotlin = new HappinessHotline().GetHappinessHotline(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", HappinessHotlin.RequestNumber, "title");
+            addtopage("RequestNumber", HappinessHotlin.RequestNumber, "RequestDate", HappinessHotlin.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(HappinessHotlin.CreatedBy.User.LoginName));
             addtopage("ContactReason", HappinessHotlin.ContactReason);
             string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + HappinessHotlin.Message + "</textarea>";
@@ -326,7 +333,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         {
 
             AffirmationSocialSituationEntity AffirmationSocial = new AffirmationSocialSituationB().GetAffirmationSocialSituation(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", AffirmationSocial.RequestNumber, "title");
+            addtopage("RequestNumber", AffirmationSocial.RequestNumber, "RequestDate", AffirmationSocial.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(AffirmationSocial.CreatedBy.User.LoginName));
             addtopage("Data", AffirmationSocial.HusbandORWife);
 
@@ -387,7 +395,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                         valResourcesNeeded += "&nbsp;&nbsp;" + choices[i] + "&nbsp;&nbsp;";
                     }
                 }
-                addtopage("RequestNumber", Room.RequestNumber, "title");
+            addtopage("RequestNumber", Room.RequestNumber, "RequestDate", Room.Created.ToString("dd MMM yyyy"), "title");
+
             UserData(Convert.ToString(Room.CreatedBy.User.LoginName));
             addtopage("Place", Room.Place);
                 addtopage("AttendeesNumber", Room.AttendeesNumber);
@@ -396,7 +405,6 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 addtopage("mission", Room.Mission);
                 addtopage("resources", valResourcesNeeded);
         }
-
         protected void addtopage(string text,string value,string title="")
         {
             string textla = SPUtility.GetLocalizedString("$Resources: "+text, "Resource", SPContext.Current.Web.Language);
@@ -417,11 +425,14 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             if (title != "")
                 AllData.Text += "</div>";
         }
-        protected void addtopage(string text, string value, string text2, string value2)
+        protected void addtopage(string text, string value, string text2, string value2, string title = "")
         {
             string textla = SPUtility.GetLocalizedString("$Resources: " + text, "Resource", SPContext.Current.Web.Language);
             string textlb = SPUtility.GetLocalizedString("$Resources: " + text2, "Resource", SPContext.Current.Web.Language);
-            AllData.Text += @"<div class='row rt'>
+            if (title != "")
+            {
+                TitleData.Text += "<div class='RequestTitle'>";
+                TitleData.Text += @"<div class='row rt'>
                         <div class='col-md-6'>
                             <div class='row'>
                                 <div class='col-md-4'>
@@ -443,6 +454,35 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                             </div>
                         </div>
                     </div>";
+
+                TitleData.Text += "</div>";
+            }
+            else
+            {
+                AllData.Text += @"<div class='row rt'>
+                        <div class='col-md-6'>
+                            <div class='row'>
+                                <div class='col-md-4'>
+                                <label >" + textla + @"</label>
+                               </div>
+                                <div class='col-md-8'>
+                        <label >" + value + @"</label>                               
+                                </div>
+                            </div>
+                        </div> 
+                            <div class='col-md-6'>
+                            <div class='row'>
+                                <div class='col-md-4'>
+                                <label >" + textlb + @"</label>
+                               </div>
+                                <div class='col-md-8'>
+                        <label >" + value2 + @"</label>                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>";
+
+            }
         }
         protected void btnapprove_Click(object sender, EventArgs e)
         {

@@ -100,6 +100,7 @@ namespace MOJ.DataManager
                                     obitem.NumberOfRooms = Convert.ToString(Item["NumberOfRooms"]);
                                     obitem.Owner = Convert.ToString(Item["Owner"]);
                                     obitem.agent = Convert.ToString(Item["agent"]);
+                                    obitem.Created = Convert.ToDateTime(Item["Created"]);
                                     obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
 
                                 }

@@ -103,6 +103,7 @@ namespace MOJ.DataManager
                                     RoomBooking.DateTo = Convert.ToDateTime(Item["DateTo"]);
                                     RoomBooking.ResourcesNeeded = new SPFieldMultiChoiceValue(Item["ResourcesNeeded"].ToString());
                                     RoomBooking.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+                                    RoomBooking.Created = Convert.ToDateTime(Item["Created"]);
                                 }
                             }
                         }
