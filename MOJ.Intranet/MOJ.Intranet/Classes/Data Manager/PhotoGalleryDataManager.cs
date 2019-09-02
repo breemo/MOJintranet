@@ -26,7 +26,10 @@ namespace MOJ.DataManager
                             if (oWeb != null)
                             {
                                 //SPList lstPhotos = oWeb.GetListFromUrl(oSite.Url + SharedConstants.PhotoGalleryListUrl);
-                                SPList lstPhotos = oWeb.Lists["MOJGallery"];
+                                
+                                //Get Picture Libray albums
+                                SPList lstPhotos = oWeb.Lists.TryGetList("MOJGallery");
+                                //SPList lstPhotos = oWeb.Lists["MOJGallery"];
                                 if (lstPhotos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
