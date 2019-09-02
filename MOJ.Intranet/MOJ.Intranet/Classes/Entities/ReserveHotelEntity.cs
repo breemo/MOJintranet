@@ -15,8 +15,8 @@ namespace MOJ.Entities
         
         public string Status { get; set; }
         
-        public DateTime Created { get; set; }        
-        
+        public DateTime Created { get; set; }
+        public SPFieldUserValue CreatedBy { get; set; }
         public string EmirateID { get; set; }
         public string EmirateEn { get; set; }
         public string EmirateAr { get; set; }

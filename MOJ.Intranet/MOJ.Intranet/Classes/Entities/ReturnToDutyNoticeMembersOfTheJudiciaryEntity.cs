@@ -16,8 +16,8 @@ namespace MOJ.Entities
         public string Status { get; set; }
         
         public DateTime Created { get; set; }        
-        public DateTime date { get; set; }        
-        
+        public DateTime date { get; set; }
+        public SPFieldUserValue CreatedBy { get; set; }
         public string DayID { get; set; }
         public string DayEn { get; set; }
         public string DayAr { get; set; }

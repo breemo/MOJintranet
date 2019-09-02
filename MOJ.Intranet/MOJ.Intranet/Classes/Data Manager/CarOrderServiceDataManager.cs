@@ -87,6 +87,7 @@ namespace MOJ.DataManager
                                     caritem.TravelDate = Convert.ToDateTime(Item["Travel_x0020_Date"]);
                                     caritem.Duration = Convert.ToString(Item["Duration"]);
                                     caritem.Status = Convert.ToString(Item["Status"]);
+                                    caritem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
                                 }
                             }
                         }

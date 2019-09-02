@@ -27,7 +27,7 @@ namespace MOJ.Entities
         public string HomePhone { get; set; }
         public string WorkPhone { get; set; }
 
-      
+        public SPFieldUserValue CreatedBy { get; set; }
 
     }
 }

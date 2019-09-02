@@ -82,10 +82,52 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
         }
 
+        private void UserData(string userloginName)
+        {
+            try
+            {
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetEmployeeMasterDataByEmployeeNumber(userloginName);
+                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                {
+                    Enumber.Value = item.employeeNumberField.ToString();
+                    EFullNameArabic.Value = item.employeeNameArabicField.ToString();
+                    EFullNameEnglish.Value = item.employeeNameEnglishField.ToString();
+                    EEmail.Value = item.employeeEmailField.ToString();
+                    if (languageCode == "ar")
+                    {
+                        EDepartment.Value = item.departmentNameField_AR.ToString();
+                        ENationality.Value = item.nationality_ARField.ToString();
+                        EPosition.Value = item.positionNameField_AR.ToString();
+                        EMaritalStatus.Value = item.maritalStatus_ARField.ToString();
+                    }
+                    else
+                    {
+                        EDepartment.Value = item.departmentNameField_US.ToString();
+                        ENationality.Value = item.nationality_USField.ToString();
+                        EPosition.Value = item.positionNameField_US.ToString();
+                        EMaritalStatus.Value = item.maritalStatus_USField.ToString();
+
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
+
         public string GetPeriodicalFormForGovernmentHousingData(string RequestID)
         {
             PeriodicalFormForGovernmentHousingEntity masteritem = new PeriodicalFormForGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", masteritem.RequestNumber, "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
             addtopage("ContractNumber", masteritem.ContractNumber, "ApartmentNumber", masteritem.ApartmentNumber);
             addtopage("Owner", masteritem.Owner, "NumberOfRooms", masteritem.NumberOfRooms);
             addtopage("ACtype", masteritem.ACtype, "LeasingContractEndDate", masteritem.LeasingContractEndDate);
@@ -147,6 +189,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         {
             ReturnToDutyNoticeMembersOfTheJudiciaryEntity obitem = new ReturnToDutyNoticeMembersOfTheJudiciary().GetByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", obitem.RequestNumber, "title");
+            UserData(Convert.ToString(obitem.CreatedBy.User.LoginName));
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
             if (languageCode == "ar")
@@ -165,6 +208,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         {
             AffirmationReceiptGovernmentHousingEntity AGHousing = new AffirmationReceiptGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", AGHousing.RequestNumber, "title");
+            UserData(Convert.ToString(AGHousing.CreatedBy.User.LoginName));
             addtopage("MobileNumber", AGHousing.MobileNumber, "ApportionmentDate", Convert.ToDateTime(AGHousing.ApportionmentDate).ToString("dd MMM yyyy"));
             addtopage("HomeAddress", AGHousing.HomeAddress, "VilaApartmentNumber", AGHousing.VilaApartmentNumber);
             addtopage("NumberOfRooms", AGHousing.NumberOfRooms, "Owner", AGHousing.Owner);
@@ -176,6 +220,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
             ReserveHotelEntity RHotel = new ReserveHotel().GetByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", RHotel.RequestNumber, "title");
+            UserData(Convert.ToString(RHotel.CreatedBy.User.LoginName));          
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
             if (languageCode == "ar")
@@ -243,6 +288,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         {
             ContactWithHREntity ContactWithHRitm = new ContactWithHR().GetContactWithHR(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", ContactWithHRitm.RequestNumber, "title");
+            UserData(Convert.ToString(ContactWithHRitm.CreatedBy.User.LoginName));
             addtopage("ContactReason", ContactWithHRitm.ContactReason);
             string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + ContactWithHRitm.Message + "</textarea>";
             addtopage("Message", Messaghtm);
@@ -250,7 +296,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         public void GetFazaaCardRequestData(string RequestID)
         {
             FazaaCardRequestEntity Fazaaitem = new FazaaCardRequest().GetFazaaCardRequest(Convert.ToInt32(RequestID));
-            addtopage("RequestNumber", Fazaaitem.RequestNumber, "title");           
+            addtopage("RequestNumber", Fazaaitem.RequestNumber, "title");
+            UserData(Convert.ToString(Fazaaitem.CreatedBy.User.LoginName));
             string Commenthtml = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + Fazaaitem.Comment + "</textarea>";
             addtopage("Comment", Commenthtml);
         }
@@ -258,6 +305,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         {
             CarOrderServiceEntity caritem = new CarOrderServiceBL().GetCarOrderServiceByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", caritem.RequestNumber, "title");
+            UserData(Convert.ToString(caritem.CreatedBy.User.LoginName));
             addtopage("Carwith", caritem.TravelNeeds);
             addtopage("GoingTo", caritem.TravelTo);
             addtopage("PassengerName", caritem.NameOfPassengers);
@@ -269,6 +317,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         {           
             HappinessHotlineEntity HappinessHotlin = new HappinessHotline().GetHappinessHotline(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", HappinessHotlin.RequestNumber, "title");
+            UserData(Convert.ToString(HappinessHotlin.CreatedBy.User.LoginName));
             addtopage("ContactReason", HappinessHotlin.ContactReason);
             string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + HappinessHotlin.Message + "</textarea>";
             addtopage("Message", Messaghtm);
@@ -278,6 +327,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
             AffirmationSocialSituationEntity AffirmationSocial = new AffirmationSocialSituationB().GetAffirmationSocialSituation(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", AffirmationSocial.RequestNumber, "title");
+            UserData(Convert.ToString(AffirmationSocial.CreatedBy.User.LoginName));
             addtopage("Data", AffirmationSocial.HusbandORWife);
 
             List<HusbandORWifeEntity> HusbandORWifeis = new AffirmationSocialSituationB().GetHusbandORWife(AffirmationSocial.RequestNumber);
@@ -338,7 +388,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     }
                 }
                 addtopage("RequestNumber", Room.RequestNumber, "title");
-                addtopage("Place", Room.Place);
+            UserData(Convert.ToString(Room.CreatedBy.User.LoginName));
+            addtopage("Place", Room.Place);
                 addtopage("AttendeesNumber", Room.AttendeesNumber);
                 addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
                 addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));

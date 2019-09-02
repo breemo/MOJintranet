@@ -167,7 +167,7 @@ namespace MOJ.DataManager
                                     }
                                     obitem.RequestNumber = Convert.ToString(Item["Title"]);
                                     obitem.Status = Convert.ToString(Item["Status"]);
-
+                                    obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
                                 }
                             }
                         }
