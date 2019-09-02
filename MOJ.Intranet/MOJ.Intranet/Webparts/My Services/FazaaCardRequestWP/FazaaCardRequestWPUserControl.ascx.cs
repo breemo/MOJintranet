@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,7 +14,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.My_Services.FazaaCardRequestWP
 {
-    public partial class FazaaCardRequestWPUserControl : UserControl
+    public partial class FazaaCardRequestWPUserControl :SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,15 +61,17 @@ namespace MOJ.Intranet.Webparts.My_Services.FazaaCardRequestWP
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
+            if (!_isRefresh) { 
             try
             {
                 string RecordPrfix = "";
                 RecordPrfix = "Fazaa-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("FazaaCardRequest");
                 FazaaCardRequestEntity itemSumbit = new FazaaCardRequestEntity();
-                itemSumbit.Comment = Comment.Value;               
+                itemSumbit.Comment = Comment.Value;
                 itemSumbit.RequestNumber = RecordPrfix;
 
                 FazaaCardRequest FazaaCardRequesttem = new FazaaCardRequest();
+
 
                 bool isSaved = FazaaCardRequesttem.SaveUpdate(itemSumbit);
                 if (isSaved == true)
@@ -82,7 +85,7 @@ namespace MOJ.Intranet.Webparts.My_Services.FazaaCardRequestWP
             {
                 LoggingService.LogError("WebParts", ex.Message);
             }
-
+        }
         }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -15,7 +16,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.My_Services.HappinessHotlineWP
 {
-    public partial class HappinessHotlineWPUserControl : UserControl
+    public partial class HappinessHotlineWPUserControl : SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -97,28 +98,30 @@ namespace MOJ.Intranet.Webparts.My_Services.HappinessHotlineWP
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            try
+            if (!_isRefresh)
             {
-                string RecordPrfix = "";
-                RecordPrfix = "Happiness-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("HappinessHotline");
-                HappinessHotlineEntity itemSumbit = new HappinessHotlineEntity();
-                itemSumbit.Message = Message.Value;
-                itemSumbit.ContactReason = RBContactReason.SelectedValue;
-                itemSumbit.RequestNumber = RecordPrfix;
-                HappinessHotline HappinessHot = new HappinessHotline();
-                bool isSaved = HappinessHot.SaveUpdate(itemSumbit);
-                if (isSaved == true)
+                try
                 {
-                    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                    posts.Style.Add("display", "none");
-                    SuccessMsgDiv.Style.Add("display", "block");
+                    string RecordPrfix = "";
+                    RecordPrfix = "Happiness-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("HappinessHotline");
+                    HappinessHotlineEntity itemSumbit = new HappinessHotlineEntity();
+                    itemSumbit.Message = Message.Value;
+                    itemSumbit.ContactReason = RBContactReason.SelectedValue;
+                    itemSumbit.RequestNumber = RecordPrfix;
+                    HappinessHotline HappinessHot = new HappinessHotline();
+                    bool isSaved = HappinessHot.SaveUpdate(itemSumbit);
+                    if (isSaved == true)
+                    {
+                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                        posts.Style.Add("display", "none");
+                        SuccessMsgDiv.Style.Add("display", "block");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LoggingService.LogError("WebParts", ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
-            }
-
         }
     }
 }

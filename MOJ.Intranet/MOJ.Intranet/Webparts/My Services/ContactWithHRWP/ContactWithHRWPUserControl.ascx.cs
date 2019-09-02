@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,7 +14,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.My_Services.ContactWithHRWP
 {
-    public partial class ContactWithHRWPUserControl : UserControl
+    public partial class ContactWithHRWPUserControl : SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,7 +61,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ContactWithHRWP
 
         private void GetChoices()
         {
-            try
+           
+                try
             {
                 SPSecurity.RunWithElevatedPrivileges(delegate ()
                 {
@@ -94,28 +96,30 @@ namespace MOJ.Intranet.Webparts.My_Services.ContactWithHRWP
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            try
+            if (!_isRefresh)
             {
-                string RecordPrfix = "";
-                RecordPrfix = "ContactHR-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ContactWithHR");
-                ContactWithHREntity itemSumbit = new ContactWithHREntity();
-                itemSumbit.Message = Message.Value;
-                itemSumbit.ContactReason = RBContactReason.SelectedValue;
-                itemSumbit.RequestNumber = RecordPrfix;
-                ContactWithHR obitem = new ContactWithHR();
-                bool isSaved = obitem.SaveUpdate(itemSumbit);
-                if (isSaved == true)
+                try
                 {
-                    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                    posts.Style.Add("display", "none");
-                    SuccessMsgDiv.Style.Add("display", "block");
+                    string RecordPrfix = "";
+                    RecordPrfix = "ContactHR-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ContactWithHR");
+                    ContactWithHREntity itemSumbit = new ContactWithHREntity();
+                    itemSumbit.Message = Message.Value;
+                    itemSumbit.ContactReason = RBContactReason.SelectedValue;
+                    itemSumbit.RequestNumber = RecordPrfix;
+                    ContactWithHR obitem = new ContactWithHR();
+                    bool isSaved = obitem.SaveUpdate(itemSumbit);
+                    if (isSaved == true)
+                    {
+                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                        posts.Style.Add("display", "none");
+                        SuccessMsgDiv.Style.Add("display", "block");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LoggingService.LogError("WebParts", ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
-            }
-
         }
     }
 }

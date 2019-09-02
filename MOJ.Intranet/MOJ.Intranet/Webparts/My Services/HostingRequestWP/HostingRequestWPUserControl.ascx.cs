@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +15,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
 {
-    public partial class HostingRequestWPUserControl : UserControl
+    public partial class HostingRequestWPUserControl : SiteUI
     {
 
         protected void Page_Load(object sender, EventArgs e)
@@ -152,114 +153,118 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
        
         protected void btnSaveReserveHotel_Click(object sender, EventArgs e)
         {
-            string RecordPrfix = "";
-            RecordPrfix = "Hotel-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ReserveHotel");
-            ReserveHotelEntity itemSumbit = new ReserveHotelEntity();
-            itemSumbit.RequestNumber = RecordPrfix;
-            itemSumbit.EmirateID = DropDownEmirates.SelectedValue.ToString();
-            ReserveHotel rb = new ReserveHotel();
-            bool isSaved = rb.SaveUpdate(itemSumbit);
-
-            /////////////////////////////////////////////////////////////////////
-            List<ReserveHotelPeopleEntity> listReserveHotelPeople = new List<ReserveHotelPeopleEntity>();
-            if (!string.IsNullOrEmpty(PName0.Value))
+            if (!_isRefresh)
             {
-                ReserveHotelPeopleEntity itemPeople = new ReserveHotelPeopleEntity();
-                itemPeople.RequestNumber = RecordPrfix;
-                itemPeople.Name = PName0.Value;
-                itemPeople.Job = Job0.Value;             
-                    itemPeople.from =from0.Value;               
-                    itemPeople.to = to0.Value;
-                itemPeople.Task = pMission0.Value;            
+                string RecordPrfix = "";
+                RecordPrfix = "Hotel-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ReserveHotel");
+                ReserveHotelEntity itemSumbit = new ReserveHotelEntity();
+                itemSumbit.RequestNumber = RecordPrfix;
+                itemSumbit.EmirateID = DropDownEmirates.SelectedValue.ToString();
+                ReserveHotel rb = new ReserveHotel();
+                bool isSaved = rb.SaveUpdate(itemSumbit);
 
-                listReserveHotelPeople.Add(itemPeople);
-            }
-            if (hdncounter.Value != "")
-            {
-                string[] Name = Request.Form.GetValues("PName");
-                string[] Job = Request.Form.GetValues("Job");
-                string[] from = Request.Form.GetValues("from");
-                string[] to = Request.Form.GetValues("to");
-                string[] pMission = Request.Form.GetValues("pMission");
-                for (int x = 0; x < Convert.ToInt32(Name.Length); x++)
+                /////////////////////////////////////////////////////////////////////
+                List<ReserveHotelPeopleEntity> listReserveHotelPeople = new List<ReserveHotelPeopleEntity>();
+                if (!string.IsNullOrEmpty(PName0.Value))
                 {
-                    if (!string.IsNullOrEmpty(Name[x]))
+                    ReserveHotelPeopleEntity itemPeople = new ReserveHotelPeopleEntity();
+                    itemPeople.RequestNumber = RecordPrfix;
+                    itemPeople.Name = PName0.Value;
+                    itemPeople.Job = Job0.Value;
+                    itemPeople.from = from0.Value;
+                    itemPeople.to = to0.Value;
+                    itemPeople.Task = pMission0.Value;
+
+                    listReserveHotelPeople.Add(itemPeople);
+                }
+                if (hdncounter.Value != "")
+                {
+                    string[] Name = Request.Form.GetValues("PName");
+                    string[] Job = Request.Form.GetValues("Job");
+                    string[] from = Request.Form.GetValues("from");
+                    string[] to = Request.Form.GetValues("to");
+                    string[] pMission = Request.Form.GetValues("pMission");
+                    for (int x = 0; x < Convert.ToInt32(Name.Length); x++)
                     {
-                        ReserveHotelPeopleEntity itemPeople = new ReserveHotelPeopleEntity();
-                        itemPeople.RequestNumber = RecordPrfix;
-                        itemPeople.Name = Name[x];
-                        itemPeople.Job = Job[x];
-                       
-                        itemPeople.from = from[x];
-                       
+                        if (!string.IsNullOrEmpty(Name[x]))
+                        {
+                            ReserveHotelPeopleEntity itemPeople = new ReserveHotelPeopleEntity();
+                            itemPeople.RequestNumber = RecordPrfix;
+                            itemPeople.Name = Name[x];
+                            itemPeople.Job = Job[x];
+
+                            itemPeople.from = from[x];
+
                             itemPeople.to = to[x];
-                        itemPeople.Task = pMission[x];
+                            itemPeople.Task = pMission[x];
 
 
-                        listReserveHotelPeople.Add(itemPeople);
+                            listReserveHotelPeople.Add(itemPeople);
+                        }
                     }
                 }
-            }
-          
-             rb.SaveUpdateReserveHotelPeople(listReserveHotelPeople);
-            if (isSaved == true)
-            {
-                lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                posts.Style.Add("display", "none");
-                SuccessMsgDiv.Style.Add("display", "block");
-            }
 
+                rb.SaveUpdateReserveHotelPeople(listReserveHotelPeople);
+                if (isSaved == true)
+                {
+                    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                    posts.Style.Add("display", "none");
+                    SuccessMsgDiv.Style.Add("display", "block");
+                }
+            }
         }
         protected void btnSaveRoomBooking_Click(object sender, EventArgs e)
         {
-            string RecordPrfix = "";
-            RecordPrfix = "Room-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("RoomBooking");
-            RoomBookingEntity itemSumbit = new RoomBookingEntity();
-
-            if (!string.IsNullOrEmpty(txtBookingDateFrom.Value))
+            if (!_isRefresh)
             {
-                DateTime sDate = DateTime.ParseExact(txtBookingDateFrom.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
-                TimeSpan tsSdate = TimeSpan.Parse(pmSdate[0]);
-                sDate = (pmSdate[1] == "PM") ? (sDate.Date + tsSdate).AddHours(12) : sDate.Date + tsSdate;
-                itemSumbit.DateFrom = sDate;
-            }
+                string RecordPrfix = "";
+                RecordPrfix = "Room-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("RoomBooking");
+                RoomBookingEntity itemSumbit = new RoomBookingEntity();
 
-            if (!string.IsNullOrEmpty(txtBookingDateTo.Value))
-            {
-                DateTime tDate = DateTime.ParseExact(txtBookingDateTo.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                string[] pmTdate = txtBookingTimeTo.Value.Split(' ');
-                TimeSpan tsTdate = TimeSpan.Parse(pmTdate[0]);
-                tDate = (pmTdate[1] == "PM") ? (tDate.Date + tsTdate).AddHours(12) : tDate.Date + tsTdate;
-                itemSumbit.DateTo = tDate;
-            }
+                if (!string.IsNullOrEmpty(txtBookingDateFrom.Value))
+                {
+                    DateTime sDate = DateTime.ParseExact(txtBookingDateFrom.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
+                    TimeSpan tsSdate = TimeSpan.Parse(pmSdate[0]);
+                    sDate = (pmSdate[1] == "PM") ? (sDate.Date + tsSdate).AddHours(12) : sDate.Date + tsSdate;
+                    itemSumbit.DateFrom = sDate;
+                }
 
-            itemSumbit.AttendeesNumber = txtAttendeesNumber.Value;
-            itemSumbit.Mission = txtMission.Value;
-            itemSumbit.Place = cbPlace.SelectedValue;
-            itemSumbit.Department = "1";
-            itemSumbit.RequestNumber = RecordPrfix;
+                if (!string.IsNullOrEmpty(txtBookingDateTo.Value))
+                {
+                    DateTime tDate = DateTime.ParseExact(txtBookingDateTo.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    string[] pmTdate = txtBookingTimeTo.Value.Split(' ');
+                    TimeSpan tsTdate = TimeSpan.Parse(pmTdate[0]);
+                    tDate = (pmTdate[1] == "PM") ? (tDate.Date + tsTdate).AddHours(12) : tDate.Date + tsTdate;
+                    itemSumbit.DateTo = tDate;
+                }
 
-            SPFieldMultiChoiceValue multiValue = new SPFieldMultiChoiceValue();
-            foreach (ListItem item in cbResources.Items)
-            {
-                if (item.Selected)
-                    multiValue.Add(item.Value);
-            }
-            itemSumbit.ResourcesNeeded = multiValue;
-            //itemSumbit.Status = "Submitted";
+                itemSumbit.AttendeesNumber = txtAttendeesNumber.Value;
+                itemSumbit.Mission = txtMission.Value;
+                itemSumbit.Place = cbPlace.SelectedValue;
+                itemSumbit.Department = "1";
+                itemSumbit.RequestNumber = RecordPrfix;
 
-            RoomBooking rb = new RoomBooking();
-            bool isSaved = rb.SaveUpdate(itemSumbit);
+                SPFieldMultiChoiceValue multiValue = new SPFieldMultiChoiceValue();
+                foreach (ListItem item in cbResources.Items)
+                {
+                    if (item.Selected)
+                        multiValue.Add(item.Value);
+                }
+                itemSumbit.ResourcesNeeded = multiValue;
+                //itemSumbit.Status = "Submitted";
 
-            if (isSaved == true)
-            {
-                lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                posts.Style.Add("display", "none");
-                SuccessMsgDiv.Style.Add("display", "block");
+                RoomBooking rb = new RoomBooking();
+                bool isSaved = rb.SaveUpdate(itemSumbit);
+
+                if (isSaved == true)
+                {
+                    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                    posts.Style.Add("display", "none");
+                    SuccessMsgDiv.Style.Add("display", "block");
+                }
             }
         }
-
        
     }
 }

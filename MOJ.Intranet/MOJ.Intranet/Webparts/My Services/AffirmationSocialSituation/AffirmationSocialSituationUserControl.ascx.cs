@@ -11,10 +11,11 @@ using MOJ.Business;
 using Microsoft.SharePoint.Utilities;
 using System.Collections.Generic;
 using System.Threading;
+using MOJ.Intranet.Classes.Common;
 
 namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
 {
-    public partial class AffirmationSocialSituationUserControl : UserControl
+    public partial class AffirmationSocialSituationUserControl : SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -114,72 +115,74 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            try
+            if (!_isRefresh)
             {
-                string RecordPrfix = "";
-                RecordPrfix = "Social-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("AffirmationSocialSituation");
-                AffirmationSocialSituationEntity itemSumbit = new AffirmationSocialSituationEntity();
-
-                itemSumbit.ChangeDate = ChangeDate.Value;
-                itemSumbit.ChangeReason = ChangeReason.Value;
-                itemSumbit.HusbandORWife = RBHusbandORWife.SelectedValue;
-                itemSumbit.Name = txtName.Value;
-                itemSumbit.RelationshipType = RelationshipType.Value;
-                itemSumbit.RequestNumber = RecordPrfix;
-
-                AffirmationSocialSituationB Ass = new AffirmationSocialSituationB();
-                bool isSaved = Ass.SaveUpdate(itemSumbit);
-                List<SonsEntity> listChildren = new List<SonsEntity>();
-                SonsEntity sons = new SonsEntity();
-                if (!string.IsNullOrEmpty(ChildrenName0.Value))
+                try
                 {
-                    sons.RequestNumber = RecordPrfix;
-                    sons.age = Age0.Value;
-                    sons.Name = ChildrenName0.Value;
-                    sons.Gender = Gender0.SelectedValue;
-                    sons.HousingAllowance = false;
-                    
-                    listChildren.Add(sons);
-                }
-                if (hdnChildren.Value != "")
-                {
-                    string[] ChildrenName = Request.Form.GetValues("ChildrenName");
-                    string[] age = Request.Form.GetValues("Age");
-                    string[] GenderR = Request.Form.GetValues("Gender");
-                    for (int x = 0; x < Convert.ToInt32(ChildrenName.Length); x++)
+                    string RecordPrfix = "";
+                    RecordPrfix = "Social-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("AffirmationSocialSituation");
+                    AffirmationSocialSituationEntity itemSumbit = new AffirmationSocialSituationEntity();
+
+                    itemSumbit.ChangeDate = ChangeDate.Value;
+                    itemSumbit.ChangeReason = ChangeReason.Value;
+                    itemSumbit.HusbandORWife = RBHusbandORWife.SelectedValue;
+                    itemSumbit.Name = txtName.Value;
+                    itemSumbit.RelationshipType = RelationshipType.Value;
+                    itemSumbit.RequestNumber = RecordPrfix;
+
+                    AffirmationSocialSituationB Ass = new AffirmationSocialSituationB();
+                    bool isSaved = Ass.SaveUpdate(itemSumbit);
+                    List<SonsEntity> listChildren = new List<SonsEntity>();
+                    SonsEntity sons = new SonsEntity();
+                    if (!string.IsNullOrEmpty(ChildrenName0.Value))
                     {
-                        if (!string.IsNullOrEmpty(ChildrenName[x]))
+                        sons.RequestNumber = RecordPrfix;
+                        sons.age = Age0.Value;
+                        sons.Name = ChildrenName0.Value;
+                        sons.Gender = Gender0.SelectedValue;
+                        sons.HousingAllowance = false;
+
+                        listChildren.Add(sons);
+                    }
+                    if (hdnChildren.Value != "")
+                    {
+                        string[] ChildrenName = Request.Form.GetValues("ChildrenName");
+                        string[] age = Request.Form.GetValues("Age");
+                        string[] GenderR = Request.Form.GetValues("Gender");
+                        for (int x = 0; x < Convert.ToInt32(ChildrenName.Length); x++)
                         {
-                            SonsEntity sonsob = new SonsEntity();
-                            sonsob.RequestNumber = RecordPrfix;
-                            sonsob.age = age[x];
-                            sonsob.Name = ChildrenName[x];
-                            sonsob.Gender = GenderR[x];
-                            listChildren.Add(sonsob);
+                            if (!string.IsNullOrEmpty(ChildrenName[x]))
+                            {
+                                SonsEntity sonsob = new SonsEntity();
+                                sonsob.RequestNumber = RecordPrfix;
+                                sonsob.age = age[x];
+                                sonsob.Name = ChildrenName[x];
+                                sonsob.Gender = GenderR[x];
+                                listChildren.Add(sonsob);
+                            }
                         }
                     }
-                }
-                Ass.SaveUpdateChildren(listChildren);
+                    Ass.SaveUpdateChildren(listChildren);
 
 
-                /////////////////////////////////////////////////////////////////////
-                List<HusbandORWifeEntity> listHusbandORWife = new List<HusbandORWifeEntity>();
-                if (!string.IsNullOrEmpty(Name0.Value))
-                {
-                    HusbandORWifeEntity HusbandORWife = new HusbandORWifeEntity();
-                HusbandORWife.RequestNumber = RecordPrfix;
-                HusbandORWife.workSector = WorkSector0.SelectedValue;
-                HusbandORWife.Name = Name0.Value;
-                HusbandORWife.HusbandORWife = RBHusbandORWife.SelectedValue;
-                HusbandORWife.Employer = Employer0.Value;
-                HusbandORWife.HiringDate = HiringDate0.Value;
-                HusbandORWife.DateOfMarriage = DateMarriage0.Value;
-                HusbandORWife.HasGovernmentHousingAllowance = HasGovernmentHousingAllowance0.Checked;
-                HusbandORWife.HasGovernmentHousingPercentageAllowance = HasGovernmentHousingPercentageAllowance0.Checked;
+                    /////////////////////////////////////////////////////////////////////
+                    List<HusbandORWifeEntity> listHusbandORWife = new List<HusbandORWifeEntity>();
+                    if (!string.IsNullOrEmpty(Name0.Value))
+                    {
+                        HusbandORWifeEntity HusbandORWife = new HusbandORWifeEntity();
+                        HusbandORWife.RequestNumber = RecordPrfix;
+                        HusbandORWife.workSector = WorkSector0.SelectedValue;
+                        HusbandORWife.Name = Name0.Value;
+                        HusbandORWife.HusbandORWife = RBHusbandORWife.SelectedValue;
+                        HusbandORWife.Employer = Employer0.Value;
+                        HusbandORWife.HiringDate = HiringDate0.Value;
+                        HusbandORWife.DateOfMarriage = DateMarriage0.Value;
+                        HusbandORWife.HasGovernmentHousingAllowance = HasGovernmentHousingAllowance0.Checked;
+                        HusbandORWife.HasGovernmentHousingPercentageAllowance = HasGovernmentHousingPercentageAllowance0.Checked;
 
 
-                listHusbandORWife.Add(HusbandORWife);
-            }
+                        listHusbandORWife.Add(HusbandORWife);
+                    }
                     if (hdnHusbandORWife.Value != "")
                     {
                         string[] Name = Request.Form.GetValues("Name");
@@ -196,9 +199,9 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                                 HusbandORWifeitems.workSector = WorkSector[x];
                                 HusbandORWifeitems.Name = Name[x];
                                 HusbandORWifeitems.HusbandORWife = RBHusbandORWife.SelectedValue;
-                                HusbandORWifeitems.Employer = Employer[x];     
+                                HusbandORWifeitems.Employer = Employer[x];
                                 HusbandORWifeitems.HiringDate = HiringDate[x];
-                                HusbandORWifeitems.DateOfMarriage = DateMarriage[x];                           
+                                HusbandORWifeitems.DateOfMarriage = DateMarriage[x];
                                 if (Request.Form["HasGovernmentHousingAllowance" + x] != null && Request.Form["HasGovernmentHousingAllowance" + x] == "on")
                                 {
                                     HusbandORWifeitems.HasGovernmentHousingAllowance = true;
@@ -221,24 +224,24 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                             }
                         }
                     }
-                        Ass.SaveUpdateHusbandORWife(listHusbandORWife);             
+                    Ass.SaveUpdateHusbandORWife(listHusbandORWife);
 
 
-                if (isSaved == true)
-                {
-                    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                    posts.Style.Add("display", "none");
-                    SuccessMsgDiv.Style.Add("display", "block");
+                    if (isSaved == true)
+                    {
+                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                        posts.Style.Add("display", "none");
+                        SuccessMsgDiv.Style.Add("display", "block");
+                    }
+
+
+
                 }
-
-
-
+                catch (Exception ex)
+                {
+                    LoggingService.LogError("WebParts", ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
-            }
-
         }
 
 

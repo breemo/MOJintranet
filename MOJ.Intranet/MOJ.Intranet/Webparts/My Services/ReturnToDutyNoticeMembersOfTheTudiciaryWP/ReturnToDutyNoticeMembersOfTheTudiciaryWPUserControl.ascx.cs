@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,7 +15,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.My_Services.ReturnToDutyNoticeMembersOfTheTudiciaryWP
 {
-    public partial class ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl : UserControl
+    public partial class ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl : SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -86,27 +87,29 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnToDutyNoticeMembersOfTheTudici
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            string RecordPrfix = "";
-            RecordPrfix = "ReturnNotice-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ReturnToDutyNoticeMembersOfTheJudiciary");
-            ReturnToDutyNoticeMembersOfTheJudiciaryEntity itemSumbit = new ReturnToDutyNoticeMembersOfTheJudiciaryEntity();
-            itemSumbit.RequestNumber = RecordPrfix;
-            itemSumbit.DayID = DropDownDay.SelectedValue.ToString();
-
-            if (!string.IsNullOrEmpty(Date.Value))
+            if (!_isRefresh)
             {
-                DateTime sDate = DateTime.ParseExact(Date.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                string RecordPrfix = "";
+                RecordPrfix = "ReturnNotice-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ReturnToDutyNoticeMembersOfTheJudiciary");
+                ReturnToDutyNoticeMembersOfTheJudiciaryEntity itemSumbit = new ReturnToDutyNoticeMembersOfTheJudiciaryEntity();
+                itemSumbit.RequestNumber = RecordPrfix;
+                itemSumbit.DayID = DropDownDay.SelectedValue.ToString();
 
-                itemSumbit.date = sDate;
-            }
-            ReturnToDutyNoticeMembersOfTheJudiciary rb = new ReturnToDutyNoticeMembersOfTheJudiciary();
-            bool isSaved = rb.SaveUpdate(itemSumbit);           
-            if (isSaved == true)
-            {
-                lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                posts.Style.Add("display", "none");
-                SuccessMsgDiv.Style.Add("display", "block");
-            }
+                if (!string.IsNullOrEmpty(Date.Value))
+                {
+                    DateTime sDate = DateTime.ParseExact(Date.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
 
+                    itemSumbit.date = sDate;
+                }
+                ReturnToDutyNoticeMembersOfTheJudiciary rb = new ReturnToDutyNoticeMembersOfTheJudiciary();
+                bool isSaved = rb.SaveUpdate(itemSumbit);
+                if (isSaved == true)
+                {
+                    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                    posts.Style.Add("display", "none");
+                    SuccessMsgDiv.Style.Add("display", "block");
+                }
+            }
         }
     }
 }

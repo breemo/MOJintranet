@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,7 +14,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingWP
 {
-    public partial class AffirmationReceiptGovernmentHousingWPUserControl : UserControl
+    public partial class AffirmationReceiptGovernmentHousingWPUserControl : SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -67,46 +68,48 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationReceiptGovernmentHousingW
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            try
+            if (!_isRefresh)
             {
-                string RecordPrfix = "";
-                RecordPrfix = "ReceiptGHousing -" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("AffirmationReceiptGovernmentHousing");
-                AffirmationReceiptGovernmentHousingEntity itemSumbit = new AffirmationReceiptGovernmentHousingEntity();
-
-                itemSumbit.MobileNumber = MobileNumber.Value;
-                if (!string.IsNullOrEmpty(ApportionmentDate.Value))
+                try
                 {
-                    DateTime sDate = DateTime.ParseExact(ApportionmentDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                  
-                    itemSumbit.ApportionmentDate = sDate;
+                    string RecordPrfix = "";
+                    RecordPrfix = "ReceiptGHousing -" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("AffirmationReceiptGovernmentHousing");
+                    AffirmationReceiptGovernmentHousingEntity itemSumbit = new AffirmationReceiptGovernmentHousingEntity();
+
+                    itemSumbit.MobileNumber = MobileNumber.Value;
+                    if (!string.IsNullOrEmpty(ApportionmentDate.Value))
+                    {
+                        DateTime sDate = DateTime.ParseExact(ApportionmentDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+
+                        itemSumbit.ApportionmentDate = sDate;
+                    }
+
+
+                    itemSumbit.HomeAddress = HomeAddress.Value;
+                    itemSumbit.VilaApartmentNumber = VilaApartmentNumber.Value;
+                    itemSumbit.NumberOfRooms = NumberOfRooms.Value;
+                    itemSumbit.Owner = Owner.Value;
+                    itemSumbit.agent = agent.Value;
+                    itemSumbit.RequestNumber = RecordPrfix;
+
+                    AffirmationReceiptGovernmentHousing ARGH = new AffirmationReceiptGovernmentHousing();
+                    bool isSaved = ARGH.SaveUpdate(itemSumbit);
+
+                    if (isSaved == true)
+                    {
+                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                        posts.Style.Add("display", "none");
+                        SuccessMsgDiv.Style.Add("display", "block");
+                    }
+
+
+
                 }
-
-                
-                itemSumbit.HomeAddress = HomeAddress.Value;
-                itemSumbit.VilaApartmentNumber = VilaApartmentNumber.Value;
-                itemSumbit.NumberOfRooms = NumberOfRooms.Value;
-                itemSumbit.Owner = Owner.Value;
-                itemSumbit.agent = agent.Value;
-                itemSumbit.RequestNumber = RecordPrfix;
-
-                AffirmationReceiptGovernmentHousing ARGH = new AffirmationReceiptGovernmentHousing();
-                bool isSaved = ARGH.SaveUpdate(itemSumbit);
-                
-                if (isSaved == true)
+                catch (Exception ex)
                 {
-                    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                    posts.Style.Add("display", "none");
-                    SuccessMsgDiv.Style.Add("display", "block");
+                    LoggingService.LogError("WebParts", ex.Message);
                 }
-
-
-
             }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
-            }
-
         }
 
 

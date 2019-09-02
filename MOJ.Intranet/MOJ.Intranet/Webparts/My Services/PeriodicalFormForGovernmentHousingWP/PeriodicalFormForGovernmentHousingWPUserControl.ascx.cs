@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,7 +14,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
 {
-    public partial class PeriodicalFormForGovernmentHousingWPUserControl : UserControl
+    public partial class PeriodicalFormForGovernmentHousingWPUserControl : SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -124,138 +125,140 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-
-            try
+            if (!_isRefresh)
             {
-                string RecordPrfix = "";
-                RecordPrfix = "Periodical-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("PeriodicalFormForGovernmentHousing");
-                PeriodicalFormForGovernmentHousingEntity itemSumbit = new PeriodicalFormForGovernmentHousingEntity();
-
-                itemSumbit.HusbandORWife = RBHusbandORWife.SelectedValue;
-                itemSumbit.ContractNumber = ContractNumber.Value;
-                itemSumbit.ApartmentNumber = ApartmentNumber.Value;
-                itemSumbit.Owner = Owner.Value;
-                itemSumbit.NumberOfRooms = NumberOfRooms.Value;
-                itemSumbit.ACtype = ACtype.Value;               
-                itemSumbit.LeasingContractEndDate = LeasingContractEndDate.Value;
-                itemSumbit.Mobile = Mobile.Value;
-                itemSumbit.HomePhone = HomePhone.Value;
-                itemSumbit.WorkPhone = WorkPhone.Value;
-                itemSumbit.RequestNumber = RecordPrfix;
-
-                PeriodicalFormForGovernmentHousing Ass = new PeriodicalFormForGovernmentHousing();
-                bool isSaved = Ass.SaveUpdate(itemSumbit);
-                List<SonsEntity> listChildren = new List<SonsEntity>();
-                SonsEntity sons = new SonsEntity();
-                if (!string.IsNullOrEmpty(ChildrenName0.Value))
+                try
                 {
-                    sons.RequestNumber = RecordPrfix;
-                    sons.age = Age0.Value;
-                    sons.Name = ChildrenName0.Value;                   
-                    sons.Gender = Gender0.SelectedValue;
-                    sons.Career = Career0.SelectedValue;
-                    sons.BasicSalary = SBasicSalary0.Value;
-                    sons.LastEntryDate = SLastEntryDate0.Value;
-                    sons.LastExitDate = SLastExitDate0.Value;
-                    sons.HousingAllowance = HousingAllowance0.Checked;
-                    listChildren.Add(sons);
-                }
-                if (hdnChildren.Value != "")
-                {
-                    string[] ChildrenName = Request.Form.GetValues("ChildrenName");
-                    string[] age = Request.Form.GetValues("Age");
-                    string[] GenderR = Request.Form.GetValues("Gender");
-                    string[] Career = Request.Form.GetValues("Career");
-                    string[] SBasicSalary = Request.Form.GetValues("SBasicSalary");
-                    string[] SLastEntryDate = Request.Form.GetValues("SLastEntryDate");
-                    string[] SLastExitDate = Request.Form.GetValues("SLastExitDate");
-                  
-                    for (int x = 0; x < Convert.ToInt32(ChildrenName.Length); x++)
+                    string RecordPrfix = "";
+                    RecordPrfix = "Periodical-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("PeriodicalFormForGovernmentHousing");
+                    PeriodicalFormForGovernmentHousingEntity itemSumbit = new PeriodicalFormForGovernmentHousingEntity();
+
+                    itemSumbit.HusbandORWife = RBHusbandORWife.SelectedValue;
+                    itemSumbit.ContractNumber = ContractNumber.Value;
+                    itemSumbit.ApartmentNumber = ApartmentNumber.Value;
+                    itemSumbit.Owner = Owner.Value;
+                    itemSumbit.NumberOfRooms = NumberOfRooms.Value;
+                    itemSumbit.ACtype = ACtype.Value;
+                    itemSumbit.LeasingContractEndDate = LeasingContractEndDate.Value;
+                    itemSumbit.Mobile = Mobile.Value;
+                    itemSumbit.HomePhone = HomePhone.Value;
+                    itemSumbit.WorkPhone = WorkPhone.Value;
+                    itemSumbit.RequestNumber = RecordPrfix;
+
+                    PeriodicalFormForGovernmentHousing Ass = new PeriodicalFormForGovernmentHousing();
+                    bool isSaved = Ass.SaveUpdate(itemSumbit);
+                    List<SonsEntity> listChildren = new List<SonsEntity>();
+                    SonsEntity sons = new SonsEntity();
+                    if (!string.IsNullOrEmpty(ChildrenName0.Value))
                     {
-                        if (!string.IsNullOrEmpty(ChildrenName[x]))
+                        sons.RequestNumber = RecordPrfix;
+                        sons.age = Age0.Value;
+                        sons.Name = ChildrenName0.Value;
+                        sons.Gender = Gender0.SelectedValue;
+                        sons.Career = Career0.SelectedValue;
+                        sons.BasicSalary = SBasicSalary0.Value;
+                        sons.LastEntryDate = SLastEntryDate0.Value;
+                        sons.LastExitDate = SLastExitDate0.Value;
+                        sons.HousingAllowance = HousingAllowance0.Checked;
+                        listChildren.Add(sons);
+                    }
+                    if (hdnChildren.Value != "")
+                    {
+                        string[] ChildrenName = Request.Form.GetValues("ChildrenName");
+                        string[] age = Request.Form.GetValues("Age");
+                        string[] GenderR = Request.Form.GetValues("Gender");
+                        string[] Career = Request.Form.GetValues("Career");
+                        string[] SBasicSalary = Request.Form.GetValues("SBasicSalary");
+                        string[] SLastEntryDate = Request.Form.GetValues("SLastEntryDate");
+                        string[] SLastExitDate = Request.Form.GetValues("SLastExitDate");
+
+                        for (int x = 0; x < Convert.ToInt32(ChildrenName.Length); x++)
                         {
-                            SonsEntity sonsob = new SonsEntity();
-                            sonsob.RequestNumber = RecordPrfix;
-                            sonsob.age = age[x];
-                            sonsob.Name = ChildrenName[x];
-                            sonsob.Gender = GenderR[x];
-                            sonsob.BasicSalary = SBasicSalary[x];
-                            sonsob.LastEntryDate = SLastEntryDate[x];
-                            sonsob.LastExitDate = SLastExitDate[x];
-                            if (Request.Form["HousingAllowance" + x] != null && Request.Form["HousingAllowance" + x] == "on")
+                            if (!string.IsNullOrEmpty(ChildrenName[x]))
                             {
-                                sonsob.HousingAllowance = true;
+                                SonsEntity sonsob = new SonsEntity();
+                                sonsob.RequestNumber = RecordPrfix;
+                                sonsob.age = age[x];
+                                sonsob.Name = ChildrenName[x];
+                                sonsob.Gender = GenderR[x];
+                                sonsob.BasicSalary = SBasicSalary[x];
+                                sonsob.LastEntryDate = SLastEntryDate[x];
+                                sonsob.LastExitDate = SLastExitDate[x];
+                                if (Request.Form["HousingAllowance" + x] != null && Request.Form["HousingAllowance" + x] == "on")
+                                {
+                                    sonsob.HousingAllowance = true;
+                                }
+                                else
+                                {
+                                    sonsob.HousingAllowance = false;
+                                }
+                                listChildren.Add(sonsob);
                             }
-                            else
-                            {
-                                sonsob.HousingAllowance = false;
-                            }
-                            listChildren.Add(sonsob);
                         }
                     }
-                }
-                Ass.SaveUpdateChildren(listChildren);
-                /////////////////////////////////////////////////////////////////////
-                List<HusbandORWifeEntity> listHusbandORWife = new List<HusbandORWifeEntity>();
-                if (!string.IsNullOrEmpty(Name0.Value))
-                {
-                    HusbandORWifeEntity HusbandORWife = new HusbandORWifeEntity();
-                    HusbandORWife.RequestNumber = RecordPrfix;
-                    HusbandORWife.workSector = WorkSector0.SelectedValue;
-                    HusbandORWife.Name = Name0.Value;
-                    HusbandORWife.HusbandORWife = RBHusbandORWife.SelectedValue;
-                    HusbandORWife.HiringDate = HiringDate0.Value;
-                    HusbandORWife.BasicSalary = BasicSalary0.Value;                    
-                    HusbandORWife.LastEntryDate = LastEntryDate0.Value;
-                    HusbandORWife.LastExitDate = LastExitDate0.Value;
-                    HusbandORWife.HasGovernmentHousingPercentageAllowance = HasGovernmentHousingPercentageAllowance0.Checked;
-                    listHusbandORWife.Add(HusbandORWife);
-                }
-                if (hdnHusbandORWife.Value != "")
-                {
-                    string[] Name = Request.Form.GetValues("Name");
-                    string[] HiringDate = Request.Form.GetValues("HiringDate");
-                    string[] WorkSector = Request.Form.GetValues("WorkSector");
-                    string[] BasicSalary = Request.Form.GetValues("BasicSalary");
-                    string[] LastEntryDate = Request.Form.GetValues("LastEntryDate");
-                    string[] LastExitDate = Request.Form.GetValues("LastExitDate");
-                    for (int x = 0; x < Convert.ToInt32(Name.Length); x++)
+                    Ass.SaveUpdateChildren(listChildren);
+                    /////////////////////////////////////////////////////////////////////
+                    List<HusbandORWifeEntity> listHusbandORWife = new List<HusbandORWifeEntity>();
+                    if (!string.IsNullOrEmpty(Name0.Value))
                     {
-                        if (!string.IsNullOrEmpty(Name[x]))
+                        HusbandORWifeEntity HusbandORWife = new HusbandORWifeEntity();
+                        HusbandORWife.RequestNumber = RecordPrfix;
+                        HusbandORWife.workSector = WorkSector0.SelectedValue;
+                        HusbandORWife.Name = Name0.Value;
+                        HusbandORWife.HusbandORWife = RBHusbandORWife.SelectedValue;
+                        HusbandORWife.HiringDate = HiringDate0.Value;
+                        HusbandORWife.BasicSalary = BasicSalary0.Value;
+                        HusbandORWife.LastEntryDate = LastEntryDate0.Value;
+                        HusbandORWife.LastExitDate = LastExitDate0.Value;
+                        HusbandORWife.HasGovernmentHousingPercentageAllowance = HasGovernmentHousingPercentageAllowance0.Checked;
+                        listHusbandORWife.Add(HusbandORWife);
+                    }
+                    if (hdnHusbandORWife.Value != "")
+                    {
+                        string[] Name = Request.Form.GetValues("Name");
+                        string[] HiringDate = Request.Form.GetValues("HiringDate");
+                        string[] WorkSector = Request.Form.GetValues("WorkSector");
+                        string[] BasicSalary = Request.Form.GetValues("BasicSalary");
+                        string[] LastEntryDate = Request.Form.GetValues("LastEntryDate");
+                        string[] LastExitDate = Request.Form.GetValues("LastExitDate");
+                        for (int x = 0; x < Convert.ToInt32(Name.Length); x++)
                         {
-                            HusbandORWifeEntity HusbandORWifeitems = new HusbandORWifeEntity();
-                            HusbandORWifeitems.RequestNumber = RecordPrfix;
-                            HusbandORWifeitems.workSector = WorkSector[x];
-                            HusbandORWifeitems.Name = Name[x];
-                            HusbandORWifeitems.HusbandORWife = RBHusbandORWife.SelectedValue;
-                            HusbandORWifeitems.BasicSalary = BasicSalary[x];
-                            HusbandORWifeitems.HiringDate = HiringDate[x];
-                            HusbandORWifeitems.LastEntryDate = LastEntryDate[x];                           
-                            HusbandORWifeitems.LastExitDate = LastExitDate[x];                           
-                            if (Request.Form["HasGovernmentHousingPercentageAllowance" + x] != null && Request.Form["HasGovernmentHousingPercentageAllowance" + x] == "on")
+                            if (!string.IsNullOrEmpty(Name[x]))
                             {
-                                HusbandORWifeitems.HasGovernmentHousingPercentageAllowance = true;
-                            }
-                            else
-                            {
-                                HusbandORWifeitems.HasGovernmentHousingPercentageAllowance = false;
+                                HusbandORWifeEntity HusbandORWifeitems = new HusbandORWifeEntity();
+                                HusbandORWifeitems.RequestNumber = RecordPrfix;
+                                HusbandORWifeitems.workSector = WorkSector[x];
+                                HusbandORWifeitems.Name = Name[x];
+                                HusbandORWifeitems.HusbandORWife = RBHusbandORWife.SelectedValue;
+                                HusbandORWifeitems.BasicSalary = BasicSalary[x];
+                                HusbandORWifeitems.HiringDate = HiringDate[x];
+                                HusbandORWifeitems.LastEntryDate = LastEntryDate[x];
+                                HusbandORWifeitems.LastExitDate = LastExitDate[x];
+                                if (Request.Form["HasGovernmentHousingPercentageAllowance" + x] != null && Request.Form["HasGovernmentHousingPercentageAllowance" + x] == "on")
+                                {
+                                    HusbandORWifeitems.HasGovernmentHousingPercentageAllowance = true;
+                                }
+                                else
+                                {
+                                    HusbandORWifeitems.HasGovernmentHousingPercentageAllowance = false;
 
+                                }
+                                listHusbandORWife.Add(HusbandORWifeitems);
                             }
-                            listHusbandORWife.Add(HusbandORWifeitems);
                         }
                     }
+                    Ass.SaveUpdateHusbandORWife(listHusbandORWife);
+                    if (isSaved == true)
+                    {
+                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                        posts.Style.Add("display", "none");
+                        SuccessMsgDiv.Style.Add("display", "block");
+                    }
                 }
-                Ass.SaveUpdateHusbandORWife(listHusbandORWife);
-                if (isSaved == true)
+                catch (Exception ex)
                 {
-                    lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                    posts.Style.Add("display", "none");
-                    SuccessMsgDiv.Style.Add("display", "block");
+                    LoggingService.LogError("WebParts", ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
             }
         }
     }
