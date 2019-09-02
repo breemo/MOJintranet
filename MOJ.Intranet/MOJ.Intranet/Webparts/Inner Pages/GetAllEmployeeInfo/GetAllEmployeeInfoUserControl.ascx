@@ -78,12 +78,12 @@
 
                                         <div class="col-md-6 col-sm-12">
 
-                                            <input type="text" class="form-control" value="" placeholder="الكلمات الرئيسية">
+                                            <input type="text" class="form-control" value="" runat="server" id="txtNameSearch" placeholder="الكلمات الرئيسية">
                                         </div>
 
                                         <div class="col-md-2">
-                                            <button class="detailbtn">بحث</button>
-
+                                            <%--<button class="detailbtn">بحث</button>--%>
+                                            <asp:Button ID="btnNameSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnNameSearch_Click" />
                                         </div>
 
                                     </div>
@@ -115,124 +115,242 @@
 
 
 
-        
-        <div class="ndl">
-    <div class="col-md-5 col-sm-12 bgdivindf">
 
-        <div class="titleheadnew">
-            <h4>بطاقة الاعمال الالكترونية</h4>
-        </div>
+        <div class="ndl" id="CurrentUserDiv" runat="server">
+            <div class="col-md-5 col-sm-12 bgdivindf">
 
-        <div class="conentbgdivd">
-
-            <div class="row">
-                <div class="col-sm-12 jdivd">
-
-                    <div class="mtopc">
-                        <img src="/Style%20Library/MOJTheme/images/imgcircle.png" class="img-fluid">
-                    </div>
-
+                <div class="titleheadnew">
+                    <h4>بطاقة الاعمال الالكترونية</h4>
                 </div>
 
-                <div class=" dininfo">
+                <div class="conentbgdivd">
 
-                    <table>
+                    <div class="row">
+                        <div class="col-sm-12 jdivd">
 
-                        <tbody>
-                            <tr>
+                            <div class="mtopc">
+                                <img src="/Style%20Library/MOJTheme/images/imgcircle.png" class="img-fluid">
+                            </div>
 
-                                <td>
-                                    <p class="rmae">
-                                        الأسم
-                                    </p>
-                                </td>
-                                <td>
+                        </div>
 
-                                    <span class="nnamele">
-                                        <asp:Literal ID="lblEmployeeNameAr" runat="server"></asp:Literal>
-                                    </span></td>
-                            </tr>
-                            <tr>
+                        <div class=" dininfo">
 
-                                <td>
-                                    <p class="rmae">
-                                        الأدارة
-                                    </p>
-                                </td>
-                                <td>
+                            <table>
 
+                                <tbody>
+                                    <tr>
 
+                                        <td>
+                                            <p class="rmae">
+                                                الأسم
+                                            </p>
+                                        </td>
+                                        <td>
 
-                                    <span class="nnamele">
-                                        <asp:Literal ID="lblDepartmentAr" runat="server"></asp:Literal>
-                                    </span>
+                                            <span class="nnamele">
+                                                <asp:Literal ID="lblEmployeeNameAr" runat="server"></asp:Literal>
+                                            </span></td>
+                                    </tr>
+                                    <tr>
 
-                                </td>
-                            </tr>
-                            <tr>
-
-                                <td>
-                                    <p class="rmae">
-                                        المسمى الوظيفي
-                                    </p>
-                                </td>
-                                <td>
-
-                                    <span class="nnamele">
-                                        <asp:Literal ID="lblJobtitle" runat="server"></asp:Literal>
-                                    </span>
-
-                                </td>
-                            </tr>
-
-                            <tr>
-
-                                <td>
-                                    <p class="rmae">
-                                        البريد الألكتروني
-                                    </p>
-                                </td>
-                                <td>
-
-                                    <span class="nnamele">
-                                        <asp:Literal ID="lblEmail" runat="server"></asp:Literal>
-                                    </span>
-
-                                </td>
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    <p class="rmae">
-                                        هاتف العمل
-                                    </p>
-                                </td>
-                                <td>
-
-                                    <span class="nnamele">
-                                        <asp:Literal ID="lblContactNo" runat="server"></asp:Literal>
-                                    </span>
-
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                        <td>
+                                            <p class="rmae">
+                                                الأدارة
+                                            </p>
+                                        </td>
+                                        <td>
 
 
 
+                                            <span class="nnamele">
+                                                <asp:Literal ID="lblDepartmentAr" runat="server"></asp:Literal>
+                                            </span>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            <p class="rmae">
+                                                المسمى الوظيفي
+                                            </p>
+                                        </td>
+                                        <td>
+
+                                            <span class="nnamele">
+                                                <asp:Literal ID="lblJobtitle" runat="server"></asp:Literal>
+                                            </span>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+
+                                        <td>
+                                            <p class="rmae">
+                                                البريد الألكتروني
+                                            </p>
+                                        </td>
+                                        <td>
+
+                                            <span class="nnamele">
+                                                <asp:Literal ID="lblEmail" runat="server"></asp:Literal>
+                                            </span>
+
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <p class="rmae">
+                                                هاتف العمل
+                                            </p>
+                                        </td>
+                                        <td>
+
+                                            <span class="nnamele">
+                                                <asp:Literal ID="lblContactNo" runat="server"></asp:Literal>
+                                            </span>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
+
+
+
         </div>
-    </div>
+
+
+        <asp:Repeater ID="grdPoeplelsts" runat="server">
+            <HeaderTemplate>
+            </HeaderTemplate>
+            <ItemTemplate>
+
+
+                <div class="ndl" id="CurrentUserDivDynamic" runat="server">
+                    <div class="col-md-5 col-sm-12 bgdivindf">
+
+                        <div class="titleheadnew">
+                            <h4>بطاقة الاعمال الالكترونية</h4>
+                        </div>
+
+                        <div class="conentbgdivd">
+
+                            <div class="row">
+                                <div class=" dininfo">
+
+                                    <table>
+
+                                        <tbody>
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        الأسم
+                                                    </p>
+                                                </td>
+                                                <td>
+
+                                                    <span class="nnamele">
+                                                         <%# Eval("AccountName") %>
+                                                    </span></td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        الأدارة
+                                                    </p>
+                                                </td>
+                                                <td>
+
+
+
+                                                    <span class="nnamele">
+                                                        <%# Eval("Department") %>
+                                                    </span>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        المسمى الوظيفي
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <span class="nnamele">
+                                                        <%# Eval("JobTitle") %>
+                                                    </span>
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        البريد الألكتروني
+                                                    </p>
+                                                </td>
+                                                <td>
+
+                                                    <span class="nnamele">
+                                                        <%# Eval("WorkEmail") %>
+                                                    </span>
+
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        هاتف العمل
+                                                    </p>
+                                                </td>
+                                                <td>
+
+                                                    <span class="nnamele">
+                                                        <%# Eval("OfficeNumber") %>
+                                                    </span>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
 
 
 
 
-</div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
 
 
 

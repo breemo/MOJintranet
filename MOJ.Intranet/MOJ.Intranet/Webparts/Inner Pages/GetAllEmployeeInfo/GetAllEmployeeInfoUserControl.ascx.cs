@@ -1,10 +1,13 @@
 ﻿using CommonLibrary;
 using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Search.Query;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -73,5 +76,77 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
+
+        protected void btnNameSearch_Click(object sender, EventArgs e)
+        {
+            CurrentUserDiv.Visible = false;
+
+            using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
+            {
+
+                DataTable dtProfile = new DataTable();
+
+                dtProfile.Columns.Add("AccountName");
+                dtProfile.Columns.Add("WorkEmail");
+                dtProfile.Columns.Add("Department");
+                dtProfile.Columns.Add("JobTitle");
+                dtProfile.Columns.Add("OfficeNumber");
+
+                SPSite site = new SPSite(SPContext.Current.Site.Url);
+                SPWeb web = site.RootWeb;
+                SPServiceContext serverContext = SPServiceContext.GetContext(site);
+                UserProfileManager profileManager = new UserProfileManager(serverContext);
+                EmployeeProfileEntity Profile;
+                DataRow dr;
+
+                foreach (UserProfile _Profile in profileManager)
+                {
+                    Profile = GetShortUserProfile(_Profile);
+
+                    dr = dtProfile.NewRow();
+                    dr["AccountName"] = Profile.AccountName;
+                    dr["WorkEmail"] = Profile.Email;
+                    dr["Department"] = Profile.Department;
+                    dr["JobTitle"] = Profile.JobTitle;
+                    dr["OfficeNumber"] = Profile.OfficeNumber;
+
+                    dtProfile.Rows.Add(dr);
+
+                }
+
+                if (txtNameSearch.Value != "")
+                    dtProfile.DefaultView.RowFilter = "AccountName Like '%" + txtNameSearch.Value + "%'";
+
+                DataTable dt = dtProfile.DefaultView.ToTable();
+
+                grdPoeplelsts.DataSource = dt;
+                grdPoeplelsts.DataBind();
+
+            }
+        }
+        private EmployeeProfileEntity GetShortUserProfile(UserProfile profile)
+        {
+            try
+            {
+                EmployeeProfileEntity currEmployee = new EmployeeProfileEntity();
+
+                //currEmployee.EmployeeID = profile["employeeID"].Value.ToSafeString();
+                currEmployee.AccountName = Convert.ToString(profile[PropertyConstants.AccountName].Value);
+                currEmployee.Email = Convert.ToString(profile[PropertyConstants.WorkEmail].Value);
+                //currEmployee.OfficeNumber = Convert.ToString(profile[PropertyConstants.WorkPhone].Value);
+                //currEmployee.PhoneNumber = Convert.ToString(profile[PropertyConstants.CellPhone].Value);
+                currEmployee.Department = Convert.ToString(profile[PropertyConstants.Department].Value);
+                currEmployee.JobTitle = Convert.ToString(profile[PropertyConstants.JobTitle].Value);
+                currEmployee.OfficeNumber = Convert.ToString(profile[PropertyConstants.WorkPhone].Value);
+
+
+                return currEmployee;
+            }
+            catch (Exception Exc)
+            {
+                return null;
+            }
+        }
     }
 }
+
