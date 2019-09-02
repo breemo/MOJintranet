@@ -22,11 +22,101 @@
         //Invoke the modal dialog by passing in the options array variable  
         SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
         return false;
-    
+
     } 
 </script>
 
-<div class="ndl">
+<div class="boxsh">
+    <h3>الهيكل التنظيمي - البطاقة التعريفية للموظف</h3>
+
+
+    <div class="insidebox insidebox2">
+
+
+        <div class="tabs tabs-responsive clearfix fullwidthtabs fullwidthtabs2">
+
+            <ul class="tab-nav  clearfix">
+                <li>
+                    <a href="#tab-responsive-1">
+                        <span class="nameicon">البحث عن الاسم
+                        </span>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#tab-responsive-2">
+                        <span class="depicon">البحث عن الادارة
+                        </span>
+
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#tab-responsive-3">
+                        <span class="woho">البحث عن مكان العمل
+                        </span>
+
+
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-container">
+
+                <div class="tab-content clearfix" id="tab-responsive-1">
+
+                    <div class="inskdnew inskdnew2">
+                        <div class="inskdnew">
+
+                            <div class="row rt">
+
+                                <div class="col-md-10 col-sm-12">
+
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-6 col-sm-12">
+
+                                            <input type="text" class="form-control" value="" placeholder="الكلمات الرئيسية">
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <button class="detailbtn">بحث</button>
+
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="tab-content clearfix" id="tab-responsive-2">
+                    <div class="inskdnew">
+                    </div>
+                </div>
+                <div class="tab-content clearfix" id="tab-responsive-3">
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        
+        <div class="ndl">
     <div class="col-md-5 col-sm-12 bgdivindf">
 
         <div class="titleheadnew">
@@ -143,3 +233,17 @@
 
 
 </div>
+
+
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
