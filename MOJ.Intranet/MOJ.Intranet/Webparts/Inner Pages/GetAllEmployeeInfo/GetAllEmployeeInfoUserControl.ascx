@@ -104,9 +104,65 @@
                 </div>
                 <div class="tab-content clearfix" id="tab-responsive-2">
                     <div class="inskdnew">
+                                 <div class="row rt">
+
+                                <div class="col-md-10 col-sm-12">
+
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-6 col-sm-12">
+
+                                            <input type="text" class="form-control" value="" runat="server" id="txtDepartmentSearch" placeholder="الكلمات الرئيسية">
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <%--<button class="detailbtn">بحث</button>--%>
+                                            <asp:Button ID="btnDepartmentSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnDepartmentSearch_Click"  />
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <div class="tab-content clearfix" id="tab-responsive-3">
+                     <div class="inskdnew">
+                                 <div class="row rt">
+
+                                <div class="col-md-10 col-sm-12">
+
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-6 col-sm-12">
+
+                                            <input type="text" class="form-control" value="" runat="server" id="txtOffileLocation" placeholder="الكلمات الرئيسية">
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <%--<button class="detailbtn">بحث</button>--%>
+                                            <asp:Button ID="btnOfficeLocationSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnOfficeLocationSearch_Click"  />
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                            </div>
+                    </div>
                 </div>
 
             </div>

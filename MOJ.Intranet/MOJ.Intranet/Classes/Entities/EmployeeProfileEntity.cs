@@ -13,5 +13,6 @@ namespace MOJ.Entities
         public string Department { get; set; }
         public string JobTitle { get; set; }
         public string OfficeNumber { get; set; }
+        public string OfficeLocation { get; set; }
     }
 }

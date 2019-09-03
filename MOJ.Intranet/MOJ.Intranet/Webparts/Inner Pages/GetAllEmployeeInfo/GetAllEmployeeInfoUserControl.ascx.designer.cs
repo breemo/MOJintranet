@@ -31,6 +31,42 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo {
         protected global::System.Web.UI.WebControls.Button btnNameSearch;
         
         /// <summary>
+        /// txtDepartmentSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDepartmentSearch;
+        
+        /// <summary>
+        /// btnDepartmentSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDepartmentSearch;
+        
+        /// <summary>
+        /// txtOffileLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtOffileLocation;
+        
+        /// <summary>
+        /// btnOfficeLocationSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOfficeLocationSearch;
+        
+        /// <summary>
         /// CurrentUserDiv control.
         /// </summary>
         /// <remarks>
