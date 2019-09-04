@@ -327,6 +327,11 @@
                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
             ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" validationgroup="RoomGroup" ControlToValidate="txtBookingDateTo" Display="Dynamic" >
             </asp:RequiredFieldValidator> 
+                                    <asp:CustomValidator ID="CustomValidator1" runat="server"
+                        ErrorMessage="Invalid DateTime"                       
+                        validationgroup="RoomGroup" 
+                        OnServerValidate="CustomValidator1_ServerValidate">
+                        </asp:CustomValidator>
                                 </div>
                             </div>
                         </div>

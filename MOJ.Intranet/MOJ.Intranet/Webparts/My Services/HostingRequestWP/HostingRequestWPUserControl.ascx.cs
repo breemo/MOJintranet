@@ -214,6 +214,25 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 }
             }
         }
+
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+
+            String textDateFrom = txtBookingDateFrom.Value;
+            String textDateTo = txtBookingDateTo.Value;
+
+            if (Convert.ToDateTime(textDateTo)< Convert.ToDateTime(textDateFrom))
+            {
+
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
+            }
+        }
+
         protected void btnSaveRoomBooking_Click(object sender, EventArgs e)
         {
             if (!_isRefresh)
