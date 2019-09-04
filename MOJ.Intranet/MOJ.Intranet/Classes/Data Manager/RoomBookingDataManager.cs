@@ -43,8 +43,18 @@ namespace MOJ.DataManager
                             }
 
                             item["AttendeesNumber"] = HostingRequestItem.AttendeesNumber;
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(HostingRequestItem.DateFrom)))
+                        {
                             item["DateFrom"] = Convert.ToDateTime(HostingRequestItem.DateFrom);
+
+                        }
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(HostingRequestItem.DateTo)))
+                        {
                             item["DateTo"] = Convert.ToDateTime(HostingRequestItem.DateTo);
+
+                        }
+
+                        
                             item["Department"] = HostingRequestItem.Department;
                             item["Mission"] = HostingRequestItem.Mission;
                             item["Place"] = HostingRequestItem.Place;

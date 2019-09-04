@@ -221,7 +221,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 RecordPrfix = "Room-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("RoomBooking");
                 RoomBookingEntity itemSumbit = new RoomBookingEntity();
 
-                if (!string.IsNullOrEmpty(txtBookingDateFrom.Value))
+                if (!string.IsNullOrWhiteSpace(txtBookingDateFrom.Value))
                 {
                     DateTime sDate = DateTime.ParseExact(txtBookingDateFrom.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                     string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
@@ -230,7 +230,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                     itemSumbit.DateFrom = sDate;
                 }
 
-                if (!string.IsNullOrEmpty(txtBookingDateTo.Value))
+                if (!string.IsNullOrWhiteSpace(txtBookingDateTo.Value))
                 {
                     DateTime tDate = DateTime.ParseExact(txtBookingDateTo.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                     string[] pmTdate = txtBookingTimeTo.Value.Split(' ');
