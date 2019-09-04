@@ -20,6 +20,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!Page.IsPostBack)
             {
                 currentUserData();
@@ -215,49 +216,35 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
             }
         }
 
-
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-
-            String textDateFrom = txtBookingDateFrom.Value;
-            String textDateTo = txtBookingDateTo.Value;
-
-            if (Convert.ToDateTime(textDateTo)< Convert.ToDateTime(textDateFrom))
-            {
-
-                args.IsValid = true;
-            }
-            else
-            {
-                args.IsValid = false;
-            }
-        }
-
         protected void btnSaveRoomBooking_Click(object sender, EventArgs e)
         {
             if (!_isRefresh)
             {
-                string RecordPrfix = "";
+                DateTime sDate = DateTime.ParseExact(txtBookingDateFrom.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
+                TimeSpan tsSdate = TimeSpan.Parse(pmSdate[0]);
+                sDate = (pmSdate[1] == "PM") ? (sDate.Date + tsSdate).AddHours(12) : sDate.Date + tsSdate;
+              
+
+
+
+                DateTime tDate = DateTime.ParseExact(txtBookingDateTo.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                string[] pmTdate = txtBookingTimeTo.Value.Split(' ');
+                TimeSpan tsTdate = TimeSpan.Parse(pmTdate[0]);
+                tDate = (pmTdate[1] == "PM") ? (tDate.Date + tsTdate).AddHours(12) : tDate.Date + tsTdate;
+               
+
+               
+                    lblStatus.Text = "";
+                    lblStatus.ForeColor = System.Drawing.Color.Green;
+
+                    string RecordPrfix = "";
                 RecordPrfix = "Room-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("RoomBooking");
                 RoomBookingEntity itemSumbit = new RoomBookingEntity();
 
-                if (!string.IsNullOrWhiteSpace(txtBookingDateFrom.Value))
-                {
-                    DateTime sDate = DateTime.ParseExact(txtBookingDateFrom.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                    string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
-                    TimeSpan tsSdate = TimeSpan.Parse(pmSdate[0]);
-                    sDate = (pmSdate[1] == "PM") ? (sDate.Date + tsSdate).AddHours(12) : sDate.Date + tsSdate;
-                    itemSumbit.DateFrom = Convert.ToString(sDate);
-                }
-
-                if (!string.IsNullOrWhiteSpace(txtBookingDateTo.Value))
-                {
-                    DateTime tDate = DateTime.ParseExact(txtBookingDateTo.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                    string[] pmTdate = txtBookingTimeTo.Value.Split(' ');
-                    TimeSpan tsTdate = TimeSpan.Parse(pmTdate[0]);
-                    tDate = (pmTdate[1] == "PM") ? (tDate.Date + tsTdate).AddHours(12) : tDate.Date + tsTdate;
-                    itemSumbit.DateTo = Convert.ToString(tDate);
-                }
+                itemSumbit.DateFrom = Convert.ToString(sDate);
+                 itemSumbit.DateTo = Convert.ToString(tDate);
+                
 
                 itemSumbit.AttendeesNumber = txtAttendeesNumber.Value;
                 itemSumbit.Mission = txtMission.Value;
@@ -284,8 +271,26 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                   
                     SuccessMsgDiv.Style.Add("display", "block");
                 }
+
+
+
+
+
+              
+                
+               
+                ///////////////
             }
         }
+
+
        
+
+
+
+
+
+
+
     }
 }

@@ -277,7 +277,7 @@
                                         <asp:Literal runat="server" Text="<%$ Resources:Resource, fromDate%>" /></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="input-group date" data-provide="datepicker">
+                                    <div class="input-group date"  id="toFrom" data-provide="datepicker">
                                         <input type="text" runat="server" id="txtBookingDateFrom" class="form-control">
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
@@ -296,7 +296,7 @@
                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, time%>" /></label>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="input-group timenew">
+                                    <div class="input-group timenew" id="toFromT">
                                         <input  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
@@ -318,20 +318,24 @@
                                         <asp:Literal runat="server" Text="<%$ Resources:Resource, toDate%>" /></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="input-group date" data-provide="datepicker">
+                                    <div class="input-group date" id="toDate" data-provide="datepicker">
                                         <input type="text" runat="server" id="txtBookingDateTo" class="form-control">
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
                                     </div>
                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" validationgroup="RoomGroup" ControlToValidate="txtBookingDateTo" Display="Dynamic" >
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>"
+                                          
+                                          
+                                          ForeColor="Red" validationgroup="RoomGroup" 
+                                          ControlToValidate="txtBookingDateTo" Display="Dynamic" >
             </asp:RequiredFieldValidator> 
-                                    <asp:CustomValidator ID="CustomValidator1" runat="server"
-                        ErrorMessage="Invalid DateTime"                       
-                        validationgroup="RoomGroup" 
-                        OnServerValidate="CustomValidator1_ServerValidate">
-                        </asp:CustomValidator>
+                          
+                                   
+                                    
+                                     <asp:Label ID="lblStatus" runat="server" Font-Bold="true"></asp:Label>
+
                                 </div>
                             </div>
                         </div>
@@ -341,7 +345,7 @@
                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, time%>" /></label>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="input-group timenew">
+                                    <div class="input-group timenew"  id="toDateT">
                                         <input  runat="server" id="txtBookingTimeTo" class="timepicker form-control" />
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
@@ -353,6 +357,20 @@
                             </div>
                         </div>
                     </div>
+                   
+										<div  id="isGreaterThanDateTime">
+                                        <input type="text" runat="server" id="isGreaterDateTo" class="form-control">
+										</div>										
+										
+					
+					
+                    <asp:CompareValidator ID="CompareValidatorDateofbirth" runat="server" 
+ErrorMessage="Date of application must be greater than 01/01/2012"
+ControlToValidate="isGreaterDateTo" ValueToCompare="dateerror"
+Type="String" Operator="NotEqual" ForeColor="Red"
+SetFocusOnError="true"
+validationgroup="RoomGroup" Display="Dynamic"
+></asp:CompareValidator>
                     <div class="row rt fleb">
                         <div class="col-md-2">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, BookingDetails%>" /></label>
@@ -378,7 +396,7 @@
                     </div>
 
                     <div class="row rt  botx">
-                        <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" validationgroup="RoomGroup" ID="btnsubmit" OnClick="btnSaveRoomBooking_Click" />
+                        <asp:Button Text="<%$ Resources:Resource, Submit%>" OnClientClick="isGreaterThanDateTime()" CssClass="morebutovn2" runat="server" validationgroup="RoomGroup" ID="btnsubmit" OnClick="btnSaveRoomBooking_Click" />
                        
                     </div>
                     </div>
@@ -499,6 +517,14 @@ span.oddRow {
         thi.closest('.new').remove();
     }
 
+    function isGreaterThanDateTime() {
+        if (new Date($("#toDate input").val() + " " + $("#toDateT input").val()) > new Date($("#toFrom input").val() + " " + $("#toFromT input").val())) {
 
+            $('#isGreaterThanDateTime input').val("Done");
+        } else {
+
+            $('#isGreaterThanDateTime input').val("dateerror");
+        }
+    }
 
 </script>

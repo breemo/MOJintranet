@@ -238,13 +238,13 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// CustomValidator1 control.
+        /// lblStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
         /// txtBookingTimeTo control.
@@ -254,6 +254,24 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBookingTimeTo;
+        
+        /// <summary>
+        /// isGreaterDateTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText isGreaterDateTo;
+        
+        /// <summary>
+        /// CompareValidatorDateofbirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorDateofbirth;
         
         /// <summary>
         /// txtMission control.
