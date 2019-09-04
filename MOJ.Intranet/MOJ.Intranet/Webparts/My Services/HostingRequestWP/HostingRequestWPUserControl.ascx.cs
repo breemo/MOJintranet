@@ -73,20 +73,21 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
             DataTable ReserveHoteldata = new ReserveHotel().GetEmirates();
             DropDownEmirates.DataSource = ReserveHoteldata;
             DropDownEmirates.DataValueField = "ID";
+            DropDownEmirates2.DataSource = ReserveHoteldata;
+            DropDownEmirates2.DataValueField = "ID";
             if (languageCode == "ar")
             {
                 DropDownEmirates.DataTextField = "TitleAr";
+                DropDownEmirates2.DataTextField = "TitleAr";
             }
             else
             {
                 DropDownEmirates.DataTextField = "Title";
+                DropDownEmirates2.DataTextField = "Title";
             }
-
             DropDownEmirates.DataBind();
-            
-           
-        }
-
+            DropDownEmirates2.DataBind(); 
+         }
         private void GetPlaces()
         {
             try
@@ -162,7 +163,6 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 itemSumbit.EmirateID = DropDownEmirates.SelectedValue.ToString();
                 ReserveHotel rb = new ReserveHotel();
                 bool isSaved = rb.SaveUpdate(itemSumbit);
-
                 /////////////////////////////////////////////////////////////////////
                 List<ReserveHotelPeopleEntity> listReserveHotelPeople = new List<ReserveHotelPeopleEntity>();
                 if (!string.IsNullOrEmpty(PName0.Value))
@@ -208,7 +208,8 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 if (isSaved == true)
                 {
                     lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
-                    posts.Style.Add("display", "none");
+                   posts.Style.Add("display", "none");
+               
                     SuccessMsgDiv.Style.Add("display", "block");
                 }
             }
@@ -227,7 +228,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                     string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
                     TimeSpan tsSdate = TimeSpan.Parse(pmSdate[0]);
                     sDate = (pmSdate[1] == "PM") ? (sDate.Date + tsSdate).AddHours(12) : sDate.Date + tsSdate;
-                    itemSumbit.DateFrom = sDate;
+                    itemSumbit.DateFrom = Convert.ToString(sDate);
                 }
 
                 if (!string.IsNullOrWhiteSpace(txtBookingDateTo.Value))
@@ -236,7 +237,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                     string[] pmTdate = txtBookingTimeTo.Value.Split(' ');
                     TimeSpan tsTdate = TimeSpan.Parse(pmTdate[0]);
                     tDate = (pmTdate[1] == "PM") ? (tDate.Date + tsTdate).AddHours(12) : tDate.Date + tsTdate;
-                    itemSumbit.DateTo = tDate;
+                    itemSumbit.DateTo = Convert.ToString(tDate);
                 }
 
                 itemSumbit.AttendeesNumber = txtAttendeesNumber.Value;
@@ -244,7 +245,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 itemSumbit.Place = cbPlace.SelectedValue;
                 itemSumbit.Department = "1";
                 itemSumbit.RequestNumber = RecordPrfix;
-
+                itemSumbit.EmirateID = DropDownEmirates2.SelectedValue.ToString();
                 SPFieldMultiChoiceValue multiValue = new SPFieldMultiChoiceValue();
                 foreach (ListItem item in cbResources.Items)
                 {
@@ -261,6 +262,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 {
                     lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
                     posts.Style.Add("display", "none");
+                  
                     SuccessMsgDiv.Style.Add("display", "block");
                 }
             }

@@ -768,4 +768,7 @@
   <data name="publish" xml:space="preserve">
     <value>Publish</value>
   </data>
+  <data name="BookingDetails" xml:space="preserve">
+    <value>Booking details</value>
+  </data>
 </root>

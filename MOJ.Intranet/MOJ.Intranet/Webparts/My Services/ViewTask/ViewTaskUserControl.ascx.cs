@@ -398,6 +398,18 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             addtopage("RequestNumber", Room.RequestNumber, "RequestDate", Room.Created.ToString("dd MMM yyyy"), "title");
 
             UserData(Convert.ToString(Room.CreatedBy.User.LoginName));
+
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                addtopage("Emirate", Room.EmirateAr);
+            }
+            else
+            {
+                addtopage("Emirate", Room.EmirateEn);
+            }
+
             addtopage("Place", Room.Place);
                 addtopage("AttendeesNumber", Room.AttendeesNumber);
                 addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));

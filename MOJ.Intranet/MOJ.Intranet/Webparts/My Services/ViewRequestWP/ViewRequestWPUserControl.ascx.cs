@@ -387,10 +387,29 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage("RequestNumber", Room.RequestNumber, "RequestDate", Room.Created.ToString("dd MMM yyyy"), "title");
 
             UserData(Convert.ToString(Room.CreatedBy.User.LoginName));
+
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                addtopage("Emirate", Room.EmirateAr);
+            }
+            else
+            {
+                addtopage("Emirate", Room.EmirateEn);
+            }
             addtopage("Place", Room.Place);
             addtopage("AttendeesNumber", Room.AttendeesNumber);
-            addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
-            addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
+            if (!string.IsNullOrEmpty(Room.DateFrom))
+            {
+                addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
+            }
+
+            if (!string.IsNullOrEmpty(Room.DateTo))
+            {
+                addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
+
+            }
             addtopage("mission", Room.Mission);
             addtopage("resources", valResourcesNeeded);
              return Room.Status;

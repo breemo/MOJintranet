@@ -13,8 +13,8 @@
 </h4>
 
 <h4></h4>
-<div id="posts" runat="server" class="small-thumbs alt">
 
+ <div id="posts" runat="server" class="small-thumbs alt">
     <div class="tabs tabs-responsive clearfix fullwidthtabs">
 
         <ul class="tab-nav clearfix">
@@ -73,6 +73,7 @@
                     </div>               
                </div>
             <div class="tab-content clearfix" id="tab-responsive-1">
+                
                 <div class="inskdnew inskdnew2">
 
                    
@@ -90,7 +91,7 @@
                                    <label><asp:Literal runat="server" id="DDE"/></label>
                         
                                     <asp:DropDownList ID="DropDownEmirates" runat="server">
-</asp:DropDownList>
+                                    </asp:DropDownList>
 
                                 </div>
                             </div>
@@ -160,7 +161,7 @@
                 </div>
 				<div class="row rt fleb">
                         <div class="col-md-1">
-                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, mission%>" /></label>
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, BookingDetails%>" /></label>
                         </div>
                         <div class="col-md-11 DivpMission ">
                             <textarea class="form-control" runat="server" id="pMission0" rows="3"></textarea>
@@ -192,12 +193,33 @@
                 </div>
 
 
+           
             </div>
             <div class="tab-content clearfix" id="tab-responsive-2">
+               
                 <div class="inskdnew">
+
+                      <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                                      <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Emirate%>" /></label>
+                                </div>
+                                <div class="col-md-8">
+                                   <label><asp:Literal runat="server" id="DDE2"/></label>
+                        
+                                    <asp:DropDownList ID="DropDownEmirates2" runat="server">
+                                    </asp:DropDownList>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
                     <div class="row rt">
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="row">
                                 <div class="col-md-12">
                                    <label>
@@ -206,12 +228,23 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-12  RadiB ">
                                     <asp:RadioButtonList ID="cbPlace" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
+                                     
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                   
+                               <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red"  validationgroup="RoomGroup" ControlToValidate="cbPlace" Display="Dynamic" >
+            </asp:RequiredFieldValidator>  </div>
                             </div>
                         </div>
                     </div>
@@ -219,13 +252,17 @@
                     <div class="row rt">
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-4">
                                     <label>
                                         <asp:Literal runat="server" Text="<%$ Resources:Resource, AttendeesNumber%>" /></label>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-4">
                                     <input type="text" runat="server" id="txtAttendeesNumber" class="form-control only-numeric" placeholder="">
-                                </div>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidatorRBContactReason" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="txtAttendeesNumber"  validationgroup="RoomGroup" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
+                                    </div>
+                               
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -235,17 +272,21 @@
                     <div class="row rt">
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-4">
                                     <label>
                                         <asp:Literal runat="server" Text="<%$ Resources:Resource, fromDate%>" /></label>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-8">
                                     <div class="input-group date" data-provide="datepicker">
                                         <input type="text" runat="server" id="txtBookingDateFrom" class="form-control">
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
+                                        
                                     </div>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red"  validationgroup="RoomGroup" ControlToValidate="txtBookingDateFrom" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
                                 </div>
                             </div>
                         </div>
@@ -260,22 +301,11 @@
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
+                                        
                                     </div>
                                 </div>
 
-                                <%--<div class="col-md-3">
-                                    <div class="input-group timenew">
-                                        <input id="timepicker" class="timepicker form-control" />
-                                        <div class="input-group-addon">
-                                            <span class="icon-calendar-alt1"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <a href="#" class="morebutovn">اضافة ايام
-                                                                    <span class="icon-plus-sign"></span>
-                                    </a>
-                                </div>--%>
+                                
                             </div>
                         </div>
                     </div>
@@ -283,17 +313,20 @@
                     <div class="row rt">
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-2">
+                                <div class="col-md-4">
                                     <label>
                                         <asp:Literal runat="server" Text="<%$ Resources:Resource, toDate%>" /></label>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-8">
                                     <div class="input-group date" data-provide="datepicker">
                                         <input type="text" runat="server" id="txtBookingDateTo" class="form-control">
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
                                     </div>
+                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" validationgroup="RoomGroup" ControlToValidate="txtBookingDateTo" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
                                 </div>
                             </div>
                         </div>
@@ -308,30 +341,22 @@
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
+                                         
                                     </div>
                                 </div>
-                                <%--<div class="col-md-3">
-                                    <div class="input-group timenew">
-                                        <input id="timepicker" class="timepicker form-control" />
-                                        <div class="input-group-addon">
-                                            <span class="icon-calendar-alt1"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <a href="#" class="morebutovn">اضافة ايام
-                                                                    <span class="icon-plus-sign"></span>
-                                    </a>
-                                </div>--%>
+                               
                             </div>
                         </div>
                     </div>
                     <div class="row rt fleb">
-                        <div class="col-md-1">
-                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, mission%>" /></label>
+                        <div class="col-md-2">
+                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, BookingDetails%>" /></label>
                         </div>
-                        <div class="col-md-11">
+                        <div class="col-md-9">
                             <textarea class="form-control" runat="server" id="txtMission" rows="3"></textarea>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="txtMission"  validationgroup="RoomGroup" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
                         </div>
                     </div>
 
@@ -340,27 +365,7 @@
                             <h5><asp:Literal runat="server" Text="<%$ Resources:Resource, resources%>" />
                             </h5>
                             <div>
-                                <%--<input type="checkbox"
-                                    class="checkbox"
-                                    id="checkbox-1" />
-                                <label for="checkbox-1"
-                                    class="checkbox-click-target">
-                                    <span class="checkbox-box"></span>عصائر
-                                </label>
-                                <input type="checkbox"
-                                    class="checkbox"
-                                    id="checkbox-2" />
-                                <label for="checkbox-2"
-                                    class="checkbox-click-target">
-                                    <span class="checkbox-box"></span>وجبات خفيفة
-                                </label>
-                                <input type="checkbox"
-                                    class="checkbox"
-                                    id="checkbox-3" />
-                                <label for="checkbox-3"
-                                    class="checkbox-click-target">
-                                    <span class="checkbox-box"></span>وجبات رئيسية
-                                </label>--%>
+                               
                                 <asp:CheckBoxList ID="cbResources" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                 </asp:CheckBoxList>
                             </div>
@@ -368,19 +373,20 @@
                     </div>
 
                     <div class="row rt  botx">
-                        <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnSaveRoomBooking_Click" />
-                        <%--<a href="#" class="morebutovn2">تقديم
-                        </a>--%>
+                        <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" validationgroup="RoomGroup" ID="btnsubmit" OnClick="btnSaveRoomBooking_Click" />
+                       
                     </div>
-                </div>
+                    </div>
+                
             </div>
 
 
         </div>
 
     </div>
+    </div>
 
-</div>
+
 <!-- #posts end -->
 <div id="SuccessMsgDiv" runat="server" style="display: none">
     <h4 class="ta3m" style="text-align: center;">

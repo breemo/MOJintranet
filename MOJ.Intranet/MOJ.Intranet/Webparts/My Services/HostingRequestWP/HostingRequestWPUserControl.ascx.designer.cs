@@ -139,6 +139,24 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
+        /// DDE2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal DDE2;
+        
+        /// <summary>
+        /// DropDownEmirates2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownEmirates2;
+        
+        /// <summary>
         /// cbPlace control.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,15 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList cbPlace;
+        
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
         /// txtAttendeesNumber control.
@@ -157,6 +184,15 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtAttendeesNumber;
         
         /// <summary>
+        /// RequiredFieldValidatorRBContactReason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorRBContactReason;
+        
+        /// <summary>
         /// txtBookingDateFrom control.
         /// </summary>
         /// <remarks>
@@ -164,6 +200,15 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBookingDateFrom;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// txtBookingTimeFrom control.
@@ -184,6 +229,15 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBookingDateTo;
         
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// txtBookingTimeTo control.
         /// </summary>
         /// <remarks>
@@ -200,6 +254,15 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtMission;
+        
+        /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
         /// cbResources control.
