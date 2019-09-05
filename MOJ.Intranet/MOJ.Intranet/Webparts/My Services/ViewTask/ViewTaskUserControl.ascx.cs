@@ -303,8 +303,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             FazaaCardRequestEntity Fazaaitem = new FazaaCardRequest().GetFazaaCardRequest(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", Fazaaitem.RequestNumber, "RequestDate", Fazaaitem.Created.ToString("dd MMM yyyy"), "title");
             UserData(Convert.ToString(Fazaaitem.CreatedBy.User.LoginName));
-            string Commenthtml = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + Fazaaitem.Comment + "</textarea>";
-            addtopage("Comment", Commenthtml);
+          
         }
         public void GetCarOrderServiceData(string RequestID)
         {

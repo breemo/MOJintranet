@@ -67,22 +67,9 @@
 
                    <hr />                    
          
-              <div class="row rt">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Comment%>" /></label>
-                        </div>
-                        <div class="col-md-9">                        
-
-                         <textarea class="form-control" runat="server" id="Comment" rows="4"></textarea>
-                                
-                        </div>
-                    </div>
-                </div>              
-            </div>   
+             <br />  
             <div class="row rt  botx">
-                <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+                <asp:Button Text="<%$ Resources:Resource, Submit%>" style="width: 160px;height: 50px;font-size: 15px;" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
             </div>
         </div>
 <asp:Literal ID="Literal1" runat="server"></asp:Literal>
