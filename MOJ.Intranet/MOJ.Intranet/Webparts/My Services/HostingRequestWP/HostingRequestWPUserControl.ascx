@@ -106,7 +106,7 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
                         </div>
                         <div class="col-md-8 DivName">
-                                    <input type="text" name="PName" runat="server" id="PName0" class="form-control" placeholder="">
+                                    <input required type="text" name="PName" runat="server" id="PName0" class="form-control" placeholder="">
                                 </div>
                                 </div>
 					</div>
@@ -116,7 +116,7 @@
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Job%>" /></label>
 								</div>
 								<div  class="col-md-8 DivJob">
-									<input type="text" name="Job" runat="server" id="Job0" class="form-control" placeholder="">
+									<input required type="text" name="Job" runat="server" id="Job0" class="form-control" placeholder="">
 								</div> 
                               </div>
                        </div>
@@ -130,7 +130,7 @@
                         <div class="col-md-8">
 						
                                  <div class="input-group date Divfrom" data-provide="datepicker">
-										<input  type="text" runat="server" id="from0" class="form-control">
+										<input required type="text" runat="server" id="from0" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
 										</div>
@@ -145,7 +145,7 @@
 								</div>
 								<div  class="col-md-8">
 									<div class="input-group date Divto" data-provide="datepicker">
-										<input  type="text" runat="server" id="to0" class="form-control">
+										<input required type="text" runat="server" id="to0" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
 										</div>
@@ -159,7 +159,7 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, BookingDetails%>" /></label>
                         </div>
                         <div class="col-md-11 DivpMission ">
-                            <textarea class="form-control" runat="server" id="pMission0" rows="3"></textarea>
+                            <textarea required class="form-control" runat="server" id="pMission0" rows="3"></textarea>
                         </div>
                     </div>
 				
@@ -176,10 +176,40 @@
                     <a href="#" onclick="addInput();" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
                 </div>
         </div>
+  <hr />
+                     <div class="row rt  botx " style=" font-size: 17px;">
+                  <asp:CompareValidator ID="CompareValidatorDateH" runat="server" 
+                                    ErrorMessage="<%$ Resources:Resource, ToDateGreaterFromDate%>"
+                                    ControlToValidate="isHotelGreaterDate" ValueToCompare="dateerror"
+                                    Type="String" Operator="NotEqual" ForeColor="Red"
+                                    SetFocusOnError="true"
+                                    validationgroup="HotelGroup" Display="Dynamic"
+                                    ></asp:CompareValidator>
+                         </div>
+ <div class="row rt  botx " style=" font-size: 17px;">
+                 
+	
+ <asp:CompareValidator ID="CompareValidator1" runat="server"
+									ErrorMessage="<%$ Resources:Resource, DateGreaterCurrentDate%>" 
+									ControltoValidate="txHotelCurrentDate" ValueToCompare="dateerror"
+									type="String"   Operator="NotEqual" ForeColor="Red"
+									SetFocusOnError="true"
+                                    validationgroup="HotelGroup" Display="Dynamic"/>
+									
+	<div  id="HotelisGreaterThanDateTime">
+		<input type="text" style="display: none;" runat="server" id="isHotelGreaterDate" class="form-control">
+		</div>	
+		
+<div  id="HotelisGreaterThanCurrentDate">
+		<input type="text" style="display: none;" runat="server" id="txHotelCurrentDate" class="form-control">
+		</div>	       
 
+
+
+                    </div>
     <hr />
  <div class="row rt  botx">
-                        <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="Button1" OnClick="btnSaveReserveHotel_Click" />
+                        <asp:Button OnClientClick="HotelmandatoryFields()" validationgroup="HotelGroup"  Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="Button1" OnClick="btnSaveReserveHotel_Click" />
                         <%--<a href="#" class="morebutovn2">تقديم
                         </a>--%>
                     </div>
@@ -282,6 +312,15 @@
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
             ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red"  validationgroup="RoomGroup" ControlToValidate="txtBookingDateFrom" Display="Dynamic" >
             </asp:RequiredFieldValidator> 
+                                     <asp:CompareValidator ID="CompareTodayValidator" 
+                                        Operator="NotEqual"
+                                        ForeColor="Red" validationgroup="RoomGroup"
+                              type="String" ControltoValidate="txCurrentDate"
+                                       ValueToCompare="dateerror"
+                              ErrorMessage="<%$ Resources:Resource, DateGreaterCurrentDate%>" 
+                                        SetFocusOnError="true"
+                                        Display="Dynamic"
+                                        runat="server" />
                                 </div>
                             </div>
                         </div>
@@ -325,25 +364,7 @@
                                           ControlToValidate="txtBookingDateTo" Display="Dynamic" >
                                         </asp:RequiredFieldValidator> 
                           
-                                    <asp:CompareValidator ID="CompareTodayValidator" 
-                                        Operator="NotEqual"
-                                        ForeColor="Red" validationgroup="RoomGroup"
-                              type="String" ControltoValidate="txCurrentDate"
-                                       ValueToCompare="dateerror"
-                              ErrorMessage="<%$ Resources:Resource, DateGreaterCurrentDate%>" 
-                                        SetFocusOnError="true"
-                                        Display="Dynamic"
-                                        runat="server" />
-
-
-                                    
                                    
-
-
-
-
-
-
 
                                    
                                     <div  id="isGreaterThanCurrentDate">
@@ -443,7 +464,7 @@
                     </div>
 
                     <div class="row rt  botx">
-                        <asp:Button Text="<%$ Resources:Resource, Submit%>" OnClientClick="isGreaterThanDateTime()" CssClass="morebutovn2" runat="server" validationgroup="RoomGroup" ID="btnsubmit" OnClick="btnSaveRoomBooking_Click" />
+                        <asp:Button formnovalidate="formnovalidate" Text="<%$ Resources:Resource, Submit%>" OnClientClick="isGreaterThanDateTime()" CssClass="morebutovn2" runat="server" validationgroup="RoomGroup" ID="btnsubmit" OnClick="btnSaveRoomBooking_Click" />
                        
                     </div>
                     </div>
@@ -537,11 +558,11 @@ span.oddRow {
     function addInput() {
         $("#FirstItemAA")[0].innerHTML = $("#FirstItem")[0].innerHTML;
         var Itemhtml = $("#FirstItemAA");
-        Itemhtml.find(".DivName")[0].innerHTML = "<input name='PName' type=text' id='PName" + counter + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivJob")[0].innerHTML = "<input name='Job' type='text' id='Job" + counter + "' class='form-control'></div>";
-        Itemhtml.find(".Divfrom")[0].innerHTML = "<input name='from' type='text' id='from" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
-        Itemhtml.find(".Divto")[0].innerHTML = "<input name='to' type='text' id='to" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
-        Itemhtml.find(".DivpMission")[0].innerHTML = "<textarea name='pMission' rows='3' id='pMission" + counter + "' class='form-control' ></textarea>";
+        Itemhtml.find(".DivName")[0].innerHTML = "<input required name='PName' type=text' id='PName" + counter + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivJob")[0].innerHTML = "<input required name='Job' type='text' id='Job" + counter + "' class='form-control'></div>";
+        Itemhtml.find(".Divfrom")[0].innerHTML = "<input required name='from' type='text' id='from" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".Divto")[0].innerHTML = "<input required name='to' type='text' id='to" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivpMission")[0].innerHTML = "<textarea required name='pMission' rows='3' id='pMission" + counter + "' class='form-control' ></textarea>";
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
         att.value = "new";
@@ -587,5 +608,26 @@ span.oddRow {
         }
 
     }
+
+    function HotelmandatoryFields() {
+        $('#HotelisGreaterThanCurrentDate input').val("Done");
+        $('#HotelisGreaterThanDateTime input').val("Done");
+        $(".Divfrom input").each(function (index) {
+            var to = $(".Divto input").get(index).value;
+            if ($(this).val() != null && $(this).val() != "") {
+                if (new Date($(this).val()).format('MM/dd/yyyy') >= new Date().format('MM/dd/yyyy')) {
+                    if (new Date(to) >= new Date($(this).val())) {
+                    } else {
+                        $('#HotelisGreaterThanDateTime input').val("dateerror");
+                    }
+                } else {
+                    $('#HotelisGreaterThanCurrentDate input').val("dateerror");
+                }
+
+            }
+        });
+    }
+
+
 
 </script>
