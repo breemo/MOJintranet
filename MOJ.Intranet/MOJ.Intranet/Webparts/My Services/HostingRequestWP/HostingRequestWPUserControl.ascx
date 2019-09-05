@@ -23,7 +23,7 @@
         </ul>
 
         <div class="tab-container">
-              <div id="Edata">
+              <div id="Edata"           style="display: none;">
                     <div class="row rt">
                         <div class="col-md-6">
                             <div class="row">
@@ -76,12 +76,7 @@
                 
                 <div class="inskdnew inskdnew2">
 
-                   
-               <hr />
-
-
-
-                    <div class="row rt">
+                     <div class="row rt">
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-4">
@@ -90,7 +85,7 @@
                                 <div class="col-md-8">
                                    <label><asp:Literal runat="server" id="DDE"/></label>
                         
-                                    <asp:DropDownList ID="DropDownEmirates" runat="server">
+                                    <asp:DropDownList class="form-control form-control-sm" ID="DropDownEmirates" runat="server">
                                     </asp:DropDownList>
 
                                 </div>
@@ -208,7 +203,7 @@
                                 <div class="col-md-8">
                                    <label><asp:Literal runat="server" id="DDE2"/></label>
                         
-                                    <asp:DropDownList ID="DropDownEmirates2" runat="server">
+                                    <asp:DropDownList class="form-control form-control-sm" ID="DropDownEmirates2" runat="server">
                                     </asp:DropDownList>
 
                                 </div>
@@ -325,17 +320,39 @@
                                         </div>
                                     </div>
                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-            ErrorMessage="<%$ Resources:Resource, Mandatory%>"
-                                          
-                                          
+                                         ErrorMessage="<%$ Resources:Resource, Mandatory%>"                     
                                           ForeColor="Red" validationgroup="RoomGroup" 
                                           ControlToValidate="txtBookingDateTo" Display="Dynamic" >
-            </asp:RequiredFieldValidator> 
+                                        </asp:RequiredFieldValidator> 
                           
-                                   
-                                    
-                                     <asp:Label ID="lblStatus" runat="server" Font-Bold="true"></asp:Label>
+                                    <asp:CompareValidator ID="CompareTodayValidator" 
+                                        Operator="NotEqual"
+                                        ForeColor="Red" validationgroup="RoomGroup"
+                              type="String" ControltoValidate="txCurrentDate"
+                                       ValueToCompare="dateerror"
+                              ErrorMessage="<%$ Resources:Resource, DateGreaterCurrentDate%>" 
+                                        SetFocusOnError="true"
+                                        Display="Dynamic"
+                                        runat="server" />
 
+
+                                    
+                                   
+
+
+
+
+
+
+
+                                   
+                                    <div  id="isGreaterThanCurrentDate">
+                                       <input type="text" style="display: none;" runat="server" id="txCurrentDate" class="form-control">
+                                    </div>	
+                                    
+                                       
+                                    
+                                     
                                 </div>
                             </div>
                         </div>
@@ -359,18 +376,48 @@
                     </div>
                    
 										<div  id="isGreaterThanDateTime">
-                                        <input type="text" runat="server" id="isGreaterDateTo" class="form-control">
+                                        <input type="text" style="display: none;" runat="server" id="isGreaterDateTo" class="form-control">
 										</div>										
 										
+					  <div class="row rt">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-4">
+                               </div>
+                                <div class="col-md-8">
+
+
+                                            <asp:CompareValidator ID="CompareValidatorDateofbirth" runat="server" 
+                                    ErrorMessage="<%$ Resources:Resource, ToDateGreaterFromDate%>"
+                                    ControlToValidate="isGreaterDateTo" ValueToCompare="dateerror"
+                                    Type="String" Operator="NotEqual" ForeColor="Red"
+                                    SetFocusOnError="true"
+                                    validationgroup="RoomGroup" Display="Dynamic"
+                                    ></asp:CompareValidator>
+
+
+
+
+
+                                   
+                                    </div>
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
 					
-					
-                    <asp:CompareValidator ID="CompareValidatorDateofbirth" runat="server" 
-ErrorMessage="Date of application must be greater than 01/01/2012"
-ControlToValidate="isGreaterDateTo" ValueToCompare="dateerror"
-Type="String" Operator="NotEqual" ForeColor="Red"
-SetFocusOnError="true"
-validationgroup="RoomGroup" Display="Dynamic"
-></asp:CompareValidator>
+                                                
                     <div class="row rt fleb">
                         <div class="col-md-2">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, BookingDetails%>" /></label>
@@ -445,7 +492,7 @@ validationgroup="RoomGroup" Display="Dynamic"
     background-color: #f5e9b6;
 }
 .row.rt {
-    margin-bottom: 1px;
+    margin-bottom: 4px;
     margin-top: 1px;
     padding: 1px;
 }
@@ -521,10 +568,24 @@ span.oddRow {
         if (new Date($("#toDate input").val() + " " + $("#toDateT input").val()) > new Date($("#toFrom input").val() + " " + $("#toFromT input").val())) {
 
             $('#isGreaterThanDateTime input').val("Done");
+            isGreaterThanCurrentDate();
         } else {
 
             $('#isGreaterThanDateTime input').val("dateerror");
         }
+
+    }
+
+
+    function isGreaterThanCurrentDate() {
+        if (new Date($("#toFrom input").val() + " " + $("#toFromT input").val()) > new Date()) {
+            
+            $('#isGreaterThanCurrentDate input').val("Done");
+        } else {
+            
+            $('#isGreaterThanCurrentDate input').val("dateerror");
+        }
+
     }
 
 </script>

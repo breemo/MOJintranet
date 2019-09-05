@@ -23,6 +23,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
             
             if (!Page.IsPostBack)
             {
+              
                 currentUserData();
                 GetPlaces();
                 GetResources();
@@ -235,9 +236,6 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                
 
                
-                    lblStatus.Text = "";
-                    lblStatus.ForeColor = System.Drawing.Color.Green;
-
                     string RecordPrfix = "";
                 RecordPrfix = "Room-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("RoomBooking");
                 RoomBookingEntity itemSumbit = new RoomBookingEntity();

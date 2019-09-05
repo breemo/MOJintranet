@@ -771,4 +771,10 @@
   <data name="BookingDetails" xml:space="preserve">
     <value>Booking details</value>
   </data>
+  <data name="DateGreaterCurrentDate" xml:space="preserve">
+    <value>Date Time should be equal or greater than current Date Time</value>
+  </data>
+  <data name="ToDateGreaterFromDate" xml:space="preserve">
+    <value>"To Date" should be greater than "From Date"</value>
+  </data>
 </root>

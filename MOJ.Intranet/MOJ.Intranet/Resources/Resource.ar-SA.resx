@@ -771,4 +771,10 @@
   <data name="BookingDetails" xml:space="preserve">
     <value>تفاصيل الحجز</value>
   </data>
+  <data name="DateGreaterCurrentDate" xml:space="preserve">
+    <value>يجب أن يكون التاريخ مساويًا أو أكبر من التاريخ الحالي</value>
+  </data>
+  <data name="ToDateGreaterFromDate" xml:space="preserve">
+    <value>التاريخ يجب ان يكون اكبر من تاريخ البداية</value>
+  </data>
 </root>
