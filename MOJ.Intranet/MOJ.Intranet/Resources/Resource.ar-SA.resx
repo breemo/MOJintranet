@@ -777,4 +777,7 @@
   <data name="ToDateGreaterFromDate" xml:space="preserve">
     <value>التاريخ يجب ان يكون اكبر من تاريخ البداية</value>
   </data>
+  <data name="Show" xml:space="preserve">
+    <value>عرض</value>
+  </data>
 </root>

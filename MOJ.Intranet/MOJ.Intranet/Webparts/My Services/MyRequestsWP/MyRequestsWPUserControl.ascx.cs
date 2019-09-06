@@ -35,7 +35,7 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
             string AssignTo = SPUtility.GetLocalizedString("$Resources: AssignTo", "Resource", SPContext.Current.Web.Language);
             string Result = SPUtility.GetLocalizedString("$Resources: Result", "Resource", SPContext.Current.Web.Language); ;
             string TaskDate = SPUtility.GetLocalizedString("$Resources: TaskDate", "Resource", SPContext.Current.Web.Language);
-            string Edit = SPUtility.GetLocalizedString("$Resources: Edit", "Resource", SPContext.Current.Web.Language);
+            string Show = SPUtility.GetLocalizedString("$Resources: Show", "Resource", SPContext.Current.Web.Language);
                        GridViewRow row2 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
             TableHeaderCell cell2 = new TableHeaderCell();
             cell2.Text = RequestNumber;
@@ -50,7 +50,7 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
             cell2.Text = TaskDate;
             row2.Controls.Add(cell2);
             cell2 = new TableHeaderCell();
-            cell2.Text = Edit;
+            cell2.Text = Show;
             row2.Controls.Add(cell2);
             row2.BackColor = ColorTranslator.FromHtml("#bd995d");
             grdMyAccomplishedTasks.HeaderRow.Parent.Controls.AddAt(0, row2);
@@ -92,7 +92,7 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
                 pgitems.DataSource = Requestsollection;
                 pgitems.AllowPaging = true;
                 //Control page size from here 
-                pgitems.PageSize = 8;
+                pgitems.PageSize = 3;
                 pgitems.CurrentPageIndex = PageNumber2;
                 if (pgitems.PageCount > 1)
                 {

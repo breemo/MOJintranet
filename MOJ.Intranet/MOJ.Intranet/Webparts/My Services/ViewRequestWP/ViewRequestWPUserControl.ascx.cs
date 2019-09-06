@@ -15,7 +15,12 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
 {
     public partial class ViewRequestWPUserControl : UserControl
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void btnGoToMyRequests_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("/Ar/MyServices/Pages/MyRequests.aspx");
+        }
+            protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
