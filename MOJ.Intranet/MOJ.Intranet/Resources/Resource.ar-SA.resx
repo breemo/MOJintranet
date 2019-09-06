@@ -780,4 +780,7 @@
   <data name="Show" xml:space="preserve">
     <value>عرض</value>
   </data>
+  <data name="ActionDate" xml:space="preserve">
+    <value>تاريخ العمل</value>
+  </data>
 </root>

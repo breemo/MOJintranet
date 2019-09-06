@@ -780,4 +780,7 @@
   <data name="Show" xml:space="preserve">
     <value>Show</value>
   </data>
+  <data name="ActionDate" xml:space="preserve">
+    <value>Action date</value>
+  </data>
 </root>

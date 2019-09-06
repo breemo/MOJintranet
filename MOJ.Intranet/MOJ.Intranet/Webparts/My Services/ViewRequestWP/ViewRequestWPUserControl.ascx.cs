@@ -282,14 +282,17 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 else
                     AllData.Text += "<div class='evenRow'>";
                 string OutcomeWf = item.WorkflowOutcome;
-                if (string.IsNullOrEmpty(OutcomeWf))
-                
+                string ActionDate = "";
+                if (item.Status == "Completed") 
+                    ActionDate = item.ActionDate.ToString("dd MMM yyyy HH:mm:ss");
+                if (string.IsNullOrEmpty(OutcomeWf))                
                     OutcomeWf = "Pending";
                 string Answer  = item.AnswerBy.LookupValue;
                 if (string.IsNullOrEmpty(item.AnswerBy.LookupValue))
                     Answer = item.AssignedToOneUserValue.LookupValue;
                 addtopage("AssignTo", Answer, OutcomeWf, "");
-                string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' class='form-control'cols='120' rows='3'>" + item.Comment + "</textarea>";
+                addtopage("ActionDate", ActionDate);
+                string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' cols='100' rows='3'>" + item.Comment + "</textarea>";
 
                 addtopage("Comment", Commenthtm);
                 
