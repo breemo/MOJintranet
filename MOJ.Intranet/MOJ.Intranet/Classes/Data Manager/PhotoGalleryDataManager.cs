@@ -35,22 +35,22 @@ namespace MOJ.DataManager
                                     SPQuery oQuery = new SPQuery();
                                     oQuery.Query = SharedConstants.GalleryQuery;
 
-                                    foreach (SPFolder galeryFolder in lstPhotos.Folders)
+                                    foreach (SPListItem galeryFolder in lstPhotos.Folders)
                                     {
-                                        foreach (SPListItem folderFile in galeryFolder.Files)
+                                        foreach (SPFile folderFile in galeryFolder.Folder.Files)
                                         {
-                                            if (Convert.ToString(folderFile["isActive"]) == "True")
-                                            {
+                                            //if (folderFile.Item["isActive"] == "true")
+                                            //{
                                                 PhotoGalleryEntity photo = new PhotoGalleryEntity();
-                                                photo.ID = Convert.ToInt16(folderFile[SharedConstants.ID]);
-                                                photo.Title = Convert.ToString(folderFile[SharedConstants.Name]);
-                                                photo.Description = Convert.ToString(folderFile[SharedConstants.Description]);
-                                                photo.Created = Convert.ToDateTime(folderFile[SharedConstants.Created]);
-                                                photo.PictureThumbnailURL = Convert.ToString(folderFile["Thumbnail URL"]);
-                                                photo.PictureURL = Convert.ToString(folderFile["EncodedAbsUrl"]);
+                                                photo.ID = Convert.ToInt16(folderFile.Item[SharedConstants.ID]);
+                                                photo.Title = Convert.ToString(folderFile.Item[SharedConstants.Name]);
+                                                photo.Description = Convert.ToString(folderFile.Item[SharedConstants.Description]);
+                                                photo.Created = Convert.ToDateTime(folderFile.Item[SharedConstants.Created]);
+                                                photo.PictureThumbnailURL = Convert.ToString(folderFile.Item["Thumbnail URL"]);
+                                                photo.PictureURL = Convert.ToString(folderFile.Item["EncodedAbsUrl"]);
 
                                                 galleryLst.Add(photo);
-                                            }
+                                            //}
                                         }
                                     }
 
