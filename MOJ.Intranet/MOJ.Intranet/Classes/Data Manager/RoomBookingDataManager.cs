@@ -43,9 +43,19 @@ namespace MOJ.DataManager
                             }
 
                             item["AttendeesNumber"] = HostingRequestItem.AttendeesNumber;
+                        if (!string.IsNullOrWhiteSpace(HostingRequestItem.DateFrom))
+                        {
                             item["DateFrom"] = Convert.ToDateTime(HostingRequestItem.DateFrom);
+
+                        }
+                        if (!string.IsNullOrWhiteSpace(HostingRequestItem.DateTo))
+                        {
                             item["DateTo"] = Convert.ToDateTime(HostingRequestItem.DateTo);
-                            item["Department"] = HostingRequestItem.Department;
+
+                        }
+
+                        item["Emirate"] = HostingRequestItem.EmirateID;
+                        item["Department"] = HostingRequestItem.Department;
                             item["Mission"] = HostingRequestItem.Mission;
                             item["Place"] = HostingRequestItem.Place;
                             item["ResourcesNeeded"] = HostingRequestItem.ResourcesNeeded;
@@ -99,8 +109,31 @@ namespace MOJ.DataManager
                                     RoomBooking.AttendeesNumber = Convert.ToString(Item["AttendeesNumber"]);
                                     RoomBooking.Mission = Convert.ToString(Item["Mission"]);
                                     RoomBooking.Status = Convert.ToString(Item["Status"]);
-                                    RoomBooking.DateFrom = Convert.ToDateTime(Item["DateFrom"]);
-                                    RoomBooking.DateTo = Convert.ToDateTime(Item["DateTo"]);
+                                    if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["DateFrom"])))
+                                    {
+                                        RoomBooking.DateFrom = Convert.ToString(Item["DateFrom"]);
+                                    }
+
+                                    if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["DateFrom"])))
+                                    {
+                                        RoomBooking.DateTo = Convert.ToString(Item["DateTo"]);
+                                    }
+
+                                    string EmirateEn = Convert.ToString(Item["Emirate_x003a_Emirate"]);
+                                    string EmirateAr = Convert.ToString(Item["Emirate_x003a_EmirateAr"]);
+
+
+                                    if (!string.IsNullOrEmpty(EmirateEn))
+                                    {
+                                        SPFieldLookupValue SingleValue = new SPFieldLookupValue(EmirateEn);
+                                        RoomBooking.EmirateEn = SingleValue.LookupValue;
+                                    }
+                                    if (!string.IsNullOrEmpty(EmirateAr))
+                                    {
+                                        SPFieldLookupValue SingleValueAr = new SPFieldLookupValue(EmirateAr);
+                                        RoomBooking.EmirateAr = SingleValueAr.LookupValue;
+                                    }
+
                                     RoomBooking.ResourcesNeeded = new SPFieldMultiChoiceValue(Item["ResourcesNeeded"].ToString());
                                     RoomBooking.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
                                     RoomBooking.Created = Convert.ToDateTime(Item["Created"]);

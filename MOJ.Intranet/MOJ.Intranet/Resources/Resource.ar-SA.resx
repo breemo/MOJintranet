@@ -376,7 +376,7 @@
     <value>بدون سائق</value>
   </data>
   <data name="fromDate" xml:space="preserve">
-    <value>بتاريخ</value>
+    <value>بتاريخ يوم</value>
   </data>
   <data name="HotelHosting" xml:space="preserve">
     <value>أستضافة فندقية</value>
@@ -394,7 +394,7 @@
     <value>الوقت</value>
   </data>
   <data name="toDate" xml:space="preserve">
-    <value>لغاية</value>
+    <value>لغاية يوم</value>
   </data>
   <data name="successfullyMsg" xml:space="preserve">
     <value>تم ارسال طلبك بنجاح</value>
@@ -767,5 +767,20 @@
   </data>
   <data name="publish" xml:space="preserve">
     <value>نشر</value>
+  </data>
+  <data name="BookingDetails" xml:space="preserve">
+    <value>تفاصيل الحجز</value>
+  </data>
+  <data name="DateGreaterCurrentDate" xml:space="preserve">
+    <value>يجب أن يكون التاريخ مساويًا أو أكبر من التاريخ الحالي</value>
+  </data>
+  <data name="ToDateGreaterFromDate" xml:space="preserve">
+    <value>التاريخ يجب ان يكون اكبر من تاريخ البداية</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="ActionDate" xml:space="preserve">
+    <value>تاريخ العمل</value>
   </data>
 </root>

@@ -15,7 +15,12 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
 {
     public partial class ViewRequestWPUserControl : UserControl
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void btnGoToMyRequests_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("/Ar/MyServices/Pages/MyRequests.aspx");
+        }
+            protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
@@ -247,8 +252,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             FazaaCardRequestEntity Fazaaitem = new FazaaCardRequest().GetFazaaCardRequest(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", Fazaaitem.RequestNumber, "RequestDate", Fazaaitem.Created.ToString("dd MMM yyyy"), "title");
             UserData(Convert.ToString(Fazaaitem.CreatedBy.User.LoginName));
-            string Commenthtml = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + Fazaaitem.Comment + "</textarea>";
-            addtopage("Comment", Commenthtml);
+          
             return Fazaaitem.Status;
         }
         public string GetCarOrderServiceData(string RequestID)
@@ -278,14 +282,17 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 else
                     AllData.Text += "<div class='evenRow'>";
                 string OutcomeWf = item.WorkflowOutcome;
-                if (string.IsNullOrEmpty(OutcomeWf))
-                
+                string ActionDate = "";
+                if (item.Status == "Completed") 
+                    ActionDate = item.ActionDate.ToString("dd MMM yyyy HH:mm:ss");
+                if (string.IsNullOrEmpty(OutcomeWf))                
                     OutcomeWf = "Pending";
                 string Answer  = item.AnswerBy.LookupValue;
                 if (string.IsNullOrEmpty(item.AnswerBy.LookupValue))
                     Answer = item.AssignedToOneUserValue.LookupValue;
                 addtopage("AssignTo", Answer, OutcomeWf, "");
-                string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' class='form-control'cols='120' rows='3'>" + item.Comment + "</textarea>";
+                addtopage("ActionDate", ActionDate);
+                string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' cols='100' rows='3'>" + item.Comment + "</textarea>";
 
                 addtopage("Comment", Commenthtm);
                 
@@ -387,10 +394,29 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage("RequestNumber", Room.RequestNumber, "RequestDate", Room.Created.ToString("dd MMM yyyy"), "title");
 
             UserData(Convert.ToString(Room.CreatedBy.User.LoginName));
+
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                addtopage("Emirate", Room.EmirateAr);
+            }
+            else
+            {
+                addtopage("Emirate", Room.EmirateEn);
+            }
             addtopage("Place", Room.Place);
             addtopage("AttendeesNumber", Room.AttendeesNumber);
-            addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
-            addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
+            if (!string.IsNullOrEmpty(Room.DateFrom))
+            {
+                addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
+            }
+
+            if (!string.IsNullOrEmpty(Room.DateTo))
+            {
+                addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
+
+            }
             addtopage("mission", Room.Mission);
             addtopage("resources", valResourcesNeeded);
              return Room.Status;

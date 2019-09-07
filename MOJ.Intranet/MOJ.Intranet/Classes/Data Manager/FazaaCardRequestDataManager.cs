@@ -39,7 +39,7 @@ namespace MOJ.DataManager
                                 item = list.AddItem();
                             }                     
                             
-                            item["Comment"] = FazaaCardRequestItem.Comment;                            
+                                                      
                             item["Title"] = FazaaCardRequestItem.RequestNumber;
                             item.Update();
                             list.Update();
@@ -80,7 +80,7 @@ namespace MOJ.DataManager
                                 if (lstRoom != null)
                                 {
                                     SPListItem Item = lstRoom.GetItemById(id);                                   
-                                    obitem.Comment = Convert.ToString(Item["Comment"]);
+                                    
                                     obitem.Created = Convert.ToDateTime(Item["Created"]);
                                     obitem.RequestNumber = Convert.ToString(Item["Title"]);
                                     obitem.Status = Convert.ToString(Item["Status"]);

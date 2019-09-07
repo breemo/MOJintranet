@@ -50,6 +50,8 @@ namespace MOJ.DataManager
                                         ht["TaskStatus"] = HostingRequestItem.WorkflowOutcome;
                                         ht["WorkflowOutcomeAr"] = HostingRequestItem.WorkflowOutcomeAr;
                                         ht["Comment"] = HostingRequestItem.Comment;
+                                        ht["AnswerDate"] = DateTime.Now;
+
                                     ht["AnswerBy"] = SPContext.Current.Web.CurrentUser;
                                     SPWorkflowTask.AlterTask((taskedit as SPListItem), ht, true);
 
@@ -167,7 +169,7 @@ namespace MOJ.DataManager
                                                 if (userExsists)
                                                 {
                                                     TaskEntity task = new TaskEntity();
-                                                    
+
                                                     task.id = Convert.ToInt32(Item["ID"]);
                                                     task.Status = Convert.ToString(Item["Status"]);
                                                     task.Comment = Convert.ToString(Item["Comment"]);
@@ -188,10 +190,10 @@ namespace MOJ.DataManager
                                                     task.ServiceNameAr = ServiceNameAr;
 
 
-                                                    if (Currentlanguage=="ar")
-                                                    {                                                       
-                                                        task.WorkflowOutcomeLG = WorkflowOutcomeAr;                                                       
-                                                        task.TitleLG = TitleAr;                                                      
+                                                    if (Currentlanguage == "ar")
+                                                    {
+                                                        task.WorkflowOutcomeLG = WorkflowOutcomeAr;
+                                                        task.TitleLG = TitleAr;
                                                         task.ServiceNameLG = ServiceNameAr;
                                                     }
                                                     else
@@ -201,7 +203,10 @@ namespace MOJ.DataManager
                                                         task.ServiceNameLG = ServiceName;
                                                     }
 
-                                                    task.Created = Convert.ToDateTime(Item["Created"]);                                                 
+                                                    task.Created = Convert.ToDateTime(Item["Created"]);
+                                                    if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["AnswerDate"]))) { 
+                                                    task.ActionDate = Convert.ToDateTime(Item["AnswerDate"]);
+                                                }
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                                     String Requestlink = Convert.ToString(spfvRequest.Url);
                                                     string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
@@ -250,6 +255,10 @@ namespace MOJ.DataManager
                                                     }
 
                                                     task.Created = Convert.ToDateTime(Item["Created"]);
+                                                    if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["AnswerDate"])))
+                                                    {
+                                                        task.ActionDate = Convert.ToDateTime(Item["AnswerDate"]);
+                                                    }
                                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                                     String Requestlink = Convert.ToString(spfvRequest.Url);
                                                     string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
@@ -325,6 +334,10 @@ namespace MOJ.DataManager
                                     task.AnswerBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["AnswerBy"]));
                                     task.AssignedToOneUserValue = new SPFieldUserValue(oWeb, Convert.ToString(Item["AssignedTo"]));
                                     task.Created = Convert.ToDateTime(Item["Created"]);
+                                    if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["AnswerDate"])))
+                                    {
+                                        task.ActionDate = Convert.ToDateTime(Item["AnswerDate"]);
+                                    }
                                     SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
                                     String Requestlink = Convert.ToString(spfvRequest.Url);
                                     string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);

@@ -67,7 +67,7 @@ namespace MOJ.Intranet.Webparts.My_Services.FazaaCardRequestWP
                 string RecordPrfix = "";
                 RecordPrfix = "Fazaa-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("FazaaCardRequest");
                 FazaaCardRequestEntity itemSumbit = new FazaaCardRequestEntity();
-                itemSumbit.Comment = Comment.Value;
+                
                 itemSumbit.RequestNumber = RecordPrfix;
 
                 FazaaCardRequest FazaaCardRequesttem = new FazaaCardRequest();

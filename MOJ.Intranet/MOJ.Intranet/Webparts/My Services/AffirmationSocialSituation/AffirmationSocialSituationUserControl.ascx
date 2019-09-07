@@ -321,7 +321,7 @@
                         </div>
 
                         <div class="col-md-8">
-                            <input type="text" runat="server" id="txtName" class="form-control" placeholder="">
+                            <input type="text" runat="server" required id="txtName" class="form-control" placeholder="">
                         </div>
                     </div>
 
@@ -340,7 +340,7 @@
                         </div>
 
                         <div class="col-md-8">
-                            <input type="text" id="RelationshipType" runat="server" class="form-control" placeholder="">
+                            <input type="text" id="RelationshipType" required runat="server" class="form-control" placeholder="">
                         </div>
                     </div>
 
@@ -359,7 +359,7 @@
                         </div>
 
                         <div class="col-md-8">
-                            <input type="text" id="ChangeReason" runat="server" class="form-control" placeholder="">
+                            <input type="text" id="ChangeReason" required runat="server" class="form-control" placeholder="">
                         </div>
                     </div>
 
@@ -382,7 +382,7 @@
                         <div class="col-md-8">
 
                             <div class="input-group date" data-provide="datepicker">
-                                <input type="text" runat="server" id="ChangeDate" class="form-control">
+                                <input type="text" required runat="server" id="ChangeDate" class="form-control">
                                 <div class="input-group-addon">
                                     <span class="icon-calendar-alt1"></span>
                                 </div>

@@ -15,6 +15,7 @@ namespace MOJ.Entities
         public string TitleAr { get; set; }
         public string TitleLG { get; set; }
         public  string WorkflowOutcome { get; set; }
+        public  DateTime ActionDate { get; set; }
         public  string WorkflowOutcomeAr { get; set; }
         public  string WorkflowOutcomeLG { get; set; }
         public string RequestID { get; set; }

@@ -14,7 +14,7 @@ namespace MOJ.Entities
         public string RequestNumber { get; set; }       
               
         public DateTime Created { get; set; }
-        public string Comment { get; set; }
+       
         public string Status { get; set; }
 
         public SPFieldUserValue CreatedBy { get; set; }
