@@ -7,6 +7,16 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wpOccasionsListUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.wpOccasionsList.wpOccasionsListUserControl" %>
 
+<style>
+    .pagi .pagination li a {
+        color: #9b9a9a !important;
+    }
+    .page-link:focus
+    {
+        border-color:#bd995d !important;
+    }
+</style>
+
 <asp:Repeater ID="rptrOccasions" runat="server">
                 <HeaderTemplate>
                     <h3><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEvents%>" /></h3>
