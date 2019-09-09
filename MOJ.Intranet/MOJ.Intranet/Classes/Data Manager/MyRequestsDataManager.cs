@@ -13,7 +13,7 @@ namespace MOJ.DataManager
 {
     public class MyRequestsDataManager
     {
-        public List<MyRequestsEntity> GetMyRequests(int intRowLimit,string languageCodes)
+        public List<MyRequestsEntity> GetMyRequests(int intRowLimit, string languageCodes, string FilterRequestNumber, string FilterResult, string Filterfrom, string Filterto)
         {
             List<MyRequestsEntity> ItemsCollection = new List<MyRequestsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -28,12 +28,70 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='RequestBy' LookupId='TRUE' /><Value Type='User'>" + SPContext.Current.Web.CurrentUser.ID + "</Value> </Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where>";
+
+
+                                if (FilterRequestNumber != "")
+                                {
+                                    camlquery1 += "<And>";
+
+                                }
+                                if (FilterResult != "")
+                                {
+                                    camlquery1 += "<And>";
+
+                                }
+                                if (Filterfrom != "")
+                                {
+                                    camlquery1 += "<And>";
+
+                                }
+                                if (Filterto != "")
+                                {
+                                    camlquery1 += "<And>";
+
+                                }
+
+                                camlquery1 += "<Eq><FieldRef Name='RequestBy' LookupId='TRUE' /><Value Type='User'>" + SPContext.Current.Web.CurrentUser.ID + "</Value> </Eq>";
+
+                                if (FilterRequestNumber != "")
+                                {
+                                    camlquery1 += "<Contains><FieldRef Name='Title'/><Value Type='Text'>" + FilterRequestNumber + "</Value></Contains></And>";
+                                }
+                                if (FilterResult != "")
+                                {
+
+                                    if (languageCodes == "ar")
+                                    {
+                                        camlquery1 += "<Contains><FieldRef Name='StatusAr'/><Value Type='Text'>" + FilterResult + "</Value></Contains></And>";
+
+                                    }
+                                    else
+                                    {
+                                        camlquery1 += "<Contains><FieldRef Name='ServiceNameEn'/><Value Type='Text'>" + FilterResult + "</Value></Contains></And>";
+
+
+                                    }
+
+                                }
+                                if (Filterfrom != "")
+                                {///Filterfrom  format 2019-1-1
+                                    camlquery1 += "<Geq>< FieldRef Name ='Created'/><Value Type ='DateTime'>2019-5-1</Value></Geq></And>";
+
+                                }
+                                if (Filterto != "")
+                                {
+                                    camlquery1 += "<Leq>< FieldRef Name ='Created'/><Value Type ='DateTime'>2019-5-1</Value></Leq></And>";
+
+
+                                }
+
+                                camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
 
                                 qry1.Query = camlquery1;
-                                if(intRowLimit!=0)
-                                qry1.RowLimit =(uint)intRowLimit;
-                                
+                                if (intRowLimit != 0)
+                                    qry1.RowLimit = (uint)intRowLimit;
+
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
                                 {
@@ -59,13 +117,13 @@ namespace MOJ.DataManager
                                     itemis.Created = Convert.ToDateTime(Item["Created"]);
                                     itemis.RequestBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["RequestBy"]));
                                     itemis.RequestID = Convert.ToString(Item["RequestID"]);
-                                    itemis.RequestURL = "ViewRequest.aspx?RID=" + Convert.ToInt32(Item["RequestID"])+"&list="+Convert.ToString(Item["ServiceName"]);
+                                    itemis.RequestURL = "ViewRequest.aspx?RID=" + Convert.ToInt32(Item["RequestID"]) + "&list=" + Convert.ToString(Item["ServiceName"]);
 
                                     ItemsCollection.Add(itemis);
-                                            
 
-                                 }
-                                 
+
+                                }
+
                             }
                         }
 
@@ -75,8 +133,8 @@ namespace MOJ.DataManager
             return ItemsCollection;
         }
 
-        
 
-           
+
+
     }
 }

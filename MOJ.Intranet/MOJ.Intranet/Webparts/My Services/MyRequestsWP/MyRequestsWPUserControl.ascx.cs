@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,20 +16,87 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
 {
-    public partial class MyRequestsWPUserControl : UserControl
+    public partial class MyRequestsWPUserControl : SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!Page.IsPostBack)
             {
+                GetStatus();
                 BindData();
                 
                 HeaderRowG();
 
             }
         }
-        public void HeaderRowG()
+
+        private void GetStatus()
+        {
+            try
+            {
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.MyRequestsUrl);
+                                if (lst != null)
+                                {
+                                    List<ListItem> items = new List<ListItem>();
+                                    items.Add(new ListItem("",""));
+
+                                    if (languageCode == "ar")
+                                    {
+                                        SPFieldChoice PlaceChoice = (SPFieldChoice)lst.Fields["StatusAr"]; 
+                                        for (int i = 0; i < PlaceChoice.Choices.Count; i++)
+                                        {
+                                            items.Add(new ListItem(PlaceChoice.Choices[i].ToString(), PlaceChoice.Choices[i].ToString()));
+                                          
+                                        }
+                                    }
+                                    else
+                                    {
+                                        SPFieldChoice PlaceChoice = (SPFieldChoice)lst.Fields["StatusEn"];
+                                        for (int i = 0; i < PlaceChoice.Choices.Count; i++)
+                                        {
+                                            items.Add(new ListItem(PlaceChoice.Choices[i].ToString(), PlaceChoice.Choices[i].ToString()));
+
+                                        }
+                                    }
+                                    DDResult.Items.AddRange(items.ToArray());
+
+
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (!_isRefresh)
+            {
+                PageNumber2 = 0;
+                BindData();
+                HeaderRowG();
+            }
+        }
+
+
+
+            public void HeaderRowG()
         {
             string RequestNumber = SPUtility.GetLocalizedString("$Resources: RequestNumber", "Resource", SPContext.Current.Web.Language);
             string ServiceType = SPUtility.GetLocalizedString("$Resources: ServiceType", "Resource", SPContext.Current.Web.Language);
@@ -82,40 +150,69 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
         }
         private void BindData()
         {
-            try
+            if (!_isRefresh)
             {
-                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
-                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
-                List<MyRequestsEntity> Requestsollection = new MyRequestsB().GetMyRequests(0,languageCode);
-                            
-                PagedDataSource pgitems = new PagedDataSource();
-                pgitems.DataSource = Requestsollection;
-                pgitems.AllowPaging = true;
-                //Control page size from here 
-                pgitems.PageSize = 3;
-                pgitems.CurrentPageIndex = PageNumber2;
-                if (pgitems.PageCount > 1)
+                string RequestNumbervalue = "";
+                if (!string.IsNullOrEmpty(RequestNumber.Value))
                 {
-                    rpt2Paging.Visible = true;
-                    ArrayList pages = new ArrayList();
-                    for (int i = 0; i <= pgitems.PageCount - 1; i++)
+                    RequestNumbervalue = Convert.ToString(RequestNumber.Value);
+                }
+                string Resultvalue = "";
+                if (!string.IsNullOrEmpty(DDResult.SelectedValue))
+                {
+                     Resultvalue = Convert.ToString(DDResult.SelectedValue);
+                }
+               
+                string fromvalue = "";
+                string tovalue = "";
+                if (!string.IsNullOrEmpty(from0.Value))
+                {
+                    DateTime sDate = DateTime.ParseExact(from0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+
+                    fromvalue = Convert.ToString(sDate.Year)+"-"+ Convert.ToString(sDate.Month)+"-"+ Convert.ToString(sDate.Day);
+                }
+                if (!string.IsNullOrEmpty(to0.Value))
+                {
+                    DateTime sDate = DateTime.ParseExact(to0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+
+                    tovalue = Convert.ToString(sDate.Year) + "-" + Convert.ToString(sDate.Month) + "-" + Convert.ToString(sDate.Day);
+                }
+
+                try
+                {
+                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                    List<MyRequestsEntity> Requestsollection = new MyRequestsB().GetMyRequests(0, languageCode, RequestNumbervalue, Resultvalue, fromvalue, tovalue);
+
+                    PagedDataSource pgitems = new PagedDataSource();
+                    pgitems.DataSource = Requestsollection;
+                    pgitems.AllowPaging = true;
+                    //Control page size from here 
+                    pgitems.PageSize = 3;
+                    pgitems.CurrentPageIndex = PageNumber2;
+                    if (pgitems.PageCount > 1)
                     {
-                        pages.Add((i + 1).ToString());
+                        rpt2Paging.Visible = true;
+                        ArrayList pages = new ArrayList();
+                        for (int i = 0; i <= pgitems.PageCount - 1; i++)
+                        {
+                            pages.Add((i + 1).ToString());
+                        }
+                        rpt2Paging.DataSource = pages;
+                        rpt2Paging.DataBind();
                     }
-                    rpt2Paging.DataSource = pages;
-                    rpt2Paging.DataBind();
+                    else
+                    {
+                        pgng2.Visible = false;
+                        rpt2Paging.Visible = false;
+                    }
+                    grdMyAccomplishedTasks.DataSource = pgitems;
+                    grdMyAccomplishedTasks.DataBind();
                 }
-                else
+                catch (Exception ex)
                 {
-                    pgng2.Visible = false;
-                    rpt2Paging.Visible = false;
+                    LoggingService.LogError("WebParts", ex.Message);
                 }
-                grdMyAccomplishedTasks.DataSource = pgitems;
-                grdMyAccomplishedTasks.DataBind();
-            }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
             }
         }
 
