@@ -7,6 +7,16 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NewsListUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.NewsList.NewsListUserControl" %>
 
+<style>
+.pagi .pagination li a {
+    color: #9b9a9a !important;
+}
+.page-link:focus
+{
+    border-color:#bd995d !important;
+}
+</style>
+
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadPopularNews%>" />
 </h4>
@@ -81,7 +91,7 @@
     <div id="posts" class="small-thumbs alt">
 
 
-        <asp:GridView ID="grdNewsLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="No Archives Found"
+        <asp:GridView ID="grdNewsLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="<%$ Resources:Resource, EmptyData%>"
             BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
             EnableModelValidation="True" 
        
@@ -89,7 +99,8 @@
             <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
                 Mode="NumericFirstLast" PageButtonCount="5" />
             <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
-            <EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />
+            <%--<EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />--%>
+            <EmptyDataRowStyle Font-Bold="true" ForeColor="#646464" Font-Size="1.5em" />
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
@@ -100,7 +111,7 @@
                             <div class="entry-c entryitemx">
 
                                 <span class="dateut">
-                                    <%#  Convert.ToDateTime(Eval("Date")).ToString("dddd")%>, <%#  Convert.ToDateTime(Eval("Date")).ToString("dd")%> <%#  Convert.ToDateTime(Eval("Date")).ToString("MMM")%>  <%#  Convert.ToDateTime(Eval("Date")).ToString("yyyy")%> </span>
+                                    <%#  Convert.ToDateTime(Eval("Created")).ToString("dddd")%>, <%#  Convert.ToDateTime(Eval("Created")).ToString("dd")%> <%#  Convert.ToDateTime(Eval("Created")).ToString("MMM")%>  <%#  Convert.ToDateTime(Eval("Created")).ToString("yyyy")%> </span>
                                 <h6>
                                     <a href="<%= SPContext.Current.RootFolderUrl %>/Details.aspx?id=<%# Eval("ID") %>&type=news"><%# Eval("Title") %>
                                     </a>

@@ -68,7 +68,7 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                                   </a>
                             </div>
                         </div>
-                    </div>", Convert.ToDateTime(item.Date).ToString("MMM dd"), item.Picture, des, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language), item.ID,siteURL);
+                    </div>", Convert.ToDateTime(item.Created).ToString("MMM dd"), item.Picture, des, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language), item.ID,siteURL);
                 }
             }
             catch (Exception ex)

@@ -18,6 +18,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
         {
             if (!Page.IsPostBack)
             {
+                pgng.Visible = false;
                 FillRelatedNewsCarousel();
                 FillRelatedNewsCarouselInner();
 
@@ -133,8 +134,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                         </div>
                     </div>",
                     lstItem.Picture,
-                    Convert.ToDateTime(lstItem.Date).ToString("dd MMM"),
-                    Convert.ToDateTime(lstItem.Date).ToString("yyyy"),
+                    Convert.ToDateTime(lstItem.Created).ToString("dd MMM"),
+                    Convert.ToDateTime(lstItem.Created).ToString("yyyy"),
                     lstItem.Title,
                     LimitCharacters.Limit(lstItem.Body, 120),
                     itemIndex == 0 ? " active" : "");

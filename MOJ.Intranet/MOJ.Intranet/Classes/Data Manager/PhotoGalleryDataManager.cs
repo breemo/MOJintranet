@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.SharePoint;
 using MOJ.Entities;
 using CommonLibrary;
+using System.Data;
 
 namespace MOJ.DataManager
 {
@@ -12,6 +13,19 @@ namespace MOJ.DataManager
     {
 
         #region PhotoGallery
+        private string getDate(string date)
+        {
+            try
+            {
+                DateTime dt = Convert.ToDateTime(date);
+                return dt.ToShortDateString();
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+        }
+
         public List<PhotoGalleryEntity> GetAllActivePhotoGalleryHomeItems()
         {
             List<PhotoGalleryEntity> galleryLst = new List<PhotoGalleryEntity>();
@@ -25,29 +39,26 @@ namespace MOJ.DataManager
                         {
                             if (oWeb != null)
                             {
-                                //SPList lstPhotos = oWeb.GetListFromUrl(oSite.Url + SharedConstants.PhotoGalleryListUrl);
-                                
                                 //Get Picture Libray albums
                                 SPList lstPhotos = oWeb.Lists.TryGetList("MOJGallery");
-                                //SPList lstPhotos = oWeb.Lists["MOJGallery"];
                                 if (lstPhotos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
                                     oQuery.Query = SharedConstants.GalleryQuery;
 
-                                    foreach (SPFolder galeryFolder in lstPhotos.Folders)
+                                    foreach (SPListItem galeryFolder in lstPhotos.Folders)
                                     {
-                                        foreach (SPListItem folderFile in galeryFolder.Files)
+                                        foreach (SPFile folderFile in galeryFolder.Folder.Files)
                                         {
-                                            if (Convert.ToString(folderFile["isActive"]) == "True")
+                                            if (folderFile.Item["isActive"].ToString() == "True")
                                             {
                                                 PhotoGalleryEntity photo = new PhotoGalleryEntity();
-                                                photo.ID = Convert.ToInt16(folderFile[SharedConstants.ID]);
-                                                photo.Title = Convert.ToString(folderFile[SharedConstants.Name]);
-                                                photo.Description = Convert.ToString(folderFile[SharedConstants.Description]);
-                                                photo.Created = Convert.ToDateTime(folderFile[SharedConstants.Created]);
-                                                photo.PictureThumbnailURL = Convert.ToString(folderFile["Thumbnail URL"]);
-                                                photo.PictureURL = Convert.ToString(folderFile["EncodedAbsUrl"]);
+                                                photo.ID = Convert.ToInt16(folderFile.Item[SharedConstants.ID]);
+                                                photo.Title = Convert.ToString(folderFile.Item[SharedConstants.Name]);
+                                                photo.Description = Convert.ToString(folderFile.Item[SharedConstants.Description]);
+                                                photo.Created = Convert.ToDateTime(folderFile.Item[SharedConstants.Created]);
+                                                photo.PictureThumbnailURL = Convert.ToString(folderFile.Item["Thumbnail URL"]);
+                                                photo.PictureURL = Convert.ToString(folderFile.Item["EncodedAbsUrl"]);
 
                                                 galleryLst.Add(photo);
                                             }
@@ -56,19 +67,9 @@ namespace MOJ.DataManager
 
 
 
-
-
-
-
-
                                     //SPFolder albumfolder = oWeb.GetFolder(category);
-
                                     //SPQuery query = new SPQuery();
-
                                     //SPFolder _Folder = lstPhotos.Folders;//.RootFolder;
-
-
-
                                     //oQuery.ViewFields = SharedConstants.NewsViewfields;
 
                                     //OLD code
@@ -101,6 +102,60 @@ namespace MOJ.DataManager
             return galleryLst;
         }
 
+        public DataTable GetAllPhotoGalleryAlbums()
+        {
+            DataTable dtPictureAlbums = new DataTable();
+            DataColumn dcTitle = dtPictureAlbums.Columns.Add("Title");
+            DataColumn dcDate = dtPictureAlbums.Columns.Add("Date");
+            DataColumn dcURL = dtPictureAlbums.Columns.Add("URL");
+            DataColumn dcPictureURL = dtPictureAlbums.Columns.Add("PictureURL");
+
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                //Get Picture Libray albums
+                                SPList lstPhotos = oWeb.Lists.TryGetList("MOJGallery");
+                                if (lstPhotos != null)
+                                {
+                                    SPQuery oQuery = new SPQuery();
+                                    oQuery.Query = SharedConstants.GalleryQuery;
+
+                                    foreach (SPListItem galeryFolder in lstPhotos.Folders)
+                                    {
+                                        SPFolder album = oWeb.GetFolder(galeryFolder.Url);
+                                        DataRow drAlbum = dtPictureAlbums.NewRow();
+                                        drAlbum["Title"] = album.Name;
+                                        drAlbum["Date"] = getDate(Convert.ToString(album.Item["FolderDate"]));
+                                        drAlbum["URL"] = SPContext.Current.Web.ServerRelativeUrl + "/Pages/Gallery.aspx?cat=" + album.Url;
+
+                                        if (album.Files.Count > 0)
+                                            drAlbum["PictureURL"] = oWeb.Url + "/" + album.Files[0].Url;
+                                        else
+                                            drAlbum["PictureURL"] = SharedConstants.URL_NO_IMAGE;
+
+                                        dtPictureAlbums.Rows.Add(drAlbum);
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return dtPictureAlbums;
+        }
         # endregion
     }
 }

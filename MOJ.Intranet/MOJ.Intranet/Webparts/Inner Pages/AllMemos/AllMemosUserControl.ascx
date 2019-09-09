@@ -12,6 +12,14 @@
     min-height: 125px;
     height: auto !important;
 }
+
+.pagi .pagination li a {
+    color: #9b9a9a !important;
+}
+.page-link:focus
+{
+    border-color:#bd995d !important;
+}
 </style>
 
 <h4>
