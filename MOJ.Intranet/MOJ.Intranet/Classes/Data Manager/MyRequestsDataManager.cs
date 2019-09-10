@@ -29,8 +29,6 @@ namespace MOJ.DataManager
                             {
                                 SPQuery qry1 = new SPQuery();
                                 string camlquery1 = "<Where>";
-
-
                                 if (FilterRequestNumber != "")
                                 {
                                     camlquery1 += "<And>";
@@ -69,23 +67,19 @@ namespace MOJ.DataManager
                                     else
                                     {
                                         camlquery1 += "<Contains><FieldRef Name='ServiceNameEn'/><Value Type='Text'>" + FilterResult + "</Value></Contains></And>";
-
-
+                                        
                                     }
-
                                 }
                                 if (Filterfrom != "")
                                 {///Filterfrom  format 2019-1-1
-                                    camlquery1 += "<Geq>< FieldRef Name ='Created'/><Value Type ='DateTime'>2019-5-1</Value></Geq></And>";
+                                    camlquery1 += "<Geq><FieldRef Name ='Created'/><Value Type='DateTime'>"+ Filterfrom + "</Value></Geq></And>";
 
                                 }
                                 if (Filterto != "")
                                 {
-                                    camlquery1 += "<Leq>< FieldRef Name ='Created'/><Value Type ='DateTime'>2019-5-1</Value></Leq></And>";
-
+                                    camlquery1 += "<Leq><FieldRef Name ='Created'/><Value Type='DateTime'>" + Filterto + "</Value></Leq></And>";
 
                                 }
-
                                 camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
 
                                 qry1.Query = camlquery1;

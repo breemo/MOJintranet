@@ -183,15 +183,19 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
                     CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                     string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                     List<MyRequestsEntity> Requestsollection = new MyRequestsB().GetMyRequests(0, languageCode, RequestNumbervalue, Resultvalue, fromvalue, tovalue);
-
+                    
                     PagedDataSource pgitems = new PagedDataSource();
-                    pgitems.DataSource = Requestsollection;
                     pgitems.AllowPaging = true;
                     //Control page size from here 
                     pgitems.PageSize = 3;
+                    pgitems.DataSource = Requestsollection;
+                    
+
                     pgitems.CurrentPageIndex = PageNumber2;
+                   
                     if (pgitems.PageCount > 1)
                     {
+                        pgng2.Visible = true;
                         rpt2Paging.Visible = true;
                         ArrayList pages = new ArrayList();
                         for (int i = 0; i <= pgitems.PageCount - 1; i++)

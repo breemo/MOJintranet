@@ -28,17 +28,14 @@
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, Search%>" />
 </h4>
-<div class="row rt">
+<div class="row rt" style="margin-bottom: 0px;">
                 <div class="col-md-4 ">
                   <div class="row">
                                 <div class="col-md-4">
                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, RequestNumber%>" /></label>
                                 </div>
-                                <div class="col-md-8">
-                                  
-                        
+                                <div class="col-md-8">                    
                                    	<input type="text" name="RequestNumber" runat="server" id="RequestNumber" class="form-control" placeholder="">
-								
 
                                 </div>
                             </div>
@@ -50,7 +47,7 @@
                                 </div>
                                 <div class="col-md-8">
                                    <label><asp:Literal runat="server" id="DDRe"/></label>                        
-                                    <asp:DropDownList  class="form-control form-control-sm" ID="DDResult" runat="server">
+                                    <asp:DropDownList style="height: 38px;margin-top: -20px;" class="form-control form-control-sm" ID="DDResult" runat="server">
 									</asp:DropDownList>
 
                                 </div>
@@ -95,9 +92,34 @@
                        </div>
                 </div>
 
-    <asp:Button Text="<%$ Resources:Resource, Search%>"  CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnSearch_Click" />
-            
+
+
+
+        <div class="row rt">
+                        <div class="col-md-4">
+                           <div class="row">
+                                <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+						 <asp:Button Text="<%$ Resources:Resource, Search%>"  CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnSearch_Click" />
+         
+                             
+                                </div>
+                                </div>
+					</div>
+                       <div class="col-md-4">
+                            <div class="row">
+								<div  class="col-md-4">
+								</div>
+								<div  class="col-md-8">
+									
+								</div> 
+                              </div>
+                       </div>
+                </div>
+      
 <h4></h4>
+ 	
 <div id="posts" runat="server" class="small-thumbs alt">
       <div class="tab-container">        
 		   <div class="" id="tab-">
