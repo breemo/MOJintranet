@@ -205,7 +205,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
 
                     dr = dtProfile.NewRow();
                     dr["AccountName"] = Profile.AccountName;
-                    dr["WorkEmail"] = Profile.Email;
+                    dr["WorkEmail"] = Profile.WorkEmail;
                     dr["Department"] = Profile.Department;
                     dr["JobTitle"] = Profile.JobTitle;
                     dr["OfficeNumber"] = Profile.OfficeNumber;
@@ -214,10 +214,19 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
 
                 }
 
+
+
                 if (txtNameSearch.Value != "")
                     dtProfile.DefaultView.RowFilter = "AccountName Like '%" + txtNameSearch.Value + "%'";
 
                 DataTable dt = dtProfile.DefaultView.ToTable();
+
+                if (dt.Rows.Count <= 9)
+                {
+                    rptPaging.Visible = false;
+                    PaginUI.Visible = false;
+                }
+
 
                 grdPoeplelsts.DataSource = dt;
                 grdPoeplelsts.DataBind();
@@ -227,96 +236,111 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
         protected void btnDepartmentSearch_Click(object sender, EventArgs e)
         {
             //CurrentUserDiv.Visible = false;
-            //using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
-            //{
+            using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
+            {
 
-            //    DataTable dtProfile = new DataTable();
+                DataTable dtProfile = new DataTable();
 
-            //    dtProfile.Columns.Add("AccountName");
-            //    dtProfile.Columns.Add("WorkEmail");
-            //    dtProfile.Columns.Add("Department");
-            //    dtProfile.Columns.Add("JobTitle");
-            //    dtProfile.Columns.Add("OfficeNumber");
+                dtProfile.Columns.Add("AccountName");
+                dtProfile.Columns.Add("WorkEmail");
+                dtProfile.Columns.Add("Department");
+                dtProfile.Columns.Add("JobTitle");
+                dtProfile.Columns.Add("OfficeNumber");
 
-            //    SPSite site = new SPSite(SPContext.Current.Site.Url);
-            //    SPWeb web = site.RootWeb;
-            //    SPServiceContext serverContext = SPServiceContext.GetContext(site);
-            //    UserProfileManager profileManager = new UserProfileManager(serverContext);
-            //    EmployeeProfileEntity Profile;
-            //    DataRow dr;
+                SPSite site = new SPSite(SPContext.Current.Site.Url);
+                SPWeb web = site.RootWeb;
+                SPServiceContext serverContext = SPServiceContext.GetContext(site);
+                UserProfileManager profileManager = new UserProfileManager(serverContext);
+                EmployeeProfileEntity Profile;
+                EmployeeProfileBL EBL = new EmployeeProfileBL();
+                DataRow dr;
 
-            //    foreach (UserProfile _Profile in profileManager)
-            //    {
-            //        //Profile = GetShortUserProfile(_Profile);
+                foreach (UserProfile _Profile in profileManager)
+                {
+                    Profile = EBL.GetShortUserProfile(_Profile);
 
-            //        dr = dtProfile.NewRow();
-            //        dr["AccountName"] = Profile.AccountName;
-            //        dr["WorkEmail"] = Profile.Email;
-            //        dr["Department"] = Profile.Department;
-            //        dr["JobTitle"] = Profile.JobTitle;
-            //        dr["OfficeNumber"] = Profile.OfficeNumber;
+                    dr = dtProfile.NewRow();
+                    dr["AccountName"] = Profile.AccountName;
+                    dr["WorkEmail"] = Profile.WorkEmail;
+                    dr["Department"] = Profile.Department;
+                    dr["JobTitle"] = Profile.JobTitle;
+                    dr["OfficeNumber"] = Profile.OfficeNumber;
 
-            //        dtProfile.Rows.Add(dr);
+                    dtProfile.Rows.Add(dr);
 
-            //    }
+                }
 
-            //    if (txtDepartmentSearch.Value != "")
-            //        dtProfile.DefaultView.RowFilter = "Department Like '%" + txtDepartmentSearch.Value + "%'";
+                if (txtDepartmentSearch.Value != "")
+                    dtProfile.DefaultView.RowFilter = "Department Like '%" + txtDepartmentSearch.Value + "%'";
 
-            //    DataTable dt = dtProfile.DefaultView.ToTable();
+                DataTable dt = dtProfile.DefaultView.ToTable();
 
-            //    grdPoeplelsts.DataSource = dt;
-            //    grdPoeplelsts.DataBind();
+                if (dt.Rows.Count <= 9)
+                {
+                    rptPaging.Visible = false;
+                    PaginUI.Visible = false;
+                }
+
+                grdPoeplelsts.DataSource = dt;
+                grdPoeplelsts.DataBind();
 
 
+            }
         }
         protected void btnOfficeLocationSearch_Click(object sender, EventArgs e)
         {
             //CurrentUserDiv.Visible = false;
-            //using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
-            //{
+            using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
+            {
 
-            //    DataTable dtProfile = new DataTable();
+                DataTable dtProfile = new DataTable();
 
-            //    dtProfile.Columns.Add("AccountName");
-            //    dtProfile.Columns.Add("WorkEmail");
-            //    dtProfile.Columns.Add("Department");
-            //    dtProfile.Columns.Add("JobTitle");
-            //    dtProfile.Columns.Add("OfficeNumber");
-            //    dtProfile.Columns.Add("OfficeLocation");
+                dtProfile.Columns.Add("AccountName");
+                dtProfile.Columns.Add("WorkEmail");
+                dtProfile.Columns.Add("Department");
+                dtProfile.Columns.Add("JobTitle");
+                dtProfile.Columns.Add("OfficeNumber");
+                dtProfile.Columns.Add("OfficeLocation");
 
-            //    SPSite site = new SPSite(SPContext.Current.Site.Url);
-            //    SPWeb web = site.RootWeb;
-            //    SPServiceContext serverContext = SPServiceContext.GetContext(site);
-            //    UserProfileManager profileManager = new UserProfileManager(serverContext);
-            //    EmployeeProfileEntity Profile;
-            //    DataRow dr;
+                SPSite site = new SPSite(SPContext.Current.Site.Url);
+                SPWeb web = site.RootWeb;
+                SPServiceContext serverContext = SPServiceContext.GetContext(site);
+                UserProfileManager profileManager = new UserProfileManager(serverContext);
+                EmployeeProfileEntity Profile;
+                DataRow dr;
+                EmployeeProfileBL EBL = new EmployeeProfileBL();
 
-            //    foreach (UserProfile _Profile in profileManager)
-            //    {
-            //        Profile = GetShortUserProfile(_Profile);
+                foreach (UserProfile _Profile in profileManager)
+                {
+                    Profile = EBL.GetShortUserProfile(_Profile);
 
-            //        dr = dtProfile.NewRow();
-            //        dr["AccountName"] = Profile.AccountName;
-            //        dr["WorkEmail"] = Profile.Email;
-            //        dr["Department"] = Profile.Department;
-            //        dr["JobTitle"] = Profile.JobTitle;
-            //        dr["OfficeNumber"] = Profile.OfficeNumber;
-            //        dr["OfficeLocation"] = Profile.OfficeLocation;
+                    dr = dtProfile.NewRow();
+                    dr["AccountName"] = Profile.AccountName;
+                    dr["WorkEmail"] = Profile.WorkEmail;
+                    dr["Department"] = Profile.Department;
+                    dr["JobTitle"] = Profile.JobTitle;
+                    dr["OfficeNumber"] = Profile.OfficeNumber;
+                    dr["OfficeLocation"] = Profile.OfficeLocation;
 
-            //        dtProfile.Rows.Add(dr);
+                    dtProfile.Rows.Add(dr);
 
-            //    }
+                }
 
-            //    if (txtOffileLocation.Value != "")
-            //        dtProfile.DefaultView.RowFilter = "OfficeLocation Like '%" + txtOffileLocation.Value + "%'";
+                if (txtOffileLocation.Value != "")
+                    dtProfile.DefaultView.RowFilter = "OfficeLocation Like '%" + txtOffileLocation.Value + "%'";
 
-            //    DataTable dt = dtProfile.DefaultView.ToTable();
+                DataTable dt = dtProfile.DefaultView.ToTable();
 
-            //    grdPoeplelsts.DataSource = dt;
-            //    grdPoeplelsts.DataBind();
+                if (dt.Rows.Count <= 9)
+                {
+                    rptPaging.Visible = false;
+                    PaginUI.Visible = false;
+                }
 
-        }
+                grdPoeplelsts.DataSource = dt;
+                grdPoeplelsts.DataBind();
+
+            }
 
     }
 }

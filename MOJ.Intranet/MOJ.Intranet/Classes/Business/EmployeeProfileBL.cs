@@ -24,7 +24,7 @@ namespace MOJ.Business
         }
         public EmployeeProfileEntity GetShortUserProfile(UserProfile profile)
         {
-
+            return new EmployeeProfileDataManager().GetShortUserProfile(profile);
         }
     }
 }

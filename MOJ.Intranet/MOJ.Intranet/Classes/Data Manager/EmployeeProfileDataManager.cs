@@ -15,7 +15,7 @@ namespace MOJ.DataManage
         public List<EmployeeProfileEntity> GetEmployeeProfiles()
         {
             List<EmployeeProfileEntity> Employeelst = new List<EmployeeProfileEntity>();
-            EmployeeProfileEntity Employee = new EmployeeProfileEntity();
+            
             SPSecurity.RunWithElevatedPrivileges(delegate ()
             {
                 using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
@@ -28,8 +28,10 @@ namespace MOJ.DataManage
                             UserProfileManager profileManager = new UserProfileManager(serverContext);
                             foreach (UserProfile _Profile in profileManager)
                             {
+                                EmployeeProfileEntity Employee = new EmployeeProfileEntity();
+
                                 Employee.AccountName = Convert.ToString(_Profile[PropertyConstants.AccountName].Value);
-                                Employee.Email = Convert.ToString(_Profile[PropertyConstants.WorkEmail].Value);
+                                Employee.WorkEmail = Convert.ToString(_Profile[PropertyConstants.WorkEmail].Value);
                                 Employee.Department = Convert.ToString(_Profile[PropertyConstants.Department].Value);
                                 Employee.JobTitle = Convert.ToString(_Profile[PropertyConstants.JobTitle].Value);
                                 Employee.OfficeNumber = Convert.ToString(_Profile[PropertyConstants.WorkPhone].Value);
@@ -95,7 +97,7 @@ namespace MOJ.DataManage
 
                 //currEmployee.EmployeeID = profile["employeeID"].Value.ToSafeString();
                 currEmployee.AccountName = Convert.ToString(profile[PropertyConstants.AccountName].Value);
-                currEmployee.Email = Convert.ToString(profile[PropertyConstants.WorkEmail].Value);
+                currEmployee.WorkEmail = Convert.ToString(profile[PropertyConstants.WorkEmail].Value);
                 //currEmployee.OfficeNumber = Convert.ToString(profile[PropertyConstants.WorkPhone].Value);
                 //currEmployee.PhoneNumber = Convert.ToString(profile[PropertyConstants.CellPhone].Value);
                 currEmployee.Department = Convert.ToString(profile[PropertyConstants.Department].Value);

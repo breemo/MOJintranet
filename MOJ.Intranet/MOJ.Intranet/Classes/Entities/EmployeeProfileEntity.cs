@@ -8,7 +8,7 @@ namespace MOJ.Entities
 {
     public class EmployeeProfileEntity
     {
-        public string Email { get; set; }
+        public string WorkEmail { get; set; }
         public string AccountName { get; set; }
         public string Department { get; set; }
         public string JobTitle { get; set; }
