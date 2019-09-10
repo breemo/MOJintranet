@@ -133,8 +133,12 @@ namespace MOJ.DataManager
                                         SPFieldLookupValue SingleValueAr = new SPFieldLookupValue(EmirateAr);
                                         RoomBooking.EmirateAr = SingleValueAr.LookupValue;
                                     }
+                                    if (!string.IsNullOrEmpty(Convert.ToString(Item["ResourcesNeeded"])))
+                                    {
+                                        RoomBooking.ResourcesNeeded = new SPFieldMultiChoiceValue(Item["ResourcesNeeded"].ToString());
+                                    }
 
-                                    RoomBooking.ResourcesNeeded = new SPFieldMultiChoiceValue(Item["ResourcesNeeded"].ToString());
+                                   
                                     RoomBooking.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
                                     RoomBooking.Created = Convert.ToDateTime(Item["Created"]);
                                 }

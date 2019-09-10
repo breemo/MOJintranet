@@ -783,4 +783,10 @@
   <data name="ActionDate" xml:space="preserve">
     <value>Action date</value>
   </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="MSGcancel" xml:space="preserve">
+    <value>Are you sure you want to cancel the request?</value>
+  </data>
 </root>

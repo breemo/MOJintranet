@@ -16,7 +16,7 @@
     </a>
 </div>
 
-<div class="boxgallery" style="width: 1072px">
+<div class="boxgallery" style="width:1125px">
     <div class="boxcd">
         <div id="content-6" class="content horizontal-images clearfix  mCustomScrollbar _mCS_1">
             <div id="mCSB_1" class="mCustomScrollBox mCS-light-3 mCSB_horizontal mCSB_inside" style="max-height: none;" tabindex="0">

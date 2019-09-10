@@ -31,5 +31,10 @@ namespace MOJ.Business
             return new TaskDataManager().TaskPermission(TID);
 
         }
+        public bool TerminateWorkflow(string listName, int sid)
+        {
+            return new TaskDataManager().TerminateWorkflow(listName,  sid);
+
+        }
     }
 }

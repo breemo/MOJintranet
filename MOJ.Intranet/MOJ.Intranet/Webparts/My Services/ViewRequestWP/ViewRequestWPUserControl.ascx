@@ -147,14 +147,22 @@ background-color: #f5e9b6;
             </div>  
      <div class="row rt  botx">
                 <asp:Button Text="<%$ Resources:Resource, MyRequests%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnGoToMyRequests_Click" />
-            </div>
+          <asp:Button OnClientClick="return confirmcancel();" Text="<%$ Resources:Resource, cancel%>" CssClass="morebutovn2" runat="server" ID="btnCanceled" OnClick="btnCanceledworkflow_Click" />
+                  
+     </div>
 
     </div>
 
-
+<asp:Label id="MSGcancelID" class="MSGcancel" style="display: none"  Text="<%$ Resources:Resource, MSGcancel%>" runat="server"></asp:Label>
 <!-- #posts end -->
 <div id="SuccessMsgDiv" runat="server" style="display: none">
     <h4 class="ta3m" style="text-align: center;">
         <asp:Literal ID="lblSuccessMsg" runat="server"></asp:Literal></h4>
 </div>
 <script src="/Style%20Library/MOJTheme/js/functions.js"></script>
+<script type="text/javascript">
+    function confirmcancel() {
+       var msg= $(".MSGcancel").html()
+        return confirm(msg);
+   }
+</script>

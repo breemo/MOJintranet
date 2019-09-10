@@ -11,9 +11,9 @@ namespace MOJ.Business
     {
       
 
-            public List<MyRequestsEntity> GetMyRequests(int limit =0 ,string languageCode="en")
+            public List<MyRequestsEntity> GetMyRequests(int limit =0 ,string languageCode="en",string FilterRequestNumber="" , string FilterResult="", string Filterfrom="", string Filterto="")
         {
-            return new MyRequestsDataManager().GetMyRequests(limit, languageCode);
+            return new MyRequestsDataManager().GetMyRequests(limit, languageCode, FilterRequestNumber, FilterResult, Filterfrom, Filterto);
         }
 
       

@@ -21,8 +21,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnToDutyNoticeMembersOfTheTudici
         {
             if (!Page.IsPostBack)
             {
-                currentUserData();                
-                GetEmirates();
+                currentUserData();
+                GetDays();
             }
         }
         private void currentUserData()
@@ -63,7 +63,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnToDutyNoticeMembersOfTheTudici
             }
         }
 
-        private void GetEmirates()
+        private void GetDays()
         {
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
