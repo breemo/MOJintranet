@@ -7,411 +7,77 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wpAlbumsListUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.wpAlbumsList.wpAlbumsListUserControl" %>
 
-                        <h3>معرض الصور</h3>
+<h3>
+    <asp:Literal runat="server" ID="lblHead" Text="<%$ Resources:Resource, HeadGallery%>" />
+</h3>
 
+<div class="insidebox newinsldeni ndivdr">
+    <div class="livelastmotny ">
+        <div class="bo row">
+            <asp:Literal runat="server" ID="lblDrawItems"/>
 
-                        
-
-
-                        
-
-
-                        <div class="insidebox newinsldeni ndivdr">
-
-
-
-                            <div class="livelastmotny ">
-                                <div class="bo row">
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-
-
-                                                <a href="#">
-                                                <img class="image_fade" src="images/videos/vide1.jpg" alt="Gallery Thumb 1"></a>
-
-                                                <div class="hoveroverlaynew">
-                                                    <div class="insidehovwrbew">
-
-                                                        <span class="icon-line-stack-2"></span>
-
-                                                    </div>
-                                                </div>
-
-                                                </a>
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal2">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">أفضل تغطية 401k</a>
-                                                </h6>
-
-                                            </div>
-
-                                        </div>
-
-
-
-
+            <%--<asp:GridView ID="grdMemosLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="<%$ Resources:Resource, EmptyData%>"
+            BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
+            EnableModelValidation="True" 
+            >
+        <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
+            Mode="NumericFirstLast" PageButtonCount="5" />
+        <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
+        <EmptyDataRowStyle Font-Bold="true" ForeColor="#646464" Font-Size="1.5em" />
+        <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="videlivebox" data-lightbox="gallery">
+                            <div class="entry-image">
+                                <a href="#">
+                                <img class="image_fade" src="<%# Eval("PictureURL") %>" alt="<%# Eval("Title") %>"></a>
+                                <div class="hoveroverlaynew">
+                                    <div class="insidehovwrbew">
+                                        <span class="icon-line-stack-2"></span>
                                     </div>
-
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-                                                <a href="#" data-lightbox="gallery-item">
-                                                
-                                                <img class="image_fade" src="images/videos/vide2.jpg" alt="Gallery Thumb 1">
-                                                    <div class="hoveroverlaynew">
-                                                        <div class="insidehovwrbew">
-
-                                                            <span class="icon-line-stack-2"></span>
-
-                                                        </div>
-                                                    </div>
-                                                
-                                                </a>
-
-
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal3">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">كل الأيام رائعة</a>
-                                                </h6>
-                                            </div>
-
-                                            <!-- Modal -->
-
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-
-                                                <a href="#" data-lightbox="gallery-item">
-                                                <img class="image_fade" src="images/videos/vide3.jpg" alt="Gallery Thumb 1">
-                                                
-                                                    <div class="hoveroverlaynew">
-                                                        <div class="insidehovwrbew">
-
-                                                            <span class="icon-line-stack-2"></span>
-
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            
-
-
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal8">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">اكراميات وفوائد</a>
-                                                </h6>
-                                            </div>
-
-                                        </div>
-                                        <!-- Modal -->
-
-
-                                    </div>
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-                                                <a href="#" data-lightbox="image">
-                                                    <img class="image_fade" src="images/videos/vide4.jpg"
-                                                         alt="عنوان الصورة">
-
-                                                    <div class="hoveroverlaynew">
-                                                        <div class="insidehovwrbew">
-
-                                                            <span class="icon-line-stack-2"></span>
-
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal9">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">عنوان الصورة</a>
-                                                </h6>
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-
-
-                                                <a href="#">
-                                                    <img class="image_fade" src="images/videos/vide1.jpg" alt="Gallery Thumb 1">
-                                                </a>
-
-                                                <div class="hoveroverlaynew">
-                                                    <div class="insidehovwrbew">
-
-                                                        <span class="icon-line-stack-2"></span>
-
-                                                    </div>
-                                                </div>
-
-                                                </a>
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal2">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">أفضل تغطية 401k</a>
-                                                </h6>
-
-                                            </div>
-
-                                        </div>
-
-
-
-
-                                    </div>
-
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-                                                <a href="#" data-lightbox="gallery-item">
-
-                                                    <img class="image_fade" src="images/videos/vide2.jpg" alt="Gallery Thumb 1">
-                                                    <div class="hoveroverlaynew">
-                                                        <div class="insidehovwrbew">
-
-                                                            <span class="icon-line-stack-2"></span>
-
-                                                        </div>
-                                                    </div>
-
-                                                </a>
-
-
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal3">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">كل الأيام رائعة</a>
-                                                </h6>
-                                            </div>
-
-                                            <!-- Modal -->
-
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-
-                                                <a href="#" data-lightbox="gallery-item">
-                                                    <img class="image_fade" src="images/videos/vide3.jpg" alt="Gallery Thumb 1">
-
-                                                    <div class="hoveroverlaynew">
-                                                        <div class="insidehovwrbew">
-
-                                                            <span class="icon-line-stack-2"></span>
-
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-
-
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal8">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">اكراميات وفوائد</a>
-                                                </h6>
-                                            </div>
-
-                                        </div>
-                                        <!-- Modal -->
-
-
-                                    </div>
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-                                                <a href="#" data-lightbox="image">
-                                                    <img class="image_fade" src="images/videos/vide4.jpg"
-                                                         alt="عنوان الصورة">
-
-                                                    <div class="hoveroverlaynew">
-                                                        <div class="insidehovwrbew">
-
-                                                            <span class="icon-line-stack-2"></span>
-
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal9">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">عنوان الصورة</a>
-                                                </h6>
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-
-
-                                                <a href="#">
-                                                    <img class="image_fade" src="images/videos/vide1.jpg" alt="Gallery Thumb 1">
-                                                </a>
-
-                                                <div class="hoveroverlaynew">
-                                                    <div class="insidehovwrbew">
-
-                                                        <span class="icon-line-stack-2"></span>
-
-                                                    </div>
-                                                </div>
-
-                                                </a>
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal2">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">أفضل تغطية 401k</a>
-                                                </h6>
-
-                                            </div>
-
-                                        </div>
-
-
-
-
-                                    </div>
-
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-                                                <a href="#" data-lightbox="gallery-item">
-
-                                                    <img class="image_fade" src="images/videos/vide2.jpg" alt="Gallery Thumb 1">
-                                                    <div class="hoveroverlaynew">
-                                                        <div class="insidehovwrbew">
-
-                                                            <span class="icon-line-stack-2"></span>
-
-                                                        </div>
-                                                    </div>
-
-                                                </a>
-
-
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal3">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">كل الأيام رائعة</a>
-                                                </h6>
-                                            </div>
-
-                                            <!-- Modal -->
-
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <div class="col-md-3 col-sm-6">
-
-                                        <div class="videlivebox" data-lightbox="gallery">
-                                            <div class="entry-image">
-
-                                                <a href="#" data-lightbox="gallery-item">
-                                                    <img class="image_fade" src="images/videos/vide3.jpg" alt="Gallery Thumb 1">
-
-                                                    <div class="hoveroverlaynew">
-                                                        <div class="insidehovwrbew">
-
-                                                            <span class="icon-line-stack-2"></span>
-
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-
-
-                                                <a data-toggle="modal" class="newpos" data-target="#myModal8">
-                                                </a>
-                                            </div>
-                                            <div class="entry-title">
-                                                <h6>
-                                                    <a href="#">اكراميات وفوائد</a>
-                                                </h6>
-                                            </div>
-
-                                        </div>
-                                        <!-- Modal -->
-
-
-                                    </div>
-
-                                    
-
                                 </div>
-
+                                </a>
+                                <a data-toggle="modal" class="newpos" data-target="#myModal2">
+                                </a>
                             </div>
-
-
+                            <div class="entry-title">
+                                <h6>
+                                    <a href="<%# Eval("URL") %>"><%# Eval("Title") %></a>
+                                </h6>
+                            </div>
                         </div>
+                    </div>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>--%>
+        </div>
+    </div>
+</div>
+
+<%--<div class="pagi" runat="server" id="pgng">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link pageright" href="#">
+                <i class="icon-angle-right"></i>
+            </a>
+        </li>
+        <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+            <ItemTemplate>
+                <li class="page-item">
+                    <asp:LinkButton ID="btnPage"
+                        CssClass="page-link"
+                        CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                        runat="server" ForeColor="White" Font-Bold="True">
+                        <%# Container.DataItem %> </asp:LinkButton>
+                </li>
+            </ItemTemplate>
+        </asp:Repeater>
+        <li class="page-item">
+            <a class="page-link pageleft" href="#">
+                <i class="icon-angle-left"></i>
+            </a>
+        </li>
+    </ul>
+</div>--%>

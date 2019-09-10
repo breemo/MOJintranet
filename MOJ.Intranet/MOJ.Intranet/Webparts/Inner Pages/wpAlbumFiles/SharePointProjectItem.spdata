@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="wpAlbumFilesUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="wpAlbumFiles\" Type="ElementManifest" />
+    <ProjectItemFile Source="wpAlbumFiles.webpart" Target="wpAlbumFiles\" Type="ElementFile" />
+    <ProjectItemFile Source="wpAlbumFilesUserControl.ascx" Target="CONTROLTEMPLATES\MOJ.Intranet.Webparts.Inner_Pages\wpAlbumFiles\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="MOJ.Intranet.Webparts.Inner_Pages.wpAlbumFiles" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>
