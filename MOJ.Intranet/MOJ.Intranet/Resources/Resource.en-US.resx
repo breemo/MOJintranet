@@ -789,4 +789,7 @@
   <data name="MSGcancel" xml:space="preserve">
     <value>Are you sure you want to cancel the request?</value>
   </data>
+  <data name="SelectDepartment" xml:space="preserve">
+    <value>Select Your Department</value>
+  </data>
 </root>

@@ -789,4 +789,7 @@
   <data name="MSGcancel" xml:space="preserve">
     <value>هل أنت متأكد أنك تريد إلغاء الطلب؟</value>
   </data>
+  <data name="SelectDepartment" xml:space="preserve">
+    <value>اختر ادارتك</value>
+  </data>
 </root>

@@ -341,6 +341,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
                 grdPoeplelsts.DataBind();
 
             }
+        }
 
     }
 }

@@ -75,6 +75,8 @@ namespace CommonLibrary
 
         public const string MinistryFilesListUrl = "/Lists/MinistryFiles/AllItems.aspx";
 
+        public const string DepartmentsListUrl = "/Lists/Departments/AllItems.aspx";
+
         public const string ServicesListUrl = "/Lists/Services/AllItems.aspx";
         public const string HostingRequestUrl = "/Lists/HostingRequest/AllItems.aspx";
         public const string DepartmentsUrl = "/Lists/Departments/AllItems.aspx";
@@ -100,6 +102,9 @@ namespace CommonLibrary
         #endregion
 
         #region Query
+
+        public const string DepartmentsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        public const string Departmentsfields = "<FieldRef Name='Title'/><FieldRef Name='ID'/>";
 
         public const string DepartmentProceduresQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
         public const string DepartmentProceduresfields = "<FieldRef Name='Title'/><FieldRef Name='ProcedureDate'/><FieldRef Name='ProcedureBody'/><FieldRef Name='ID'/>";

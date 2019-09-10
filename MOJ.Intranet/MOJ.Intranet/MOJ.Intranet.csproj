@@ -73,6 +73,7 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Business\AddEmployeeDepartmentBL.cs" />
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
     <Compile Include="Classes\Business\EmployeeProfileBL.cs" />
     <Compile Include="Classes\Business\PeriodicalFormForGovernmentHousing.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Classes\Common\SiteUI.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
     <Compile Include="Classes\Data Manager\EmployeeProfileDataManager.cs" />
     <Compile Include="Classes\Data Manager\PeriodicalFormForGovernmentHousingDataManager.cs" />
@@ -260,6 +262,14 @@
     </Compile>
     <Compile Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx.designer.cs">
       <DependentUpon>HomeMemosUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\AddEmployeeDepartment\AddEmployeeDepartment.cs" />
+    <Compile Include="Webparts\Inner Pages\AddEmployeeDepartment\AddEmployeeDepartmentUserControl.ascx.cs">
+      <DependentUpon>AddEmployeeDepartmentUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\AddEmployeeDepartment\AddEmployeeDepartmentUserControl.ascx.designer.cs">
+      <DependentUpon>AddEmployeeDepartmentUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\Inner Pages\AddEmployeeNumber\AddEmployeeNumber.cs" />
     <Compile Include="Webparts\Inner Pages\AddEmployeeNumber\AddEmployeeNumberUserControl.ascx.cs">
@@ -621,6 +631,10 @@
     <None Include="Webparts\Home\HomeMemos\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{4523326a-657a-42fa-965b-b3ce293f0a17}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Inner Pages\AddEmployeeDepartment\AddEmployeeDepartment.webpart" />
+    <None Include="Webparts\Inner Pages\AddEmployeeDepartment\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8c111fcf-8147-4b2b-bec3-03677339ed31}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Inner Pages\AddEmployeeNumber\AddEmployeeNumber.webpart" />
     <None Include="Webparts\Inner Pages\AddEmployeeNumber\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{891375b4-ecb0-4bce-9e21-416044aa2c46}</SharePointProjectItemId>
@@ -806,6 +820,8 @@
     <Content Include="Webparts\Home\HomeGalary\HomeGalaryUserControl.ascx" />
     <Content Include="Webparts\Home\HomeMemos\Elements.xml" />
     <Content Include="Webparts\Home\HomeMemos\HomeMemosUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\AddEmployeeDepartment\AddEmployeeDepartmentUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\AddEmployeeDepartment\Elements.xml" />
     <Content Include="Webparts\Inner Pages\AddEmployeeNumber\AddEmployeeNumberUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\AddEmployeeNumber\Elements.xml" />
     <Content Include="Webparts\Inner Pages\AllServicesList\AllServicesListUserControl.ascx" />

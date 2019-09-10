@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="AddEmployeeDepartment" List="113" Url="_catalogs/wp">
+    <File Path="AddEmployeeDepartment\AddEmployeeDepartment.webpart" Url="MOJ.Intranet_AddEmployeeDepartment.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="MOJ.InnerPages" />
+    </File>
+  </Module>
+</Elements>
