@@ -20,14 +20,24 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
 
             Response.Redirect("/Ar/MyServices/Pages/MyRequests.aspx");
         }
-            protected void Page_Load(object sender, EventArgs e)
+
+        protected void btnCanceledworkflow_Click(object sender, EventArgs e)
+        {
+            string listNameC = Convert.ToString(Request.Params["list"]);
+            string RequestIDC = Convert.ToString(Request.Params["RID"]);
+
+            bool iscanceld = new Task().TerminateWorkflow(listNameC, Convert.ToInt32(RequestIDC));
+
+            btnCanceled.Visible = false;
+
+        }
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 if (!string.IsNullOrEmpty(Request.Params["RID"]))
                 {
                     GetRequest();
-
                 }
                 else
                 {
@@ -37,7 +47,6 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 }
             }
         }
-
         private void GetRequest()
         {
             string listName = Convert.ToString(Request.Params["list"]);
@@ -64,15 +73,14 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetReturnNoticeData(RequestID);
             if (listName == "PeriodicalFormForGovernmentHousing")
                 Status = GetPeriodicalFormForGovernmentHousingData(RequestID);
-
-
-
             GetTasksRequest(RequestID, listName);
+          
             AllData.Text += "<hr>";
             addtopage(Status, "");
-
         }
-      
+
+
+       
         private void UserData(string userloginName)
         {
             try
@@ -99,8 +107,6 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                         ENationality.Value = item.nationality_USField.ToString();
                         EPosition.Value = item.positionNameField_US.ToString();
                         EMaritalStatus.Value = item.maritalStatus_USField.ToString();
-
-
                     }
 
                 }
@@ -108,11 +114,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             }
             catch (Exception ex)
             {
-
                 LoggingService.LogError("WebParts", ex.Message);
             }
-        }
-               
+        }               
         public string GetPeriodicalFormForGovernmentHousingData(string RequestID)
         {
             PeriodicalFormForGovernmentHousingEntity masteritem = new PeriodicalFormForGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
@@ -122,8 +126,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
            addtopage("Owner", masteritem.Owner, "NumberOfRooms", masteritem.NumberOfRooms);
            addtopage("ACtype", masteritem.ACtype, "LeasingContractEndDate", masteritem.LeasingContractEndDate);
            addtopage("Mobile", masteritem.Mobile, "HomePhone", masteritem.HomePhone);           
-           addtopage("WorkPhone", masteritem.WorkPhone);         
-
+           addtopage("WorkPhone", masteritem.WorkPhone);
             AllData.Text += "<hr>";
             addtopage("Data", masteritem.HusbandORWife);
             List<HusbandORWifeEntity> HusbandORWifeis = new PeriodicalFormForGovernmentHousing().GetHusbandORWife(masteritem.RequestNumber);
@@ -283,8 +286,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                     AllData.Text += "<div class='evenRow'>";
                 string OutcomeWf = item.WorkflowOutcome;
                 string ActionDate = "";
-                if (item.Status == "Completed") 
-                    ActionDate = item.ActionDate.ToString("dd MMM yyyy HH:mm:ss");
+                if (item.Status == "Completed") { 
+                     ActionDate = item.ActionDate.ToString("dd MMM yyyy HH:mm:ss");
+                   }
                 if (string.IsNullOrEmpty(OutcomeWf))                
                     OutcomeWf = "Pending";
                 string Answer  = item.AnswerBy.LookupValue;

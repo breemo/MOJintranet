@@ -783,4 +783,7 @@
   <data name="ActionDate" xml:space="preserve">
     <value>تاريخ العمل</value>
   </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>ملغى</value>
+  </data>
 </root>

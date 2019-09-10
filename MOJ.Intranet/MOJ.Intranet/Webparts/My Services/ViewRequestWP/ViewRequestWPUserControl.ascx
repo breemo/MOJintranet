@@ -147,7 +147,9 @@ background-color: #f5e9b6;
             </div>  
      <div class="row rt  botx">
                 <asp:Button Text="<%$ Resources:Resource, MyRequests%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnGoToMyRequests_Click" />
-            </div>
+          <asp:Button Text="<%$ Resources:Resource, cancel%>" CssClass="morebutovn2" runat="server" ID="btnCanceled" OnClick="btnCanceledworkflow_Click" />
+                  
+     </div>
 
     </div>
 

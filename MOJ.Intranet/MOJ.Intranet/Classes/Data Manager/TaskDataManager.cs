@@ -415,6 +415,75 @@ namespace MOJ.DataManager
             });
             return Result;
         }
+
+
+
+        public bool TerminateWorkflow(string listName, int sid)
+        {            
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                oWeb.AllowUnsafeUpdates = true;
+                                SPList lst = oWeb.GetListFromUrl(oSite.Url + "/Lists/" + listName + "/AllItems.aspx");
+                                if (lst != null)
+                                {
+                                    SPListItem Item = lst.GetItemById(sid);
+                                   
+                                    SPWorkflowManager manager = oSite.WorkflowManager;
+                                    foreach (SPWorkflow workflow in manager.GetItemActiveWorkflows(Item))
+                                    {
+                                        foreach (SPWorkflowTask t in workflow.Tasks)
+                                        {
+                                            t["Status"] = "Canceled"; t.Update();
+                                        }
+                                        SPWorkflowManager.CancelWorkflow(workflow);
+                                    }
+                                    Item["Status"] = "Canceled";
+                                    Item.Update();
+                                    lst.Update();
+
+                                } SPList list = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MyRequestsUrl);
+                                if (list != null)
+                                {
+                                    SPQuery qry1 = new SPQuery();
+                                    string camlquery1 = "<Where><And><Eq><FieldRef Name='ServiceName'/><Value Type='Text'>" + listName + "</Value></Eq><Eq><FieldRef Name='RequestID'/><Value Type='Text'>" +Convert.ToString(sid) + "</Value></Eq></And></Where>";
+                                    qry1.Query = camlquery1;
+                                    SPListItemCollection listItemsCollection1 = list.GetItems(qry1);
+                                    foreach (SPListItem item in listItemsCollection1)
+                                    {
+                                        item["StatusEn"] = "Canceled";
+                                        item["StatusAr"] = "ملغى";
+                                        item.Update();                                     
+                                    }
+                                    list.Update();
+                                }
+                               
+                                oWeb.AllowUnsafeUpdates = false;
+
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+                return false;
+            }
+            return true;
+
+        }
+
+
+
+
         #endregion
     }
 }
