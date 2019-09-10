@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using MOJ.DataManager;
@@ -12,6 +13,10 @@ namespace MOJ.Business
         public List<PhotoGalleryEntity> GetAllActivePhotos()
         {
             return new PhotoGalleryDataManager().GetAllActivePhotoGalleryHomeItems();
+        }
+        public List<GalleryAlbumEntity> GetAllPhotoGalleryAlbums()
+        {
+            return new PhotoGalleryDataManager().GetAllPhotoGalleryAlbums();
         }
     }
 }

@@ -378,6 +378,14 @@
     <Compile Include="Webparts\Inner Pages\OccasionsDetails\OccasionsDetailsUserControl.ascx.designer.cs">
       <DependentUpon>OccasionsDetailsUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Inner Pages\wpAlbumFiles\wpAlbumFiles.cs" />
+    <Compile Include="Webparts\Inner Pages\wpAlbumFiles\wpAlbumFilesUserControl.ascx.cs">
+      <DependentUpon>wpAlbumFilesUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\wpAlbumFiles\wpAlbumFilesUserControl.ascx.designer.cs">
+      <DependentUpon>wpAlbumFilesUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Inner Pages\wpAlbumsList\wpAlbumsList.cs" />
     <Compile Include="Webparts\Inner Pages\wpAlbumsList\wpAlbumsListUserControl.ascx.cs">
       <DependentUpon>wpAlbumsListUserControl.ascx</DependentUpon>
@@ -671,6 +679,10 @@
     <None Include="Webparts\Inner Pages\OccasionsDetails\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f8c2260b-acda-4541-851a-6761f6dc3df1}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Inner Pages\wpAlbumFiles\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e7a85fe9-b539-4893-9686-c2afbd5a0830}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Inner Pages\wpAlbumFiles\wpAlbumFiles.webpart" />
     <None Include="Webparts\Inner Pages\wpAlbumsList\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{49385f67-5010-4615-a090-c6c622aede19}</SharePointProjectItemId>
     </None>
@@ -822,6 +834,8 @@
     <Content Include="Webparts\Inner Pages\NewsList\NewsListUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\OccasionsDetails\Elements.xml" />
     <Content Include="Webparts\Inner Pages\OccasionsDetails\OccasionsDetailsUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\wpAlbumFiles\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\wpAlbumFiles\wpAlbumFilesUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\wpAlbumsList\Elements.xml" />
     <Content Include="Webparts\Inner Pages\wpAlbumsList\wpAlbumsListUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\wpOccasionDetails\Elements.xml" />

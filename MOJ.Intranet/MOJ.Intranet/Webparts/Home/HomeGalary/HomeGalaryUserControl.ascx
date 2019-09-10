@@ -11,7 +11,7 @@
     <h4 class="TitleHead">
         <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadGallery%>" />
     </h4>
-    <a href="#" class="slide morebuttoncss arrow">
+    <a href="<%= SPContext.Current.RootFolderUrl %>/AlbumGallery.aspx" class="slide morebuttoncss arrow">
         <asp:Literal runat="server" Text="<%$ Resources:Resource, MorePictures%>" />
     </a>
 </div>

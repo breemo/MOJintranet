@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOJ.Intranet.Webparts.Inner_Pages.wpAlbumsList {
+namespace MOJ.Intranet.Webparts.Inner_Pages.wpAlbumFiles {
     
     
-    public partial class wpAlbumsListUserControl {
+    public partial class wpAlbumFilesUserControl {
         
         /// <summary>
         /// lblHead control.
