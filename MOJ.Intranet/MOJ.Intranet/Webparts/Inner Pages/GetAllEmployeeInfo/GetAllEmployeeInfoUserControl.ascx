@@ -7,8 +7,8 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GetAllEmployeeInfoUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo.GetAllEmployeeInfoUserControl" %>
 
-<script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script language="javascript" type="text/javascript">  
+<%-- -<script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>-%>
+<%--<script language="javascript" type="text/javascript">  
     function showModalPopUp() {
         //Set options for Modal PopUp  
         var options = {
@@ -24,7 +24,8 @@
         return false;
 
     } 
-</script>
+</script>--%>
+
 
 <div class="boxsh">
     <h3>الهيكل التنظيمي - البطاقة التعريفية للموظف</h3>
@@ -103,8 +104,10 @@
 
                 </div>
                 <div class="tab-content clearfix" id="tab-responsive-2">
-                    <div class="inskdnew">
-                                 <div class="row rt">
+                    <div class="inskdnew inskdnew2">
+                        <div class="inskdnew">
+
+                            <div class="row rt">
 
                                 <div class="col-md-10 col-sm-12">
 
@@ -119,7 +122,7 @@
 
                                         <div class="col-md-2">
                                             <%--<button class="detailbtn">بحث</button>--%>
-                                            <asp:Button ID="btnDepartmentSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnDepartmentSearch_Click"  />
+                                            <asp:Button ID="btnDepartmentSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnDepartmentSearch_Click" />
                                         </div>
 
                                     </div>
@@ -131,11 +134,18 @@
                                 <div class="col-md-2">
                                 </div>
                             </div>
+                        </div>
+
+
                     </div>
+
+
                 </div>
                 <div class="tab-content clearfix" id="tab-responsive-3">
-                     <div class="inskdnew">
-                                 <div class="row rt">
+                    <div class="inskdnew inskdnew2">
+                        <div class="inskdnew">
+
+                            <div class="row rt">
 
                                 <div class="col-md-10 col-sm-12">
 
@@ -144,13 +154,13 @@
 
 
                                         <div class="col-md-6 col-sm-12">
-
                                             <input type="text" class="form-control" value="" runat="server" id="txtOffileLocation" placeholder="الكلمات الرئيسية">
+                                            
                                         </div>
 
                                         <div class="col-md-2">
                                             <%--<button class="detailbtn">بحث</button>--%>
-                                            <asp:Button ID="btnOfficeLocationSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnOfficeLocationSearch_Click"  />
+                                            <asp:Button ID="btnOfficeLocationSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnOfficeLocationSearch_Click" />
                                         </div>
 
                                     </div>
@@ -162,7 +172,12 @@
                                 <div class="col-md-2">
                                 </div>
                             </div>
+                        </div>
+
+
                     </div>
+
+
                 </div>
 
             </div>
@@ -171,147 +186,35 @@
 
 
 
+        <div class="ndl row">
 
-        <div class="ndl" id="CurrentUserDiv" runat="server">
-            <div class="col-md-5 col-sm-12 bgdivindf">
+            <asp:Repeater ID="grdPoeplelsts" runat="server">
+                <HeaderTemplate>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <div class="col-md-4 col-sm-12 ">
 
-                <div class="titleheadnew">
-                    <h4>بطاقة الاعمال الالكترونية</h4>
-                </div>
+                        <div class="bgdivindf">
 
-                <div class="conentbgdivd">
-
-                    <div class="row">
-                        <div class="col-sm-12 jdivd">
-
-                            <div class="mtopc">
-                                <img src="/Style%20Library/MOJTheme/images/imgcircle.png" class="img-fluid">
+                            <div class="titleheadnew">
+                                <h4>بطاقة الاعمال الالكترونية</h4>
                             </div>
 
-                        </div>
+                            <div class="conentbgdivd">
 
-                        <div class=" dininfo">
+                                <div class="row">
+                                    <div class="col-sm-12 jdivd">
 
-                            <table>
+                                        <div class="mtopc">
+                                            <img src="/Style%20Library/MOJTheme/images/icons/avatar.jpg" class="img-fluid" />
+                                        </div>
 
-                                <tbody>
-                                    <tr>
+                                    </div>
 
-                                        <td>
-                                            <p class="rmae">
-                                                الأسم
-                                            </p>
-                                        </td>
-                                        <td>
+                                    <div class="dininfo">
 
-                                            <span class="nnamele">
-                                                <asp:Literal ID="lblEmployeeNameAr" runat="server"></asp:Literal>
-                                            </span></td>
-                                    </tr>
-                                    <tr>
+                                        <table>
 
-                                        <td>
-                                            <p class="rmae">
-                                                الأدارة
-                                            </p>
-                                        </td>
-                                        <td>
-
-
-
-                                            <span class="nnamele">
-                                                <asp:Literal ID="lblDepartmentAr" runat="server"></asp:Literal>
-                                            </span>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-
-                                        <td>
-                                            <p class="rmae">
-                                                المسمى الوظيفي
-                                            </p>
-                                        </td>
-                                        <td>
-
-                                            <span class="nnamele">
-                                                <asp:Literal ID="lblJobtitle" runat="server"></asp:Literal>
-                                            </span>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-
-                                        <td>
-                                            <p class="rmae">
-                                                البريد الألكتروني
-                                            </p>
-                                        </td>
-                                        <td>
-
-                                            <span class="nnamele">
-                                                <asp:Literal ID="lblEmail" runat="server"></asp:Literal>
-                                            </span>
-
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-
-                                        <td>
-                                            <p class="rmae">
-                                                هاتف العمل
-                                            </p>
-                                        </td>
-                                        <td>
-
-                                            <span class="nnamele">
-                                                <asp:Literal ID="lblContactNo" runat="server"></asp:Literal>
-                                            </span>
-
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
-        </div>
-
-
-        <asp:Repeater ID="grdPoeplelsts" runat="server">
-            <HeaderTemplate>
-            </HeaderTemplate>
-            <ItemTemplate>
-
-
-                <div class="ndl" id="CurrentUserDivDynamic" runat="server">
-                    <div class="col-md-5 col-sm-12 bgdivindf">
-
-                        <div class="titleheadnew">
-                            <h4>بطاقة الاعمال الالكترونية</h4>
-                        </div>
-
-                        <div class="conentbgdivd">
-
-                            <div class="row">
-                                <div class=" dininfo">
-
-                                    <table>
-
-                                        <tbody>
                                             <tr>
 
                                                 <td>
@@ -322,8 +225,9 @@
                                                 <td>
 
                                                     <span class="nnamele">
-                                                         <%# Eval("AccountName") %>
-                                                    </span></td>
+                                                        <%# Eval("AccountName") %>
+                                                    </span>
+                                                </td>
                                             </tr>
                                             <tr>
 
@@ -350,6 +254,7 @@
                                                     </p>
                                                 </td>
                                                 <td>
+
                                                     <span class="nnamele">
                                                         <%# Eval("JobTitle") %>
                                                     </span>
@@ -389,24 +294,61 @@
 
                                                 </td>
                                             </tr>
-                                        </tbody>
-                                    </table>
+                                        </table>
 
 
 
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
+                </ItemTemplate>
+            </asp:Repeater>
+
+                <div class="pagi">
+                    <ul class="pagination" id="PaginUI" runat="server">
+                        <li class="page-item">
+                            <a class="page-link pageright" href="#">
+                                <i class="icon-angle-right"></i>
+                            </a>
+                        </li>
+
+                      
+
+                            <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+                                <ItemTemplate>
+
+                                    <li class="page-item">
+
+                                        <asp:LinkButton ID="btnPage"
+                                             CssClass="page-link"
+                                            CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                                            runat="server" ForeColor="White" Font-Bold="True">
+                                         <%# Container.DataItem %> </asp:LinkButton>
+
+                                    </li>
 
 
 
 
 
+                                </ItemTemplate>
+                            </asp:Repeater>
 
+                    
+                        <li class="page-item">
+                            <a class="page-link pageleft" href="#">
+                                <i class="icon-angle-left"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </ItemTemplate>
-        </asp:Repeater>
+
+
+        </div>
+
 
 
 
@@ -417,6 +359,8 @@
 
 
 </div>
+
+
 
 
 
