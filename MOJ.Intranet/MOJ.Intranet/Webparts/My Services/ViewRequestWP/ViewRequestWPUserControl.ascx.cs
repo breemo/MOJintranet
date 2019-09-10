@@ -51,16 +51,16 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         {
             string listName = Convert.ToString(Request.Params["list"]);
             string RequestID = Convert.ToString(Request.Params["RID"]);
-            string Status="";
-                // add new workflow-----------------------------------
-                if (listName == "RoomBooking")
-                Status= GetRoomBookingData(RequestID);
-                if (listName == "AffirmationSocialSituation")
-                Status= GetAffirmationSocialSituationData(RequestID);
-                if (listName == "HappinessHotline")
-                Status= GetHappinessHotlineData(RequestID);
+            string Status = "";
+            // add new workflow-----------------------------------
+            if (listName == "RoomBooking")
+                Status = GetRoomBookingData(RequestID);
+            if (listName == "AffirmationSocialSituation")
+                Status = GetAffirmationSocialSituationData(RequestID);
+            if (listName == "HappinessHotline")
+                Status = GetHappinessHotlineData(RequestID);
             if (listName == "CarOrderService")
-                Status= GetCarOrderServiceData(RequestID);
+                Status = GetCarOrderServiceData(RequestID);
             if (listName == "FazaaCardRequest")
                 Status = GetFazaaCardRequestData(RequestID);
             if (listName == "ContactWithHR")
@@ -74,9 +74,12 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             if (listName == "PeriodicalFormForGovernmentHousing")
                 Status = GetPeriodicalFormForGovernmentHousingData(RequestID);
             GetTasksRequest(RequestID, listName);
-          
+
             AllData.Text += "<hr>";
             addtopage(Status, "");
+            if (Status == "Canceled") { 
+            btnCanceled.Visible = false;
+         }
         }
 
 
@@ -288,7 +291,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 string ActionDate = "";
                 if (item.Status == "Completed") { 
                      ActionDate = item.ActionDate.ToString("dd MMM yyyy HH:mm:ss");
-                   }
+                    btnCanceled.Visible = false;
+                }
                 if (string.IsNullOrEmpty(OutcomeWf))                
                     OutcomeWf = "Pending";
                 string Answer  = item.AnswerBy.LookupValue;
@@ -303,6 +307,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                AllData.Text += "</div>";
                 i++;
             }
+            
             
        }
         public string GetContactWithHRData(string RequestID)

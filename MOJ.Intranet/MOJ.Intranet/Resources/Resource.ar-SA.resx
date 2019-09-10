@@ -786,4 +786,7 @@
   <data name="Canceled" xml:space="preserve">
     <value>ملغى</value>
   </data>
+  <data name="MSGcancel" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد إلغاء الطلب؟</value>
+  </data>
 </root>
