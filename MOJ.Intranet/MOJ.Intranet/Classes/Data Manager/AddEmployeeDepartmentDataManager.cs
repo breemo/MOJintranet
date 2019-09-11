@@ -18,22 +18,26 @@ namespace MOJ.DataManager
             {
                 try
                 {
-                    using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
+                    SPSecurity.RunWithElevatedPrivileges(delegate ()
                     {
-                        using (SPWeb myweb = mySitesCollection.OpenWeb())
+                        using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
                         {
-                            string currentUserlogin = user.LoginName;
-                            SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
-                            UserProfileManager profileManager = new UserProfileManager(context);
-                            UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
-                            if (EmployeeDepartment != "")
+                            using (SPWeb myweb = mySitesCollection.OpenWeb())
                             {
-                                currentProfile[PropertyConstants.Department].Value = EmployeeDepartment;
-                                currentProfile.Commit();
-                                isUpdated = true;
+                                string currentUserlogin = user.LoginName;
+                                SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
+                                UserProfileManager profileManager = new UserProfileManager(context);
+                                UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
+                                if (EmployeeDepartment != "")
+                                {
+                                    //currentProfile[PropertyConstants.Department].Value = EmployeeDepartment;
+                                    currentProfile.GetProfileValueCollection("Department").Value = EmployeeDepartment;
+                                    currentProfile.Commit();
+                                    isUpdated = true;
+                                }
                             }
                         }
-                    }
+                    });
                 }
                 catch (Exception ex)
                 {

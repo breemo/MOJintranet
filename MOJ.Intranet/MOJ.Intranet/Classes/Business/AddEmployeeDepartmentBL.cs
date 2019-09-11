@@ -12,7 +12,7 @@ namespace MOJ.Business
     {
         public bool AddEmployeeDepartment(SPUser _user, string _Departmentr)
         {
-            return new AddEmployeeDepartmentBL().AddEmployeeDepartment(_user, _Departmentr);
+            return new AddEmployeeDepartmentDataManager().AddEmployeeDepartment(_user, _Departmentr);
         }
     }
 }
