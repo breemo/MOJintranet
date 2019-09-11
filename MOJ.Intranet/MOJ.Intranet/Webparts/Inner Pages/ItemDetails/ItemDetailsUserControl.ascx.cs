@@ -98,7 +98,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                             {
                                 lblDetails.Text +=
                                         string.Format(@"<a href='{0}' target='_blank'>
-                                                            < img src='{1}' width='7%'/>
+                                                            <img src='{1}' width='7%'/>
                                                         </a>", memoItem.AttachmentsInfo, memoItem.AttachmentPicture);
                             }
 

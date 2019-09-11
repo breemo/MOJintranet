@@ -86,7 +86,7 @@
                                 <%#  Convert.ToDateTime(Eval("Date")).ToString("dddd")%>, <%#  Convert.ToDateTime(Eval("Date")).ToString("dd MMM yyyy")%>
                             </span>
                             <h6>
-                                <a href="<%# Eval("AttachmentsInfo") %>"><%# Eval("Title") %>
+                                <a href="<%# Eval("AttachmentsInfo") %>"  target="_blank"><%# Eval("Title") %>
                                 </a>
                             </h6>
                             <p>

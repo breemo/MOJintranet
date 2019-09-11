@@ -175,7 +175,9 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                 }
                 else
                 {
+                    pgng.Visible = false;
                     rptPaging.Visible = false;
+                    //lblHead.Visible = false;
                 }
 
                 grdNewsLst.DataSource = pgitems;
@@ -184,6 +186,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
             else
             {
                 pgng.Visible = false;
+                rptPaging.Visible = false;
+
                 grdNewsLst.DataSource = NewsLst;
                 grdNewsLst.DataBind();
             }

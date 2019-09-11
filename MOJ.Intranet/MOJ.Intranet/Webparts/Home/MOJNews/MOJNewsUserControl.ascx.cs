@@ -58,8 +58,8 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                                 {0}
                             </p>
                             <div class='imgdi'>
-                                <img src='{1}' class='img-fluid'/>
-                            </div>
+                                <img src='{1}' class='img-fluid' style='height: 110px!important;'/>
+                                                </div>
                             <div class='descipt'>
                                 {2}
                             </div>
