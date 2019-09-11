@@ -2,6 +2,7 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0b8ed690-51a8-4800-9986-9096e8f5e334" solutionId="0b8ed690-51a8-4800-9986-9096e8f5e334" resetWebServer="false" sharePointProductVersion="16.0" name="MOJ.Intranet" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <features>
     <featureReference itemId="b4f5a10c-a7e1-4d8c-9aac-39948750b021" />
+    <featureReference itemId="4b66d63b-a767-45e0-90ae-9ab56ce4df42" />
   </features>
   <projectItems>
     <projectItemReference itemId="0b32c85a-4763-4ef1-af1e-e528a638af6c" />
