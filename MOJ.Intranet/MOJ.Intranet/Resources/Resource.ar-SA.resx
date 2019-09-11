@@ -792,4 +792,13 @@
   <data name="SelectDepartment" xml:space="preserve">
     <value>اختر ادارتك</value>
   </data>
+  <data name="Departure" xml:space="preserve">
+    <value>المغادرات</value>
+  </data>
+  <data name="SickVacation" xml:space="preserve">
+    <value>الاجازات المرضية</value>
+  </data>
+  <data name="VacationBalance" xml:space="preserve">
+    <value>رصيد الاجازات</value>
+  </data>
 </root>

@@ -7,19 +7,7 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AddEmployeeDepartmentUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.AddEmployeeDepartment.AddEmployeeDepartmentUserControl" %>
 
-<style>
-    .stickMenu {
-        display: none !important;
-    }
 
-    .sticky-style-2 {
-        display: none !important;
-    }
-
-    #s4-titlerow {
-        background-color: transparent !important;
-    }
-</style>
 
 <div class="tab-container" data-active="">
     <div class="row rt">
