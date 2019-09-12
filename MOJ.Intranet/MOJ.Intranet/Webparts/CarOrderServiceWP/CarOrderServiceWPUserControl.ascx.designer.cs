@@ -112,6 +112,24 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtTravelDate;
         
         /// <summary>
+        /// CompareTodayValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareTodayValidator;
+        
+        /// <summary>
+        /// txCurrentDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txCurrentDate;
+        
+        /// <summary>
         /// txtBookingTimeFrom control.
         /// </summary>
         /// <remarks>
