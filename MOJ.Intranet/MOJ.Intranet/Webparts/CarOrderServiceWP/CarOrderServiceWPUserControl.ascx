@@ -20,7 +20,7 @@
     function addInput(divName) {
 
         var newdiv = document.createElement('div');
-        newdiv.innerHTML = "<input type='text' name='Passenger' class='form-control' id='txtPassengerName" + counter + "'>";
+        newdiv.innerHTML = "<input type='text' required name='Passenger' class='form-control' id='txtPassengerName" + counter + "'>";
         document.getElementById(divName).appendChild(newdiv);
         counter++;
         document.getElementById('hdnPassenger').value = counter;
@@ -93,7 +93,7 @@
                         <asp:Literal runat="server" Text="<%$ Resources:Resource, Carwith%>" />
                     </h5>
                     <div>                      
-                        <asp:CheckBoxList ID="cbTravelNeeds" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
+                        <asp:CheckBoxList required ID="cbTravelNeeds" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                             <asp:ListItem Text="<%$ Resources:Resource, WithDriver%>" Value="WithDriver" />
                             <asp:ListItem Text="<%$ Resources:Resource, WithoutDriver%>" Value="WithoutDriver" />
                             <asp:ListItem Text="<%$ Resources:Resource, insideAbuDhabi%>" Value="InsideAbuDhabi" />
@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <input type="text" runat="server" id="txtTravelTo" class="form-control" placeholder="">
+                            <input required type="text" runat="server" id="txtTravelTo" class="form-control" placeholder="">
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@
                         </div>
 
                         <div id="dynamicInput" class="col-md-6">
-                            <input type="text" name="Passenger" runat="server" id="txtPassengerName0" class="form-control" placeholder="">
+                            <input  required type="text" name="Passenger" runat="server" id="txtPassengerName0" class="form-control" placeholder="">
                         </div>
 
                     </div>
@@ -155,7 +155,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <input type="text" runat="server" id="txtTravelReson" class="form-control" placeholder="">
+                            <input required type="text" runat="server" id="txtTravelReson" class="form-control" placeholder="">
                         </div>
                     </div>
 
@@ -175,7 +175,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <input type="text" id="txtCarPlace" runat="server" class="form-control" placeholder="">
+                            <input required type="text" id="txtCarPlace" runat="server" class="form-control" placeholder="">
                         </div>
                     </div>
 
@@ -191,23 +191,38 @@
 					<label><asp:Literal runat="server" Text="<%$ Resources:Resource, TravelDate%>" /></label>
 				</div>
 				<div class="col-md-6">
-					<div class="input-group date" data-provide="datepicker">
-						<input type="text" runat="server" id="txtTravelDate" class="form-control">
+					<div class="input-group date" id="toFrom"  data-provide="datepicker">
+						<input required type="text" runat="server" id="txtTravelDate" class="form-control">
 						<div class="input-group-addon">
 							<span class="icon-calendar-alt1"></span>
 						</div>
 					</div>
 				</div>		
 			</div>
-	</div>
 	
+
+                 <asp:CompareValidator ID="CompareTodayValidator" 
+                                        Operator="NotEqual"
+                                        ForeColor="Red" 
+                              type="String" ControltoValidate="txCurrentDate"
+                                       ValueToCompare="dateerror"
+                              ErrorMessage="<%$ Resources:Resource, DateGreaterCurrentDate%>" 
+                                        SetFocusOnError="true"
+                                        Display="Dynamic"
+                                        runat="server" />
+
+
+                <div  id="isGreaterThanCurrentDate">
+                                       <input type="text" style="display: none;" runat="server" id="txCurrentDate" class="form-control">
+                                    </div>	
+	</div>
 	<div class="col-md-4">
 			<div class="row">			
 			 <div class="col-md-4">
                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, time%>" /></label>
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="input-group timenew">
+                                    <div class="input-group timenew  " id="toFromT">
                                         <input  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
@@ -228,7 +243,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <input type="text" runat="server" id="txtduration" class="form-control" placeholder="">
+                            <input required type="text" runat="server" id="txtduration" class="form-control" placeholder="">
                         </div>
                     </div>
 
@@ -238,7 +253,7 @@
                 </div>
             </div>
             <div class="row rt  botx">
-                <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+                <asp:Button OnClientClick = "isGreaterThanCurrentDate()" Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
             </div>
         </div>
     </div>
@@ -269,6 +284,18 @@
         dropdown: true,
         scrollbar: true
     });
+
+    
+        function isGreaterThanCurrentDate() {
+            if (new Date($("#toFrom input").val() + " " + $("#toFromT input").val()) > new Date()) {
+
+                $('#isGreaterThanCurrentDate input').val("Done");
+            } else {
+
+                $('#isGreaterThanCurrentDate input').val("dateerror");
+            }
+
+        }
 </script>
 <style>
 

@@ -792,4 +792,13 @@
   <data name="SelectDepartment" xml:space="preserve">
     <value>Select Your Department</value>
   </data>
+  <data name="Departure" xml:space="preserve">
+    <value>Departure</value>
+  </data>
+  <data name="SickVacation" xml:space="preserve">
+    <value>Sick Vacation</value>
+  </data>
+  <data name="VacationBalance" xml:space="preserve">
+    <value>Vacation Balance</value>
+  </data>
 </root>

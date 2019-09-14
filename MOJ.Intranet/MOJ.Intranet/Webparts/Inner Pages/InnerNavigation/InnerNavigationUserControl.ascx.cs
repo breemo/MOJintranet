@@ -48,14 +48,26 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
                     {
                         if (page.Name != "AddEmployeeNumber.aspx")
                         {
-
-                            if (CurrentPage == page.Name)
-                            { Class = "<li class='uk-active'>"; }
-                            else { Class = "<li>"; }
-                            lblDrawItems.Text +=
-                                 string.Format(@"
+                            if (page.Name != "Details.aspx")
+                            {
+                                if (page.Name != "EmployeeBirthday.aspx")
+                                {
+                                    if (page.Name != "AddEmployeeDepartment.aspx")
+                                    {
+                                        if (page.Name != "OccasionDetails.aspx")
+                                        {
+                                            
+                                            if (CurrentPage == page.Name)
+                                            { Class = "<li class='uk-active'>"; }
+                                            else { Class = "<li>"; }
+                                            lblDrawItems.Text +=
+                                                 string.Format(@"
                                     " + Class + @"<a href='{0}' >{1}</a></li>
                                     ", page.Uri, page.Title);
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
 
