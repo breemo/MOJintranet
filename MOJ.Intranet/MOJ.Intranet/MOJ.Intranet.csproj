@@ -93,6 +93,7 @@
     <Compile Include="Classes\Business\MeetingsBL.cs" />
     <Compile Include="Classes\Business\MinistryFiles.cs" />
     <Compile Include="Classes\Business\AffirmationSocialSituationB.cs" />
+    <Compile Include="Classes\Business\Employee.cs" />
     <Compile Include="Classes\Business\Task.cs" />
     <Compile Include="Classes\Business\RoomBooking.cs" />
     <Compile Include="Classes\Business\Occasions.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Classes\Data Manager\EmployeeProfileDataManager.cs" />
     <Compile Include="Classes\Data Manager\PeriodicalFormForGovernmentHousingDataManager.cs" />
     <Compile Include="Classes\Data Manager\HusbandORWifeDataManager.cs" />
+    <Compile Include="Classes\Data Manager\EmployeeDataManager.cs" />
     <Compile Include="Classes\Data Manager\SonsDataManager.cs" />
     <Compile Include="Classes\Data Manager\DaysDataManager.cs" />
     <Compile Include="Classes\Data Manager\ReturnToDutyNoticeMembersOfTheJudiciaryDataManger.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
+    <Compile Include="Classes\Entities\EmployeeEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeProfileEntity.cs" />
     <Compile Include="Classes\Entities\PeriodicalFormForGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\DaysEntity.cs" />

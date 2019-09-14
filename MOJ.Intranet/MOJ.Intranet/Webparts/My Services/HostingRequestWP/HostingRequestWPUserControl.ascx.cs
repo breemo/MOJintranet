@@ -18,6 +18,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
     public partial class HostingRequestWPUserControl : SiteUI
     {
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -30,6 +31,52 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                 GetEmirates();
             }
         }
+        public string mangerName
+        {
+            get
+            {
+                if (ViewState["mangerName"] != null)
+                {
+                    return Convert.ToString(ViewState["mangerName"]);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            set { ViewState["mangerName"] = value; }
+        }
+        public string mangerID
+        {
+            get
+            {
+                if (ViewState["mangerID"] != null)
+                {
+                    return Convert.ToString(ViewState["mangerID"]);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            set { ViewState["mangerID"] = value; }
+        }
+        public string mangerEmail
+        {
+            get
+            {
+                if (ViewState["mangerEmail"] != null)
+                {
+                    return Convert.ToString(ViewState["mangerEmail"]);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            set { ViewState["mangerEmail"] = value; }
+        }
+       
         private void currentUserData()
         {
             try
@@ -54,7 +101,11 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                        
                         EPosition.Value = item.positionNameField_US.ToString();
                         
+                        
                     }
+                    mangerName= item.ManagerName_DirectManager.ToString();
+                    mangerID= item.ManagerID_DirectManager.ToString();
+                    mangerEmail = item.ManagerEmail_DirectManager;
                     EDegree.Value = "";// item.employementDateField.ToString(); 
 
                    
@@ -64,6 +115,25 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
             catch (Exception ex)
             {
 
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+          private void savecurrentUserData()
+        {
+            try
+            {              
+                EmployeeEntity EmployeeValues = new EmployeeEntity();
+                EmployeeValues.mangerName = mangerName;
+                Literal1.Text = mangerName;
+                EmployeeValues.mangerID = mangerID;
+                EmployeeValues.mangerEmail = mangerEmail;
+                EmployeeValues.AccountName = SPContext.Current.Web.CurrentUser.LoginName ;
+                if (mangerName!=null&& mangerName!="") {
+                    bool Emp = new Employee().SaveUpdate(EmployeeValues);
+                }
+            }
+            catch (Exception ex)
+            {
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
@@ -158,6 +228,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
         {
             if (!_isRefresh)
             {
+                savecurrentUserData();
                 string RecordPrfix = "";
                 RecordPrfix = "Hotel-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ReserveHotel");
                 ReserveHotelEntity itemSumbit = new ReserveHotelEntity();
@@ -179,7 +250,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
 
                     listReserveHotelPeople.Add(itemPeople);
                 }
-                if (hdncounter.Value != "")
+                if (hdncounter.Value != "" && hdncounter.Value!="1")
                 {
                     string[] Name = Request.Form.GetValues("PName");
                     string[] Job = Request.Form.GetValues("Job");
@@ -221,6 +292,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
         {
             if (!_isRefresh)
             {
+                savecurrentUserData();
                 DateTime sDate = DateTime.ParseExact(txtBookingDateFrom.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                 string[] pmSdate = txtBookingTimeFrom.Value.Split(' ');
                 TimeSpan tsSdate = TimeSpan.Parse(pmSdate[0]);

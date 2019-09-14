@@ -98,6 +98,7 @@ namespace CommonLibrary
         public const string DaysUrl = "/Lists/Days/AllItems.aspx";
         public const string ReturnToDutyNoticeMembersOfTheJudiciaryUrl = "/Lists/ReturnToDutyNoticeMembersOfTheJudiciary/AllItems.aspx";
         public const string PeriodicalFormForGovernmentHousingUrl = "/Lists/PeriodicalFormForGovernmentHousing/AllItems.aspx";
+        public const string EmployeeUrl = "/Lists/EmployeesProfile/AllItems.aspx";
 
         #endregion
 

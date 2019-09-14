@@ -483,6 +483,11 @@
     <h4 class="ta3m" style="text-align: center;">
         <asp:Literal ID="lblSuccessMsg" runat="server"></asp:Literal></h4>
 </div>
+
+<div id="Div1" runat="server" style="display: none">
+    <h4 class="ta3m" style="text-align: center;">
+        <asp:Literal ID="Literal1" runat="server"></asp:Literal></h4>
+</div>
 <script src="/Style%20Library/MOJTheme/js/functions.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
