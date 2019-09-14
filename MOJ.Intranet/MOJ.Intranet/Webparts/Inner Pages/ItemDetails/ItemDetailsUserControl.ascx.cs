@@ -40,11 +40,13 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
 
                 foreach (NewsEntity lstItem in NewsItem)
                 {
-                    string des = LimitCharacters.Limit(lstItem.Body, 40);
-                    string siteURL = SPContext.Current.RootFolderUrl;
+                    if (lstItem.ID.ToString() != Request.QueryString["Id"].ToString())
+                    {
+                        string des = LimitCharacters.Limit(lstItem.Body, 40);
+                        string siteURL = SPContext.Current.RootFolderUrl;
 
-                    relatedNews +=
-                    string.Format(@"
+                        relatedNews +=
+                        string.Format(@"
                     <div class='oc-item'>
                         <div class='ievent clearfix newdscroll'>
                             <div class='entry-image'>
@@ -59,12 +61,13 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                                 </div>
                             </div>
                         </div>
-                    </div>", 
-                     lstItem.Picture,
-                     LimitCharacters.Limit(lstItem.Title, 40),
-                     Convert.ToDateTime(lstItem.Date).ToString("dd MMM yyyy"),
-                     Convert.ToDateTime(lstItem.Date).ToString("dddd"),
-                     lstItem.ID, siteURL);
+                    </div>",
+                         lstItem.Picture,
+                         LimitCharacters.Limit(lstItem.Title, 40),
+                         Convert.ToDateTime(lstItem.Date).ToString("dd MMM yyyy"),
+                         Convert.ToDateTime(lstItem.Date).ToString("dddd"),
+                         lstItem.ID, siteURL);
+                    }
                 }
                 relatedNews += "</div></div>";
             }
