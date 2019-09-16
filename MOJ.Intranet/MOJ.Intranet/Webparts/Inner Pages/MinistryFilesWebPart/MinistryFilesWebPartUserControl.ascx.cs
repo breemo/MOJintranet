@@ -6,6 +6,7 @@ using MOJ.Entities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -121,32 +122,48 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
         private void FillData(string BookName, string Created, string Category, string Author)
         {
             List<MinistryFilesEntity> Books = new MinistryFiles().GetMinistryFilesSearch(BookName, Created, Category, Author);
-            PagedDataSource pgitems = new PagedDataSource();
-            pgitems.DataSource = Books;
-            pgitems.AllowPaging = true;
-
-            //Control page size from here 
-            pgitems.PageSize = 12;
-            pgitems.CurrentPageIndex = PageNumber;
-
-            if (pgitems.PageCount > 1)
+            if (Books.Count != 0)
             {
-                rptPaging.Visible = true;
-                ArrayList pages = new ArrayList();
-                for (int i = 0; i <= pgitems.PageCount - 1; i++)
+                PagedDataSource pgitems = new PagedDataSource();
+                pgitems.DataSource = Books;
+                pgitems.AllowPaging = true;
+
+                //Control page size from here 
+                pgitems.PageSize = 12;
+                pgitems.CurrentPageIndex = PageNumber;
+
+                if (pgitems.PageCount > 1)
                 {
-                    pages.Add((i + 1).ToString());
+                    rptPaging.Visible = true;
+                    ArrayList pages = new ArrayList();
+                    for (int i = 0; i <= pgitems.PageCount - 1; i++)
+                    {
+                        pages.Add((i + 1).ToString());
+                    }
+                    rptPaging.DataSource = pages;
+                    rptPaging.DataBind();
                 }
-                rptPaging.DataSource = pages;
-                rptPaging.DataBind();
+                else
+                {
+                    rptPaging.Visible = false;
+                    PaginUI.Visible = false;
+                }
+                grdBookslsts.DataSource = pgitems;
+                grdBookslsts.DataBind();
             }
             else
             {
                 rptPaging.Visible = false;
                 PaginUI.Visible = false;
+
+                DataTable dt = new DataTable();
+                grdBookslsts.DataSource = dt;
+                grdBookslsts.DataBind();
+
+                Control FooterTemplate = grdBookslsts.Controls[grdBookslsts.Controls.Count - 1].Controls[0];
+                FooterTemplate.FindControl("trEmpty").Visible = true;
             }
-            grdBookslsts.DataSource = pgitems;
-            grdBookslsts.DataBind();
+
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

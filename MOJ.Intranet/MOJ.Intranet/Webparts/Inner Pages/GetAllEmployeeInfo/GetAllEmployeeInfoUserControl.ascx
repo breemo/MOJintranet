@@ -155,7 +155,6 @@
 
                                         <div class="col-md-6 col-sm-12">
                                             <input type="text" class="form-control" value="" runat="server" id="txtOffileLocation" placeholder="الكلمات الرئيسية">
-                                            
                                         </div>
 
                                         <div class="col-md-2">
@@ -305,46 +304,56 @@
                         </div>
                     </div>
                 </ItemTemplate>
+                <FooterTemplate>
+                    <tr id="trEmpty" runat="server" visible="false">
+                        <td>
+                            <br />
+                        </td>
+                        <td colspan="3" align="center">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
+                        </td>
+                    </tr>
+                </FooterTemplate>
             </asp:Repeater>
 
-                <div class="pagi">
-                    <ul class="pagination" id="PaginUI" runat="server">
-                        <li class="page-item">
-                            <a class="page-link pageright" href="#">
-                                <i class="icon-angle-right"></i>
-                            </a>
-                        </li>
+            <div class="pagi">
+                <ul class="pagination" id="PaginUI" runat="server">
+                    <li class="page-item">
+                        <a class="page-link pageright" href="#">
+                            <i class="icon-angle-right"></i>
+                        </a>
+                    </li>
 
-                      
 
-                            <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
-                                <ItemTemplate>
 
-                                    <li class="page-item">
+                    <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+                        <ItemTemplate>
 
-                                        <asp:LinkButton ID="btnPage"
-                                             CssClass="page-link"
-                                            CommandName="Page" CommandArgument="<%# Container.DataItem %>"
-                                            runat="server" ForeColor="White" Font-Bold="True">
+                            <li class="page-item">
+
+                                <asp:LinkButton ID="btnPage"
+                                    CssClass="page-link"
+                                    CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                                    runat="server" ForeColor="White" Font-Bold="True">
                                          <%# Container.DataItem %> </asp:LinkButton>
 
-                                    </li>
+                            </li>
 
 
 
 
 
-                                </ItemTemplate>
-                            </asp:Repeater>
+                        </ItemTemplate>
+                    </asp:Repeater>
 
-                    
-                        <li class="page-item">
-                            <a class="page-link pageleft" href="#">
-                                <i class="icon-angle-left"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+
+                    <li class="page-item">
+                        <a class="page-link pageleft" href="#">
+                            <i class="icon-angle-left"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
 
         </div>

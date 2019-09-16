@@ -801,4 +801,10 @@
   <data name="VacationBalance" xml:space="preserve">
     <value>رصيد الاجازات</value>
   </data>
+  <data name="moreStickyNote" xml:space="preserve">
+    <value>المزيد من التذكيرات</value>
+  </data>
+  <data name="MoreOccasions" xml:space="preserve">
+    <value>المزيد من المناسبات</value>
+  </data>
 </root>

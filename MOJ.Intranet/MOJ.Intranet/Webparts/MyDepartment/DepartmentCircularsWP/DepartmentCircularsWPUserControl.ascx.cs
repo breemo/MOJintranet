@@ -42,8 +42,7 @@ namespace MOJ.Intranet.Webparts.MyDepartment.DepartmentCircularsWP
                         <div class='enteyitemnew'>
                             <span class='dateut'>{0}</span>
                             <h6>
-                                <a href ='#' >{1}
-                                </a>
+                                {1}
                             </h6>
                             <p>
                                 {2}

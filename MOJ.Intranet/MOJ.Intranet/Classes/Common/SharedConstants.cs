@@ -120,7 +120,18 @@ namespace CommonLibrary
         public const string MemosViewfields = "<FieldRef Name='Title'/><FieldRef Name='TitleEn'/><FieldRef Name='MemoNumber'/><FieldRef Name='Date'/><FieldRef Name='ID'/><FieldRef Name='Body'/><FieldRef Name='BodyEn'/>";
 
 
-        public const string MinistryFilesQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        //public const string MinistryFilesQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        public const string MinistryFilesQuery = @"<Where>
+                                                      <Eq>
+                                                         <FieldRef Name='Ministry'/>
+                                                         <Value Type='WorkflowStatus'>16</Value>
+                                                      </Eq>
+                                                   </Where>
+                                                    <OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+
+
+
+
         public const string MinistryFilesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Book_x0020_Title_x0020_En'/><FieldRef Name='Book_x0020_Desc_x0020_Ar'/><FieldRef Name='Book_x0020_Desc_x0020_En'/><FieldRef Name='Book_x0020_Image'/><FieldRef Name='Author'/><FieldRef Name='ID'/><FieldRef Name='Category'/><FieldRef Name='Author0'/>";
 
         //updated by samir...StickyNotes...Query

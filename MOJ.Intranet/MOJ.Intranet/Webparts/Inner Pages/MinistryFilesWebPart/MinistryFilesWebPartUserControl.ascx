@@ -93,7 +93,7 @@
                                         <div class="uploadediv">
                                             <p>
                                                 <asp:Literal runat="server" Text="<%$ Resources:Resource, UploadedBy%>" />
-                                                        <span><%# Eval("CreatedBy") %></span>
+                                                <span><%# Eval("CreatedBy") %></span>
 
                                             </p>
 
@@ -105,7 +105,7 @@
 
 
                                                 <a runat="server" class="btnclass radix" id="link" target="_blank" href='<%# Eval("AttachmentsInfo") %>'>
-                                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Download%>" />
+                                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, Download%>" />
                                                 </a>
                                             </div>
                                         </div>
@@ -116,6 +116,13 @@
 
                                 </div>
                             </ItemTemplate>
+                            <FooterTemplate>
+                                <tr id="trEmpty" runat="server" visible="false">
+								<td><br /></td>
+                                    <td colspan="3" align="center"> <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
+                                    </td>
+                                </tr>
+                            </FooterTemplate>
                         </asp:Repeater>
 
                     </div>
@@ -129,29 +136,29 @@
                             </a>
                         </li>
 
-                      
 
-                            <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
-                                <ItemTemplate>
 
-                                    <li class="page-item">
+                        <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+                            <ItemTemplate>
 
-                                        <asp:LinkButton ID="btnPage"
-                                             CssClass="page-link"
-                                            CommandName="Page" CommandArgument="<%# Container.DataItem %>"
-                                            runat="server" ForeColor="White" Font-Bold="True">
+                                <li class="page-item">
+
+                                    <asp:LinkButton ID="btnPage"
+                                        CssClass="page-link"
+                                        CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                                        runat="server" ForeColor="White" Font-Bold="True">
                                          <%# Container.DataItem %> </asp:LinkButton>
 
-                                    </li>
+                                </li>
 
 
 
 
 
-                                </ItemTemplate>
-                            </asp:Repeater>
+                            </ItemTemplate>
+                        </asp:Repeater>
 
-                    
+
                         <li class="page-item">
                             <a class="page-link pageleft" href="#">
                                 <i class="icon-angle-left"></i>
@@ -218,7 +225,7 @@
                             <div class="col-md-9">
                                 <asp:DropDownList ID="ddlCategory" class="form-control" runat="server">
                                 </asp:DropDownList>
-                               <%-- <select class="form-control">
+                                <%-- <select class="form-control">
                                     <option>اختر</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -240,7 +247,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="labelri">
-                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Author%>" />
+                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, Author%>" />
                                 </label>
 
                             </div>
@@ -259,9 +266,6 @@
                             </div>
                             <div class="col-md-9">
                                 <input type="text" id="txtSearchCreatedby" runat="server" class="form-control" placeholder=" ">
-    
-    
-    
                             </div>
                         </div>
 

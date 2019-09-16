@@ -30,7 +30,7 @@ namespace MOJ.DataManager
                                 {
                                     SPQuery oQuery = new SPQuery();
                                     oQuery.Query = SharedConstants.MinistryFilesQuery;
-                                    oQuery.ViewFields = SharedConstants.MinistryFilesViewfields;
+                                    //oQuery.ViewFields = SharedConstants.MinistryFilesViewfields;
 
                                     SPListItemCollection lstItems = lstMinistryFiles.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
@@ -130,7 +130,7 @@ namespace MOJ.DataManager
                                           "</Or>" +
                                        "</Where>" + SharedConstants.MinistryFilesQuery;
 
-                                    oQuery.ViewFields = SharedConstants.MinistryFilesViewfields;
+                                    //oQuery.ViewFields = SharedConstants.MinistryFilesViewfields;
 
                                     SPListItemCollection lstItems = lstMinistryFiles.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)

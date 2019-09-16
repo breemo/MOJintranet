@@ -30,7 +30,7 @@
         <h4 class="TitleHead">
             <asp:Literal runat="server" Text="<%$ Resources:Resource, Questionnaire%>" /></h4>
 
-        <a href="ViewAllQuestionnaire.aspx" class="slide morebuttoncss arrow">
+        <a href="<%= SPContext.Current.RootFolderUrl %>/ViewAllQuestionnaire.aspx" class="slide morebuttoncss arrow">
             <asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
     </div>
 

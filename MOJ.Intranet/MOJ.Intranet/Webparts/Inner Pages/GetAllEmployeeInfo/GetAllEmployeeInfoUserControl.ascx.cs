@@ -221,15 +221,30 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
 
                 DataTable dt = dtProfile.DefaultView.ToTable();
 
-                if (dt.Rows.Count <= 9)
+                if (dt.Rows.Count < 1)
                 {
                     rptPaging.Visible = false;
                     PaginUI.Visible = false;
+
+                    DataTable dtempty = new DataTable();
+                    grdPoeplelsts.DataSource = dtempty;
+                    grdPoeplelsts.DataBind();
+
+                    Control FooterTemplate = grdPoeplelsts.Controls[grdPoeplelsts.Controls.Count - 1].Controls[0];
+                    FooterTemplate.FindControl("trEmpty").Visible = true;
                 }
+                else
+                {
+                    if (dt.Rows.Count <= 9)
+                    {
+                        rptPaging.Visible = false;
+                        PaginUI.Visible = false;
+                    }
 
 
-                grdPoeplelsts.DataSource = dt;
-                grdPoeplelsts.DataBind();
+                    grdPoeplelsts.DataSource = dt;
+                    grdPoeplelsts.DataBind();
+                }
             }
         }
 
@@ -275,16 +290,30 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
 
                 DataTable dt = dtProfile.DefaultView.ToTable();
 
-                if (dt.Rows.Count <= 9)
+                if (dt.Rows.Count < 1)
                 {
                     rptPaging.Visible = false;
                     PaginUI.Visible = false;
+
+                    DataTable dtempty = new DataTable();
+                    grdPoeplelsts.DataSource = dtempty;
+                    grdPoeplelsts.DataBind();
+
+                    Control FooterTemplate = grdPoeplelsts.Controls[grdPoeplelsts.Controls.Count - 1].Controls[0];
+                    FooterTemplate.FindControl("trEmpty").Visible = true;
                 }
+                else
+                {
+                    if (dt.Rows.Count <= 9)
+                    {
+                        rptPaging.Visible = false;
+                        PaginUI.Visible = false;
+                    }
 
-                grdPoeplelsts.DataSource = dt;
-                grdPoeplelsts.DataBind();
-
-
+                    grdPoeplelsts.DataSource = dt;
+                    grdPoeplelsts.DataBind();
+                    //Response.Redirect("#tab-responsive-2");
+                }
             }
         }
         protected void btnOfficeLocationSearch_Click(object sender, EventArgs e)
@@ -331,18 +360,31 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
 
                 DataTable dt = dtProfile.DefaultView.ToTable();
 
-                if (dt.Rows.Count <= 9)
+                if (dt.Rows.Count < 1)
                 {
                     rptPaging.Visible = false;
                     PaginUI.Visible = false;
+
+                    DataTable dtempty = new DataTable();
+                    grdPoeplelsts.DataSource = dtempty;
+                    grdPoeplelsts.DataBind();
+
+                    Control FooterTemplate = grdPoeplelsts.Controls[grdPoeplelsts.Controls.Count - 1].Controls[0];
+                    FooterTemplate.FindControl("trEmpty").Visible = true;
                 }
+                else
+                {
+                    if (dt.Rows.Count <= 9)
+                    {
+                        rptPaging.Visible = false;
+                        PaginUI.Visible = false;
+                    }
 
-                grdPoeplelsts.DataSource = dt;
-                grdPoeplelsts.DataBind();
-
+                    grdPoeplelsts.DataSource = dt;
+                    grdPoeplelsts.DataBind();
+                }
             }
         }
-
     }
 }
 

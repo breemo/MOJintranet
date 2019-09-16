@@ -38,7 +38,7 @@
 <div class="headlineflex">
     <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, reminder%>" /></h4>
 
-    <a href="/Lists/Sticky%20Notes/My%20Stiky%20Notes.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, ViewAll%>" /></a>
+    <a href="/Lists/Sticky%20Notes/My%20Stiky%20Notes.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, moreStickyNote%>" /></a>
 </div>
 
 <div class="blockbox minhe newhri">

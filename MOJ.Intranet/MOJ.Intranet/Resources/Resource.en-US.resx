@@ -801,4 +801,10 @@
   <data name="VacationBalance" xml:space="preserve">
     <value>Vacation Balance</value>
   </data>
+  <data name="moreStickyNote" xml:space="preserve">
+    <value>More Reminders</value>
+  </data>
+  <data name="MoreOccasions" xml:space="preserve">
+    <value>More Occasions</value>
+  </data>
 </root>
