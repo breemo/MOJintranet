@@ -156,10 +156,7 @@
         <asp:Literal ID="lblSuccessMsg" runat="server"></asp:Literal></h4>
 </div>
 <style>
-.pagi .pagination li a {
- 
-    background: #bd995d;
-}
+
 .HeaderRow{
     color: #ffffff;
 }

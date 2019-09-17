@@ -7,10 +7,7 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MyRequestsWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.My_Services.MyRequestsWP.MyRequestsWPUserControl" %>
 <style>
-.pagi .pagination li a {
- 
-    background: #bd995d;
-}
+
 .HeaderRow{
     color: #ffffff;
 }
