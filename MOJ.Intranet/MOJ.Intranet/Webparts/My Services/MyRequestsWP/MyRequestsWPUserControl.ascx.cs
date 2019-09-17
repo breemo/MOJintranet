@@ -189,8 +189,8 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
                     //Control page size from here 
                     pgitems.PageSize = 3;
                     pgitems.DataSource = Requestsollection;
-                    
 
+                    hdnPage.Value = Convert.ToString(PageNumber2+1);
                     pgitems.CurrentPageIndex = PageNumber2;
                    
                     if (pgitems.PageCount > 1)

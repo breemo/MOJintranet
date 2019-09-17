@@ -139,6 +139,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                 pgitems.AllowPaging = true;
                 //Control page size from here 
                 pgitems.PageSize = 8;
+                hdnPage.Value = Convert.ToString(PageNumber+1);
                 pgitems.CurrentPageIndex = PageNumber;
                 if (pgitems.PageCount > 1)
                 {
@@ -178,6 +179,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                 pgitems.AllowPaging = true;
                 //Control page size from here 
                 pgitems.PageSize = 8;
+                hdnPage2.Value = Convert.ToString(PageNumber2+1);
                 pgitems.CurrentPageIndex = PageNumber2;
                 if (pgitems.PageCount > 1)
                 {

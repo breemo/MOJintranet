@@ -14,9 +14,14 @@
 .table-responsive tr:nth-child(even) {
     border-bottom: 1px solid #d0a659;
 }
-
+.active {
+   
+    background-color: #e9ecef;
+   
+}
 
 </style>
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, MyRequests%>" />
 </h4>
@@ -197,3 +202,12 @@
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 
+<script>
+
+var valuepage=  document.getElementById('hdnPage').value;
+ $(".pagination a").each(function(){
+if($(this).text()== valuepage) 
+  $(this).addClass("active");
+    });
+
+</script>

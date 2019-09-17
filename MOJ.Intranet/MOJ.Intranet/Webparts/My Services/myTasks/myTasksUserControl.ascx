@@ -6,6 +6,8 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="myTasksUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.My_Services.myTasks.myTasksUserControl" %>
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage2" runat="server" />
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, Tasks%>" />
 </h4>
@@ -155,6 +157,8 @@
     <h4 class="ta3m" style="text-align: center;">
         <asp:Literal ID="lblSuccessMsg" runat="server"></asp:Literal></h4>
 </div>
+
+
 <style>
 
 .HeaderRow{
@@ -167,7 +171,11 @@
 #tab-responsive-1 tbody:nth-child(even) {
     border-bottom: 1px solid #d0a659;
 }
-
+.active {
+   
+    background-color: #e9ecef;
+   
+}
 </style>
 <script src="/Style%20Library/MOJTheme/js/functions.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
@@ -191,5 +199,20 @@
         dropdown: true,
         scrollbar: true
     });
+  
+
+    var valuepage = document.getElementById('hdnPage').value;
+    $("#tab-responsive-1 .pagination a").each(function () {
+        if ($(this).text() == valuepage)
+            $(this).addClass("active");
+    });
+
+    var valuepage2 = document.getElementById('hdnPage2').value;
+    $("#tab-responsive-2 .pagination a").each(function () {
+        if ($(this).text() == valuepage2)
+            $(this).addClass("active");
+    });
+        
+
 </script>
 
