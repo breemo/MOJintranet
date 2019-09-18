@@ -48,7 +48,7 @@ namespace MOJ.DataManager
                             item["mangerName"] = EItem.mangerName;
                             item["mangerEmail"] = EItem.mangerEmail;
                             item.Update();
-                            list.Update();
+                          
                             isFormSaved = true;
                         }               
 

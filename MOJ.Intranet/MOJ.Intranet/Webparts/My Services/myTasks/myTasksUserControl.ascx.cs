@@ -24,7 +24,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             {
                 BindDataCompleted();
                 BindDataNOTCompleted();
-                HeaderRowG();
+              
             }
         }
         public void HeaderRowG()
@@ -54,6 +54,18 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             row.BackColor = ColorTranslator.FromHtml("#bd995d");
             grdMyTasks.HeaderRow.Parent.Controls.AddAt(0, row);
 
+        }
+
+        public void HeaderRowGAccomplished()
+        {
+            string RequestNumber = SPUtility.GetLocalizedString("$Resources: RequestNumber", "Resource", SPContext.Current.Web.Language);
+            string ServiceType = SPUtility.GetLocalizedString("$Resources: ServiceType", "Resource", SPContext.Current.Web.Language);
+            string AssignTo = SPUtility.GetLocalizedString("$Resources: AssignTo", "Resource", SPContext.Current.Web.Language);
+            string Result = SPUtility.GetLocalizedString("$Resources: Result", "Resource", SPContext.Current.Web.Language); ;
+            string TaskDate = SPUtility.GetLocalizedString("$Resources: TaskDate", "Resource", SPContext.Current.Web.Language);
+            string Edit = SPUtility.GetLocalizedString("$Resources: Edit", "Resource", SPContext.Current.Web.Language);
+          
+
             GridViewRow row2 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
             TableHeaderCell cell2 = new TableHeaderCell();
             cell2.Text = RequestNumber;
@@ -82,14 +94,14 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
             BindDataCompleted();
             BindDataNOTCompleted();
-            HeaderRowG();
+          
         }
         protected void rpt2Paging_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
             PageNumber2 = Convert.ToInt32(e.CommandArgument) - 1;
             BindDataCompleted();
             BindDataNOTCompleted();
-            HeaderRowG();
+            
         }
         public int PageNumber
         {
@@ -159,7 +171,14 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                 }
                 grdMyTasks.DataSource = pgitems;
                 grdMyTasks.DataBind();
+
+                if (taskollectionC.Count > 0)
+                {
+                    HeaderRowG();
+                }
+
             }
+           
             catch (Exception ex)
             {
                 LoggingService.LogError("WebParts", ex.Message);
@@ -199,6 +218,10 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                 }
                 grdMyAccomplishedTasks.DataSource = pgitems;
                 grdMyAccomplishedTasks.DataBind();
+                if (taskollectionC.Count > 0)
+                {
+                    HeaderRowGAccomplished();
+                }
             }
             catch (Exception ex)
             {

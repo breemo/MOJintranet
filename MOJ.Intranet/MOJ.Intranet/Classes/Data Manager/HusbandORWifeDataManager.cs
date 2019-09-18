@@ -64,7 +64,7 @@ namespace MOJ.DataManager
                             item["HasGovernmentHousingPercentageAllowance"] = RequestItem.HasGovernmentHousingPercentageAllowance;
                             item.Update();
                         }
-                        list.Update();
+                       
                         isFormSaved = true;
                     }
                     catch (Exception ex)

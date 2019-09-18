@@ -50,7 +50,7 @@ namespace MOJ.DataManager
                        
                         item["Title"] = Item.RequestNumber;
                         item.Update();
-                        list.Update();
+                      
                         isFormSaved = true;
                     }
                     catch (Exception ex)

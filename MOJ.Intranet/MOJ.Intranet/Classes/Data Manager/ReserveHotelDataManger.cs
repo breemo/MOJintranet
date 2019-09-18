@@ -43,7 +43,7 @@ namespace MOJ.DataManager
                         item["Emirate"] = Item.EmirateID;
                         item["Title"] = Item.RequestNumber;
                         item.Update();
-                        list.Update();
+                      
                         isFormSaved = true;
                     }
                     catch (Exception ex)
@@ -110,7 +110,7 @@ namespace MOJ.DataManager
                             item["Title"] = Itemis.RequestNumber;
                             item.Update();
                         }
-                        list.Update();
+                       
                         isFormSaved = true;
                     }
                     catch (Exception ex)

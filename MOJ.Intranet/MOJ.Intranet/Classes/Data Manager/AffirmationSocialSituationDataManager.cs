@@ -53,7 +53,7 @@ namespace MOJ.DataManager
                             item["HusbandORWife"] = HostingRequestItem.HusbandORWife;                            
                             item["Title"] = HostingRequestItem.RequestNumber;
                             item.Update();
-                            list.Update();
+                           
                             isFormSaved = true;
                         }
                         catch (Exception ex)

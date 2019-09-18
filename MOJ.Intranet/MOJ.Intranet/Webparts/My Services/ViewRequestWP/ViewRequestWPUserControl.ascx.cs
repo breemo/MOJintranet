@@ -300,7 +300,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                     Answer = item.AssignedToOneUserValue.LookupValue;
                 addtopage("AssignTo", Answer, OutcomeWf, "");
                 addtopage("ActionDate", ActionDate);
-                string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' cols='100' rows='3'>" + item.Comment + "</textarea>";
+                string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' cols='70' rows='3'>" + item.Comment + "</textarea>";
 
                 addtopage("Comment", Commenthtm);
                 
@@ -316,7 +316,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage("RequestNumber", item.RequestNumber, "RequestDate", item.Created.ToString("dd MMM yyyy"), "title");
             UserData(Convert.ToString(item.CreatedBy.User.LoginName));
             addtopage("ContactReason", item.ContactReason);
-            string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + item.Message + "</textarea>";
+            string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='70' rows='3'>" + item.Message + "</textarea>";
             addtopage("Message", Messaghtm);
             return item.Status;
         }
@@ -327,7 +327,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage("RequestNumber", HappinessHotlin.RequestNumber, "RequestDate", HappinessHotlin.Created.ToString("dd MMM yyyy"), "title");
             UserData(Convert.ToString(HappinessHotlin.CreatedBy.User.LoginName));
             addtopage("ContactReason", HappinessHotlin.ContactReason);
-            string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + HappinessHotlin.Message + "</textarea>";
+            string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='70' rows='3'>" + HappinessHotlin.Message + "</textarea>";
             addtopage("Message", Messaghtm);
             return HappinessHotlin.Status;
         }

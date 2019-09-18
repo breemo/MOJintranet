@@ -42,7 +42,7 @@ namespace MOJ.DataManager
                             item["Message"] = Item.Message;                            
                             item["Title"] = Item.RequestNumber;
                             item.Update();
-                            list.Update();
+                          
                             isFormSaved = true;
                         }
                         catch (Exception ex)

@@ -58,7 +58,7 @@ namespace MOJ.DataManager
                            
                             item.Update();
                         }
-                        list.Update();
+                       
                         isFormSaved = true;
                     }
                     catch (Exception ex)

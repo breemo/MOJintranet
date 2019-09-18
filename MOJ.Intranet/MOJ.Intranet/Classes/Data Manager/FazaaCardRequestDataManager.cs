@@ -42,7 +42,7 @@ namespace MOJ.DataManager
                                                       
                             item["Title"] = FazaaCardRequestItem.RequestNumber;
                             item.Update();
-                            list.Update();
+                           
                             isFormSaved = true;
                         }
                         catch (Exception ex)

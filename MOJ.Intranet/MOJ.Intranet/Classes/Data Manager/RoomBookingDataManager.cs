@@ -67,7 +67,7 @@ namespace MOJ.DataManager
 
                             //AddAttendees(HostingRequestItem, isUpdate, web);
 
-                            list.Update();
+                           
                             isFormSaved = true;
                         }
                         catch (Exception ex)
@@ -154,61 +154,6 @@ namespace MOJ.DataManager
             return RoomBooking;
         }
 
-        //public void AddAttendees(RoomBookingEntity HostingRequestItem, bool isUpdate, SPWeb web)
-        //{
-        //    //SPList formFAuditTeam = web.Lists[ListTitles.FormFAuditTeam];
-        //    //SPList formFComponents = web.Lists[ListTitles.FormFComponents];
-        //    SPList list = web.GetListFromUrl(web.Url + SharedConstants.HostingRequestUrl);
-
-        //    if (isUpdate)
-        //    {
-        //        if (formFAuditTeam != null)
-        //        {
-        //            List<Guid> result = (from SPListItem item in formFAuditTeam.Items
-        //                                 where new SPFieldLookupValue(Convert.ToString(item["FormFID"])).LookupId.Equals(formF.Id)
-        //                                 select item.UniqueId).ToList();
-
-        //            foreach (Guid deleteItemId in result)
-        //                formFAuditTeam.GetItemByUniqueId(deleteItemId).Delete();
-
-        //            formFAuditTeam.Update();
-        //        }
-
-        //        if (formFComponents != null)
-        //        {
-        //            List<Guid> result = (from SPListItem item in formFComponents.Items
-        //                                 where new SPFieldLookupValue(Convert.ToString(item["FormFID"])).LookupId.Equals(formF.Id)
-        //                                 select item.UniqueId).ToList();
-
-        //            foreach (Guid deleteItemId in result)
-        //                formFComponents.GetItemByUniqueId(deleteItemId).Delete();
-
-        //            formFComponents.Update();
-        //        }
-        //    }
-
-        //    foreach (AuditMember member in formF.AuditTeam)
-        //    {
-        //        SPListItem teamItem = formFAuditTeam.AddItem();
-        //        teamItem["Title"] = member.MemberName;
-        //        teamItem["RegistrationNumber"] = member.MemberRegNo; //formF.Id;                
-        //        teamItem["FormFID"] = formF.Id + ";#" + formF.Id;
-        //        teamItem.Update();
-        //    }
-
-        //    foreach (FormFComponent comp in formF.Components)
-        //    {
-        //        SPListItem component = formFComponents.AddItem();
-        //        component["Major"] = comp.MajorCount;
-        //        component["Minor"] = comp.MinorCount;
-        //        component["ComponentID"] = comp.Id;
-        //        component["FormFID"] = formF.Id + ";#" + formF.Id;
-        //        component.Update();
-        //    }
-
-        //    isUpdateComplete = true;
-        //    return isUpdateComplete;
-        //}
-        #endregion
+       #endregion
     }
 }

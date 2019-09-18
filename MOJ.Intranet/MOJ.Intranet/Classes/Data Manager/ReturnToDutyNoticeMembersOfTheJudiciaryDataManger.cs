@@ -44,7 +44,7 @@ namespace MOJ.DataManager
                         item["Date"] = Item.date;
                         item["Title"] = Item.RequestNumber;
                         item.Update();
-                        list.Update();
+                      
                         isFormSaved = true;
                     }
                     catch (Exception ex)
