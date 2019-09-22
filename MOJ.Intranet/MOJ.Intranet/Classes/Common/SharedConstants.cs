@@ -67,6 +67,8 @@ namespace CommonLibrary
         public const string OccasionCommentsListUrl = "/Lists/OccasionComments/AllItems.aspx";
 
         //updated by samir...Sticky Notes List
+        public const string SouqListUrl = "/Lists/Souq/AllItems.aspx";
+
         public const string CarOrderServiceName = "CarOrderService";
 
         public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
@@ -119,6 +121,13 @@ namespace CommonLibrary
         public const string MemosQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
         public const string MemosViewfields = "<FieldRef Name='Title'/><FieldRef Name='TitleEn'/><FieldRef Name='MemoNumber'/><FieldRef Name='Date'/><FieldRef Name='ID'/><FieldRef Name='Body'/><FieldRef Name='BodyEn'/>";
 
+        public const string SouqQuery = @"<Where>
+                                                      <Eq>
+                                                         <FieldRef Name='SouqAppr'/>
+                                                         <Value Type='WorkflowStatus'>16</Value>
+                                                      </Eq>
+                                                   </Where>
+                                                    <OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
 
         //public const string MinistryFilesQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
         public const string MinistryFilesQuery = @"<Where>
