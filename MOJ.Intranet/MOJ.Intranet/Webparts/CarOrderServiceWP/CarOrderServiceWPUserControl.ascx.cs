@@ -27,6 +27,53 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
             }
         }
 
+
+        public string mangerName
+        {
+            get
+            {
+                if (ViewState["mangerName"] != null)
+                {
+                    return Convert.ToString(ViewState["mangerName"]);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            set { ViewState["mangerName"] = value; }
+        }
+        public string mangerID
+        {
+            get
+            {
+                if (ViewState["mangerID"] != null)
+                {
+                    return Convert.ToString(ViewState["mangerID"]);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            set { ViewState["mangerID"] = value; }
+        }
+        public string mangerEmail
+        {
+            get
+            {
+                if (ViewState["mangerEmail"] != null)
+                {
+                    return Convert.ToString(ViewState["mangerEmail"]);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            set { ViewState["mangerEmail"] = value; }
+        }
+
         private void currentUserData()
         {
             try
@@ -48,6 +95,9 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
                         Ename.Value = item.employeeNameEnglishField.ToString();
                         EDepartment.Value = item.departmentNameField_US.ToString();
                     }
+                    mangerName = item.ManagerName_DirectManager.ToString();
+                    mangerID = item.ManagerID_DirectManager.ToString();
+                    mangerEmail = item.ManagerEmail_DirectManager;
 
                 }
 
@@ -55,6 +105,26 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
             catch (Exception ex)
             {
 
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+        private void savecurrentUserData()
+        {
+            try
+            {
+                EmployeeEntity EmployeeValues = new EmployeeEntity();
+                EmployeeValues.mangerName = mangerName;
+               
+                EmployeeValues.mangerID = mangerID;
+                EmployeeValues.mangerEmail = mangerEmail;
+                EmployeeValues.AccountName = SPContext.Current.Web.CurrentUser.LoginName;
+                if (mangerName != null && mangerName != "")
+                {
+                    bool Emp = new Employee().SaveUpdate(EmployeeValues);
+                }
+            }
+            catch (Exception ex)
+            {
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
@@ -70,6 +140,7 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
             {
                 try
                 {
+                    savecurrentUserData();
                     using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb myweb = mySitesCollection.OpenWeb())
