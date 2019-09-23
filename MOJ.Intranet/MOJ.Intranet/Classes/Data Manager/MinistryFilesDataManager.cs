@@ -90,7 +90,7 @@ namespace MOJ.DataManager
                                 if (lstMinistryFiles != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query =
+                                    oQuery.Query = @"<Where><And><Eq><FieldRef Name='Ministry' /><Value Type='WorkflowStatus'>16</Value></Eq><Or><Eq><FieldRef Name='Title' /><Value Type='Text'>"+ BookName + "</Value></Eq><Or><Eq><FieldRef Name='Author' /><Value Type='User'>"+ CreatedBy + "</Value></Eq><Or><Eq><FieldRef Name='Category' /><Value Type='Choice'>"+ Category +"</Value></Eq><Eq><FieldRef Name='Author0' /><Value Type='Text'>" + Author + "</Value></Eq></Or></Or></Or></And></Where>" + SharedConstants.MinistryFilesQuery;
 
                                     //"<Where>" +
                                     //   "<Or>" +
@@ -105,30 +105,30 @@ namespace MOJ.DataManager
                                     //               "</Or>" +
                                     //            "</Where>" + SharedConstants.MinistryFilesQuery;
 
-                                    "<Where>" +
-                                          "<Or>" +
-                                             "<Eq>" +
-                                                "<FieldRef Name='Title' />" +
-                                                "<Value Type='Text'>"+ BookName + @"</Value>" +
-                                             "</Eq>" +
-                                             "<Or>" +
-                                                "<Eq>" +
-                                                   "<FieldRef Name='Author' />" +
-                                                   "<Value Type='User'>"+ CreatedBy + "@</Value>" +
-                                                "</Eq>" +
-                                                "<Or>" +
-                                                   "<Eq>" +
-                                                      "<FieldRef Name='Category' />" +
-                                                      "<Value Type='Choice'>"+ Category + @"</Value>" +
-                                                   "</Eq>" +
-                                                   "<Eq>" +
-                                                      "<FieldRef Name='Author0' />" +
-                                                      "<Value Type='Text'>"+ Author + @"</Value>" +
-                                                   "</Eq>" +
-                                                "</Or>" +
-                                             "</Or>" +
-                                          "</Or>" +
-                                       "</Where>" + SharedConstants.MinistryFilesQuery;
+                                    //"<Where>" +
+                                    //      "<Or>" +
+                                    //         "<Eq>" +
+                                    //            "<FieldRef Name='Title' />" +
+                                    //            "<Value Type='Text'>"+ BookName + @"</Value>" +
+                                    //         "</Eq>" +
+                                    //         "<Or>" +
+                                    //            "<Eq>" +
+                                    //               "<FieldRef Name='Author' />" +
+                                    //               "<Value Type='User'>"+ CreatedBy + "@</Value>" +
+                                    //            "</Eq>" +
+                                    //            "<Or>" +
+                                    //               "<Eq>" +
+                                    //                  "<FieldRef Name='Category' />" +
+                                    //                  "<Value Type='Choice'>"+ Category + @"</Value>" +
+                                    //               "</Eq>" +
+                                    //               "<Eq>" +
+                                    //                  "<FieldRef Name='Author0' />" +
+                                    //                  "<Value Type='Text'>"+ Author + @"</Value>" +
+                                    //               "</Eq>" +
+                                    //            "</Or>" +
+                                    //         "</Or>" +
+                                    //      "</Or>" +
+                                    //   "</Where>" + SharedConstants.MinistryFilesQuery;
 
                                     //oQuery.ViewFields = SharedConstants.MinistryFilesViewfields;
 
