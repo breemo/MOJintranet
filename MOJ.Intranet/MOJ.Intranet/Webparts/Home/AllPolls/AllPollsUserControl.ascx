@@ -17,7 +17,15 @@
             allowMaximize: false,
             showClose: true,
             width: 600,
-            height: 400
+            height: 400,
+            dialogReturnValueCallback: function (result) {
+                if (result == SP.UI.DialogResult.OK) {
+                    window.location.reload();
+                }
+                if (result == SP.UI.DialogResult.cancel) {
+                    window.location.reload();
+                }
+            }
         };
         //Invoke the modal dialog by passing in the options array variable  
         SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
