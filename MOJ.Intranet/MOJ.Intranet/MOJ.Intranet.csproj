@@ -116,6 +116,7 @@
     <Compile Include="Classes\Data Manager\PeriodicalFormForGovernmentHousingDataManager.cs" />
     <Compile Include="Classes\Data Manager\HusbandORWifeDataManager.cs" />
     <Compile Include="Classes\Data Manager\EmployeeDataManager.cs" />
+    <Compile Include="Classes\Data Manager\ReturnFromLeaveServiceDataManager.cs" />
     <Compile Include="Classes\Data Manager\SonsDataManager.cs" />
     <Compile Include="Classes\Data Manager\DaysDataManager.cs" />
     <Compile Include="Classes\Data Manager\ReturnToDutyNoticeMembersOfTheJudiciaryDataManger.cs" />
