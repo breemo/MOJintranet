@@ -16,7 +16,7 @@ namespace MOJ.DataManager
         //True – For Success
         //False - For Error
 
-        public bool EmployeeMasterDataByEmployeeNumber(string EmployeeNumber, string LeaveReason)
+        public bool ReturnFromLeaveService(string EmployeeNumber, string LeaveReason)
         {
             bool responseMsg = false;
             try
