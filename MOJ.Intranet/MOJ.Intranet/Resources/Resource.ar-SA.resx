@@ -807,4 +807,7 @@
   <data name="MoreOccasions" xml:space="preserve">
     <value>المزيد من المناسبات</value>
   </data>
+  <data name="ResponseMsg" xml:space="preserve">
+    <value>نتيجة الارسال</value>
+  </data>
 </root>

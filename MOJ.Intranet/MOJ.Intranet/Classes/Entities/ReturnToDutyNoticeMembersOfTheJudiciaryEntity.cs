@@ -21,6 +21,8 @@ namespace MOJ.Entities
         public string DayID { get; set; }
         public string DayEn { get; set; }
         public string DayAr { get; set; }
+        public string ResponseMsg { get; set; }
+        public string ResponseMsgAR { get; set; }
 
         
         

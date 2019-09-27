@@ -2,6 +2,7 @@
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
+using MOJ.DataManager;
 using MOJ.Entities;
 using MOJ.Intranet.Classes.Common;
 using System;
@@ -101,10 +102,23 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnToDutyNoticeMembersOfTheTudici
 
                     itemSumbit.date = sDate;
                 }
-                ReturnToDutyNoticeMembersOfTheJudiciary rb = new ReturnToDutyNoticeMembersOfTheJudiciary();
+                ReturnFromLeaveServiceDataManager RLeave = new ReturnFromLeaveServiceDataManager();
+                bool isSavedwebserves = RLeave.ReturnFromLeaveService(Enumber.Value, "");
+                if (isSavedwebserves == true) { 
+                itemSumbit.ResponseMsg = "Success";
+                itemSumbit.ResponseMsgAR = "نجح الارسال";
+                }
+                else
+                {
+                    itemSumbit.ResponseMsg = "Error";
+                    itemSumbit.ResponseMsgAR = "فشل الارسال";
+
+                }
+               ReturnToDutyNoticeMembersOfTheJudiciary rb = new ReturnToDutyNoticeMembersOfTheJudiciary();
                 bool isSaved = rb.SaveUpdate(itemSumbit);
                 if (isSaved == true)
                 {
+
                     lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
                     posts.Style.Add("display", "none");
                     SuccessMsgDiv.Style.Add("display", "block");

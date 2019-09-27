@@ -41,6 +41,8 @@ namespace MOJ.DataManager
                             item = list.AddItem();
                         }                   
                         item["Day"] = Item.DayID;
+                        item["ResponseMsgAR"] = Item.ResponseMsgAR;
+                        item["ResponseMsg"] = Item.ResponseMsg;
                         item["Date"] = Item.date;
                         item["Title"] = Item.RequestNumber;
                         item.Update();
@@ -101,6 +103,8 @@ namespace MOJ.DataManager
                                     }
                                     obitem.date = Convert.ToDateTime(Item["Date"]);
                                     obitem.RequestNumber = Convert.ToString(Item["Title"]);
+                                    obitem.ResponseMsgAR = Convert.ToString(Item["ResponseMsgAR"]);
+                                    obitem.ResponseMsg = Convert.ToString(Item["ResponseMsg"]);
                                     obitem.Status = Convert.ToString(Item["Status"]);                                  
                                     obitem.CreatedBy  = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
                                     obitem.Created = Convert.ToDateTime(Item["Created"]);

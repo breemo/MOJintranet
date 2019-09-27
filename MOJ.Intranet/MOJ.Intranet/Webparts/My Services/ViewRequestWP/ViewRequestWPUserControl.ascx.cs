@@ -192,10 +192,14 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
             if (languageCode == "ar")
             {
+                addtopage("ResponseMsg", obitem.ResponseMsgAR);
+
                 addtopage("Emirate", obitem.DayAr);
             }
             else
             {
+                addtopage("ResponseMsg", obitem.ResponseMsg);
+
                 addtopage("Emirate", obitem.DayEn);
             }
             addtopage("Date", Convert.ToDateTime(obitem.date).ToString("dd MMM yyyy"));           
