@@ -20,7 +20,7 @@
         </div>
         <div class="os-content-glue" style="margin: -14px -28px;"></div>
         <div class="os-padding" style="top: 14px; right: 28px; bottom: 14px; left: 28px;">
-            <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;">
+            <div class="os-viewport os-viewport-native-scrollbars-invisible" >
                 <div class="os-content" style="height: 100%; width: 100%;">
 
                     <div class="clearfix">

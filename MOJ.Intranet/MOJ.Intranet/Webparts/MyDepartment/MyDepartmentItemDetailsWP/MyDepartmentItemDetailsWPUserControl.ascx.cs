@@ -19,7 +19,7 @@ namespace MOJ.Intranet.Webparts.MyDepartment.MyDepartmentItemDetailsWP
         }
         public void FillDetails()
         {
-            string ID = Request.QueryString["Id"].ToString();
+            string ID = Request.QueryString["Sid"].ToString();
             string Type = Request.QueryString["Type"].ToString();
 
             try

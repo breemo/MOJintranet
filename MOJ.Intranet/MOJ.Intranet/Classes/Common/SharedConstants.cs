@@ -169,7 +169,12 @@ namespace CommonLibrary
 
         public const string GalleryViewfields = "<FieldRef Name='Title'/><FieldRef Name='Created'/><FieldRef Name='isActive'/>";
 
-        public const string OccasionsQuery = "<OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+        public const string OccasionsQuery = @"<Where>
+                                                  <Eq>
+                                                     <FieldRef Name='Approval' />
+                                                     <Value Type='WorkflowStatus'>16</Value>
+                                                  </Eq>
+                                               </Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
         //public const string OccasionCommentsQuery = @"<Where>
                                                   //     <Eq>
 	                                              //         <FieldRef Name='OccasionId' />
