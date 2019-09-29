@@ -1,18 +1,21 @@
 ﻿using CommonLibrary;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
 {
-    public partial class SouqWebPartUserControl : UserControl
+    public partial class SouqWebPartUserControl : SiteUI
     {
         public int PageNumber
         {
@@ -52,13 +55,19 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
                                 SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.SouqListUrl);
                                 if (lst != null)
                                 {
+                                    //ddlCategorySubmit
                                     SPFieldMultiChoice CategoryChoice = (SPFieldMultiChoice)lst.Fields["Category"];
+                                    ddlCategorySubmit.Items.Insert(0, new ListItem(SPUtility.GetLocalizedString("$Resources: ddlSelect", "Resource", SPContext.Current.Web.Language), ""));
                                     for (int i = 0; i < CategoryChoice.Choices.Count; i++)
                                     {
                                         cbCategory.Items.Add(CategoryChoice.Choices[i].ToString());
+                                        ddlCategorySubmit.Items.Add(CategoryChoice.Choices[i].ToString());
                                     }
                                 }
                             }
+                            //item.Attributes.Add("class", "checkbox-box");
+                            //item.Text = "<span class=\"checkbox-box\">" + item.Value + "</span>";
+                            //chklstFSOptions.Items.Add(item);
                         }
                     }
                 });
@@ -167,6 +176,36 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
 
                 Control FooterTemplate = grdSouqlsts.Controls[grdSouqlsts.Controls.Count - 1].Controls[0];
                 FooterTemplate.FindControl("trEmpty").Visible = true;
+            }
+        }
+
+        protected void btnSubmitNewItem_Click(object sender, EventArgs e)
+        {
+            if (!_isRefresh)
+            {
+                SouqEntity itemSumbit = new SouqEntity();
+
+                itemSumbit.Title = txtTitle.Value;
+                itemSumbit.Category = ddlCategorySubmit.SelectedValue.ToString();
+                itemSumbit.Price = Convert.ToInt32(txtprice.Value);
+                itemSumbit.Description = exampleFormControlTextarea1.Value;
+                itemSumbit.ContactNumber = txtContactNum.Value;
+                Stream fs;
+                if (fu.HasFile)
+                {
+                    fs = fu.PostedFile.InputStream;
+                    itemSumbit.Photo = fs;
+                    itemSumbit.PhotoPath = fu.PostedFile.FileName;
+                }
+                else
+                    fs = null;
+
+                Souq souq = new Souq();
+                bool isSaved = souq.SaveUpdate(itemSumbit);
+                if (isSaved == true)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
+                }
             }
         }
     }

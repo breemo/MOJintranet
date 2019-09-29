@@ -18,5 +18,9 @@ namespace MOJ.Business
         {
             return new SouqDataManager().GetSouqDataFromCategories(Category1, Category2, Category3, Category4);
         }
+        public bool SaveUpdate(SouqEntity obj)
+        {
+            return new SouqDataManager().AddOrUpdate(obj);
+        }
     }
 }

@@ -27,7 +27,7 @@
 
 
 
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div id="MyPopup" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-body">
                         <div class="modal-content adsmodalx">
@@ -48,7 +48,7 @@
                                                     </div>
 
                                                     <div class="col-md-7">
-                                                        <input type="text" class="form-control" placeholder="">
+                                                        <input runat="server" id="txtTitle" type="text" class="form-control" placeholder="">
                                                     </div>
                                                 </div>
 
@@ -67,8 +67,8 @@
                                             </div>
                                             <div class="col-md-10">
 
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
+                                                <textarea runat="server" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                
 
 
 
@@ -89,11 +89,13 @@
                                                     </div>
 
                                                     <div class="col-md-7">
-                                                        <select class="form-control">
+                                                     <%--   <select class="form-control">
                                                             <option>الفئة</option>
                                                             <option>الاماره </option>
                                                             <option>الاماره</option>
-                                                        </select>
+                                                        </select>--%>
+                                                        <asp:DropDownList runat="server" ID="ddlCategorySubmit" CssClass="form-control">
+                                                        </asp:DropDownList>
                                                     </div>
                                                 </div>
 
@@ -115,7 +117,7 @@
                                             <div class="col-md-7">
 
 
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input runat="server" id="txtprice" type="text" class="form-control" placeholder="">
                                             </div>
                                         </div>
 
@@ -130,19 +132,20 @@
                                             </div>
                                             <div class="col-md-7">
 
-                                                <div class="input-group file-upload">
+                                              <%--  <div class="input-group file-upload">
                                                     <span class="wpcf7-form-control-wrap file-801 file-input">
                                                         <input type="file" name="file-801" size="40" class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" id="cv_file" accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv" aria-required="true" aria-invalid="false">
                                                     </span>
                                                     <label></label>
 
-                                                </div>
+                                                </div>--%>
+                                                <asp:FileUpload ID="fu" runat="server" CssClass="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" />
                                             </div>
-                                            <div class="col-md-3">
+                                            <%--<div class="col-md-3">
                                                 <a href="#" class="uploadbtindiv">تحميل الصورة
                                                                     <span class="icon-upload-alt icpad"></span>
                                                 </a>
-                                            </div>
+                                            </div>--%>
                                         </div>
 
 
@@ -158,7 +161,7 @@
                                             <div class="col-md-7">
 
 
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" runat="server" id="txtContactNum" class="form-control" placeholder="">
                                             </div>
                                         </div>
 
@@ -171,16 +174,17 @@
 
                                         <div class="row rt mt-5 botx">
 
-                                            <a href="#" class="wicnewdiv">تقديم
+                                            <%--<a href="#" class="wicnewdiv">تقديم</a>--%>
+                                            <asp:Button ID="btnSubmitNewItem" runat="server" CssClass="wicnewdiv" Text="تقديم" OnClick="btnSubmitNewItem_Click" />
+                                            
 
-                                            </a>
 
 
-
-                                            <a href="#" data-dismiss="modal"
+                                          <%--  <a href="#" data-dismiss="modal"
                                                 aria-hidden="true" class="wicnewdiv">الغاء
 
-                                            </a>
+                                            </a>--%>
+                                            <asp:Button ID="btnCancel" runat="server" data-dismiss="modal"  aria-hidden="true" CssClass="wicnewdiv" Text="الغاء" />
                                         </div>
 
                                     </div>
