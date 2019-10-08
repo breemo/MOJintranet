@@ -122,21 +122,24 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             }
         }
 
-
         public string GetPeriodicalFormForGovernmentHousingData(string RequestID)
         {
             PeriodicalFormForGovernmentHousingEntity masteritem = new PeriodicalFormForGovernmentHousing().GetByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", masteritem.RequestNumber, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
-
             UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
             addtopage("ContractNumber", masteritem.ContractNumber, "ApartmentNumber", masteritem.ApartmentNumber);
             addtopage("Owner", masteritem.Owner, "NumberOfRooms", masteritem.NumberOfRooms);
             addtopage("ACtype", masteritem.ACtype, "LeasingContractEndDate", masteritem.LeasingContractEndDate);
             addtopage("Mobile", masteritem.Mobile, "HomePhone", masteritem.HomePhone);
             addtopage("WorkPhone", masteritem.WorkPhone);
-
             AllData.Text += "<hr>";
-            addtopage("Data", masteritem.HusbandORWife);
+
+            string text1 = masteritem.HusbandORWife;
+            string trim1 = text1.Replace(" ", "");
+            var valuetext1 = SPUtility.GetLocalizedString("$Resources: " + trim1, "Resource", SPContext.Current.Web.Language);
+
+
+            addtopage("Data", valuetext1);
             List<HusbandORWifeEntity> HusbandORWifeis = new PeriodicalFormForGovernmentHousing().GetHusbandORWife(masteritem.RequestNumber);
             int i = 0;
             foreach (HusbandORWifeEntity HW in HusbandORWifeis)
@@ -146,7 +149,11 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 else
                     AllData.Text += "<div class='evenRow'>";
                 addtopage("Name", HW.Name, "HiringDate", Convert.ToDateTime(HW.HiringDate).ToString("dd MMM yyyy"));
-                addtopage("WorkSector", HW.workSector, "BasicSalary", HW.BasicSalary);
+                string text2 = HW.workSector;
+                string trim2 = text2.Replace(" ", "");
+                var valuetext2 = SPUtility.GetLocalizedString("$Resources: " + trim2, "Resource", SPContext.Current.Web.Language);
+
+                addtopage("WorkSector", valuetext2, "BasicSalary", HW.BasicSalary);
                 addtopage("LastEntryDate", HW.LastEntryDate, "LastExitDate", HW.LastExitDate);
 
                 var HasGovernmentHousingPercentageAllowanceHtml = "<span class='icon-times'></span>";
@@ -168,9 +175,18 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     AllData.Text += "<div>";
                 else
                     AllData.Text += "<div class='evenRow'>";
-                addtopage("Name", son.Name, "Gender", son.Gender);
-                addtopage("age", son.age, "Career", son.Career);
-                addtopage("age", son.age, "Career", son.Career);
+                string text3 = son.Gender;
+                string trim3 = text3.Replace(" ", "");
+                var valuetext3 = SPUtility.GetLocalizedString("$Resources: " + trim3, "Resource", SPContext.Current.Web.Language);
+
+                addtopage("Name", son.Name, "Gender", valuetext3);
+                string text4 = son.Career;
+                string trim4 = text4.Replace(" ", "");
+                var valuetext4 = SPUtility.GetLocalizedString("$Resources: " + trim4, "Resource", SPContext.Current.Web.Language);
+
+
+                addtopage("age", son.age, "Career", valuetext4);
+                addtopage("age", son.age, "Career", valuetext4);
                 if (son.Career != "Student" && son.Career != "طالب")
                 {
                     var HousingAllowanceHtml = "<span class='icon-times'></span>";
@@ -186,6 +202,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             }
             return masteritem.Status;
         }
+
         public string GetReturnNoticeData(string RequestID)
         {
             ReturnToDutyNoticeMembersOfTheJudiciaryEntity obitem = new ReturnToDutyNoticeMembersOfTheJudiciary().GetByID(Convert.ToInt32(RequestID));
@@ -330,61 +347,79 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             string Messaghtm = "<textarea disabled name ='txtMessag' id ='txtMessage' class='form-control'cols='120' rows='3'>" + HappinessHotlin.Message + "</textarea>";
             addtopage("Message", Messaghtm);
         }
-        public void GetAffirmationSocialSituationData(string RequestID)
+        public string GetAffirmationSocialSituationData(string RequestID)
         {
 
             AffirmationSocialSituationEntity AffirmationSocial = new AffirmationSocialSituationB().GetAffirmationSocialSituation(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", AffirmationSocial.RequestNumber, "RequestDate", AffirmationSocial.Created.ToString("dd MMM yyyy"), "title");
-
             UserData(Convert.ToString(AffirmationSocial.CreatedBy.User.LoginName));
-            addtopage("Data", AffirmationSocial.HusbandORWife);
 
+
+            string text = AffirmationSocial.HusbandORWife;
+            string trim = text.Replace(" ", "");
+            var HusbandORWifetext = SPUtility.GetLocalizedString("$Resources: " + trim, "Resource", SPContext.Current.Web.Language);
+
+
+            addtopage("Data", HusbandORWifetext);
             List<HusbandORWifeEntity> HusbandORWifeis = new AffirmationSocialSituationB().GetHusbandORWife(AffirmationSocial.RequestNumber);
             int i = 0;
             foreach (HusbandORWifeEntity HW in HusbandORWifeis)
             {
                 if (i % 2 == 0)
-                AllData.Text += "<div>";                
+                    AllData.Text += "<div>";
                 else
-                AllData.Text += "<div class='evenRow'>";                
+                    AllData.Text += "<div class='evenRow'>";
                 addtopage("Name", HW.Name);
                 addtopage("DateMarriage", Convert.ToDateTime(HW.DateOfMarriage).ToString("dd MMM yyyy"), "Employer", HW.Employer);
-                addtopage("WorkSector", HW.workSector, "HiringDate", Convert.ToDateTime(HW.HiringDate).ToString("dd MMM yyyy"));
+                string workSectortext1 = HW.workSector;
+                string workSectortrim = workSectortext1.Replace(" ", "");
+                var workSectortext = SPUtility.GetLocalizedString("$Resources: " + workSectortrim, "Resource", SPContext.Current.Web.Language);
+
+
+
+
+                addtopage("WorkSector", workSectortext, "HiringDate", Convert.ToDateTime(HW.HiringDate).ToString("dd MMM yyyy"));
                 var HasGovernmentHousingAllowanceHtml = "<span class='icon-times'></span>";
                 var HasGovernmentHousingPercentageAllowanceHtml = "<span class='icon-times'></span>";
                 if (HW.HasGovernmentHousingAllowance)
-                HasGovernmentHousingAllowanceHtml = "<span class='icon-check'></span>";                if (HW.HasGovernmentHousingPercentageAllowance)
-                HasGovernmentHousingPercentageAllowanceHtml = "<span class='icon-check'></span>";
+                    HasGovernmentHousingAllowanceHtml = "<span class='icon-check'></span>"; if (HW.HasGovernmentHousingPercentageAllowance)
+                    HasGovernmentHousingPercentageAllowanceHtml = "<span class='icon-check'></span>";
                 addtopage("HasGovernmentHousingAllowance", HasGovernmentHousingAllowanceHtml, "HasGovernmentHousingPercentageAllowance", HasGovernmentHousingPercentageAllowanceHtml);
-               AllData.Text += "</div>";
+                AllData.Text += "</div>";
                 i++;
             }
-            AllData.Text +="<hr>";
+            AllData.Text += "<hr>";
             //-------------------------------------------------------
             string textChildren = SPUtility.GetLocalizedString("$Resources: Children", "Resource", SPContext.Current.Web.Language);
             AllData.Text += "<div class='row rt  botx'><label>" + textChildren + "</label></div>";
-            
+
             List<SonsEntity> sons = new AffirmationSocialSituationB().Getsons(AffirmationSocial.RequestNumber);
             int conter = 0;
             foreach (SonsEntity son in sons)
             {
                 if (conter % 2 == 0)
-                   AllData.Text += "<div>";
+                    AllData.Text += "<div>";
                 else
-                   AllData.Text += "<div class='evenRow'>";
-               addtopage("Name", son.Name);
-               addtopage("Gender", son.Gender, "age", son.age);
-               AllData.Text += "</div>";
-               conter++;
+                    AllData.Text += "<div class='evenRow'>";
+                addtopage("Name", son.Name);
+                string Gendertext1 = son.Gender;
+                string Gendertrim = Gendertext1.Replace(" ", "");
+                var Gendertext = SPUtility.GetLocalizedString("$Resources: " + Gendertrim, "Resource", SPContext.Current.Web.Language);
+
+                addtopage("Gender", Gendertext, "age", son.age);
+                AllData.Text += "</div>";
+                conter++;
             }
             AllData.Text += "<hr>";
             //--------------------------------------
             string ChangeSS = SPUtility.GetLocalizedString("$Resources: ChangeSocialStatus", "Resource", SPContext.Current.Web.Language);
-             AllData.Text += "<div class='row rt  botx'><label>"+ ChangeSS + "</label></div>";        addtopage("Name", AffirmationSocial.Name);            
+            AllData.Text += "<div class='row rt  botx'><label>" + ChangeSS + "</label></div>"; addtopage("Name", AffirmationSocial.Name);
             addtopage("RelationshipType", AffirmationSocial.RelationshipType);
             addtopage("ChangeReason", AffirmationSocial.ChangeReason);
-            addtopage("ChangeDate", Convert.ToDateTime(AffirmationSocial.ChangeDate).ToString("dd MMM yyyy"));                    
+            addtopage("ChangeDate", Convert.ToDateTime(AffirmationSocial.ChangeDate).ToString("dd MMM yyyy"));
+            return AffirmationSocial.Status;
         }
+
         public void GetRoomBookingData(string RequestID) { 
           string valResourcesNeeded = "";
                 RoomBookingEntity Room = new RoomBooking().GetRoomBooking(Convert.ToInt32(RequestID));
@@ -393,7 +428,12 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 {
                     for (int i = 0; i < choices.Count; i++)
                     {
-                        valResourcesNeeded += "&nbsp;&nbsp;" + choices[i] + "&nbsp;&nbsp;";
+                    string text = choices[i].ToString();
+                    string Choicetrim = text.Replace(" ", "");
+                    var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+
+                    valResourcesNeeded += "&nbsp;&nbsp;" + placetext + "&nbsp;&nbsp;";
+                   
                     }
                 }
             addtopage("RequestNumber", Room.RequestNumber, "RequestDate", Room.Created.ToString("dd MMM yyyy"), "title");
@@ -411,8 +451,13 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 addtopage("Emirate", Room.EmirateEn);
             }
 
-            addtopage("Place", Room.Place);
-                addtopage("AttendeesNumber", Room.AttendeesNumber);
+            string textRoom = Room.Place;
+            string ChoiceRoomtrim = textRoom.Replace(" ", "");
+            var placeRoomtext = SPUtility.GetLocalizedString("$Resources: " + ChoiceRoomtrim, "Resource", SPContext.Current.Web.Language);
+
+
+            addtopage("Place", placeRoomtext);
+            addtopage("AttendeesNumber", Room.AttendeesNumber);
                 addtopage("fromDate", Convert.ToDateTime(Room.DateFrom).ToString("dd MMM yyyy hh:mm tt"));
                 addtopage("toDate", Convert.ToDateTime(Room.DateTo).ToString("dd MMM yyyy hh:mm tt"));
                 addtopage("mission", Room.Mission);

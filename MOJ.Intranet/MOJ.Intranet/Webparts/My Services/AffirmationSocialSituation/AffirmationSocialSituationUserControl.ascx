@@ -321,8 +321,11 @@
                         </div>
 
                         <div class="col-md-8">
-                            <input type="text" runat="server" required id="txtName" class="form-control" placeholder="">
-                        </div>
+                            <input type="text" runat="server"  id="txtName" class="form-control" placeholder="">
+                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="txtName" Display="Dynamic" >
+            </asp:RequiredFieldValidator>
+                            </div>
                     </div>
 
 
@@ -340,7 +343,10 @@
                         </div>
 
                         <div class="col-md-8">
-                            <input type="text" id="RelationshipType" required runat="server" class="form-control" placeholder="">
+                            <input type="text" id="RelationshipType"  runat="server" class="form-control" placeholder="">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="RelationshipType" Display="Dynamic" >
+            </asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -359,7 +365,10 @@
                         </div>
 
                         <div class="col-md-8">
-                            <input type="text" id="ChangeReason" required runat="server" class="form-control" placeholder="">
+                            <input type="text" id="ChangeReason"  runat="server" class="form-control" placeholder="">
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="ChangeReason" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
                         </div>
                     </div>
 
@@ -382,11 +391,14 @@
                         <div class="col-md-8">
 
                             <div class="input-group date" data-provide="datepicker">
-                                <input type="text" required runat="server" id="ChangeDate" class="form-control">
+                                <input type="text"  runat="server" id="ChangeDate" class="form-control">
                                 <div class="input-group-addon">
                                     <span class="icon-calendar-alt1"></span>
                                 </div>
                             </div>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorChangeDate" runat="server" 
+            ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="ChangeDate" Display="Dynamic" >
+            </asp:RequiredFieldValidator> 
 
                         </div>
                     </div>
@@ -535,7 +547,7 @@ background-color: #f5e9b6;
         $("#" + ID).val(radio1)
     }
     $('.HusbandORWife input').change(function () {
-        if (this.value == "الزوجة") {
+        if (this.value == "wife") {
             $('#AddWife').show();
         }
         else {

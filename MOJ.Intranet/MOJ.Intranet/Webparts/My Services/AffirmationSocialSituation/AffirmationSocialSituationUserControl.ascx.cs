@@ -82,12 +82,22 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                                     SPFieldChoice Choice0 = (SPFieldChoice)lst.Fields["HusbandORWife"];
                                     for (int i = 0; i < Choice0.Choices.Count; i++)
                                     {
-                                        RBHusbandORWife.Items.Add(Choice0.Choices[i].ToString());
+                                        string text = Choice0.Choices[i].ToString();
+                                        string Choicetrim = text.Replace(" ", "");
+                                        var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        RBHusbandORWife.Items.Add(new ListItem(placetext, Choice0.Choices[i].ToString()));
+
+                                       
                                     }
                                     SPFieldChoice Choice1 = (SPFieldChoice)lst.Fields["workSector"];
                                     for (int i = 0; i < Choice1.Choices.Count; i++)
                                     {
-                                        WorkSector0.Items.Add(Choice1.Choices[i].ToString());
+                                        string text = Choice1.Choices[i].ToString();
+                                        string Choicetrim = text.Replace(" ", "");
+                                        var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        WorkSector0.Items.Add(new ListItem(placetext, Choice1.Choices[i].ToString()));
+
+                                       
                                     }
                                 }
 
@@ -97,7 +107,11 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                                     SPFieldChoice Choice = (SPFieldChoice)lstSons.Fields["Gender"];
                                     for (int i = 0; i < Choice.Choices.Count; i++)
                                     {
-                                        Gender0.Items.Add(Choice.Choices[i].ToString());
+                                        string text = Choice.Choices[i].ToString();
+                                        string Choicetrim = text.Replace(" ", "");
+                                        var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        Gender0.Items.Add(new ListItem(placetext, Choice.Choices[i].ToString()));
+
                                     }
                                     
                                 }

@@ -220,6 +220,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtName;
         
         /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        
+        /// <summary>
         /// RelationshipType control.
         /// </summary>
         /// <remarks>
@@ -227,6 +236,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText RelationshipType;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// ChangeReason control.
@@ -238,6 +256,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation {
         protected global::System.Web.UI.HtmlControls.HtmlInputText ChangeReason;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// ChangeDate control.
         /// </summary>
         /// <remarks>
@@ -245,6 +272,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText ChangeDate;
+        
+        /// <summary>
+        /// RequiredFieldValidatorChangeDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorChangeDate;
         
         /// <summary>
         /// btnsubmit control.

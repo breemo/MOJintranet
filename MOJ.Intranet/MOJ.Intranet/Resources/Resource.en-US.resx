@@ -385,7 +385,7 @@
     <value>Mission</value>
   </data>
   <data name="resources" xml:space="preserve">
-    <value>يرجى توفير</value>
+    <value>Please provide</value>
   </data>
   <data name="RoomBooking" xml:space="preserve">
     <value>Room Booking</value>
@@ -809,5 +809,38 @@
   </data>
   <data name="ResponseMsg" xml:space="preserve">
     <value>Result Transmitter</value>
+  </data>
+  <data name="GeneralCabinetoftheMinistry" xml:space="preserve">
+    <value>General Cabinet of the Ministry</value>
+  </data>
+  <data name="HotelHall" xml:space="preserve">
+    <value>Hotel Hall</value>
+  </data>
+  <data name="lightdinner" xml:space="preserve">
+    <value>light dinner</value>
+  </data>
+  <data name="lunch" xml:space="preserve">
+    <value>lunch</value>
+  </data>
+  <data name="Snacks" xml:space="preserve">
+    <value>Snacks</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="governmental" xml:space="preserve">
+    <value>governmental</value>
+  </data>
+  <data name="husband" xml:space="preserve">
+    <value>husband</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="private" xml:space="preserve">
+    <value>private</value>
+  </data>
+  <data name="wife" xml:space="preserve">
+    <value>wife</value>
   </data>
 </root>

@@ -26,7 +26,7 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
                 GetStatus();
                 BindData();
                 
-                HeaderRowG();
+               
 
             }
         }
@@ -90,7 +90,7 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
             {
                 PageNumber2 = 0;
                 BindData();
-                HeaderRowG();
+                
             }
         }
 
@@ -146,7 +146,7 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
             PageNumber2 = Convert.ToInt32(e.CommandArgument) - 1;
             BindData();
            
-            HeaderRowG();
+         
         }
         private void BindData()
         {
@@ -212,6 +212,10 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
                     }
                     grdMyAccomplishedTasks.DataSource = pgitems;
                     grdMyAccomplishedTasks.DataBind();
+                    if (Requestsollection.Count > 0)
+                    {
+                        HeaderRowG();
+                    }
                 }
                 catch (Exception ex)
                 {

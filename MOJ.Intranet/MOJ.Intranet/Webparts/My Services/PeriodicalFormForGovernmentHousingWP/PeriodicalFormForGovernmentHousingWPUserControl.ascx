@@ -695,7 +695,7 @@ background-color: #f5e9b6;
         $(".employeeid").eq(Career).css("display", dis);
     }
     $('.HusbandORWife input').change(function () {
-        if (this.value == "الزوجة") {
+        if (this.value == "wife") {
             $('#AddWife').show();
         }
         else {

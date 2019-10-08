@@ -810,4 +810,37 @@
   <data name="ResponseMsg" xml:space="preserve">
     <value>نتيجة الارسال</value>
   </data>
+  <data name="GeneralCabinetoftheMinistry" xml:space="preserve">
+    <value>ديوان عام الوزارة</value>
+  </data>
+  <data name="HotelHall" xml:space="preserve">
+    <value>قاعة الفندق</value>
+  </data>
+  <data name="lightdinner" xml:space="preserve">
+    <value>عشاء خفيف</value>
+  </data>
+  <data name="lunch" xml:space="preserve">
+    <value>غداء</value>
+  </data>
+  <data name="Snacks" xml:space="preserve">
+    <value>وجبات خفيفة</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>أنثى</value>
+  </data>
+  <data name="governmental" xml:space="preserve">
+    <value>حكومي</value>
+  </data>
+  <data name="husband" xml:space="preserve">
+    <value>الزوج</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="private" xml:space="preserve">
+    <value>خاص</value>
+  </data>
+  <data name="wife" xml:space="preserve">
+    <value>الزوجة</value>
+  </data>
 </root>

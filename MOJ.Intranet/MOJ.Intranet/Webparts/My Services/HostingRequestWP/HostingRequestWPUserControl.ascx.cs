@@ -178,7 +178,11 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                                     SPFieldChoice PlaceChoice = (SPFieldChoice)lst.Fields["Place"];
                                     for (int i = 0; i < PlaceChoice.Choices.Count; i++)
                                     {
-                                        cbPlace.Items.Add(PlaceChoice.Choices[i].ToString());
+                                        string text = PlaceChoice.Choices[i].ToString();
+                                        string Choicetrim = text.Replace(" ", "");
+                                        var placetext = SPUtility.GetLocalizedString("$Resources: "+ Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        //cbPlace.Items.Add(PlaceChoice.Choices[i].ToString());
+                                        cbPlace.Items.Add(new ListItem(placetext, PlaceChoice.Choices[i].ToString()));
                                     }
                                 }
                             }
@@ -210,7 +214,14 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                                     SPFieldMultiChoice ResourcesChoice = (SPFieldMultiChoice)lst.Fields["ResourcesNeeded"];
                                     for (int i = 0; i < ResourcesChoice.Choices.Count; i++)
                                     {
-                                        cbResources.Items.Add(ResourcesChoice.Choices[i].ToString());
+
+
+                                        string text = ResourcesChoice.Choices[i].ToString();
+                                        string Choicetrim = text.Replace(" ", "");
+                                        var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                       
+                                        cbResources.Items.Add(new ListItem(placetext, ResourcesChoice.Choices[i].ToString()));
+                                        
                                     }
                                 }
                             }
