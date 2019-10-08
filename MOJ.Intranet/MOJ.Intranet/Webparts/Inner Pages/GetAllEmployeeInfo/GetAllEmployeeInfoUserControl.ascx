@@ -28,7 +28,7 @@
 
 
 <div class="boxsh">
-    <h3>الهيكل التنظيمي - البطاقة التعريفية للموظف</h3>
+    <h3><asp:Literal runat="server" Text="<%$ Resources:Resource, OrgSubject%>" /></h3>
 
 
     <div class="insidebox insidebox2">
@@ -39,14 +39,14 @@
             <ul class="tab-nav  clearfix">
                 <li>
                     <a href="#tab-responsive-1">
-                        <span class="nameicon">البحث عن الاسم
+                        <span class="nameicon"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByName%>" />
                         </span>
 
                     </a>
                 </li>
                 <li>
                     <a href="#tab-responsive-2">
-                        <span class="depicon">البحث عن الادارة
+                        <span class="depicon"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByDept%>" />
                         </span>
 
 
@@ -54,7 +54,7 @@
                 </li>
                 <li>
                     <a href="#tab-responsive-3">
-                        <span class="woho">البحث عن مكان العمل
+                        <span class="woho"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByPlace%>" />
                         </span>
 
 
@@ -79,12 +79,12 @@
 
                                         <div class="col-md-6 col-sm-12">
 
-                                            <input type="text" class="form-control" value="" runat="server" id="txtNameSearch" placeholder="الكلمات الرئيسية">
+                                            <input type="text" class="form-control" value="" runat="server" id="txtNameSearch" placeholder="<%$ Resources:Resource, PrimaryWords%>">
                                         </div>
 
                                         <div class="col-md-2">
                                             <%--<button class="detailbtn">بحث</button>--%>
-                                            <asp:Button ID="btnNameSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnNameSearch_Click" />
+                                            <asp:Button ID="btnNameSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWords%>" OnClick="btnNameSearch_Click" />
                                         </div>
 
                                     </div>
@@ -117,12 +117,12 @@
 
                                         <div class="col-md-6 col-sm-12">
 
-                                            <input type="text" class="form-control" value="" runat="server" id="txtDepartmentSearch" placeholder="الكلمات الرئيسية">
+                                            <input type="text" class="form-control" value="" runat="server" id="txtDepartmentSearch" placeholder="<%$ Resources:Resource, PrimaryWords%>">
                                         </div>
 
                                         <div class="col-md-2">
                                             <%--<button class="detailbtn">بحث</button>--%>
-                                            <asp:Button ID="btnDepartmentSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnDepartmentSearch_Click" />
+                                            <asp:Button ID="btnDepartmentSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWords%>" OnClick="btnDepartmentSearch_Click" />
                                         </div>
 
                                     </div>
@@ -154,12 +154,12 @@
 
 
                                         <div class="col-md-6 col-sm-12">
-                                            <input type="text" class="form-control" value="" runat="server" id="txtOffileLocation" placeholder="الكلمات الرئيسية">
+                                            <input type="text" class="form-control" value="" runat="server" id="txtOffileLocation" placeholder="<%$ Resources:Resource, PrimaryWords%>">
                                         </div>
 
                                         <div class="col-md-2">
                                             <%--<button class="detailbtn">بحث</button>--%>
-                                            <asp:Button ID="btnOfficeLocationSearch" CssClass="detailbtn" Text="بحث" runat="server" placeholder="الكلمات الرئيسية" OnClick="btnOfficeLocationSearch_Click" />
+                                            <asp:Button ID="btnOfficeLocationSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWords%>" OnClick="btnOfficeLocationSearch_Click" />
                                         </div>
 
                                     </div>
@@ -196,7 +196,7 @@
                         <div class="bgdivindf">
 
                             <div class="titleheadnew">
-                                <h4>بطاقة الاعمال الالكترونية</h4>
+                                <h4><asp:Literal runat="server" Text="<%$ Resources:Resource, BusinessECard%>" /></h4>
                             </div>
 
                             <div class="conentbgdivd">
@@ -218,7 +218,7 @@
 
                                                 <td>
                                                     <p class="rmae">
-                                                        الأسم
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" />
                                                     </p>
                                                 </td>
                                                 <td>
@@ -232,7 +232,7 @@
 
                                                 <td>
                                                     <p class="rmae">
-                                                        الأدارة
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" />
                                                     </p>
                                                 </td>
                                                 <td>
@@ -249,7 +249,7 @@
 
                                                 <td>
                                                     <p class="rmae">
-                                                        المسمى الوظيفي
+                                                       <asp:Literal runat="server" Text="<%$ Resources:Resource, JobTitle%>" />
                                                     </p>
                                                 </td>
                                                 <td>
@@ -265,7 +265,7 @@
 
                                                 <td>
                                                     <p class="rmae">
-                                                        البريد الألكتروني
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Email%>" />
                                                     </p>
                                                 </td>
                                                 <td>
@@ -282,7 +282,7 @@
 
                                                 <td>
                                                     <p class="rmae">
-                                                        هاتف العمل
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, WorkPhone%>" />
                                                     </p>
                                                 </td>
                                                 <td>

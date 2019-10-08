@@ -20,7 +20,8 @@
         <div class="nflexc">
 
 
-            <a href="#" class="btnclasscdd radix" data-toggle="modal" data-target=".bs-example-modal-lg">اضافة اعلان
+            <a href="#" class="btnclasscdd radix" data-toggle="modal" data-target=".bs-example-modal-lg">
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, AddAdvertisment%>" />
                                 <span class="icon-plus1 pad"></span>
             </a>
 
@@ -32,7 +33,7 @@
                     <div class="modal-body">
                         <div class="modal-content adsmodalx">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">أنشاء اعلان جديد</h4>
+                                <h4 class="modal-title" id="myModalLabel"><asp:Literal runat="server" Text="<%$ Resources:Resource, AddNewAdvertisment%>" /></h4>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
@@ -44,7 +45,7 @@
                                                 <div class="row">
 
                                                     <div class="col-md-2">
-                                                        <label>اسم المادة</label>
+                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, MaterialName%>" /></label>
                                                     </div>
 
                                                     <div class="col-md-7">
@@ -61,7 +62,7 @@
 
                                             <div class="col-md-2">
 
-                                                <label>الوصف</label>
+                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Descreption%>" /></label>
 
 
                                             </div>
@@ -85,7 +86,7 @@
                                                 <div class="row">
 
                                                     <div class="col-md-2">
-                                                        <label>الفئة</label>
+                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Category%>" /></label>
                                                     </div>
 
                                                     <div class="col-md-7">
@@ -110,7 +111,7 @@
 
                                             <div class="col-md-2">
 
-                                                <label>السعر</label>
+                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Price%>" /></label>
 
 
                                             </div>
@@ -126,7 +127,7 @@
 
                                             <div class="col-md-2">
 
-                                                <label>الصورة</label>
+                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Picture%>" /></label>
 
 
                                             </div>
@@ -154,7 +155,7 @@
 
                                             <div class="col-md-2">
 
-                                                <label>هاتف التواصل</label>
+                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ContactPhone%>" /></label>
 
 
                                             </div>
@@ -175,7 +176,7 @@
                                         <div class="row rt mt-5 botx">
 
                                             <%--<a href="#" class="wicnewdiv">تقديم</a>--%>
-                                            <asp:Button ID="btnSubmitNewItem" runat="server" CssClass="wicnewdiv" Text="تقديم" OnClick="btnSubmitNewItem_Click" />
+                                            <asp:Button ID="btnSubmitNewItem" runat="server" CssClass="wicnewdiv" Text="<%$ Resources:Resource, Submit%>" OnClick="btnSubmitNewItem_Click" />
                                             
 
 
@@ -184,7 +185,7 @@
                                                 aria-hidden="true" class="wicnewdiv">الغاء
 
                                             </a>--%>
-                                            <asp:Button ID="btnCancel" runat="server" data-dismiss="modal"  aria-hidden="true" CssClass="wicnewdiv" Text="الغاء" />
+                                            <asp:Button ID="btnCancel" runat="server" data-dismiss="modal"  aria-hidden="true" CssClass="wicnewdiv" Text="<%$ Resources:Resource, cancel%>" />
                                         </div>
 
                                     </div>
@@ -198,7 +199,7 @@
 
 
         <div class="boxleftbor">
-            <h4>سوقكم
+            <h4><asp:Literal runat="server" Text="<%$ Resources:Resource, Souqtitle%>" />
             </h4>
 
 
@@ -278,7 +279,7 @@
 
                                         <div class="uploadebox">
                                             <p>
-                                                السعر
+                                                <asp:Literal runat="server" Text="<%$ Resources:Resource, Price%>" />
                                                         <span> <%# Eval("Price") %></span>
 
                                             </p>
@@ -288,8 +289,8 @@
                                         <div class="infoboxbottomnew">
                                             <ul class="ulisit">
 
-                                                <li>البائع<span>: <%# Eval("CreatedBy") %></span></li>
-                                                <li>هاتف<span>: <%# Eval("ContactNumber") %></span></li>
+                                                <li><asp:Literal runat="server" Text="<%$ Resources:Resource, BuyerName%>" /><span>: <%# Eval("CreatedBy") %></span></li>
+                                                <li><asp:Literal runat="server" Text="<%$ Resources:Resource, Phone%>" /><span>: <%# Eval("ContactNumber") %></span></li>
 
                                             </ul>
                                         </div>
@@ -375,7 +376,7 @@
                 <div class="searchboxinside">
 
                     <div class="formdiv formby">
-                        <h5>تصفية حسب
+                        <h5><asp:Literal runat="server" Text="<%$ Resources:Resource, Filter%>" />
                         </h5>
                         <div class="row rt">
 

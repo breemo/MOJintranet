@@ -810,4 +810,58 @@
   <data name="ResponseMsg" xml:space="preserve">
     <value>Result Transmitter</value>
   </data>
+  <data name="AddAdvertisment" xml:space="preserve">
+    <value>Add Advertisment</value>
+  </data>
+  <data name="AddNewAdvertisment" xml:space="preserve">
+    <value>Add New Advertisment</value>
+  </data>
+  <data name="BusinessECard" xml:space="preserve">
+    <value>Business E-Card</value>
+  </data>
+  <data name="BuyerName" xml:space="preserve">
+    <value>Buyer Name</value>
+  </data>
+  <data name="ContactPhone" xml:space="preserve">
+    <value>Contact Phone</value>
+  </data>
+  <data name="Descreption" xml:space="preserve">
+    <value>Descreption</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter By</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>Job Title</value>
+  </data>
+  <data name="MaterialName" xml:space="preserve">
+    <value>Material Name</value>
+  </data>
+  <data name="OrgSubject" xml:space="preserve">
+    <value>Organizational Structure - Employee Identification E-Card</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Picture" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="PrimaryWords" xml:space="preserve">
+    <value>PrimaryWords</value>
+  </data>
+  <data name="SearchByDept" xml:space="preserve">
+    <value>Search for the managment</value>
+  </data>
+  <data name="SearchByName" xml:space="preserve">
+    <value>Search for the Name</value>
+  </data>
+  <data name="SearchByPlace" xml:space="preserve">
+    <value>Search for the work place</value>
+  </data>
+  <data name="Souqtitle" xml:space="preserve">
+    <value>Your Souq</value>
+  </data>
 </root>
