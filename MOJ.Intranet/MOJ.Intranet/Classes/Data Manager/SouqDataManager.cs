@@ -3,6 +3,7 @@ using Microsoft.SharePoint;
 using MOJ.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -116,6 +117,64 @@ namespace MOJ.DataManager
                 LoggingService.LogError("WebParts", ex.Message);
             }
             return Souqlst;
+        }
+        public bool AddOrUpdate(SouqEntity Souqitem)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.SouqListUrl);
+                        SPListItem item = null;
+                        if (Souqitem.ID > 0)
+                        {
+                            item = list.GetItemById(Souqitem.ID);
+                            isUpdate = true;
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+
+                        item["Title"] = Souqitem.Title;
+                        item["Description"] = Souqitem.Description;
+                        item["Category"] = Souqitem.Category;
+                        item["Price"] = Souqitem.Price;
+                        item["Contact Number"] = Souqitem.ContactNumber;
+                        //To Do Attachment
+
+                        if (Souqitem.Photo != null)
+                        {
+                            byte[] fileContents = new byte[Souqitem.Photo.Length];
+                            Souqitem.Photo.Read(fileContents, 0, (int)Souqitem.Photo.Length);
+                            Souqitem.Photo.Close();
+
+                            SPAttachmentCollection attachments = item.Attachments;
+                            string fileName = "Ficheiro_" + Path.GetFileName(Souqitem.PhotoPath);
+                            attachments.Add(fileName, fileContents);
+                        }
+
+                        item.Update();
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            return isFormSaved;
         }
     }
 }

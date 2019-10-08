@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,5 +18,9 @@ namespace MOJ.Entities
         public string AttachmentsInfo { get; set; }
         public string AttachmentPicture { get; set; }
         public string CreatedBy { get; set; }
+        public Stream Photo { get; set; }
+        public string PhotoPath { get; set; }
+
+
     }
 }

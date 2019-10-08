@@ -166,7 +166,7 @@ namespace MOJ.DataManager
                         item["Description"] = Item.Description;
                         item["DescriptionEn"] = Item.DescriptionEn;
                         item.Update();
-                        list.Update();
+                        //list.Update();
                         isFormSaved = true;
                     }
                     catch (Exception ex)

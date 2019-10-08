@@ -810,6 +810,60 @@
   <data name="ResponseMsg" xml:space="preserve">
     <value>نتيجة الارسال</value>
   </data>
+  <data name="AddAdvertisment" xml:space="preserve">
+    <value>اضافة اعلان</value>
+  </data>
+  <data name="AddNewAdvertisment" xml:space="preserve">
+    <value>أنشاء اعلان جديد</value>
+  </data>
+  <data name="BusinessECard" xml:space="preserve">
+    <value>بطاقة الاعمال الالكترونية</value>
+  </data>
+  <data name="BuyerName" xml:space="preserve">
+    <value>البائع</value>
+  </data>
+  <data name="ContactPhone" xml:space="preserve">
+    <value>هاتف التواصل</value>
+  </data>
+  <data name="Descreption" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>تصفية حسبs</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>المسمى الوظيفي</value>
+  </data>
+  <data name="MaterialName" xml:space="preserve">
+    <value>اسم المادة</value>
+  </data>
+  <data name="OrgSubject" xml:space="preserve">
+    <value>الهيكل التنظيمي - البطاقة التعريفية للموظف</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>هاتف</value>
+  </data>
+  <data name="Picture" xml:space="preserve">
+    <value>الصورة</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="PrimaryWords" xml:space="preserve">
+    <value>الكلمات الرئيسية</value>
+  </data>
+  <data name="SearchByDept" xml:space="preserve">
+    <value>البحث عن الادارة</value>
+  </data>
+  <data name="SearchByName" xml:space="preserve">
+    <value>البحث عن الاسم</value>
+  </data>
+  <data name="SearchByPlace" xml:space="preserve">
+    <value>البحث عن مكان العمل</value>
+  </data>
+  <data name="Souqtitle" xml:space="preserve">
+    <value>سوقكم</value>
+  </data>
   <data name="GeneralCabinetoftheMinistry" xml:space="preserve">
     <value>ديوان عام الوزارة</value>
   </data>
