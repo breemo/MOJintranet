@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
+using MOJ.Business;
 using MOJ.Entities;
 using RestSharp;
 using System;
@@ -268,6 +269,25 @@ namespace CommonLibrary
                 LoggingService.LogError("WebParts", ex.Message);
             }
             return Employee;
+        }
+
+        public static string currentUserDepartment()
+        {
+            string userDept = "";
+            try
+            {
+                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                {
+                    userDept = item.departmentNameField_AR.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+
+            return userDept;
         }
     }
 }

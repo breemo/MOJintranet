@@ -8,6 +8,8 @@ using MOJ.Business;
 using MOJ.Entities;
 using CommonLibrary;
 using Microsoft.SharePoint.Utilities;
+using System.Threading;
+using System.Globalization;
 
 namespace MOJ.Intranet.Webparts.Home.MOJNews
 {
@@ -76,7 +78,25 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
-        
+
+        //private string currentUserDepartment()
+        //{
+        //    string userDept = "";
+        //    try
+        //    {
+        //        List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+        //        foreach (EmployeeMasterDataEntity item in EmployeeValues)
+        //        {
+        //            userDept = item.departmentNameField_AR.ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        LoggingService.LogError("WebParts", ex.Message);
+        //    }
+
+        //    return userDept;
+        //}
         #endregion Methods
     }
 }

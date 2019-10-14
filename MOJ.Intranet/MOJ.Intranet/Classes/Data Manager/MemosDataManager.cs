@@ -33,9 +33,21 @@ namespace MOJ.DataManager
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.MemosQuery;
-                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
+                                    if (!string.IsNullOrEmpty(Methods.currentUserDepartment()))
+                                    {
+                                        string newsQuery = @"<Where>
+                                                              <Contains>
+                                                                 <FieldRef Name='Department' />
+                                                                 <Value Type='LookupMulti'>" + Methods.currentUserDepartment() + @"</Value>
+                                                              </Contains>
+                                                           </Where>";
 
+                                        oQuery.Query = newsQuery + SharedConstants.MemosQuery;
+                                    }
+                                    else
+                                    { oQuery.Query = SharedConstants.MemosQuery; }
+
+                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
                                     oQuery.RowLimit = 2;
 
                                     SPListItemCollection lstItems = lstMemos.GetItems(oQuery);
@@ -88,9 +100,22 @@ namespace MOJ.DataManager
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.MemosQuery;
-                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
 
+                                    if (!string.IsNullOrEmpty(Methods.currentUserDepartment()))
+                                    {
+                                        string newsQuery = @"<Where>
+                                                              <Contains>
+                                                                 <FieldRef Name='Department' />
+                                                                 <Value Type='LookupMulti'>" + Methods.currentUserDepartment() + @"</Value>
+                                                              </Contains>
+                                                           </Where>";
+
+                                        oQuery.Query = newsQuery + SharedConstants.MemosQuery;
+                                    }
+                                    else
+                                    { oQuery.Query = SharedConstants.MemosQuery; }
+
+                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
                                     //oQuery.RowLimit = 3;
 
                                     SPListItemCollection lstItems = lstMemos.GetItems(oQuery);
