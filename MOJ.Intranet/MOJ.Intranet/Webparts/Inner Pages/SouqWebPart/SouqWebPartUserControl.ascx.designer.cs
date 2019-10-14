@@ -13,6 +13,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart {
     public partial class SouqWebPartUserControl {
         
         /// <summary>
+        /// hdnPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPage;
+        
+        /// <summary>
         /// txtTitle control.
         /// </summary>
         /// <remarks>

@@ -42,8 +42,11 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
         }
         protected void lbNext_Click(object sender, EventArgs e)
         {
-            PageNumber += 1;
-            BindData();
+            if (PageNumber < rptPaging.Items.Count - 1)
+            {
+                PageNumber += 1;
+                BindData();
+            }
         }
         private void BindData()
         {
@@ -59,6 +62,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
 
                 //Control page size from here 
                 pgitems.PageSize = 8;
+                hdnPage.Value = Convert.ToString(PageNumber + 1);
                 pgitems.CurrentPageIndex = PageNumber;
 
                 if (pgitems.PageCount > 1)

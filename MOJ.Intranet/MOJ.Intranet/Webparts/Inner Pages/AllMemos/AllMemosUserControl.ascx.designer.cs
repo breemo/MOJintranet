@@ -13,6 +13,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos {
     public partial class AllMemosUserControl {
         
         /// <summary>
+        /// hdnPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPage;
+        
+        /// <summary>
         /// txtSrch control.
         /// </summary>
         /// <remarks>

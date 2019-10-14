@@ -7,6 +7,14 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MinistryFilesWebPartUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart.MinistryFilesWebPartUserControl" %>
 
+<style>
+    .active {
+        background-color: #e9ecef;
+    }
+</style>
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
+
 <div class="container-fullwidth clearfix">
 
     <!-- Post Content
@@ -294,3 +302,13 @@
     <!-- .sidebar end -->
 
 </div>
+
+<script>
+
+var valuepage=  document.getElementById('hdnPage').value;
+ $(".pagination a").each(function(){
+if($(this).text()== valuepage) 
+  $(this).addClass("active");
+    });
+
+</script>

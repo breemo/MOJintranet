@@ -7,7 +7,15 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SouqWebPartUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart.SouqWebPartUserControl" %>
 
+<style>
+    .active {
+        background-color: #e9ecef;
+    }
+</style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
 
 <div class="container-fullwidth clearfix">
 
@@ -480,4 +488,13 @@
             $('.file-upload label').text(fileName);
         });
     });
+</script>
+<script>
+
+    var valuepage = document.getElementById('hdnPage').value;
+    $(".pagination a").each(function () {
+        if ($(this).text() == valuepage)
+            $(this).addClass("active");
+    });
+
 </script>

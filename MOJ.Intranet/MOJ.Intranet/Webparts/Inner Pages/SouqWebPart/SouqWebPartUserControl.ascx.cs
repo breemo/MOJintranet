@@ -42,10 +42,13 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
         }
         protected void lbPrevious_Click(object sender, EventArgs e)
         {
-            if (PageNumber != 0)
+            if (PageNumber < rptPaging.Items.Count - 1)
             {
-                PageNumber -= 1;
-                BindData();
+                if (PageNumber != 0)
+                {
+                    PageNumber -= 1;
+                    BindData();
+                }
             }
         }
         protected void lbNext_Click(object sender, EventArgs e)
@@ -101,6 +104,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
 
                 //Control page size from here 
                 pgitems.PageSize = 12;
+                hdnPage.Value = Convert.ToString(PageNumber + 1);
                 pgitems.CurrentPageIndex = PageNumber;
 
                 if (pgitems.PageCount > 1)

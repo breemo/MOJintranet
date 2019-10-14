@@ -101,18 +101,21 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
         }
         protected void lbNext_Click(object sender, EventArgs e)
         {
-            PageNumber += 1;
-            int year = int.Parse(ddlYear.SelectedValue);
-            if (ddlMonth.SelectedValue != "0")
+            if (PageNumber < rptPaging.Items.Count - 1)
             {
-                int month = int.Parse(ddlMonth.SelectedValue);
-                int daysInMonth = DateTime.DaysInMonth(year, month);
+                PageNumber += 1;
+                int year = int.Parse(ddlYear.SelectedValue);
+                if (ddlMonth.SelectedValue != "0")
+                {
+                    int month = int.Parse(ddlMonth.SelectedValue);
+                    int daysInMonth = DateTime.DaysInMonth(year, month);
 
-                FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
-            }
-            else
-            {
-                FillData(year.ToString(), "1", "12", "1", "31");
+                    FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
+                }
+                else
+                {
+                    FillData(year.ToString(), "1", "12", "1", "31");
+                }
             }
         }
         public void FillRelatedNewsCarousel()
@@ -195,6 +198,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
 
                 //Control page size from here 
                 pgitems.PageSize = 5;
+                hdnPage.Value = Convert.ToString(PageNumber + 1);
                 pgitems.CurrentPageIndex = PageNumber;
 
                 if (pgitems.PageCount > 1)

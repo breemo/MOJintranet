@@ -15,7 +15,12 @@
     .page-link:focus {
         border-color: #bd995d !important;
     }
+     .active {
+        background-color: #e9ecef;
+    }
 </style>
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
 
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadPopularNews%>" />
@@ -156,6 +161,14 @@
     </ul>
 </div>
 
+<script>
 
+var valuepage=  document.getElementById('hdnPage').value;
+ $(".pagination a").each(function(){
+if($(this).text()== valuepage) 
+  $(this).addClass("active");
+    });
+
+</script>
 
 <%--<script src="/Style%20Library/MOJ-Theme/js/functions.js"></script>--%>

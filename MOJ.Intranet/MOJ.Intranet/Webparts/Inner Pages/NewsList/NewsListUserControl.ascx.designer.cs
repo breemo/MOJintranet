@@ -13,6 +13,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList {
     public partial class NewsListUserControl {
         
         /// <summary>
+        /// hdnPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPage;
+        
+        /// <summary>
         /// lblPopularNewsCarousel control.
         /// </summary>
         /// <remarks>
