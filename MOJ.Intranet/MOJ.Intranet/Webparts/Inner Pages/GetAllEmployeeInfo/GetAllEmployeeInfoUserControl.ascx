@@ -27,6 +27,14 @@
 </script>--%>
 
 
+<style>
+    .active {
+        background-color: #e9ecef;
+    }
+</style>
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
+
 <div class="boxsh">
     <h3><asp:Literal runat="server" Text="<%$ Resources:Resource, OrgSubject%>" /></h3>
 
@@ -38,14 +46,14 @@
 
             <ul class="tab-nav  clearfix">
                 <li>
-                    <a href="#tab-responsive-1">
+                    <a href="#tab-responsive-1" aria-controls="tab-responsive-1">
                         <span class="nameicon"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByName%>" />
                         </span>
 
                     </a>
                 </li>
                 <li>
-                    <a href="#tab-responsive-2">
+                    <a href="#tab-responsive-2" aria-controls="tab-responsive-2">
                         <span class="depicon"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByDept%>" />
                         </span>
 
@@ -53,7 +61,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#tab-responsive-3">
+                    <a href="#tab-responsive-3" aria-controls="tab-responsive-3">
                         <span class="woho"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByPlace%>" />
                         </span>
 
@@ -319,9 +327,11 @@
             <div class="pagi">
                 <ul class="pagination" id="PaginUI" runat="server">
                     <li class="page-item">
-                        <a class="page-link pageright" href="#">
-                            <i class="icon-angle-right"></i>
-                        </a>
+                        <%--<a class="page-link pageright" href="#">--%>
+                            <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
+                                <i class="icon-angle-right"></i>
+                            </asp:LinkButton>
+                            <%--</a>--%>
                     </li>
 
 
@@ -348,9 +358,11 @@
 
 
                     <li class="page-item">
-                        <a class="page-link pageleft" href="#">
-                            <i class="icon-angle-left"></i>
-                        </a>
+                         <%--<a class="page-link pageleft" href="#">--%>
+                            <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
+                                <i class="icon-angle-left"></i>
+                            </asp:LinkButton>
+                            <%--</a>--%>
                     </li>
                 </ul>
             </div>
@@ -370,6 +382,15 @@
 </div>
 
 
+<script>
+
+var valuepage=  document.getElementById('hdnPage').value;
+ $(".pagination a").each(function(){
+if($(this).text()== valuepage) 
+  $(this).addClass("active");
+    });
+
+</script>
 
 
 
