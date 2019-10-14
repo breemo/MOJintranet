@@ -138,6 +138,34 @@ namespace CommonLibrary
             return EmployeeID;
         }
 
+        public static string GetEmployeeDepartment(SPUser User)
+        {
+            string EmployeeDepartment = string.Empty;
+            try
+            {
+                using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb myweb = mySitesCollection.OpenWeb())
+                    {
+                        string currentUserlogin = User.LoginName;
+                        SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
+                        UserProfileManager profileManager = new UserProfileManager(context);
+                        UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
+
+                        if (currentProfile.GetProfileValueCollection("Department").Value != null)
+                        {
+                            EmployeeDepartment = currentProfile.GetProfileValueCollection("Department").Value.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return EmployeeDepartment;
+        }
+
         public static List<EmployeeMasterDataEntity> GetEmployeeMasterDataByEmployeeNumber(string EmployeeNumber)
         {
             List<EmployeeMasterDataEntity> Employee = new List<EmployeeMasterDataEntity>();

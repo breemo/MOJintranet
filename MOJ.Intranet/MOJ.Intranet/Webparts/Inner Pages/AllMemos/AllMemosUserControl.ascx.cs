@@ -32,7 +32,19 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
             if (!Page.IsPostBack)
                 BindData();
         }
-
+        protected void lbPrevious_Click(object sender, EventArgs e)
+        {
+            if (PageNumber != 0)
+            {
+                PageNumber -= 1;
+                BindData();
+            }
+        }
+        protected void lbNext_Click(object sender, EventArgs e)
+        {
+            PageNumber += 1;
+            BindData();
+        }
         private void BindData()
         {
             lblHead.Visible = true;

@@ -9,17 +9,17 @@
 
 <style>
     .entryitemx {
-    min-height: 125px;
-    height: auto !important;
-}
+        min-height: 125px;
+        height: auto !important;
+    }
 
-.pagi .pagination li a {
-    color: #9b9a9a !important;
-}
-.page-link:focus
-{
-    border-color:#bd995d !important;
-}
+    .pagi .pagination li a {
+        color: #9b9a9a !important;
+    }
+
+    .page-link:focus {
+        border-color: #bd995d !important;
+    }
 </style>
 
 <h4>
@@ -57,13 +57,12 @@
 
 
 <h4>
-    <asp:Literal runat="server" id="lblHead" Text="<%$ Resources:Resource, innerHeadCirculars%>" />
+    <asp:Literal runat="server" ID="lblHead" Text="<%$ Resources:Resource, innerHeadCirculars%>" />
 </h4>
 <div id="posts" class="small-thumbs alt">
     <asp:GridView ID="grdMemosLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="<%$ Resources:Resource, EmptyData%>"
         BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
-        EnableModelValidation="True" 
-        >
+        EnableModelValidation="True">
         <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
             Mode="NumericFirstLast" PageButtonCount="5" />
         <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
@@ -86,7 +85,7 @@
                                 <%#  Convert.ToDateTime(Eval("Date")).ToString("dddd")%>, <%#  Convert.ToDateTime(Eval("Date")).ToString("dd MMM yyyy")%>
                             </span>
                             <h6>
-                                <a href="<%# Eval("AttachmentsInfo") %>"  target="_blank"><%# Eval("Title") %>
+                                <a href="<%# Eval("AttachmentsInfo") %>" target="_blank"><%# Eval("Title") %>
                                 </a>
                             </h6>
                             <p>
@@ -106,9 +105,11 @@
 <div class="pagi" runat="server" id="pgng">
     <ul class="pagination">
         <li class="page-item">
-            <a class="page-link pageright" href="#">
-                <i class="icon-angle-right"></i>
-            </a>
+            <%--<a class="page-link pageright" href="#">--%>
+            <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
+                                <i class="icon-angle-right"></i>
+            </asp:LinkButton>
+            <%--</a>--%>
         </li>
         <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
             <ItemTemplate>
@@ -122,9 +123,11 @@
             </ItemTemplate>
         </asp:Repeater>
         <li class="page-item">
-            <a class="page-link pageleft" href="#">
-                <i class="icon-angle-left"></i>
-            </a>
+            <%--<a class="page-link pageleft" href="#">--%>
+            <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
+                                <i class="icon-angle-left"></i>
+            </asp:LinkButton>
+            <%--</a>--%>
         </li>
     </ul>
 </div>

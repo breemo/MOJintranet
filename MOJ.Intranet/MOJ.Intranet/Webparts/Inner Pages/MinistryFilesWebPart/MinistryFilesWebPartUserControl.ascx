@@ -118,8 +118,11 @@
                             </ItemTemplate>
                             <FooterTemplate>
                                 <tr id="trEmpty" runat="server" visible="false">
-								<td><br /></td>
-                                    <td colspan="3" align="center"> <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
+                                    <td>
+                                        <br />
+                                    </td>
+                                    <td colspan="3" align="center">
+                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
                                     </td>
                                 </tr>
                             </FooterTemplate>
@@ -131,9 +134,11 @@
                 <div class="pagi">
                     <ul class="pagination" id="PaginUI" runat="server">
                         <li class="page-item">
-                            <a class="page-link pageright" href="#">
+                            <%--<a class="page-link pageright" href="#">--%>
+                            <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
                                 <i class="icon-angle-right"></i>
-                            </a>
+                            </asp:LinkButton>
+                            <%--</a>--%>
                         </li>
 
 
@@ -160,9 +165,11 @@
 
 
                         <li class="page-item">
-                            <a class="page-link pageleft" href="#">
+                            <%--<a class="page-link pageleft" href="#">--%>
+                            <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
                                 <i class="icon-angle-left"></i>
-                            </a>
+                            </asp:LinkButton>
+                            <%--</a>--%>
                         </li>
                     </ul>
                 </div>
