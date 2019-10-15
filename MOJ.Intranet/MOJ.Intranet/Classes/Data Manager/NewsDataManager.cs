@@ -17,8 +17,8 @@ namespace MOJ.DataManager
             List<NewsEntity> newsLst = new List<NewsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
@@ -76,7 +76,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
 
             }
             catch (Exception ex)
@@ -90,8 +90,8 @@ namespace MOJ.DataManager
             List<NewsEntity> newsLst = new List<NewsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate()
+                //{
 
                     //using (SPSite oSite = new SPSite(web.Site.ID))
                     //{
@@ -155,7 +155,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
 
             }
             catch (Exception ex)
