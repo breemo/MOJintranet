@@ -31,13 +31,14 @@ namespace MOJ.DataManager
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
+                                    SPUser currentUser = oWeb.CurrentUser;
 
-                                    if (!string.IsNullOrEmpty(Methods.currentUserDepartment()))
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
                                     {
                                         string newsQuery = @"<Where>
                                                               <Contains>
                                                                  <FieldRef Name='Department' />
-                                                                 <Value Type='LookupMulti'>" + Methods.currentUserDepartment() + @"</Value>
+                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
                                                               </Contains>
                                                            </Where>";
 
@@ -108,13 +109,14 @@ namespace MOJ.DataManager
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
+                                    SPUser currentUser = oWeb.CurrentUser;
 
-                                    if (!string.IsNullOrEmpty(Methods.currentUserDepartment()))
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
                                     {
                                         string newsQuery = @"<Where>
                                                               <Contains>
                                                                  <FieldRef Name='Department' />
-                                                                 <Value Type='LookupMulti'>" + Methods.currentUserDepartment() + @"</Value>
+                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
                                                               </Contains>
                                                            </Where>";
 
@@ -228,14 +230,15 @@ namespace MOJ.DataManager
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
+                                    SPUser currentUser = oWeb.CurrentUser;
 
-                                    if (!string.IsNullOrEmpty(Methods.currentUserDepartment()))
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
                                     {
                                         string newsQuery = @"<Where>
                                                               <And>
                                                                  <Contains>
                                                                     <FieldRef Name='Department' />
-                                                                    <Value Type='LookupMulti'> " + Methods.currentUserDepartment() + @" </Value>
+                                                                    <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
                                                                  </Contains>
                                                                  <Contains>
                                                                     <FieldRef Name='Title' />
@@ -302,12 +305,36 @@ namespace MOJ.DataManager
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
+                                    SPUser currentUser = oWeb.CurrentUser;
 
-                                    oQuery.Query = @"<Where>
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        oQuery.Query = @"<Where>
+                                          <And>
+                                             <Contains>
+                                                <FieldRef Name='Department' />
+                                                <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                             </Contains>
+                                             <And>
+                                                <Geq>
+                                                    <FieldRef Name='Created' />
+                                                    <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Smonth + "-" + Sday + @"-T12:00:00Z</Value>
+                                                </Geq>
+                                                <Leq>
+                                                    <FieldRef Name='Created' />
+                                                    <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Emonth + "-" + Eday + @"-T12:00:00Z</Value>
+                                                </Leq>
+                                            </And>
+                                          </And>
+                                       </Where>";
+                                    }
+                                    else
+                                    {
+                                        oQuery.Query = @" < Where>
                                                       <And>
                                                          <Geq>
                                                             <FieldRef Name='Created' />
-                                                            <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Smonth + "-"+ Sday + @"-T12:00:00Z</Value>
+                                                            <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Smonth + "-" + Sday + @"-T12:00:00Z</Value>
                                                          </Geq>
                                                          <Leq>
                                                             <FieldRef Name='Created' />
@@ -315,6 +342,7 @@ namespace MOJ.DataManager
                                                          </Leq>
                                                       </And>
                                                    </Where>";
+                                    }
                                     
                                     oQuery.ViewFields = SharedConstants.MemosViewfields;
 

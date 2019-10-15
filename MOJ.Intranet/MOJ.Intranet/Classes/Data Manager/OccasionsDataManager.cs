@@ -30,9 +30,28 @@ namespace MOJ.DataManager
                                 if (lstOccasions != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.OccasionsQuery;
-                                    oQuery.ViewFields = SharedConstants.OccasionsViewfields;
+                                    SPUser currentUser = oWeb.CurrentUser;
 
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string OccasionsQuery = @"<Where>
+                                                                    <And>
+                                                                          <Eq>
+                                                                             <FieldRef Name='Approval' />
+                                                                             <Value Type='WorkflowStatus'>16</Value>
+                                                                          </Eq>
+                                                                         <Contains>
+                                                                            <FieldRef Name='Department' />
+                                                                            <Value Type='LookupMulti'>"+ Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                                        </Contains>
+                                                                    </And>
+                                                               </Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+
+                                        oQuery.Query = OccasionsQuery;
+                                    }
+                                    else { oQuery.Query = SharedConstants.OccasionsQuery; }
+                                    
+                                    oQuery.ViewFields = SharedConstants.OccasionsViewfields;
                                     oQuery.RowLimit = 3;
 
                                     SPListItemCollection lstItems = lstOccasions.GetItems(oQuery);
@@ -76,7 +95,28 @@ namespace MOJ.DataManager
                                 if (lstOccasions != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.OccasionsQuery;
+                                    SPUser currentUser = oWeb.CurrentUser;
+
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string OccasionsQuery = @"<Where>
+                                                                    <And>
+                                                                          <Eq>
+                                                                             <FieldRef Name='Approval' />
+                                                                             <Value Type='WorkflowStatus'>16</Value>
+                                                                          </Eq>
+                                                                         <Contains>
+                                                                            <FieldRef Name='Department' />
+                                                                            <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                                        </Contains>
+                                                                    </And>
+                                                               </Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+
+                                        oQuery.Query = OccasionsQuery;
+                                    }
+                                    else { oQuery.Query = SharedConstants.OccasionsQuery; }
+
+                                    //oQuery.Query = SharedConstants.OccasionsQuery;
                                     //oQuery.ViewFields = SharedConstants.OccasionsViewfields;
 
                                     SPListItemCollection lstItems = lstOccasions.GetItems(oQuery);

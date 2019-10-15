@@ -33,12 +33,14 @@ namespace MOJ.DataManager
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    if (!string.IsNullOrEmpty(Methods.currentUserDepartment()))
+                                    SPUser currentUser = oWeb.CurrentUser;
+
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
                                     {
                                         string newsQuery = @"<Where>
                                                               <Contains>
                                                                  <FieldRef Name='Department' />
-                                                                 <Value Type='LookupMulti'>" + Methods.currentUserDepartment() + @"</Value>
+                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
                                                               </Contains>
                                                            </Where>";
 
@@ -100,13 +102,14 @@ namespace MOJ.DataManager
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
+                                    SPUser currentUser = oWeb.CurrentUser;
 
-                                    if (!string.IsNullOrEmpty(Methods.currentUserDepartment()))
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
                                     {
                                         string newsQuery = @"<Where>
                                                               <Contains>
                                                                  <FieldRef Name='Department' />
-                                                                 <Value Type='LookupMulti'>" + Methods.currentUserDepartment() + @"</Value>
+                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
                                                               </Contains>
                                                            </Where>";
 
