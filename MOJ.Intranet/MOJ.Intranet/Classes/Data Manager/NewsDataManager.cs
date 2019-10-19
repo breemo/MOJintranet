@@ -97,8 +97,6 @@ namespace MOJ.DataManager
                     //{
                     //    using (SPWeb elevatedWeb = elevatedSite.RootWeb)
 
-
-
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -169,43 +167,43 @@ namespace MOJ.DataManager
             NewsEntity news = new NewsEntity();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
+                //SPSecurity.RunWithElevatedPrivileges(delegate()
+                //{
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                 {
-                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                    using (SPWeb oWeb = oSite.RootWeb)
                     {
-                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
-                        using (SPWeb oWeb = oSite.RootWeb)
+                        if (oWeb != null)
                         {
-                            if (oWeb != null)
+                            SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.NewsListUrl);
+                            if (lstNews != null)
                             {
-                                SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.NewsListUrl);
-                                if (lstNews != null)
-                                {
-                                    SPListItem NewsItem = lstNews.GetItemById(id);
+                                SPListItem NewsItem = lstNews.GetItemById(id);
 
-                                    news.ID = Convert.ToInt16(NewsItem[SharedConstants.ID]);
-                                    news.Title = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
-                                    news.Body = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
+                                news.ID = Convert.ToInt16(NewsItem[SharedConstants.ID]);
+                                news.Title = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                news.Body = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
 
-                                    news.Created = Convert.ToDateTime(NewsItem[SharedConstants.Created]);
-                                    news.Date = Convert.ToDateTime(NewsItem[SharedConstants.Date]);
+                                news.Created = Convert.ToDateTime(NewsItem[SharedConstants.Created]);
+                                news.Date = Convert.ToDateTime(NewsItem[SharedConstants.Date]);
 
-                                    string FileUrl = Methods.ReturnAttachmentFile(oWeb, NewsItem);
-                                    news.Picture = FileUrl;
+                                string FileUrl = Methods.ReturnAttachmentFile(oWeb, NewsItem);
+                                news.Picture = FileUrl;
 
-                                    //try
-                                    //{ news.Picture = oWeb.Url + "/" + NewsItem.ParentList.RootFolder.SubFolders["Attachments"].SubFolders[NewsItem.ID.ToString()].Files[0].Url; }
-                                    //catch
-                                    //{
-                                    //    news.Picture = SharedConstants.URL_NO_IMAGE;
-                                    //    // "../../../_layouts/YSA.SP.Portal/en/images/No-attachment-1.png";
-                                    //}
-                                }
+                                //try
+                                //{ news.Picture = oWeb.Url + "/" + NewsItem.ParentList.RootFolder.SubFolders["Attachments"].SubFolders[NewsItem.ID.ToString()].Files[0].Url; }
+                                //catch
+                                //{
+                                //    news.Picture = SharedConstants.URL_NO_IMAGE;
+                                //    // "../../../_layouts/YSA.SP.Portal/en/images/No-attachment-1.png";
+                                //}
                             }
                         }
                     }
-                });
-
+                }
+                //}
+            //);
             }
             catch (Exception ex)
             {
@@ -218,8 +216,8 @@ namespace MOJ.DataManager
             List<NewsEntity> newsLst = new List<NewsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -280,7 +278,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             {
@@ -293,8 +291,8 @@ namespace MOJ.DataManager
             List<NewsEntity> newsLst = new List<NewsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -365,7 +363,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             {

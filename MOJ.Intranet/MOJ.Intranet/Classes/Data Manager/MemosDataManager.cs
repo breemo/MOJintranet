@@ -18,8 +18,8 @@ namespace MOJ.DataManager
             List<MemosEntity> memosLst = new List<MemosEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
@@ -75,8 +75,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
-
+                //});
             }
             catch (Exception ex)
             {
@@ -89,8 +88,8 @@ namespace MOJ.DataManager
             List<MemosEntity> memosLst = new List<MemosEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
@@ -144,8 +143,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
-
+                //});
             }
             catch (Exception ex)
             {
@@ -158,8 +156,8 @@ namespace MOJ.DataManager
             MemosEntity memos = new MemosEntity();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -187,7 +185,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
 
             }
             catch (Exception ex)
@@ -201,8 +199,8 @@ namespace MOJ.DataManager
             List<MemosEntity> memosLst = new List<MemosEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
@@ -273,7 +271,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             {
