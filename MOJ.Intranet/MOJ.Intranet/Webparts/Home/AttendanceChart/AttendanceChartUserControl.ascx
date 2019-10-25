@@ -109,7 +109,7 @@
 <div class="blockbox minhe">
 
     <div class="chaid">
-        <canvas id="myChart" width="500" height="260"></canvas>
+        <canvas id="myChart" style="max-width:100% !important" width="500" height="260"></canvas>
 
         <!--<canvas dir="rtl" id="chart-2" height="250"></canvas>-->
     </div>

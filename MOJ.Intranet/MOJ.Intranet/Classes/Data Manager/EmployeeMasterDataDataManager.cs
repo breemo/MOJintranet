@@ -22,6 +22,7 @@ namespace MOJ.DataManager
             try
             {
                 var client = new RestClient(ConfigurationManager.AppSettings["EmployeeMasterDataServiceWebService"].ToString());
+                client.Proxy = null;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("content-type", "text/xml");
                 request.AddParameter("text/xml",

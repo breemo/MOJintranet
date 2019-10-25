@@ -7,6 +7,13 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HomeGalaryUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.HomeGalary.HomeGalaryUserControl" %>
 
+<style>
+.mCSB_container
+{
+width: auto !important;
+}
+</style>
+
 <div class="headlineflex">
     <h4 class="TitleHead">
         <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadGallery%>" />
@@ -16,7 +23,7 @@
     </a>
 </div>
 
-<div class="boxgallery" style="width:1125px">
+<div class="boxgallery">
     <div class="boxcd">
         <div id="content-6" class="content horizontal-images clearfix  mCustomScrollbar _mCS_1">
             <div id="mCSB_1" class="mCustomScrollBox mCS-light-3 mCSB_horizontal mCSB_inside" style="max-height: none;" tabindex="0">
