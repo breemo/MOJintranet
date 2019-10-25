@@ -324,7 +324,11 @@
                 </FooterTemplate>
             </asp:Repeater>
 
-            <div class="pagi">
+            
+
+
+        </div>
+        <div class="pagi">
                 <ul class="pagination" id="PaginUI" runat="server">
                     <li class="page-item">
                         <%--<a class="page-link pageright" href="#">--%>
@@ -366,9 +370,6 @@
                     </li>
                 </ul>
             </div>
-
-
-        </div>
 
 
 
