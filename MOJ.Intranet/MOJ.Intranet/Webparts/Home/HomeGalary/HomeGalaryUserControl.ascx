@@ -25,16 +25,36 @@ width: auto !important;
 
 <div class="boxgallery">
     <div class="boxcd">
-        <div id="content-6" class="content horizontal-images clearfix  mCustomScrollbar _mCS_1">
-            <div id="mCSB_1" class="mCustomScrollBox mCS-light-3 mCSB_horizontal mCSB_inside" style="max-height: none;" tabindex="0">
-                <div id="mCSB_1_container" class="mCSB_container" style="position: relative; top: 0px; left: -5px; width: 1544px; min-width: 100%; overflow-x: inherit;" dir="rtl">
-                    <ul class="" data-lightbox="gallery">
-                        <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
-                    </ul>
-                </div>
-                <div id="mCSB_1_scrollbar_horizontal" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light-3 mCSB_scrollTools_horizontal" style="display: block;">
-                </div>
-            </div>
-        </div>
+        <%--<div id="content-6" class="content horizontal-images clearfix   mCustomScrollbar _mCS_1">--%>
+            <div id="content-6" class="content horizontal-images clearfix ">   
+                        <ul class="" data-lightbox="gallery">
+                            <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
+                        </ul>
+                    </div>
+               <%-- <div id="mCSB_1_scrollbar_horizontal" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light-3 mCSB_scrollTools_horizontal" style="display: block;">
+                </div>--%>
+<%--		<div class="mCSB_scrollTools mCSB_1_scrollbar mCS-light-3 mCSB_scrollTools_horizontal" id="mCSB_1_scrollbar_horizontal" style="display: block;">
+		<div class="mCSB_draggerContainer">
+		<div class="mCSB_dragger" id="mCSB_1_dragger_horizontal" style="left: 0px; width: 316px; display: block; position: absolute; min-width: 68px; max-width: 679px;">
+		<div class="mCSB_dragger_bar">
+		</div>
+		</div>
+		<div class="mCSB_draggerRail">
+		</div>
+		</div>
+		</div>--%>
+
+
+
+
+
+       
+
+<%--        <div class="mCSB_scrollTools mCSB_1_scrollbar mCS-light-3 mCSB_scrollTools_horizontal" id="mCSB_1_scrollbar_horizontal" style="display: block;">
+            <div class="mCSB_draggerContainer"><div class="mCSB_dragger" id="mCSB_1_dragger_horizontal" style="left: 0px; width: 316px; display: block; position: absolute; min-width: 68px; max-width: 679px;">
+                <div class="mCSB_dragger_bar"></div></div>
+                <div class="mCSB_draggerRail">
+
+                                                          </div></div></div>--%>
     </div>
 </div>

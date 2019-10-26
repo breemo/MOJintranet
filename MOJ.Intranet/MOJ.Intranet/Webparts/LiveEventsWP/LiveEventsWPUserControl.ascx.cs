@@ -85,7 +85,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
                 
                 foreach (liveEventsEntity item in liveEventsLst)
                 {
-                    string des = LimitCharacters.Limit(item.Description, 25);
+                    string des = LimitCharacters.Limit2(item.Description, 25);
                     //string siteURL = SPContext.Current.RootFolderUrl;
 
                     lblbLiveEventsCurrentMonth.Text +=
@@ -146,7 +146,7 @@ namespace MOJ.Intranet.Webparts.LiveEventsWP
 
                 foreach (liveEventsEntity item in liveEventsLst)
                 {
-                    string des = LimitCharacters.Limit(item.Description, 25);
+                    string des = LimitCharacters.Limit2(item.Description, 25);
                     //string siteURL = SPContext.Current.RootFolderUrl;
 
                     lblArchive.Text +=

@@ -21,6 +21,16 @@ namespace CommonLibrary
             else return strDesc.ToString();
         }
 
+        public static string Limit2(object Desc, int length)
+        {
+            StringBuilder strDesc = new StringBuilder();
+            string str = StripHTML(Desc.ToString()).Replace("\r\n", string.Empty);
+            strDesc.Insert(0, str.ToString());
+            if (strDesc.Length > length)
+                return strDesc.ToString().Substring(0, length);
+            else return strDesc.ToString();
+        }
+
         public static string StripHTML(string HTMLText)
         {
             Regex reg = new Regex(("<(.|\n)+?>"), RegexOptions.IgnoreCase);
