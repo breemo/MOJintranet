@@ -12,6 +12,10 @@
 {
 max-width: 870px;
 }
+.overlay
+{
+display:none !important;
+}
 </style>
 
 <div class="headlineflex">
@@ -33,3 +37,4 @@ max-width: 870px;
             </div>
     </div>
 </div>
+
