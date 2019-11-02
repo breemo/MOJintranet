@@ -897,4 +897,10 @@
   <data name="wife" xml:space="preserve">
     <value>الزوجة</value>
   </data>
+  <data name="judgmentTitle" xml:space="preserve">
+    <value>كيف يمكنني مساعدتك</value>
+  </data>
+  <data name="Meetings" xml:space="preserve">
+    <value>الأجتماعات</value>
+  </data>
 </root>

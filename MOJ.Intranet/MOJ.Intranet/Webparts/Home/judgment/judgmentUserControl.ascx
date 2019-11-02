@@ -9,7 +9,7 @@
 
 <div class="judgment">
     <div class="headlineflex">
-        <h4 class="TitleHead">كيف يمكنني مساعدتك</h4>
+        <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, judgmentTitle%>" /></h4>
 
     </div>
 

@@ -31,7 +31,7 @@
 
         </div>
         <div class="row rt  botx" style="padding: 40px;">
-            <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+            <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="slide morebuttoncss arrow" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
         </div>
         <div class="col-md-6">
         </div>

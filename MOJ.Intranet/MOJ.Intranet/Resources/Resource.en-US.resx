@@ -169,7 +169,7 @@
     <value>View All</value>
   </data>
   <data name="HeadEvents" xml:space="preserve">
-    <value>ركن المناسبات</value>
+    <value>Event Section</value>
   </data>
   <data name="MoreEvents" xml:space="preserve">
     <value>More Events</value>
@@ -226,7 +226,7 @@
     <value>Related News</value>
   </data>
   <data name="HeadSrchNews" xml:space="preserve">
-    <value>بحث الاخبار</value>
+    <value>News Search</value>
   </data>
   <data name="month" xml:space="preserve">
     <value>Month</value>
@@ -896,5 +896,11 @@
   </data>
   <data name="wife" xml:space="preserve">
     <value>wife</value>
+  </data>
+  <data name="judgmentTitle" xml:space="preserve">
+    <value>How can help</value>
+  </data>
+  <data name="Meetings" xml:space="preserve">
+    <value>Meetings</value>
   </data>
 </root>
