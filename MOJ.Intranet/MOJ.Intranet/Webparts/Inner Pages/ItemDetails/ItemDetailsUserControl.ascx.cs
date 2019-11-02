@@ -76,7 +76,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
         }
         public void FillDetails()
         {
-            string ID = Request.QueryString["Id"].ToString();
+            string ID = Request.QueryString["Sid"].ToString();
             string Type = Request.QueryString["Type"].ToString();
 
             try

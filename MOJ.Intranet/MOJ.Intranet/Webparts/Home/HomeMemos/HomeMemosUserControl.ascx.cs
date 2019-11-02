@@ -54,7 +54,7 @@ namespace MOJ.Intranet.Webparts.Home.HomeMemos
                                     <div class='itemboxc'>
                                         <div class='itenewfo'>
                                             <h5>
-                                                <a href='{3}/Details.aspx?id={0}&type=circular'>{1}
+                                                <a href='{3}/Details.aspx?Sid={0}&type=circular'>{1}
                                                 </a>
                                             </h5>
                                             <span class='newdatefo'>{2}

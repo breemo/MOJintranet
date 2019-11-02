@@ -157,7 +157,7 @@
     <value>Circular Title</value>
   </data>
   <data name="innerCircularsLstItemHead" xml:space="preserve">
-    <value>قرار رقم</value>
+    <value>Circular Number</value>
   </data>
   <data name="innerHeadCirculars" xml:space="preserve">
     <value>نص قرار</value>

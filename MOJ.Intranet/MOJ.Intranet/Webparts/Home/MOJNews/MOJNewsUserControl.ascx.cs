@@ -66,7 +66,7 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                                 {2}
                             </div>
                             <div class='morebtn'>
-                                <a href='{5}/Details.aspx?id={4}&type=news' class='slide newmorebuttoncss arrow'>{3}
+                                <a href='{5}/Details.aspx?Sid={4}&type=news' class='slide newmorebuttoncss arrow'>{3}
                                   </a>
                             </div>
                         </div>
