@@ -89,7 +89,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
 
                 lblOccasionBody.Text = occasionItem.Description;
                 lblPublishDate.Text = Convert.ToDateTime(occasionItem.Created).ToString("dd MMM yyyy"); // "10 ديسمبر 2012";
-                lblPublishedBy.Text = occasionItem.CreatedBy;
+                lblPublishedBy.Text = occasionItem.CreatedBy.Split('#')[1];
                 BindComments(OccasionID);
 
             }

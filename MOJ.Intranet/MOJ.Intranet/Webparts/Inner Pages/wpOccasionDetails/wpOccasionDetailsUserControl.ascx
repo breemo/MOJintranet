@@ -51,7 +51,7 @@
                                 <img src="/Style%20Library/MOJTheme/images/icons/avatar.jpg" class="img-circle img-fluid" />
                             </div>
                             <div class="ricom">
-                                <p class="urnamex"><%# Eval("CreatedBy") %></p>
+                                <p class="urnamex"><%# Eval("CreatedBy").ToString().Split('#')[1] %></p>
                                 <p class="dateurx">أمس الساعة 8:03</p>
                                 <p class="ricomdesc">
                                     <%# Eval("Description") %>
