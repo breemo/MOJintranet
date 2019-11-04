@@ -232,46 +232,54 @@ namespace MOJ.DataManager
         {
             bool isFormSaved = false;
 
-            //SPSecurity.RunWithElevatedPrivileges(delegate ()
-            //{
-            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
-            {
-                using (SPWeb web = site.RootWeb)
-                {
-                    try
-                    {
-                        SPUser currentUser = web.CurrentUser;
+            SPSite site1 = new SPSite(SPContext.Current.Site.Url);
+            SPWeb web1 = site1.RootWeb;
+            web1.AllowUnsafeUpdates = true;
+            SPUser currentUser1 = web1.CurrentUser;
+            string value1 = currentUser1.ID + ";#" + currentUser1.Name;
 
-                        web.AllowUnsafeUpdates = true;
-                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.OccasionCommentsListUrl);
-                        SPListItem item = null;
-                        if (Item.ID > 0)
-                        {
-                            item = list.GetItemById(Item.ID);
-                        }
-                        else
-                        {
-                            item = list.AddItem();
-                        }
-                        item["OccasionID"] = Item.OccasionID;
-                        item["Description"] = Item.Description;
-                        item.Update();
-                        list.Update();
-                        isFormSaved = true;
-                    }
-                    catch (Exception ex)
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb web = site.RootWeb)
                     {
-                        isFormSaved = false;
-                        LoggingService.LogError("WebParts", ex.Message);
-                        throw ex;
-                    }
-                    finally
-                    {
-                        web.AllowUnsafeUpdates = false;
+                        try
+                        {
+                            SPUser currentUser2 = web.CurrentUser;
+
+                            web.AllowUnsafeUpdates = true;
+                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.OccasionCommentsListUrl);
+                            SPListItem item = null;
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["OccasionID"] = Item.OccasionID;
+                            item["Description"] = Item.Description;
+                            item["Author"] = value1; //for Created By field
+
+                            item.Update();
+                            list.Update();
+                            isFormSaved = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            isFormSaved = false;
+                            LoggingService.LogError("WebParts", ex.Message);
+                            throw ex;
+                        }
+                        finally
+                        {
+                            web.AllowUnsafeUpdates = false;
+                        }
                     }
                 }
-            }
-            //});
+            });
             return isFormSaved;
         }
 

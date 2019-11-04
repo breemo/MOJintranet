@@ -7,6 +7,17 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wpAlbumFilesUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.wpAlbumFiles.wpAlbumFilesUserControl" %>
 
+<style>
+    img.image_fade {
+    min-height: 189px !important;
+}
+    @media (min-width: 576px){
+            img.image_fade {
+            min-height: 116px !important;
+        }
+    }
+</style>
+
 <h3 class="nbottodiv">
     <asp:Literal runat="server" ID="lblHead" Text="<%$ Resources:Resource, HeadGallery%>" />
 </h3>
