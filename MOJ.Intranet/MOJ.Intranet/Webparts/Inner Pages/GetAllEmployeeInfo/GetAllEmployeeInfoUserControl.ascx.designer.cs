@@ -22,6 +22,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo {
         protected global::System.Web.UI.WebControls.HiddenField hdnPage;
         
         /// <summary>
+        /// Tab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField Tab;
+        
+        /// <summary>
         /// txtNameSearch control.
         /// </summary>
         /// <remarks>

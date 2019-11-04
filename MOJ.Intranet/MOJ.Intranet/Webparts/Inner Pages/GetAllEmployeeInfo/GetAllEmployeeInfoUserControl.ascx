@@ -28,7 +28,7 @@
 
 <script type="text/javascript">
         $(document).ready(function () {
-            var tabId = document.getElementById('hdnPage').value;
+            var tabId = document.getElementById('Tab').value;
 			window.location.hash +=tabId;
              //alert(tabId);
         });
@@ -36,15 +36,15 @@
 <script type="text/javascript">
 function setTab1()
 {
-document.getElementById('hdnPage').value = "tab-responsive-1";
+    document.getElementById('Tab').value = "tab-responsive-1";
 }
 function setTab2()
 {
-document.getElementById('hdnPage').value = "tab-responsive-2";
+    document.getElementById('Tab').value = "tab-responsive-2";
 }
 function setTab3()
 {
-document.getElementById('hdnPage').value = "tab-responsive-3";
+    document.getElementById('Tab').value = "tab-responsive-3";
 }
 </script>
 
@@ -55,6 +55,7 @@ document.getElementById('hdnPage').value = "tab-responsive-3";
 </style>
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
+<asp:HiddenField ClientIDMode="Static" ID="Tab" runat="server" />
 
 <div class="boxsh">
     <h3>
