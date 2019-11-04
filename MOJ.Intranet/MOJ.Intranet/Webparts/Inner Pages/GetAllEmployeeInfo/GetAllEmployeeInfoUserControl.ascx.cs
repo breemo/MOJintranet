@@ -101,7 +101,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
 
                 //Control page size from here 
                 pgitems.PageSize = 9;
-                hdnPage.Value = Convert.ToString(PageNumber + 1);
+                hdnPage.Value = "tab-responsive-1";
                 pgitems.CurrentPageIndex = PageNumber;
 
                 if (pgitems.PageCount > 1)
