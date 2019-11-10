@@ -22,8 +22,10 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllServicesList
                     if (!IsPostBack)
                     {
                         BindData();
+                        BindCoartServices();
+                        BindEmployeesServices();
+                        BindEServices();
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -62,6 +64,99 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllServicesList
                                             </div>
                                         </div>
                                     </div>", item.Picture, siteURL,item.PageName,item.Title);
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+        private void BindCoartServices()
+        {
+            try
+            {
+                List<ExternalLinkEntity> ExternalLinksLst = new ExternalLink().GetAllActiveExternalLinks("خدمات المحاكم");
+
+                lblDrawCoartServices.Text = "";
+
+                foreach (ExternalLinkEntity item in ExternalLinksLst) //check all items
+                {
+                    lblDrawCoartServices.Text +=
+                    string.Format(@"<div class='col-sm-3'>
+                                        <div class='orderbox'>
+                                            <div class='topnot'>
+                                                <p>
+                                                    <img src='{0}' />
+                                                </p>
+                                            </div>
+                                            <div class='botonot'>
+                                                <a href='{1}' class=''>{2}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>", item.Picture, item.URL, item.Title);
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+        private void BindEmployeesServices()
+        {
+            try
+            {
+                List<ExternalLinkEntity> ExternalLinksLst = new ExternalLink().GetAllActiveExternalLinks("خدمات الموظفين");
+
+                lblDrawEmployeesServices.Text = "";
+
+                foreach (ExternalLinkEntity item in ExternalLinksLst) //check all items
+                {
+                    lblDrawEmployeesServices.Text +=
+                    string.Format(@"<div class='col-sm-3'>
+                                        <div class='orderbox'>
+                                            <div class='topnot'>
+                                                <p>
+                                                    <img src='{0}' />
+                                                </p>
+                                            </div>
+                                            <div class='botonot'>
+                                                <a href='{1}' class=''>{2}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>", item.Picture, item.URL, item.Title);
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+        private void BindEServices()
+        {
+            try
+            {
+                List<ExternalLinkEntity> ExternalLinksLst = new ExternalLink().GetAllActiveExternalLinks("خدمات الكترونية");
+
+                lblDrawEServices.Text = "";
+
+                foreach (ExternalLinkEntity item in ExternalLinksLst) //check all items
+                {
+                    lblDrawEServices.Text +=
+                    string.Format(@"<div class='col-sm-3'>
+                                        <div class='orderbox'>
+                                            <div class='topnot'>
+                                                <p>
+                                                    <img src='{0}' />
+                                                </p>
+                                            </div>
+                                            <div class='botonot'>
+                                                <a href='{1}' class=''>{2}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>", item.Picture, item.URL, item.Title);
                 }
             }
             catch (Exception ex)

@@ -118,4 +118,70 @@ namespace MOJ.DataManager
         //}
         # endregion
     }
+
+    public class ExternalLinksManager
+    {
+        #region ServicesList
+        public List<ExternalLinkEntity> GetAllActiveExternalLinksData(string srvsType)
+        {
+            List<ExternalLinkEntity> ExternalLinksLst = new List<ExternalLinkEntity>();
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lstExternalLinks = oWeb.GetListFromUrl(oSite.Url + SharedConstants.ExternalLinksListUrl);
+                                if (lstExternalLinks != null)
+                                {
+                                    SPQuery oQuery = new SPQuery();
+                                    oQuery.Query = @"<Where>
+                                                          <And>
+                                                             <Eq>
+                                                                <FieldRef Name='IsActive' />
+                                                                <Value Type='Boolean'>1</Value>
+                                                             </Eq>
+                                                             <Eq>
+                                                                <FieldRef Name='SericeType' />
+                                                                <Value Type='Choice'>"+ srvsType + @"</Value>
+                                                             </Eq>
+                                                          </And>
+                                                    </Where><OrderBy><FieldRef Name='Order0' Ascending='True' /></OrderBy>"; ;
+
+                                    SPListItemCollection lstItems = lstExternalLinks.GetItems(oQuery);
+                                    foreach (SPListItem lstItem in lstItems)
+                                    {
+                                        ExternalLinkEntity externalLinks = new ExternalLinkEntity();
+                                        externalLinks.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
+                                        externalLinks.Title = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                        //externalLinks.Description = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: colDescription", "Resource", SPContext.Current.Web.Language)]);
+                                        externalLinks.Created = Convert.ToDateTime(lstItem[SharedConstants.Created]);
+                                        externalLinks.URL = Convert.ToString(lstItem["ServiceURL"]);
+
+                                        string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
+                                        if (FileUrl != "#")
+                                            externalLinks.Picture = FileUrl;
+                                        else
+                                            externalLinks.Picture = SharedConstants.URL_NO_IMAGE;
+
+                                        ExternalLinksLst.Add(externalLinks);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return ExternalLinksLst;
+        }
+        #endregion
+    }
 }

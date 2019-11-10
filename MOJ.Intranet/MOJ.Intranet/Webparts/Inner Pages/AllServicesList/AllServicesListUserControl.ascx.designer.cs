@@ -29,5 +29,32 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllServicesList {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblDrawItems;
+        
+        /// <summary>
+        /// lblDrawCoartServices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblDrawCoartServices;
+        
+        /// <summary>
+        /// lblDrawEmployeesServices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblDrawEmployeesServices;
+        
+        /// <summary>
+        /// lblDrawEServices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblDrawEServices;
     }
 }

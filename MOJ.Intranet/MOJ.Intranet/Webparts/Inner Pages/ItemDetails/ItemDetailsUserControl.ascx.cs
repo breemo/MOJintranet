@@ -57,7 +57,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
                             <div class='entry-c'>
                                 <div class='entry-title'>
                                     <span class='endate'>{3}, {2}</span>
-                                    <h2><a href='{5}/Details.aspx?id={4}&type=news'>{1}</a></h2>
+                                    <h2><a href='{5}/Details.aspx?sid={4}&type=news'>{1}</a></h2>
                                 </div>
                             </div>
                         </div>

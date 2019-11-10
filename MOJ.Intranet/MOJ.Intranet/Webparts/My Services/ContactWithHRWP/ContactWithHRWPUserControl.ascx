@@ -8,6 +8,16 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ContactWithHRWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.My_Services.ContactWithHRWP.ContactWithHRWPUserControl" %>
 
 
+<style>
+
+    input[type="radio"], input[type="checkbox"]
+    {
+        width:20px;
+        height:20px;
+    }
+
+</style>
+
 
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, ContactWithHR%>" />
@@ -54,6 +64,7 @@
                         </div>
                         <div class="col-md-9 RadioButto">
                        <asp:RadioButtonList ID="RBContactReason" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
+
                                     </asp:RadioButtonList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorRBContactReason" runat="server" 
             ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="RBContactReason" Display="Dynamic" >
