@@ -11,5 +11,14 @@ namespace MOJ.Intranet.Webparts.Home.AttendanceChart {
     
     
     public partial class AttendanceChartUserControl {
+        
+        /// <summary>
+        /// Chartimg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Chartimg;
     }
 }

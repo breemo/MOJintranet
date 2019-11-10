@@ -906,4 +906,7 @@
   <data name="AttendeesChartImage" xml:space="preserve">
     <value>/Ar/PublishingImages/download.png</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>عودة</value>
+  </data>
 </root>
