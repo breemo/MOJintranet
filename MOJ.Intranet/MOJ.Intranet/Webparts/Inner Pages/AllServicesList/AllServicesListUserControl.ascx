@@ -49,19 +49,28 @@
                 </div>
             </div>
             <div class="tab-content clearfix" id="tab-responsive-2">
-                
+                <div class="row">
+                    <div class="d-flex ordercontainerServices">
+                        <asp:Literal ID="lblDrawCoartServices" runat="server"></asp:Literal>
+                    </div>
+                </div>
             </div>
             <div class="tab-content clearfix" id="tab-responsive-3">
-
+                <div class="row">
+                    <div class="d-flex ordercontainerServices">
+                        <asp:Literal ID="lblDrawEmployeesServices" runat="server"></asp:Literal>
+                    </div>
+                </div>
             </div>
             <div class="tab-content clearfix" id="tab-responsive-4">
-                
+                <div class="row">
+                    <div class="d-flex ordercontainerServices">
+                        <asp:Literal ID="lblDrawEServices" runat="server"></asp:Literal>
+                    </div>
+                </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 <!-- #posts end -->
 
