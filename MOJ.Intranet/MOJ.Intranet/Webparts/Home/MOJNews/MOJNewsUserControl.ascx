@@ -7,6 +7,13 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MOJNewsUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.MOJNews.MOJNewsUserControl" %>
 
+<style>
+    /*justify-content: space-evenly;*/
+    .newsdivbox {
+        justify-content: end;
+    }
+</style>
+
 <div class="headlineflex">
     <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadNews%>" /></h4>
     <a href="<%= SPContext.Current.RootFolderUrl %>/NewsList.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, MoreNews%>" /></a>

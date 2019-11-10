@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
+using MOJ.Business;
 using MOJ.Entities;
 using RestSharp;
 using System;
@@ -137,6 +138,34 @@ namespace CommonLibrary
             return EmployeeID;
         }
 
+        public static string GetEmployeeDepartment(SPUser User)
+        {
+            string EmployeeDepartment = string.Empty;
+            try
+            {
+                using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb myweb = mySitesCollection.OpenWeb())
+                    {
+                        string currentUserlogin = User.LoginName;
+                        SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);
+                        UserProfileManager profileManager = new UserProfileManager(context);
+                        UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
+
+                        if (currentProfile.GetProfileValueCollection("Department").Value != null)
+                        {
+                            EmployeeDepartment = currentProfile.GetProfileValueCollection("Department").Value.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return EmployeeDepartment;
+        }
+
         public static List<EmployeeMasterDataEntity> GetEmployeeMasterDataByEmployeeNumber(string EmployeeNumber)
         {
             List<EmployeeMasterDataEntity> Employee = new List<EmployeeMasterDataEntity>();
@@ -268,6 +297,25 @@ namespace CommonLibrary
                 LoggingService.LogError("WebParts", ex.Message);
             }
             return Employee;
+        }
+
+        public static string currentUserDepartment()
+        {
+            string userDept = "";
+            try
+            {
+                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                {
+                    userDept = item.departmentNameField_AR.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+
+            return userDept;
         }
     }
 }

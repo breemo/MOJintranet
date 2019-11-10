@@ -13,6 +13,24 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo {
     public partial class GetAllEmployeeInfoUserControl {
         
         /// <summary>
+        /// hdnPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPage;
+        
+        /// <summary>
+        /// Tab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField Tab;
+        
+        /// <summary>
         /// txtNameSearch control.
         /// </summary>
         /// <remarks>
@@ -85,6 +103,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PaginUI;
         
         /// <summary>
+        /// lbPrevious control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbPrevious;
+        
+        /// <summary>
         /// rptPaging control.
         /// </summary>
         /// <remarks>
@@ -92,5 +119,14 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptPaging;
+        
+        /// <summary>
+        /// lbNext control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbNext;
     }
 }

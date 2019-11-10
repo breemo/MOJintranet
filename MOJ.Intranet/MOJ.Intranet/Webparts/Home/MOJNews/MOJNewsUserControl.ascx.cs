@@ -8,6 +8,8 @@ using MOJ.Business;
 using MOJ.Entities;
 using CommonLibrary;
 using Microsoft.SharePoint.Utilities;
+using System.Threading;
+using System.Globalization;
 
 namespace MOJ.Intranet.Webparts.Home.MOJNews
 {
@@ -64,7 +66,7 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                                 {2}
                             </div>
                             <div class='morebtn'>
-                                <a href='{5}/Details.aspx?id={4}&type=news' class='slide newmorebuttoncss arrow'>{3}
+                                <a href='{5}/Details.aspx?Sid={4}&type=news' class='slide newmorebuttoncss arrow'>{3}
                                   </a>
                             </div>
                         </div>
@@ -76,7 +78,25 @@ namespace MOJ.Intranet.Webparts.Home.MOJNews
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
-        
+
+        //private string currentUserDepartment()
+        //{
+        //    string userDept = "";
+        //    try
+        //    {
+        //        List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+        //        foreach (EmployeeMasterDataEntity item in EmployeeValues)
+        //        {
+        //            userDept = item.departmentNameField_AR.ToString();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        LoggingService.LogError("WebParts", ex.Message);
+        //    }
+
+        //    return userDept;
+        //}
         #endregion Methods
     }
 }

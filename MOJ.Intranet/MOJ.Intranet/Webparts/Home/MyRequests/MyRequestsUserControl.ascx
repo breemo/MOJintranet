@@ -12,7 +12,7 @@
 <div class="headlineflex">
     <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, MyRequests%>" /></h4>
 
-    <a href="ar/MyServices/Pages/MyRequests.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, AllRequests%>" /></a>
+    <a href="<%= SPContext.Current.Web.Url %>/MyServices/Pages/MyRequests.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, AllRequests%>" /></a>
 </div>
 
 <div class="blockbox minhe newhri">

@@ -58,7 +58,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpAlbumFiles
                                     <div class='col-md-3'>
                                         <div class='boxitemdivco'>
                                             <a href='{0}' data-lightbox='gallery-item'>
-                                                <img src='{0}' alt='Gallery Image'>
+                                                <img src='{0}' alt='Gallery Image' class='image_fade'>
                                                 <div class='hoveroverlay'>
                                                     <div class='insidehovwr'>
                                                         <span class='icon-line-image'></span>

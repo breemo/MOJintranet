@@ -7,7 +7,16 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LiveEventsWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.LiveEventsWP.LiveEventsWPUserControl" %>
 
-
+<style>
+    .videlivebox {
+        min-height: 204px;
+    }
+    /*@media {
+        .videlivebox {
+            min-height: 204px;
+        }
+    }*/
+</style>
     <!-- External JavaScripts
     ============================================= -->
 <script src="/Style%20Library/MOJTheme/js/jquery.js"></script>

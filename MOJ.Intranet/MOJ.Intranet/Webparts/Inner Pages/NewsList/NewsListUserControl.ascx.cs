@@ -80,6 +80,44 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
             }
             set { ViewState["PageNumber"] = value; }
         }
+        protected void lbPrevious_Click(object sender, EventArgs e)
+        {
+            if (PageNumber != 0)
+            {
+                PageNumber -= 1;
+                int year = int.Parse(ddlYear.SelectedValue);
+                if (ddlMonth.SelectedValue != "0")
+                {
+                    int month = int.Parse(ddlMonth.SelectedValue);
+                    int daysInMonth = DateTime.DaysInMonth(year, month);
+
+                    FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
+                }
+                else
+                {
+                    FillData(year.ToString(), "1", "12", "1", "31");
+                }
+            }
+        }
+        protected void lbNext_Click(object sender, EventArgs e)
+        {
+            if (PageNumber < rptPaging.Items.Count - 1)
+            {
+                PageNumber += 1;
+                int year = int.Parse(ddlYear.SelectedValue);
+                if (ddlMonth.SelectedValue != "0")
+                {
+                    int month = int.Parse(ddlMonth.SelectedValue);
+                    int daysInMonth = DateTime.DaysInMonth(year, month);
+
+                    FillData(year.ToString(), month.ToString(), month.ToString(), "1", daysInMonth.ToString());
+                }
+                else
+                {
+                    FillData(year.ToString(), "1", "12", "1", "31");
+                }
+            }
+        }
         public void FillRelatedNewsCarousel()
         {
             List<NewsEntity> NewsItem = new News().GetLast4News();
@@ -159,7 +197,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                 pgitems.AllowPaging = true;
 
                 //Control page size from here 
-                pgitems.PageSize = 8;
+                pgitems.PageSize = 5;
+                hdnPage.Value = Convert.ToString(PageNumber + 1);
                 pgitems.CurrentPageIndex = PageNumber;
 
                 if (pgitems.PageCount > 1)

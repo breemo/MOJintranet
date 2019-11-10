@@ -22,6 +22,7 @@ namespace MOJ.DataManager
             try
             {
                 var client = new RestClient(ConfigurationManager.AppSettings["EmployeeMasterDataServiceWebService"].ToString());
+                client.Proxy = null;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("content-type", "text/xml");
                 request.AddParameter("text/xml",
@@ -104,14 +105,20 @@ namespace MOJ.DataManager
                         XmlNode ManagerEmail_DirectManager = EmployementDate.NextSibling.FirstChild.NextSibling.NextSibling;
                         EmployeeValues.ManagerEmail_DirectManager = ManagerEmail_DirectManager.InnerText;
 
+                        
                         XmlNode ManagerID_HigherManager = EmployementDate.NextSibling.NextSibling.FirstChild;
                         EmployeeValues.ManagerID_HigherManager = ManagerID_HigherManager.InnerText;
 
-                        XmlNode ManagerName_HigherManager = EmployementDate.NextSibling.NextSibling.FirstChild.NextSibling;
-                        EmployeeValues.ManagerName_HigherManager = ManagerName_HigherManager.InnerText;
+                        if (ManagerID_HigherManager.InnerText != "")
+                        {
+                            XmlNode ManagerName_HigherManager = EmployementDate.NextSibling.NextSibling.FirstChild.NextSibling;
+                            EmployeeValues.ManagerName_HigherManager = ManagerName_HigherManager.InnerText;
 
-                        XmlNode ManagerEmail_HigherManager = EmployementDate.NextSibling.NextSibling.FirstChild.NextSibling.NextSibling;
-                        EmployeeValues.ManagerEmail_HigherManager = ManagerEmail_HigherManager.InnerText;
+                            XmlNode ManagerEmail_HigherManager = EmployementDate.NextSibling.NextSibling.FirstChild.NextSibling.NextSibling;
+                            EmployeeValues.ManagerEmail_HigherManager = ManagerEmail_HigherManager.InnerText;
+                        }
+
+                       
 
                         XmlNode Nationality_AR = EmployementDate.NextSibling.NextSibling.NextSibling;
                         EmployeeValues.nationality_ARField = Nationality_AR.InnerText;
@@ -173,9 +180,9 @@ namespace MOJ.DataManager
                         UserProfileManager profileManager = new UserProfileManager(context);
                         UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
 
-                        if (currentProfile.GetProfileValueCollection("Pager").Count != 0)
+                        if (currentProfile.GetProfileValueCollection(ConfigurationManager.AppSettings["ADAttributesEmployeeID"].ToString()).Count != 0)
                         {
-                            ProfileValueCollectionBase EmployeeNumber = currentProfile.GetProfileValueCollection("Pager");
+                            ProfileValueCollectionBase EmployeeNumber = currentProfile.GetProfileValueCollection(ConfigurationManager.AppSettings["ADAttributesEmployeeID"].ToString());
                             EmployeeValues = EmployeeMasterDataByEmployeeNumber(EmployeeNumber.ToString());
 
                         }

@@ -65,7 +65,6 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
                     //}
                     #endregion
                     BindData();
-
                 }
                 catch (Exception ex)
                 {
@@ -73,6 +72,23 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
                     LoggingService.LogError("WebParts", ex.Message);
                 }
             }
+        }
+        protected void lbPrevious_Click(object sender, EventArgs e)
+        {
+            if (PageNumber != 0)
+            {
+                PageNumber -= 1;
+                BindData();
+            }
+        }
+        protected void lbNext_Click(object sender, EventArgs e)
+        {
+            if (PageNumber < rptPaging.Items.Count - 1)
+            {
+                PageNumber += 1;
+                BindData();
+            }
+
         }
         private void BindData()
         {
@@ -85,6 +101,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.GetAllEmployeeInfo
 
                 //Control page size from here 
                 pgitems.PageSize = 9;
+                hdnPage.Value = Convert.ToString(PageNumber + 1);
+                Tab.Value = "tab-responsive-1";
                 pgitems.CurrentPageIndex = PageNumber;
 
                 if (pgitems.PageCount > 1)

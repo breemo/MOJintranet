@@ -17,8 +17,8 @@ namespace MOJ.DataManager
             List<NewsEntity> newsLst = new List<NewsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
@@ -31,9 +31,23 @@ namespace MOJ.DataManager
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.NewsQuery;
-                                    oQuery.ViewFields = SharedConstants.NewsViewfields;
+                                    SPUser currentUser = oWeb.CurrentUser;
 
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string newsQuery = @"<Where>
+                                                              <Contains>
+                                                                 <FieldRef Name='Department' />
+                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                              </Contains>
+                                                           </Where>";
+
+                                        oQuery.Query = newsQuery + SharedConstants.NewsQuery;
+                                    }
+                                    else
+                                    { oQuery.Query = SharedConstants.NewsQuery; }
+
+                                    oQuery.ViewFields = SharedConstants.NewsViewfields;
                                     SPListItemCollection lstItems = lstNews.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
                                     {
@@ -62,7 +76,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
 
             }
             catch (Exception ex)
@@ -76,14 +90,12 @@ namespace MOJ.DataManager
             List<NewsEntity> newsLst = new List<NewsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate()
+                //{
 
                     //using (SPSite oSite = new SPSite(web.Site.ID))
                     //{
                     //    using (SPWeb elevatedWeb = elevatedSite.RootWeb)
-
-
 
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
@@ -95,9 +107,24 @@ namespace MOJ.DataManager
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.NewsQuery;
-                                    oQuery.ViewFields = SharedConstants.NewsViewfields;
+                                    SPUser currentUser = oWeb.CurrentUser;
 
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string newsQuery = @"<Where>
+                                                              <Contains>
+                                                                 <FieldRef Name='Department' />
+                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                              </Contains>
+                                                           </Where>";
+
+                                        oQuery.Query = newsQuery + SharedConstants.NewsQuery;
+                                    }
+                                    else
+                                    { oQuery.Query = SharedConstants.NewsQuery; }
+
+                                    
+                                    oQuery.ViewFields = SharedConstants.NewsViewfields;
                                     oQuery.RowLimit = 4;
 
                                     SPListItemCollection lstItems = lstNews.GetItems(oQuery);
@@ -126,7 +153,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
 
             }
             catch (Exception ex)
@@ -140,43 +167,43 @@ namespace MOJ.DataManager
             NewsEntity news = new NewsEntity();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
+                //SPSecurity.RunWithElevatedPrivileges(delegate()
+                //{
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                 {
-                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                    using (SPWeb oWeb = oSite.RootWeb)
                     {
-                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
-                        using (SPWeb oWeb = oSite.RootWeb)
+                        if (oWeb != null)
                         {
-                            if (oWeb != null)
+                            SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.NewsListUrl);
+                            if (lstNews != null)
                             {
-                                SPList lstNews = oWeb.GetListFromUrl(oSite.Url + SharedConstants.NewsListUrl);
-                                if (lstNews != null)
-                                {
-                                    SPListItem NewsItem = lstNews.GetItemById(id);
+                                SPListItem NewsItem = lstNews.GetItemById(id);
 
-                                    news.ID = Convert.ToInt16(NewsItem[SharedConstants.ID]);
-                                    news.Title = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
-                                    news.Body = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
+                                news.ID = Convert.ToInt16(NewsItem[SharedConstants.ID]);
+                                news.Title = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colTitle", "Resource", SPContext.Current.Web.Language)]);
+                                news.Body = Convert.ToString(NewsItem[SPUtility.GetLocalizedString("$Resources: colBody", "Resource", SPContext.Current.Web.Language)]);
 
-                                    news.Created = Convert.ToDateTime(NewsItem[SharedConstants.Created]);
-                                    news.Date = Convert.ToDateTime(NewsItem[SharedConstants.Date]);
+                                news.Created = Convert.ToDateTime(NewsItem[SharedConstants.Created]);
+                                news.Date = Convert.ToDateTime(NewsItem[SharedConstants.Date]);
 
-                                    string FileUrl = Methods.ReturnAttachmentFile(oWeb, NewsItem);
-                                    news.Picture = FileUrl;
+                                string FileUrl = Methods.ReturnAttachmentFile(oWeb, NewsItem);
+                                news.Picture = FileUrl;
 
-                                    //try
-                                    //{ news.Picture = oWeb.Url + "/" + NewsItem.ParentList.RootFolder.SubFolders["Attachments"].SubFolders[NewsItem.ID.ToString()].Files[0].Url; }
-                                    //catch
-                                    //{
-                                    //    news.Picture = SharedConstants.URL_NO_IMAGE;
-                                    //    // "../../../_layouts/YSA.SP.Portal/en/images/No-attachment-1.png";
-                                    //}
-                                }
+                                //try
+                                //{ news.Picture = oWeb.Url + "/" + NewsItem.ParentList.RootFolder.SubFolders["Attachments"].SubFolders[NewsItem.ID.ToString()].Files[0].Url; }
+                                //catch
+                                //{
+                                //    news.Picture = SharedConstants.URL_NO_IMAGE;
+                                //    // "../../../_layouts/YSA.SP.Portal/en/images/No-attachment-1.png";
+                                //}
                             }
                         }
                     }
-                });
-
+                }
+                //}
+            //);
             }
             catch (Exception ex)
             {
@@ -189,8 +216,8 @@ namespace MOJ.DataManager
             List<NewsEntity> newsLst = new List<NewsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -201,7 +228,28 @@ namespace MOJ.DataManager
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = "<Where><Contains><FieldRef Name='Title' /><Value Type='Text'>" + srch + @"</Value></Contains></Where>" + SharedConstants.NewsQuery;
+                                    SPUser currentUser = oWeb.CurrentUser;
+
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string newsQuery = @"<Where>
+                                                              <And>
+                                                                 <Contains>
+                                                                    <FieldRef Name='Department' />
+                                                                    <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                                 </Contains>
+                                                                 <Contains>
+                                                                    <FieldRef Name='Title' />
+                                                                    <Value Type='Text'> " + srch + @"</Value>
+                                                                 </Contains>
+                                                              </And>
+                                                        </Where>";
+
+                                        oQuery.Query = newsQuery + SharedConstants.NewsQuery;
+                                    }
+                                    else
+                                    { oQuery.Query = "<Where><Contains><FieldRef Name='Title' /><Value Type='Text'>" + srch + @"</Value></Contains></Where>" + SharedConstants.NewsQuery; }
+                                    
                                     oQuery.ViewFields = SharedConstants.MemosViewfields;
 
                                     SPListItemCollection lstItems = lstNews.GetItems(oQuery);
@@ -230,7 +278,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             {
@@ -243,8 +291,8 @@ namespace MOJ.DataManager
             List<NewsEntity> newsLst = new List<NewsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -255,12 +303,36 @@ namespace MOJ.DataManager
                                 if (lstNews != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
+                                    SPUser currentUser = oWeb.CurrentUser;
 
-                                    oQuery.Query = @"<Where>
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        oQuery.Query = @"<Where>
+                                          <And>
+                                             <Contains>
+                                                <FieldRef Name='Department' />
+                                                <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                             </Contains>
+                                             <And>
+                                                <Geq>
+                                                    <FieldRef Name='Created' />
+                                                    <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Smonth + "-" + Sday + @"-T12:00:00Z</Value>
+                                                </Geq>
+                                                <Leq>
+                                                    <FieldRef Name='Created' />
+                                                    <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Emonth + "-" + Eday + @"-T12:00:00Z</Value>
+                                                </Leq>
+                                            </And>
+                                          </And>
+                                       </Where>";
+                                    }
+                                    else
+                                    {
+                                        oQuery.Query = @" < Where>
                                                       <And>
                                                          <Geq>
                                                             <FieldRef Name='Created' />
-                                                            <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Smonth + "-"+ Sday + @"-T12:00:00Z</Value>
+                                                            <Value IncludeTimeValue='TRUE' Type='DateTime'>" + year + "-" + Smonth + "-" + Sday + @"-T12:00:00Z</Value>
                                                          </Geq>
                                                          <Leq>
                                                             <FieldRef Name='Created' />
@@ -268,6 +340,7 @@ namespace MOJ.DataManager
                                                          </Leq>
                                                       </And>
                                                    </Where>";
+                                    }
                                     
                                     oQuery.ViewFields = SharedConstants.MemosViewfields;
 
@@ -290,7 +363,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             {

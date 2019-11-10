@@ -3,6 +3,7 @@ using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace MOJ.DataManager
                             UserProfile currentProfile = profileManager.GetUserProfile(currentUserlogin);
                             if (EmployeeNumber != "")
                             {
-                                currentProfile.GetProfileValueCollection("Pager").Value = EmployeeNumber;
+                                currentProfile.GetProfileValueCollection(ConfigurationManager.AppSettings["ADAttributesEmployeeID"].ToString()).Value = EmployeeNumber;
                                 currentProfile.Commit();
                                 isUpdated = true;
                             }

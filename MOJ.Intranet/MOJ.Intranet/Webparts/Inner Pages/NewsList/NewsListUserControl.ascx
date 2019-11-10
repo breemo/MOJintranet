@@ -8,14 +8,19 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="NewsListUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.NewsList.NewsListUserControl" %>
 
 <style>
-.pagi .pagination li a {
-    color: #9b9a9a !important;
-}
-.page-link:focus
-{
-    border-color:#bd995d !important;
-}
+    .pagi .pagination li a {
+        color: #9b9a9a !important;
+    }
+
+    .page-link:focus {
+        border-color: #bd995d !important;
+    }
+     .active {
+        background-color: #e9ecef;
+    }
 </style>
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
 
 <h4>
     <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadPopularNews%>" />
@@ -85,55 +90,55 @@
     </div>
 </div>
 
-    <h4>
-        <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadNews%>" />
-    </h4>
-    <div id="posts" class="small-thumbs alt">
+<h4>
+    <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadNews%>" />
+</h4>
+<div id="posts" class="small-thumbs alt">
 
 
-        <asp:GridView ID="grdNewsLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="<%$ Resources:Resource, EmptyData%>"
-            BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
-            EnableModelValidation="True" 
-       
-            >
-            <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
-                Mode="NumericFirstLast" PageButtonCount="5" />
-            <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
-            <%--<EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />--%>
-            <EmptyDataRowStyle Font-Bold="true" ForeColor="#646464" Font-Size="1.5em" />
-            <Columns>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <div class="entry entryitem clearfix newsitemxlist">
-                            <div class="entry-image ">
-                                <img src="<%# Eval("Picture") %>" />
-                            </div>
-                            <div class="entry-c entryitemx">
-
-                                <span class="dateut">
-                                    <%#  Convert.ToDateTime(Eval("Created")).ToString("dddd")%>, <%#  Convert.ToDateTime(Eval("Created")).ToString("dd")%> <%#  Convert.ToDateTime(Eval("Created")).ToString("MMM")%>  <%#  Convert.ToDateTime(Eval("Created")).ToString("yyyy")%> </span>
-                                <h6>
-                                    <a href="<%= SPContext.Current.RootFolderUrl %>/Details.aspx?id=<%# Eval("ID") %>&type=news"><%# Eval("Title") %>
-                                    </a>
-                                </h6>
-                                <p>
-                                    <%# Eval("Body") %>
-                                </p>
-                            </div>
+    <asp:GridView ID="grdNewsLst" CssClass="inner_cnt" GridLines="None" EmptyDataText="<%$ Resources:Resource, EmptyData%>"
+        BorderColor="#e5e5e5" Width="100%" runat="server" AutoGenerateColumns="False"
+        EnableModelValidation="True">
+        <PagerSettings FirstPageText="<<" LastPageText=">>" NextPageText=">" PreviousPageText="<"
+            Mode="NumericFirstLast" PageButtonCount="5" />
+        <PagerStyle HorizontalAlign="Center" CssClass="gridview" />
+        <%--<EmptyDataRowStyle Font-Bold="true" ForeColor="#333" Font-Size="40" />--%>
+        <EmptyDataRowStyle Font-Bold="true" ForeColor="#646464" Font-Size="1.5em" />
+        <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <div class="entry entryitem clearfix newsitemxlist">
+                        <div class="entry-image ">
+                            <img src="<%# Eval("Picture") %>" />
                         </div>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-    </div>
-    <!-- #posts end -->
+                        <div class="entry-c entryitemx">
+
+                            <span class="dateut">
+                                <%#  Convert.ToDateTime(Eval("Created")).ToString("dddd")%>, <%#  Convert.ToDateTime(Eval("Created")).ToString("dd")%> <%#  Convert.ToDateTime(Eval("Created")).ToString("MMM")%>  <%#  Convert.ToDateTime(Eval("Created")).ToString("yyyy")%> </span>
+                            <h6>
+                                <a href="<%= SPContext.Current.RootFolderUrl %>/Details.aspx?id=<%# Eval("ID") %>&type=news"><%# Eval("Title") %>
+                                </a>
+                            </h6>
+                            <p>
+                                <%# Eval("Body") %>
+                            </p>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+</div>
+<!-- #posts end -->
 
 <div class="pagi" runat="server" id="pgng">
     <ul class="pagination">
         <li class="page-item">
-            <a class="page-link pageright" href="#">
-                <i class="icon-angle-right"></i>
-            </a>
+            <%--<a class="page-link pageright" href="#">--%>
+            <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
+                                <i class="icon-angle-right"></i>
+            </asp:LinkButton>
+            <%--</a>--%>
         </li>
         <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
             <ItemTemplate>
@@ -147,13 +152,23 @@
             </ItemTemplate>
         </asp:Repeater>
         <li class="page-item">
-            <a class="page-link pageleft" href="#">
-                <i class="icon-angle-left"></i>
-            </a>
+            <%--<a class="page-link pageleft" href="#">--%>
+            <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
+                                <i class="icon-angle-left"></i>
+            </asp:LinkButton>
+            <%--</a>--%>
         </li>
     </ul>
 </div>
 
+<script>
 
+var valuepage=  document.getElementById('hdnPage').value;
+ $(".pagination a").each(function(){
+if($(this).text()== valuepage) 
+  $(this).addClass("active");
+    });
 
-    <%--<script src="/Style%20Library/MOJ-Theme/js/functions.js"></script>--%>
+</script>
+
+<%--<script src="/Style%20Library/MOJ-Theme/js/functions.js"></script>--%>

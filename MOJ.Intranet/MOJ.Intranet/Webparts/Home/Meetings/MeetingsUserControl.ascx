@@ -9,7 +9,7 @@
 
 <div class="mettings">
     <div class="headlineflex">
-        <h4 class="TitleHead">الأجتماعات</h4>
+        <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, Meetings%>" /></h4>
 
     </div>
 

@@ -7,7 +7,15 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SouqWebPartUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart.SouqWebPartUserControl" %>
 
+<style>
+    .active {
+        background-color: #e9ecef;
+    }
+</style>
+
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
 
 <div class="container-fullwidth clearfix">
 
@@ -22,7 +30,7 @@
 
             <a href="#" class="btnclasscdd radix" data-toggle="modal" data-target=".bs-example-modal-lg">
                 <asp:Literal runat="server" Text="<%$ Resources:Resource, AddAdvertisment%>" />
-                                <span class="icon-plus1 pad"></span>
+                <span class="icon-plus1 pad"></span>
             </a>
 
 
@@ -33,7 +41,8 @@
                     <div class="modal-body">
                         <div class="modal-content adsmodalx">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel"><asp:Literal runat="server" Text="<%$ Resources:Resource, AddNewAdvertisment%>" /></h4>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, AddNewAdvertisment%>" /></h4>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
@@ -45,7 +54,8 @@
                                                 <div class="row">
 
                                                     <div class="col-md-2">
-                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, MaterialName%>" /></label>
+                                                        <label>
+                                                            <asp:Literal runat="server" Text="<%$ Resources:Resource, MaterialName%>" /></label>
                                                     </div>
 
                                                     <div class="col-md-7">
@@ -62,14 +72,15 @@
 
                                             <div class="col-md-2">
 
-                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Descreption%>" /></label>
+                                                <label>
+                                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, Descreption%>" /></label>
 
 
                                             </div>
                                             <div class="col-md-10">
 
                                                 <textarea runat="server" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                
+
 
 
 
@@ -86,11 +97,12 @@
                                                 <div class="row">
 
                                                     <div class="col-md-2">
-                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Category%>" /></label>
+                                                        <label>
+                                                            <asp:Literal runat="server" Text="<%$ Resources:Resource, Category%>" /></label>
                                                     </div>
 
                                                     <div class="col-md-7">
-                                                     <%--   <select class="form-control">
+                                                        <%--   <select class="form-control">
                                                             <option>الفئة</option>
                                                             <option>الاماره </option>
                                                             <option>الاماره</option>
@@ -111,7 +123,8 @@
 
                                             <div class="col-md-2">
 
-                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Price%>" /></label>
+                                                <label>
+                                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, Price%>" /></label>
 
 
                                             </div>
@@ -127,13 +140,14 @@
 
                                             <div class="col-md-2">
 
-                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Picture%>" /></label>
+                                                <label>
+                                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, Picture%>" /></label>
 
 
                                             </div>
                                             <div class="col-md-7">
 
-                                              <%--  <div class="input-group file-upload">
+                                                <%--  <div class="input-group file-upload">
                                                     <span class="wpcf7-form-control-wrap file-801 file-input">
                                                         <input type="file" name="file-801" size="40" class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" id="cv_file" accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv" aria-required="true" aria-invalid="false">
                                                     </span>
@@ -155,7 +169,8 @@
 
                                             <div class="col-md-2">
 
-                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ContactPhone%>" /></label>
+                                                <label>
+                                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, ContactPhone%>" /></label>
 
 
                                             </div>
@@ -177,15 +192,15 @@
 
                                             <%--<a href="#" class="wicnewdiv">تقديم</a>--%>
                                             <asp:Button ID="btnSubmitNewItem" runat="server" CssClass="wicnewdiv" Text="<%$ Resources:Resource, Submit%>" OnClick="btnSubmitNewItem_Click" />
-                                            
 
 
 
-                                          <%--  <a href="#" data-dismiss="modal"
+
+                                            <%--  <a href="#" data-dismiss="modal"
                                                 aria-hidden="true" class="wicnewdiv">الغاء
 
                                             </a>--%>
-                                            <asp:Button ID="btnCancel" runat="server" data-dismiss="modal"  aria-hidden="true" CssClass="wicnewdiv" Text="<%$ Resources:Resource, cancel%>" />
+                                            <asp:Button ID="btnCancel" runat="server" data-dismiss="modal" aria-hidden="true" CssClass="wicnewdiv" Text="<%$ Resources:Resource, cancel%>" />
                                         </div>
 
                                     </div>
@@ -199,7 +214,8 @@
 
 
         <div class="boxleftbor">
-            <h4><asp:Literal runat="server" Text="<%$ Resources:Resource, Souqtitle%>" />
+            <h4>
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, Souqtitle%>" />
             </h4>
 
 
@@ -270,9 +286,9 @@
                                         </div>
                                         <div class="titlebook">
                                             <h4>
-                                                 <%# Eval("Title") %>
+                                                <%# Eval("Title") %>
                                             </h4>
-                                            <span class="desco"> <%# Eval("Description") %>
+                                            <span class="desco"><%# Eval("Description") %>
 
                                             </span>
                                         </div>
@@ -280,7 +296,7 @@
                                         <div class="uploadebox">
                                             <p>
                                                 <asp:Literal runat="server" Text="<%$ Resources:Resource, Price%>" />
-                                                        <span> <%# Eval("Price") %></span>
+                                                <span><%# Eval("Price") %></span>
 
                                             </p>
 
@@ -289,8 +305,10 @@
                                         <div class="infoboxbottomnew">
                                             <ul class="ulisit">
 
-                                                <li><asp:Literal runat="server" Text="<%$ Resources:Resource, BuyerName%>" /><span>: <%# Eval("CreatedBy") %></span></li>
-                                                <li><asp:Literal runat="server" Text="<%$ Resources:Resource, Phone%>" /><span>: <%# Eval("ContactNumber") %></span></li>
+                                                <li>
+                                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, BuyerName%>" /><span>: <%# Eval("CreatedBy") %></span></li>
+                                                <li>
+                                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, Phone%>" /><span>: <%# Eval("ContactNumber") %></span></li>
 
                                             </ul>
                                         </div>
@@ -301,10 +319,13 @@
 
                                 </div>
                             </ItemTemplate>
-                             <FooterTemplate>
+                            <FooterTemplate>
                                 <tr id="trEmpty" runat="server" visible="false">
-								<td><br /></td>
-                                    <td colspan="3" align="center"> <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
+                                    <td>
+                                        <br />
+                                    </td>
+                                    <td colspan="3" align="center">
+                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
                                     </td>
                                 </tr>
                             </FooterTemplate>
@@ -325,9 +346,11 @@
             <div class="pagi">
                 <ul class="pagination" id="PaginUI" runat="server">
                     <li class="page-item">
-                        <a class="page-link pageright" href="#">
+                        <%--<a class="page-link pageright" href="#">--%>
+                        <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
                             <i class="icon-angle-right"></i>
-                        </a>
+                        </asp:LinkButton>
+                        <%--</a>--%>
                     </li>
 
 
@@ -354,9 +377,11 @@
 
 
                     <li class="page-item">
-                        <a class="page-link pageleft" href="#">
-                            <i class="icon-angle-left"></i>
-                        </a>
+                         <%--<a class="page-link pageleft" href="#">--%>
+                            <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
+                                <i class="icon-angle-left"></i>
+                            </asp:LinkButton>
+                            <%--</a>--%>
                     </li>
                 </ul>
             </div>
@@ -376,7 +401,8 @@
                 <div class="searchboxinside">
 
                     <div class="formdiv formby">
-                        <h5><asp:Literal runat="server" Text="<%$ Resources:Resource, Filter%>" />
+                        <h5>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, Filter%>" />
                         </h5>
                         <div class="row rt">
 
@@ -462,4 +488,13 @@
             $('.file-upload label').text(fileName);
         });
     });
+</script>
+<script>
+
+    var valuepage = document.getElementById('hdnPage').value;
+    $(".pagination a").each(function () {
+        if ($(this).text() == valuepage)
+            $(this).addClass("active");
+    });
+
 </script>

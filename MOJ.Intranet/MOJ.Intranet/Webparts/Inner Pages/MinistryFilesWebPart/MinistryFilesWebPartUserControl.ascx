@@ -7,6 +7,14 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MinistryFilesWebPartUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart.MinistryFilesWebPartUserControl" %>
 
+<style>
+    .active {
+        background-color: #e9ecef;
+    }
+</style>
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
+
 <div class="container-fullwidth clearfix">
 
     <!-- Post Content
@@ -118,8 +126,11 @@
                             </ItemTemplate>
                             <FooterTemplate>
                                 <tr id="trEmpty" runat="server" visible="false">
-								<td><br /></td>
-                                    <td colspan="3" align="center"> <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
+                                    <td>
+                                        <br />
+                                    </td>
+                                    <td colspan="3" align="center">
+                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
                                     </td>
                                 </tr>
                             </FooterTemplate>
@@ -131,9 +142,11 @@
                 <div class="pagi">
                     <ul class="pagination" id="PaginUI" runat="server">
                         <li class="page-item">
-                            <a class="page-link pageright" href="#">
+                            <%--<a class="page-link pageright" href="#">--%>
+                            <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
                                 <i class="icon-angle-right"></i>
-                            </a>
+                            </asp:LinkButton>
+                            <%--</a>--%>
                         </li>
 
 
@@ -160,9 +173,11 @@
 
 
                         <li class="page-item">
-                            <a class="page-link pageleft" href="#">
+                            <%--<a class="page-link pageleft" href="#">--%>
+                            <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
                                 <i class="icon-angle-left"></i>
-                            </a>
+                            </asp:LinkButton>
+                            <%--</a>--%>
                         </li>
                     </ul>
                 </div>
@@ -287,3 +302,13 @@
     <!-- .sidebar end -->
 
 </div>
+
+<script>
+
+var valuepage=  document.getElementById('hdnPage').value;
+ $(".pagination a").each(function(){
+if($(this).text()== valuepage) 
+  $(this).addClass("active");
+    });
+
+</script>

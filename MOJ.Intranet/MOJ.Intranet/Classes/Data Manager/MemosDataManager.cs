@@ -18,8 +18,8 @@ namespace MOJ.DataManager
             List<MemosEntity> memosLst = new List<MemosEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
@@ -33,9 +33,23 @@ namespace MOJ.DataManager
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.MemosQuery;
-                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
+                                    SPUser currentUser = oWeb.CurrentUser;
 
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string newsQuery = @"<Where>
+                                                              <Contains>
+                                                                 <FieldRef Name='Department' />
+                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                              </Contains>
+                                                           </Where>";
+
+                                        oQuery.Query = newsQuery + SharedConstants.MemosQuery;
+                                    }
+                                    else
+                                    { oQuery.Query = SharedConstants.MemosQuery; }
+
+                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
                                     oQuery.RowLimit = 2;
 
                                     SPListItemCollection lstItems = lstMemos.GetItems(oQuery);
@@ -61,8 +75,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
-
+                //});
             }
             catch (Exception ex)
             {
@@ -75,8 +88,8 @@ namespace MOJ.DataManager
             List<MemosEntity> memosLst = new List<MemosEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
@@ -88,9 +101,23 @@ namespace MOJ.DataManager
                                 if (lstMemos != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.MemosQuery;
-                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
+                                    SPUser currentUser = oWeb.CurrentUser;
 
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string newsQuery = @"<Where>
+                                                              <Contains>
+                                                                 <FieldRef Name='Department' />
+                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                              </Contains>
+                                                           </Where>";
+
+                                        oQuery.Query = newsQuery + SharedConstants.MemosQuery;
+                                    }
+                                    else
+                                    { oQuery.Query = SharedConstants.MemosQuery; }
+
+                                    oQuery.ViewFields = SharedConstants.MemosViewfields;
                                     //oQuery.RowLimit = 3;
 
                                     SPListItemCollection lstItems = lstMemos.GetItems(oQuery);
@@ -116,8 +143,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
-
+                //});
             }
             catch (Exception ex)
             {
@@ -130,8 +156,8 @@ namespace MOJ.DataManager
             MemosEntity memos = new MemosEntity();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -159,7 +185,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
 
             }
             catch (Exception ex)
@@ -173,8 +199,8 @@ namespace MOJ.DataManager
             List<MemosEntity> memosLst = new List<MemosEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
@@ -245,7 +271,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             {

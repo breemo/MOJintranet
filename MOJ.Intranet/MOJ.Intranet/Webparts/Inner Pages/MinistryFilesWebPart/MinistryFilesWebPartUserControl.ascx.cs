@@ -82,6 +82,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
 
                 //Control page size from here 
                 pgitems.PageSize = 12;
+                hdnPage.Value = Convert.ToString(PageNumber + 1);
                 pgitems.CurrentPageIndex = PageNumber;
 
                 if (pgitems.PageCount > 1)
@@ -114,7 +115,23 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
             PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
             BindData();
         }
+        protected void lbPrevious_Click(object sender, EventArgs e)
+        {
+            if (PageNumber != 0)
+            {
+                PageNumber -= 1;
+                BindData();
+            }
+        }
+        protected void lbNext_Click(object sender, EventArgs e)
+        {
+            if (PageNumber < rptPaging.Items.Count - 1)
+            {
+                PageNumber += 1;
+                BindData();
+            }
 
+        }
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
             FillData(txtSearchBookName.Value, txtSearchCreatedby.Value, ddlCategory.SelectedValue.ToString(), txtAuthor.Value);

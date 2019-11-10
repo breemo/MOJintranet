@@ -7,6 +7,19 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="InnerNavigationUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.InnerNavigation.InnerNavigationUserControl" %>
 
+<style>
+a:visited {
+color:#BD995D !important;
+}
+ #sidebarmenubox .uk-nav > li.uk-active > a::before,
+    #sidebarmenubox .uk-nav > li.uk-active * {
+        color: #fff !important;
+    }
+	#sidebarmenubox .uk-nav > li:hover *, #sidebarmenubox .uk-nav > li:hover > a::before {
+                color: #fff !important;
+            }
+</style>
+
 <div class="sidebar nobottommargin clearfix">
     <div class="sidebar-widgets-wrap">
         <div id="sidebarmenubox" class="sidebarmenubox">

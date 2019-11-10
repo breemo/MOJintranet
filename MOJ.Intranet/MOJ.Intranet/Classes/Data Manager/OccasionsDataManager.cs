@@ -18,8 +18,8 @@ namespace MOJ.DataManager
             List<OccasionsEntity> memosLst = new List<OccasionsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -30,9 +30,28 @@ namespace MOJ.DataManager
                                 if (lstOccasions != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.OccasionsQuery;
-                                    oQuery.ViewFields = SharedConstants.OccasionsViewfields;
+                                    SPUser currentUser = oWeb.CurrentUser;
 
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string OccasionsQuery = @"<Where>
+                                                                    <And>
+                                                                          <Eq>
+                                                                             <FieldRef Name='Approval' />
+                                                                             <Value Type='WorkflowStatus'>16</Value>
+                                                                          </Eq>
+                                                                         <Contains>
+                                                                            <FieldRef Name='Department' />
+                                                                            <Value Type='LookupMulti'>"+ Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                                        </Contains>
+                                                                    </And>
+                                                               </Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+
+                                        oQuery.Query = OccasionsQuery;
+                                    }
+                                    else { oQuery.Query = SharedConstants.OccasionsQuery; }
+                                    
+                                    oQuery.ViewFields = SharedConstants.OccasionsViewfields;
                                     oQuery.RowLimit = 3;
 
                                     SPListItemCollection lstItems = lstOccasions.GetItems(oQuery);
@@ -50,7 +69,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+                //});
 
             }
             catch (Exception ex)
@@ -64,8 +83,8 @@ namespace MOJ.DataManager
             List<OccasionsEntity> memosLst = new List<OccasionsEntity>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -76,7 +95,28 @@ namespace MOJ.DataManager
                                 if (lstOccasions != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.OccasionsQuery;
+                                    SPUser currentUser = oWeb.CurrentUser;
+
+                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                    {
+                                        string OccasionsQuery = @"<Where>
+                                                                    <And>
+                                                                          <Eq>
+                                                                             <FieldRef Name='Approval' />
+                                                                             <Value Type='WorkflowStatus'>16</Value>
+                                                                          </Eq>
+                                                                         <Contains>
+                                                                            <FieldRef Name='Department' />
+                                                                            <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                                        </Contains>
+                                                                    </And>
+                                                               </Where><OrderBy><FieldRef Name='Created' Ascending='False' /></OrderBy>";
+
+                                        oQuery.Query = OccasionsQuery;
+                                    }
+                                    else { oQuery.Query = SharedConstants.OccasionsQuery; }
+
+                                    //oQuery.Query = SharedConstants.OccasionsQuery;
                                     //oQuery.ViewFields = SharedConstants.OccasionsViewfields;
 
                                     SPListItemCollection lstItems = lstOccasions.GetItems(oQuery);
@@ -94,7 +134,7 @@ namespace MOJ.DataManager
                             }
                         }
                     }
-                });
+               // });
 
             }
             catch (Exception ex)
@@ -192,46 +232,54 @@ namespace MOJ.DataManager
         {
             bool isFormSaved = false;
 
-            //SPSecurity.RunWithElevatedPrivileges(delegate ()
-            //{
-            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
-            {
-                using (SPWeb web = site.RootWeb)
-                {
-                    try
-                    {
-                        SPUser currentUser = web.CurrentUser;
+            SPSite site1 = new SPSite(SPContext.Current.Site.Url);
+            SPWeb web1 = site1.RootWeb;
+            web1.AllowUnsafeUpdates = true;
+            SPUser currentUser1 = web1.CurrentUser;
+            string value1 = currentUser1.ID + ";#" + currentUser1.Name;
 
-                        web.AllowUnsafeUpdates = true;
-                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.OccasionCommentsListUrl);
-                        SPListItem item = null;
-                        if (Item.ID > 0)
-                        {
-                            item = list.GetItemById(Item.ID);
-                        }
-                        else
-                        {
-                            item = list.AddItem();
-                        }
-                        item["OccasionID"] = Item.OccasionID;
-                        item["Description"] = Item.Description;
-                        item.Update();
-                        list.Update();
-                        isFormSaved = true;
-                    }
-                    catch (Exception ex)
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb web = site.RootWeb)
                     {
-                        isFormSaved = false;
-                        LoggingService.LogError("WebParts", ex.Message);
-                        throw ex;
-                    }
-                    finally
-                    {
-                        web.AllowUnsafeUpdates = false;
+                        try
+                        {
+                            SPUser currentUser2 = web.CurrentUser;
+
+                            web.AllowUnsafeUpdates = true;
+                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.OccasionCommentsListUrl);
+                            SPListItem item = null;
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["OccasionID"] = Item.OccasionID;
+                            item["Description"] = Item.Description;
+                            item["Author"] = value1; //for Created By field
+
+                            item.Update();
+                            list.Update();
+                            isFormSaved = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            isFormSaved = false;
+                            LoggingService.LogError("WebParts", ex.Message);
+                            throw ex;
+                        }
+                        finally
+                        {
+                            web.AllowUnsafeUpdates = false;
+                        }
                     }
                 }
-            }
-            //});
+            });
             return isFormSaved;
         }
 

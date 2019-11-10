@@ -829,7 +829,7 @@
     <value>الوصف</value>
   </data>
   <data name="Filter" xml:space="preserve">
-    <value>تصفية حسبs</value>
+    <value>تصنيف حسب</value>
   </data>
   <data name="JobTitle" xml:space="preserve">
     <value>المسمى الوظيفي</value>
@@ -896,5 +896,11 @@
   </data>
   <data name="wife" xml:space="preserve">
     <value>الزوجة</value>
+  </data>
+  <data name="judgmentTitle" xml:space="preserve">
+    <value>كيف يمكنني مساعدتك</value>
+  </data>
+  <data name="Meetings" xml:space="preserve">
+    <value>الأجتماعات</value>
   </data>
 </root>
