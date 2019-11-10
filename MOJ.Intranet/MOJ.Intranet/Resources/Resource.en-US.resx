@@ -903,4 +903,7 @@
   <data name="Meetings" xml:space="preserve">
     <value>Meetings</value>
   </data>
+  <data name="AttendeesChartImage" xml:space="preserve">
+    <value>/En/PublishingImages/download.png</value>
+  </data>
 </root>

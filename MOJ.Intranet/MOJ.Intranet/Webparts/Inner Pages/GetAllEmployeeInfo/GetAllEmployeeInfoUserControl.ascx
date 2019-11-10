@@ -29,8 +29,7 @@
 <script type="text/javascript">
         $(document).ready(function () {
             var tabId = document.getElementById('Tab').value;
-			window.location.hash +=tabId;
-             //alert(tabId);
+			window.history.pushState(null, null, "#" + tabId);
         });
 </script>
 <script type="text/javascript">
