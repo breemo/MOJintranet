@@ -96,6 +96,15 @@
 
 }
 </style>
+<script>
+
+    $(document).ready(function () {
+        $(".RadioButto label").addClass("radio-button-click-target");
+        $(".RadioButto input").addClass("radio-button");
+        
+      
+    });
+    </script>
 <script src="/Style%20Library/MOJTheme/js/functions.js"></script>
 
 

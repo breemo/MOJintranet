@@ -92,7 +92,7 @@
                     <h5>
                         <asp:Literal runat="server" Text="<%$ Resources:Resource, Carwith%>" />
                     </h5>
-                    <div>                      
+                    <div class="CheckBoxThim">                      
                         <asp:CheckBoxList required ID="cbTravelNeeds" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                             <asp:ListItem Text="<%$ Resources:Resource, WithDriver%>" Value="WithDriver" />
                             <asp:ListItem Text="<%$ Resources:Resource, WithoutDriver%>" Value="WithoutDriver" />
@@ -267,7 +267,17 @@
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 <script>
+    $(document).ready(function () {
+  
+        $(".CheckBoxThim label").addClass("checkbox-click-target");
+        $(".CheckBoxThim input").addClass("checkbox");
 
+        $('.CheckBoxThim label').each(function () {
+            var valuex = "<span class='checkbox-box'></span>" + this.innerHTML;
+            this.innerHTML = valuex;
+        });
+    });
+    var counter = 1;
     $('.datepicker').datepicker({
         language: 'ar',
         rtl: true,

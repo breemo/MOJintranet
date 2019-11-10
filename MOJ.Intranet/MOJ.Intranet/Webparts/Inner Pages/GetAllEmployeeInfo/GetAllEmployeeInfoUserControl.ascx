@@ -26,6 +26,27 @@
     } 
 </script>--%>
 
+<script type="text/javascript">
+        $(document).ready(function () {
+            var tabId = document.getElementById('Tab').value;
+			window.location.hash +=tabId;
+             //alert(tabId);
+        });
+</script>
+<script type="text/javascript">
+function setTab1()
+{
+    document.getElementById('Tab').value = "tab-responsive-1";
+}
+function setTab2()
+{
+    document.getElementById('Tab').value = "tab-responsive-2";
+}
+function setTab3()
+{
+    document.getElementById('Tab').value = "tab-responsive-3";
+}
+</script>
 
 <style>
     .active {
@@ -34,9 +55,11 @@
 </style>
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
+<asp:HiddenField ClientIDMode="Static" ID="Tab" runat="server" />
 
 <div class="boxsh">
-    <h3><asp:Literal runat="server" Text="<%$ Resources:Resource, OrgSubject%>" /></h3>
+    <h3>
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, OrgSubject%>" /></h3>
 
 
     <div class="insidebox insidebox2">
@@ -46,23 +69,26 @@
 
             <ul class="tab-nav  clearfix">
                 <li>
-                    <a href="#tab-responsive-1" aria-controls="tab-responsive-1">
-                        <span class="nameicon"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByName%>" />
+                    <a href="#tab-responsive-1" aria-controls="tab-responsive-1" onclick="setTab1();">
+                        <span class="nameicon">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByName%>" />
                         </span>
 
                     </a>
                 </li>
                 <li>
-                    <a href="#tab-responsive-2" aria-controls="tab-responsive-2">
-                        <span class="depicon"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByDept%>" />
+                    <a href="#tab-responsive-2" aria-controls="tab-responsive-2" onclick="setTab2();">
+                        <span class="depicon">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByDept%>" />
                         </span>
 
 
                     </a>
                 </li>
                 <li>
-                    <a href="#tab-responsive-3" aria-controls="tab-responsive-3">
-                        <span class="woho"><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByPlace%>" />
+                    <a href="#tab-responsive-3" aria-controls="tab-responsive-3" onclick="setTab3();">
+                        <span class="woho">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByPlace%>" />
                         </span>
 
 
@@ -204,7 +230,8 @@
                         <div class="bgdivindf">
 
                             <div class="titleheadnew">
-                                <h4><asp:Literal runat="server" Text="<%$ Resources:Resource, BusinessECard%>" /></h4>
+                                <h4>
+                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, BusinessECard%>" /></h4>
                             </div>
 
                             <div class="conentbgdivd">
@@ -257,7 +284,7 @@
 
                                                 <td>
                                                     <p class="rmae">
-                                                       <asp:Literal runat="server" Text="<%$ Resources:Resource, JobTitle%>" />
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, JobTitle%>" />
                                                     </p>
                                                 </td>
                                                 <td>
@@ -324,52 +351,52 @@
                 </FooterTemplate>
             </asp:Repeater>
 
-            
+
 
 
         </div>
         <div class="pagi">
-                <ul class="pagination" id="PaginUI" runat="server">
-                    <li class="page-item">
-                        <%--<a class="page-link pageright" href="#">--%>
-                            <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
+            <ul class="pagination" id="PaginUI" runat="server">
+                <li class="page-item">
+                    <%--<a class="page-link pageright" href="#">--%>
+                    <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
                                 <i class="icon-angle-right"></i>
-                            </asp:LinkButton>
-                            <%--</a>--%>
-                    </li>
+                    </asp:LinkButton>
+                    <%--</a>--%>
+                </li>
 
 
 
-                    <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
-                        <ItemTemplate>
+                <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+                    <ItemTemplate>
 
-                            <li class="page-item">
+                        <li class="page-item">
 
-                                <asp:LinkButton ID="btnPage"
-                                    CssClass="page-link"
-                                    CommandName="Page" CommandArgument="<%# Container.DataItem %>"
-                                    runat="server" ForeColor="White" Font-Bold="True">
+                            <asp:LinkButton ID="btnPage"
+                                CssClass="page-link"
+                                CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                                runat="server" ForeColor="White" Font-Bold="True">
                                          <%# Container.DataItem %> </asp:LinkButton>
 
-                            </li>
+                        </li>
 
 
 
 
 
-                        </ItemTemplate>
-                    </asp:Repeater>
+                    </ItemTemplate>
+                </asp:Repeater>
 
 
-                    <li class="page-item">
-                         <%--<a class="page-link pageleft" href="#">--%>
-                            <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
+                <li class="page-item">
+                    <%--<a class="page-link pageleft" href="#">--%>
+                    <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
                                 <i class="icon-angle-left"></i>
-                            </asp:LinkButton>
-                            <%--</a>--%>
-                    </li>
-                </ul>
-            </div>
+                    </asp:LinkButton>
+                    <%--</a>--%>
+                </li>
+            </ul>
+        </div>
 
 
 
