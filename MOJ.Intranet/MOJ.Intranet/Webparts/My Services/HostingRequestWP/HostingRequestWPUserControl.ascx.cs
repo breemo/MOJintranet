@@ -182,6 +182,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: "+ Choicetrim, "Resource", SPContext.Current.Web.Language);
                                         //cbPlace.Items.Add(PlaceChoice.Choices[i].ToString());
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
                                         cbPlace.Items.Add(new ListItem(placetext, PlaceChoice.Choices[i].ToString()));
                                     }
                                 }

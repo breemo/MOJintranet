@@ -544,6 +544,20 @@ span.oddRow {
     padding: 0;
     margin: 0;
 }
+.RadiB input{
+    display: none;
+}
+
+.RadiB label{
+        cursor: pointer;
+    display: inline-block;
+    font-size: 1em;
+    line-height: 1.5;
+    padding: 14px 32px 14px 14px;
+    position: relative;
+    color: #959595;
+}
+}
 </style>
 <script>
 
