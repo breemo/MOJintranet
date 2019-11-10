@@ -92,7 +92,7 @@
                     <h5>
                         <asp:Literal runat="server" Text="<%$ Resources:Resource, Carwith%>" />
                     </h5>
-                    <div>                      
+                    <div class="CheckBoxThim">                      
                         <asp:CheckBoxList required ID="cbTravelNeeds" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                             <asp:ListItem Text="<%$ Resources:Resource, WithDriver%>" Value="WithDriver" />
                             <asp:ListItem Text="<%$ Resources:Resource, WithoutDriver%>" Value="WithoutDriver" />
@@ -192,7 +192,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="input-group date" id="toFrom"  data-provide="datepicker">
-						<input required type="text" runat="server" id="txtTravelDate" class="form-control">
+						<input autocomplete="off" required type="text" runat="server" id="txtTravelDate" class="form-control">
 						<div class="input-group-addon">
 							<span class="icon-calendar-alt1"></span>
 						</div>
@@ -223,7 +223,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="input-group timenew  " id="toFromT">
-                                        <input  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
+                                        <input autocomplete="off"  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
@@ -267,7 +267,17 @@
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 <script>
+    $(document).ready(function () {
+  
+        $(".CheckBoxThim label").addClass("checkbox-click-target");
+        $(".CheckBoxThim input").addClass("checkbox");
 
+        $('.CheckBoxThim label').each(function () {
+            var valuex = "<span class='checkbox-box'></span>" + this.innerHTML;
+            this.innerHTML = valuex;
+        });
+    });
+    var counter = 1;
     $('.datepicker').datepicker({
         language: 'ar',
         rtl: true,

@@ -182,6 +182,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: "+ Choicetrim, "Resource", SPContext.Current.Web.Language);
                                         //cbPlace.Items.Add(PlaceChoice.Choices[i].ToString());
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
                                         cbPlace.Items.Add(new ListItem(placetext, PlaceChoice.Choices[i].ToString()));
                                     }
                                 }
@@ -219,7 +220,7 @@ namespace MOJ.Intranet.Webparts.My_Services.HostingRequestWP
                                         string text = ResourcesChoice.Choices[i].ToString();
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
-                                       
+                                        placetext = "<span class='checkbox-box'></span>" + placetext;
                                         cbResources.Items.Add(new ListItem(placetext, ResourcesChoice.Choices[i].ToString()));
                                         
                                     }

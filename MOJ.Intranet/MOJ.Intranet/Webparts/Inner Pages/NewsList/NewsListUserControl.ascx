@@ -116,7 +116,7 @@
                             <span class="dateut">
                                 <%#  Convert.ToDateTime(Eval("Created")).ToString("dddd")%>, <%#  Convert.ToDateTime(Eval("Created")).ToString("dd")%> <%#  Convert.ToDateTime(Eval("Created")).ToString("MMM")%>  <%#  Convert.ToDateTime(Eval("Created")).ToString("yyyy")%> </span>
                             <h6>
-                                <a href="<%= SPContext.Current.RootFolderUrl %>/Details.aspx?id=<%# Eval("ID") %>&type=news"><%# Eval("Title") %>
+                                <a href="<%= SPContext.Current.RootFolderUrl %>/Details.aspx?sid=<%# Eval("ID") %>&type=news"><%# Eval("Title") %>
                                 </a>
                             </h6>
                             <p>

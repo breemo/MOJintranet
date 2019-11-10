@@ -130,7 +130,7 @@
                         <div class="col-md-8">
 						
                                  <div class="input-group date Divfrom" data-provide="datepicker">
-										<input required type="text" runat="server" id="from0" class="form-control">
+										<input  autocomplete="off" required type="text" runat="server" id="from0" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
 										</div>
@@ -145,7 +145,7 @@
 								</div>
 								<div  class="col-md-8">
 									<div class="input-group date Divto" data-provide="datepicker">
-										<input required type="text" runat="server" id="to0" class="form-control">
+										<input autocomplete="off" required type="text" runat="server" id="to0" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
 										</div>
@@ -240,20 +240,11 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                        </div>
-                    </div>
-                    <div class="row rt">
+                            <div class="row rt">
 
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-12">
-                                   <label>
-                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, PleaseKindlyReserveARoomAt%>" /></label>
-                                </div>
-                            </div>
-                        </div>
+                      
 
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12  RadiB ">
                                     <asp:RadioButtonList ID="cbPlace" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
@@ -263,7 +254,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-12">
                                    
@@ -273,6 +264,9 @@
                             </div>
                         </div>
                     </div>
+                        </div>
+                    </div>
+                    
 
                     <div class="row rt">
                         <div class="col-md-6">
@@ -281,7 +275,7 @@
                                     <label>
                                         <asp:Literal runat="server" Text="<%$ Resources:Resource, AttendeesNumber%>" /></label>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-8">
                                     <input type="text" runat="server" id="txtAttendeesNumber" class="form-control only-numeric" placeholder="">
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorRBContactReason" runat="server" 
             ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="txtAttendeesNumber"  validationgroup="RoomGroup" Display="Dynamic" >
@@ -303,7 +297,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="input-group date"  id="toFrom" data-provide="datepicker">
-                                        <input type="text" runat="server" id="txtBookingDateFrom" class="form-control">
+                                        <input autocomplete="off" type="text" runat="server" id="txtBookingDateFrom" class="form-control">
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
@@ -331,7 +325,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group timenew" id="toFromT">
-                                        <input  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
+                                        <input autocomplete="off" runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
@@ -353,7 +347,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="input-group date" id="toDate" data-provide="datepicker">
-                                        <input type="text" runat="server" id="txtBookingDateTo" class="form-control">
+                                        <input type="text" autocomplete="off" runat="server" id="txtBookingDateTo" class="form-control">
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
@@ -384,7 +378,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="input-group timenew"  id="toDateT">
-                                        <input  runat="server" id="txtBookingTimeTo" class="timepicker form-control" />
+                                        <input autocomplete="off"  runat="server" id="txtBookingTimeTo" class="timepicker form-control" />
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>
@@ -455,7 +449,7 @@
                         <div class="col-md-12">
                             <h5><asp:Literal runat="server" Text="<%$ Resources:Resource, resources%>" />
                             </h5>
-                            <div>
+                            <div class="CheckBoxresources" >
                                
                                 <asp:CheckBoxList ID="cbResources" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                 </asp:CheckBoxList>
@@ -543,11 +537,20 @@ span.oddRow {
 .RadiB table {
     padding: 0;
     margin: 0;
+        top: 20px;
 }
+
+
+
+
 </style>
 <script>
 
     $(document).ready(function () {
+        $(".RadiB label").addClass("radio-button-click-target");
+        $(".RadiB input").addClass("radio-button");
+        $(".CheckBoxresources label").addClass("checkbox-click-target");
+        $(".CheckBoxresources input").addClass("checkbox");
         $(".only-numeric").bind("keypress", function (e) {
             var keyCode = e.which ? e.which : e.keyCode
 
@@ -565,8 +568,8 @@ span.oddRow {
         var Itemhtml = $("#FirstItemAA");
         Itemhtml.find(".DivName")[0].innerHTML = "<input required name='PName' type=text' id='PName" + counter + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivJob")[0].innerHTML = "<input required name='Job' type='text' id='Job" + counter + "' class='form-control'></div>";
-        Itemhtml.find(".Divfrom")[0].innerHTML = "<input required name='from' type='text' id='from" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
-        Itemhtml.find(".Divto")[0].innerHTML = "<input required name='to' type='text' id='to" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".Divfrom")[0].innerHTML = "<input  autocomplete='off' required name='from' type='text' id='from" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".Divto")[0].innerHTML = "<input  autocomplete='off' required name='to' type='text' id='to" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
         Itemhtml.find(".DivpMission")[0].innerHTML = "<textarea required name='pMission' rows='3' id='pMission" + counter + "' class='form-control' ></textarea>";
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");

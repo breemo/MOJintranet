@@ -80,6 +80,8 @@ namespace CommonLibrary
         public const string DepartmentsListUrl = "/Lists/Departments/AllItems.aspx";
 
         public const string ServicesListUrl = "/Lists/Services/AllItems.aspx";
+        public const string ExternalLinksListUrl = "/Lists/ExternalLinks/AllItems.aspx";
+
         public const string HostingRequestUrl = "/Lists/HostingRequest/AllItems.aspx";
         public const string DepartmentsUrl = "/Lists/Departments/AllItems.aspx";
         public const string RoomBookingUrl = "/Lists/RoomBooking/AllItems.aspx";

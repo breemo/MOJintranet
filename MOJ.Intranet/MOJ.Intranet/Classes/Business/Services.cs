@@ -14,4 +14,12 @@ namespace MOJ.Business
             return new ServicesListManager().GetAllActiveServicesListData();
         }
     }
+
+    public class ExternalLink
+    {
+        public List<ExternalLinkEntity> GetAllActiveExternalLinks(string srvsType)
+        {
+            return new ExternalLinksManager().GetAllActiveExternalLinksData(srvsType);
+        }
+    }
 }

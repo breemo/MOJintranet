@@ -23,6 +23,9 @@
     input[type=button], input[type=reset], input[type=submit], button {
         min-width: 0em !important;
     }
+    .img-fluid{
+        max-height:287px !important;
+    } 
 </style>
 
 <div class="topbarprint">
