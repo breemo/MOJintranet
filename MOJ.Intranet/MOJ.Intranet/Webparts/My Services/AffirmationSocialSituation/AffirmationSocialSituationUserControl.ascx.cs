@@ -85,6 +85,7 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                                         string text = Choice0.Choices[i].ToString();
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
                                         RBHusbandORWife.Items.Add(new ListItem(placetext, Choice0.Choices[i].ToString()));
 
                                        
@@ -95,6 +96,7 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                                         string text = Choice1.Choices[i].ToString();
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
                                         WorkSector0.Items.Add(new ListItem(placetext, Choice1.Choices[i].ToString()));
 
                                        
@@ -110,6 +112,7 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                                         string text = Choice.Choices[i].ToString();
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
                                         Gender0.Items.Add(new ListItem(placetext, Choice.Choices[i].ToString()));
 
                                     }

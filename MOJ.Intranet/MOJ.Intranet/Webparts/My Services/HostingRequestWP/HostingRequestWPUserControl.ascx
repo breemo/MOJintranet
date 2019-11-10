@@ -240,20 +240,11 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                        </div>
-                    </div>
-                    <div class="row rt">
+                            <div class="row rt">
 
-                        <div class="col-md-3">
-                            <div class="row">
-                                <div class="col-md-12">
-                                   <label>
-                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, PleaseKindlyReserveARoomAt%>" /></label>
-                                </div>
-                            </div>
-                        </div>
+                      
 
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12  RadiB ">
                                     <asp:RadioButtonList ID="cbPlace" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
@@ -263,7 +254,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="row">
                                 <div class="col-md-12">
                                    
@@ -273,6 +264,9 @@
                             </div>
                         </div>
                     </div>
+                        </div>
+                    </div>
+                    
 
                     <div class="row rt">
                         <div class="col-md-6">
@@ -281,7 +275,7 @@
                                     <label>
                                         <asp:Literal runat="server" Text="<%$ Resources:Resource, AttendeesNumber%>" /></label>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-8">
                                     <input type="text" runat="server" id="txtAttendeesNumber" class="form-control only-numeric" placeholder="">
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorRBContactReason" runat="server" 
             ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="txtAttendeesNumber"  validationgroup="RoomGroup" Display="Dynamic" >
@@ -455,7 +449,7 @@
                         <div class="col-md-12">
                             <h5><asp:Literal runat="server" Text="<%$ Resources:Resource, resources%>" />
                             </h5>
-                            <div>
+                            <div class="CheckBoxresources" >
                                
                                 <asp:CheckBoxList ID="cbResources" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                 </asp:CheckBoxList>
@@ -543,25 +537,20 @@ span.oddRow {
 .RadiB table {
     padding: 0;
     margin: 0;
-}
-.RadiB input{
-    display: none;
+        top: 20px;
 }
 
-.RadiB label{
-        cursor: pointer;
-    display: inline-block;
-    font-size: 1em;
-    line-height: 1.5;
-    padding: 14px 32px 14px 14px;
-    position: relative;
-    color: #959595;
-}
-}
+
+
+
 </style>
 <script>
 
     $(document).ready(function () {
+        $(".RadiB label").addClass("radio-button-click-target");
+        $(".RadiB input").addClass("radio-button");
+        $(".CheckBoxresources label").addClass("checkbox-click-target");
+        $(".CheckBoxresources input").addClass("checkbox");
         $(".only-numeric").bind("keypress", function (e) {
             var keyCode = e.which ? e.which : e.keyCode
 

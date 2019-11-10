@@ -78,7 +78,10 @@ namespace MOJ.Intranet.Webparts.My_Services.ContactWithHRWP
                                     SPFieldChoice Choice0 = (SPFieldChoice)lst.Fields["ContactReason"];
                                     for (int i = 0; i < Choice0.Choices.Count; i++)
                                     {
-                                        RBContactReason.Items.Add(Choice0.Choices[i].ToString());
+                                        var placetext = "<span class='radio-button-circle'></span>" + Choice0.Choices[i].ToString();
+                                        RBContactReason.Items.Add(new ListItem(placetext, Choice0.Choices[i].ToString()));
+
+                                       
                                     }
 
                                 }

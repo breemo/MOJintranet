@@ -130,7 +130,7 @@
                             <label> <asp:Literal runat="server" Text="<%$ Resources:Resource, Data%>" /></label>
                         </div>
 
-                        <div class="col-md-9">
+                        <div class="col-md-9 RadiB">
                        <asp:RadioButtonList ID="RBHusbandORWife" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
 
@@ -192,7 +192,7 @@
                                 <div class="col-md-4">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, WorkSector%>" /></label>
                         </div>
-                        <div class="col-md-8 DivWorkSector">
+                        <div class="col-md-8 DivWorkSector RadiB">
                                <asp:RadioButtonList ID="WorkSector0" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
 									</div>
@@ -223,6 +223,8 @@
                         </div>
                         <div    class="col-md-2 DivHasGovernmentHousingAllowance">
                               <asp:CheckBox ID="HasGovernmentHousingAllowance0" runat="server" />
+                            <label for="HasGovernmentHousingAllowance0" class="checkbox-click-target">
+                                <span class="checkbox-box"></span></label>
                         </div>
                                     </div>
                                 </div>
@@ -233,6 +235,8 @@
                         </div>
                         <div  class="col-md-2 DivHasGovernmentHousingPercentageAllowance">
                             <asp:CheckBox ID="HasGovernmentHousingPercentageAllowance0" runat="server" />
+                            <label for="HasGovernmentHousingPercentageAllowance0" class="checkbox-click-target">
+                                <span class="checkbox-box"></span></label>
                         </div>
 						</div>
                        </div>
@@ -275,7 +279,7 @@
                                 <div class="col-md-4">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Gender%>" /></label>
                         </div>
-                        <div class="col-md-8 DivGender">
+                        <div class="col-md-8 DivGender RadiB ">
                                <asp:RadioButtonList ID="Gender0" name="GenderR0" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
 									</div>
@@ -455,7 +459,27 @@ background-color: #f5e9b6;
 }
 </style>
 <script>
+    $(document).ready(function () {
 
+        $(".RadiB label").addClass("radio-button-click-target");
+        $(".RadiB input").addClass("radio-button");
+        var idis = $(".DivHasGovernmentHousingAllowance input").attr('id');
+        $(".DivHasGovernmentHousingAllowance label").attr('for', idis);
+
+
+        var idis2 = $(".DivHasGovernmentHousingPercentageAllowance input").attr('id');
+        $(".DivHasGovernmentHousingPercentageAllowance label").attr('for', idis2);
+
+        $(".DivHasGovernmentHousingAllowance input").addClass("checkbox");
+        $(".DivHasGovernmentHousingPercentageAllowance input").addClass("checkbox");
+        
+
+
+        //$('.CheckBoxThim label').each(function () {
+        //    var valuex = "<span class='checkbox-box'></span>" + this.innerHTML;
+        //    this.innerHTML = valuex;
+        });
+   
     $('.datepicker').datepicker({
         language: 'ar',
         rtl: true,
@@ -485,18 +509,18 @@ background-color: #f5e9b6;
         Itemhtml.find(".DivName")[0].innerHTML = "<input name='Name' type=text' id='Name" + counter + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivDateMarriage")[0].innerHTML = "<input name='DateMarriage' type='text' id='DateMarriage" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
         Itemhtml.find(".DivEmployer")[0].innerHTML = "<input name='Employer' type=text' id='Employer" + counter + "' class='form-control' placeholder=''>";
-        var radio1 = Itemhtml.find(".DivWorkSector label")[0].innerHTML;
-        var radio2 = Itemhtml.find(".DivWorkSector label")[1].innerHTML;
+        var radio1 = Itemhtml.find(".DivWorkSector label")[0].innerText;
+        var radio2 = Itemhtml.find(".DivWorkSector label")[1].innerText;
         var WorkSectorhtm = "<input name='WorkSector' type='text' id='worksectorvalue" + counter + "' style='display:none' placeholder=''>";
         WorkSectorhtm += "<table id='WorkSector" + counter + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td>";
-        WorkSectorhtm += "<input  onchange=\"handleChange('worksectorvalue" + counter + "','" + radio1 + "');\"  id='WorkSector" + counter + "_0' type='radio' name='WorkSectorR" + counter + "' value='" + radio1 + "'><label >" + radio1 + "</label></td><td>"
-        WorkSectorhtm += "<input onchange=\"handleChange('worksectorvalue" + counter + "','" + radio2 + "');\" id='WorkSector" + counter + "_1' type='radio' name='WorkSectorR" + counter + "' value='" + radio2 + "'><label>" + radio2 + "</label></td>";
+        WorkSectorhtm += "<input class='radio-button'  onchange=\"handleChange('worksectorvalue" + counter + "','" + radio1 + "');\"  id='WorkSector" + counter + "_0' type='radio' name='WorkSectorR" + counter + "' value='" + radio1 + "'><label for='WorkSector" + counter + "_0' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + radio1 + "</label></td><td>"
+        WorkSectorhtm += "<input  class='radio-button' onchange=\"handleChange('worksectorvalue" + counter + "','" + radio2 + "');\" id='WorkSector" + counter + "_1' type='radio' name='WorkSectorR" + counter + "' value='" + radio2 + "'><label for='WorkSector" + counter + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td>";
         WorkSectorhtm += "</tr></tbody></table>";
         Itemhtml.find(".DivWorkSector")[0].innerHTML = WorkSectorhtm;
         Itemhtml.find(".DivHiringDate")[0].innerHTML = "<input name='HiringDate' type='text' id='HiringDate" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
 
-        Itemhtml.find(".DivHasGovernmentHousingAllowance")[0].innerHTML = "<input id='HasGovernmentHousingAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingAllowance" + counter + "'>";
-        Itemhtml.find(".DivHasGovernmentHousingPercentageAllowance")[0].innerHTML = "<input id='HasGovernmentHousingPercentageAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingPercentageAllowance" + counter + "'>";
+        Itemhtml.find(".DivHasGovernmentHousingAllowance")[0].innerHTML = "<input class='checkbox' id='HasGovernmentHousingAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingAllowance" + counter + "'><label for='HasGovernmentHousingAllowance" + counter + "' class='checkbox-click-target'><span class='checkbox-box'></span></label >";
+        Itemhtml.find(".DivHasGovernmentHousingPercentageAllowance")[0].innerHTML = "<input class='checkbox' id='HasGovernmentHousingPercentageAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingPercentageAllowance" + counter + "'><label for='HasGovernmentHousingPercentageAllowance" + counter + "' class='checkbox-click-target'><span class='checkbox-box'></span></label >";
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
         att.value = "MoreThanOneWife";
@@ -513,6 +537,7 @@ background-color: #f5e9b6;
         $("#FirstItemAA")[0].innerHTML = "";
     }
 
+
     var counter2 = 1;
 
     function addInputChildren() {
@@ -520,15 +545,15 @@ background-color: #f5e9b6;
         var Itemhtml = $("#FirstItemChildrenAA");
         Itemhtml.find(".DivChildrenName")[0].innerHTML = "<input name='ChildrenName' type=text' id='ChildrenName" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivAge")[0].innerHTML = "<input name='Age' type=text' id='Age" + counter2 + "' class='form-control' placeholder=''>";
-        var radio1 = Itemhtml.find(".DivGender label")[0].innerHTML;
-        var radio2 = Itemhtml.find(".DivGender label")[1].innerHTML;
+        var radio1 = Itemhtml.find(".DivGender label")[0].innerText;
+        var radio2 = Itemhtml.find(".DivGender label")[1].innerText;
 
         var GenderhtmlR = "<input name='Gender' type='text' id='genderaa" + counter2 + "' style='display:none' placeholder=''>";
         GenderhtmlR += "<table id='Gender" + counter2 + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td> ";
-        GenderhtmlR += "<input onchange=\"handleChange('genderaa" + counter2 + "','" + radio1 + "');\" id='Gender" + counter2 + "_0' type='radio' name='GenderR" + counter2 + "' value='" + radio1 + "'> ";
-        GenderhtmlR += "<label >" + radio1 + "</label></td><td>";
-        GenderhtmlR += "<input onchange=\"handleChange('genderaa" + counter2 + "','" + radio2 + "');\" id='Gender" + counter2 + "_1' type='radio' name='GenderR" + counter2 + "' value='" + radio2 + "'>";
-        GenderhtmlR += "<label>" + radio2 + "</label></td></tr></tbody></table>";
+        GenderhtmlR += "<input class='radio-button' onchange=\"handleChange('genderaa" + counter2 + "','" + radio1 + "');\" id='Gender" + counter2 + "_0' type='radio' name='GenderR" + counter2 + "' value='" + radio1 + "'> ";
+        GenderhtmlR += "<label for='Gender" + counter2 + "_0' class='radio-button-click-target' ><span class='radio-button-circle'></span>" + radio1 + "</label></td><td>";
+        GenderhtmlR += "<input class='radio-button' onchange=\"handleChange('genderaa" + counter2 + "','" + radio2 + "');\" id='Gender" + counter2 + "_1' type='radio' name='GenderR" + counter2 + "' value='" + radio2 + "'>";
+        GenderhtmlR += "<label for='Gender" + counter2 + "_1' class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td></tr></tbody></table>";
         Itemhtml.find(".DivGender ")[0].innerHTML = GenderhtmlR;
         var newdiv = document.createElement('div');
         var classis = "";
