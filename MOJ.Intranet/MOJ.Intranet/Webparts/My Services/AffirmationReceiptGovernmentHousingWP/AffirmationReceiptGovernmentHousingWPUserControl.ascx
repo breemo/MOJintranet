@@ -180,7 +180,7 @@
 								</div>
 								<div class="col-md-8">
 									<div class="input-group date DivDateApportionmentDate" data-provide="datepicker">
-										<input  type="text" runat="server" id="ApportionmentDate" class="form-control">
+										<input  autocomplete="off" type="text" runat="server" id="ApportionmentDate" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
 										</div>

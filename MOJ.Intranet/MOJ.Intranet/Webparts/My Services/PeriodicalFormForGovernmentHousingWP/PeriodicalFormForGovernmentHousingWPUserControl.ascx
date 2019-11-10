@@ -307,7 +307,7 @@
 									</div>
 									<div class="col-md-8">
 										<div  class="input-group date DivHiringDate" data-provide="datepicker">
-											<input type="text" runat="server" id="HiringDate0" class="form-control">
+											<input autocomplete="off" type="text" runat="server" id="HiringDate0" class="form-control">
 											<div class="input-group-addon">
 												<span class="icon-calendar-alt1"></span>
 											</div>
@@ -598,7 +598,7 @@ background-color: #f5e9b6;
         var Itemhtml = $("#FirstItemAA");
 
         Itemhtml.find(".DivName")[0].innerHTML = "<input name='Name' type=text' id='Name" + counter + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivHiringDate")[0].innerHTML = "<input name='HiringDate' type='text' id='HiringDate" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivHiringDate")[0].innerHTML = "<input autocomplete='off' name='HiringDate' type='text' id='HiringDate" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
 
         var radio1 = Itemhtml.find(".DivWorkSector label")[0].innerHTML;
         var radio2 = Itemhtml.find(".DivWorkSector label")[1].innerHTML;

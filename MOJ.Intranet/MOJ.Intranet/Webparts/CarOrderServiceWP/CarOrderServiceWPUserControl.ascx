@@ -192,7 +192,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="input-group date" id="toFrom"  data-provide="datepicker">
-						<input required type="text" runat="server" id="txtTravelDate" class="form-control">
+						<input autocomplete="off" required type="text" runat="server" id="txtTravelDate" class="form-control">
 						<div class="input-group-addon">
 							<span class="icon-calendar-alt1"></span>
 						</div>
@@ -223,7 +223,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="input-group timenew  " id="toFromT">
-                                        <input  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
+                                        <input autocomplete="off"  runat="server" id="txtBookingTimeFrom" class="timepicker form-control" />
                                         <div class="input-group-addon">
                                             <span class="icon-calendar-alt1"></span>
                                         </div>

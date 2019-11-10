@@ -167,7 +167,7 @@
 								</div>
 								<div class="col-md-8">
 									<div class="input-group date DivDateMarriage" data-provide="datepicker">
-										<input  type="text" runat="server" id="DateMarriage0" class="form-control">
+										<input autocomplete="off"  type="text" runat="server" id="DateMarriage0" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
 										</div>
@@ -205,7 +205,7 @@
                         </div>
                         <div class="col-md-8">
                             <div  class="input-group date DivHiringDate" data-provide="datepicker">
-                                <input type="text" runat="server" id="HiringDate0" class="form-control">
+                                <input autocomplete="off" type="text" runat="server" id="HiringDate0" class="form-control">
                                 <div class="input-group-addon">
                                     <span class="icon-calendar-alt1"></span>
                                 </div>
@@ -395,7 +395,7 @@
                         <div class="col-md-8">
 
                             <div class="input-group date" data-provide="datepicker">
-                                <input type="text"  runat="server" id="ChangeDate" class="form-control">
+                                <input autocomplete="off" type="text"  runat="server" id="ChangeDate" class="form-control">
                                 <div class="input-group-addon">
                                     <span class="icon-calendar-alt1"></span>
                                 </div>
@@ -507,7 +507,7 @@ background-color: #f5e9b6;
         var Itemhtml = $("#FirstItemAA");
 
         Itemhtml.find(".DivName")[0].innerHTML = "<input name='Name' type=text' id='Name" + counter + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivDateMarriage")[0].innerHTML = "<input name='DateMarriage' type='text' id='DateMarriage" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivDateMarriage")[0].innerHTML = "<input autocomplete='off' name='DateMarriage' type='text' id='DateMarriage" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
         Itemhtml.find(".DivEmployer")[0].innerHTML = "<input name='Employer' type=text' id='Employer" + counter + "' class='form-control' placeholder=''>";
         var radio1 = Itemhtml.find(".DivWorkSector label")[0].innerText;
         var radio2 = Itemhtml.find(".DivWorkSector label")[1].innerText;
@@ -517,7 +517,7 @@ background-color: #f5e9b6;
         WorkSectorhtm += "<input  class='radio-button' onchange=\"handleChange('worksectorvalue" + counter + "','" + radio2 + "');\" id='WorkSector" + counter + "_1' type='radio' name='WorkSectorR" + counter + "' value='" + radio2 + "'><label for='WorkSector" + counter + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td>";
         WorkSectorhtm += "</tr></tbody></table>";
         Itemhtml.find(".DivWorkSector")[0].innerHTML = WorkSectorhtm;
-        Itemhtml.find(".DivHiringDate")[0].innerHTML = "<input name='HiringDate' type='text' id='HiringDate" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivHiringDate")[0].innerHTML = "<input autocomplete='off' name='HiringDate' type='text' id='HiringDate" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
 
         Itemhtml.find(".DivHasGovernmentHousingAllowance")[0].innerHTML = "<input class='checkbox' id='HasGovernmentHousingAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingAllowance" + counter + "'><label for='HasGovernmentHousingAllowance" + counter + "' class='checkbox-click-target'><span class='checkbox-box'></span></label >";
         Itemhtml.find(".DivHasGovernmentHousingPercentageAllowance")[0].innerHTML = "<input class='checkbox' id='HasGovernmentHousingPercentageAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingPercentageAllowance" + counter + "'><label for='HasGovernmentHousingPercentageAllowance" + counter + "' class='checkbox-click-target'><span class='checkbox-box'></span></label >";
