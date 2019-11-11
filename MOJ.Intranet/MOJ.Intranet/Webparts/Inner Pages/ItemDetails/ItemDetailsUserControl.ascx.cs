@@ -40,7 +40,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.ItemDetails
 
                 foreach (NewsEntity lstItem in NewsItem)
                 {
-                    if (lstItem.ID.ToString() != Request.QueryString["Id"].ToString())
+                    if (lstItem.ID.ToString() != Request.QueryString["sId"].ToString())
                     {
                         string des = LimitCharacters.Limit(lstItem.Body, 40);
                         string siteURL = SPContext.Current.RootFolderUrl;
