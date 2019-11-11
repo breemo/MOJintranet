@@ -19,6 +19,11 @@
     #s4-titlerow {
         background-color: transparent !important;
     }
+
+    .content-wrap {
+        width: 550px;
+        height: 350px;
+    }
 </style>
 <div class="tab-container" data-active="">
     <div class="row rt">
@@ -39,7 +44,8 @@
             <div class="row">
 
                 <div class="col-md-2">
-                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EnterEmailAddress%>" /></label>
+                    <label>
+                        <asp:Literal runat="server" Text="<%$ Resources:Resource, EnterEmailAddress%>" /></label>
                 </div>
 
                 <div class="col-md-9">
@@ -50,7 +56,8 @@
             <div class="row">
 
                 <div class="col-md-2">
-                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EnterEmployeeID%>" /></label>
+                    <label>
+                        <asp:Literal runat="server" Text="<%$ Resources:Resource, EnterEmployeeID%>" /></label>
                 </div>
 
                 <div class="col-md-9">
@@ -61,7 +68,8 @@
             <div class="row">
 
                 <div class="col-md-2">
-                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ReEnterEmployeeID%>" /></label>
+                    <label>
+                        <asp:Literal runat="server" Text="<%$ Resources:Resource, ReEnterEmployeeID%>" /></label>
                 </div>
 
                 <div class="col-md-9">
@@ -69,15 +77,15 @@
                 </div>
             </div>
 
-            <div id="errormsg" runat="server" style="display:none">
+            <div id="errormsg" runat="server" style="display: none">
                 <div class="row">
 
                     <div class="col-md-2">
-                        
                     </div>
 
                     <div class="col-md-9">
-                        <label style="color:red"><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeIDErrorMsg%>" /></label>
+                        <label style="color: red">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeIDErrorMsg%>" /></label>
                     </div>
                 </div>
             </div>
@@ -86,7 +94,7 @@
         </div>
 
         <div class="row rt  botx" style="padding: 40px;">
-            <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+            <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
         </div>
         <div class="col-md-6">
         </div>
