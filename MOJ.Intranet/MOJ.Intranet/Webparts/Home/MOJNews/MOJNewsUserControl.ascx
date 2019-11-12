@@ -8,9 +8,8 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MOJNewsUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.MOJNews.MOJNewsUserControl" %>
 
 <style>
-    /*justify-content: space-evenly;*/
     .newsdivbox {
-        justify-content: end;
+        justify-content: start;
     }
 </style>
 
