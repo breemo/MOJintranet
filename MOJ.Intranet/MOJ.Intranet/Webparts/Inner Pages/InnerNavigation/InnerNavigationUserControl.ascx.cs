@@ -58,14 +58,16 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
                                         {
                                             if (page.Name != "OccasionDetails.aspx")
                                             {
-
-                                                if (CurrentPage == page.Name)
-                                                { Class = "<li class='uk-active'>"; }
-                                                else { Class = "<li>"; }
-                                                lblDrawItems.Text +=
-                                                     string.Format(@"
+                                                if (page.Name != "Souq.aspx")
+                                                {
+                                                    if (CurrentPage == page.Name)
+                                                    { Class = "<li class='uk-active'>"; }
+                                                    else { Class = "<li>"; }
+                                                    lblDrawItems.Text +=
+                                                         string.Format(@"
                                     " + Class + @"<a href='{0}' >{1}</a></li>
                                     ", page.Uri, page.Title);
+                                                }
                                             }
                                         }
                                     }

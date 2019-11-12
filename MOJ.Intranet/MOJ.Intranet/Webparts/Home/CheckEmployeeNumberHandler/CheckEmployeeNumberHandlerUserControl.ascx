@@ -20,7 +20,7 @@
         //Set options for Modal PopUp  
         var options = {
             url: EmployeeIDPage, //Set the url of the page  
-            //title: 'Enter Employee Number', //Set the title for the pop up  
+            title: ' ', //Set the title for the pop up  
             allowMaximize: false,
             showClose: false,
             width: 600,
