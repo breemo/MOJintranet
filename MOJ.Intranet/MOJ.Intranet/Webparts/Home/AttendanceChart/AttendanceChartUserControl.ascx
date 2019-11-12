@@ -7,10 +7,10 @@
 <%@ Register TagPrefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AttendanceChartUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.AttendanceChart.AttendanceChartUserControl" %>
 
-<script src="https://npmcdn.com/moment@2.14.1"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<!-- <script src="https://npmcdn.com/moment@2.14.1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
 
-<script>
+<!-- <script>
     $(function () {
         const ctx = document.getElementById('myChart').getContext('2d');
         let years = ["January", "February", "March", "April", "May", "June", "July"];
@@ -101,7 +101,7 @@
         });
     });
 
-</script>
+</script> -->
 
 <h4 class="TitleHead">
     <asp:Literal runat="server" Text="<%$ Resources:Resource, AttendeesChartTitle%>" /></h4>
@@ -109,9 +109,9 @@
 <div class="blockbox minhe">
 
     <div class="chaid">
-        <canvas id="myChart" style="max-width:100% !important" width="500" height="260"></canvas>
+        <!-- <canvas id="myChart" style="max-width: 100% !important" width="500" height="260"></canvas>-->
 
-        <!--<canvas dir="rtl" id="chart-2" height="250"></canvas>-->
+        <img src="/Ar/PublishingImages/download.png" runat="server" id="Chartimg" style="max-width:390px">
     </div>
 
 </div>

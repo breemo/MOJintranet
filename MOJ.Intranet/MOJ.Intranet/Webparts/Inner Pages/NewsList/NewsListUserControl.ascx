@@ -83,10 +83,10 @@
                     </asp:DropDownList>
                 </div>
             </div>
-            <div class="col-md-2">
+        </div>
+         <div class="col-md-2">
                 <asp:Button ID="btnSrch" runat="server" Text='<%$ Resources:Resource, btnSearch%>' class="btnclass" OnClick="btnSrch_Click" />
             </div>
-        </div>
     </div>
 </div>
 

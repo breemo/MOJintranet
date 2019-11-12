@@ -903,4 +903,10 @@
   <data name="Meetings" xml:space="preserve">
     <value>Meetings</value>
   </data>
+  <data name="AttendeesChartImage" xml:space="preserve">
+    <value>/En/PublishingImages/download.png</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
 </root>
