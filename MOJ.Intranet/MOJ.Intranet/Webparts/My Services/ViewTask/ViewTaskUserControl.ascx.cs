@@ -185,7 +185,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 var valuetext4 = SPUtility.GetLocalizedString("$Resources: " + trim4, "Resource", SPContext.Current.Web.Language);
 
 
-                addtopage("age", son.age, "Career", valuetext4);
+               
                 addtopage("age", son.age, "Career", valuetext4);
                 if (son.Career != "Student" && son.Career != "طالب")
                 {

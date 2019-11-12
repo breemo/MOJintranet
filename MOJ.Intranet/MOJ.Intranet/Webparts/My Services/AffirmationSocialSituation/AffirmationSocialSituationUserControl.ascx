@@ -472,14 +472,14 @@ background-color: #f5e9b6;
 
         $(".DivHasGovernmentHousingAllowance input").addClass("checkbox");
         $(".DivHasGovernmentHousingPercentageAllowance input").addClass("checkbox");
-        
+
 
 
         //$('.CheckBoxThim label').each(function () {
         //    var valuex = "<span class='checkbox-box'></span>" + this.innerHTML;
         //    this.innerHTML = valuex;
-        });
-   
+    });
+
     $('.datepicker').datepicker({
         language: 'ar',
         rtl: true,
@@ -510,11 +510,13 @@ background-color: #f5e9b6;
         Itemhtml.find(".DivDateMarriage")[0].innerHTML = "<input autocomplete='off' name='DateMarriage' type='text' id='DateMarriage" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
         Itemhtml.find(".DivEmployer")[0].innerHTML = "<input name='Employer' type=text' id='Employer" + counter + "' class='form-control' placeholder=''>";
         var radio1 = Itemhtml.find(".DivWorkSector label")[0].innerText;
+        var radiovalue1 = Itemhtml.find(".DivWorkSector input")[0].value;
         var radio2 = Itemhtml.find(".DivWorkSector label")[1].innerText;
+        var radiovalue2 = Itemhtml.find(".DivWorkSector input")[1].value;
         var WorkSectorhtm = "<input name='WorkSector' type='text' id='worksectorvalue" + counter + "' style='display:none' placeholder=''>";
         WorkSectorhtm += "<table id='WorkSector" + counter + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td>";
-        WorkSectorhtm += "<input class='radio-button'  onchange=\"handleChange('worksectorvalue" + counter + "','" + radio1 + "');\"  id='WorkSector" + counter + "_0' type='radio' name='WorkSectorR" + counter + "' value='" + radio1 + "'><label for='WorkSector" + counter + "_0' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + radio1 + "</label></td><td>"
-        WorkSectorhtm += "<input  class='radio-button' onchange=\"handleChange('worksectorvalue" + counter + "','" + radio2 + "');\" id='WorkSector" + counter + "_1' type='radio' name='WorkSectorR" + counter + "' value='" + radio2 + "'><label for='WorkSector" + counter + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td>";
+        WorkSectorhtm += "<input class='radio-button'  onchange=\"handleChange('worksectorvalue" + counter + "','" + radiovalue1 + "');\"  id='WorkSector" + counter + "_0' type='radio' name='WorkSectorR" + counter + "' value='" + radiovalue1 + "'><label for='WorkSector" + counter + "_0' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + radio1 + "</label></td><td>"
+        WorkSectorhtm += "<input  class='radio-button' onchange=\"handleChange('worksectorvalue" + counter + "','" + radiovalue2 + "');\" id='WorkSector" + counter + "_1' type='radio' name='WorkSectorR" + counter + "' value='" + radiovalue2 + "'><label for='WorkSector" + counter + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td>";
         WorkSectorhtm += "</tr></tbody></table>";
         Itemhtml.find(".DivWorkSector")[0].innerHTML = WorkSectorhtm;
         Itemhtml.find(".DivHiringDate")[0].innerHTML = "<input autocomplete='off' name='HiringDate' type='text' id='HiringDate" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
@@ -529,12 +531,22 @@ background-color: #f5e9b6;
         if (counter % 2 === 0) {
             classis = "oddRow";
         } else { classis = "evenRow"; }
-        var allhtml = "<div class='" + classis + "'> <hr>" + Itemhtml[0].innerHTML + "</div>";
+
+
+        var allhtml = "<div class='" + classis + "'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerow(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
+
+
+
         document.getElementById('dynamicInput').appendChild(newdiv);
         counter++;
         document.getElementById('hdnHusbandORWife').value = counter;
         $("#FirstItemAA")[0].innerHTML = "";
+    }
+    function removerow(thi) {
+        counter--;
+        document.getElementById('hdnHusbandORWife').value = counter;
+        thi.closest('.MoreThanOneWife').remove();
     }
 
 
@@ -546,27 +558,43 @@ background-color: #f5e9b6;
         Itemhtml.find(".DivChildrenName")[0].innerHTML = "<input name='ChildrenName' type=text' id='ChildrenName" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivAge")[0].innerHTML = "<input name='Age' type=text' id='Age" + counter2 + "' class='form-control' placeholder=''>";
         var radio1 = Itemhtml.find(".DivGender label")[0].innerText;
+        var radiovalue1 = Itemhtml.find(".DivGender input")[0].value;
         var radio2 = Itemhtml.find(".DivGender label")[1].innerText;
-
+        var radiovalue2 = Itemhtml.find(".DivGender input")[1].value;
         var GenderhtmlR = "<input name='Gender' type='text' id='genderaa" + counter2 + "' style='display:none' placeholder=''>";
         GenderhtmlR += "<table id='Gender" + counter2 + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td> ";
-        GenderhtmlR += "<input class='radio-button' onchange=\"handleChange('genderaa" + counter2 + "','" + radio1 + "');\" id='Gender" + counter2 + "_0' type='radio' name='GenderR" + counter2 + "' value='" + radio1 + "'> ";
+        GenderhtmlR += "<input class='radio-button' onchange=\"handleChange('genderaa" + counter2 + "','" + radiovalue1 + "');\" id='Gender" + counter2 + "_0' type='radio' name='GenderR" + counter2 + "' value='" + radiovalue1 + "'> ";
         GenderhtmlR += "<label for='Gender" + counter2 + "_0' class='radio-button-click-target' ><span class='radio-button-circle'></span>" + radio1 + "</label></td><td>";
-        GenderhtmlR += "<input class='radio-button' onchange=\"handleChange('genderaa" + counter2 + "','" + radio2 + "');\" id='Gender" + counter2 + "_1' type='radio' name='GenderR" + counter2 + "' value='" + radio2 + "'>";
+        GenderhtmlR += "<input class='radio-button' onchange=\"handleChange('genderaa" + counter2 + "','" + radiovalue2 + "');\" id='Gender" + counter2 + "_1' type='radio' name='GenderR" + counter2 + "' value='" + radiovalue2 + "'>";
         GenderhtmlR += "<label for='Gender" + counter2 + "_1' class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td></tr></tbody></table>";
         Itemhtml.find(".DivGender ")[0].innerHTML = GenderhtmlR;
         var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "new";
+        newdiv.setAttributeNode(att);
         var classis = "";
         if (counter2 % 2 === 0) {
             classis = "oddRow";
         } else { classis = "evenRow"; }
-        var allhtml = "<div class='" + classis + "'> <hr>" + Itemhtml[0].innerHTML + "</div>";
+
+
+        var allhtml = "<div class='" + classis + "'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerowChildren(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
+
+
+
         document.getElementById('dynamicInputChildren').appendChild(newdiv);
         counter2++;
         document.getElementById('hdnChildren').value = counter2;
         $("#FirstItemChildrenAA")[0].innerHTML = "";
     }
+
+    function removerowChildren(thi) {
+        counter2--;
+        document.getElementById('hdnChildren').value = counter2;
+        thi.closest('.new').remove();
+    }
+
 
     function handleChange(ID, radio1) {
         $("#" + ID).val(radio1)
