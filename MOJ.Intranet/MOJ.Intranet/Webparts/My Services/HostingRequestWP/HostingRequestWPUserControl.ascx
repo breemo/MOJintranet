@@ -155,10 +155,10 @@
                        </div>
                 </div>
 				<div class="row rt fleb">
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, BookingDetails%>" /></label>
                         </div>
-                        <div class="col-md-11 DivpMission ">
+                        <div class="col-md-10 DivpMission ">
                             <textarea required class="form-control" runat="server" id="pMission0" rows="3"></textarea>
                         </div>
                     </div>
@@ -540,8 +540,10 @@ span.oddRow {
         top: 20px;
 }
 
-
-
+.inskdnew textarea.form-control {
+   
+    width: 100%;
+}
 
 </style>
 <script>
