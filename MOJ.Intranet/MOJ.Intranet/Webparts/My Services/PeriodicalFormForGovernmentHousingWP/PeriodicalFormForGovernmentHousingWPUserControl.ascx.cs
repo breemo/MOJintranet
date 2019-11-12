@@ -47,6 +47,8 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                                         string text = Choice0.Choices[i].ToString();
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
+
                                         RBHusbandORWife.Items.Add(new ListItem(placetext, Choice0.Choices[i].ToString()));
 
                                        
@@ -57,6 +59,8 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                                         string text = Choice1.Choices[i].ToString();
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
+
                                         WorkSector0.Items.Add(new ListItem(placetext, Choice1.Choices[i].ToString()));
 
                                        
@@ -72,6 +76,8 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                                         string text = Choice.Choices[i].ToString();
                                         string Choicetrim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: " + Choicetrim, "Resource", SPContext.Current.Web.Language);
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
+
                                         Gender0.Items.Add(new ListItem(placetext, Choice.Choices[i].ToString()));
 
                                         
@@ -83,6 +89,8 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                                         string text = Choice2.Choices[i].ToString();
                                         string Choice2trim = text.Replace(" ", "");
                                         var placetext = SPUtility.GetLocalizedString("$Resources: " + Choice2trim, "Resource", SPContext.Current.Web.Language);
+                                        placetext = "<span class='radio-button-circle'></span>" + placetext;
+
                                         Career0.Items.Add(new ListItem(placetext, Choice2.Choices[i].ToString()));
 
                                       
@@ -201,6 +209,7 @@ namespace MOJ.Intranet.Webparts.My_Services.PeriodicalFormForGovernmentHousingWP
                                 sonsob.age = age[x];
                                 sonsob.Name = ChildrenName[x];
                                 sonsob.Gender = GenderR[x];
+                                sonsob.Career = Career[x];
                                 sonsob.BasicSalary = SBasicSalary[x];
                                 sonsob.LastEntryDate = SLastEntryDate[x];
                                 sonsob.LastExitDate = SLastExitDate[x];

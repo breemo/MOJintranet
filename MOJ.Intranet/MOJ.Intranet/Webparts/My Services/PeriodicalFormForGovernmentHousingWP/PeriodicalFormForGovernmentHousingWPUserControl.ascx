@@ -213,7 +213,15 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, LeasingContractEndDate%>" /></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" runat="server" id="LeasingContractEndDate" class="form-control" placeholder="">
+                           
+							<div  class="input-group date " data-provide="datepicker">
+											<input autocomplete="off" type="text" runat="server" id="LeasingContractEndDate" class="form-control">
+											<div class="input-group-addon">
+												<span class="icon-calendar-alt1"></span>
+											</div>
+							
+							</div>
+							
                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
     ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="LeasingContractEndDate" Display="Dynamic" >
     </asp:RequiredFieldValidator> 
@@ -275,7 +283,7 @@
                         <div class="col-md-2">
                             <label> <asp:Literal runat="server" Text="<%$ Resources:Resource, Data%>" /></label>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 RadiB">
                        <asp:RadioButtonList ID="RBHusbandORWife" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
                         </div>
@@ -322,7 +330,7 @@
                                 <div class="col-md-4">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, WorkSector%>" /></label>
                         </div>
-                        <div class="col-md-8 DivWorkSector">
+                        <div class="col-md-8 DivWorkSector RadiB">
                                <asp:RadioButtonList ID="WorkSector0" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
 									</div>
@@ -345,8 +353,17 @@
 								<div  class="col-md-4">
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, LastEntryDate%>" /></label>
 								</div>
-								<div  class="col-md-8 DivLastEntryDate">
-									<input type="text" name="LastEntryDate" runat="server" id="LastEntryDate0" class="form-control" placeholder="">
+								<div  class="col-md-8 ">
+									
+								<div  class="input-group date DivLastEntryDate" data-provide="datepicker">
+											<input autocomplete="off" type="text" runat="server" id="LastEntryDate0" class="form-control">
+											<div class="input-group-addon">
+												<span class="icon-calendar-alt1"></span>
+											</div>
+										</div>
+								
+								
+								
 								</div> 
                               </div>
                        </div>				 
@@ -355,8 +372,15 @@
 								<div  class="col-md-4">
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, LastExitDate%>" /></label>
 								</div>
-								<div  class="col-md-8 DivLastExitDate">
-									<input type="text" name="LastExitDate" runat="server" id="LastExitDate0" class="form-control" placeholder="">
+								<div  class="col-md-8 ">
+									
+								<div  class="input-group date DivLastExitDate" data-provide="datepicker">
+											<input autocomplete="off" type="text" runat="server" id="LastExitDate0" class="form-control">
+											<div class="input-group-addon">
+												<span class="icon-calendar-alt1"></span>
+											</div>
+										</div>
+								
 								</div> 
                               </div>
                        </div>					   
@@ -370,6 +394,8 @@
                         </div>
                         <div  class="col-md-2 DivHasGovernmentHousingPercentageAllowance">
                             <asp:CheckBox ID="HasGovernmentHousingPercentageAllowance0" runat="server" />
+							 <label for="HasGovernmentHousingPercentageAllowance0" class="checkbox-click-target">
+                                <span class="checkbox-box"></span></label>
                         </div>
 						</div>
                        </div>
@@ -410,7 +436,7 @@
                                 <div class="col-md-4">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Gender%>" /></label>
                         </div>
-                        <div class="col-md-8 DivGender">
+                        <div class="col-md-8 DivGender RadiB">
                                <asp:RadioButtonList ID="Gender0" name="GenderR0" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
 									</div>
@@ -435,7 +461,7 @@
                                 <div class="col-md-4">
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Career%>" /></label>
                         </div>
-                        <div class="col-md-8 DivCareer">
+                        <div class="col-md-8 DivCareer RadiB">
                                <asp:RadioButtonList ID="Career0" name="Career0" CssClass="checkbox-click-target firstCareer " RepeatDirection="Horizontal" runat="server" Width="100%">
                                     </asp:RadioButtonList>
 									</div>
@@ -462,6 +488,8 @@
                         </div>
                         <div  class="col-md-2 DivHousingAllowance">
                             <asp:CheckBox ID="HousingAllowance0" runat="server" />
+							 <label for="HousingAllowance0" class="checkbox-click-target">
+                                <span class="checkbox-box"></span></label>
                         </div>
 						</div>
                        </div>
@@ -478,8 +506,16 @@
 								<div  class="col-md-4">
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, LastEntryDate%>" /></label>
 								</div>
-								<div  class="col-md-8 DivLastEntryDate">
-									<input type="text" name="SLastEntryDate" runat="server" id="SLastEntryDate0" class="form-control" placeholder="">
+								<div  class="col-md-8 ">
+									
+									<div  class="input-group date DivLastEntryDate" data-provide="datepicker">
+											<input autocomplete="off" type="text" runat="server" id="SLastEntryDate0" class="form-control">
+											<div class="input-group-addon">
+												<span class="icon-calendar-alt1"></span>
+											</div>
+										</div>
+								
+								
 								</div> 
                               </div>
                        </div>				 
@@ -488,8 +524,16 @@
 								<div  class="col-md-4">
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, LastExitDate%>" /></label>
 								</div>
-								<div  class="col-md-8 DivLastExitDate">
-									<input type="text" name="SLastExitDate" runat="server" id="SLastExitDate0" class="form-control" placeholder="">
+								<div  class="col-md-8 ">
+									<div  class="input-group date DivLastExitDate" data-provide="datepicker">
+											<input autocomplete="off" type="text" runat="server" id="SLastExitDate0" class="form-control">
+											<div class="input-group-addon">
+												<span class="icon-calendar-alt1"></span>
+											</div>
+										</div>
+								
+								
+								
 								</div> 
                               </div>
                        </div>					   
@@ -565,13 +609,25 @@ background-color: #f5e9b6;
 
 }
 </style>
-<script>
 
+<script>
+    $(document).ready(function () {
+        $(".RadiB label").addClass("radio-button-click-target");
+        $(".RadiB input").addClass("radio-button");
+        var idis = $(".DivHousingAllowance input").attr('id');
+        $(".DivHousingAllowance label").attr('for', idis);
+
+        var idis2 = $(".DivHasGovernmentHousingPercentageAllowance input").attr('id');
+        $(".DivHasGovernmentHousingPercentageAllowance label").attr('for', idis2);
+
+
+        $(".DivHousingAllowance input").addClass("checkbox");
+        $(".DivHasGovernmentHousingPercentageAllowance input").addClass("checkbox");
+    });
     $('.datepicker').datepicker({
         language: 'ar',
         rtl: true,
     });
-
     $('.timepicker').timepicker({
         timeFormat: 'h:mm p',
         interval: 60,
@@ -596,22 +652,30 @@ background-color: #f5e9b6;
     function addInput() {
         $("#FirstItemAA")[0].innerHTML = $("#FirstItem")[0].innerHTML;
         var Itemhtml = $("#FirstItemAA");
-
         Itemhtml.find(".DivName")[0].innerHTML = "<input name='Name' type=text' id='Name" + counter + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivHiringDate")[0].innerHTML = "<input autocomplete='off' name='HiringDate' type='text' id='HiringDate" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
-
-        var radio1 = Itemhtml.find(".DivWorkSector label")[0].innerHTML;
-        var radio2 = Itemhtml.find(".DivWorkSector label")[1].innerHTML;
+        var radio1 = Itemhtml.find(".DivWorkSector label")[0].innerText;
+        var radiovalue1 = Itemhtml.find(".DivWorkSector input")[0].value;
+        var radio2 = Itemhtml.find(".DivWorkSector label")[1].innerText;
+        var radiovalue2 = Itemhtml.find(".DivWorkSector input")[1].value;
         var WorkSectorhtm = "<input name='WorkSector' type='text' id='worksectorvalue" + counter + "' style='display:none' placeholder=''>";
         WorkSectorhtm += "<table id='WorkSector" + counter + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td>";
-        WorkSectorhtm += "<input  onchange=\"handleChange('worksectorvalue" + counter + "','" + radio1 + "');\"  id='WorkSector" + counter + "_0' type='radio' name='WorkSectorR" + counter + "' value='" + radio1 + "'><label >" + radio1 + "</label></td><td>"
-        WorkSectorhtm += "<input onchange=\"handleChange('worksectorvalue" + counter + "','" + radio2 + "');\" id='WorkSector" + counter + "_1' type='radio' name='WorkSectorR" + counter + "' value='" + radio2 + "'><label>" + radio2 + "</label></td>";
+        WorkSectorhtm += "<input class='radio-button' onchange=\"handleChange('worksectorvalue" + counter + "','" + radiovalue1 + "');\"  id='WorkSector" + counter + "_0' type='radio' name='WorkSectorR" + counter + "' value='" + radiovalue1 + "'><label for='WorkSector" + counter + "_0' class='radio-button-click-target' > <span class='radio-button-circle'></span>" + radio1 + "</label></td><td>"
+        WorkSectorhtm += "<input class='radio-button' onchange=\"handleChange('worksectorvalue" + counter + "','" + radiovalue2 + "');\" id='WorkSector" + counter + "_1' type='radio' name='WorkSectorR" + counter + "' value='" + radiovalue2 + "'><label for='WorkSector" + counter + "_1' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + radio2 + "</label></td>";
         WorkSectorhtm += "</tr></tbody></table>";
         Itemhtml.find(".DivWorkSector")[0].innerHTML = WorkSectorhtm;
         Itemhtml.find(".DivBasicSalary")[0].innerHTML = "<input name='BasicSalary' type=text' id='BasicSalary" + counter + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivLastEntryDate")[0].innerHTML = "<input name='LastEntryDate' type=text' id='LastEntryDate" + counter + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivLastExitDate")[0].innerHTML = "<input name='LastExitDate' type=text' id='LastExitDate" + counter + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivHasGovernmentHousingPercentageAllowance")[0].innerHTML = "<input id='HasGovernmentHousingPercentageAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingPercentageAllowance" + counter + "'>";
+
+
+        Itemhtml.find(".DivLastEntryDate")[0].innerHTML = "<input autocomplete='off' name='LastEntryDate' type=text' id='LastEntryDate" + counter + "' class='form-control' placeholder=''><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivLastExitDate")[0].innerHTML = "<input autocomplete='off' name='LastExitDate' type=text' id='LastExitDate" + counter + "' class='form-control' placeholder=''><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+
+
+
+
+
+
+        Itemhtml.find(".DivHasGovernmentHousingPercentageAllowance")[0].innerHTML = "<input class='checkbox' id='HasGovernmentHousingPercentageAllowance" + counter + "' type='checkbox' name='HasGovernmentHousingPercentageAllowance" + counter + "'><label for='HasGovernmentHousingPercentageAllowance" + counter + "' class='checkbox-click-target'><span class='checkbox-box'></span></label >";
 
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
@@ -621,13 +685,20 @@ background-color: #f5e9b6;
         if (counter % 2 === 0) {
             classis = "oddRow";
         } else { classis = "evenRow"; }
-        var allhtml = "<div class='" + classis + "'> <hr>" + Itemhtml[0].innerHTML + "</div>";
+        var allhtml = "<div class='" + classis + "'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerow(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
+
         newdiv.innerHTML = allhtml;
         document.getElementById('dynamicInput').appendChild(newdiv);
         counter++;
         document.getElementById('hdnHusbandORWife').value = counter;
         $("#FirstItemAA")[0].innerHTML = "";
     }
+    function removerow(thi) {
+        counter--;
+        document.getElementById('hdnHusbandORWife').value = counter;
+        thi.closest('.MoreThanOneWife').remove();
+    }
+
 
     var counter2 = 1;
 
@@ -637,50 +708,62 @@ background-color: #f5e9b6;
         Itemhtml.find(".DivChildrenName")[0].innerHTML = "<input name='ChildrenName' type=text' id='ChildrenName" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivAge")[0].innerHTML = "<input name='Age' type=text' id='Age" + counter2 + "' class='form-control' placeholder=''>";
 
-        var radio1 = Itemhtml.find(".DivGender label")[0].innerHTML;
-        var radio2 = Itemhtml.find(".DivGender label")[1].innerHTML;
+        var radio1 = Itemhtml.find(".DivGender label")[0].innerText;
+        var radiovalue1 = Itemhtml.find(".DivGender input")[0].value;
+        var radio2 = Itemhtml.find(".DivGender label")[1].innerText;
+        var radiovalue2 = Itemhtml.find(".DivGender input")[1].value;
         var GenderhtmlR = "<input name='Gender' type='text' id='genderaa" + counter2 + "' style='display:none' placeholder=''>";
         GenderhtmlR += "<table id='Gender" + counter2 + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td> ";
-        GenderhtmlR += "<input onchange=\"handleChange('genderaa" + counter2 + "','" + radio1 + "');\" id='Gender" + counter2 + "_0' type='radio' name='GenderR" + counter2 + "' value='" + radio1 + "'> ";
-        GenderhtmlR += "<label >" + radio1 + "</label></td><td>";
-        GenderhtmlR += "<input onchange=\"handleChange('genderaa" + counter2 + "','" + radio2 + "');\" id='Gender" + counter2 + "_1' type='radio' name='GenderR" + counter2 + "' value='" + radio2 + "'>";
-        GenderhtmlR += "<label>" + radio2 + "</label></td></tr></tbody></table>";
+        GenderhtmlR += "<input    class='radio-button' onchange=\"handleChange('genderaa" + counter2 + "','" + radiovalue1 + "');\" id='Gender" + counter2 + "_0' type='radio' name='GenderR" + counter2 + "' value='" + radiovalue1 + "'> ";
+        GenderhtmlR += "<label for='Gender" + counter2 + "_0'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio1 + "</label></td><td>";
+
+        GenderhtmlR += "<input class='radio-button' onchange=\"handleChange('genderaa" + counter2 + "','" + radiovalue2 + "');\" id='Gender" + counter2 + "_1' type='radio' name='GenderR" + counter2 + "' value='" + radiovalue2 + "'>";
+
+        GenderhtmlR += "<label for='Gender" + counter2 + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td>";
+
+        GenderhtmlR += "</tr></tbody></table>";
         Itemhtml.find(".DivGender ")[0].innerHTML = GenderhtmlR;
-        var radioa = Itemhtml.find(".DivCareer label")[0].innerHTML;
-        var radiob = Itemhtml.find(".DivCareer label")[1].innerHTML;
+        var radioa = Itemhtml.find(".DivCareer label")[0].innerText;
+        var radiovaluea = Itemhtml.find(".DivCareer input")[0].value;
+        var radiob = Itemhtml.find(".DivCareer label")[1].innerText;
+        var radiovalueb = Itemhtml.find(".DivCareer input")[1].value;
         var CareerhtmlR = "<input name='Career' type='text' id='Careerr" + counter2 + "' style='display:none' placeholder=''>";
         CareerhtmlR += "<table id='Career" + counter2 + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td> ";
-        CareerhtmlR += "<input onchange=\"handleChangeCareerr(" + counter2 + ",'Careerr" + counter2 + "','none','" + radioa + "');\" id='Career" + counter2 + "_0' type='radio' name='Careers" + counter2 + "' value='" + radioa + "'> ";
-        CareerhtmlR += "<label >" + radioa + "</label></td><td>";
-        CareerhtmlR += "<input onchange=\"handleChangeCareerr(" + counter2 + ",'Careerr" + counter2 + "','flex','" + radiob + "');\" id='Career" + counter2 + "_1' type='radio' name='Careers" + counter2 + "' value='" + radiob + "'>";
-        CareerhtmlR += "<label>" + radiob + "</label></td></tr></tbody></table>";
+        CareerhtmlR += "<input class='radio-button' onchange=\"handleChangeCareerr(" + counter2 + ",'Careerr" + counter2 + "','none','" + radiovaluea + "');\" id='Career" + counter2 + "_0' type='radio' name='Careers" + counter2 + "' value='" + radiovaluea + "'> ";
+        CareerhtmlR += "<label for='Career" + counter2 + "_0'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radioa + "</label></td><td>";
+
+
+        CareerhtmlR += "<input  class='radio-button' onchange=\"handleChangeCareerr(" + counter2 + ",'Careerr" + counter2 + "','flex','" + radiovalueb + "');\" id='Career" + counter2 + "_1' type='radio' name='Careers" + counter2 + "' value='" + radiovalueb + "'>";
+        CareerhtmlR += "<label for='Career" + counter2 + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radiob + "</label></td>";
+
+        CareerhtmlR += "</tr></tbody></table>";
         Itemhtml.find(".DivCareer")[0].innerHTML = CareerhtmlR;
         Itemhtml.find(".DivBasicSalary")[0].innerHTML = "<input name='SBasicSalary' type=text' id='SBasicSalary" + counter2 + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivLastEntryDate")[0].innerHTML = "<input name='SLastEntryDate' type=text' id='SLastEntryDate" + counter2 + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivLastExitDate")[0].innerHTML = "<input name='SLastExitDate' type=text' id='SLastExitDate" + counter2 + "' class='form-control' placeholder=''>";
-
-
-
-        Itemhtml.find(".DivHousingAllowance")[0].innerHTML = "<input id='HousingAllowance" + counter2 + "' type='checkbox' name='HousingAllowance" + counter2 + "'>";
-
-
-
+        Itemhtml.find(".DivLastEntryDate")[0].innerHTML = "<input autocomplete='off' name='SLastEntryDate' type=text' id='SLastEntryDate" + counter2 + "' class='form-control' placeholder=''><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivLastExitDate")[0].innerHTML = "<input autocomplete='off' name='SLastExitDate' type=text' id='SLastExitDate" + counter2 + "' class='form-control' placeholder=''><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivHousingAllowance")[0].innerHTML = "<input class='checkbox' id='HousingAllowance" + counter + "' type='checkbox' name='HousingAllowance" + counter + "'><label for='HousingAllowance" + counter + "' class='checkbox-click-target'><span class='checkbox-box'></span></label >";
 
         var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "new";
+        newdiv.setAttributeNode(att);
         var classis = "";
         if (counter2 % 2 === 0) {
             classis = "oddRow";
         } else { classis = "evenRow"; }
-        var allhtml = "<div class='" + classis + "'> <hr>" + Itemhtml[0].innerHTML + "</div>";
+        var allhtml = "<div class='" + classis + "'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerowChildren(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
         document.getElementById('dynamicInputChildren').appendChild(newdiv);
         $("#FirstItemChildrenAA")[0].innerHTML = "";
         $(".employeeid").eq(counter2).css("display", "flex");
         counter2++;
         document.getElementById('hdnChildren').value = counter2;
+    }
 
-
-
+    function removerowChildren(thi) {
+        counter2--;
+        document.getElementById('hdnChildren').value = counter2;
+        thi.closest('.new').remove();
     }
 
     function handleChange(ID, radio1) {
