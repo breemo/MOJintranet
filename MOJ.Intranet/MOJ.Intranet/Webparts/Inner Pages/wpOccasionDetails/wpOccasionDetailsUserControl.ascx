@@ -20,7 +20,7 @@
     <div class="commentnewhead">
         <div class="comment-header">
             <div class="comment-header-img-box"
-                style="background-image: url(images/OccUSer.jpg);">
+                style="background-image: url(/Style%20Library/MOJTheme/images/icons/avatar.jpg);">
             </div>
             <div class="comment-header-username">
                 <asp:Literal runat="server" ID="lblPublishedBy"></asp:Literal>

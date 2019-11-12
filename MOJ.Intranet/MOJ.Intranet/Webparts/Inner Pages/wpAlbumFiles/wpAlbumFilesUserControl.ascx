@@ -11,11 +11,14 @@
     img.image_fade {
     min-height: 189px !important;
 }
-    @media (min-width: 576px){
+    .image_fade {
+    height: 221px;
+}
+    /*@media (min-width: 576px){
             img.image_fade {
             min-height: 116px !important;
         }
-    }
+    }*/
 </style>
 
 <h3 class="nbottodiv">

@@ -18,6 +18,15 @@
      .active {
         background-color: #e9ecef;
     }
+     .col-md-1 {
+        top: 5px;
+    }
+     .col-md-10 {
+        top: 5px;
+    }
+     .col-md-2 {
+        top: 5px;
+    }
 </style>
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />

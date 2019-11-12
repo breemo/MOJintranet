@@ -25,7 +25,7 @@
                 <ItemTemplate>
                     <div class="comment">
                         <div class="commentnewhead">
-                            <div class="comment-header">
+<%--                            <div class="comment-header">--%>
                                 <div class="comment-header-img-box"
                                     style="background-image: url(images/OccUSer.jpg);">
                                 </div>
@@ -41,7 +41,7 @@
                                         <%# Convert.ToDateTime(Eval("Created")).ToString("dd MMM yyyy") %>
                                     </span>
                                 </div>
-                            </div>
+                            <%--</div>--%>
                             <div class="comment-body">
                                 <%# Eval("Description") %>
                             </div>

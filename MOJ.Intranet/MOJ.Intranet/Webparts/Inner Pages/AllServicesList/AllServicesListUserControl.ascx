@@ -34,17 +34,18 @@
     <div class="tabs tabs-responsive clearfix fullwidthtabs">
 
         <ul class="tab-nav clearfix">
-            <li><a href="#tab-responsive-1"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadMyServices%>" /></a></li>
+            <li><a href="#tab-responsive-1"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEServices%>" /></a></li>
             <li><a href="#tab-responsive-2"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadCoartServices%>" /></a></li>
             <li><a href="#tab-responsive-3"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEmployeesServices%>" /></a></li>
-            <li><a href="#tab-responsive-4"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEServices%>" /></a></li>
+            <li><a href="#tab-responsive-4"><asp:Literal runat="server" Text="<%$ Resources:Resource, HeadMyServices%>" /></a></li>
+
         </ul>
 
         <div class="tab-container">
             <div class="tab-content clearfix" id="tab-responsive-1">
                 <div class="row">
                     <div class="d-flex ordercontainerServices">
-                        <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
+                        <asp:Literal ID="lblDrawEServices" runat="server"></asp:Literal>
                     </div>
                 </div>
             </div>
@@ -65,7 +66,7 @@
             <div class="tab-content clearfix" id="tab-responsive-4">
                 <div class="row">
                     <div class="d-flex ordercontainerServices">
-                        <asp:Literal ID="lblDrawEServices" runat="server"></asp:Literal>
+                        <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
                     </div>
                 </div>
             </div>
