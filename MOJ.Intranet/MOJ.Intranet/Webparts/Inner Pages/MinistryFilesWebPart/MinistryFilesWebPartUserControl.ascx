@@ -112,7 +112,7 @@
 
 
 
-                                                <a runat="server" class="btnclass radix" id="link" target="_blank" href='<%# Eval("AttachmentsInfo") %>'>
+                                                <a runat="server" class="btnclass2 radix" id="link" target="_blank" href='<%# Eval("AttachmentsInfo") %>'>
                                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Download%>" />
                                                 </a>
                                             </div>
