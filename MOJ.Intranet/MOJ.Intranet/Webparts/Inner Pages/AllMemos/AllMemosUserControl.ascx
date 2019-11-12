@@ -20,8 +20,11 @@
     .page-link:focus {
         border-color: #bd995d !important;
     }
-     .active {
+    .active {
         background-color: #e9ecef;
+    }
+    .col-md-5 {
+        top: 12px;
     }
 </style>
 

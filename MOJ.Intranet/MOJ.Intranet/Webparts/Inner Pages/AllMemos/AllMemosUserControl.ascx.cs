@@ -159,8 +159,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllMemos
             txtNumber.Value = "";
             txtSrch.Value = "";
 
-            PageNumber = 0;
-            BindData();
+            //PageNumber = 0;
+            //BindData();
         }
     }
 }
