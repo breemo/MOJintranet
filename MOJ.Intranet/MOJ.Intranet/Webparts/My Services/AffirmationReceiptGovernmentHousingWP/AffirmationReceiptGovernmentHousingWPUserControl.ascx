@@ -166,7 +166,7 @@
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, MobileNumber%>" /></label>
 								</div>
 								<div  class="col-md-8 DivEmployer">
-									<input type="text" name="MobileNumber" runat="server" id="MobileNumber" class="form-control" placeholder="">
+									<input type="text" name="MobileNumber" runat="server" id="MobileNumber" class="form-control  only-numeric" placeholder="">
 								<asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server" 
             ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="MobileNumber" Display="Dynamic" >
             </asp:RequiredFieldValidator> 
@@ -212,7 +212,7 @@
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, VilaApartmentNumber%>" /></label>
 								</div>
 								<div  class="col-md-8 DivEmployer">
-									<input type="text" name="VilaApartmentNumber" runat="server" id="VilaApartmentNumber" class="form-control" placeholder="">
+									<input type="text" name="VilaApartmentNumber" runat="server" id="VilaApartmentNumber" class="form-control only-numeric" placeholder="">
 								<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
             ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="VilaApartmentNumber" Display="Dynamic" >
             </asp:RequiredFieldValidator> 
@@ -227,7 +227,7 @@
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, NumberOfRooms%>" /></label>
 								</div>
 								<div  class="col-md-8 DivEmployer">
-									<input type="text" name="NumberOfRooms" runat="server" id="NumberOfRooms" class="form-control" placeholder="">
+									<input type="text" name="NumberOfRooms" runat="server" id="NumberOfRooms" class="form-control only-numeric" placeholder="">
 								<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
             ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="NumberOfRooms" Display="Dynamic" >
             </asp:RequiredFieldValidator> 
@@ -279,7 +279,7 @@
         
 
             <div class="row rt  botx">
-                <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+                <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
             </div>
         </div>
     
@@ -324,3 +324,21 @@ background-color: #f5e9b6;
 }
 </style>
 
+
+<script>
+
+    $(document).ready(function () {
+
+        $(".only-numeric").bind("keypress", function (e) {
+            var keyCode = e.which ? e.which : e.keyCode
+
+            if (!(keyCode >= 48 && keyCode <= 57)) {
+                $(".error").css("display", "inline");
+                return false;
+            } else {
+                $(".error").css("display", "none");
+            }
+        });
+    });
+
+</script>

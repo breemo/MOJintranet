@@ -157,7 +157,7 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ApartmentNumber%>" /></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" runat="server" id="ApartmentNumber" class="form-control" placeholder="">
+                            <input type="text" runat="server" id="ApartmentNumber" class="form-control only-numeric" placeholder="">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server" 
                         ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="ApartmentNumber" Display="Dynamic" >
                         </asp:RequiredFieldValidator>
@@ -185,7 +185,7 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, NumberOfRooms%>" /></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" runat="server" id="NumberOfRooms" class="form-control" placeholder="">
+                            <input type="text" runat="server" id="NumberOfRooms" class="form-control only-numeric" placeholder="">
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
     ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="NumberOfRooms" Display="Dynamic" >
     </asp:RequiredFieldValidator>
@@ -236,7 +236,7 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Mobile%>" /></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" runat="server" id="Mobile" class="form-control" placeholder="">
+                            <input type="text" runat="server" id="Mobile" class="form-control only-numeric" placeholder="">
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
     ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="Mobile" Display="Dynamic" >
     </asp:RequiredFieldValidator>
@@ -249,7 +249,7 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, HomePhone %>" /></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" runat="server" id="HomePhone" class="form-control" placeholder="">
+                            <input type="text" runat="server" id="HomePhone" class="form-control only-numeric" placeholder="">
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
     ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="HomePhone" Display="Dynamic" >
     </asp:RequiredFieldValidator>
@@ -264,7 +264,7 @@
                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, WorkPhone%>" /></label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" runat="server" id="WorkPhone" class="form-control" placeholder="">
+                            <input type="text" runat="server" id="WorkPhone" class="form-control only-numeric" placeholder="">
                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
     ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="WorkPhone" Display="Dynamic" >
     </asp:RequiredFieldValidator>
@@ -643,6 +643,20 @@ background-color: #f5e9b6;
 
 
 <script>
+
+    $(document).ready(function () {
+
+        $(".only-numeric").bind("keypress", function (e) {
+            var keyCode = e.which ? e.which : e.keyCode
+
+            if (!(keyCode >= 48 && keyCode <= 57)) {
+                $(".error").css("display", "inline");
+                return false;
+            } else {
+                $(".error").css("display", "none");
+            }
+        });
+    });
 
     $(".firstCareer  input").eq(0).attr("onchange", "handleChangefirstCareer(0,'none');");
     $(".firstCareer  input").eq(1).attr("onchange", "handleChangefirstCareer(0,'flex');");
