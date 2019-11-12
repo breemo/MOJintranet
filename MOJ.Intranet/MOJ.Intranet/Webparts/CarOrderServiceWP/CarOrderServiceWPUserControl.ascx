@@ -18,12 +18,20 @@
     var counter = 1;
     var limit = 3;
     function addInput(divName) {
-
         var newdiv = document.createElement('div');
-        newdiv.innerHTML = "<input type='text' required name='Passenger' class='form-control' id='txtPassengerName" + counter + "'>";
+        var att = document.createAttribute("class");
+        att.value = "New";
+        newdiv.setAttributeNode(att);
+        newdiv.innerHTML = "<div><div><span  onclick='removerow(this);'><span class='icon-remove'></span></span><input type='text' required name='Passenger' class='form-control' id='txtPassengerName" + counter + "'></div></div>";
+
         document.getElementById(divName).appendChild(newdiv);
         counter++;
         document.getElementById('hdnPassenger').value = counter;
+    }
+    function removerow(thi) {
+        counter--;
+        document.getElementById('hdnPassenger').value = counter;
+        thi.closest('.New').remove();
     }
 
 </script>
@@ -268,10 +276,8 @@
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 <script>
     $(document).ready(function () {
-  
         $(".CheckBoxThim label").addClass("checkbox-click-target");
         $(".CheckBoxThim input").addClass("checkbox");
-
         $('.CheckBoxThim label').each(function () {
             var valuex = "<span class='checkbox-box'></span>" + this.innerHTML;
             this.innerHTML = valuex;
@@ -294,23 +300,34 @@
         dropdown: true,
         scrollbar: true
     });
-
-    
-        function isGreaterThanCurrentDate() {
-            if (new Date($("#toFrom input").val() + " " + $("#toFromT input").val()) > new Date()) {
-
-                $('#isGreaterThanCurrentDate input').val("Done");
-            } else {
-
-                $('#isGreaterThanCurrentDate input').val("dateerror");
-            }
-
+    function isGreaterThanCurrentDate() {
+        if (new Date($("#toFrom input").val() + " " + $("#toFromT input").val()) > new Date()) {
+            $('#isGreaterThanCurrentDate input').val("Done");
+        } else {
+            $('#isGreaterThanCurrentDate input').val("dateerror");
         }
+
+    }
 </script>
 <style>
 
 #Edata .rt{
      margin-bottom: 1px;
 
+}
+.rt .checkbox-click-target {
+  padding-bottom: 0px;
+
+}
+.CheckBoxThim table {
+     margin-bottom: -20px;
+
+}
+.CheckBoxThim  {
+        margin-top: -30px;
+
+}
+div#dynamicInput div {
+    margin-top: 14px;
 }
 </style>
