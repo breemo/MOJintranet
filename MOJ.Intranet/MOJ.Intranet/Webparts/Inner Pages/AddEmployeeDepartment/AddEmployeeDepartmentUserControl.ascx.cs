@@ -4,6 +4,8 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using System;
+using System.Globalization;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -75,7 +77,12 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AddEmployeeDepartment
                             bool UpdateUserProfile = new AddEmployeeDepartmentBL().AddEmployeeDepartment(currentUser, ddlDepartments.SelectedValue.ToString());
                             if (UpdateUserProfile == true)
                             {
-                                Page.Response.Redirect(SPContext.Current.Site.Url);
+                                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                                if (languageCode == "ar")
+                                    Page.Response.Redirect("/ar");
+                                else
+                                    Page.Response.Redirect("/en");
                             }
                         }
                     }
