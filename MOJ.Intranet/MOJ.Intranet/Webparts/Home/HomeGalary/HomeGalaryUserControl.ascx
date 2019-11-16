@@ -8,33 +8,42 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HomeGalaryUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.HomeGalary.HomeGalaryUserControl" %>
 
 <style>
-.boxgallery
-{
-max-width: 870px;
-}
-.overlay
-{
-display:none !important;
-}
+    .ms-webpart-zone {
+        display: block;
+    }
+
+    .ms-webpart-cell-vertical {
+        display: block;
+    }
+
+    .ms-webpart-chrome-vertical {
+        display: block;
+    }
+
+    .overlay {
+        display: none !important;
+    }
 </style>
 
-<div class="headlineflex">
-    <h4 class="TitleHead">
-        <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadGallery%>" />
-    </h4>
-    <a href="<%= SPContext.Current.RootFolderUrl %>/AlbumGallery.aspx" class="slide morebuttoncss arrow">
-        <asp:Literal runat="server" Text="<%$ Resources:Resource, MorePictures%>" />
-    </a>
-</div>
-
-<div class="boxgallery">
-    <div class="boxcd">
-      
-            <div id="content-6" class="content horizontal-images clearfix ">   
-                        <ul class="" data-lightbox="gallery">
-                            <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
-                        </ul>
-            </div>
+<div class="imagegalle">
+    <div class="headlineflex">
+        <h4 class="TitleHead">
+            <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadGallery%>" />
+        </h4>
+        <a href="<%= SPContext.Current.RootFolderUrl %>/AlbumGallery.aspx" class="slide morebuttoncss arrow">
+            <asp:Literal runat="server" Text="<%$ Resources:Resource, MorePictures%>" />
+        </a>
     </div>
-</div>
 
+    <div class="boxgallery">
+        <div class="boxcd">
+
+            <div id="content-6" class="content horizontal-images clearfix ">
+                <ul class="" data-lightbox="gallery">
+                    <asp:Literal ID="lblDrawItems" runat="server"></asp:Literal>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

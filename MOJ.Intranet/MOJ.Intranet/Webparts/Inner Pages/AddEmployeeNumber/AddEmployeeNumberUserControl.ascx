@@ -24,6 +24,10 @@
         width: 550px;
         height: 350px;
     }
+
+    #s4-workspace {
+        overflow-y: hidden !important;
+    }
 </style>
 <div class="tab-container" data-active="">
     <div class="row rt">

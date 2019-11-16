@@ -22,13 +22,13 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllServicesList {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
-        /// lblDrawItems control.
+        /// lblDrawEServices control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblDrawItems;
+        protected global::System.Web.UI.WebControls.Literal lblDrawEServices;
         
         /// <summary>
         /// lblDrawCoartServices control.
@@ -49,12 +49,12 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllServicesList {
         protected global::System.Web.UI.WebControls.Literal lblDrawEmployeesServices;
         
         /// <summary>
-        /// lblDrawEServices control.
+        /// lblDrawItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblDrawEServices;
+        protected global::System.Web.UI.WebControls.Literal lblDrawItems;
     }
 }
