@@ -107,6 +107,12 @@
      margin-bottom: 1px;
 
 }
+
+.rt .checkbox-click-target {
+
+    padding: 0px;
+  
+}
 </style>
 <script>
 

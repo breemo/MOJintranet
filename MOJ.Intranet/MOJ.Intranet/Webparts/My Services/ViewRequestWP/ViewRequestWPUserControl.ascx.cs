@@ -41,6 +41,18 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             bool iscanceld = new Task().TerminateWorkflow(listNameC, Convert.ToInt32(RequestIDC));
 
             btnCanceled.Visible = false;
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+
+            if (languageCode == "ar")
+            {
+                Response.Redirect("/Ar/MyServices/Pages/MyRequests.aspx");
+
+            }
+            else
+            {
+                Response.Redirect("/En/MyServices/Pages/MyRequests.aspx");
+            }
 
         }
         protected void Page_Load(object sender, EventArgs e)
