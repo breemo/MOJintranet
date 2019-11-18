@@ -112,12 +112,12 @@ function setTab3()
 
                                         <div class="col-md-6 col-sm-12">
 
-                                            <input type="text" class="form-control" value="" runat="server" id="txtNameSearch" placeholder="<%$ Resources:Resource, PrimaryWords%>">
+                                            <input type="text" class="form-control" value="" runat="server" id="txtNameSearch" placeholder="<%$ Resources:Resource, PrimaryWordsName%>">
                                         </div>
 
                                         <div class="col-md-2">
                                             <%--<button class="detailbtn">بحث</button>--%>
-                                            <asp:Button ID="btnNameSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWords%>" OnClick="btnNameSearch_Click" />
+                                            <asp:Button ID="btnNameSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWordsName%>" OnClick="btnNameSearch_Click" />
                                         </div>
 
                                     </div>
@@ -150,12 +150,12 @@ function setTab3()
 
                                         <div class="col-md-6 col-sm-12">
 
-                                            <input type="text" class="form-control" value="" runat="server" id="txtDepartmentSearch" placeholder="<%$ Resources:Resource, PrimaryWords%>">
+                                            <input type="text" class="form-control" value="" runat="server" id="txtDepartmentSearch" placeholder="<%$ Resources:Resource, PrimaryWordsDept%>">
                                         </div>
 
                                         <div class="col-md-2">
                                             <%--<button class="detailbtn">بحث</button>--%>
-                                            <asp:Button ID="btnDepartmentSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWords%>" OnClick="btnDepartmentSearch_Click" />
+                                            <asp:Button ID="btnDepartmentSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWordsDept%>" OnClick="btnDepartmentSearch_Click" />
                                         </div>
 
                                     </div>
@@ -187,12 +187,12 @@ function setTab3()
 
 
                                         <div class="col-md-6 col-sm-12">
-                                            <input type="text" class="form-control" value="" runat="server" id="txtOffileLocation" placeholder="<%$ Resources:Resource, PrimaryWords%>">
+                                            <input type="text" class="form-control" value="" runat="server" id="txtOffileLocation" placeholder="<%$ Resources:Resource, PrimaryWordsWorkPlace%>">
                                         </div>
 
                                         <div class="col-md-2">
                                             <%--<button class="detailbtn">بحث</button>--%>
-                                            <asp:Button ID="btnOfficeLocationSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWords%>" OnClick="btnOfficeLocationSearch_Click" />
+                                            <asp:Button ID="btnOfficeLocationSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWordsWorkPlace%>" OnClick="btnOfficeLocationSearch_Click" />
                                         </div>
 
                                     </div>

@@ -160,7 +160,7 @@
     <value>Circular Number</value>
   </data>
   <data name="innerHeadCirculars" xml:space="preserve">
-    <value>نص قرار</value>
+    <value>Circulars List</value>
   </data>
   <data name="reminder" xml:space="preserve">
     <value>Reminder</value>
@@ -849,9 +849,6 @@
   <data name="Price" xml:space="preserve">
     <value>Price</value>
   </data>
-  <data name="PrimaryWords" xml:space="preserve">
-    <value>PrimaryWords</value>
-  </data>
   <data name="SearchByDept" xml:space="preserve">
     <value>Search for the managment</value>
   </data>
@@ -908,5 +905,14 @@
   </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
+  </data>
+  <data name="PrimaryWordsDept" xml:space="preserve">
+    <value>Department</value>
+  </data>
+  <data name="PrimaryWordsName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="PrimaryWordsWorkPlace" xml:space="preserve">
+    <value>Work Place</value>
   </data>
 </root>

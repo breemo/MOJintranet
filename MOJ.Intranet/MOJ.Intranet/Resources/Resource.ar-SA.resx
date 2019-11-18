@@ -849,8 +849,8 @@
   <data name="Price" xml:space="preserve">
     <value>السعر</value>
   </data>
-  <data name="PrimaryWords" xml:space="preserve">
-    <value>الكلمات الرئيسية</value>
+  <data name="PrimaryWordsName" xml:space="preserve">
+    <value>الاسم</value>
   </data>
   <data name="SearchByDept" xml:space="preserve">
     <value>البحث عن الادارة</value>
@@ -908,5 +908,11 @@
   </data>
   <data name="Back" xml:space="preserve">
     <value>عودة</value>
+  </data>
+  <data name="PrimaryWordsDept" xml:space="preserve">
+    <value>الإدارة</value>
+  </data>
+  <data name="PrimaryWordsWorkPlace" xml:space="preserve">
+    <value>مكان العمل</value>
   </data>
 </root>
