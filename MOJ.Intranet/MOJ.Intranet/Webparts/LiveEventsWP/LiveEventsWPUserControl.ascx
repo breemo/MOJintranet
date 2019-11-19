@@ -9,7 +9,7 @@
 
 <style>
     .videlivebox {
-        min-height: 204px;
+        height: 100%;
     }
     /*@media {
         .videlivebox {

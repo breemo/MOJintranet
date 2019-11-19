@@ -181,7 +181,7 @@
     <value>Participate</value>
   </data>
   <data name="Questionnaire" xml:space="preserve">
-    <value>Questionnaire</value>
+    <value>Surveys</value>
   </data>
   <data name="SiteURL" xml:space="preserve">
     <value>en</value>
@@ -838,7 +838,7 @@
     <value>Material Name</value>
   </data>
   <data name="OrgSubject" xml:space="preserve">
-    <value>Organizational Structure - Employee Identification E-Card</value>
+    <value>Employee Directory</value>
   </data>
   <data name="Phone" xml:space="preserve">
     <value>Phone</value>
