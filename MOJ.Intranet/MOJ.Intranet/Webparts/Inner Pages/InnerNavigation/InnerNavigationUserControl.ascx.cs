@@ -37,6 +37,14 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
             {
                 SPWeb web = SPContext.Current.Web;
                 PublishingWeb publishingWeb = PublishingWeb.GetPublishingWeb(web);
+
+                //SPQuery query = new SPQuery();
+                //query.Query = @"<OrderBy>
+                //                  <FieldRef Name='PercentComplete' Ascending='True' />
+                //               </OrderBy>";
+
+                //PublishingPageCollection pages = publishingWeb.GetPublishingPages(query);
+
                 PublishingPageCollection pages = publishingWeb.GetPublishingPages();
                 //Path.GetFileName(Request.Path);
 
