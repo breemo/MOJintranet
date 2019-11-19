@@ -101,7 +101,7 @@ namespace MOJ.DataManager
                                     }
                                     else
                                     {
-                                        oQuery.Query = @"<Where><And><Eq><FieldRef Name='Ministry' /><Value Type='WorkflowStatus'>16</Value></Eq><Or><Contains><FieldRef Name='Book Title En' /><Value Type='Text'>" + BookName + "</Value></Contains><Or><Contains><FieldRef Name='Author' /><Value Type='User'>" + CreatedBy + "</Value></Contains><Or><Eq><FieldRef Name='Category' /><Value Type='Choice'>" + Category + "</Value></Eq><Contains><FieldRef Name='Author0' /><Value Type='Text'>" + Author + "</Value></Contains></Or></Or></Or></And></Where>" + SharedConstants.MinistryFilesQuery;
+                                        oQuery.Query = @"<Where><And><Eq><FieldRef Name='Ministry' /><Value Type='WorkflowStatus'>16</Value></Eq><Or><Contains><FieldRef Name='Book_x0020_Title_x0020_En' /><Value Type='Text'>" + BookName + "</Value></Contains><Or><Contains><FieldRef Name='Author' /><Value Type='User'>" + CreatedBy + "</Value></Contains><Or><Eq><FieldRef Name='Category' /><Value Type='Choice'>" + Category + "</Value></Eq><Contains><FieldRef Name='Author0' /><Value Type='Text'>" + Author + "</Value></Contains></Or></Or></Or></And></Where>" + SharedConstants.MinistryFilesQuery;
                                     }
                                     //"<Where>" +
                                     //   "<Or>" +
