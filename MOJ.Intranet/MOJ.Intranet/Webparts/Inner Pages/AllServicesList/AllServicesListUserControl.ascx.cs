@@ -90,7 +90,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllServicesList
                                                 </p>
                                             </div>
                                             <div class='botonot'>
-                                                <a href='{1}' class=''>{2}
+                                                <a href='{1}' target='_blank' class=''>{2}
                                                 </a>
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllServicesList
                                                 </p>
                                             </div>
                                             <div class='botonot'>
-                                                <a href='{1}' class=''>{2}
+                                                <a href='{1}' target='_blank' class=''>{2}
                                                 </a>
                                             </div>
                                         </div>
@@ -152,7 +152,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AllServicesList
                                                 </p>
                                             </div>
                                             <div class='botonot'>
-                                                <a href='{1}' class=''>{2}
+                                                <a href='{1}' target='_blank' class=''>{2}
                                                 </a>
                                             </div>
                                         </div>

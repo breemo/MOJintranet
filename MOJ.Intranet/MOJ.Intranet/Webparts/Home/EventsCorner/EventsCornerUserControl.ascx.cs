@@ -69,7 +69,13 @@ namespace MOJ.Intranet.Webparts.Home.EventsCorner
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>", Convert.ToDateTime(item.Created).ToString("MMM"), Convert.ToDateTime(item.Created).Day, title,item.ID, SPUtility.GetLocalizedString("$Resources: more", "Resource", SPContext.Current.Web.Language),siteURL);
+                                    </div>", 
+                                    Convert.ToDateTime(item.Created).ToString("MMM"),
+                                    Convert.ToDateTime(item.Created).Day,
+                                    title,item.ID,
+                                    SPUtility.GetLocalizedString("$Resources: more", "Resource",
+                                    SPContext.Current.Web.Language),
+                                    siteURL);
                 }
             }
             catch (Exception ex)

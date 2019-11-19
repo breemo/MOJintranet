@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Threading;
+using Microsoft.SharePoint;
 
 namespace MOJ.Intranet.Webparts.Home.MyRequests
 {
@@ -52,17 +53,14 @@ namespace MOJ.Intranet.Webparts.Home.MyRequests
                     }
                     // lbMyRequests.Text += "<div class='col-sm-4'><div class='orderbox'><div class='topnot'><p>" + ServiceName + "</p></div><div class='botonot'>< a href = '#' class='btnstatus "+ classis + "'> " + Status + " </a></div></div></div>";
 
+                    string siteURL = SPContext.Current.RootFolderUrl.Replace("Pages", "");
+
                     lbMyRequests.Text += @"<div class='col-sm-4'><div class='orderbox'><div class='topnot'>
 					 <p>" + ServiceName + @"</p></div><div class='botonot'>
-					  <a href = 'ar/MyServices/Pages/" + item.RequestURL + @"' class='btnstatus " + classis + @"'> " + Status + @" </a></div></div></div>";
-
-
-
+					  <a href='" + siteURL + "/MyServices/Pages/" + item.RequestURL + @"' class='btnstatus " + classis + @"'> " + Status + @" </a></div></div></div>";
                 }
                 lbMyRequests.Text += "</div>";
-
             }
-
         }
     }
 }
