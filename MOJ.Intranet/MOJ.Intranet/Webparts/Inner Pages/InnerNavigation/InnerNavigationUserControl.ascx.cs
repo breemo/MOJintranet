@@ -40,7 +40,7 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
 
                 SPQuery query = new SPQuery();
                 query.Query = @"<OrderBy>
-                                  <FieldRef Name='Orfer1' Ascending='False' />
+                                  <FieldRef Name='Order1' Ascending='True' />
                                </OrderBy>";
 
                 PublishingPageCollection pages = publishingWeb.GetPublishingPages(query);
