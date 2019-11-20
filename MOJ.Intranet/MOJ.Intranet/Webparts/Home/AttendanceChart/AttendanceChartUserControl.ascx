@@ -111,7 +111,7 @@
     <div class="chaid">
         <!-- <canvas id="myChart" style="max-width: 100% !important" width="500" height="260"></canvas>-->
 
-        <img src="/Ar/PublishingImages/download.png" runat="server" id="Chartimg" style="width:100%">
+        <img src="/Ar/PublishingImages/download.png" runat="server" id="Chartimg" style="width:100%;max-height:250px !important;">
     </div>
 
 </div>
