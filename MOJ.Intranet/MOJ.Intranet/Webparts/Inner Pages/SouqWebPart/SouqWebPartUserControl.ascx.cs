@@ -8,7 +8,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -76,8 +78,21 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
                                     ddlCategorySubmit.Items.Insert(0, new ListItem(SPUtility.GetLocalizedString("$Resources: ddlSelect", "Resource", SPContext.Current.Web.Language), ""));
                                     for (int i = 0; i < CategoryChoice.Choices.Count; i++)
                                     {
-                                        cbCategory.Items.Add(CategoryChoice.Choices[i].ToString());
-                                        ddlCategorySubmit.Items.Add(CategoryChoice.Choices[i].ToString());
+                                        string[] CatValue = CategoryChoice.Choices[i].ToString().Split('\\');
+
+                                        CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                                        string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                                        if (languageCode == "ar")
+                                        {
+                                            cbCategory.Items.Add(CatValue[1].ToString());
+                                            ddlCategorySubmit.Items.Add(CategoryChoice.Choices[i].ToString());
+                                        }
+                                        else
+                                        {
+                                            cbCategory.Items.Add(CatValue[0].ToString());
+                                            ddlCategorySubmit.Items.Add(CategoryChoice.Choices[i].ToString());
+                                        }
+
                                     }
                                 }
                             }
@@ -139,18 +154,26 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
         }
         protected void OnCheckBox_Changed(object sender, EventArgs e)
         {
-            List<String> Categories = new List<string>();
-            foreach (ListItem item in cbCategory.Items)
+            if (cbCategory.SelectedIndex == -1)
             {
-                if (item.Selected)
+                BindData();
+            }
+            else
+            {
+                List<String> Categories = new List<string>();
+                foreach (ListItem item in cbCategory.Items)
                 {
-                    Categories.Add(item.Text);
+                    if (item.Selected)
+                    {
+                        Categories.Add(item.Text);
+                    }
+                    else
+                        Categories.Add(" ");
                 }
-                else
-                    Categories.Add(" ");
+
+                FillData(Categories[0].ToString(), Categories[1].ToString(), Categories[2].ToString(), Categories[3].ToString());
             }
 
-            FillData(Categories[0].ToString(), Categories[1].ToString(), Categories[2].ToString(), Categories[3].ToString());
         }
         private void FillData(string Category1, string Category2, string Category3, string Category4)
         {

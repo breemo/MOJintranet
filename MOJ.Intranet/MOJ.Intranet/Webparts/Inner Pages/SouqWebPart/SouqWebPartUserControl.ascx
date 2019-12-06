@@ -452,10 +452,10 @@
                                         </label>
                                     </li>
                                 </ul>--%>
+                                <div class="CheckBoxThim">
                                 <asp:CheckBoxList ID="cbCategory" CssClass="checkbox-click-target" OnSelectedIndexChanged="OnCheckBox_Changed" AutoPostBack="true" RepeatDirection="Vertical" runat="server" Width="100%">
                                 </asp:CheckBoxList>
-
-
+                                    </div>
 
                             </div>
                         </div>
@@ -475,6 +475,15 @@
 </div>
 
 <script>
+   $(document).ready(function () {
+        $(".CheckBoxThim label").addClass("checkbox-click-target");
+        $(".CheckBoxThim input").addClass("checkbox");
+        $('.CheckBoxThim label').each(function () {
+            var valuex = "<span class='checkbox-box'></span>" + this.innerHTML;
+            this.innerHTML = valuex;
+        });
+    });
+
     $(document).ready(function () {
         $('.file-upload label').on('click', function (event) {
             event.preventDefault();
@@ -498,3 +507,33 @@
     });
 
 </script>
+
+<style>
+
+@media all and (-ms-high-contrast:none)
+     {
+     .col-md-12 { padding-top: 100px } /* IE10 */
+     *::-ms-backdrop, .col-md-12 { padding-top: 100px } /* IE11 */
+     }
+	 
+
+#Edata .rt{
+     margin-bottom: 1px;
+
+}
+.rt .checkbox-click-target {
+  padding-bottom: 0px;
+
+}
+.CheckBoxThim table {
+     margin-bottom: -20px;
+
+}
+.CheckBoxThim  {
+        margin-top: -30px;
+
+}
+div#dynamicInput div {
+    margin-top: 14px;
+}
+</style>

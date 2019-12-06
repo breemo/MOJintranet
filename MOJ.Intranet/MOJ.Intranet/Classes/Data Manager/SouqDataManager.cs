@@ -83,7 +83,7 @@ namespace MOJ.DataManager
                                 if (lstSouq != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = @"<Where><And><Eq><FieldRef Name='SouqAppr' /><Value Type='WorkflowStatus'>16</Value></Eq><Or><Eq><FieldRef Name='Category' /><Value Type='Choice'>" + Category1 + "</Value></Eq><Or><Eq><FieldRef Name='Category' /><Value Type='Choice'>" + Category2 + "</Value></Eq><Or><Eq><FieldRef Name='Category' /><Value Type='Choice'>" + Category3 + "</Value></Eq><Eq><FieldRef Name='Category' /><Value Type='Choice'>" + Category4 + "</Value></Eq></Or></Or></Or></And></Where>" + SharedConstants.SouqQuery;
+                                    oQuery.Query = @"<Where><And><Eq><FieldRef Name='SouqAppr' /><Value Type='WorkflowStatus'>16</Value></Eq><Or><Contains><FieldRef Name='Category' /><Value Type='Choice'>" + Category1 + "</Value></Contains><Or><Contains><FieldRef Name='Category' /><Value Type='Choice'>" + Category2 + "</Value></Contains><Or><Contains><FieldRef Name='Category' /><Value Type='Choice'>" + Category3 + "</Value></Contains><Contains><FieldRef Name='Category' /><Value Type='Choice'>" + Category4 + "</Value></Contains></Or></Or></Or></And></Where>" + SharedConstants.SouqQuery;
                                     SPListItemCollection lstItems = lstSouq.GetItems(oQuery);
                                     foreach (SPListItem lstItem in lstItems)
                                     {
