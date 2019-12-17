@@ -87,7 +87,7 @@
                                     <div class="boxsearchbook">
 
                                         <div class="imgboxbook">
-                                            <img src='<%# Eval("BookImage") %>' />
+                                            <img title='<%# Eval("BookDescAr") %>' alt='<%# Eval("BookDescAr") %>' src='<%# Eval("BookImage") %>' />
                                         </div>
                                         <div class="titlebook">
                                             <h4>
