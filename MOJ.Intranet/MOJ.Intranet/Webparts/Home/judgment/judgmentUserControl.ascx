@@ -18,40 +18,34 @@
 
         <div class="slider-container">
             <div class="slider-content">
-                <div class="slider-single active">
-
-                    <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC1.png" alt="1">
+                <%--<div class="slider-single active">
+                    <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC2.png" alt="1">
                     <h1 class="slider-single-title">Adel Judg</h1>
-
+                </div>--%>
+                <div class="slider-single active">
+                    <img class="slider-single-image" title="قيد التطوير!" alt="قيد التطوير!" src="/Style%20Library/MOJTheme/images/PIC2.png" alt="1">
+                    <h1 class="slider-single-title">Adel Judg</h1>
                 </div>
-                <div class="slider-single proactive">
+                <div class="slider-single proactive" style="display: none;">
                     <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC2.png" alt="2">
                     <a class="slider-single-download" href="javascript:void(0);">Download <i class="fa fa-download"></i></a>
                     <h1 class="slider-single-title">Ibrahim Judg</h1>
-
                 </div>
-                <div class="slider-single proactivede">
+               <%-- <div class="slider-single proactivede">
                     <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC3.png" alt="3">
                     <h1 class="slider-single-title">Ibrahim Judg</h1>
-
-
                 </div>
-
                 <div class="slider-single proactivede">
                     <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC1.png" alt="4">
                     <h1 class="slider-single-title">Ibrahim Judg</h1>
-
                 </div>
-
                 <div class="slider-single preactive">
                     <img class="slider-single-image" src="/Style%20Library/MOJTheme/images/PIC2.png" alt="5">
                     <h1 class="slider-single-title">Ibrahim Judg</h1>
-
-                </div>
-
+                </div>--%>
             </div>
-            <a class="slider-left" href="javascript:void(0);"><i class="icon-chevron-left1"></i></a>
-            <a class="slider-right" href="javascript:void(0);"><i class="icon-chevron-right1"></i></a>
+            <%--<a class="slider-left" href="javascript:void(0);" style="display: none;"><i class="icon-chevron-left1"></i></a>--%>
+            <%--<a class="slider-right" href="javascript:void(0);" style="display: none;"><i class="icon-chevron-right1"></i></a>--%>
         </div>
     </div>
 </div>
