@@ -4,8 +4,10 @@ using Microsoft.SharePoint.Utilities;
 using Microsoft.SharePoint.WebControls;
 using MOJ.Business;
 using MOJ.Entities;
+using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,7 +15,7 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace MOJ.Intranet.Webparts.Home.StickyNotes
 {
-    public partial class StickyNotesUserControl : UserControl
+    public partial class StickyNotesUserControl : SiteUI
     {
         #region Events
         protected void Page_Load(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
         #region Methods
         private void BindData()
         {
-            
+
 
             try
             {
@@ -56,7 +58,7 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
                     lblDrawItems.Text +=
                         string.Format(@"
                             <div class='col-sm-4'>
-                                <div class='STICKB STCIKEY_C"+ Count + @" alert  fade show' role='alert'>
+                                <div class='STICKB STCIKEY_C" + Count + @" alert  fade show' role='alert'>
                                     <p>
                                         {0}:{1} {2}
                                     </p>
@@ -76,5 +78,34 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
         }
 
         #endregion
+
+        protected void btnSubmitNewItem_Click(object sender, EventArgs e)
+        {
+            if (!_isRefresh)
+            {
+                try
+                {
+                    StickyNotesEntities itemSumbit = new StickyNotesEntities();
+                    itemSumbit.TitleAr = txtTitleAr.Value;
+                    itemSumbit.TitleEn = txtTitleEn.Value;
+                    DateTime sDate = DateTime.ParseExact(txtDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    itemSumbit.Date = sDate;
+
+                    StickyNote SN = new StickyNote();
+                    bool isSaved = SN.SaveUpdate(itemSumbit);
+
+                    if (isSaved == true)
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    LoggingService.LogError("WebParts", ex.Message);
+                }
+            }
+        }
     }
 }

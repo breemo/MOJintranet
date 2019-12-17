@@ -79,5 +79,49 @@ namespace MOJ.DataManager
             }
             return StickyNoteLst;
         }
+        public bool AddOrUpdate(StickyNotesEntities Stickyitem)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.StickyNotesListUrl);
+                        SPListItem item = null;
+                        if (Stickyitem.ID > 0)
+                        {
+                            item = list.GetItemById(Stickyitem.ID);
+                            isUpdate = true;
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+
+                        item["Title Ar"] = Stickyitem.TitleAr;
+                        item["Title En"] = Stickyitem.TitleEn;
+                        item["Date"] = Stickyitem.Date;
+
+                        item.Update();
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            return isFormSaved;
+        }
     }
 }

@@ -163,7 +163,7 @@
     <value>Circulars List</value>
   </data>
   <data name="reminder" xml:space="preserve">
-    <value>Reminder</value>
+    <value>Sticky Notes</value>
   </data>
   <data name="ViewAll" xml:space="preserve">
     <value>View All</value>
@@ -895,7 +895,7 @@
     <value>wife</value>
   </data>
   <data name="judgmentTitle" xml:space="preserve">
-    <value>How can help</value>
+    <value>Ask An Expert</value>
   </data>
   <data name="Meetings" xml:space="preserve">
     <value>Meetings</value>
@@ -914,5 +914,14 @@
   </data>
   <data name="PrimaryWordsWorkPlace" xml:space="preserve">
     <value>Work Place</value>
+  </data>
+  <data name="AddStickyNote" xml:space="preserve">
+    <value>Add New Sticky Note</value>
+  </data>
+  <data name="TitleAr" xml:space="preserve">
+    <value>Arabic Title</value>
+  </data>
+  <data name="TitleEn" xml:space="preserve">
+    <value>English Title</value>
   </data>
 </root>

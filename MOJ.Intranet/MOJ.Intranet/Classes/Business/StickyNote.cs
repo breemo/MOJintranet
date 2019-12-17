@@ -14,5 +14,9 @@ namespace MOJ.Business
         {
             return new StickyNotesDataManager().GetStickyNotesDataHome();
         }
+        public bool SaveUpdate(StickyNotesEntities obj)
+        {
+            return new StickyNotesDataManager().AddOrUpdate(obj);
+        }
     }
 }
