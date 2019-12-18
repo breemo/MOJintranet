@@ -294,6 +294,14 @@
     <Compile Include="Webparts\Inner Pages\AllServicesList\AllServicesListUserControl.ascx.designer.cs">
       <DependentUpon>AllServicesListUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Inner Pages\FilesWP\FilesWP.cs" />
+    <Compile Include="Webparts\Inner Pages\FilesWP\FilesWPUserControl.ascx.cs">
+      <DependentUpon>FilesWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\FilesWP\FilesWPUserControl.ascx.designer.cs">
+      <DependentUpon>FilesWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Inner Pages\GetAllEmployeeInfo\GetAllEmployeeInfo.cs" />
     <Compile Include="Webparts\Inner Pages\GetAllEmployeeInfo\GetAllEmployeeInfoUserControl.ascx.cs">
       <DependentUpon>GetAllEmployeeInfoUserControl.ascx</DependentUpon>
@@ -658,6 +666,10 @@
     <None Include="Webparts\Inner Pages\AllServicesList\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{e8dafe74-317b-4538-9b81-1c635fc9cca6}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Inner Pages\FilesWP\FilesWP.webpart" />
+    <None Include="Webparts\Inner Pages\FilesWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{675d471e-1dfa-450d-b1d2-e37919f9bf70}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Inner Pages\GetAllEmployeeInfo\GetAllEmployeeInfo.webpart" />
     <None Include="Webparts\Inner Pages\GetAllEmployeeInfo\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{e4fa385f-675d-4b06-921c-ee975f2cd7ef}</SharePointProjectItemId>
@@ -845,6 +857,8 @@
     <Content Include="Webparts\Inner Pages\AddEmployeeNumber\Elements.xml" />
     <Content Include="Webparts\Inner Pages\AllServicesList\AllServicesListUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\AllServicesList\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\FilesWP\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\FilesWP\FilesWPUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\GetAllEmployeeInfo\Elements.xml" />
     <Content Include="Webparts\Inner Pages\GetAllEmployeeInfo\GetAllEmployeeInfoUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\InnerNavigation\Elements.xml" />

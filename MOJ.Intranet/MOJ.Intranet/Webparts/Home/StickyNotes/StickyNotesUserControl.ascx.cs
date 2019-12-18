@@ -97,6 +97,7 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
                     if (isSaved == true)
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
+                        BindData();
                     }
 
 

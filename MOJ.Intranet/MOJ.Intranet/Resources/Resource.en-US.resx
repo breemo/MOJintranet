@@ -924,4 +924,13 @@
   <data name="TitleEn" xml:space="preserve">
     <value>English Title</value>
   </data>
+  <data name="DocumentsFiles" xml:space="preserve">
+    <value>Ministry Files</value>
+  </data>
+  <data name="DocumentsFilesPath" xml:space="preserve">
+    <value>Ministry Files</value>
+  </data>
+  <data name="FilesTitle" xml:space="preserve">
+    <value>Ministry Files</value>
+  </data>
 </root>

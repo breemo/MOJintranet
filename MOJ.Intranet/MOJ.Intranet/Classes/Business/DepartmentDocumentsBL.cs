@@ -14,5 +14,9 @@ namespace MOJ.Business
         {
             return new DepartmentDocumentsDataManager().GetDepartmentDocuments();
         }
+        public List<DepartmentDocumentsEntity> GetAllDocuments()
+        {
+            return new DepartmentDocumentsDataManager().GetAllDocuemts();
+        }
     }
 }

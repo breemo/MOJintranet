@@ -924,4 +924,13 @@
   <data name="TitleEn" xml:space="preserve">
     <value>العنوان بالإنجليزي</value>
   </data>
+  <data name="DocumentsFiles" xml:space="preserve">
+    <value>ملفات الوزارة</value>
+  </data>
+  <data name="DocumentsFilesPath" xml:space="preserve">
+    <value>MinistryFiles1</value>
+  </data>
+  <data name="FilesTitle" xml:space="preserve">
+    <value>ملفات الوزارة</value>
+  </data>
 </root>

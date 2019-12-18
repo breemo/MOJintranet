@@ -149,7 +149,7 @@
     <!-- <a href="#"  data-toggle="modal" data-target=".bs-example-modal-lg">
                 <img src="/Style%20Library/MOJTheme/images/add-Note.png" alt="AddStickyNote" />
             </a> -->
-	<a onclick="document.getElementById('id01').style.display='block'" ><img src="/Style%20Library/MOJTheme/images/add-Note.png" alt="AddStickyNote" /></a>
+	<a class="AddStickyNoteIcon" onclick="document.getElementById('id01').style.display='block'" ><img src="/Style%20Library/MOJTheme/images/add-Note.png" alt="AddStickyNote" /></a>
 			
     <a href="/Lists/Sticky%20Notes/My%20Stiky%20Notes.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
 	
