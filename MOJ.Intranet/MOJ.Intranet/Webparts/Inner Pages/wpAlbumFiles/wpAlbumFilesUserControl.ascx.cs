@@ -48,10 +48,12 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpAlbumFiles
 
             try
             {
-                List<GalleryAlbumEntity> AlbumsLst = new PhotoGallery().GetAllPhotoGalleryAlbums();
+                //List<GalleryAlbumEntity> AlbumsLst = new PhotoGallery().GetAllPhotoGalleryAlbums();
+                List<PhotoGalleryEntity> AlbumsLst = new PhotoGallery().GetAlbumFiles(category);
+                
                 lblDrawItems.Text = "";
 
-                foreach (GalleryAlbumEntity item in AlbumsLst) //check all items
+                foreach (PhotoGalleryEntity item in AlbumsLst) //check all items
                 {
                     lblDrawItems.Text +=
                     string.Format(@"

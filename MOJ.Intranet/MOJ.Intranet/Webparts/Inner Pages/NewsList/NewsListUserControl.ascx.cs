@@ -26,6 +26,9 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                 {
                     ddlYear.Items.Add(new ListItem(startYear.ToString(), startYear.ToString()));
                 }
+
+                int year = int.Parse(ddlYear.SelectedValue);
+                FillData(year.ToString(), "1", "12", "1", "31");
             }
         }
         protected void btnSrch_Click(object sender, EventArgs e)
@@ -154,7 +157,9 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                     <div class='carousel-item{5}'>
                         <div class='row'>
                             <div class='col-sm-6 col-md-6'>
-                                <img src='{0}' class='img-fluid  d-block ' alt=''>
+                                <a href='{6}/Details.aspx?sid={7}&amp;type=news'>
+                                    <img src='{0}' class='img-fluid  d-block ' alt=''>
+                                </a>
                             </div>
                             <div class='col-md-6 col-sm-6'>
                                 <div class='newboxirwm'>
@@ -175,8 +180,10 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                     Convert.ToDateTime(lstItem.Created).ToString("dd MMM"),
                     Convert.ToDateTime(lstItem.Created).ToString("yyyy"),
                     lstItem.Title,
-                    LimitCharacters.Limit(lstItem.Body, 120),
-                    itemIndex == 0 ? " active" : "");
+                    LimitCharacters.Limit(lstItem.Body, 240),
+                    itemIndex == 0 ? " active" : "",
+                    SPContext.Current.RootFolderUrl,
+                    lstItem.ID);
 
                 itemIndex++;
             }

@@ -18,5 +18,10 @@ namespace MOJ.Business
         {
             return new PhotoGalleryDataManager().GetAllPhotoGalleryAlbums();
         }
+        public List<PhotoGalleryEntity> GetAlbumFiles(string category)
+        {
+            return new PhotoGalleryDataManager().GetAlbumFiles(category);
+        }
+        
     }
 }
