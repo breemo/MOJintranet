@@ -76,6 +76,7 @@
     <Compile Include="Classes\Business\AddEmployeeDepartmentBL.cs" />
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
     <Compile Include="Classes\Business\EmployeeProfileBL.cs" />
+    <Compile Include="Classes\Business\LeaveBalanceBL.cs" />
     <Compile Include="Classes\Business\PeriodicalFormForGovernmentHousing.cs" />
     <Compile Include="Classes\Business\GovernmentHousing.cs" />
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
     <Compile Include="Classes\Data Manager\EmployeeProfileDataManager.cs" />
+    <Compile Include="Classes\Data Manager\LeaveBalanceDataManager.cs" />
     <Compile Include="Classes\Data Manager\PeriodicalFormForGovernmentHousingDataManager.cs" />
     <Compile Include="Classes\Data Manager\HusbandORWifeDataManager.cs" />
     <Compile Include="Classes\Data Manager\EmployeeDataManager.cs" />

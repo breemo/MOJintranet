@@ -22,14 +22,17 @@ namespace MOJ.Intranet.Webparts.Home.CheckEmployeeNumberHandler
                         using (SPWeb myweb = mySitesCollection.OpenWeb())
                         {
                             SPUser currentUser = myweb.CurrentUser;
-
-                            string EmployeeID = CommonLibrary.Methods.GetEmployeeID(currentUser);
-
-                            if (string.IsNullOrEmpty(EmployeeID))
+                            if (currentUser.ToString() != "SHAREPOINT\\system")
                             {
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "showModalPopUp();", true);
-                                ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "MyFun1", "showModalPopUp();", true);
+                                string EmployeeID = CommonLibrary.Methods.GetEmployeeID(currentUser);
+
+                                if (string.IsNullOrEmpty(EmployeeID))
+                                {
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "showModalPopUp();", true);
+                                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "MyFun1", "showModalPopUp();", true);
+                                }
                             }
+                           
                             #region old Code
                             //string currentUserlogin = currentUser.LoginName;
                             //SPServiceContext context = SPServiceContext.GetContext(mySitesCollection);

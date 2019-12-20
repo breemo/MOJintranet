@@ -1,4 +1,4 @@
-﻿<%@ Assembly Name="$SharePoint.Project.AssemblyFullName$" %>
+﻿<%@ Assembly Name="MOJ.Intranet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f6919f05ce3f6f90" %>
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Register TagPrefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
@@ -8,6 +8,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AttendanceUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Home.Attendance.AttendanceUserControl" %>
 
 
+<asp:HiddenField ClientIDMode="Static" runat="server" ID="LeaveBalanceValue" />
 
 <h4 class="TitleHead">
     <asp:Literal runat="server" Text="<%$ Resources:Resource, Attendees%>" /></h4>
@@ -53,14 +54,14 @@
 
 
 
-        // Very simple JS for updating the text when a radio button is clicked
-        const INPUTS = document.querySelectorAll('#smileys input');
+    // Very simple JS for updating the text when a radio button is clicked
+    const INPUTS = document.querySelectorAll('#smileys input');
 
-        function updateValue(e) {
-            document.querySelector('#result').innerHTML = e.target.value;
-        }
+    function updateValue(e) {
+        document.querySelector('#result').innerHTML = e.target.value;
+    }
 
-        INPUTS.forEach(el => el.addEventListener('click', (e) => updateValue(e)));
+    INPUTS.forEach(el => el.addEventListener('click', (e) => updateValue(e)));
     </script>
 
 
@@ -73,18 +74,22 @@
         })();
 
         var bgColor = '#fff';
+        var Leave = LeaveBalanceValue.value;
+        //alert(Leave);
+        if (Leave == "")
+            Leave = "0.0";
         var containers = document.getElementsByClassName('chart');
         var options = [{
             series: [{
                 type: 'liquidFill',
-                data: [0.25, {
-                    value: 0.25,
+                data: [0.0, {
+                    value: 0.0,
                     direction: 'left',
                     itemStyle: {
                         color: '#219e78',
 
                     }
-                }, ],
+                },],
 
                 itemStyle: {
                     shadowBlur: 0,
@@ -120,7 +125,7 @@
 
                 label: {
 
-                  
+
                     show: true,
                     color: '#303030',
                     insideColor: '303030',
@@ -134,14 +139,14 @@
         }, {
             series: [{
                 type: 'liquidFill',
-                data: [0.5, {
-                    value: 0.5,
+                data: [Leave, {
+                    value: Leave,
                     direction: 'left',
                     itemStyle: {
                         color: '#bb3232',
 
                     }
-                }, ],
+                },],
 
                 itemStyle: {
                     shadowBlur: 0,
@@ -168,7 +173,7 @@
 
                 label: {
 
-              
+
                     show: true,
                     color: '#303030',
                     insideColor: '#303030',
@@ -181,14 +186,14 @@
         }, {
             series: [{
                 type: 'liquidFill',
-                data: [0, {
-                    value: 0,
+                data: [0.0, {
+                    value: 0.0,
                     direction: 'left',
                     itemStyle: {
-                        //color: '#728aeb',
-                    color: '#fff',
+                        color: '#728aeb',
+                        //color: '#fff',
                     }
-                }, ],
+                },],
 
                 itemStyle: {
                     shadowBlur: 0,
