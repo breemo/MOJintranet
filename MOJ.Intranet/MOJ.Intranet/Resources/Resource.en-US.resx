@@ -933,4 +933,22 @@
   <data name="FilesTitle" xml:space="preserve">
     <value>Ministry Files</value>
   </data>
+  <data name="Datefrom" xml:space="preserve">
+    <value>Date from</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="Dateto" xml:space="preserve">
+    <value>Date to</value>
+  </data>
+  <data name="Designation" xml:space="preserve">
+    <value>Designation</value>
+  </data>
+  <data name="Employmenthistory" xml:space="preserve">
+    <value>Employment history</value>
+  </data>
+  <data name="Organizationalunit" xml:space="preserve">
+    <value>Organizational unit</value>
+  </data>
 </root>

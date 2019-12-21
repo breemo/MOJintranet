@@ -933,4 +933,22 @@
   <data name="FilesTitle" xml:space="preserve">
     <value>ملفات الوزارة</value>
   </data>
+  <data name="Datefrom" xml:space="preserve">
+    <value>من تاريخ</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>تاريخ الميلاد</value>
+  </data>
+  <data name="Dateto" xml:space="preserve">
+    <value>الى تاريخ</value>
+  </data>
+  <data name="Designation" xml:space="preserve">
+    <value>المسمى الوظيفي</value>
+  </data>
+  <data name="Employmenthistory" xml:space="preserve">
+    <value>التاريخ الوظيفي</value>
+  </data>
+  <data name="Organizationalunit" xml:space="preserve">
+    <value>الوحدة التنظيمية</value>
+  </data>
 </root>

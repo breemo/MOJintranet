@@ -86,6 +86,8 @@ namespace CommonLibrary
         public const string DepartmentsUrl = "/Lists/Departments/AllItems.aspx";
         public const string RoomBookingUrl = "/Lists/RoomBooking/AllItems.aspx";
         public const string AffirmationSocialSituationUrl = "/Lists/AffirmationSocialSituation/AllItems.aspx";
+        public const string ImplicitKnowledgeUrl = "/Lists/ImplicitKnowledge/AllItems.aspx";
+        public const string EmploymentHistoryUrl = "/Lists/EmploymentHistory/AllItems.aspx";
         public const string HusbandORWifeUrl = "/Lists/HusbandORWife/AllItems.aspx";
         public const string HappinessHotlineUrl = "/Lists/HappinessHotline/AllItems.aspx";
         public const string SonsUrl = "/Lists/Sons/AllItems.aspx";
