@@ -80,9 +80,9 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AddEmployeeDepartment
                                 CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                                 string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                                 if (languageCode == "ar")
-                                    Page.Response.Redirect("/ar");
+                                    Response.Redirect("/ar",false);
                                 else
-                                    Page.Response.Redirect("/en");
+                                    Response.Redirect("/en",false);
                             }
                         }
                     }

@@ -951,4 +951,10 @@
   <data name="Organizationalunit" xml:space="preserve">
     <value>الوحدة التنظيمية</value>
   </data>
+  <data name="Greetings" xml:space="preserve">
+    <value>تحية طيبة وبعد،</value>
+  </data>
+  <data name="PleaseSelectDepartment" xml:space="preserve">
+    <value>لكي نتمكن من خدمتك بشكل أفضل يرجى اختيار إدارتك</value>
+  </data>
 </root>
