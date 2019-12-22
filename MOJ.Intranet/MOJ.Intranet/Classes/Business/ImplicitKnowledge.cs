@@ -32,6 +32,13 @@ namespace MOJ.Business
 
         }
 
+        
+            public bool DeleteEmploymentHistory( List<int> listsid)
+        {
+            return new ImplicitKnowledgeDataManager().DeleteEmploymentHistory( listsid);
+
+        }
+
         //public AffirmationSocialSituationEntity GetAffirmationSocialSituation(int id)
         //{
         //    return new AffirmationSocialSituationDataManager().GetAffirmationSocialSituationByID(id);

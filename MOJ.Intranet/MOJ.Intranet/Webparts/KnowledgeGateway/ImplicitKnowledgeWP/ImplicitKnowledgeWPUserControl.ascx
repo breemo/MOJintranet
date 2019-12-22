@@ -6,18 +6,13 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ImplicitKnowledgeWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP.ImplicitKnowledgeWPUserControl" %>
-
 <link rel="stylesheet" href="/Style%20Library/MOJTheme/css/responsive.css" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link id="bsdp-css" href="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 <script src="/Style%20Library/MOJTheme/js/jquery.js"></script>
 <script src="/Style%20Library/MOJTheme/s/plugins.js"></script>
-
-
-
-
-<asp:HiddenField ClientIDMode="Static" ID="hdnChildren" runat="server" />
-
+<asp:HiddenField ClientIDMode="Static" id="hdnsuperDIV1" runat="server" />
+<asp:HiddenField ClientIDMode="Static" id="RetrevehdnsuperDIV1" runat="server" />
 <div id="posts" runat="server" class="small-thumbs alt">
      <div id="Edata">
          <div class=" DivPID" style=" display: none;">
@@ -98,72 +93,54 @@
     <hr />
 	<div class="row rt  botx">
                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Employmenthistory%>" /></label>
-                       </div>
-        
-
-	         <div  id="dynamicInputChildren">
+                       </div>        
+							<div class="row rt">
+							   <div class="row rt col-md-12">							
+								<div  class="col-md-3" style="text-align: center;" >
+								<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Designation%>" /></label>
+								</div>							
+									<div  class="col-md-3" style="text-align: center;" >
+										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Organizationalunit%>" /></label>
+									</div>								
+									<div  class="col-md-3" style="text-align: center;">
+										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Datefrom%>" /></label>
+									</div>							
+									<div  class="col-md-3" style="text-align: center;">
+										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Dateto%>" /></label>
+									</div>							
+						   </div>  
+						   </div>              
+	         <div runat="server"  id="superDIV1" class="superDIV1">
 			 <div  id="FirstItemEmploymenthistoryAA" style="display:none" >
                  </div>
                <div  id="FirstItemEmploymenthistory" >
-					<div class="row rt">
-							<div class="col-md-3">
-							   <div class="row">
-									<div class="col-md-4">
-                                        <div class=" DivSID" style=" display: none;">
-								 	<input type="text" name="SID" runat="server" id="SID0" class="form-control" placeholder="">
-									
-										</div>
-
-								<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Designation%>" /></label>
-							</div>
-							<div class="col-md-8 DivDesignation">
+					<div class="row rt">	
+                        <div  class="DivSID" style=" display: none;" >
+                <input type="text"  name="SID" runat="server" id="SID0" class="form-control" placeholder="">
+                        </div>
+                       
+							<div class="col-md-3 DivDesignation">
 								 	<input type="text" name="Designation" runat="server" id="Designation0" class="form-control" placeholder="">
-									
-										</div>
 									</div>
-							</div>
-						   <div class="col-md-3">
-								<div class="row">
-									<div  class="col-md-4">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Organizationalunit%>" /></label>
-									</div>
-									<div  class="col-md-8 DivOrganizationalunit">
+									<div  class="col-md-3 DivOrganizationalunit">
 										<input type="text" name="Organizationalunit" runat="server" id="Organizationalunit0" class="form-control" placeholder="">
-									</div> 
-								  </div>
-						   </div>
-							<div class="col-md-3">
-								<div class="row">
-									<div  class="col-md-4">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Datefrom%>" /></label>
 									</div>
-									<div  class="col-md-8 ">
+									<div  class="col-md-3 ">
 										<div class="input-group date DivDatefrom" data-provide="datepicker">
 										<input autocomplete="off"  type="text" runat="server" id="Datefrom0" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
-										</div>
-									</div>
-									</div> 
-								  </div>
-						   </div> 
-							<div class="col-md-3">
-								<div class="row">
-									<div  class="col-md-4">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Dateto%>" /></label>
-									</div>
-									<div  class="col-md-8 ">
+										</div>									
+											</div>
+									</div>						
+									<div  class="col-md-3 ">
 										<div class="input-group date DivDateto" data-provide="datepicker">
 										<input autocomplete="off"  type="text" runat="server" id="Dateto0" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
 										</div>
 									</div>
-									</div>  
-								  </div>
-						   </div> 						   
-					   
-					   
+									</div>			 						   
                 </div>
 
                    </div>
@@ -174,9 +151,7 @@
     <div class="col-md-6">
                     <a href="#" onclick="addEmploymenthistory();" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
                 </div>
-        </div>     
-  
-          
+        </div>         
             <div class="row rt  botx">
                 <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
             </div>
@@ -200,7 +175,7 @@
 <style>
 
 
-#dynamicInputChildren .new:nth-child(odd) {background-color: #f5e9b6;}
+.superDIV1 .new:nth-child(odd) {background-color: #f5e9b6;}
 .row.rt {
     margin-bottom: 1px;
     margin-top: 1px;
@@ -209,7 +184,7 @@
 #dynamicInput .row table {
     margin-bottom: 1px;
 }
-#dynamicInputChildren .row table {
+.superDIV1 .row table {
     margin-bottom: 1px;
 }
 .HusbandORWife .row table {
@@ -217,6 +192,9 @@
 }
 #Edata .rt{
      margin-bottom: 1px;
+}
+.rowI {
+    padding-bottom: 10px;
 }
 </style>
 <script>
@@ -237,6 +215,7 @@
     });
 
     $('.datepicker').datepicker({
+        dateFormat: 'dd/mm/yyyy',
         language: 'ar',
         rtl: true,
     });
@@ -255,9 +234,13 @@
 </script>
 <script>
     var counter2 = 1;
+    if (document.getElementById('hdnsuperDIV1').value != "") {
+        counter2 = Number(document.getElementById('hdnsuperDIV1').value) + 1;
+    }
     function addEmploymenthistory() {
         $("#FirstItemEmploymenthistoryAA")[0].innerHTML = $("#FirstItemEmploymenthistory")[0].innerHTML;
         var Itemhtml = $("#FirstItemEmploymenthistoryAA");
+        Itemhtml.find(".DivSID")[0].innerHTML = "<input name='SID' type=text' id='SID" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivDesignation")[0].innerHTML = "<input name='Designation' type=text' id='Designation" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivOrganizationalunit")[0].innerHTML = "<input name='Organizationalunit' type=text' id='Organizationalunit" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivDatefrom")[0].innerHTML = "<input autocomplete='off' name='Datefrom' type='text' id='Datefrom" + counter2 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
@@ -268,14 +251,14 @@
         newdiv.setAttributeNode(att);
         var allhtml = "<div class='rowI'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerowEmploymenthistory(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
-        document.getElementById('dynamicInputChildren').appendChild(newdiv);
+        document.getElementsByClassName("superDIV1")[0].appendChild(newdiv);
         counter2++;
-        document.getElementById('hdnChildren').value = counter2;
+        document.getElementById('hdnsuperDIV1').value = counter2;
         $("#FirstItemEmploymenthistoryAA")[0].innerHTML = "";
     }
     function removerowEmploymenthistory(thi) {
         counter2--;
-        document.getElementById('hdnChildren').value = counter2;
+        document.getElementById('hdnsuperDIV1').value = counter2;
         thi.closest('.new').remove();
     }
 </script>

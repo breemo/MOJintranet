@@ -60,7 +60,7 @@ namespace MOJ.DataManager
             //});
             return PID;
         }
-        //AddOrUpdateEmploymentHistory
+        
 
 
         public bool AddOrUpdateEmploymentHistory(List<EmploymentHistoryEntity> Items)
@@ -196,6 +196,48 @@ namespace MOJ.DataManager
             });
             return itemis;
         }
+
+
+        public bool DeleteEmploymentHistory(List<int> listintID)
+        {
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.EmploymentHistoryUrl);
+                            if (lst != null)
+                            {
+                                foreach (int listItemId in listintID)
+                                {
+                                    oWeb.AllowUnsafeUpdates = true;
+                                    // Delete List item
+                                    SPListItem itemToDelete = lst.GetItemById(listItemId);
+                                    itemToDelete.Delete();
+                                    lst.Update();
+                                    oWeb.AllowUnsafeUpdates = false;
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return true;
+        }
+
+
+
+
+
+
+
+
+
         public AffirmationSocialSituationEntity GetAffirmationSocialSituationByID(int id)
         {
             AffirmationSocialSituationEntity obitem = new AffirmationSocialSituationEntity();

@@ -13,13 +13,22 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP {
     public partial class ImplicitKnowledgeWPUserControl {
         
         /// <summary>
-        /// hdnChildren control.
+        /// hdnsuperDIV1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnChildren;
+        protected global::System.Web.UI.WebControls.HiddenField hdnsuperDIV1;
+        
+        /// <summary>
+        /// RetrevehdnsuperDIV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField RetrevehdnsuperDIV1;
         
         /// <summary>
         /// posts control.
@@ -92,6 +101,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText EDateOfBirth;
+        
+        /// <summary>
+        /// superDIV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl superDIV1;
         
         /// <summary>
         /// SID0 control.
