@@ -143,11 +143,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
         {
             if (!_isRefresh)
             {
-                
                 ImplicitKnowledge objIK = new ImplicitKnowledge();
                 try
                 {
                     string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                    //////////////////////////////////1///////////////////////
                     int PID = 0;
                     if (string.IsNullOrEmpty(TOPID.Value))
                     {
@@ -165,6 +165,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                     {
                         PID = Convert.ToInt32(TOPID.Value);
                     }
+                    //////////////////////////////////2///////////////////////
                     List<EmploymentHistoryEntity> list1 = new List<EmploymentHistoryEntity>();
                     EmploymentHistoryEntity Entit1 = new EmploymentHistoryEntity();
                     if (!string.IsNullOrEmpty(Designation0.Value))
@@ -228,22 +229,30 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     ob.ID = Convert.ToInt32(SID[x]);
                                     RetrevehdnsuperDIV1.Value = RetrevehdnsuperDIV1.Value.Replace(ob.ID + "#", "");
-
-                                }
+                                 }
                                 list1.Add(ob);
                             }
                         }
                     }
                     objIK.SaveUpdateEmploymentHistory(list1);
-                    string[] SIDES = RetrevehdnsuperDIV1.Value.Split('#');
-                    List<int> ListSID1 = new List<int>();
-                    foreach (string sid in SIDES)
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV1.Value))
                     {
-                        ListSID1.Add(Convert.ToInt32(sid));
+                        string[] SIDES = RetrevehdnsuperDIV1.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if(Int32.TryParse(sid, out int numValue)){
+                                ListSID1.Add(Int32.Parse(sid));
+                            }                    
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("EmploymentHistory", ListSID1);
+                        }
                     }
-                    if (ListSID1.Count > 0) {
-                    objIK.DeleteEmploymentHistory(ListSID1);
-                       }
+
+                    //////////////////////////////////3///////////////////////
+
                     if (PID>0)
                     {
                         lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />";

@@ -33,9 +33,9 @@ namespace MOJ.Business
         }
 
         
-            public bool DeleteEmploymentHistory( List<int> listsid)
+            public bool DeleteitemsFromSublist(string listname , List<int> listsid )
         {
-            return new ImplicitKnowledgeDataManager().DeleteEmploymentHistory( listsid);
+            return new ImplicitKnowledgeDataManager().DeleteitemsFromSublist(listname, listsid);
 
         }
 

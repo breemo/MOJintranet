@@ -198,7 +198,7 @@ namespace MOJ.DataManager
         }
 
 
-        public bool DeleteEmploymentHistory(List<int> listintID)
+        public bool DeleteitemsFromSublist(string listname, List<int> listsid)
         {
             SPSecurity.RunWithElevatedPrivileges(delegate ()
             {
@@ -206,34 +206,18 @@ namespace MOJ.DataManager
                 {
                     using (SPWeb oWeb = oSite.RootWeb)
                     {
-                        if (oWeb != null)
-                        {
-                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.EmploymentHistoryUrl);
-                            if (lst != null)
-                            {
-                                foreach (int listItemId in listintID)
-                                {
-                                    oWeb.AllowUnsafeUpdates = true;
-                                    // Delete List item
-                                    SPListItem itemToDelete = lst.GetItemById(listItemId);
-                                    itemToDelete.Delete();
-                                    lst.Update();
-                                    oWeb.AllowUnsafeUpdates = false;
-                                }
-
-                            }
+                        oWeb.AllowUnsafeUpdates = true;
+                        SPList lst = oWeb.GetListFromUrl(oSite.Url + "/Lists/"+ listname + "/AllItems.aspx");
+                        foreach (int listItemId in listsid)
+                        { SPListItem itemToDelete = lst.GetItemById(listItemId);
+                            itemToDelete.Delete();
                         }
-
+                    oWeb.AllowUnsafeUpdates = false;                         
                     }
                 }
             });
             return true;
         }
-
-
-
-
-
 
 
 

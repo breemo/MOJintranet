@@ -13,6 +13,7 @@
 <script src="/Style%20Library/MOJTheme/s/plugins.js"></script>
 <asp:HiddenField ClientIDMode="Static" id="hdnsuperDIV1" runat="server" />
 <asp:HiddenField ClientIDMode="Static" id="RetrevehdnsuperDIV1" runat="server" />
+<asp:HiddenField ClientIDMode="Static" id="RetrevehdnsuperDIV2" runat="server" />
 <div id="posts" runat="server" class="small-thumbs alt">
      <div id="Edata">
          <div class=" DivPID" style=" display: none;">
