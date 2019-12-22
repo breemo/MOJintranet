@@ -148,8 +148,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 try
                 {
                     string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
-                    int PID=0;
-                   if (string.IsNullOrEmpty(TOPID.Value)) { 
+                    int PID = 0;
+                    if (string.IsNullOrEmpty(TOPID.Value))
+                    {
                         ImplicitKnowledgeEntity itemSumbit = new ImplicitKnowledgeEntity();
                         itemSumbit.UserName = currentUserlogin;
                         itemSumbit.Name = Ename.Value;
@@ -157,12 +158,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         itemSumbit.Designation = EPosition.Value;
                         itemSumbit.EmployeeNumber = Enumber.Value;
                         itemSumbit.MaritalStatus = EMaritalStatus.Value;
-                        itemSumbit.Nationality = ENationality.Value;                       
-                         PID = objIK.SaveUpdate(itemSumbit);
+                        itemSumbit.Nationality = ENationality.Value;
+                        PID = objIK.SaveUpdate(itemSumbit);
                     }
                     else
                     {
-                         PID = Convert.ToInt32(TOPID.Value);
+                        PID = Convert.ToInt32(TOPID.Value);
                     }
                     List<EmploymentHistoryEntity> list1 = new List<EmploymentHistoryEntity>();
                     EmploymentHistoryEntity Entit1 = new EmploymentHistoryEntity();
@@ -187,8 +188,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         Entit1.PID = PID;
                         if (!string.IsNullOrEmpty(SID0.Value))
                         {
-                            Entit1.ID = Convert.ToInt32(SID0.Value);                                                   
-                             RetrevehdnsuperDIV1.Value = RetrevehdnsuperDIV1.Value.Replace(Entit1.ID + "#", "");
+                            Entit1.ID = Convert.ToInt32(SID0.Value);
+                            RetrevehdnsuperDIV1.Value = RetrevehdnsuperDIV1.Value.Replace(Entit1.ID + "#", "");
                         }
                         Entit1.Title = currentUserlogin;
                         list1.Add(Entit1);
@@ -225,7 +226,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 ob.OrganizationalUnit = Organizationalunit[x];
                                 if (!string.IsNullOrEmpty(SID[x]))
                                 {
-                                    ob.ID = Convert.ToInt32(SID[x]);                                   
+                                    ob.ID = Convert.ToInt32(SID[x]);
                                     RetrevehdnsuperDIV1.Value = RetrevehdnsuperDIV1.Value.Replace(ob.ID + "#", "");
 
                                 }
@@ -238,9 +239,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                     List<int> ListSID1 = new List<int>();
                     foreach (string sid in SIDES)
                     {
-                        ListSID1.Add(Convert.ToInt32(sid));                        
+                        ListSID1.Add(Convert.ToInt32(sid));
                     }
+                    if (ListSID1.Count > 0) {
                     objIK.DeleteEmploymentHistory(ListSID1);
+                       }
                     if (PID>0)
                     {
                         lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />";
