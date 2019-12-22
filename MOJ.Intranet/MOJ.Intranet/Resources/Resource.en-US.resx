@@ -951,4 +951,16 @@
   <data name="Organizationalunit" xml:space="preserve">
     <value>Organizational unit</value>
   </data>
+  <data name="Greetings" xml:space="preserve">
+    <value>Greetings,</value>
+  </data>
+  <data name="PleaseSelectDepartment" xml:space="preserve">
+    <value>In Order to Serve You Better, Please Select Your Department</value>
+  </data>
+  <data name="redirected" xml:space="preserve">
+    <value>Please wait , You will be redirected after</value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
 </root>
