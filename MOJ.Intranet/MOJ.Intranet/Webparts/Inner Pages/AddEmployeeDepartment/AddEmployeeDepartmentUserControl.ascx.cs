@@ -74,15 +74,30 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.AddEmployeeDepartment
 
                         if (ddlDepartments.SelectedIndex != 0)
                         {
+                            SPSite site = new SPSite(SPContext.Current.Site.Url);
                             bool UpdateUserProfile = new AddEmployeeDepartmentBL().AddEmployeeDepartment(currentUser, ddlDepartments.SelectedValue.ToString());
                             if (UpdateUserProfile == true)
                             {
                                 CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                                 string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                                 if (languageCode == "ar")
-                                    Response.Redirect("/ar",false);
+                                {
+                                    btnsubmit.Enabled = false;
+                                    ddlDepartments.Enabled = false;
+                                    string ArabicURL = "/ar";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DelayRedirect('"+ ArabicURL + "');", true);
+                                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "MyFun1", "DelayRedirect('" + ArabicURL + "');", true);
+                                    //Response.Redirect("/ar", false);
+                                }
                                 else
-                                    Response.Redirect("/en",false);
+                                {
+                                    btnsubmit.Enabled = false;
+                                    ddlDepartments.Enabled = false;
+                                    string EnglishURL = "/en";
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "DelayRedirect('"+ EnglishURL + "');", true);
+                                    ScriptManager.RegisterClientScriptBlock(this.Page, this.GetType(), "MyFun1", "DelayRedirect('" + EnglishURL + "');", true);
+                                    //Response.Redirect("/en", false);
+                                }
                             }
                         }
                     }

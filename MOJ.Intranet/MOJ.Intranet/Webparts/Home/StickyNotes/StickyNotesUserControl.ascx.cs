@@ -81,32 +81,32 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
 
         protected void btnSubmitNewItem_Click(object sender, EventArgs e)
         {
-            if (!_isRefresh)
-            {
-                try
-                {
-                    StickyNotesEntities itemSumbit = new StickyNotesEntities();
-                    itemSumbit.TitleAr = txtTitleAr.Value;
-                    itemSumbit.TitleEn = txtTitleEn.Value;
-                    DateTime sDate = DateTime.ParseExact(txtDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                    itemSumbit.Date = sDate;
+            //if (!_isRefresh)
+            //{
+            //    try
+            //    {
+            //        StickyNotesEntities itemSumbit = new StickyNotesEntities();
+            //        itemSumbit.TitleAr = txtTitleAr.Value;
+            //        itemSumbit.TitleEn = txtTitleEn.Value;
+            //        DateTime sDate = DateTime.ParseExact(txtDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            //        itemSumbit.Date = sDate;
 
-                    StickyNote SN = new StickyNote();
-                    bool isSaved = SN.SaveUpdate(itemSumbit);
+            //        StickyNote SN = new StickyNote();
+            //        bool isSaved = SN.SaveUpdate(itemSumbit);
 
-                    if (isSaved == true)
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
-                        BindData();
-                    }
+            //        if (isSaved == true)
+            //        {
+            //            ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
+            //            BindData();
+            //        }
 
 
-                }
-                catch (Exception ex)
-                {
-                    LoggingService.LogError("WebParts", ex.Message);
-                }
-            }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        LoggingService.LogError("WebParts", ex.Message);
+            //    }
+            //}
         }
     }
 }

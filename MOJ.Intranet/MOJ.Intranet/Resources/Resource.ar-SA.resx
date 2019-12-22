@@ -957,4 +957,10 @@
   <data name="PleaseSelectDepartment" xml:space="preserve">
     <value>لكي نتمكن من خدمتك بشكل أفضل يرجى اختيار إدارتك</value>
   </data>
+  <data name="redirected" xml:space="preserve">
+    <value>يرجى الانتظار سوف يتم تحويلك للصفحة الرئيسية بعد </value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>ثانية</value>
+  </data>
 </root>
