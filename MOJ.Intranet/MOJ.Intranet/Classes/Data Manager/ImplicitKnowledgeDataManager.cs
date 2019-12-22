@@ -116,6 +116,86 @@ namespace MOJ.DataManager
         }
 
 
+        public List<EmploymentHistoryEntity> GeteEmploymentHistory(string title)
+        {
+            List<EmploymentHistoryEntity> ItemsCollection = new List<EmploymentHistoryEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.EmploymentHistoryUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    EmploymentHistoryEntity itemis = new EmploymentHistoryEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.Designation = Convert.ToString(Item["Designation"]);
+                                    itemis.OrganizationalUnit = Convert.ToString(Item["OrganizationalUnit"]);
+                                    itemis.DateFrom = Convert.ToDateTime(Item["DateFrom"]);
+                                    itemis.DateTo = Convert.ToDateTime(Item["DateTo"]);                                    
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);                                    
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+
+
+        public ImplicitKnowledgeEntity GetImplicitKnowledge(string title)
+        {
+            ImplicitKnowledgeEntity itemis = new ImplicitKnowledgeEntity();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {                
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.ImplicitKnowledgeUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='UserName'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {                                   
+                                    itemis.DateOfBirth = Convert.ToString(Item["DateOfBirth"]);
+                                    itemis.Designation = Convert.ToString(Item["Designation"]);
+                                    itemis.EmployeeNumber = Convert.ToString(Item["EmployeeNumber"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.MaritalStatus = Convert.ToString(Item["MaritalStatus"]);
+                                    itemis.Name = Convert.ToString(Item["Title"]);
+                                    itemis.Nationality = Convert.ToString(Item["Nationality"]);
+                                    itemis.UserName = Convert.ToString(Item["UserName"]);
+                                   
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return itemis;
+        }
         public AffirmationSocialSituationEntity GetAffirmationSocialSituationByID(int id)
         {
             AffirmationSocialSituationEntity obitem = new AffirmationSocialSituationEntity();

@@ -19,6 +19,18 @@ namespace MOJ.Business
            return new ImplicitKnowledgeDataManager().AddOrUpdateEmploymentHistory(obj);
 
         }
+        public List<EmploymentHistoryEntity> GeteEmploymentHistory(string title)
+        {
+           return new ImplicitKnowledgeDataManager().GeteEmploymentHistory(title);
+
+        }
+
+        
+  public ImplicitKnowledgeEntity GetImplicitKnowledge(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetImplicitKnowledge(title);
+
+        }
 
         //public AffirmationSocialSituationEntity GetAffirmationSocialSituation(int id)
         //{

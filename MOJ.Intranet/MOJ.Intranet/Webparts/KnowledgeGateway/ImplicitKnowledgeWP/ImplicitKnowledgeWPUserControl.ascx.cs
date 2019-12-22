@@ -23,35 +23,83 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
             if (!Page.IsPostBack)
             {
                 currentUserData();
+                EmploymentHistoryData();
             }
         }
+        private void EmploymentHistoryData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<EmploymentHistoryEntity> EmploymentHistory = objIK.GeteEmploymentHistory(currentUserlogin);
+                int x = 0;
+                foreach (EmploymentHistoryEntity item in EmploymentHistory)
+                {
+                    if (x == 0) { 
+                    Organizationalunit0.Value = item.OrganizationalUnit.ToString();
+                    Designation0.Value = item.Designation.ToString();
+                    Datefrom0.Value = item.DateFrom.ToString("MM/dd/yyyy");
+                    Dateto0.Value = item.DateTo.ToString("MM/dd/yyyy");
+                        //EMaritalStatus.Value = item.maritalStatus_ARField.ToString();
+                    }
+                    else
+                    {
+
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
         private void currentUserData()
         {
             try
             {
-                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
-                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
-                List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
-                foreach (EmployeeMasterDataEntity item in EmployeeValues)
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                ImplicitKnowledgeEntity Employment = objIK.GetImplicitKnowledge(currentUserlogin);
+                if (Employment.ID > 0)
                 {
-                    Enumber.Value = item.employeeNumberField.ToString();
-                    EDateOfBirth.Value = item.dateOfBirthField.ToString();
-                   
-                    if (languageCode == "ar")
+                    TOPID.Value = Employment.ID.ToString();
+                    Enumber.Value = Employment.EmployeeNumber.ToString();
+                    EDateOfBirth.Value = Employment.DateOfBirth.ToString();
+                    Ename.Value = Employment.Name.ToString();
+                    ENationality.Value = Employment.Nationality.ToString();
+                    EPosition.Value = Employment.Designation.ToString();
+                    EMaritalStatus.Value = Employment.MaritalStatus.ToString();
+                }
+                else
+                {
+                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                    List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+                    foreach (EmployeeMasterDataEntity item in EmployeeValues)
                     {
-                        Ename.Value = item.employeeNameArabicField.ToString();
-                        ENationality.Value = item.nationality_ARField.ToString();
-                        EPosition.Value = item.positionNameField_AR.ToString();
-                        EMaritalStatus.Value = item.maritalStatus_ARField.ToString();
+                        Enumber.Value = item.employeeNumberField.ToString();
+                        EDateOfBirth.Value = item.dateOfBirthField.ToString();
+
+                        if (languageCode == "ar")
+                        {
+                            Ename.Value = item.employeeNameArabicField.ToString();
+                            ENationality.Value = item.nationality_ARField.ToString();
+                            EPosition.Value = item.positionNameField_AR.ToString();
+                            EMaritalStatus.Value = item.maritalStatus_ARField.ToString();
+                        }
+                        else
+                        {
+                            Ename.Value = item.employeeNameEnglishField.ToString();
+                            ENationality.Value = item.nationality_USField.ToString();
+                            EPosition.Value = item.positionNameField_US.ToString();
+                            EMaritalStatus.Value = item.maritalStatus_USField.ToString();
+                        }
+
                     }
-                    else
-                    {
-                        Ename.Value = item.employeeNameEnglishField.ToString();
-                        ENationality.Value = item.nationality_USField.ToString();
-                        EPosition.Value = item.positionNameField_US.ToString();
-                        EMaritalStatus.Value = item.maritalStatus_USField.ToString();
-                    }
-                   
                 }
 
             }
@@ -66,19 +114,26 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
         {
             if (!_isRefresh)
             {
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
                 try
-                {         
-                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;           
-                    ImplicitKnowledgeEntity itemSumbit = new ImplicitKnowledgeEntity();
-                    itemSumbit.UserName = currentUserlogin;
-                    itemSumbit.Name =Ename.Value ;
-                    itemSumbit.DateOfBirth =EDateOfBirth.Value ;
-                    itemSumbit.Designation = EPosition.Value ;
-                    itemSumbit.EmployeeNumber = Enumber.Value ;
-                    itemSumbit.MaritalStatus =EMaritalStatus.Value ;
-                    itemSumbit.Nationality =ENationality.Value ;
-                    ImplicitKnowledge objIK = new ImplicitKnowledge();
-                    int PID = objIK.SaveUpdate(itemSumbit);
+                {
+                    string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                    int PID;
+                   if (string.IsNullOrEmpty(TOPID.Value)) { 
+                        ImplicitKnowledgeEntity itemSumbit = new ImplicitKnowledgeEntity();
+                        itemSumbit.UserName = currentUserlogin;
+                        itemSumbit.Name = Ename.Value;
+                        itemSumbit.DateOfBirth = EDateOfBirth.Value;
+                        itemSumbit.Designation = EPosition.Value;
+                        itemSumbit.EmployeeNumber = Enumber.Value;
+                        itemSumbit.MaritalStatus = EMaritalStatus.Value;
+                        itemSumbit.Nationality = ENationality.Value;                       
+                         PID = objIK.SaveUpdate(itemSumbit);
+                    }
+                    else
+                    {
+                         PID = Convert.ToInt32(TOPID.Value);
+                    }
                     List<EmploymentHistoryEntity> list1 = new List<EmploymentHistoryEntity>();
                     EmploymentHistoryEntity Entit1 = new EmploymentHistoryEntity();
                     if (!string.IsNullOrEmpty(Designation0.Value))
@@ -115,7 +170,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                     objIK.SaveUpdateEmploymentHistory(list1);
                     if (PID>0)
                     {
-                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
+                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />";
                         posts.Style.Add("display", "none");
                         SuccessMsgDiv.Style.Add("display", "block");
                     }

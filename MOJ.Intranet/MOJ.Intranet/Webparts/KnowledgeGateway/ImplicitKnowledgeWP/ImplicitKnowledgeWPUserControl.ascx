@@ -17,11 +17,13 @@
 
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnChildren" runat="server" />
-<h4>
-    <asp:Literal runat="server" Text="<%$ Resources:Resource, AffirmationSocialSituation%>" />
-</h4>
+
 <div id="posts" runat="server" class="small-thumbs alt">
      <div id="Edata">
+         <div class=" DivPID" style=" display: none;">
+								 	<input type="text" name="TOPID" runat="server" id="TOPID" class="form-control" placeholder="">
+									
+										</div>
                     <div class="row rt">
                         <div class="col-md-6">
                             <div class="row">
@@ -91,10 +93,8 @@
 									    </div>
                               </div>
 					    </div>                  
-                    </div>    
-               
+                    </div>   
                </div>
-
     <hr />
 	<div class="row rt  botx">
                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Employmenthistory%>" /></label>
@@ -109,6 +109,11 @@
 							<div class="col-md-3">
 							   <div class="row">
 									<div class="col-md-4">
+                                        <div class=" DivSID" style=" display: none;">
+								 	<input type="text" name="SID" runat="server" id="SID0" class="form-control" placeholder="">
+									
+										</div>
+
 								<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Designation%>" /></label>
 							</div>
 							<div class="col-md-8 DivDesignation">
@@ -193,9 +198,9 @@
 
 
 <style>
-.evenRow{
-background-color: #f5e9b6;
-}
+
+
+#dynamicInputChildren .new:nth-child(odd) {background-color: #f5e9b6;}
 .row.rt {
     margin-bottom: 1px;
     margin-top: 1px;
@@ -216,7 +221,7 @@ background-color: #f5e9b6;
 </style>
 <script>
     $(document).ready(function () {
-		$(".RadiB label").addClass("radio-button-click-target");
+        $(".RadiB label").addClass("radio-button-click-target");
         $(".RadiB input").addClass("radio-button");
         var idis = $(".DivHasGovernmentHousingAllowance input").attr('id');
         $(".DivHasGovernmentHousingAllowance label").attr('for', idis);
@@ -255,8 +260,8 @@ background-color: #f5e9b6;
         var Itemhtml = $("#FirstItemEmploymenthistoryAA");
         Itemhtml.find(".DivDesignation")[0].innerHTML = "<input name='Designation' type=text' id='Designation" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivOrganizationalunit")[0].innerHTML = "<input name='Organizationalunit' type=text' id='Organizationalunit" + counter2 + "' class='form-control' placeholder=''>";
-		Itemhtml.find(".DivDatefrom")[0].innerHTML = "<input autocomplete='off' name='Datefrom' type='text' id='Datefrom" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
-        Itemhtml.find(".DivDateto")[0].innerHTML = "<input autocomplete='off' name='Dateto' type='text' id='Dateto" + counter + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivDatefrom")[0].innerHTML = "<input autocomplete='off' name='Datefrom' type='text' id='Datefrom" + counter2 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivDateto")[0].innerHTML = "<input autocomplete='off' name='Dateto' type='text' id='Dateto" + counter2 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
         att.value = "new";
@@ -272,5 +277,5 @@ background-color: #f5e9b6;
         counter2--;
         document.getElementById('hdnChildren').value = counter2;
         thi.closest('.new').remove();
-		}
+    }
 </script>

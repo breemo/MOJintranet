@@ -31,6 +31,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
+        /// TOPID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TOPID;
+        
+        /// <summary>
         /// Ename control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText EDateOfBirth;
+        
+        /// <summary>
+        /// SID0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SID0;
         
         /// <summary>
         /// Designation0 control.
