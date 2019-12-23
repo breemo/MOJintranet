@@ -31,6 +31,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpAlbumFiles
                         this.ViewState["category"] = category;
 
                         BindPhotoGallery(category);
+                        lblHead.Text = category;
 
                         //lblTitle.Text = category.Split('/')[1].ToUpper();
                     }

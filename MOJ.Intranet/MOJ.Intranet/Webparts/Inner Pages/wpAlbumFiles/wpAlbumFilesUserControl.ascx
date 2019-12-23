@@ -22,7 +22,7 @@
 </style>
 
 <h3 class="nbottodiv">
-    <asp:Literal runat="server" ID="lblHead" Text="<%$ Resources:Resource, HeadGallery%>" />
+    <asp:Literal runat="server" ID="lblHead"/>
 </h3>
 
 <div class="newimageGallery">
