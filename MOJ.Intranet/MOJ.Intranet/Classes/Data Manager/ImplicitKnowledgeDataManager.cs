@@ -114,6 +114,163 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
+            public bool AddOrUpdateQualifications(List<QualificationsEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.QualificationsUrl);
+                        SPListItem item = null;
+                        foreach (QualificationsEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+                            item["Qualification"] = Item.Qualification;
+                            item["Major"] = Item.Major;
+                            item["Institution"] = Item.Institution;
+                            item["GraduationYear"] = Item.GraduationYear;
+                            item["CountryID"] = Item.CountryID;
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+        public bool AddOrUpdateLanguageSkills(List<LanguageSkillsEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.LanguageSkillsUrl);
+                        SPListItem item = null;
+                        foreach (LanguageSkillsEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+                            item["ReadinglevelID"] = Item.ReadinglevelID;
+                            item["WritinglevelID"] = Item.WritinglevelID;
+                            item["ConversationlevelID"] = Item.ConversationlevelID;
+                            item["Language"] = Item.Language;                            
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+        public bool AddOrUpdateTechnicalSkills(List<TechnicalSkillsEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.TechnicalSkillsUrl);
+                        SPListItem item = null;
+                        foreach (TechnicalSkillsEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+                            item["SkillType"] = Item.SkillType;
+                            item["SkilllevelID"] = Item.SkilllevelID;
+                            item["AreaOfApplication"] = Item.AreaOfApplication;
+                            item["Notes"] = Item.Notes;
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
 
 
         public List<EmploymentHistoryEntity> GeteEmploymentHistory(string title)
@@ -156,6 +313,127 @@ namespace MOJ.DataManager
             return ItemsCollection;
         }
 
+        public List<QualificationsEntity> GeteQualifications(string title)
+        {
+            List<QualificationsEntity> ItemsCollection = new List<QualificationsEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.QualificationsUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    QualificationsEntity itemis = new QualificationsEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.Qualification = Convert.ToString(Item["Qualification"]);
+                                    itemis.Major = Convert.ToString(Item["Major"]);
+                                    itemis.Institution = Convert.ToString(Item["Institution"]);
+                                    itemis.CountryID = Convert.ToString(Item["CountryID"]);
+                                 
+                                    itemis.GraduationYear = Convert.ToDateTime(Item["GraduationYear"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+
+        public List<LanguageSkillsEntity> GeteLanguageSkills(string title)
+        {
+            List<LanguageSkillsEntity> ItemsCollection = new List<LanguageSkillsEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.LanguageSkillsUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    LanguageSkillsEntity itemis = new LanguageSkillsEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.ConversationlevelID = Convert.ToString(Item["ConversationlevelID"]);
+                                    itemis.Language = Convert.ToString(Item["Language"]);
+                                    itemis.ReadinglevelID = Convert.ToString(Item["ReadinglevelID"]);
+                                    itemis.WritinglevelID = Convert.ToString(Item["WritinglevelID"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+
+        public List<TechnicalSkillsEntity> GetTechnicalSkills(string title)
+        {
+            List<TechnicalSkillsEntity> ItemsCollection = new List<TechnicalSkillsEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.TechnicalSkillsUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    TechnicalSkillsEntity itemis = new TechnicalSkillsEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.SkillType = Convert.ToString(Item["SkillType"]);
+                                    itemis.SkilllevelID = Convert.ToString(Item["SkilllevelID"]);
+                                    itemis.AreaOfApplication = Convert.ToString(Item["AreaOfApplication"]);
+                                    itemis.Notes = Convert.ToString(Item["Notes"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
 
         public ImplicitKnowledgeEntity GetImplicitKnowledge(string title)
         {

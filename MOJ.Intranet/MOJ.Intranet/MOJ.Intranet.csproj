@@ -114,6 +114,8 @@
     </Compile>
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\levelsDataManager.cs" />
+    <Compile Include="Classes\Data Manager\CountrysDataManager.cs" />
     <Compile Include="Classes\Data Manager\EmployeeProfileDataManager.cs" />
     <Compile Include="Classes\Data Manager\ImplicitKnowledgeDataManager.cs" />
     <Compile Include="Classes\Data Manager\LeaveBalanceDataManager.cs" />
@@ -154,6 +156,9 @@
     <Compile Include="Classes\Entities\EmployeeEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeProfileEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\EmploymentHistoryEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\TechnicalSkillsEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\LanguageSkillsEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\QualificationsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\ImplicitKnowledgeEntity.cs" />
     <Compile Include="Classes\Entities\PeriodicalFormForGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\DaysEntity.cs" />

@@ -963,4 +963,49 @@
   <data name="seconds" xml:space="preserve">
     <value>Seconds</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="GraduationYear" xml:space="preserve">
+    <value>Graduation year</value>
+  </data>
+  <data name="Institution" xml:space="preserve">
+    <value>Institution</value>
+  </data>
+  <data name="Major" xml:space="preserve">
+    <value>Major</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Qualification</value>
+  </data>
+  <data name="Qualifications" xml:space="preserve">
+    <value>Qualifications</value>
+  </data>
+  <data name="ConversationLevel" xml:space="preserve">
+    <value>Conversation level</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LanguageSkills" xml:space="preserve">
+    <value>Language skills</value>
+  </data>
+  <data name="ReadingLevel" xml:space="preserve">
+    <value>Reading level</value>
+  </data>
+  <data name="WritingLevel" xml:space="preserve">
+    <value>Writing level</value>
+  </data>
+  <data name="AreaOfApplication" xml:space="preserve">
+    <value>Area of application</value>
+  </data>
+  <data name="SkillLevel" xml:space="preserve">
+    <value>Skill level</value>
+  </data>
+  <data name="SkillType" xml:space="preserve">
+    <value>Skill type</value>
+  </data>
+  <data name="TechnicalSkills" xml:space="preserve">
+    <value>Technical skills</value>
+  </data>
 </root>

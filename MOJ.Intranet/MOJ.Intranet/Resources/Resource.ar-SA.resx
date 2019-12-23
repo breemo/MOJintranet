@@ -963,4 +963,49 @@
   <data name="seconds" xml:space="preserve">
     <value>ثانية</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>الدولة</value>
+  </data>
+  <data name="GraduationYear" xml:space="preserve">
+    <value>سنة التخرج</value>
+  </data>
+  <data name="Institution" xml:space="preserve">
+    <value>الجهة المانحه</value>
+  </data>
+  <data name="Major" xml:space="preserve">
+    <value>التخصص</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>المؤهل العلمي</value>
+  </data>
+  <data name="Qualifications" xml:space="preserve">
+    <value>المؤهلات العلمية</value>
+  </data>
+  <data name="ConversationLevel" xml:space="preserve">
+    <value>مستوى المحادثة</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>اللغة</value>
+  </data>
+  <data name="LanguageSkills" xml:space="preserve">
+    <value>مهارات اللغة</value>
+  </data>
+  <data name="ReadingLevel" xml:space="preserve">
+    <value>مستوى القراءة</value>
+  </data>
+  <data name="WritingLevel" xml:space="preserve">
+    <value>مستوى الكتابة</value>
+  </data>
+  <data name="AreaOfApplication" xml:space="preserve">
+    <value>مجال التطبيق</value>
+  </data>
+  <data name="SkillLevel" xml:space="preserve">
+    <value>مستوى الكفاءة</value>
+  </data>
+  <data name="SkillType" xml:space="preserve">
+    <value>نوع المهارة</value>
+  </data>
+  <data name="TechnicalSkills" xml:space="preserve">
+    <value>المهارات التقنية</value>
+  </data>
 </root>

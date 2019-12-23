@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using MOJ.DataManager;
@@ -10,6 +11,13 @@ namespace MOJ.Business
 {
     public class ImplicitKnowledge
     {
+        public DataTable GetCountrys()
+        {
+            return new CountrysDataManager().GetAll();
+        } public DataTable Getlevels()
+        {
+            return new levelsDataManager().GetAll();
+        }
         public int SaveUpdate(ImplicitKnowledgeEntity obj)
         {
             return new ImplicitKnowledgeDataManager().AddOrUpdateRequest(obj);
@@ -24,9 +32,25 @@ namespace MOJ.Business
            return new ImplicitKnowledgeDataManager().GeteEmploymentHistory(title);
 
         }
+        public List<QualificationsEntity> GeteQualifications(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GeteQualifications(title);
 
+        }
+        public List<LanguageSkillsEntity> GeteLanguageSkills(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GeteLanguageSkills(title);
+
+        }
+        public List<TechnicalSkillsEntity> GeteTechnicalSkills(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetTechnicalSkills(title);
+
+        }
         
-  public ImplicitKnowledgeEntity GetImplicitKnowledge(string title)
+
+
+        public ImplicitKnowledgeEntity GetImplicitKnowledge(string title)
         {
             return new ImplicitKnowledgeDataManager().GetImplicitKnowledge(title);
 
@@ -36,6 +60,23 @@ namespace MOJ.Business
             public bool DeleteitemsFromSublist(string listname , List<int> listsid )
         {
             return new ImplicitKnowledgeDataManager().DeleteitemsFromSublist(listname, listsid);
+
+        }
+
+        public bool SaveUpdateQualifications(List<QualificationsEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateQualifications(obj);
+
+        }
+        public bool SaveUpdateLanguageSkills(List<LanguageSkillsEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateLanguageSkills(obj);
+
+        }
+
+        public bool SaveUpdateTechnicalSkills(List<TechnicalSkillsEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateTechnicalSkills(obj);
 
         }
 
