@@ -75,7 +75,9 @@
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeDepartmentBL.cs" />
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\ImplicitKnowledge.cs" />
     <Compile Include="Classes\Business\EmployeeProfileBL.cs" />
+    <Compile Include="Classes\Business\LeaveBalanceBL.cs" />
     <Compile Include="Classes\Business\PeriodicalFormForGovernmentHousing.cs" />
     <Compile Include="Classes\Business\GovernmentHousing.cs" />
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
@@ -112,7 +114,11 @@
     </Compile>
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\levelsDataManager.cs" />
+    <Compile Include="Classes\Data Manager\CountrysDataManager.cs" />
     <Compile Include="Classes\Data Manager\EmployeeProfileDataManager.cs" />
+    <Compile Include="Classes\Data Manager\ImplicitKnowledgeDataManager.cs" />
+    <Compile Include="Classes\Data Manager\LeaveBalanceDataManager.cs" />
     <Compile Include="Classes\Data Manager\PeriodicalFormForGovernmentHousingDataManager.cs" />
     <Compile Include="Classes\Data Manager\HusbandORWifeDataManager.cs" />
     <Compile Include="Classes\Data Manager\EmployeeDataManager.cs" />
@@ -149,6 +155,11 @@
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeProfileEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\EmploymentHistoryEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\TechnicalSkillsEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\LanguageSkillsEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\QualificationsEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\ImplicitKnowledgeEntity.cs" />
     <Compile Include="Classes\Entities\PeriodicalFormForGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\DaysEntity.cs" />
     <Compile Include="Classes\Entities\ReturnToDutyNoticeMembersOfTheJudiciaryEntity.cs" />
@@ -444,6 +455,14 @@
     </Compile>
     <Compile Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsListUserControl.ascx.designer.cs">
       <DependentUpon>wpOccasionsListUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx.cs">
+      <DependentUpon>ImplicitKnowledgeWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx.designer.cs">
+      <DependentUpon>ImplicitKnowledgeWPUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWP.cs" />
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.cs">
@@ -742,6 +761,10 @@
       <SharePointProjectItemId>{ee7746e6-f59b-4b25-94cd-075f88d5d286}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsList.webpart" />
+    <None Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e62acebd-b2b0-4ca4-9573-28e44a7120bf}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\LiveEventsWP\LiveEventsWP.webpart" />
     <None Include="Webparts\LiveEventsWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a023d941-1aae-42b2-b266-211a22b2b513}</SharePointProjectItemId>
@@ -895,6 +918,8 @@
     <Content Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetailsUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\wpOccasionsList\Elements.xml" />
     <Content Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsListUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\AffirmationReceiptGovernmentHousingWPUserControl.ascx" />

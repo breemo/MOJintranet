@@ -42,6 +42,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.FilesWP
 
                     switch (FileType)
                     {
+                        case "doc":
                         case "docx":
                             classname = "wfnew";
                             break;

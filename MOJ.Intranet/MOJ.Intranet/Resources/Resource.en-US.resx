@@ -933,4 +933,79 @@
   <data name="FilesTitle" xml:space="preserve">
     <value>Ministry Files</value>
   </data>
+  <data name="Datefrom" xml:space="preserve">
+    <value>Date from</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="Dateto" xml:space="preserve">
+    <value>Date to</value>
+  </data>
+  <data name="Designation" xml:space="preserve">
+    <value>Designation</value>
+  </data>
+  <data name="Employmenthistory" xml:space="preserve">
+    <value>Employment history</value>
+  </data>
+  <data name="Organizationalunit" xml:space="preserve">
+    <value>Organizational unit</value>
+  </data>
+  <data name="Greetings" xml:space="preserve">
+    <value>Greetings,</value>
+  </data>
+  <data name="PleaseSelectDepartment" xml:space="preserve">
+    <value>In Order to Serve You Better, Please Select Your Department</value>
+  </data>
+  <data name="redirected" xml:space="preserve">
+    <value>Please wait , You will be redirected after</value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="GraduationYear" xml:space="preserve">
+    <value>Graduation year</value>
+  </data>
+  <data name="Institution" xml:space="preserve">
+    <value>Institution</value>
+  </data>
+  <data name="Major" xml:space="preserve">
+    <value>Major</value>
+  </data>
+  <data name="Qualification" xml:space="preserve">
+    <value>Qualification</value>
+  </data>
+  <data name="Qualifications" xml:space="preserve">
+    <value>Qualifications</value>
+  </data>
+  <data name="ConversationLevel" xml:space="preserve">
+    <value>Conversation level</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LanguageSkills" xml:space="preserve">
+    <value>Language skills</value>
+  </data>
+  <data name="ReadingLevel" xml:space="preserve">
+    <value>Reading level</value>
+  </data>
+  <data name="WritingLevel" xml:space="preserve">
+    <value>Writing level</value>
+  </data>
+  <data name="AreaOfApplication" xml:space="preserve">
+    <value>Area of application</value>
+  </data>
+  <data name="SkillLevel" xml:space="preserve">
+    <value>Skill level</value>
+  </data>
+  <data name="SkillType" xml:space="preserve">
+    <value>Skill type</value>
+  </data>
+  <data name="TechnicalSkills" xml:space="preserve">
+    <value>Technical skills</value>
+  </data>
 </root>
