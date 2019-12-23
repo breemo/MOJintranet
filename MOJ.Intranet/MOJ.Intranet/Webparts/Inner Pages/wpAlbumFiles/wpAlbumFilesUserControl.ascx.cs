@@ -58,15 +58,10 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpAlbumFiles
                 {
                     lblDrawItems.Text +=
                     string.Format(@"
-                                    <div class='col-md-3'>
+                                    <div class='col-md-3' style='margin-bottom: 30px;'>
                                         <div class='boxitemdivco'>
                                             <a href='{0}' data-lightbox='gallery-item'>
                                                 <img src='{0}' alt='Gallery Image' class='image_fade'>
-                                                <div class='hoveroverlay'>
-                                                    <div class='insidehovwr'>
-                                                        <span class='icon-line-image'></span>
-                                                    </div>
-                                                </div>
                                             </a>
                                         </div>
                                     </div>", item.PictureURL);
