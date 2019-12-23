@@ -48,9 +48,7 @@ namespace MOJ.Intranet.Webparts.Home.Meetings
                     lblDrawItems.Text +=
                         string.Format(@"
                         <div class='mettingitem'>
-                            <h6>
                                 <a href = '{0}' >{1}</a>
-                            </h6>
                             <p class='medate'>
                                 <span class='icon-calendar-alt1'></span>
                                 {2}
