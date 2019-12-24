@@ -35,11 +35,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 OtherSkillsData();                
                 ExpertiseData();
                 PublicationsData();
-
+                TravelInformationsData();
             }
         }
 
-        private void QualificationsData()
+        private void TravelInformationsData()
         {
             try
             {
@@ -740,19 +740,24 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
             DropDownCountry.DataValueField = "ID";
             DropDownCountry7.DataSource = dataC;
             DropDownCountry7.DataValueField = "ID";
+            DropDownCountryResidentForMoreThan3Months.DataSource = dataC;
+            DropDownCountryResidentForMoreThan3Months.DataValueField = "ID";
             if (languageCode == "ar")
             {
                 DropDownCountry.DataTextField = "Title";
                 DropDownCountry7.DataTextField = "Title";
+                DropDownCountryResidentForMoreThan3Months.DataTextField = "Title";
             }
             else
             {
                 DropDownCountry.DataTextField = "TitleEN";
                 DropDownCountry7.DataTextField = "TitleEN";
+                DropDownCountryResidentForMoreThan3Months.DataTextField = "TitleEN";
             }
 
             DropDownCountry.DataBind();
             DropDownCountry7.DataBind();
+            DropDownCountryResidentForMoreThan3Months.DataBind();
 
 
         }
