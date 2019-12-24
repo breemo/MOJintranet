@@ -33,9 +33,95 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 OtherSkillsData();
                 Getlevels();
                 WithinThePlan();
+                ExpertiseData();
 
             }
         }
+        private void ExpertiseData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<ExpertiseEntity> QualificationsData = objIK.GeteExpertise(currentUserlogin);
+                int x = 0;
+                foreach (ExpertiseEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID07.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV7.Value = item.ID.ToString() + "#";
+                        Notes07.Value = item.Notes.ToString();
+                        NatureOfTheJob0.Value = item.NatureOfTheJob.ToString();
+                        OrganizationName0.Value = item.OrganizationName.ToString();
+                        YearsOfExperience0.Value = item.YearsOfExperience.ToString();
+                        DropDownCountry7.SelectedValue = item.CountryID.ToString();
+                        
+                    }
+                    else
+                    {
+                        hdnsuperDIV7.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV7.Value += item.ID.ToString() + "#";
+                        CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                        string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                        DataTable dataC = new ImplicitKnowledge().GetCountrys();
+                        string options = "";
+                        string selct = "";
+                        foreach (DataRow dtRow in dataC.Rows)
+                        {
+                            if (dtRow["ID"].ToString() == item.CountryID.ToString())
+                            {
+                                selct = "selected='selected'";
+                            }
+                            else
+                            {
+                                selct = "";
+                            }
+                            if (languageCode == "ar")
+                            {
+
+                                options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["Title"].ToString() + "</option>";
+                            }
+                            else
+                            {
+                                options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["TitleEN"].ToString() + "</option>";
+
+                            }
+                        }
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID7' style=' display: none;'><input name='SID7' value='" + item.ID.ToString() + "' type='text' id='SID7" + x + "' class='form-control' placeholder=''></div> " +
+                        "<div class='col-md-3 DivOrganizationName'><input name='OrganizationName' value='" + item.OrganizationName.ToString() + "' type='text' id='OrganizationName" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivNatureOfTheJob'><input name='NatureOfTheJob' value='" + item.NatureOfTheJob.ToString() + "' type='text' id='NatureOfTheJob" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivCountry '>" +
+                        "<select name='DropDownCountry7' id='DropDownCountry7" + x + "' class='form-control'>" +
+                          options +
+                        "</select></div>" +
+                        "<div class='col-md-2 DivYearsOfExperience'><input name='YearsOfExperience' value='" + item.YearsOfExperience.ToString() + "' type='text'' id='YearsOfExperience" + x + "' class='form-control' placeholder=''></div>" +
+                            "<div class='col-md-2 DivNotes'><input name='Notes7' value='" + item.Notes.ToString() + "' type='text'' id='Notes7" + x + "' class='form-control' placeholder=''></div>" +
+
+                             "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowQualifications(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
+                "</div>";
+                        // document.getElementById('dynamicInputChildren').appendChild(newdiv);
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV7.Controls.Add(newDiv);
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
         private void TrainingCoursesData()
         {
             try
@@ -51,8 +137,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         SID06.Value = item.ID.ToString();
                         RetrevehdnsuperDIV6.Value = item.ID.ToString() + "#";
 
-                        CourseName0.Value = item.CourseName.ToString();
-                        WithinThePlan0.SelectedValue = item.WithinThePlan.ToString();
+                        CourseName0.Value = item.CourseName.ToString();                        
+                        WithinThePlan0.Items.FindByValue(item.WithinThePlan.ToString()).Selected = true;
                         TrainingHours0.Value = item.TrainingHours.ToString();
                         Datefrom06.Value = item.FromDate.ToString("MM/dd/yyyy");
                         Dateto06.Value = item.ToDate.ToString("MM/dd/yyyy");
@@ -134,7 +220,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
 
             var placetext2 = SPUtility.GetLocalizedString("$Resources: No", "Resource", SPContext.Current.Web.Language);
             placetext2 = "<span class='radio-button-circle'></span>" + placetext2;
-            WithinThePlan0.Items.Add(new ListItem(placetext, "No"));
+            WithinThePlan0.Items.Add(new ListItem(placetext2, "No"));
         }
         private void LanguageSkillsData()
         {
@@ -502,16 +588,21 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
             DataTable dataC = new ImplicitKnowledge().GetCountrys();
             DropDownCountry.DataSource = dataC;
             DropDownCountry.DataValueField = "ID";
+            DropDownCountry7.DataSource = dataC;
+            DropDownCountry7.DataValueField = "ID";
             if (languageCode == "ar")
             {
                 DropDownCountry.DataTextField = "Title";
+                DropDownCountry7.DataTextField = "Title";
             }
             else
             {
                 DropDownCountry.DataTextField = "TitleEN";
+                DropDownCountry7.DataTextField = "TitleEN";
             }
 
             DropDownCountry.DataBind();
+            DropDownCountry7.DataBind();
 
 
         }
@@ -1099,7 +1190,73 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                     }
                     //////////////////////////////////8///////////////////////
+                    List<ExpertiseEntity> list7 = new List<ExpertiseEntity>();
+                    ExpertiseEntity Entit7 = new ExpertiseEntity();
+                    if (!string.IsNullOrEmpty(OrganizationName0.Value))
+                    {
+                        Entit7.OrganizationName = OrganizationName0.Value;
+                        Entit7.NatureOfTheJob = NatureOfTheJob0.Value;
+                        Entit7.YearsOfExperience = YearsOfExperience0.Value;
+                        Entit7.Notes = Notes07.Value;
+                        Entit7.CountryID = DropDownCountry7.SelectedValue.ToString();
+                        Entit7.PID = PID;
+                        if (!string.IsNullOrEmpty(SID07.Value))
+                        {
+                            Entit7.ID = Convert.ToInt32(SID07.Value);
+                            RetrevehdnsuperDIV7.Value = RetrevehdnsuperDIV7.Value.Replace(Entit7.ID + "#", "");
+                        }
+                        Entit7.Title = currentUserlogin;
+                        list7.Add(Entit7);
+                    }
+                    if (hdnsuperDIV7.Value != "" && hdnsuperDIV7.Value != "0")
+                    {
+                        string[] SID7 = Request.Form.GetValues("SID7");
+                        string[] OrganizationName = Request.Form.GetValues("OrganizationName");
+                        string[] NatureOfTheJob = Request.Form.GetValues("NatureOfTheJob");
+                        string[] YearsOfExperience = Request.Form.GetValues("YearsOfExperience");
+                        string[] Notes7 = Request.Form.GetValues("Notes7");
+                        string[] DropDownCountry7 = Request.Form.GetValues("DropDownCountry7");
+                        for (int x = 0; x < Convert.ToInt32(OrganizationName.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(OrganizationName[x]))
+                            {
+                                ExpertiseEntity ob = new ExpertiseEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;   
 
+                                ob.OrganizationName = OrganizationName[x];
+                                ob.NatureOfTheJob = NatureOfTheJob[x];
+                                ob.YearsOfExperience = YearsOfExperience[x];
+                                ob.Notes = Notes7[x];
+                                ob.CountryID = DropDownCountry7[x];
+
+                                if (!string.IsNullOrEmpty(SID7[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID7[x]);
+                                    RetrevehdnsuperDIV7.Value = RetrevehdnsuperDIV7.Value.Replace(ob.ID + "#", "");
+                                }
+                                list7.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdateExpertise(list7);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV7.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV7.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("Expertise", ListSID1);
+                        }
+                    }
+                    //////////////////////////////////9///////////////////////
 
 
 

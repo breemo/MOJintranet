@@ -167,7 +167,60 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-          public bool AddOrUpdateQualifications(List<QualificationsEntity> Items)
+          public bool AddOrUpdateExpertise(List<ExpertiseEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.QualificationsUrl);
+                        SPListItem item = null;
+                        foreach (ExpertiseEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+
+                            item["CountryID"] = Item.CountryID;
+                            item["NatureOfTheJob"] = Item.NatureOfTheJob;
+                            item["Notes"] = Item.Notes;
+                            item["OrganizationName"] = Item.OrganizationName;
+                            item["YearsOfExperience"] = Item.YearsOfExperience;                            
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+         public bool AddOrUpdateQualifications(List<QualificationsEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -445,6 +498,48 @@ namespace MOJ.DataManager
                                     itemis.ToDate = Convert.ToDateTime(Item["ToDate"]);
                                     itemis.TrainingHours = Convert.ToString(Item["TrainingHours"]);
                                     itemis.WithinThePlan  = Convert.ToString(Item["WithinThePlan"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+         public List<ExpertiseEntity> GetExpertise(string title)
+        {
+            List<ExpertiseEntity> ItemsCollection = new List<ExpertiseEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.ExpertiseUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    ExpertiseEntity itemis = new ExpertiseEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+
+                                    itemis.OrganizationName = Convert.ToString(Item["OrganizationName"]);
+                                    itemis.NatureOfTheJob = Convert.ToString(Item["NatureOfTheJob"]);
+                                    itemis.Notes = Convert.ToString(Item["Notes"]);
+                                    itemis.CountryID = Convert.ToString(Item["CountryID"]);                                 
+                                    itemis.YearsOfExperience = Convert.ToString(Item["YearsOfExperience"]);
+
                                     itemis.PID = Convert.ToInt32(Item["PID"]);
                                     ItemsCollection.Add(itemis);
                                 }

@@ -697,6 +697,78 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText CourseLocation0;
         
         /// <summary>
+        /// superDIV7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl superDIV7;
+        
+        /// <summary>
+        /// SID07 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SID07;
+        
+        /// <summary>
+        /// OrganizationName0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText OrganizationName0;
+        
+        /// <summary>
+        /// NatureOfTheJob0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText NatureOfTheJob0;
+        
+        /// <summary>
+        /// DDCountry7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal DDCountry7;
+        
+        /// <summary>
+        /// DropDownCountry7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownCountry7;
+        
+        /// <summary>
+        /// YearsOfExperience0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText YearsOfExperience0;
+        
+        /// <summary>
+        /// Notes07 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Notes07;
+        
+        /// <summary>
         /// posts2 control.
         /// </summary>
         /// <remarks>

@@ -37,6 +37,11 @@ namespace MOJ.Business
             return new ImplicitKnowledgeDataManager().GeteQualifications(title);
 
         }
+        public List<ExpertiseEntity> GeteExpertise(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetExpertise(title);
+
+        }
         public List<TrainingCoursesEntity> GetTrainingCourses(string title)
         {
             return new ImplicitKnowledgeDataManager().GetTrainingCourses(title);
@@ -76,6 +81,11 @@ namespace MOJ.Business
         public bool SaveUpdateQualifications(List<QualificationsEntity> obj)
         {
             return new ImplicitKnowledgeDataManager().AddOrUpdateQualifications(obj);
+
+        }
+        public bool SaveUpdateExpertise(List<ExpertiseEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateExpertise(obj);
 
         }
         public bool SaveUpdateTrainingCourses(List<TrainingCoursesEntity> obj)

@@ -596,40 +596,104 @@
 																</div>									
 																	</div>
 															</div>	
-															</div><div class="col-md-1 DivCourseLocation">
+															<div class="col-md-1 DivCourseLocation">
 															<input type="text" name="CourseLocation" runat="server" id="CourseLocation0" class="form-control" placeholder="">
 															</div>
 															<div  class="col-md-1 DiveDelete ">																			
 															</div>
 														</div>
-													</div>
-												</div>
+													</div>												
+													</div>												
 												<div>
 													<a  onclick="addTrainingCourses();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
-												</div>
+												</div>								
 													
+                                                </dd>
+ <dt>
+                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Expertise%>" /></label>
+                                                </dt>
+                                                <dd>
+                                                    <div class="questionbox">
+                                                        <div>
+                                                            <div data-duplicate="Courses" data-duplicate-min="0">
+                                                                <div class="tidtleheadbox">
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">                                                                            
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, OrganizationName %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, NatureOfTheJob %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Country %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, YearsOfExperience %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Notes %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+                                                                    </div>
+                                                                </div>                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+													<div runat="server"  id="superDIV7" class="superDIV7">
+												  <div  id="FirstItemAA7" style="display:none" >
+													 </div>
+												   <div  id="FirstItem7" class="cnrtnheadbox2">
+														<div class="row rt">	
+															<div  class="DivSID7" style=" display: none;" >
+															<input type="text"  name="SID7" runat="server" id="SID07" class="form-control" placeholder="">
+															</div>                       
+															<div class="col-md-3 DivOrganizationName">
+															<input type="text" name="OrganizationName" runat="server" id="OrganizationName0" class="form-control" placeholder="">
+															</div>				
+															<div class="col-md-2 DivNatureOfTheJob">
+															<input type="text" name="NatureOfTheJob" runat="server" id="NatureOfTheJob0" class="form-control" placeholder="">
+															</div>	
+															<div class="col-md-2 DivCountry ">
+															   <label><asp:Literal runat="server" id="DDCountry7"/></label>                        
+																<asp:DropDownList ID="DropDownCountry7" runat="server" class="form-control">
+																</asp:DropDownList>
+															</div>																
+															<div class="col-md-2 DivYearsOfExperience">
+															<input type="text" name="YearsOfExperience" runat="server" id="YearsOfExperience0" class="form-control" placeholder="">
+															</div>
+															
+															<div class="col-md-2 DivNotes">
+															<input type="text" name="Notes7" runat="server" id="Notes07" class="form-control" placeholder="">
+															</div>
+															<div  class="col-md-1 DiveDelete ">																			
+															</div>
+														</div>
+													</div>												
+													</div>												
+												<div>
+													<a  onclick="addExpertise();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+												</div>								
 													
                                                 </dd>
 
-
-
-
-
-
-
-
-
-
-
                                                 <dt>
                                                     الخبرات
-
-
-
-
                                                 </dt>
                                                 <dd>
-
                                                     <div class="questionbox">
 
                                                         <div>
@@ -673,25 +737,15 @@
                                                                                 </label>
                                                                             </div>
 
-
-
-
-
-
                                                                         </div>
                                                                     </div>
                                                                     <div class="widt2">
-
-
 
                                                                     </div>
 
                                                                 </div>
 
-
                                                                 <div data-duplicate="Experience" data-duplicate-min="0">
-
-
 
 
                                                                     <div class="cnrtnheadbox">
@@ -731,10 +785,6 @@
                                                                                 </div>
 
 
-
-
-
-
                                                                             </div>
                                                                         </div>
                                                                         <div class="widt2">
@@ -758,10 +808,6 @@
 
 
 
-
-
-
-
                                                         </div>
 
 
@@ -769,13 +815,6 @@
                                                     </div>
 
                                                 </dd>
-
-
-
-
-
-
-
 
 
 
@@ -878,11 +917,6 @@
                                                                                 </div>
 
 
-
-
-
-
-
                                                                             </div>
                                                                         </div>
                                                                         <div class="widt2">
@@ -905,11 +939,6 @@
                                                             </div>
 
 
-
-
-
-
-
                                                         </div>
 
 
@@ -917,14 +946,6 @@
                                                     </div>
 
                                                 </dd>
-
-
-
-
-
-
-
-
 
 
 
@@ -1050,10 +1071,6 @@
                                                                     <i class="fa fa-plus-circle"></i>اضف المزيد
                                                                 </button>
                                                             </div>
-
-
-
-
 
 
 
@@ -2048,17 +2065,17 @@
         var radiovalue1 = Itemhtml.find(".DivWithinThePlan input")[0].value;
         var radio2 = Itemhtml.find(".DivWithinThePlan label")[1].innerText;
         var radiovalue2 = Itemhtml.find(".DivWithinThePlan input")[1].value;
-        var vaWithinThePlan = "<input name='WithinThePlan' type='text' id='WithinThePlanvalue" + counter + "' style='display:none' placeholder=''>";
-        vaWithinThePlan += "<table id='WithinThePlan" + counter + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td>";
-        vaWithinThePlan += "<input class='radio-button'  onchange=\"handleChange('WithinThePlanvalue" + counter + "','" + radiovalue1 + "');\"  id='WithinThePlan" + counter + "_0' type='radio' name='WithinThePlanR" + counter + "' value='" + radiovalue1 + "'><label for='WithinThePlan" + counter + "_0' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + radio1 + "</label></td><td>"
-        vaWithinThePlan += "<input  class='radio-button' onchange=\"handleChange('WithinThePlanvalue" + counter + "','" + radiovalue2 + "');\" id='WithinThePlan" + counter + "_1' type='radio' name='WithinThePlanR" + counter + "' value='" + radiovalue2 + "'><label for='WithinThePlan" + counter + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td>";
+        var vaWithinThePlan = "<input name='WithinThePlan' type='text' id='WithinThePlanvalue" + counter6 + "' style='display:none' placeholder=''>";
+        vaWithinThePlan += "<table id='WithinThePlan" + counter6 + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td>";
+        vaWithinThePlan += "<input class='radio-button'  onchange=\"handleChange('WithinThePlanvalue" + counter6 + "','" + radiovalue1 + "');\"  id='WithinThePlan" + counter6 + "_0' type='radio' name='WithinThePlanR" + counter6 + "' value='" + radiovalue1 + "'><label for='WithinThePlan" + counter6 + "_0' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + radio1 + "</label></td><td>"
+        vaWithinThePlan += "<input  class='radio-button' onchange=\"handleChange('WithinThePlanvalue" + counter6 + "','" + radiovalue2 + "');\" id='WithinThePlan" + counter6 + "_1' type='radio' name='WithinThePlanR" + counter6 + "' value='" + radiovalue2 + "'><label for='WithinThePlan" + counter6 + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td>";
         vaWithinThePlan += "</tr></tbody></table>";
         Itemhtml.find(".DivWithinThePlan")[0].innerHTML = vaWithinThePlan;
         Itemhtml.find(".DivCourseName")[0].innerHTML = "<input name='CourseName' type=text' id='CourseName" + counter6 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivTrainingHours")[0].innerHTML = "<input name='TrainingHours' type=text' id='TrainingHours" + counter6 + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivDatefrom6")[0].innerHTML = "<input autocomplete='off' name='Datefrom6' type='text' id='Datefrom6" + counter1 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivDatefrom6")[0].innerHTML = "<input autocomplete='off' name='Datefrom6' type='text' id='Datefrom6" + counter6 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
         Itemhtml.find(".DivDateto6")[0].innerHTML = "<input autocomplete='off' name='Dateto6' type='text' id='Dateto6" + counter1 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
-        Itemhtml.find(".DiCourseLocation")[0].innerHTML = "<input name='CourseLocation' type=text' id='CourseLocation" + counter6 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivCourseLocation")[0].innerHTML = "<input name='CourseLocation' type=text' id='CourseLocation" + counter6 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowTrainingCourses(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
@@ -2078,4 +2095,40 @@
     function handleChange(ID, radio1) {
         $("#" + ID).val(radio1)
     }
+    ///////////////////////////////////////7----------------------------------------------------
+
+    var counter7 = 0;
+    if (document.getElementById('hdnsuperDIV7').value != "") {
+        counter7 = Number(document.getElementById('hdnsuperDIV7').value);
+    }
+    function addExpertise() {
+        counter7++;
+        $("#FirstItemAA7")[0].innerHTML = $("#FirstItem7")[0].innerHTML;
+        var Itemhtml = $("#FirstItemAA7");
+        Itemhtml.find(".DivSID7")[0].innerHTML = "<input name='SID7' type=text' id='SID7" + counter7 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivOrganizationName")[0].innerHTML = "<input name='OrganizationName' type=text' id='OrganizationName" + counter7 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivNatureOfTheJob")[0].innerHTML = "<input name='NatureOfTheJob' type=text' id='NatureOfTheJob" + counter7 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivYearsOfExperience")[0].innerHTML = "<input name='YearsOfExperience' type=text' id='YearsOfExperience" + counter7 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivNotes")[0].innerHTML = "<input name='Notes7' type=text' id='Notes7" + counter7 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivCountry select")[0].setAttribute("name", "DropDownCountry7");
+        Itemhtml.find(".DivCountry select")[0].setAttribute("id", "DropDownCountry7" + counter7 + "");
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowExpertise(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
+
+        var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "new";
+        newdiv.setAttributeNode(att);
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
+        newdiv.innerHTML = allhtml;
+        document.getElementsByClassName("superDIV7")[0].appendChild(newdiv);
+
+        document.getElementById('hdnsuperDIV7').value = counter7;
+        $("#FirstItemAA7")[0].innerHTML = "";
+    }
+    function removerowExpertise(thi) {
+        counter7--;
+        document.getElementById('hdnsuperDIV7').value = counter7;
+        thi.closest('.new').remove();
+    }
+
 </script>
