@@ -37,6 +37,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 PublicationsData();
                 TravelInformationsData();
                 ParticipationsData();
+                MembershipData();
             }
         }
         private void ParticipationsData()
@@ -109,6 +110,69 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         newDiv.Attributes.Add("class", "new");
                         newDiv.InnerHtml = htmlrow1;
                         superDIV10.Controls.Add(newDiv);
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+        private void MembershipData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<MembershipEntity> QualificationsData = objIK.GetMembership(currentUserlogin);
+                int x = 0;
+                foreach (MembershipEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID011.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV11.Value = item.ID.ToString() + "#";
+                        Membership0.Value = item.Membership.ToString();
+                        Location0.Value = item.Location.ToString();
+                        Field011.Value = item.Field.ToString();
+                        FromDate011.Value = item.FromDate.ToString("MM/dd/yyyy");
+                        ToDate011.Value = item.ToDate.ToString("MM/dd/yyyy");
+                        Notes011.Value = item.Notes.ToString();
+                    }
+                    else
+                    {
+                        hdnsuperDIV11.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV11.Value += item.ID.ToString() + "#"; 
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID11' style=' display: none;'><input name='SID11' value='" + item.ID.ToString() + "' type='text' id='SID11" + x + "' class='form-control' placeholder=''></div> " +
+                        "<div class='col-md-3 DivMembership'><input name='Membership' value='" + item.Membership.ToString() + "' type='text' id='Membership" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivLocation'><input name='Location' value='" + item.Location.ToString() + "' type='text' id='Location" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivField'><input name='Field11' value='" + item.Field.ToString() + "' type='text' id='Field11" + x + "' class='form-control' placeholder=''></div>" +
+                        "	<div class='col-md-1 '>" +
+                            "	<div class='input-group date DivFromDate' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.FromDate.ToString("MM/dd/yyyy") + "'  name='FromDate11' type='text' id='FromDate11" + x + "' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+                            "	<div class='col-md-1 '>" +
+                            "	<div class='input-group date DivToDate' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.ToDate.ToString("MM/dd/yyyy") + "'  name='ToDate11' type='text' id='ToDate11" + x + "' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+                        "<div class='col-md-2 DivNotes'><input name='Notes11' value='" + item.Notes.ToString() + "' type='text' id='Notes11" + x + "' class='form-control' placeholder=''></div>" +
+                             "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowMembership(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
+                "</div>";
+                        // document.getElementById('dynamicInputChildren').appendChild(newdiv);
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV11.Controls.Add(newDiv);
 
                     }
                     x++;
@@ -1727,6 +1791,99 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                     }
                     //////////////////////////////////12///////////////////////
+                    List<MembershipEntity> list11 = new List<MembershipEntity>();
+                    MembershipEntity Entit11 = new MembershipEntity();
+                    if (!string.IsNullOrEmpty(Membership0.Value))
+                    {
+                        DateTime Date = new DateTime();
+                        if (!string.IsNullOrEmpty(FromDate011.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(FromDate011.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date = sDate2;
+                        }
+                        DateTime Date2 = new DateTime();
+                        if (!string.IsNullOrEmpty(ToDate011.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(ToDate011.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date2 = sDate2;
+                        }
+                        Entit11.FromDate = Date;
+                        Entit11.ToDate = Date2;
+                        Entit11.Membership = Membership0.Value;
+                        Entit11.Location = Location0.Value;
+                        Entit11.Field = Field011.Value;
+                        Entit11.Notes = Notes011.Value;
+                        Entit11.PID = PID;
+                        if (!string.IsNullOrEmpty(SID011.Value))
+                        {
+                            Entit11.ID = Convert.ToInt32(SID011.Value);
+                            RetrevehdnsuperDIV11.Value = RetrevehdnsuperDIV11.Value.Replace(Entit11.ID + "#", "");
+                        }
+                        Entit11.Title = currentUserlogin;
+                        list11.Add(Entit11);
+                    }
+                    if (hdnsuperDIV11.Value != "" && hdnsuperDIV11.Value != "0")
+                    {
+                        string[] SID11 = Request.Form.GetValues("SID11");
+                        string[] Membership = Request.Form.GetValues("Membership");
+                        string[] Location = Request.Form.GetValues("Location");
+                        string[] Field11 = Request.Form.GetValues("Field11");
+                        string[] FromDate11 = Request.Form.GetValues("FromDate11");
+                        string[] ToDate11 = Request.Form.GetValues("ToDate11");
+                        string[] Notes11 = Request.Form.GetValues("Notes11");
+                        for (int x = 0; x < Convert.ToInt32(Membership.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(Membership[x]))
+                            {
+                                MembershipEntity ob = new MembershipEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;
+                                DateTime Date = new DateTime();
+                                if (!string.IsNullOrEmpty(FromDate11[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(FromDate11[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date = sDate2;
+                                }
+                                DateTime Date2 = new DateTime();
+                                if (!string.IsNullOrEmpty(ToDate11[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(ToDate11[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date2 = sDate2;
+                                }
+                                ob.FromDate = Date;
+                                ob.ToDate = Date2;
+                                ob.Membership = Membership[x];
+                                ob.Location = Location[x];
+                                ob.Field = Field11[x];
+                                ob.Notes = Notes11[x];
+                                if (!string.IsNullOrEmpty(SID11[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID11[x]);
+                                    RetrevehdnsuperDIV11.Value = RetrevehdnsuperDIV11.Value.Replace(ob.ID + "#", "");
+                                }
+                                list11.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdateMembership(list11);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV11.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV11.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("Membership", ListSID1);
+                        }
+                    }
+                    //////////////////////////////////13///////////////////////
+
 
 
 

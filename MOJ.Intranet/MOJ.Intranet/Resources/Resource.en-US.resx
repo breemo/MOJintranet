@@ -1047,6 +1047,15 @@
   <data name="Expertise" xml:space="preserve">
     <value>Expertise</value>
   </data>
+  <data name="Field" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Membership" xml:space="preserve">
+    <value>Membership</value>
+  </data>
   <data name="NatureOfTheJob" xml:space="preserve">
     <value>Nature of the job</value>
   </data>

@@ -913,220 +913,106 @@
 																						</div>
 														 </dd>
 
-                                               
+                                               <dt>
+                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Membership%>" /></label>
+                                                </dt>
+														<dd>
+                                                    <div class="questionbox" id="q22">
+                                                        <div>
+                                                                <div class="tidtleheadbox">
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">                                                                            
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Membership%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Location%>" /></label>
+                                                                                </label>
+                                                                            </div>
+																			 <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Field%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Datefrom%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Dateto%>" /></label>
+                                                                                </label>
+                                                                            </div>
+																			 <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Notes%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+														<div runat="server"  id="superDIV11" class="superDIV11">
+																			  <div  id="FirstItemAA11" style="display:none" >
+																				 </div>
+																			   <div  id="FirstItem11" class="cnrtnheadbox2" >
+																					<div class="row rt">	
+																						<div  class="DivSID11" style=" display: none;" >
+																						<input type="text"  name="SID11" runat="server" id="SID011" class="form-control" placeholder="">
+																						</div>
+																						<div  class="col-md-3 DivMembership">
+																							<input type="text" name="Membership" runat="server" id="Membership0" class="form-control" placeholder="">
+																						</div>
+																						<div  class="col-md-2 DivLocation">
+																							<input type="text" name="Location" runat="server" id="Location0" class="form-control" placeholder="">
+																						</div>
+																						<div  class="col-md-2 DivField">
+																							<input type="text" name="Field11" runat="server" id="Field011" class="form-control" placeholder="">
+																						</div>
+																						
+																						<div  class="col-md-1 ">
+																							<div class="input-group date DivFromDate" data-provide="datepicker">
+																							<input autocomplete="off"  type="text" runat="server" id="FromDate011" class="form-control">
+																							<div class="input-group-addon">
+																								<span class="icon-calendar-alt1"></span>
+																							</div>									
+																								</div>
+																						</div>
+																						<div  class="col-md-1 ">
+																							<div class="input-group date DivToDate" data-provide="datepicker">
+																							<input autocomplete="off"  type="text" runat="server" id="ToDate011" class="form-control">
+																							<div class="input-group-addon">
+																								<span class="icon-calendar-alt1"></span>
+																							</div>									
+																								</div>
+																						</div>	
+																						<div  class="col-md-2 DivNotes">
+																							<input type="text" name="Notes11" runat="server" id="Notes011" class="form-control" placeholder="">
+																						</div>
+																							<div  class="col-md-1 DiveDelete ">																			
+																									</div>																							
+																					</div>
+																				</div>
+																				
+																			</div>
+																			<div>
+																					<a  onclick="addMembership();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																						</div>
+														 </dd>
 
                                                
 
 
                                              
                                                
-
-
-
-
-
-
-
-
-
-                                                <dt>
-                                                    العضوية
-
-
-
-
-
-
-
-                                                </dt>
-                                                <dd>
-
-                                                    <div class="questionbox">
-
-                                                        <div>
-                                                            <div data-duplicate="Membership" data-duplicate-min="0">
-
-
-
-
-                                                                <div class="tidtleheadbox">
-
-                                                                    <div class="widt98">
-                                                                        <div class="row mrcx">
-
-                                                                            <div class="col-md-1">
-
-                                                                            </div>
-                                                                            <div class="col-md-2">
-                                                                                <label class="forlaxbe">
-                                                                                    العضوية
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="col-md-2">
-                                                                                <label class="forlaxbe">
-                                                                                    مقرها
-                                                                                </label>
-
-                                                                            </div>
-                                                                            <div class="col-md-2">
-                                                                                <label class="forlaxbe">
-                                                                                    المجال
-                                                                                </label>
-                                                                            </div>
-
-
-                                                                            <div class="col-md-1">
-                                                                                <label class="forlaxbe">
-                                                                                     من
-                                                                                </label>
-                                                                            </div>
-
-
-                                                                            <div class="col-md-1">
-                                                                                <label class="forlaxbe">
-                                                                                    الي
-                                                                                </label>
-                                                                            </div>
-
-
-                                                                            <div class="col-md-2">
-                                                                                <label class="forlaxbe">
-                                                                                    ملاحظات
-                                                                                </label>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="widt2">
-
-
-
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                                <div data-duplicate="Membership" data-duplicate-min="0">
-
-
-
-
-                                                                    <div class="cnrtnheadbox">
-                                                                        <div class="widt98">
-                                                                            <div class="row mrcx">
-
-                                                                                <div class="col-md-1">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-                                                                                <div class="col-md-2">
-
-                                                                                    <div class="form-group has-search">
-                                                                                        <span class="icon-line-search smicon reinfi"></span>
-                                                                                        <input type="text" class="form-control" placeholder="">
-                                                                                    </div>
-
-                                                                                </div>
-                                                                                <div class="col-md-2">
-                                                                                    <div class="row dootvor">
-                                                                                        <div class="col-md-6">
-
-
-
-                                                                                            <input type="radio" name="common-radio-name" id="radio-1" class="radio-button">
-                                                                                            <label for="radio-1" class="radio-button-click-target">
-                                                                                                <span class="radio-button-circle"></span>داخل الدولة
-                                                                                            </label>
-
-
-
-                                                                                        </div>
-
-                                                                                        <div class="col-md-6">
-                                                                                            <input type="radio" name="common-radio-name" id="radio-2" class="radio-button">
-                                                                                            <label for="radio-2" class="radio-button-click-target">
-                                                                                                <span class="radio-button-circle"></span>خارج الدولة
-                                                                                            </label>
-
-
-                                                                                        </div>
-
-                                                                                     
-
-                                                                                    </div>
-
-                                                                                </div>
-                                                                                <div class="col-md-2">
-                                                                                    <div class="form-group has-search">
-                                                                                        <span class="icon-line-search smicon reinfi"></span>
-                                                                                        <input type="text" class="form-control" placeholder="">
-                                                                                    </div>
-                                                                                </div>
-
-
-                                                                                <div class="col-md-1">
-                                                                                    <div class="input-group date" data-provide="datepicker">
-                                                                                        <input type="text" placeholder="" class="form-control">
-                                                                                        <div class="input-group-addon">
-                                                                                            <span class="icon-calendar-alt1"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-
-                                                                                <div class="col-md-1">
-                                                                                    <div class="input-group date" data-provide="datepicker">
-                                                                                        <input type="text" placeholder="" class="form-control">
-                                                                                        <div class="input-group-addon">
-                                                                                            <span class="icon-calendar-alt1"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-
-                                                                                <div class="col-md-3">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-
-                                                                            </div>
-
-
-                                                                            
-
-                                                                        </div>
-                                                                        <div class="widt2">
-                                                                            <button class="deltemorebtn" data-duplicate-remove="Membership">
-
-
-                                                                                <i class="fa fa-times"></i>
-                                                                            </button>
-                                                                        </div>
-
-                                                                    </div>
-
-
-
-                                                                </div>
-
-                                                                <button class="addmorebtn" data-duplicate-add="Membership">
-                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
-                                                                </button>
-                                                            </div>
-
-
-
-
-
-
-
-                                                        </div>
-
-
-
-                                                    </div>
-
-                                                </dd>
 
 
 
@@ -1919,6 +1805,38 @@
     function removerowParticipations(thi) {
         counter10--;
         document.getElementById('hdnsuperDIV10').value = counter10;
+        thi.closest('.new').remove();
+    }
+    ////////////////////////////////////////11----------------------------------------------------
+    var counter11 = 0;
+    if (document.getElementById('hdnsuperDIV11').value != "") {
+        counter11 = Number(document.getElementById('hdnsuperDIV11').value);
+    }
+    function addMembership() {
+        counter11++;
+        $("#FirstItemAA11")[0].innerHTML = $("#FirstItem11")[0].innerHTML;
+        var Itemhtml = $("#FirstItemAA11");
+        Itemhtml.find(".DivSID11")[0].innerHTML = "<input name='SID11' type=text' id='SID11" + counter11 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivMembership")[0].innerHTML = "<input name='Membership' type=text' id='Membership" + counter11 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivLocation")[0].innerHTML = "<input name='Location' type=text' id='Location" + counter11 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivField")[0].innerHTML = "<input name='Field11' type=text' id='Field11" + counter11 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivFromDate")[0].innerHTML = "<input autocomplete='off' name='FromDate11' type='text' id='FromDate11" + counter9 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivToDate")[0].innerHTML = "<input autocomplete='off' name='ToDate11' type='text' id='ToDate11" + counter9 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivNotes")[0].innerHTML = "<input name='Notes11' type=text' id='Notes11" + counter11 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowMembership(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
+        var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "new";
+        newdiv.setAttributeNode(att);
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
+        newdiv.innerHTML = allhtml;
+        document.getElementsByClassName("superDIV11")[0].appendChild(newdiv);
+        document.getElementById('hdnsuperDIV11').value = counter11;
+        $("#FirstItemAA11")[0].innerHTML = "";
+    }
+    function removerowMembership(thi) {
+        counter11--;
+        document.getElementById('hdnsuperDIV11').value = counter11;
         thi.closest('.new').remove();
     }
 </script>

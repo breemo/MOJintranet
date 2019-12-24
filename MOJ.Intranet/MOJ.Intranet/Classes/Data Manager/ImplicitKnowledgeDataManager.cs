@@ -14,8 +14,108 @@ namespace MOJ.DataManager
 {
     public class ImplicitKnowledgeDataManager
     {
-        
-		 public List<ParticipationsEntity> GetParticipations(string title)
+
+        public List<MembershipEntity> GetMembership(string title)
+        {
+            List<MembershipEntity> ItemsCollection = new List<MembershipEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.MembershipUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    MembershipEntity itemis = new MembershipEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+
+                                    itemis.Membership = Convert.ToString(Item["Membership"]);
+                                    itemis.Location = Convert.ToString(Item["Location"]);
+                                    itemis.Field = Convert.ToString(Item["Field"]);
+                                    itemis.FromDate = Convert.ToDateTime(Item["FromDate"]);
+                                    itemis.ToDate = Convert.ToDateTime(Item["ToDate"]);
+                                    itemis.Notes = Convert.ToString(Item["Notes"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+        public bool AddOrUpdateMembership(List<MembershipEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.MembershipUrl);
+                        SPListItem item = null;
+                        foreach (MembershipEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+
+
+                            item["Membership"]= Item.Membership ;
+                             item["Location"]= Item.Location ;
+                            item["Field"]= Item.Field ;
+                            item["FromDate"]= Item.FromDate ;
+                             item["ToDate"]= Item.ToDate ;
+                             item["Notes"] = Item.Notes ;
+
+
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+        public List<ParticipationsEntity> GetParticipations(string title)
         {
             List<ParticipationsEntity> ItemsCollection = new List<ParticipationsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()

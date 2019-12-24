@@ -12,6 +12,16 @@ namespace MOJ.Business
     public class ImplicitKnowledge
     {
 
+        public List<MembershipEntity> GetMembership(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetMembership(title);
+
+        }
+        public bool SaveUpdateMembership(List<MembershipEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateMembership(obj);
+
+        }
         public List<ParticipationsEntity> GetParticipations(string title)
         {
             return new ImplicitKnowledgeDataManager().GetParticipations(title);

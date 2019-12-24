@@ -1047,6 +1047,15 @@
   <data name="Expertise" xml:space="preserve">
     <value>الخبرات</value>
   </data>
+  <data name="Field" xml:space="preserve">
+    <value>المجال</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>مقرها</value>
+  </data>
+  <data name="Membership" xml:space="preserve">
+    <value>العضوية</value>
+  </data>
   <data name="NatureOfTheJob" xml:space="preserve">
     <value>طبيعة العمل</value>
   </data>
