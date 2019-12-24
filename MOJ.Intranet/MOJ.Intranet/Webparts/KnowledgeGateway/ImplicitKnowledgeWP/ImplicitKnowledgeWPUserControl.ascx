@@ -842,6 +842,78 @@
 																					<a  onclick="addTravelInformations();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 																						</div>
 														 </dd>
+														 
+														 
+														 	<dt>
+                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Participations%>" /></label>
+                                                </dt>
+														<dd>
+                                                    <div class="questionbox" id="q22">
+                                                        <div>
+                                                                <div class="tidtleheadbox">
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">                                                                            
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ActivityName%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Sponsor%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Country%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, NatureOfTheParticipation%>" /></label>
+                                                                                </label>
+                                                                            </div>                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+                                                                    </div>
+                                                                </div>                                                     
+                                                        </div>
+                                                    </div>
+														<div runat="server"  id="superDIV10" class="superDIV10">
+																			  <div  id="FirstItemAA10" style="display:none" >
+																				 </div>
+																			   <div  id="FirstItem10" class="cnrtnheadbox2" >
+																					<div class="row rt">	
+																						<div  class="DivSID10" style=" display: none;" >
+																						<input type="text"  name="SID10" runat="server" id="SID010" class="form-control" placeholder="">
+																						</div>
+																						<div  class="col-md-3 DivActivityName">
+																							<input type="text" name="ActivityName" runat="server" id="ActivityName0" class="form-control" placeholder="">
+																						</div>
+																							<div  class="col-md-3 DivSponsor">
+																							<input type="text" name="Sponsor" runat="server" id="Sponsor0" class="form-control" placeholder="">
+																						</div>																				
+																						<div class="col-md-2 DivCountry ">
+																								   <label><asp:Literal runat="server" id="DDCountry10"/></label>                        
+																									<asp:DropDownList ID="DropDownCountry10" runat="server" class="form-control">
+																									</asp:DropDownList>
+																								</div>	
+																							
+																						<div  class="col-md-3 DivNatureOfTheParticipation">
+																							<input type="text" name="NatureOfTheParticipation" runat="server" id="NatureOfTheParticipation0" class="form-control" placeholder="">
+																						</div>
+																							<div  class="col-md-1 DiveDelete ">																			
+																									</div>																							
+																					</div>
+																				</div>																				
+																			</div>
+																			<div>
+																					<a  onclick="addParticipations();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																						</div>
+														 </dd>
+
+                                               
 
                                                
 
@@ -851,284 +923,8 @@
 
 
 
-                                                <dt>
-                                                    معلومات عن السفر
 
 
-
-
-
-
-                                                </dt>
-                                                <dd>
-
-                                                    <div class="questionbox">
-
-                                                        <div>
-                                                            <div data-duplicate="travel" data-duplicate-min="0">
-
-
-
-
-                                                                <div class="tidtleheadbox">
-
-                                                                    <div class="widt98">
-                                                                        <div class="row mrcx">
-
-                                                                            <div class="col-md-1">
-
-                                                                            </div>
-                                                                            <div class="col-md-3">
-                                                                                <label class="forlaxbe">
-                                                                                    الدولة التي قضي بها اكثر من ثلاث شهور
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="col-md-2">
-                                                                                <label class="forlaxbe">
-                                                                                    الفترة الذمنية
-                                                                                </label>
-
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <label class="forlaxbe">
-                                                                                    سبب الزيارة
-                                                                                </label>
-                                                                            </div>
-
-
-
-
-
-
-
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="widt2">
-
-
-
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                                <div data-duplicate="travel" data-duplicate-min="0">
-
-
-
-
-                                                                    <div class="cnrtnheadbox">
-                                                                        <div class="widt98">
-
-                                                                            <div class="row mrcx">
-
-                                                                                <div class="col-md-1">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-                                                                                <div class="col-md-3">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-                                                                                <div class="col-md-2">
-                                                                                    <div class="input-group date" data-provide="datepicker">
-                                                                                        <input type="text" placeholder="" class="form-control">
-                                                                                        <div class="input-group-addon">
-                                                                                            <span class="icon-calendar-alt1"></span>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                </div>
-                                                                                <div class="col-md-6">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-
-
-
-
-
-
-
-
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="widt2">
-                                                                            <button class="deltemorebtn" data-duplicate-remove="travel">
-
-
-                                                                                <i class="fa fa-times"></i>
-                                                                            </button>
-                                                                        </div>
-
-                                                                    </div>
-
-
-
-                                                                </div>
-
-                                                                <button class="addmorebtn" data-duplicate-add="travel">
-                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
-                                                                </button>
-                                                            </div>
-
-
-
-                                                        </div>
-
-
-
-                                                    </div>
-
-                                                </dd>
-
-
-
-
-
-
-                                                <dt>
-                                                    المشاركات
-
-
-
-
-
-
-
-                                                </dt>
-                                                <dd>
-
-                                                    <div class="questionbox">
-
-                                                        <div>
-                                                            <div data-duplicate="Contribue" data-duplicate-min="0">
-
-
-
-
-                                                                <div class="tidtleheadbox">
-
-                                                                    <div class="widt98">
-                                                                        <div class="row mrcx">
-
-                                                                            <div class="col-md-1">
-                                                                                        
-                                                                            </div>
-                                                                            <div class="col-md-3">
-                                                                                <label class="forlaxbe">
-                                                                                    اسم الفعالية
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="col-md-3">
-                                                                                <label class="forlaxbe">
-                                                                                    الجهة الراعية
-                                                                                </label>
-
-                                                                            </div>
-                                                                            <div class="col-md-2">
-                                                                                <label class="forlaxbe">
-                                                                                    الدولة
-                                                                                </label>
-                                                                            </div>
-
-
-                                                                            <div class="col-md-3">
-                                                                                <label class="forlaxbe">
-                                                                                    طبيعة المشاركة
-                                                                                </label>
-                                                                            </div>
-
-
-
-
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="widt2">
-
-
-
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                                <div data-duplicate="Contribue" data-duplicate-min="0">
-
-
-
-
-                                                                    <div class="cnrtnheadbox">
-                                                                        <div class="widt98">
-
-                                                                            <div class="row mrcx">
-
-                                                                                <div class="col-md-1">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-                                                                                <div class="col-md-3">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-                                                                                <div class="col-md-3">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-
-                                                                                </div>
-                                                                                <div class="col-md-2">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-                                                                                <div class="col-md-3">
-                                                                                    <input type="text" class="form-control" placeholder="">
-
-                                                                                </div>
-
-
-
-
-
-
-
-                                                                            </div>
-
-                                                                        </div>
-                                                                        <div class="widt2">
-                                                                            <button class="deltemorebtn" data-duplicate-remove="Contribue">
-
-
-                                                                                <i class="fa fa-times"></i>
-                                                                            </button>
-                                                                        </div>
-
-                                                                    </div>
-
-
-
-                                                                </div>
-
-                                                                <button class="addmorebtn" data-duplicate-add="Contribue">
-                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
-                                                                </button>
-                                                            </div>
-
-
-
-
-
-
-
-                                                        </div>
-
-
-
-                                                    </div>
-
-                                                </dd>
 
 
 
@@ -1721,7 +1517,7 @@
 .rowI {
     padding-bottom: 10px;
 }
-.DivCountry label ,.DivReadingLevel label ,.DivWritingLevel label ,.DivConversationLevel label ,.DivSkillLevel  label {
+.DivCountry label ,.DivReadingLevel label ,.DivWritingLevel label ,.DivConversationLevel label ,.DivSkillLevel  label ,.DivCountryResidentForMoreThan3Months  label{
     display: none;
 }
 .cnrtnheadbox2 {
@@ -2092,6 +1888,37 @@
     function removerowTravelInformations(thi) {
         counter9--;
         document.getElementById('hdnsuperDIV9').value = counter9;
+        thi.closest('.new').remove();
+    }
+    ////////////////////////////////////////10----------------------------------------------------
+    var counter10 = 0;
+    if (document.getElementById('hdnsuperDIV10').value != "") {
+        counter10 = Number(document.getElementById('hdnsuperDIV10').value);
+    }
+    function addParticipations() {
+        counter10++;
+        $("#FirstItemAA10")[0].innerHTML = $("#FirstItem10")[0].innerHTML;
+        var Itemhtml = $("#FirstItemAA10");
+        Itemhtml.find(".DivSID10")[0].innerHTML = "<input name='SID10' type=text' id='SID10" + counter10 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivActivityName")[0].innerHTML = "<input name='ActivityName' type=text' id='ActivityName" + counter10 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivSponsor")[0].innerHTML = "<input name='Sponsor' type=text' id='Sponsor" + counter10 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivCountry select")[0].setAttribute("name", "DropDownCountry10");
+        Itemhtml.find(".DivCountry select")[0].setAttribute("id", "DropDownCountry10" + counter10 + "");
+        Itemhtml.find(".DivNatureOfTheParticipation")[0].innerHTML = "<input name='NatureOfTheParticipation' type=text' id='NatureOfTheParticipation" + counter10 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowParticipations(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
+        var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "new";
+        newdiv.setAttributeNode(att);
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
+        newdiv.innerHTML = allhtml;
+        document.getElementsByClassName("superDIV10")[0].appendChild(newdiv);
+        document.getElementById('hdnsuperDIV10').value = counter10;
+        $("#FirstItemAA10")[0].innerHTML = "";
+    }
+    function removerowParticipations(thi) {
+        counter10--;
+        document.getElementById('hdnsuperDIV10').value = counter10;
         thi.closest('.new').remove();
     }
 </script>

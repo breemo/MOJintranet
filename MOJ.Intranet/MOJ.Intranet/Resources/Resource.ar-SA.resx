@@ -1035,6 +1035,9 @@
   <data name="Yes" xml:space="preserve">
     <value>نعم</value>
   </data>
+  <data name="ActivityName" xml:space="preserve">
+    <value>اسم الفعالية</value>
+  </data>
   <data name="BookPublicationTitle" xml:space="preserve">
     <value>عننوان الكتاب/ المنشورات</value>
   </data>
@@ -1047,14 +1050,23 @@
   <data name="NatureOfTheJob" xml:space="preserve">
     <value>طبيعة العمل</value>
   </data>
+  <data name="NatureOfTheParticipation" xml:space="preserve">
+    <value>طبيعة المشاركة</value>
+  </data>
   <data name="OrganizationName" xml:space="preserve">
     <value>اسم المؤسسة</value>
+  </data>
+  <data name="Participations" xml:space="preserve">
+    <value>المشاركات</value>
   </data>
   <data name="Publications" xml:space="preserve">
     <value>مؤلفات و منشورات</value>
   </data>
   <data name="PublishDate" xml:space="preserve">
     <value>تاريخ النشر</value>
+  </data>
+  <data name="Sponsor" xml:space="preserve">
+    <value>الجهة الراعية</value>
   </data>
   <data name="TimePeriodFrom" xml:space="preserve">
     <value>من فترة</value>

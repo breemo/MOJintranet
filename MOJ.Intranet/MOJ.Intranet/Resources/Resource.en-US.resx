@@ -1035,6 +1035,9 @@
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="ActivityName" xml:space="preserve">
+    <value>Activity name</value>
+  </data>
   <data name="BookPublicationTitle" xml:space="preserve">
     <value>Book/ publication title</value>
   </data>
@@ -1047,14 +1050,23 @@
   <data name="NatureOfTheJob" xml:space="preserve">
     <value>Nature of the job</value>
   </data>
+  <data name="NatureOfTheParticipation" xml:space="preserve">
+    <value>Nature of the participation</value>
+  </data>
   <data name="OrganizationName" xml:space="preserve">
     <value>Organization name</value>
+  </data>
+  <data name="Participations" xml:space="preserve">
+    <value>Participations</value>
   </data>
   <data name="Publications" xml:space="preserve">
     <value>Publications</value>
   </data>
   <data name="PublishDate" xml:space="preserve">
     <value>Publish date</value>
+  </data>
+  <data name="Sponsor" xml:space="preserve">
+    <value>Sponsor</value>
   </data>
   <data name="TimePeriodFrom" xml:space="preserve">
     <value>Time period from</value>

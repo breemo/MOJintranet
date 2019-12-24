@@ -14,6 +14,98 @@ namespace MOJ.DataManager
 {
     public class ImplicitKnowledgeDataManager
     {
+        
+		 public List<ParticipationsEntity> GetParticipations(string title)
+        {
+            List<ParticipationsEntity> ItemsCollection = new List<ParticipationsEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.ParticipationsUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    ParticipationsEntity itemis = new ParticipationsEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.CountryID = Convert.ToString(Item["CountryID"]);
+                                    itemis.ActivityName = Convert.ToString(Item["ActivityName"]);
+                                    itemis.NatureOfTheParticipation = Convert.ToString(Item["NatureOfTheParticipation"]);
+                                    itemis.Sponsor = Convert.ToString(Item["Sponsor"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+        public bool AddOrUpdateParticipations(List<ParticipationsEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.ParticipationsUrl);
+                        SPListItem item = null;
+                        foreach (ParticipationsEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+                            item["CountryID"] = Item.CountryID;
+                            item["ActivityName"] = Item.ActivityName;
+                            item["NatureOfTheParticipation"] = Item.NatureOfTheParticipation;
+                            item["Sponsor"] = Item.Sponsor;
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
         public int AddOrUpdateRequest(ImplicitKnowledgeEntity RequestItem)
         {
             int PID = 0;
@@ -961,47 +1053,6 @@ namespace MOJ.DataManager
 
 
 
-
-        public AffirmationSocialSituationEntity GetAffirmationSocialSituationByID(int id)
-        {
-            AffirmationSocialSituationEntity obitem = new AffirmationSocialSituationEntity();
-            try
-            {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
-                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
-                    {
-                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
-                        using (SPWeb oWeb = oSite.RootWeb)
-                        {
-                            if (oWeb != null)
-                            {
-                                SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.AffirmationSocialSituationUrl);
-                                if (lstRoom != null)
-                                {
-                                    SPListItem Item = lstRoom.GetItemById(id);
-
-                                 obitem.ChangeDate = Convert.ToDateTime(Item["ChangeDate"]).ToString();
-                                    obitem.Name = Convert.ToString(Item["Name"]);
-                                    obitem.RelationshipType = Convert.ToString(Item["RelationshipType"]);
-                                    obitem.ChangeReason = Convert.ToString(Item["ChangeReason"]);
-                                    obitem.HusbandORWife = Convert.ToString(Item["HusbandORWife"]);
-                                    obitem.RequestNumber = Convert.ToString(Item["Title"]);
-                                    obitem.Status = Convert.ToString(Item["Status"]);
-                                    obitem.Created = Convert.ToDateTime(Item["Created"]);
-                                    obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
-            }
-            return obitem;
-        }
 
 
     }

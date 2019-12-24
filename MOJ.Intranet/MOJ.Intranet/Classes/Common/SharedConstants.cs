@@ -90,6 +90,10 @@ namespace CommonLibrary
         public const string EmploymentHistoryUrl = "/Lists/EmploymentHistory/AllItems.aspx";
         public const string QualificationsUrl = "/Lists/Qualifications/AllItems.aspx";
         public const string TravelInformationsUrl = "/Lists/TravelInformations/AllItems.aspx";
+        public const string ParticipationsUrl = "/Lists/Participations/AllItems.aspx";
+        public const string MembershipUrl = "/Lists/Membership/AllItems.aspx";
+        public const string HopisUrl = "/Lists/Hopis/AllItems.aspx";
+        public const string VoluntaryWorkUrl = "/Lists/VoluntaryWork/AllItems.aspx";
         public const string PublicationsUrl = "/Lists/Publications/AllItems.aspx";
         public const string ExpertiseUrl = "/Lists/Expertise/AllItems.aspx";
         public const string TrainingCoursesUrl = "/Lists/TrainingCourses/AllItems.aspx";

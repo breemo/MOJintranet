@@ -36,6 +36,87 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 ExpertiseData();
                 PublicationsData();
                 TravelInformationsData();
+                ParticipationsData();
+            }
+        }
+        private void ParticipationsData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<ParticipationsEntity> QualificationsData = objIK.GetParticipations(currentUserlogin);
+                int x = 0;
+                foreach (ParticipationsEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID010.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV10.Value = item.ID.ToString() + "#";
+                        DropDownCountry10.SelectedValue = item.CountryID.ToString();
+                        ActivityName0.Value = item.ActivityName.ToString();
+                        Sponsor0.Value = item.Sponsor.ToString();
+                        NatureOfTheParticipation0.Value = item.NatureOfTheParticipation.ToString();
+                    }
+                    else
+                    {
+                        hdnsuperDIV10.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV10.Value += item.ID.ToString() + "#"; CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                        string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                        DataTable dataC = new ImplicitKnowledge().GetCountrys();
+                        string options = "";
+                        string selct = "";
+                        foreach (DataRow dtRow in dataC.Rows)
+                        {
+                            if (dtRow["ID"].ToString() == item.CountryID.ToString())
+                            {
+                                selct = "selected='selected'";
+                            }
+                            else
+                            {
+                                selct = "";
+                            }
+                            if (languageCode == "ar")
+                            {
+
+                                options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["Title"].ToString() + "</option>";
+                            }
+                            else
+                            {
+                                options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["TitleEN"].ToString() + "</option>";
+
+                            }
+                        }
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID10' style=' display: none;'><input name='SID10' value='" + item.ID.ToString() + "' type='text' id='SID10" + x + "' class='form-control' placeholder=''></div> " +
+                          "<div class='col-md-3 DivActivityName'><input name='ActivityName' value='" + item.ActivityName.ToString() + "' type='text' id='ActivityName" + x + "' class='form-control' placeholder=''></div>" +
+                            "<div class='col-md-3 DivSponsor'><input name='Sponsor' value='" + item.Sponsor.ToString() + "' type='text' id='Sponsor" + x + "' class='form-control' placeholder=''></div>" +
+
+                        "<div class='col-md-2 DivCountry '>" +
+                        "<select name='DropDownCountry10' id='DropDownCountry10" + x + "' class='form-control'>" +
+                          options +
+                        "</select></div>" +
+                        "<div class='col-md-3 DivNatureOfTheParticipation'><input name='NatureOfTheParticipation' value='" + item.NatureOfTheParticipation.ToString() + "' type='text' id='NatureOfTheParticipation" + x + "' class='form-control' placeholder=''></div>" +
+                             "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowParticipations(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
+                "</div>";
+                        // document.getElementById('dynamicInputChildren').appendChild(newdiv);
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV10.Controls.Add(newDiv);
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
             }
         }
 
@@ -742,22 +823,28 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
             DropDownCountry7.DataValueField = "ID";
             DropDownCountryResidentForMoreThan3Months.DataSource = dataC;
             DropDownCountryResidentForMoreThan3Months.DataValueField = "ID";
+
+            DropDownCountry10.DataSource = dataC;
+            DropDownCountry10.DataValueField = "ID";
             if (languageCode == "ar")
             {
                 DropDownCountry.DataTextField = "Title";
                 DropDownCountry7.DataTextField = "Title";
                 DropDownCountryResidentForMoreThan3Months.DataTextField = "Title";
+                DropDownCountry10.DataTextField = "Title";
             }
             else
             {
                 DropDownCountry.DataTextField = "TitleEN";
                 DropDownCountry7.DataTextField = "TitleEN";
                 DropDownCountryResidentForMoreThan3Months.DataTextField = "TitleEN";
+                DropDownCountry10.DataTextField = "TitleEN";
             }
 
             DropDownCountry.DataBind();
             DropDownCountry7.DataBind();
             DropDownCountryResidentForMoreThan3Months.DataBind();
+            DropDownCountry10.DataBind();
 
 
         }
@@ -1576,7 +1663,71 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                     }
                     //////////////////////////////////11///////////////////////
-                   
+
+                    List<ParticipationsEntity> list10 = new List<ParticipationsEntity>();
+                    ParticipationsEntity Entit10 = new ParticipationsEntity();
+                    if (!string.IsNullOrEmpty(ActivityName0.Value))
+                    {
+                        Entit10.CountryID = DropDownCountry10.SelectedValue.ToString();
+                        Entit10.ActivityName = ActivityName0.Value;
+                        Entit10.Sponsor = Sponsor0.Value;
+                        Entit10.NatureOfTheParticipation = NatureOfTheParticipation0.Value;
+
+                        Entit10.PID = PID;
+                        if (!string.IsNullOrEmpty(SID010.Value))
+                        {
+                            Entit10.ID = Convert.ToInt32(SID010.Value);
+                            RetrevehdnsuperDIV10.Value = RetrevehdnsuperDIV10.Value.Replace(Entit10.ID + "#", "");
+                        }
+                        Entit10.Title = currentUserlogin;
+                        list10.Add(Entit10);
+                    }
+                    if (hdnsuperDIV10.Value != "" && hdnsuperDIV10.Value != "0")
+                    {
+                        string[] SID10 = Request.Form.GetValues("SID10");
+                        string[] ActivityName = Request.Form.GetValues("ActivityName");
+                        string[] Sponsor = Request.Form.GetValues("Sponsor");
+                        string[] DropDownCountry10 = Request.Form.GetValues("DropDownCountry10");
+                        string[] NatureOfTheParticipation = Request.Form.GetValues("NatureOfTheParticipation");
+                        for (int x = 0; x < Convert.ToInt32(ActivityName.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(ActivityName[x]))
+                            {
+                                ParticipationsEntity ob = new ParticipationsEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;                               
+                                ob.ActivityName = ActivityName[x];
+                                ob.Sponsor = Sponsor[x];
+                                ob.CountryID = DropDownCountry10[x];
+                                ob.NatureOfTheParticipation = NatureOfTheParticipation[x];
+                                if (!string.IsNullOrEmpty(SID10[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID10[x]);
+                                    RetrevehdnsuperDIV10.Value = RetrevehdnsuperDIV10.Value.Replace(ob.ID + "#", "");
+                                }
+                                list10.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdateParticipations(list10);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV10.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV10.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("Participations", ListSID1);
+                        }
+                    }
+                    //////////////////////////////////12///////////////////////
+
 
 
 
