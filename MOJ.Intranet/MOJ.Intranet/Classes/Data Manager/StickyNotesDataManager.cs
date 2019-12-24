@@ -58,7 +58,8 @@ namespace MOJ.DataManager
                                             StickyNotesEntities sticky = new StickyNotesEntities();
                                             //sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
                                             //sticky.TitleEn = Convert.ToString(lstItem[SharedConstants.TitleEn]);
-                                            sticky.TitleAr = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: Titlebilingual", "Resource", SPContext.Current.Web.Language)]);
+                                            //sticky.TitleAr = Convert.ToString(lstItem[SPUtility.GetLocalizedString("$Resources: Titlebilingual", "Resource", SPContext.Current.Web.Language)]);
+                                            sticky.Title = Convert.ToString(lstItem["Title"]);
                                             sticky.Date = Convert.ToDateTime(lstItem[SharedConstants.Date]);
                                             sticky.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
 
@@ -103,8 +104,8 @@ namespace MOJ.DataManager
                             item = list.AddItem();
                         }
 
-                        item["Title Ar"] = Stickyitem.TitleAr;
-                        item["Title En"] = Stickyitem.TitleEn;
+                        item["Title"] = Stickyitem.Title;
+                        //item["Title En"] = Stickyitem.TitleEn;
                         item["Date"] = Stickyitem.Date;
 
                         item.Update();

@@ -31,13 +31,13 @@
             '\n' + args.get_stackTrace());
     }
     function onQuerySucceeded(sender, args) {
-        alert('Sticky Notes Updated');
+        //alert('Sticky Notes Updated');
         window.location.reload();
     }
 
 </script>
 
-<script language="javascript" type="text/javascript">  
+<!-- <script language="javascript" type="text/javascript">  
     function AddSticky() {
         //Set options for Modal PopUp  
         var NewPollsURL = "/Lists/Sticky%20Notes/NewItem.aspx";
@@ -61,29 +61,116 @@
         return false;
 
     } 
-</script>
+</script> -->
 
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<link id="bsdp-css" href="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 
-  
-  
+
+
 
 <div class="headlineflex">
-    <h4 class="TitleHead"><asp:Literal runat="server" Text="<%$ Resources:Resource, reminder%>" /></h4>
+    <h4 class="TitleHead">
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, reminder%>" /></h4>
     <!-- <a href="#"  data-toggle="modal" data-target=".bs-example-modal-lg">
                 <img src="/Style%20Library/MOJTheme/images/add-Note.png" alt="AddStickyNote" />
             </a> -->
-	<a class="AddStickyNoteIcon" onclick="javascript:AddSticky()" ><img src="/Style%20Library/MOJTheme/images/add-Note.png" alt="AddStickyNote" /></a>
-			
-    <a href="/Lists/Sticky%20Notes/My%20Stiky%20Notes.aspx" class="slide morebuttoncss arrow"><asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
-	
+    <!-- <a class="AddStickyNoteIcon" onclick="javascript:AddSticky()">
+        <img src="/Style%20Library/MOJTheme/images/add-Note.png" alt="AddStickyNote" /></a> -->
+
+    <a class="AddStickyNoteIcon" onclick="document.getElementById('id01').style.display='block'" ><img src="/Style%20Library/MOJTheme/images/add-Note.png" alt="AddStickyNote" /></a>
+
+    <a href="/Lists/Sticky%20Notes/My%20Stiky%20Notes.aspx" class="slide morebuttoncss arrow">
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
+
+</div>
+
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+        <div class="w3-container">
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+            <br>
+            <h4 class="modal-title" id="myModalLabel">
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, AddStickyNote%>" /></h4>
+
+            <div class="row">
+                <div class="inskdnew modalpordc">
+                    <div class="row rt">
+
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <label>
+                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Title%>" /></label>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <input runat="server" id="txtTitleAr" type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="row rt">
+
+                        <div class="col-md-12">
+
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <label>
+                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Date%>" /></label>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <!-- <input runat="server" id="Text1" type="text" class="form-control" placeholder=""> -->
+                                    <div class="input-group date" id="toFrom" data-provide="datepicker">
+                                        <input autocomplete="off" required type="text" runat="server" id="txtDate" class="form-control">
+                                        <div class="input-group-addon">
+                                            <span class="icon-calendar-alt1"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row rt mt-5 botx">
+
+                        <%--<a href="#" class="wicnewdiv">تقديم</a>--%>
+                        <asp:Button ID="btnSubmitNewItem" runat="server" CssClass="wicnewdiv" Text="<%$ Resources:Resource, Submit%>" OnClick="btnSubmitNewItem_Click" />
+
+
+
+
+                        <%--  <a href="#" data-dismiss="modal"
+                                                aria-hidden="true" class="wicnewdiv">الغاء
+
+                                            </a>--%>
+                        <!-- <asp:Button ID="btnCancel" runat="server" data-dismiss="modal" aria-hidden="true" CssClass="wicnewdiv" Text="<%$ Resources:Resource, cancel%>" /> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
-            
 
 <div class="blockbox minhe newhri">
 
@@ -113,7 +200,7 @@
 
 
 
- 
+
 
 <script>
 
@@ -143,14 +230,11 @@
     }
 </script>
 <style>
+    #Edata .rt {
+        margin-bottom: 1px;
+    }
 
-#Edata .rt{
-     margin-bottom: 1px;
-
-
-}
-.w3-modal-content {
-width:100%;
-}
-
+    .w3-modal-content {
+        width: 100%;
+    }
 </style>
