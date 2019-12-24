@@ -114,6 +114,57 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
+            public bool AddOrUpdatePublications(List<PublicationsEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.PublicationsUrl);
+                        SPListItem item = null;
+                        foreach (PublicationsEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+                            item["BookPublicationTitle"] = Item.BookPublicationTitle;
+                            item["Notes"] = Item.Notes;
+                            item["PublishDate"] = Item.PublishDate;
+                            item["Topic"] = Item.Topic;
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
             public bool AddOrUpdateTrainingCourses(List<TrainingCoursesEntity> Items)
         {
             bool isFormSaved = false;
@@ -180,7 +231,7 @@ namespace MOJ.DataManager
                     try
                     {
                         web.AllowUnsafeUpdates = true;
-                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.QualificationsUrl);
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.ExpertiseUrl);
                         SPListItem item = null;
                         foreach (ExpertiseEntity Item in Items)
                         {
@@ -200,6 +251,60 @@ namespace MOJ.DataManager
                             item["Notes"] = Item.Notes;
                             item["OrganizationName"] = Item.OrganizationName;
                             item["YearsOfExperience"] = Item.YearsOfExperience;                            
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+         public bool AddOrUpdateTravelInformations(List<TravelInformationsEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.TravelInformationsUrl);
+                        SPListItem item = null;
+                        foreach (TravelInformationsEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+
+                            item["CountryResidentForMoreThan3Month"] = Item.CountryResidentForMoreThan3Month;
+                            item["TimeperiodTo"] = Item.TimeperiodTo;
+                            item["TimePeriodFrom"] = Item.TimePeriodFrom;
+                            item["VisitReasons"] = Item.VisitReasons;
+                           
+
                             item["PID"] = Item.PID;
                             item.Update();
                         }
@@ -540,6 +645,87 @@ namespace MOJ.DataManager
                                     itemis.CountryID = Convert.ToString(Item["CountryID"]);                                 
                                     itemis.YearsOfExperience = Convert.ToString(Item["YearsOfExperience"]);
 
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+         public List<PublicationsEntity> GetPublications(string title)
+        {
+            List<PublicationsEntity> ItemsCollection = new List<PublicationsEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.PublicationsUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    PublicationsEntity itemis = new PublicationsEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+
+                                    itemis.BookPublicationTitle = Convert.ToString(Item["BookPublicationTitle"]);
+                                    itemis.Notes = Convert.ToString(Item["Notes"]);
+                                    itemis.PublishDate = Convert.ToDateTime(Item["PublishDate"]);
+                                    itemis.Topic = Convert.ToString(Item["Topic"]);
+
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+         public List<TravelInformationsEntity> GetTravelInformations(string title)
+        {
+            List<TravelInformationsEntity> ItemsCollection = new List<TravelInformationsEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.TravelInformationsUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    TravelInformationsEntity itemis = new TravelInformationsEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+
+                                    itemis.CountryResidentForMoreThan3Month = Convert.ToString(Item["CountryResidentForMoreThan3Month"]);
+                                    itemis.TimePeriodFrom = Convert.ToDateTime(Item["TimePeriodFrom"]);
+                                    itemis.TimeperiodTo = Convert.ToDateTime(Item["TimeperiodTo"]);
+                                    itemis.VisitReasons = Convert.ToString(Item["VisitReasons"]);
                                     itemis.PID = Convert.ToInt32(Item["PID"]);
                                     ItemsCollection.Add(itemis);
                                 }

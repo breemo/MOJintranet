@@ -1035,6 +1035,12 @@
   <data name="Yes" xml:space="preserve">
     <value>نعم</value>
   </data>
+  <data name="BookPublicationTitle" xml:space="preserve">
+    <value>عننوان الكتاب/ المنشورات</value>
+  </data>
+  <data name="CountryResidentForMoreThan3Months" xml:space="preserve">
+    <value>الدولة التي قضى بها اكثر من ثلاث شهور</value>
+  </data>
   <data name="Expertise" xml:space="preserve">
     <value>الخبرات</value>
   </data>
@@ -1043,6 +1049,27 @@
   </data>
   <data name="OrganizationName" xml:space="preserve">
     <value>اسم المؤسسة</value>
+  </data>
+  <data name="Publications" xml:space="preserve">
+    <value>مؤلفات و منشورات</value>
+  </data>
+  <data name="PublishDate" xml:space="preserve">
+    <value>تاريخ النشر</value>
+  </data>
+  <data name="TimePeriodFrom" xml:space="preserve">
+    <value>من فترة</value>
+  </data>
+  <data name="TimeperiodTo" xml:space="preserve">
+    <value>الى فترة</value>
+  </data>
+  <data name="Topic" xml:space="preserve">
+    <value>الموضوع</value>
+  </data>
+  <data name="TravelInformations" xml:space="preserve">
+    <value>معلومات عن السفر</value>
+  </data>
+  <data name="VisitReasons" xml:space="preserve">
+    <value>اسباب الزيارة</value>
   </data>
   <data name="YearsOfExperience" xml:space="preserve">
     <value>مدة الخبرة</value>

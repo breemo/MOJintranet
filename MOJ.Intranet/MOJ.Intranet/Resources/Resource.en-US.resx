@@ -1035,6 +1035,12 @@
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="BookPublicationTitle" xml:space="preserve">
+    <value>Book/ publication title</value>
+  </data>
+  <data name="CountryResidentForMoreThan3Months" xml:space="preserve">
+    <value>Country resident for more than 3 months</value>
+  </data>
   <data name="Expertise" xml:space="preserve">
     <value>Expertise</value>
   </data>
@@ -1043,6 +1049,27 @@
   </data>
   <data name="OrganizationName" xml:space="preserve">
     <value>Organization name</value>
+  </data>
+  <data name="Publications" xml:space="preserve">
+    <value>Publications</value>
+  </data>
+  <data name="PublishDate" xml:space="preserve">
+    <value>Publish date</value>
+  </data>
+  <data name="TimePeriodFrom" xml:space="preserve">
+    <value>Time period from</value>
+  </data>
+  <data name="TimeperiodTo" xml:space="preserve">
+    <value>Time period to</value>
+  </data>
+  <data name="Topic" xml:space="preserve">
+    <value>Topic</value>
+  </data>
+  <data name="TravelInformations" xml:space="preserve">
+    <value>Travel information’s</value>
+  </data>
+  <data name="VisitReasons" xml:space="preserve">
+    <value>Visit reasons</value>
   </data>
   <data name="YearsOfExperience" xml:space="preserve">
     <value>Years of experience</value>

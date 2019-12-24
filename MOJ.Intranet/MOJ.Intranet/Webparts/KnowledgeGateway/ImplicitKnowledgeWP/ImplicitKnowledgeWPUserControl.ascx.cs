@@ -23,20 +23,170 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
         {
             if (!Page.IsPostBack)
             {
-                currentUserData();
-                EmploymentHistoryData();
                 GetCountrys();
+                Getlevels();
+                WithinThePlan();
+                currentUserData();
+                EmploymentHistoryData();                
                 QualificationsData();
                 TrainingCoursesData();
                 LanguageSkillsData();
                 TechnicalSkillsData();
-                OtherSkillsData();
-                Getlevels();
-                WithinThePlan();
+                OtherSkillsData();                
                 ExpertiseData();
+                PublicationsData();
 
             }
         }
+
+        private void QualificationsData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<TravelInformationsEntity> QualificationsData = objIK.GetTravelInformations(currentUserlogin);
+                int x = 0;
+                foreach (TravelInformationsEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID09.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV9.Value = item.ID.ToString() + "#";
+                        DropDownCountryResidentForMoreThan3Months.SelectedValue = item.CountryResidentForMoreThan3Month.ToString();
+                        TimePeriodFrom0.Value = item.TimePeriodFrom.ToString("MM/dd/yyyy");
+                        TimeperiodTo0.Value = item.TimeperiodTo.ToString("MM/dd/yyyy");
+                        VisitReasons0.Value = item.VisitReasons.ToString();
+                    }
+                    else
+                    {
+                        hdnsuperDIV9.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV9.Value += item.ID.ToString() + "#"; CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                        string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                        DataTable dataC = new ImplicitKnowledge().GetCountrys();
+                        string options = "";
+                        string selct = "";
+                        foreach (DataRow dtRow in dataC.Rows)
+                        {
+                            if (dtRow["ID"].ToString() == item.CountryResidentForMoreThan3Month.ToString())
+                            {
+                                selct = "selected='selected'";
+                            }
+                            else
+                            {
+                                selct = "";
+                            }
+                            if (languageCode == "ar")
+                            {
+
+                                options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["Title"].ToString() + "</option>";
+                            }
+                            else
+                            {
+                                options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["TitleEN"].ToString() + "</option>";
+
+                            }
+                        }
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID9' style=' display: none;'><input name='SID9' value='" + item.ID.ToString() + "' type='text' id='SID9" + x + "' class='form-control' placeholder=''></div> " +
+                        "<div class='col-md-3 DivCountryResidentForMoreThan3Months '>" +
+                        "<select name='DropDownCountryResidentForMoreThan3Months' id='DropDownCountryResidentForMoreThan3Months" + x + "' class='form-control'>" +
+                          options +
+                        "</select></div>" +
+                        "	<div class='col-md-2 '>" +
+                            "	<div class='input-group date DivTimePeriodFrom' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.TimePeriodFrom.ToString("MM/dd/yyyy") + "'  name='TimePeriodFrom' type='text' id='TimePeriodFrom" + x + "' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+                            "	<div class='col-md-2 '>" +
+                            "	<div class='input-group date DivTimeperiodTo' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.TimeperiodTo.ToString("MM/dd/yyyy") + "'  name='TimeperiodTo' type='text' id='TimeperiodTo" + x + "' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+
+                        "<div class='col-md-3 DivVisitReasons'><input name='VisitReasons' value='" + item.VisitReasons.ToString() + "' type='text' id='VisitReasons" + x + "' class='form-control' placeholder=''></div>" +
+                        
+                        
+                             "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowTravelInformations(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
+                "</div>";
+                        // document.getElementById('dynamicInputChildren').appendChild(newdiv);
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV9.Controls.Add(newDiv);
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
+        private void PublicationsData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<PublicationsEntity> QualificationsData = objIK.GetPublications(currentUserlogin);
+                int x = 0;
+                foreach (PublicationsEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID08.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV8.Value = item.ID.ToString() + "#";
+                        BookPublicationTitle0.Value = item.BookPublicationTitle.ToString();
+                        Topic0.Value = item.Topic.ToString();
+                        PublishDate0.Value = item.PublishDate.ToString("MM/dd/yyyy");
+                        Notes08.Value = item.Notes.ToString();
+                    }
+                    else
+                    {
+                        hdnsuperDIV8.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV8.Value += item.ID.ToString() + "#";
+                       
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID8' style=' display: none;'><input name='SID8' value='" + item.ID.ToString() + "' type='text' id='SID8" + x + "' class='form-control' placeholder=''></div> " +
+                        "<div class='col-md-3 DivBookPublicationTitle'><input name='BookPublicationTitle' value='" + item.BookPublicationTitle.ToString() + "' type='text' id='BookPublicationTitle" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-3 DivTopic'><input name='Topic' value='" + item.Topic.ToString() + "' type='text' id='Topic" + x + "' class='form-control' placeholder=''></div>" +
+                       "	<div class='col-md-2 '>" +
+                            "	<div class='input-group date DivPublishDate' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.PublishDate.ToString("MM/dd/yyyy") + "'  name='PublishDate' type='text' id='PublishDate" + x + "' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+                        "<div class='col-md-3 DivNotes'><input name='Notes8' value='" + item.Notes.ToString() + "' type='text'' id='Notes8" + x + "' class='form-control' placeholder=''></div>" +                        
+                        
+                             "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowPublications(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
+                "</div>";
+                        // document.getElementById('dynamicInputChildren').appendChild(newdiv);
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV8.Controls.Add(newDiv);
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
         private void ExpertiseData()
         {
             try
@@ -138,7 +288,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         RetrevehdnsuperDIV6.Value = item.ID.ToString() + "#";
 
                         CourseName0.Value = item.CourseName.ToString();                        
-                        WithinThePlan0.Items.FindByValue(item.WithinThePlan.ToString()).Selected = true;
+                        WithinThePlan0.Items.FindByValue(item.WithinThePlan.ToString()).Selected = true;                       
                         TrainingHours0.Value = item.TrainingHours.ToString();
                         Datefrom06.Value = item.FromDate.ToString("MM/dd/yyyy");
                         Dateto06.Value = item.ToDate.ToString("MM/dd/yyyy");
@@ -152,7 +302,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         var textNo = SPUtility.GetLocalizedString("$Resources: No", "Resource", SPContext.Current.Web.Language);
                         var checkedYes = "";
                         var checkedNo = "";
-                        if (item.CourseName.ToString() == "Yes")
+                        if (item.WithinThePlan.ToString() == "Yes")
                         {
                             checkedYes = "checked ='checked'";                            
                         }
@@ -557,7 +707,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         "</select></div>" +
                         "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivGraduationYear' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.GraduationYear.ToString("MM/dd/yyyy") + "'  name='GraduationYear' type='text' id='GraduationYear1' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + item.GraduationYear.ToString("MM/dd/yyyy") + "'  name='GraduationYear' type='text' id='GraduationYear" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
                              "<div class='col-md-1'>" +
@@ -1158,7 +1308,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     Date2 = sDate2;
                                 }
                                 ob.FromDate = Date;
-                                ob.ToDate = Date;
+                                ob.ToDate = Date2;
                                 ob.CourseLocation = CourseLocation[x];
                                 ob.CourseName = CourseName[x];
                                 ob.TrainingHours = TrainingHours[x];
@@ -1257,6 +1407,175 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                     }
                     //////////////////////////////////9///////////////////////
+
+                    List<PublicationsEntity> list8 = new List<PublicationsEntity>();
+                    PublicationsEntity Entit8 = new PublicationsEntity();
+                    if (!string.IsNullOrEmpty(BookPublicationTitle0.Value))
+                    {
+                        DateTime Date = new DateTime();
+                        if (!string.IsNullOrEmpty(PublishDate0.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(PublishDate0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date = sDate2;
+                        }
+                       
+                        Entit8.PublishDate = Date;
+                        Entit8.BookPublicationTitle = BookPublicationTitle0.Value;
+                        Entit8.Notes = Notes08.Value;
+                        Entit8.Topic = Topic0.Value;
+                        Entit8.PID = PID;
+                        if (!string.IsNullOrEmpty(SID08.Value))
+                        {
+                            Entit8.ID = Convert.ToInt32(SID08.Value);
+                            RetrevehdnsuperDIV8.Value = RetrevehdnsuperDIV8.Value.Replace(Entit8.ID + "#", "");
+                        }
+                        Entit8.Title = currentUserlogin;
+                        list8.Add(Entit8);
+                    }
+                    if (hdnsuperDIV8.Value != "" && hdnsuperDIV8.Value != "0")
+                    {
+                        string[] SID8 = Request.Form.GetValues("SID8");
+                        string[] BookPublicationTitle = Request.Form.GetValues("BookPublicationTitle");
+                        string[] Topic = Request.Form.GetValues("Topic");
+                        string[] Notes8 = Request.Form.GetValues("Notes8");
+                        string[] PublishDate = Request.Form.GetValues("PublishDate");
+                        for (int x = 0; x < Convert.ToInt32(BookPublicationTitle.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(BookPublicationTitle[x]))
+                            {
+                                PublicationsEntity ob = new PublicationsEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;
+                                DateTime Date = new DateTime();
+                                if (!string.IsNullOrEmpty(PublishDate[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(PublishDate[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date = sDate2;
+                                }
+                               
+                                ob.PublishDate = Date;
+                                
+                                ob.BookPublicationTitle = BookPublicationTitle[x];
+                                ob.Topic = Topic[x];
+                                ob.Notes = Notes8[x];
+                                if (!string.IsNullOrEmpty(SID8[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID8[x]);
+                                    RetrevehdnsuperDIV8.Value = RetrevehdnsuperDIV8.Value.Replace(ob.ID + "#", "");
+                                }
+                                list8.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdatePublications(list8);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV8.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV8.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("Publications", ListSID1);
+                        }
+                    }
+                    //////////////////////////////////10///////////////////////
+                    List<TravelInformationsEntity> list9 = new List<TravelInformationsEntity>();
+                    TravelInformationsEntity Entit9 = new TravelInformationsEntity();
+                    if (!string.IsNullOrEmpty(DropDownCountryResidentForMoreThan3Months.SelectedValue))
+                    {
+                        DateTime Date = new DateTime();
+                        if (!string.IsNullOrEmpty(TimePeriodFrom0.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(TimePeriodFrom0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date = sDate2;
+                        }
+                        DateTime Date2 = new DateTime();
+                        if (!string.IsNullOrEmpty(TimeperiodTo0.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(TimeperiodTo0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date2 = sDate2;
+                        }
+                        Entit9.TimePeriodFrom = Date;
+                        Entit9.TimeperiodTo = Date2;
+                        Entit9.CountryResidentForMoreThan3Month = DropDownCountryResidentForMoreThan3Months.SelectedValue.ToString();
+                        Entit9.VisitReasons = VisitReasons0.Value;                        
+                        Entit9.PID = PID;
+                        if (!string.IsNullOrEmpty(SID09.Value))
+                        {
+                            Entit9.ID = Convert.ToInt32(SID09.Value);
+                            RetrevehdnsuperDIV9.Value = RetrevehdnsuperDIV9.Value.Replace(Entit9.ID + "#", "");
+                        }
+                        Entit9.Title = currentUserlogin;
+                        list9.Add(Entit9);
+                    }
+                    if (hdnsuperDIV9.Value != "" && hdnsuperDIV9.Value != "0")
+                    {
+                        string[] SID9 = Request.Form.GetValues("SID9");
+                        string[] DropDownCountryResidentForMoreThan3Months = Request.Form.GetValues("DropDownCountryResidentForMoreThan3Months");
+                        string[] TimePeriodFrom = Request.Form.GetValues("TimePeriodFrom");
+                        string[] TimeperiodTo = Request.Form.GetValues("TimeperiodTo");
+                        string[] VisitReasons = Request.Form.GetValues("VisitReasons");
+                        for (int x = 0; x < Convert.ToInt32(DropDownCountryResidentForMoreThan3Months.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(DropDownCountryResidentForMoreThan3Months[x]))
+                            {
+                                TravelInformationsEntity ob = new TravelInformationsEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;
+                                DateTime Date = new DateTime();
+                                if (!string.IsNullOrEmpty(TimePeriodFrom[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(TimePeriodFrom[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date = sDate2;
+                                }
+                                DateTime Date2 = new DateTime();
+                                if (!string.IsNullOrEmpty(TimeperiodTo[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(TimeperiodTo[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date2 = sDate2;
+                                }
+                                ob.TimePeriodFrom = Date;
+                                ob.TimeperiodTo = Date2;
+                                ob.CountryResidentForMoreThan3Month = DropDownCountryResidentForMoreThan3Months[x];
+                                ob.VisitReasons = VisitReasons[x];
+                                if (!string.IsNullOrEmpty(SID9[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID9[x]);
+                                    RetrevehdnsuperDIV9.Value = RetrevehdnsuperDIV9.Value.Replace(ob.ID + "#", "");
+                                }
+                                list9.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdateTravelInformations(list9);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV9.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV9.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("TravelInformations", ListSID1);
+                        }
+                    }
+                    //////////////////////////////////11///////////////////////
+                   
+
+
+
+
 
 
 
