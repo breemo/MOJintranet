@@ -1008,4 +1008,31 @@
   <data name="TechnicalSkills" xml:space="preserve">
     <value>المهارات التقنية</value>
   </data>
+  <data name="CourseLocation" xml:space="preserve">
+    <value>مكان انعقاد الدورة</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>أسم الدورة</value>
+  </data>
+  <data name="OtherSkills" xml:space="preserve">
+    <value>مهارات اخرى</value>
+  </data>
+  <data name="SkillTheEmployeeHave" xml:space="preserve">
+    <value>المهلرة التي يتقنها الموظف</value>
+  </data>
+  <data name="TrainingCourses" xml:space="preserve">
+    <value>دورات تدريبية</value>
+  </data>
+  <data name="TrainingHours" xml:space="preserve">
+    <value>عدد ساعات التدريب</value>
+  </data>
+  <data name="WithinThePlan" xml:space="preserve">
+    <value>ضمن الخطة</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
 </root>

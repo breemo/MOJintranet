@@ -89,8 +89,10 @@ namespace CommonLibrary
         public const string ImplicitKnowledgeUrl = "/Lists/ImplicitKnowledge/AllItems.aspx";
         public const string EmploymentHistoryUrl = "/Lists/EmploymentHistory/AllItems.aspx";
         public const string QualificationsUrl = "/Lists/Qualifications/AllItems.aspx";
+        public const string TrainingCoursesUrl = "/Lists/TrainingCourses/AllItems.aspx";
         public const string LanguageSkillsUrl = "/Lists/LanguageSkills/AllItems.aspx";
         public const string TechnicalSkillsUrl = "/Lists/TechnicalSkills/AllItems.aspx";
+        public const string OtherSkillsUrl = "/Lists/OtherSkills/AllItems.aspx";
         public const string HusbandORWifeUrl = "/Lists/HusbandORWife/AllItems.aspx";
         public const string HappinessHotlineUrl = "/Lists/HappinessHotline/AllItems.aspx";
         public const string SonsUrl = "/Lists/Sons/AllItems.aspx";

@@ -1008,4 +1008,31 @@
   <data name="TechnicalSkills" xml:space="preserve">
     <value>Technical skills</value>
   </data>
+  <data name="CourseLocation" xml:space="preserve">
+    <value>Course location</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Course Name</value>
+  </data>
+  <data name="OtherSkills" xml:space="preserve">
+    <value>Other skills</value>
+  </data>
+  <data name="SkillTheEmployeeHave" xml:space="preserve">
+    <value>Skill the employee have</value>
+  </data>
+  <data name="TrainingCourses" xml:space="preserve">
+    <value>Training courses</value>
+  </data>
+  <data name="TrainingHours" xml:space="preserve">
+    <value>Training hours</value>
+  </data>
+  <data name="WithinThePlan" xml:space="preserve">
+    <value>Within the plan ?</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
 </root>

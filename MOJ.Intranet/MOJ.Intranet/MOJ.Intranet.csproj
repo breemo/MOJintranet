@@ -155,7 +155,9 @@
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeProfileEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\TrainingCoursesEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\EmploymentHistoryEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\OtherSkillsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\TechnicalSkillsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\LanguageSkillsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\QualificationsEntity.cs" />

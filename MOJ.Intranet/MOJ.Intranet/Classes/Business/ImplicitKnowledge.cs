@@ -37,6 +37,11 @@ namespace MOJ.Business
             return new ImplicitKnowledgeDataManager().GeteQualifications(title);
 
         }
+        public List<TrainingCoursesEntity> GetTrainingCourses(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetTrainingCourses(title);
+
+        }
         public List<LanguageSkillsEntity> GeteLanguageSkills(string title)
         {
             return new ImplicitKnowledgeDataManager().GeteLanguageSkills(title);
@@ -45,6 +50,11 @@ namespace MOJ.Business
         public List<TechnicalSkillsEntity> GeteTechnicalSkills(string title)
         {
             return new ImplicitKnowledgeDataManager().GetTechnicalSkills(title);
+
+        }
+         public List<OtherSkillsEntity> GeteOtherSkills(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetOtherSkills(title);
 
         }
         
@@ -68,6 +78,11 @@ namespace MOJ.Business
             return new ImplicitKnowledgeDataManager().AddOrUpdateQualifications(obj);
 
         }
+        public bool SaveUpdateTrainingCourses(List<TrainingCoursesEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateTrainingCourses(obj);
+
+        }
         public bool SaveUpdateLanguageSkills(List<LanguageSkillsEntity> obj)
         {
             return new ImplicitKnowledgeDataManager().AddOrUpdateLanguageSkills(obj);
@@ -79,6 +94,12 @@ namespace MOJ.Business
             return new ImplicitKnowledgeDataManager().AddOrUpdateTechnicalSkills(obj);
 
         }
+         public bool SaveUpdateOtherSkills(List<OtherSkillsEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateOtherSkills(obj);
+
+        }
+
 
         //public AffirmationSocialSituationEntity GetAffirmationSocialSituation(int id)
         //{

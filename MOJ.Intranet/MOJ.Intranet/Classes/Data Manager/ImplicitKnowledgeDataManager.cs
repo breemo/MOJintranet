@@ -114,7 +114,60 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-            public bool AddOrUpdateQualifications(List<QualificationsEntity> Items)
+            public bool AddOrUpdateTrainingCourses(List<TrainingCoursesEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.TrainingCoursesUrl);
+                        SPListItem item = null;
+                        foreach (TrainingCoursesEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+                            item["CourseLocation"] = Item.CourseLocation;
+                            item["CourseName"] = Item.CourseName;
+                            item["FromDate"] = Item.FromDate;
+                            item["ToDate"] = Item.ToDate;
+                            item["TrainingHours"] = Item.TrainingHours;
+                            item["WithinThePlan"] = Item.WithinThePlan;
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+          public bool AddOrUpdateQualifications(List<QualificationsEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -219,7 +272,57 @@ namespace MOJ.DataManager
             return isFormSaved;
         }
 
-        public bool AddOrUpdateTechnicalSkills(List<TechnicalSkillsEntity> Items)
+        public bool AddOrUpdateOtherSkills(List<OtherSkillsEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.OtherSkillsUrl);
+                        SPListItem item = null;
+                        foreach (OtherSkillsEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+                            item["SkillTheEmployeeHave"] = Item.SkillTheEmployeeHave;                           
+                            item["Notes"] = Item.Notes;
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+         public bool AddOrUpdateTechnicalSkills(List<TechnicalSkillsEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -313,7 +416,48 @@ namespace MOJ.DataManager
             return ItemsCollection;
         }
 
-        public List<QualificationsEntity> GeteQualifications(string title)
+        public List<TrainingCoursesEntity> GetTrainingCourses(string title)
+        {
+            List<TrainingCoursesEntity> ItemsCollection = new List<TrainingCoursesEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.TrainingCoursesUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    TrainingCoursesEntity itemis = new TrainingCoursesEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.CourseLocation = Convert.ToString(Item["CourseLocation"]);
+                                    itemis.CourseName = Convert.ToString(Item["CourseName"]);
+                                    itemis.FromDate = Convert.ToDateTime(Item["FromDate"]);
+                                    itemis.ToDate = Convert.ToDateTime(Item["ToDate"]);
+                                    itemis.TrainingHours = Convert.ToString(Item["TrainingHours"]);
+                                    itemis.WithinThePlan  = Convert.ToString(Item["WithinThePlan"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+         public List<QualificationsEntity> GeteQualifications(string title)
         {
             List<QualificationsEntity> ItemsCollection = new List<QualificationsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -395,7 +539,44 @@ namespace MOJ.DataManager
             return ItemsCollection;
         }
 
-        public List<TechnicalSkillsEntity> GetTechnicalSkills(string title)
+        public List<OtherSkillsEntity> GetOtherSkills(string title)
+        {
+            List<OtherSkillsEntity> ItemsCollection = new List<OtherSkillsEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.OtherSkillsUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    OtherSkillsEntity itemis = new OtherSkillsEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.SkillTheEmployeeHave = Convert.ToString(Item["SkillTheEmployeeHave"]);;
+                                    itemis.Notes = Convert.ToString(Item["Notes"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+         public List<TechnicalSkillsEntity> GetTechnicalSkills(string title)
         {
             List<TechnicalSkillsEntity> ItemsCollection = new List<TechnicalSkillsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()

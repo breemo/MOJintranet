@@ -37,312 +37,1712 @@
 <asp:HiddenField ClientIDMode="Static" id="RetrevehdnsuperDIV12" runat="server" />
 <asp:HiddenField ClientIDMode="Static" id="hdnsuperDIV13" runat="server" />
 <asp:HiddenField ClientIDMode="Static" id="RetrevehdnsuperDIV13" runat="server" />
-<div id="posts" runat="server" class="small-thumbs alt">
-     <div id="Edata">
-         <div class=" DivPID" style=" display: none;">
+     <!-- Content
+        ============================================= -->
+        <section id="content">          
+			<div id="posts" runat="server" class="small-thumbs alt content-wrap">
+                <div class="">
+				<div class="boxsh">
+                        <div class="faqhead">
+                            <h3>
+                                المعارف و المهارات الضمنية
+                            </h3>
+                        </div>
+                        <div class="">
+                            <div class="">
+							 <!--          ==============     Edata=============================== -->
+                                <div class="ndl" id="Edata">
+								 <div class=" DivPID" style=" display: none;">
 								 	<input type="text" name="TOPID" runat="server" id="TOPID" class="form-control" placeholder="">									
 										</div>
-                    <div class="row rt">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
+                                    <div class="col-md-5 col-sm-12 bgdivindf bgdivindfx ">
+                                        <div class="titleheadnew">
+                                            <h4>بيانات الموظف</h4>
+                                        </div>
+                                        <div class="conentbgdivd">
+                                            <div class="row">
+                                                <div class="col-sm-12 jdivd">
+                                                </div>
+                                                <div class="dininfo">
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="rmae">
+                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+
+                                                                <span class="nnamele">
+                                                                     <input type="text" name="Ename" disabled runat="server" id="Ename" class="form-control" placeholder="">
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+														<td>
+                                                                <p class="rmae">
+                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeNumber%>" /></label>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="nnamele">
+                                                                   <input type="text" disabled name="Enumber" runat="server" id="Enumber" class="form-control" placeholder="">     
+																	</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td>
+                                                                <p class="rmae">
+                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Nationality%>" /></label>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+															<span class="nnamele">
+                                                                    <span class="nnamele">
+                                                                        <input type="text" name="ENationality" disabled runat="server" id="ENationality" class="form-control" placeholder="">
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="rmae">
+                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="nnamele">
+                                                                   <input type="text" disabled name="EPosition" runat="server" id="EPosition" class="form-control" placeholder=""> 
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="rmae">
+                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, DateOfBirth%>" /></label>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+
+                                                                <span class="nnamele">
+                                                                   <input type="text" disabled name="EDateOfBirth" runat="server" id="EDateOfBirth" class="form-control" placeholder=""> 
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p class="rmae">
+                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, MaritalStatus%>" /></label>
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="nnamele">
+                                                                    <span class="nnamele">
+                                                                        <input type="text" disabled name="EMaritalStatus" runat="server" id="EMaritalStatus" class="form-control" placeholder="">
+                                                                    </span>
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div  class="col-md-8">
-                                    <input type="text" name="Ename" disabled runat="server" id="Ename" class="form-control" placeholder="">
-                                </div>                       
+
+                                <section id="Implcit">
+                                    <section id="faqs" class="">
+                                        <div class="questions">
+                                            <dl>
+                                                <dt>
+                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Employmenthistory%>" /></label>
+                                                </dt>
+                                                <dd>
+                                                    <div class="questionbox">
+                                                        <div class="tidtleheadbox">
+                                                            <div class="widt98">
+                                                                <div class="row mrcx">
+                                                                    <div class="col-md-1">
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label class="forlaxbe">
+                                                                          <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Designation%>" /></label>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label class="forlaxbe">
+                                                                           <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Organizationalunit%>" /></label>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label class="forlaxbe">
+                                                                           <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Datefrom%>" /></label>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label class="forlaxbe">
+                                                                          <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Dateto%>" /></label>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="widt2">
+                                                            </div>
+                                                        </div>
+														<div runat="server"  id="superDIV1" class="superDIV1">
+															  <div  id="FirstItemEmploymenthistoryAA" style="display:none" >
+																 </div>
+															   <div  id="FirstItemEmploymenthistory" class="cnrtnheadbox2" >
+																	<div class="row rt">	
+																		<div  class="DivSID" style=" display: none;" >
+																		<input type="text"  name="SID" runat="server" id="SID0" class="form-control"  placeholder="">
+																		</div>                       
+																		<div class="col-md-4 DivDesignation">
+																		<input type="text" name="Designation" runat="server" id="Designation0" class="form-control" placeholder="">
+																		</div>
+																		<div  class="col-md-3 DivOrganizationalunit">
+																			<input type="text" name="Organizationalunit" runat="server" id="Organizationalunit0" class="form-control" placeholder="">
+																		</div>
+																		<div  class="col-md-2 ">
+																			<div class="input-group date DivDatefrom" data-provide="datepicker">
+																			<input autocomplete="off"  type="text" runat="server" id="Datefrom0" class="form-control">
+																			<div class="input-group-addon">
+																				<span class="icon-calendar-alt1"></span>
+																			</div>									
+																				</div>
+																		</div>						
+																		<div  class="col-md-2 ">
+																			<div class="input-group date DivDateto" data-provide="datepicker">
+																			<input autocomplete="off"  type="text" runat="server" id="Dateto0" class="form-control">
+																			<div class="input-group-addon">
+																				<span class="icon-calendar-alt1"></span>
+																			</div>
+																		</div>																				 						   
+																	</div>
+																	<div  class="col-md-1 DiveDelete ">																			
+																		</div>	
+																</div>
+															</div>															                                               
+                                                    </div>
+													<div>
+													  	<a  onclick="addEmploymenthistory();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+                                                        </div>
+													</dd>
+                                               
+													<dt>
+                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Qualifications%>" /></label>
+                                                </dt>
+<dd>
+                                                    <div class="questionbox" id="q22">
+                                                        <div>
+                                                                <div class="tidtleheadbox">
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">                                                                            
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Qualification%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Major%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Institution%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Country%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, GraduationYear%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+                                                                    </div>
+                                                                </div>								
+                                                         
+                                                        </div>
+                                                    </div>
+														<div runat="server"  id="superDIV2" class="superDIV2">
+																			  <div  id="FirstItemAA2" style="display:none" >
+																				 </div>
+																			   <div  id="FirstItem2" class="cnrtnheadbox2" >
+																					<div class="row rt">	
+																						<div  class="DivSID2" style=" display: none;" >
+																						<input type="text"  name="SID2" runat="server" id="SID02" class="form-control" placeholder="">
+																						</div>                       
+																						<div class="col-md-3 DivQualification">
+																						<input type="text" name="Qualification" runat="server" id="Qualification0" class="form-control" placeholder="">
+																						</div>
+																						<div  class="col-md-2 DivMajor">
+																							<input type="text" name="Major" runat="server" id="Major0" class="form-control" placeholder="">
+																						</div>
+																						<div  class="col-md-2 DivInstitution">
+																							<input type="text" name="Institution" runat="server" id="Institution0" class="form-control" placeholder="">
+																						</div>
+																						
+																						<div class="col-md-2 DivCountry ">
+																								   <label><asp:Literal runat="server" id="DDCountry"/></label>                        
+																									<asp:DropDownList ID="DropDownCountry" runat="server" class="form-control">
+																									</asp:DropDownList>
+																								</div>					
+																						<div  class="col-md-2 ">
+																							<div class="input-group date DivGraduationYear" data-provide="datepicker">
+																							<input autocomplete="off"  type="text" runat="server" id="GraduationYear0" class="form-control">
+																							<div class="input-group-addon">
+																								<span class="icon-calendar-alt1"></span>
+																							</div>									
+																								</div>
+																						</div>
+
+																							<div  class="col-md-1 DiveDelete ">																			
+																									</div>																							
+																					</div>
+																				</div>
+																				
+																			</div>
+																			<div>
+																					<a  onclick="addQualifications();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																						</div>
+														 </dd>
+
+												<dt>
+                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, LanguageSkills%>" /></label>
+                                                </dt>
+ <dd>
+                                                    <div class="questionbox">
+                                                        <div>
+                                                            <div data-duplicate="langaskills" data-duplicate-min="0">
+                                                                <div class="tidtleheadbox">
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">                                                                            
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Language %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ReadingLevel%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, WritingLevel%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ConversationLevel%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+                                                                    </div>
+                                                                </div>                                                                
+                                                                  </div>
+                                                        </div>
+                                                    </div>
+													<div runat="server"  id="superDIV3" class="superDIV3">
+													  <div  id="FirstItemAA3" style="display:none" >
+														 </div>
+													   <div  id="FirstItem3" class="cnrtnheadbox2" >
+															<div class="row rt">	
+																<div  class="DivSID3" style=" display: none;" >
+																<input type="text"  name="SID3" runat="server" id="SID03" class="form-control" placeholder="">
+																</div>                       
+																<div class="col-md-2 DivLanguage">
+																<input type="text" name="Language" runat="server" id="Language0" class="form-control" placeholder="">
+																</div>						
+																<div class="col-md-3 DivReadingLevel ">
+																		   <label><asp:Literal runat="server" id="DDReadingLevel"/></label>                        
+																			<asp:DropDownList ID="DropDownReadingLevel" runat="server" class="form-control">
+																			</asp:DropDownList>
+																		</div>	
+																<div class="col-md-3 DivWritingLevel ">
+																	   <label><asp:Literal runat="server" id="DDWritingLevel"/></label>                        
+																		<asp:DropDownList ID="DropDownWritingLevel" runat="server" class="form-control">
+																		</asp:DropDownList>
+																	</div>		
+																	<div class="col-md-3 DivConversationLevel ">
+																	   <label><asp:Literal runat="server" id="DDConversationLevel"/></label>                        
+																		<asp:DropDownList ID="DropDownConversationLevel" runat="server" class="form-control">
+																		</asp:DropDownList>
+																	</div>	
+																	<div  class="col-md-1 DiveDelete ">																			
+																			</div>																	
+															</div>
+														</div>
+													</div>
+													<div>
+														 <a  onclick="addLanguageSkills();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>    
+													</div>
+                                                </dd>
+
+												<dt>
+                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TechnicalSkills%>" /></label>
+                                                </dt>
+
+												<dd>
+                                                    <div class="questionbox">
+                                                        <div>
+                                                            <div data-duplicate="langaskills" data-duplicate-min="0">
+                                                                <div class="tidtleheadbox">
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+                                                                           <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SkillType %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SkillLevel%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, AreaOfApplication%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Notes%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+                                                                    </div>
+                                                                </div>                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+													
+													 <div runat="server"  id="superDIV4" class="superDIV4">
+												  <div  id="FirstItemAA4" style="display:none" >
+													 </div>
+												   <div  id="FirstItem4" class="cnrtnheadbox2" >
+														<div class="row rt">	
+															<div  class="DivSID4" style=" display: none;" >
+															<input type="text"  name="SID4" runat="server" id="SID04" class="form-control" placeholder="">
+															</div>                       
+															<div class="col-md-2 DivSkillType">
+															<input type="text" name="SkillType" runat="server" id="SkillType0" class="form-control" placeholder="">
+															</div>						
+															<div class="col-md-3 DivSkillLevel ">
+																	   <label><asp:Literal runat="server" id="DDSkillLevel"/></label>                        
+																		<asp:DropDownList ID="DropDownSkillLevell" runat="server" class="form-control">
+																		</asp:DropDownList>
+																	</div>	
+															<div class="col-md-3 DivAreaOfApplication">
+															<input type="text" name="AreaOfApplication" runat="server" id="AreaOfApplication0" class="form-control" placeholder="">
+															</div>	
+															<div class="col-md-3 DivNotes4">
+															<input type="text" name="Notes4" runat="server" id="Notes04" class="form-control" placeholder="">
+															</div>	
+															<div  class="col-md-1 DiveDelete ">																			
+																	</div>															
+														</div>
+													</div>
+												</div>
+												<div>
+													<a  onclick="addTechnicalSkills();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>											
+													</div>                                               
+											   </dd>
+											   <dt>
+                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, OtherSkills%>" /></label>
+                                                </dt>
+
+ <dd>
+                                                    <div class="questionbox">
+                                                        <div>
+                                                            <div data-duplicate="othersxkills" data-duplicate-min="0">
+                                                                <div class="tidtleheadbox">
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+                                                                           
+                                                                            <div class="col-md-5">
+                                                                                <label class="forlaxbe">
+                                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SkillTheEmployeeHave %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-5">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Notes%>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+													<div runat="server"  id="superDIV5" class="superDIV5">
+												  <div  id="FirstItemAA5" style="display:none" >
+													 </div>
+												   <div  id="FirstItem5" class="cnrtnheadbox2">
+														<div class="row rt">	
+															<div  class="DivSID5" style=" display: none;" >
+															<input type="text"  name="SID5" runat="server" id="SID05" class="form-control" placeholder="">
+															</div>                       
+															<div class="col-md-5 DivSkillTheEmployeeHave">
+															<input type="text" name="SkillTheEmployeeHave" runat="server" id="SkillTheEmployeeHave0" class="form-control" placeholder="">
+															</div><div class="col-md-5 DivNotes5">
+															<input type="text" name="Notes5" runat="server" id="Notes05" class="form-control" placeholder="">
+															</div>
+															<div  class="col-md-1 DiveDelete ">																			
+															</div>
+														</div>
+													</div>
+												</div>
+												<div>
+													<a  onclick="addOtherSkills();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+												</div>
+                                                </dd>
+                                                <dt>
+                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TrainingCourses%>" /></label>
+                                                </dt>
+                                                <dd>
+                                                    <div class="questionbox">
+                                                        <div>
+                                                            <div data-duplicate="Courses" data-duplicate-min="0">
+                                                                <div class="tidtleheadbox">
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">                                                                            
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CourseName %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, WithinThePlan %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TrainingHours %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Datefrom %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Dateto %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CourseLocation %>" /></label>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+                                                                    </div>
+                                                                </div>                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+													<div runat="server"  id="superDIV6" class="superDIV6">
+												  <div  id="FirstItemAA6" style="display:none" >
+													 </div>
+												   <div  id="FirstItem6" class="cnrtnheadbox2">
+														<div class="row rt">	
+															<div  class="DivSID6" style=" display: none;" >
+															<input type="text"  name="SID6" runat="server" id="SID06" class="form-control" placeholder="">
+															</div>                       
+															<div class="col-md-2 DivCourseName">
+															<input type="text" name="CourseName" runat="server" id="CourseName0" class="form-control" placeholder="">
+															</div>
+															
+															<div class="col-md-2 DivWithinThePlan RadiB">
+												   <asp:RadioButtonList ID="WithinThePlan0" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
+														</asp:RadioButtonList>
+														</div>
+															
+															<div class="col-md-2 DivTrainingHours">
+															<input type="text" name="TrainingHours" runat="server" id="TrainingHours0" class="form-control" placeholder="">
+															</div>
+															<div  class="col-md-2 ">
+																<div class="input-group date DivDatefrom6" data-provide="datepicker">
+																<input autocomplete="off"  type="text" runat="server" id="Datefrom06" class="form-control">
+																<div class="input-group-addon">
+																	<span class="icon-calendar-alt1"></span>
+																</div>									
+																	</div>
+															</div>	
+															<div  class="col-md-2 ">
+																<div class="input-group date DivDateto6" data-provide="datepicker">
+																<input autocomplete="off"  type="text" runat="server" id="Dateto06" class="form-control">
+																<div class="input-group-addon">
+																	<span class="icon-calendar-alt1"></span>
+																</div>									
+																	</div>
+															</div>	
+															</div><div class="col-md-1 DivCourseLocation">
+															<input type="text" name="CourseLocation" runat="server" id="CourseLocation0" class="form-control" placeholder="">
+															</div>
+															<div  class="col-md-1 DiveDelete ">																			
+															</div>
+														</div>
+													</div>
+												</div>
+												<div>
+													<a  onclick="addTrainingCourses();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+												</div>
+													
+													
+                                                </dd>
+
+
+
+
+
+
+
+
+
+
+
+                                                <dt>
+                                                    الخبرات
+
+
+
+
+                                                </dt>
+                                                <dd>
+
+                                                    <div class="questionbox">
+
+                                                        <div>
+                                                            <div data-duplicate="Experience" data-duplicate-min="0">
+
+
+
+
+                                                                <div class="tidtleheadbox">
+
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+
+                                                                            <div class="col-md-1">
+
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    اسم المؤسسة
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    طبيعة العمل
+                                                                                </label>
+
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    الدولة
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <label class="forlaxbe">
+                                                                                    مدة الخبرة
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    الخبرات المكتسبة
+                                                                                </label>
+                                                                            </div>
+
+
+
+
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+
+
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div data-duplicate="Experience" data-duplicate-min="0">
+
+
+
+
+                                                                    <div class="cnrtnheadbox">
+                                                                        <div class="widt98">
+
+
+                                                                            <div class="row mrcx">
+
+                                                                                <div class="col-md-1">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+                                                                                <div class="col-md-3">
+
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <select class="form-control">
+                                                                                        <option>الدولة</option>
+                                                                                        <option>الخطة</option>
+                                                                                        <option>الخطة</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col-md-1">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <input type="text" class="form-control" placeholder="">
+                                                                                </div>
+
+
+
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="widt2">
+                                                                            <button class="deltemorebtn" data-duplicate-remove="Experience">
+
+
+                                                                                <i class="fa fa-times"></i>
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <button class="addmorebtn" data-duplicate-add="Experience">
+                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
+                                                                </button>
+                                                            </div>
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </dd>
+
+
+
+
+
+
+
+
+
+
+                                                <dt>
+                                                    مؤلفات و منشورات
+
+
+
+
+
+                                                </dt>
+                                                <dd>
+
+                                                    <div class="questionbox">
+
+                                                        <div>
+                                                            <div data-duplicate="Publication" data-duplicate-min="0">
+
+
+
+
+                                                                <div class="tidtleheadbox">
+
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+
+                                                                            <div class="col-md-1">
+
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    عنوان الكتاب / المنشورات
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <label class="forlaxbe">
+                                                                                    الموضوع
+                                                                                </label>
+
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <label class="forlaxbe">
+                                                                                    تاريخ النشر
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    ملاحظات
+                                                                                </label>
+                                                                            </div>
+
+
+
+
+
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+
+
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div data-duplicate="Publication" data-duplicate-min="0">
+
+
+
+
+                                                                    <div class="cnrtnheadbox">
+                                                                        <div class="widt98">
+
+
+                                                                            <div class="row mrcx">
+
+                                                                                <div class="col-md-1">
+                                                                                    <input type="text" class="form-control" placeholder="">
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="">
+                                                                                </div>
+                                                                                <div class="col-md-3">
+
+                                                                                    <input type="text" class="form-control" placeholder="">
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="input-group date" data-provide="datepicker">
+                                                                                        <input type="text" placeholder="" class="form-control">
+                                                                                        <div class="input-group-addon">
+                                                                                            <span class="icon-calendar-alt1"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="">
+                                                                                </div>
+
+
+
+
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="widt2">
+                                                                            <button class="deltemorebtn" data-duplicate-remove="Publication">
+
+
+                                                                                <i class="fa fa-times"></i>
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <button class="addmorebtn" data-duplicate-add="Publication">
+                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
+                                                                </button>
+                                                            </div>
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </dd>
+
+
+
+
+
+
+
+
+
+
+
+                                                <dt>
+                                                    معلومات عن السفر
+
+
+
+
+
+
+                                                </dt>
+                                                <dd>
+
+                                                    <div class="questionbox">
+
+                                                        <div>
+                                                            <div data-duplicate="travel" data-duplicate-min="0">
+
+
+
+
+                                                                <div class="tidtleheadbox">
+
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+
+                                                                            <div class="col-md-1">
+
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    الدولة التي قضي بها اكثر من ثلاث شهور
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    الفترة الذمنية
+                                                                                </label>
+
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <label class="forlaxbe">
+                                                                                    سبب الزيارة
+                                                                                </label>
+                                                                            </div>
+
+
+
+
+
+
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+
+
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div data-duplicate="travel" data-duplicate-min="0">
+
+
+
+
+                                                                    <div class="cnrtnheadbox">
+                                                                        <div class="widt98">
+
+                                                                            <div class="row mrcx">
+
+                                                                                <div class="col-md-1">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="input-group date" data-provide="datepicker">
+                                                                                        <input type="text" placeholder="" class="form-control">
+                                                                                        <div class="input-group-addon">
+                                                                                            <span class="icon-calendar-alt1"></span>
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+
+
+
+
+
+
+
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="widt2">
+                                                                            <button class="deltemorebtn" data-duplicate-remove="travel">
+
+
+                                                                                <i class="fa fa-times"></i>
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <button class="addmorebtn" data-duplicate-add="travel">
+                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
+                                                                </button>
+                                                            </div>
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </dd>
+
+
+
+
+
+
+                                                <dt>
+                                                    المشاركات
+
+
+
+
+
+
+
+                                                </dt>
+                                                <dd>
+
+                                                    <div class="questionbox">
+
+                                                        <div>
+                                                            <div data-duplicate="Contribue" data-duplicate-min="0">
+
+
+
+
+                                                                <div class="tidtleheadbox">
+
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+
+                                                                            <div class="col-md-1">
+                                                                                        
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    اسم الفعالية
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    الجهة الراعية
+                                                                                </label>
+
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    الدولة
+                                                                                </label>
+                                                                            </div>
+
+
+                                                                            <div class="col-md-3">
+                                                                                <label class="forlaxbe">
+                                                                                    طبيعة المشاركة
+                                                                                </label>
+                                                                            </div>
+
+
+
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+
+
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div data-duplicate="Contribue" data-duplicate-min="0">
+
+
+
+
+                                                                    <div class="cnrtnheadbox">
+                                                                        <div class="widt98">
+
+                                                                            <div class="row mrcx">
+
+                                                                                <div class="col-md-1">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+                                                                                <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+
+
+
+
+
+
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="widt2">
+                                                                            <button class="deltemorebtn" data-duplicate-remove="Contribue">
+
+
+                                                                                <i class="fa fa-times"></i>
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <button class="addmorebtn" data-duplicate-add="Contribue">
+                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
+                                                                </button>
+                                                            </div>
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </dd>
+
+
+
+
+                                                <dt>
+                                                    العضوية
+
+
+
+
+
+
+
+                                                </dt>
+                                                <dd>
+
+                                                    <div class="questionbox">
+
+                                                        <div>
+                                                            <div data-duplicate="Membership" data-duplicate-min="0">
+
+
+
+
+                                                                <div class="tidtleheadbox">
+
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+
+                                                                            <div class="col-md-1">
+
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    العضوية
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    مقرها
+                                                                                </label>
+
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    المجال
+                                                                                </label>
+                                                                            </div>
+
+
+                                                                            <div class="col-md-1">
+                                                                                <label class="forlaxbe">
+                                                                                     من
+                                                                                </label>
+                                                                            </div>
+
+
+                                                                            <div class="col-md-1">
+                                                                                <label class="forlaxbe">
+                                                                                    الي
+                                                                                </label>
+                                                                            </div>
+
+
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    ملاحظات
+                                                                                </label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+
+
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div data-duplicate="Membership" data-duplicate-min="0">
+
+
+
+
+                                                                    <div class="cnrtnheadbox">
+                                                                        <div class="widt98">
+                                                                            <div class="row mrcx">
+
+                                                                                <div class="col-md-1">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+                                                                                <div class="col-md-2">
+
+                                                                                    <div class="form-group has-search">
+                                                                                        <span class="icon-line-search smicon reinfi"></span>
+                                                                                        <input type="text" class="form-control" placeholder="">
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="row dootvor">
+                                                                                        <div class="col-md-6">
+
+
+
+                                                                                            <input type="radio" name="common-radio-name" id="radio-1" class="radio-button">
+                                                                                            <label for="radio-1" class="radio-button-click-target">
+                                                                                                <span class="radio-button-circle"></span>داخل الدولة
+                                                                                            </label>
+
+
+
+                                                                                        </div>
+
+                                                                                        <div class="col-md-6">
+                                                                                            <input type="radio" name="common-radio-name" id="radio-2" class="radio-button">
+                                                                                            <label for="radio-2" class="radio-button-click-target">
+                                                                                                <span class="radio-button-circle"></span>خارج الدولة
+                                                                                            </label>
+
+
+                                                                                        </div>
+
+                                                                                     
+
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="form-group has-search">
+                                                                                        <span class="icon-line-search smicon reinfi"></span>
+                                                                                        <input type="text" class="form-control" placeholder="">
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                                <div class="col-md-1">
+                                                                                    <div class="input-group date" data-provide="datepicker">
+                                                                                        <input type="text" placeholder="" class="form-control">
+                                                                                        <div class="input-group-addon">
+                                                                                            <span class="icon-calendar-alt1"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                                <div class="col-md-1">
+                                                                                    <div class="input-group date" data-provide="datepicker">
+                                                                                        <input type="text" placeholder="" class="form-control">
+                                                                                        <div class="input-group-addon">
+                                                                                            <span class="icon-calendar-alt1"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+                                                                                <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="">
+
+                                                                                </div>
+
+                                                                            </div>
+
+
+                                                                            
+
+                                                                        </div>
+                                                                        <div class="widt2">
+                                                                            <button class="deltemorebtn" data-duplicate-remove="Membership">
+
+
+                                                                                <i class="fa fa-times"></i>
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <button class="addmorebtn" data-duplicate-add="Membership">
+                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
+                                                                </button>
+                                                            </div>
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </dd>
+
+
+
+
+
+
+                                                <dt>
+                                                    الهوايات
+
+
+
+
+
+
+
+                                                </dt>
+                                                <dd>
+
+                                                    <div class="questionbox">
+
+                                                        <div>
+                                                            <div data-duplicate="Hobbies" data-duplicate-min="0">
+
+
+
+
+                                                                <div class="tidtleheadbox">
+
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+
+                                                                            <div class="col-md-2">
+
+                                                                            </div>
+                                                                            <div class="col-md-5">
+                                                                                <label class="forlaxbe">
+                                                                                    الهواية
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-5">
+                                                                                <label class="forlaxbe">
+                                                                                    ملاحظات
+                                                                                </label>
+
+                                                                            </div>
+                                                                           
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+
+
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div data-duplicate="Hobbies" data-duplicate-min="0">
+
+
+
+
+                                                                    <div class="cnrtnheadbox">
+                                                                        <div class="widt98">
+                                                                            <div class="row mrcx">
+
+                                                                                <div class="col-md-2">
+                                                                                    <div class="form-group has-search">
+                                                                                        <span class="icon-line-search smicon reinfi"></span>
+                                                                                        <input type="text" class="form-control" placeholder="">
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="col-md-5">
+
+                                                                                    <div class="form-group has-search">
+                                                                                        <span class="icon-line-search smicon reinfi2"></span>
+                                                                                        <input type="text" class="form-control" placeholder="">
+                                                                                    </div>
+
+                                                                                </div>
+                                                                                <div class="col-md-5">
+                                                                                    <div class="form-group has-search">
+                                                                                        <span class="icon-line-search smicon reinfi2"></span>
+                                                                                        <input type="text" class="form-control" placeholder="">
+                                                                                    </div>
+
+
+                                                                                </div>
+                                             
+
+
+                                                                       
+
+                                                                            </div>
+
+
+
+
+                                                                        </div>
+                                                                        <div class="widt2">
+                                                                            <button class="deltemorebtn" data-duplicate-remove="Hobbies">
+
+
+                                                                                <i class="fa fa-times"></i>
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <button class="addmorebtn" data-duplicate-add="Hobbies">
+                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
+                                                                </button>
+                                                            </div>
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </dd>
+
+
+
+
+                                                <dt>
+                                                    الاعمال التطوعية
+
+
+
+
+
+
+
+
+                                                </dt>
+                                                <dd>
+
+                                                    <div class="questionbox">
+
+                                                        <div>
+                                                            <div data-duplicate="volunteer" data-duplicate-min="0">
+
+
+
+
+                                                                <div class="tidtleheadbox">
+
+                                                                    <div class="widt98">
+                                                                        <div class="row mrcx">
+
+                                                                            <div class="col-md-1">
+
+                                                                            </div>
+                                                                            <div class="col-md-5">
+                                                                                <label class="forlaxbe">
+                                                                                    اسم الفعالية
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <label class="forlaxbe">
+                                                                                    مكان الفعالية
+                                                                                </label>
+
+                                                                            </div>
+                                                                            <div class="col-md-2">
+                                                                                <label class="forlaxbe">
+                                                                                    الفترة الزمنية
+                                                                                </label>
+                                                                            </div>
+
+
+
+
+
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widt2">
+
+
+
+                                                                    </div>
+
+                                                                </div>
+
+
+                                                                <div data-duplicate="Contribue" data-duplicate-min="0">
+
+
+
+
+                                                                    <div class="cnrtnheadbox">
+                                                                        <div class="widt98">
+
+                                                                            <div class="row mrcx">
+
+
+                                                                                <div class="col-md-1">
+                                                                                    <input type="text" class="form-control" placeholder="">
+                                                                                </div>
+                                                                                <div class="col-md-5">
+                                                                                   
+                                                                                    <div class="form-group has-search">
+                                                                                        <span class="icon-line-search smicon reinfi2"></span>
+                                                                                        <input type="text" class="form-control" placeholder="">
+                                                                                    </div>
+                                                                                 
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                  
+                                                                                    <div class="form-group has-search">
+                                                                                        <span class="icon-line-search smicon reinfi2"></span>
+                                                                                        <input type="text" class="form-control" placeholder="">
+                                                                                    </div>
+                                                                          
+
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    
+                                                                                    <div class="input-group date" data-provide="datepicker">
+                                                                                        <input type="text" placeholder="" class="form-control">
+                                                                                        <div class="input-group-addon">
+                                                                                            <span class="icon-calendar-alt1"></span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                            
+                                                                                </div>
+
+                                                                                
+
+
+
+
+
+
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="widt2">
+                                                                            <button class="deltemorebtn" data-duplicate-remove="Contribue">
+
+
+                                                                                <i class="fa fa-times"></i>
+                                                                            </button>
+                                                                        </div>
+
+                                                                    </div>
+
+
+
+                                                                </div>
+
+                                                                <button class="addmorebtn" data-duplicate-add="Contribue">
+                                                                    <i class="fa fa-plus-circle"></i>اضف المزيد
+                                                                </button>
+                                                            </div>
+
+
+
+
+
+
+
+                                                        </div>
+
+
+
+                                                    </div>
+
+                                                </dd>
+
+                                            </dl>
+
+
+                                            <div class="bottomsaction">
+                                                الأجراءات
+                                            </div>
+
+
+                                            <div class="row cf">
+                                                <input type="button" class="btnclass bgicb nwckss" value="حفظ">
+                                                <input type="button" class="btnclass nwckss" value="عودة">
+                                            </div>
+
+                                        </div>
+                                    </section>
+                                </section>
                             </div>
-                            </div>
-                        <div class="col-md-6">
-                               <div class="row">
-                                    <div class="col-md-4">
-                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeNumber%>" /></label>
-                            </div>
-                            <div class="col-md-8 ">
-                                      <input type="text" disabled name="Enumber" runat="server" id="Enumber" class="form-control" placeholder="">                                
-									    </div>
-                              </div>
-					    </div>                  
-                    </div>                    
-                <div class="row rt">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Nationality%>" /></label>
-                                </div>
-                                <div  class="col-md-8">
-                                    <input type="text" name="ENationality" disabled runat="server" id="ENationality" class="form-control" placeholder="">
-                                </div>                       
-                            </div>
-                            </div>
-                        <div class="col-md-6">
-                               <div class="row">
-                                    <div class="col-md-4">
-                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>
-                            </div>
-                            <div class="col-md-8 ">
-                                      <input type="text" disabled name="EPosition" runat="server" id="EPosition" class="form-control" placeholder="">                                
-									    </div>
-                              </div>
-					    </div>                  
+
+
+
+                        </div>
+
+
+
+
+
                     </div>
-                   <div class="row rt">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, MaritalStatus%>" /></label>
-                                </div>
-                                <div  class="col-md-8">
-                                    <input type="text" disabled name="EMaritalStatus" runat="server" id="EMaritalStatus" class="form-control" placeholder="">
-                                </div>                       
-                            </div>
-                            </div>
-                        <div class="col-md-6">
-                               <div class="row">
-                                    <div class="col-md-4">
-                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, DateOfBirth%>" /></label>
-                            </div>
-                            <div class="col-md-8 ">
-                                      <input type="text" disabled name="EDateOfBirth" runat="server" id="EDateOfBirth" class="form-control" placeholder="">                                
-									    </div>
-                              </div>
-					    </div>                  
-                    </div>   
-               </div>
-    <hr />
-	  <%--////--------------  1    -------------- ///--%>
-	<div class="row rt  botx">
-                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Employmenthistory%>" /></label>
-                       </div>        
-							<div class="row rt">
-							   <div class="row rt col-md-12">							
-								<div  class="col-md-3" style="text-align: center;" >
-								<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Designation%>" /></label>
-								</div>							
-									<div  class="col-md-3" style="text-align: center;" >
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Organizationalunit%>" /></label>
-									</div>								
-									<div  class="col-md-3" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Datefrom%>" /></label>
-									</div>							
-									<div  class="col-md-3" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Dateto%>" /></label>
-									</div>							
-								</div>  
-						   </div>              
-	        <div runat="server"  id="superDIV1" class="superDIV1">
-			  <div  id="FirstItemEmploymenthistoryAA" style="display:none" >
-                 </div>
-               <div  id="FirstItemEmploymenthistory" >
-					<div class="row rt">	
-						<div  class="DivSID" style=" display: none;" >
-						<input type="text"  name="SID" runat="server" id="SID0" class="form-control" placeholder="">
-						</div>                       
-						<div class="col-md-3 DivDesignation">
-						<input type="text" name="Designation" runat="server" id="Designation0" class="form-control" placeholder="">
-						</div>
-						<div  class="col-md-3 DivOrganizationalunit">
-							<input type="text" name="Organizationalunit" runat="server" id="Organizationalunit0" class="form-control" placeholder="">
-						</div>
-						<div  class="col-md-3 ">
-							<div class="input-group date DivDatefrom" data-provide="datepicker">
-							<input autocomplete="off"  type="text" runat="server" id="Datefrom0" class="form-control">
-							<div class="input-group-addon">
-								<span class="icon-calendar-alt1"></span>
-							</div>									
-								</div>
-						</div>						
-						<div  class="col-md-3 ">
-							<div class="input-group date DivDateto" data-provide="datepicker">
-							<input autocomplete="off"  type="text" runat="server" id="Dateto0" class="form-control">
-							<div class="input-group-addon">
-								<span class="icon-calendar-alt1"></span>
-							</div>
-						</div>
-						</div>			 						   
-					</div>
+
+
+
+
+
+
+
+
                 </div>
+
+
+
             </div>
-			<div class="row rt ">
-    <div class="col-md-6">
-                    <a  onclick="addEmploymenthistory();" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
-                </div>
-        </div>
-    <hr />
-	  <%--////--------------  2    -------------- ///--%>
-	<div class="row rt  botx">
-                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Qualifications%>" /></label>
-                       </div>        
-							<div class="row rt">
-							   <div class="row rt col-md-12">							
-								<div  class="col-md-3" style="text-align: center;" >
-								<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Qualification%>" /></label>
-								</div>							
-									<div  class="col-md-2" style="text-align: center;" >
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Major%>" /></label>
-									</div>								
-									<div  class="col-md-2" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Institution%>" /></label>
-									</div>							
-									<div  class="col-md-2" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Country%>" /></label>
-									</div>	
-										<div  class="col-md-3" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, GraduationYear%>" /></label>
-									</div>										
-								</div>  
-						   </div>              
-	        <div runat="server"  id="superDIV2" class="superDIV2">
-			  <div  id="FirstItemAA2" style="display:none" >
-                 </div>
-               <div  id="FirstItem2" >
-					<div class="row rt">	
-						<div  class="DivSID2" style=" display: none;" >
-						<input type="text"  name="SID2" runat="server" id="SID02" class="form-control" placeholder="">
-						</div>                       
-						<div class="col-md-3 DivQualification">
-						<input type="text" name="Qualification" runat="server" id="Qualification0" class="form-control" placeholder="">
-						</div>
-						<div  class="col-md-2 DivMajor">
-							<input type="text" name="Major" runat="server" id="Major0" class="form-control" placeholder="">
-						</div>
-						<div  class="col-md-2 DivInstitution">
-							<input type="text" name="Institution" runat="server" id="Institution0" class="form-control" placeholder="">
-						</div>
-						
-						<div class="col-md-2 DivCountry ">
-                                   <label><asp:Literal runat="server" id="DDCountry"/></label>                        
-                                    <asp:DropDownList ID="DropDownCountry" runat="server" class="form-control">
-									</asp:DropDownList>
-                                </div>					
-						<div  class="col-md-3 ">
-							<div class="input-group date DivGraduationYear" data-provide="datepicker">
-							<input autocomplete="off"  type="text" runat="server" id="GraduationYear0" class="form-control">
-							<div class="input-group-addon">
-								<span class="icon-calendar-alt1"></span>
-							</div>									
-								</div>
-						</div>							 						   
-					</div>
-                </div>
-            </div>
-    <div class="row rt ">
-    <div class="col-md-6">
-                    <a onclick="addQualifications();" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
-                </div>
-        </div>
+
+    </div>
+    
 
 
- <%--////--------------  3    -------------- ///--%>
-	<div class="row rt  botx">
-                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, LanguageSkills%>" /></label>
-                       </div>        
-							<div class="row rt">
-							   <div class="row rt col-md-12">							
-								<div  class="col-md-3" style="text-align: center;" >
-								<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Language %>" /></label>
-								</div>							
-									<div  class="col-md-3" style="text-align: center;" >
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, ReadingLevel%>" /></label>
-									</div>								
-									<div  class="col-md-3" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, WritingLevel%>" /></label>
-									</div>							
-									<div  class="col-md-3" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, ConversationLevel%>" /></label>
-									</div>	
-																			
-								</div>  
-						   </div>              
-	        <div runat="server"  id="superDIV3" class="superDIV3">
-			  <div  id="FirstItemAA3" style="display:none" >
-                 </div>
-               <div  id="FirstItem3" >
-					<div class="row rt">	
-						<div  class="DivSID3" style=" display: none;" >
-						<input type="text"  name="SID3" runat="server" id="SID03" class="form-control" placeholder="">
-						</div>                       
-						<div class="col-md-3 DivLanguage">
-						<input type="text" name="Language" runat="server" id="Language0" class="form-control" placeholder="">
-						</div>						
-						<div class="col-md-3 DivReadingLevel ">
-                                   <label><asp:Literal runat="server" id="DDReadingLevel"/></label>                        
-                                    <asp:DropDownList ID="DropDownReadingLevel" runat="server" class="form-control">
-									</asp:DropDownList>
-                                </div>	
-						<div class="col-md-3 DivWritingLevel ">
-							   <label><asp:Literal runat="server" id="DDWritingLevel"/></label>                        
-								<asp:DropDownList ID="DropDownWritingLevel" runat="server" class="form-control">
-								</asp:DropDownList>
-							</div>		
-							<div class="col-md-3 DivConversationLevel ">
-							   <label><asp:Literal runat="server" id="DDConversationLevel"/></label>                        
-								<asp:DropDownList ID="DropDownConversationLevel" runat="server" class="form-control">
-								</asp:DropDownList>
-							</div>								 						   
-					</div>
-                </div>
-            </div>
-			<div class="row rt ">
-    <div class="col-md-6">
-                    <a  onclick="addLanguageSkills();" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
-                </div>
-        </div>
-
- <%--////--------------  4    -------------- ///--%>
-	<div class="row rt  botx">
-                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TechnicalSkills%>" /></label>
-                       </div>        
-							<div class="row rt">
-							   <div class="row rt col-md-12">							
-								<div  class="col-md-3" style="text-align: center;" >
-								<label><asp:Literal runat="server" Text="<%$ Resources:Resource, SkillType %>" /></label>
-								</div>							
-									<div  class="col-md-3" style="text-align: center;" >
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, SkillLevel%>" /></label>
-									</div>								
-									<div  class="col-md-3" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, AreaOfApplication%>" /></label>
-									</div>							
-									<div  class="col-md-3" style="text-align: center;">
-										<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Notes%>" /></label>
-									</div>	
-																			
-								</div>  
-						   </div>              
-	        <div runat="server"  id="superDIV4" class="superDIV4">
-			  <div  id="FirstItemAA4" style="display:none" >
-                 </div>
-               <div  id="FirstItem4" >
-					<div class="row rt">	
-						<div  class="DivSID4" style=" display: none;" >
-						<input type="text"  name="SID4" runat="server" id="SID04" class="form-control" placeholder="">
-						</div>                       
-						<div class="col-md-3 DivSkillType">
-						<input type="text" name="SkillType" runat="server" id="SkillType0" class="form-control" placeholder="">
-						</div>						
-						<div class="col-md-3 DivSkillLevel ">
-                                   <label><asp:Literal runat="server" id="DDSkillLevel"/></label>                        
-                                    <asp:DropDownList ID="DropDownSkillLevell" runat="server" class="form-control">
-									</asp:DropDownList>
-                                </div>	
-						<div class="col-md-3 DivAreaOfApplication">
-						<input type="text" name="AreaOfApplication" runat="server" id="AreaOfApplication0" class="form-control" placeholder="">
-						</div>	
-						<div class="col-md-3 DivNotes4">
-						<input type="text" name="Notes4" runat="server" id="Notes04" class="form-control" placeholder="">
-						</div>	
-
-
-						
-					</div>
-                </div>
-            </div>
-			<div class="row rt ">
-    <div class="col-md-6">
-                    <a  onclick="addTechnicalSkills();" class="morebutovn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
-                </div>
-        </div>
+<div id="posts2" runat="server" class="small-thumbs alt">	
 
 
 
@@ -352,7 +1752,8 @@
 
 
 
-		
+
+	
             <div class="row rt  botx">
                 <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
             </div>
@@ -364,15 +1765,23 @@
 <div id="Div1" runat="server" >
     <h4 class="ta3m" style="text-align: center;"><asp:Literal ID="Literal1" runat="server"></asp:Literal></h4>
 </div>
-
-
 <script src="/Style%20Library/MOJTheme/js/functions.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 <style>
-.new:nth-child(odd) {background-color: #f5e9b6;}
+.postcontent.nobottommargin.col_last.clearfix {
+    width: 95%;
+}
+.sidebar.nobottommargin.clearfix {
+    display: none;
+}
+.boxleftbor {
+    padding: 0;
+    box-shadow: none;
+    background: none;
+}
 .row.rt {
     margin-bottom: 1px;
     margin-top: 1px;
@@ -393,10 +1802,18 @@
 .rowI {
     padding-bottom: 10px;
 }
-.DivCountry label ,.DivReadingLevel label ,.DivWritingLevel label ,.DivConversationLevel label  {
+.DivCountry label ,.DivReadingLevel label ,.DivWritingLevel label ,.DivConversationLevel label ,.DivSkillLevel  label {
     display: none;
 }
-
+.cnrtnheadbox2 {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #cdcfd2;
+    justify-content: space-between;
+    padding: 8px 10px;
+    align-items: center;
+    align-items: center;
+}
 </style>
 <script>
     $(document).ready(function () {
@@ -433,12 +1850,32 @@
         scrollbar: true
     });
 </script>
+  <script>
+      $("#faqs dt:first-child").addClass("active");
+      $("#faqs dt:first-child").next().slideDown().siblings('dd').slideUp();
+
+      $('#faqs dt').click(function () {
+
+
+          if ($(this).hasClass('active')) {
+              $(this).removeClass('active');
+              $(this).next().slideUp();
+          } else {
+
+              $(this).siblings('dt').removeClass('active');
+              $(this).addClass('active');
+              $(this).next().slideDown().siblings('dd').slideUp();
+          }
+      });
+
+  </script>
 <script>
-    var counter1 = 1;
+    var counter1 = 0;
     if (document.getElementById('hdnsuperDIV1').value != "") {
-        counter1 = Number(document.getElementById('hdnsuperDIV1').value) + 1;
+        counter1 = Number(document.getElementById('hdnsuperDIV1').value);
     }
     function addEmploymenthistory() {
+        counter1++;
         $("#FirstItemEmploymenthistoryAA")[0].innerHTML = $("#FirstItemEmploymenthistory")[0].innerHTML;
         var Itemhtml = $("#FirstItemEmploymenthistoryAA");
         Itemhtml.find(".DivSID")[0].innerHTML = "<input name='SID' type=text' id='SID" + counter1 + "' class='form-control' placeholder=''>";
@@ -446,14 +1883,16 @@
         Itemhtml.find(".DivOrganizationalunit")[0].innerHTML = "<input name='Organizationalunit' type=text' id='Organizationalunit" + counter1 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivDatefrom")[0].innerHTML = "<input autocomplete='off' name='Datefrom' type='text' id='Datefrom" + counter1 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
         Itemhtml.find(".DivDateto")[0].innerHTML = "<input autocomplete='off' name='Dateto' type='text' id='Dateto" + counter1 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowEmploymenthistory(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
+
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
         att.value = "new";
         newdiv.setAttributeNode(att);
-        var allhtml = "<div class='rowI'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerowEmploymenthistory(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
         document.getElementsByClassName("superDIV1")[0].appendChild(newdiv);
-        counter1++;
+
         document.getElementById('hdnsuperDIV1').value = counter1;
         $("#FirstItemEmploymenthistoryAA")[0].innerHTML = "";
     }
@@ -463,31 +1902,31 @@
         thi.closest('.new').remove();
     }
     ////////////////////////////////////////2----------------------------------------------------
-    var counter2 = 1;
+    var counter2 = 0;
     if (document.getElementById('hdnsuperDIV2').value != "") {
-        counter2 = Number(document.getElementById('hdnsuperDIV2').value) + 1;
+        counter2 = Number(document.getElementById('hdnsuperDIV2').value);
     }
     function addQualifications() {
+        counter2++;
         $("#FirstItemAA2")[0].innerHTML = $("#FirstItem2")[0].innerHTML;
         var Itemhtml = $("#FirstItemAA2");
         Itemhtml.find(".DivSID2")[0].innerHTML = "<input name='SID2' type=text' id='SID2" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivQualification")[0].innerHTML = "<input name='Qualification' type=text' id='Qualification" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivMajor")[0].innerHTML = "<input name='Major' type=text' id='Major" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivInstitution")[0].innerHTML = "<input name='Institution' type=text' id='Institution" + counter2 + "' class='form-control' placeholder=''>";
-
-
         Itemhtml.find(".DivCountry select")[0].setAttribute("name", "DropDownCountry");
         Itemhtml.find(".DivCountry select")[0].setAttribute("id", "DropDownCountry" + counter2 + "");
-
         Itemhtml.find(".DivGraduationYear")[0].innerHTML = "<input autocomplete='off' name='GraduationYear' type='text' id='GraduationYear" + counter2 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowQualifications(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
+
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
         att.value = "new";
         newdiv.setAttributeNode(att);
-        var allhtml = "<div class='rowI'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerowQualifications(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
         document.getElementsByClassName("superDIV2")[0].appendChild(newdiv);
-        counter2++;
+
         document.getElementById('hdnsuperDIV2').value = counter2;
         $("#FirstItemAA2")[0].innerHTML = "";
     }
@@ -497,11 +1936,12 @@
         thi.closest('.new').remove();
     }
     ////////////////////////////////////////3----------------------------------------------------
-    var counter3 = 1;
+    var counter3 = 0;
     if (document.getElementById('hdnsuperDIV3').value != "") {
-        counter3 = Number(document.getElementById('hdnsuperDIV3').value) + 1;
+        counter3 = Number(document.getElementById('hdnsuperDIV3').value);
     }
     function addLanguageSkills() {
+        counter3++;
         $("#FirstItemAA3")[0].innerHTML = $("#FirstItem3")[0].innerHTML;
         var Itemhtml = $("#FirstItemAA3");
         Itemhtml.find(".DivSID3")[0].innerHTML = "<input name='SID3' type=text' id='SID3" + counter3 + "' class='form-control' placeholder=''>";
@@ -512,15 +1952,16 @@
         Itemhtml.find(".DivWritingLevel select")[0].setAttribute("id", "DropDownWritingLevel" + counter3 + "");
         Itemhtml.find(".DivConversationLevel select")[0].setAttribute("name", "DropDownConversationLevel");
         Itemhtml.find(".DivConversationLevel select")[0].setAttribute("id", "DropDownConversationLevel" + counter3 + "");
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowLanguageSkills(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
 
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
         att.value = "new";
         newdiv.setAttributeNode(att);
-        var allhtml = "<div class='rowI'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerowLanguageSkills(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
         document.getElementsByClassName("superDIV3")[0].appendChild(newdiv);
-        counter3++;
+
         document.getElementById('hdnsuperDIV3').value = counter3;
         $("#FirstItemAA3")[0].innerHTML = "";
     }
@@ -530,28 +1971,30 @@
         thi.closest('.new').remove();
     }
     ////////////////////////////////////////4----------------------------------------------------
-    var counter4 = 1;
+    var counter4 = 0;
     if (document.getElementById('hdnsuperDIV4').value != "") {
-        counter4 = Number(document.getElementById('hdnsuperDIV4').value) + 1;
+        counter4 = Number(document.getElementById('hdnsuperDIV4').value);
     }
     function addTechnicalSkills() {
+        counter4++;
         $("#FirstItemAA4")[0].innerHTML = $("#FirstItem4")[0].innerHTML;
         var Itemhtml = $("#FirstItemAA4");
         Itemhtml.find(".DivSID4")[0].innerHTML = "<input name='SID4' type=text' id='SID4" + counter4 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivSkillType")[0].innerHTML = "<input name='SkillType' type=text' id='SkillType" + counter4 + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivSkillLevel select")[0].setAttribute("name", "DropDownSkillLevell");
-        Itemhtml.find(".DivSkillLevel select")[0].setAttribute("id", "DropDownSkillLevell" + counter4 + "");
+        Itemhtml.find(".DivSkillLevel select")[0].setAttribute("name", "DropDownSkillLevel");
+        Itemhtml.find(".DivSkillLevel select")[0].setAttribute("id", "DropDownSkillLevel" + counter4 + "");
         Itemhtml.find(".DivAreaOfApplication")[0].innerHTML = "<input name='AreaOfApplication' type=text' id='AreaOfApplication" + counter4 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivNotes4")[0].innerHTML = "<input name='Notes4' type=text' id='Notes4" + counter4 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowTechnicalSkills(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
 
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
         att.value = "new";
         newdiv.setAttributeNode(att);
-        var allhtml = "<div class='rowI'> <hr><div class='row rt'><span style='padding-right: 25px;margin-top: -15px;' onclick='removerowTechnicalSkills(this);'><span class='icon-remove'></span></span></div>" + Itemhtml[0].innerHTML + "</div>";
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
         document.getElementsByClassName("superDIV4")[0].appendChild(newdiv);
-        counter4++;
+
         document.getElementById('hdnsuperDIV4').value = counter4;
         $("#FirstItemAA4")[0].innerHTML = "";
     }
@@ -559,5 +2002,80 @@
         counter4--;
         document.getElementById('hdnsuperDIV4').value = counter4;
         thi.closest('.new').remove();
+    }
+    ////////////////////////////////////////5----------------------------------------------------
+    var counter5 = 0;
+    if (document.getElementById('hdnsuperDIV5').value != "") {
+        counter5 = Number(document.getElementById('hdnsuperDIV5').value);
+    }
+    function addOtherSkills() {
+        counter5++;
+        $("#FirstItemAA5")[0].innerHTML = $("#FirstItem5")[0].innerHTML;
+        var Itemhtml = $("#FirstItemAA5");
+        Itemhtml.find(".DivSID5")[0].innerHTML = "<input name='SID5' type=text' id='SID5" + counter5 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivSkillTheEmployeeHave")[0].innerHTML = "<input name='SkillTheEmployeeHave' type=text' id='SkillTheEmployeeHave" + counter5 + "' class='form-control' placeholder=''>";
+
+        Itemhtml.find(".DivNotes5")[0].innerHTML = "<input name='Notes5' type=text' id='Notes5" + counter5 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowOtherSkills(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
+
+        var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "new";
+        newdiv.setAttributeNode(att);
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
+        newdiv.innerHTML = allhtml;
+        document.getElementsByClassName("superDIV5")[0].appendChild(newdiv);
+
+        document.getElementById('hdnsuperDIV5').value = counter5;
+        $("#FirstItemAA5")[0].innerHTML = "";
+    }
+    function removerowOtherSkills(thi) {
+        counter5--;
+        document.getElementById('hdnsuperDIV5').value = counter5;
+        thi.closest('.new').remove();
+    }
+    ////////////////////////////////////////6----------------------------------------------------
+    var counter6 = 0;
+    if (document.getElementById('hdnsuperDIV6').value != "") {
+        counter6 = Number(document.getElementById('hdnsuperDIV6').value);
+    }
+    function addTrainingCourses() {
+        counter6++;
+        $("#FirstItemAA6")[0].innerHTML = $("#FirstItem6")[0].innerHTML;
+        var Itemhtml = $("#FirstItemAA6");
+        Itemhtml.find(".DivSID6")[0].innerHTML = "<input name='SID6' type=text' id='SID6" + counter6 + "' class='form-control' placeholder=''>";
+        var radio1 = Itemhtml.find(".DivWithinThePlan label")[0].innerText;
+        var radiovalue1 = Itemhtml.find(".DivWithinThePlan input")[0].value;
+        var radio2 = Itemhtml.find(".DivWithinThePlan label")[1].innerText;
+        var radiovalue2 = Itemhtml.find(".DivWithinThePlan input")[1].value;
+        var vaWithinThePlan = "<input name='WithinThePlan' type='text' id='WithinThePlanvalue" + counter + "' style='display:none' placeholder=''>";
+        vaWithinThePlan += "<table id='WithinThePlan" + counter + "' class='checkbox-click-target' style='width:100%;'><tbody><tr><td>";
+        vaWithinThePlan += "<input class='radio-button'  onchange=\"handleChange('WithinThePlanvalue" + counter + "','" + radiovalue1 + "');\"  id='WithinThePlan" + counter + "_0' type='radio' name='WithinThePlanR" + counter + "' value='" + radiovalue1 + "'><label for='WithinThePlan" + counter + "_0' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + radio1 + "</label></td><td>"
+        vaWithinThePlan += "<input  class='radio-button' onchange=\"handleChange('WithinThePlanvalue" + counter + "','" + radiovalue2 + "');\" id='WithinThePlan" + counter + "_1' type='radio' name='WithinThePlanR" + counter + "' value='" + radiovalue2 + "'><label for='WithinThePlan" + counter + "_1'  class='radio-button-click-target'><span class='radio-button-circle'></span>" + radio2 + "</label></td>";
+        vaWithinThePlan += "</tr></tbody></table>";
+        Itemhtml.find(".DivWithinThePlan")[0].innerHTML = vaWithinThePlan;
+        Itemhtml.find(".DivCourseName")[0].innerHTML = "<input name='CourseName' type=text' id='CourseName" + counter6 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivTrainingHours")[0].innerHTML = "<input name='TrainingHours' type=text' id='TrainingHours" + counter6 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivDatefrom6")[0].innerHTML = "<input autocomplete='off' name='Datefrom6' type='text' id='Datefrom6" + counter1 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DivDateto6")[0].innerHTML = "<input autocomplete='off' name='Dateto6' type='text' id='Dateto6" + counter1 + "' class='form-control'><div class='input-group-addon'><span class='icon-calendar-alt1'></span></div>";
+        Itemhtml.find(".DiCourseLocation")[0].innerHTML = "<input name='CourseLocation' type=text' id='CourseLocation" + counter6 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DiveDelete")[0].innerHTML = "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowTrainingCourses(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>";
+        var newdiv = document.createElement('div');
+        var att = document.createAttribute("class");
+        att.value = "new";
+        newdiv.setAttributeNode(att);
+        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
+        newdiv.innerHTML = allhtml;
+        document.getElementsByClassName("superDIV6")[0].appendChild(newdiv);
+        document.getElementById('hdnsuperDIV6').value = counter6;
+        $("#FirstItemAA6")[0].innerHTML = "";
+    }
+    function removerowTrainingCourses(thi) {
+        counter6--;
+        document.getElementById('hdnsuperDIV6').value = counter6;
+        thi.closest('.new').remove();
+    }
+    function handleChange(ID, radio1) {
+        $("#" + ID).val(radio1)
     }
 </script>

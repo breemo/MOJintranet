@@ -301,15 +301,6 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText EPosition;
         
         /// <summary>
-        /// EMaritalStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText EMaritalStatus;
-        
-        /// <summary>
         /// EDateOfBirth control.
         /// </summary>
         /// <remarks>
@@ -317,6 +308,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText EDateOfBirth;
+        
+        /// <summary>
+        /// EMaritalStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EMaritalStatus;
         
         /// <summary>
         /// superDIV1 control.
@@ -587,6 +587,123 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText Notes04;
+        
+        /// <summary>
+        /// superDIV5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl superDIV5;
+        
+        /// <summary>
+        /// SID05 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SID05;
+        
+        /// <summary>
+        /// SkillTheEmployeeHave0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SkillTheEmployeeHave0;
+        
+        /// <summary>
+        /// Notes05 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Notes05;
+        
+        /// <summary>
+        /// superDIV6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl superDIV6;
+        
+        /// <summary>
+        /// SID06 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SID06;
+        
+        /// <summary>
+        /// CourseName0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CourseName0;
+        
+        /// <summary>
+        /// WithinThePlan0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList WithinThePlan0;
+        
+        /// <summary>
+        /// TrainingHours0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TrainingHours0;
+        
+        /// <summary>
+        /// Datefrom06 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Datefrom06;
+        
+        /// <summary>
+        /// Dateto06 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Dateto06;
+        
+        /// <summary>
+        /// CourseLocation0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText CourseLocation0;
+        
+        /// <summary>
+        /// posts2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts2;
         
         /// <summary>
         /// btnsubmit control.

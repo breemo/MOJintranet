@@ -27,14 +27,116 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 EmploymentHistoryData();
                 GetCountrys();
                 QualificationsData();
+                TrainingCoursesData();
                 LanguageSkillsData();
                 TechnicalSkillsData();
+                OtherSkillsData();
                 Getlevels();
+                WithinThePlan();
+
+            }
+        }
+        private void TrainingCoursesData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<TrainingCoursesEntity> QualificationsData = objIK.GetTrainingCourses(currentUserlogin);
+                int x = 0;
+                foreach (TrainingCoursesEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID06.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV6.Value = item.ID.ToString() + "#";
+
+                        CourseName0.Value = item.CourseName.ToString();
+                        WithinThePlan0.SelectedValue = item.WithinThePlan.ToString();
+                        TrainingHours0.Value = item.TrainingHours.ToString();
+                        Datefrom06.Value = item.FromDate.ToString("MM/dd/yyyy");
+                        Dateto06.Value = item.ToDate.ToString("MM/dd/yyyy");
+                        CourseLocation0.Value = item.CourseLocation.ToString();
+                    }
+                    else
+                    {
+                        hdnsuperDIV6.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV6.Value += item.ID.ToString() + "#";
+                        var textYes = SPUtility.GetLocalizedString("$Resources: Yes", "Resource", SPContext.Current.Web.Language);
+                        var textNo = SPUtility.GetLocalizedString("$Resources: No", "Resource", SPContext.Current.Web.Language);
+                        var checkedYes = "";
+                        var checkedNo = "";
+                        if (item.CourseName.ToString() == "Yes")
+                        {
+                            checkedYes = "checked ='checked'";                            
+                        }
+                        else
+                        {
+                            checkedNo = "checked ='checked'";
+                        }
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID6' style=' display: none;'><input name='SID6' value='" + item.ID.ToString() + "' type='text' id='SID6" + x + "' class='form-control' placeholder=''></div> " +
+                        "<div class='col-md-2 DivCourseName'><input name='CourseName' value='" + item.CourseName.ToString() + "' type='text' id='CourseName" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivWithinThePlan RadiB'>" +
+                                    "<input name='WithinThePlan' value='" + item.WithinThePlan.ToString() + "' type='text' id='WithinThePlanvalue" + x + "' style='display:none' placeholder=''>" +
+                                   " <table id='WithinThePlan" + x + "' class='checkbox-click-target' style='width:100%;'>" +
+                                            "<tbody><tr>" +
+                                                "<td><input "+checkedYes+" class='radio-button' onchange=\"handleChange('WithinThePlanvalue" + x + "','Yes');\" id='WithinThePlan" + x + "_0' type='radio' name='WithinThePlanR" + x + "' value='Yes'>" +
+                                                "<label for='WithinThePlan" + x + "_0' class='radio-button-click-target'> <span class='radio-button-circle'></span>"+ textYes + "</label>" +
+                                                "</td>" +
+                                                "<td><input " + checkedNo + " class='radio-button' onchange=\"handleChange('WithinThePlanvalue" + x + "','No');\" id='WithinThePlan" + x + "_1' type='radio' name='WithinThePlanR" + x + "' value='No'>" +
+                                                "<label for='WithinThePlan" + x + "_1' class='radio-button-click-target'> <span class='radio-button-circle'></span>"+ textNo + "</label>" +
+                                                "</td>	" +
+                                            "</tr></tbody>" +
+                                    "</table>" +
+                            "</div>" +
+                        "<div class='col-md-2 DiTrainingHours'><input name='TrainingHours' value='" + item.TrainingHours.ToString() + "' type='text' id='TrainingHours" + x + "' class='form-control' placeholder=''></div>" +                       
+                            "	<div class='col-md-2 '>" +
+                            "	<div class='input-group date DivDatefrom6' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.FromDate.ToString("MM/dd/yyyy") + "'  name='Datefrom6' type='text' id='Datefrom6' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+                            "	<div class='col-md-2 '>" +
+                            "	<div class='input-group date DivDateto6' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.ToDate.ToString("MM/dd/yyyy") + "'  name='Dateto6' type='text' id='Dateto6' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+                             "<div class='col-md-1 DivCourseLocation'><input name='CourseLocation' value='" + item.CourseLocation.ToString() + "' type='text'' id='CourseLocation" + x + "' class='form-control' placeholder=''></div>" +
+
+                             "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowTrainingCourses(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
+                "</div>";
+
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV6.Controls.Add(newDiv);
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
             }
         }
 
+        private void WithinThePlan()
+        {
+            var placetext = SPUtility.GetLocalizedString("$Resources: Yes", "Resource", SPContext.Current.Web.Language);
+            placetext = "<span class='radio-button-circle'></span>" + placetext;
+            WithinThePlan0.Items.Add(new ListItem(placetext, "Yes"));
 
-          private void LanguageSkillsData()
+            var placetext2 = SPUtility.GetLocalizedString("$Resources: No", "Resource", SPContext.Current.Web.Language);
+            placetext2 = "<span class='radio-button-circle'></span>" + placetext2;
+            WithinThePlan0.Items.Add(new ListItem(placetext, "No"));
+        }
+        private void LanguageSkillsData()
         {
             try
             {
@@ -105,12 +207,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 options3 += "<option " + selct3 + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["TitleEN"].ToString() + "</option>";
                             }
                          }
-                        var htmlrow1 = "<div class='rowI'> <hr><div class='row rt'>" +
-            "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowLanguageSkills(this);'>" +
-            "<span class='icon-remove'></span></span></div>" +
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                         "<div class='DivSID3' style=' display: none;'><input name='SID3' value='" + item.ID.ToString() + "' type='text' id='SID3" + x + "' class='form-control' placeholder=''></div> " +
-                        "<div class='col-md-3 DivLanguage'><input name='Language' value='" + item.Language.ToString() + "' type='text' id='Language" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivLanguage'><input name='Language' value='" + item.Language.ToString() + "' type='text' id='Language" + x + "' class='form-control' placeholder=''></div>" +
                        "<div class='col-md-3 DivReadingLevel '>" +
                         "<select name='DropDownReadingLevel' id='DropDownReadingLevel" + x + "' class='form-control'>" +
                           options +
@@ -123,6 +223,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         "<select name='DropDownConversationLevel' id='DropDownConversationLevel" + x + "' class='form-control'>" +
                           options3 +
                         "</select></div>" +
+                        "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowLanguageSkills(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
                     "</div>" +
                 "</div>";
                         // document.getElementById('dynamicInputChildren').appendChild(newdiv);
@@ -131,6 +234,54 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         newDiv.Attributes.Add("class", "new");
                         newDiv.InnerHtml = htmlrow1;
                         superDIV3.Controls.Add(newDiv);
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+        private void OtherSkillsData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<OtherSkillsEntity> QualificationsData = objIK.GeteOtherSkills(currentUserlogin);
+                int x = 0;
+                foreach (OtherSkillsEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID05.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV5.Value = item.ID.ToString() + "#";
+                        SkillTheEmployeeHave0.Value = item.SkillTheEmployeeHave.ToString();
+                        Notes05.Value = item.Notes.ToString();
+                    }
+                    else
+                    {
+                        hdnsuperDIV5.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV5.Value += item.ID.ToString() + "#";
+                       
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID5' style=' display: none;'><input name='SID5' value='" + item.ID.ToString() + "' type='text' id='SID5" + x + "' class='form-control' placeholder=''></div> " +
+                        "<div class='col-md-5 DivSkillTheEmployeeHave'><input name='SkillTheEmployeeHave' value='" + item.SkillTheEmployeeHave.ToString() + "' type='text' id='SkillTheEmployeeHave" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-5 DivNotes5'><input name='Notes5' value='" + item.Notes.ToString() + "' type='text' id='Notes5" + x + "' class='form-control' placeholder=''></div>" +
+                         "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowOtherSkills(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                        "</div>" +
+                "</div>";
+                        // document.getElementById('dynamicInputChildren').appendChild(newdiv);
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV5.Controls.Add(newDiv);
 
                     }
                     x++;
@@ -190,19 +341,20 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["TitleEN"].ToString() + "</option>";
                             }
                         }
-                        var htmlrow1 = "<div class='rowI'> <hr><div class='row rt'>" +
-            "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowTechnicalSkills(this);'>" +
-            "<span class='icon-remove'></span></span></div>" +
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                         "<div class='DivSID4' style=' display: none;'><input name='SID4' value='" + item.ID.ToString() + "' type='text' id='SID4" + x + "' class='form-control' placeholder=''></div> " +
-                        "<div class='col-md-3 DivSkillType'><input name='SkillType' value='" + item.SkillType.ToString() + "' type='text' id='SkillType" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivSkillType'><input name='SkillType' value='" + item.SkillType.ToString() + "' type='text' id='SkillType" + x + "' class='form-control' placeholder=''></div>" +
                        "<div class='col-md-3 DivSkillLevel '>" +
                         "<select name='DropDownSkillLevel' id='DropDownSkillLevel" + x + "' class='form-control'>" +
                           options +
                         "</select></div>" +
                           "<div class='col-md-3 DivAreaOfApplication'><input name='AreaOfApplication' value='" + item.AreaOfApplication.ToString() + "' type='text' id='AreaOfApplication" + x + "' class='form-control' placeholder=''></div>" +
                             "<div class='col-md-3 DivNotes4'><input name='Notes4' value='" + item.Notes.ToString() + "' type='text' id='Notes4" + x + "' class='form-control' placeholder=''></div>" +
-                           "</div>" +
+                          "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowTechnicalSkills(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
                 "</div>";
                         // document.getElementById('dynamicInputChildren').appendChild(newdiv);
                         System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
@@ -307,24 +459,25 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
 
                             }
                          }
-                        var htmlrow1 = "<div class='rowI'> <hr><div class='row rt'>" +
-            "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowQualifications(this);'>" +
-            "<span class='icon-remove'></span></span></div>" +
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                         "<div class='DivSID2' style=' display: none;'><input name='SID2' value='" + item.ID.ToString() + "' type='text' id='SID2" + x + "' class='form-control' placeholder=''></div> " +
                         "<div class='col-md-3 DivQualification'><input name='Qualification' value='" + item.Qualification.ToString() + "' type='text' id='Qualification" + x + "' class='form-control' placeholder=''></div>" +
                         "<div class='col-md-2 DivMajor'><input name='Major' value='" + item.Major.ToString() + "' type='text' id='Major" + x + "' class='form-control' placeholder=''></div>" +
-                        "<div class='col-md-2 DivInst itution'><input name='Institution' value='" + item.Institution.ToString() + "' type='text'' id='Institution" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivInstitution'><input name='Institution' value='" + item.Institution.ToString() + "' type='text'' id='Institution" + x + "' class='form-control' placeholder=''></div>" +
                         "<div class='col-md-2 DivCountry '>" +
                         "<select name='DropDownCountry' id='DropDownCountry" + x + "' class='form-control'>" +
                           options +
                         "</select></div>" +
-                        "	<div class='col-md-3 '>" +
+                        "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivGraduationYear' data-provide='datepicker'>" +
                             "	<input autocomplete='off' value='" + item.GraduationYear.ToString("MM/dd/yyyy") + "'  name='GraduationYear' type='text' id='GraduationYear1' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
-                    "</div>" +
+                             "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowQualifications(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +                   
                 "</div>";
                         // document.getElementById('dynamicInputChildren').appendChild(newdiv);
                         System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
@@ -385,25 +538,27 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         hdnsuperDIV1.Value =Convert.ToString(x);
                         
                         RetrevehdnsuperDIV1.Value += item.ID.ToString() + "#";
-                        var htmlrow1 = "<div class='rowI'> <hr><div class='row rt'>" +
-                            "<span style='padding-right: 25px; margin-top: -15px; ' onclick='removerowEmploymenthistory(this); '>" +
-                            "<span class='icon-remove'></span></span></div>" +
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                                    "<div class=' DivSID' style=' display: none;'>" +
                                      "<input name='SID' type='text' value='" + item.ID.ToString() + "' id='SID" + x + "' class='form-control' placeholder=''>" +
                                     "</div>" +
-                            "<div class='col-md-3 DivDesignation'><input name='Designation' value='" + item.Designation.ToString() + "' type='text'' id='Designation" + x + "' class='form-control' placeholder=''>" +
+                            "<div class='col-md-4 DivDesignation'><input name='Designation' value='" + item.Designation.ToString() + "' type='text'' id='Designation" + x + "' class='form-control' placeholder=''>" +
                             "</div>" +
                                 "<div class='col-md-3 DivOrganizationalunit'><input name='Organizationalunit' value='" + item.OrganizationalUnit.ToString() + "' type='text'' id='Organizationalunit" + x + "' class='form-control' placeholder=''>" +
                                 "</div> " +
-                                    "<div class='col-md-3 '>" +
+                                    "<div class='col-md-2 '>" +
                                     "	<div class='input-group date DivDatefrom' data-provide='datepicker'><input autocomplete='off' value='" + item.DateFrom.ToString("MM/dd/yyyy") + "' name='Datefrom' type='text' id='Datefrom" + x + "' class='form-control'>" +
                                     "<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                                      "</div>" +
-                                    "<div class='col-md-3 '>" +
+                                    "<div class='col-md-2'>" +
                                     "<div class='input-group date DivDateto' data-provide='datepicker'><input value='" + item.DateTo.ToString("MM/dd/yyyy") + "' autocomplete='off' name='Dateto' type='text' id='Dateto" + x + "' class='form-control'>" +
-                                    "<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
-                         " </div></div></div>";
+                                    "<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div> </div>" +
+                                     "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowEmploymenthistory(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>"+
+                                  "</div>" +
+
+                         " </div></div>";
 
                         // document.getElementById('dynamicInputChildren').appendChild(newdiv);
                         System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
@@ -530,7 +685,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         Entit1.Title = currentUserlogin;
                         list1.Add(Entit1);
                     }
-                    if (hdnsuperDIV1.Value != "")
+                    if (hdnsuperDIV1.Value != "" && hdnsuperDIV1.Value != "0")
                     {
                         string[] SID = Request.Form.GetValues("SID");
                         string[] Designation = Request.Form.GetValues("Designation");
@@ -611,7 +766,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         Entit2.Title = currentUserlogin;
                         list2.Add(Entit2);
                     }
-                    if (hdnsuperDIV2.Value != "")
+                    if (hdnsuperDIV2.Value != ""&& hdnsuperDIV2.Value != "0")
                     {
                         string[] SID2 = Request.Form.GetValues("SID2");
                         string[] Qualification = Request.Form.GetValues("Qualification");
@@ -679,12 +834,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         if (!string.IsNullOrEmpty(SID03.Value))
                         {
                             Entit3.ID = Convert.ToInt32(SID03.Value);
-                            RetrevehdnsuperDIV3.Value = RetrevehdnsuperDIV2.Value.Replace(Entit3.ID + "#", "");
+                            RetrevehdnsuperDIV3.Value = RetrevehdnsuperDIV3.Value.Replace(Entit3.ID + "#", "");
                         }
                         Entit3.Title = currentUserlogin;
                         list3.Add(Entit3);
                     }
-                    if (hdnsuperDIV3.Value != "")
+                    if (hdnsuperDIV3.Value != ""&& hdnsuperDIV3.Value != "0")
                     {
                         string[] SID3 = Request.Form.GetValues("SID3");
                         string[] Language = Request.Form.GetValues("Language");
@@ -744,16 +899,16 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         if (!string.IsNullOrEmpty(SID04.Value))
                         {
                             Entit4.ID = Convert.ToInt32(SID04.Value);
-                            RetrevehdnsuperDIV4.Value = RetrevehdnsuperDIV2.Value.Replace(Entit4.ID + "#", "");
+                            RetrevehdnsuperDIV4.Value = RetrevehdnsuperDIV4.Value.Replace(Entit4.ID + "#", "");
                         }
                         Entit4.Title = currentUserlogin;
                         list4.Add(Entit4);
                     }
-                    if (hdnsuperDIV4.Value != "")
+                    if (hdnsuperDIV4.Value != ""&& hdnsuperDIV4.Value != "0")
                     {
                         string[] SID4 = Request.Form.GetValues("SID4");
                         string[] SkillType = Request.Form.GetValues("SkillType");
-                        string[] DropDownSkillLevell = Request.Form.GetValues("DropDownSkillLevell");
+                        string[] DropDownSkillLevell = Request.Form.GetValues("DropDownSkillLevel");
                         string[] AreaOfApplication = Request.Form.GetValues("AreaOfApplication");
                         string[] Notes4 = Request.Form.GetValues("Notes4");
                         for (int x = 0; x < Convert.ToInt32(SkillType.Length); x++)
@@ -795,6 +950,155 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                     }
                     //////////////////////////////////6///////////////////////
 
+                    List<OtherSkillsEntity> list5 = new List<OtherSkillsEntity>();
+                    OtherSkillsEntity Entit5 = new OtherSkillsEntity();
+                    if (!string.IsNullOrEmpty(SkillTheEmployeeHave0.Value))
+                    {
+                        Entit5.SkillTheEmployeeHave = SkillTheEmployeeHave0.Value;
+                        Entit5.Notes = Notes05.Value.ToString();
+                        Entit5.PID = PID;
+                        if (!string.IsNullOrEmpty(SID05.Value))
+                        {
+                            Entit5.ID = Convert.ToInt32(SID05.Value);
+                            RetrevehdnsuperDIV5.Value = RetrevehdnsuperDIV5.Value.Replace(Entit5.ID + "#", "");
+                        }
+                        Entit5.Title = currentUserlogin;
+                        list5.Add(Entit5);
+                    }
+                    if (hdnsuperDIV5.Value != "" && hdnsuperDIV5.Value != "0")
+                    {
+                        string[] SID5 = Request.Form.GetValues("SID5");
+                        string[] SkillTheEmployeeHave = Request.Form.GetValues("SkillTheEmployeeHave");
+                        string[] Notes5 = Request.Form.GetValues("Notes5");
+                        for (int x = 0; x < Convert.ToInt32(SkillTheEmployeeHave.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(SkillTheEmployeeHave[x]))
+                            {
+                                OtherSkillsEntity ob = new OtherSkillsEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;
+                                ob.SkillTheEmployeeHave = SkillTheEmployeeHave[x];
+                                ob.Notes = Notes5[x];
+                                if (!string.IsNullOrEmpty(SID5[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID5[x]);
+                                    RetrevehdnsuperDIV5.Value = RetrevehdnsuperDIV5.Value.Replace(ob.ID + "#", "");
+                                }
+                                list5.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdateOtherSkills(list5);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV5.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV5.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("OtherSkills", ListSID1);
+                        }
+                    }
+                    ////////////////////////////////// 7 ///////////////////////
+                   
+                    List<TrainingCoursesEntity> list6 = new List<TrainingCoursesEntity>();
+                    TrainingCoursesEntity Entit6 = new TrainingCoursesEntity();
+                    if (!string.IsNullOrEmpty(CourseName0.Value))
+                    {
+                        DateTime Date = new DateTime();
+                        if (!string.IsNullOrEmpty(Datefrom06.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(Datefrom06.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date = sDate2;
+                        }
+                        DateTime Date2 = new DateTime();
+                        if (!string.IsNullOrEmpty(Dateto06.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(Dateto06.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date2 = sDate2;
+                        }
+                        Entit6.FromDate = Date;
+                        Entit6.ToDate = Date2;
+                        Entit6.CourseLocation = CourseLocation0.Value;
+                        Entit6.CourseName = CourseName0.Value;
+                        Entit6.TrainingHours = TrainingHours0.Value;
+                        Entit6.WithinThePlan = WithinThePlan0.SelectedValue.ToString();
+                        Entit6.PID = PID;
+                        if (!string.IsNullOrEmpty(SID06.Value))
+                        {
+                            Entit6.ID = Convert.ToInt32(SID06.Value);
+                            RetrevehdnsuperDIV6.Value = RetrevehdnsuperDIV6.Value.Replace(Entit6.ID + "#", "");
+                        }
+                        Entit6.Title = currentUserlogin;
+                        list6.Add(Entit6);
+                    }
+                    if (hdnsuperDIV6.Value != "" && hdnsuperDIV6.Value != "0")
+                    {
+                        string[] SID6 = Request.Form.GetValues("SID6");
+                        string[] FromDate = Request.Form.GetValues("Datefrom6");
+                        string[] ToDate = Request.Form.GetValues("Dateto6");
+                        string[] CourseLocation = Request.Form.GetValues("CourseLocation");
+                        string[] CourseName = Request.Form.GetValues("CourseName");
+                        string[] TrainingHours = Request.Form.GetValues("TrainingHours");
+                        string[] WithinThePlan = Request.Form.GetValues("WithinThePlan");
+                        for (int x = 0; x < Convert.ToInt32(CourseName.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(CourseName[x]))
+                            {
+                                TrainingCoursesEntity ob = new TrainingCoursesEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;
+                                DateTime Date = new DateTime();
+                                if (!string.IsNullOrEmpty(FromDate[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(FromDate[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date = sDate2;
+                                }
+                                DateTime Date2 = new DateTime();
+                                if (!string.IsNullOrEmpty(ToDate[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(ToDate[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date2 = sDate2;
+                                }
+                                ob.FromDate = Date;
+                                ob.ToDate = Date;
+                                ob.CourseLocation = CourseLocation[x];
+                                ob.CourseName = CourseName[x];
+                                ob.TrainingHours = TrainingHours[x];
+                                ob.WithinThePlan = WithinThePlan[x];
+                                if (!string.IsNullOrEmpty(SID6[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID6[x]);
+                                    RetrevehdnsuperDIV6.Value = RetrevehdnsuperDIV6.Value.Replace(ob.ID + "#", "");
+                                }
+                                list6.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdateTrainingCourses(list6);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV6.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV6.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("TrainingCourses", ListSID1);
+                        }
+                    }
+                    //////////////////////////////////8///////////////////////
 
 
 
