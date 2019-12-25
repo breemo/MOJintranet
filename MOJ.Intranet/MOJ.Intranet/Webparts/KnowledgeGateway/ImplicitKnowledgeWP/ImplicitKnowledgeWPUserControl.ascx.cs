@@ -1201,12 +1201,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
 
             if (languageCode == "ar")
             {
-                Response.Redirect("/Ar/Implicit-knowledge.aspx");
+                Response.Redirect("/Ar/KnowledgeGateway/Pages/Implicit-knowledge.aspx");
 
             }
             else
             {
-                Response.Redirect("/En/Implicit-knowledge.aspx");
+                Response.Redirect("/En/KnowledgeGateway/Pages/Implicit-knowledge.aspx");
             }
 
         }

@@ -222,7 +222,7 @@
 															</div>															                                               
                                                     </div>
 													<div>
-													  	<a  onclick="addEmploymenthistory();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+													  	<a  onclick="addEmploymenthistory();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
                                                         </div>
 													</dd>
                                                
@@ -305,7 +305,7 @@
 																				
 																			</div>
 																			<div>
-																					<a  onclick="addQualifications();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																					<a  onclick="addQualifications();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 																						</div>
 														 </dd>
 
@@ -379,7 +379,7 @@
 														</div>
 													</div>
 													<div>
-														 <a  onclick="addLanguageSkills();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>    
+														 <a  onclick="addLanguageSkills();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>    
 													</div>
                                                 </dd>
 
@@ -451,7 +451,7 @@
 													</div>
 												</div>
 												<div>
-													<a  onclick="addTechnicalSkills();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>											
+													<a  onclick="addTechnicalSkills();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>											
 													</div>                                               
 											   </dd>
 											   <dt>
@@ -502,7 +502,7 @@
 													</div>
 												</div>
 												<div>
-													<a  onclick="addOtherSkills();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+													<a  onclick="addOtherSkills();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 												</div>
                                                 </dd>
                                                 <dt>
@@ -598,7 +598,7 @@
 													</div>												
 													</div>												
 												<div>
-													<a  onclick="addTrainingCourses();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+													<a  onclick="addTrainingCourses();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 												</div>								
 													
                                                 </dd>
@@ -678,7 +678,7 @@
 													</div>												
 													</div>												
 												<div>
-													<a  onclick="addExpertise();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+													<a  onclick="addExpertise();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 												</div>								
 													
                                                 </dd>
@@ -751,7 +751,7 @@
 																				</div>																				
 																			</div>
 																			<div>
-																					<a  onclick="addPublications();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																					<a  onclick="addPublications();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 																						</div>
 														 </dd>
 														 
@@ -832,7 +832,7 @@
 																				
 																			</div>
 																			<div>
-																					<a  onclick="addTravelInformations();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																					<a  onclick="addTravelInformations();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 																						</div>
 														 </dd>
 														 
@@ -902,7 +902,7 @@
 																				</div>																				
 																			</div>
 																			<div>
-																					<a  onclick="addParticipations();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																					<a  onclick="addParticipations();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 																						</div>
 														 </dd>
 
@@ -997,7 +997,7 @@
 																				
 																			</div>
 																			<div>
-																					<a  onclick="addMembership();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																					<a  onclick="addMembership();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 																						</div>
 														 </dd>
 
@@ -1048,7 +1048,7 @@
 																				
 																			</div>
 																			<div>
-																					<a  onclick="addHopis();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																					<a  onclick="addHopis();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 																						</div>
 														 </dd>
 														 
@@ -1128,7 +1128,7 @@
 																				
 																			</div>
 																			<div>
-																					<a  onclick="addVoluntaryWork();" class="addmorebtn"><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
+																					<a  onclick="addVoluntaryWork();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
 																						</div>
 														 </dd> 
 										 </dl>
