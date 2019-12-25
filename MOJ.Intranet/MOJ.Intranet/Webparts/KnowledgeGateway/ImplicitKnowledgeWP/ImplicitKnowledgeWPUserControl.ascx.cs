@@ -14,7 +14,6 @@ using System.Threading;
 using MOJ.Intranet.Classes.Common;
 using MOJ.Entities.ImplicitKnowledge;
 using System.Data;
-
 namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
 {
     public partial class ImplicitKnowledgeWPUserControl : SiteUI
@@ -38,8 +37,154 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 TravelInformationsData();
                 ParticipationsData();
                 MembershipData();
+                HopisData();
+                VoluntaryWorkData();
             }
         }
+        private void VoluntaryWorkData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<VoluntaryWorkEntity> QualificationsData = objIK.GetVoluntaryWork(currentUserlogin);
+                int x = 0;
+
+                foreach (VoluntaryWorkEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID013.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV13.Value = item.ID.ToString() + "#";
+                        ActivityName013.Value = item.ActivityName.ToString();
+                        DropDownLocation13.SelectedValue = item.LocationID.ToString();
+                        Dateto013.Value = item.ToDate.ToString("MM/dd/yyyy");
+                        Datefrom013.Value = item.FromDate.ToString("MM/dd/yyyy");
+
+                    }
+                    else
+                    {
+                        hdnsuperDIV13.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV13.Value += item.ID.ToString() + "#";
+                        CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                        string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                        DataTable dataC = new ImplicitKnowledge().GetCountrys();
+                        string options = "";
+                        string selct = "";
+                        foreach (DataRow dtRow in dataC.Rows)
+                        {
+                            if (dtRow["ID"].ToString() == item.LocationID.ToString())
+                            {
+                                selct = "selected='selected'";
+                            }
+                            else
+                            {
+                                selct = "";
+                            }
+                            if (languageCode == "ar")
+                            {
+
+                                options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["Title"].ToString() + "</option>";
+                            }
+                            else
+                            {
+                                options += "<option " + selct + " value='" + dtRow["ID"].ToString() + "'>" + dtRow["TitleEN"].ToString() + "</option>";
+
+                            }
+                        }
+
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID13' style=' display: none;'><input name='SID13' value='" + item.ID.ToString() + "' type='text' id='SID13" + x + "' class='form-control' placeholder=''></div> " +
+
+
+                        "<div class='col-md-3 DivActivityName'><input name='ActivityName13' value='" + item.ActivityName.ToString() + "' type='text' id='ActivityName13" + x + "' class='form-control' placeholder=''></div>" +
+
+                    "<div class='col-md-2 DivLocation '>" +
+                        "<select name='Location13' id='Location13" + x + "' class='form-control'>" +
+                          options +
+                        "</select></div>" +
+                       "	<div class='col-md-3 '>" +
+                            "	<div class='input-group date DivDatefrom' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.FromDate.ToString("MM/dd/yyyy") + "'  name='Datefrom13' type='text' id='Datefrom13" + x + "' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+                            "	<div class='col-md-3 '>" +
+                            "	<div class='input-group date DivDateto' data-provide='datepicker'>" +
+                            "	<input autocomplete='off' value='" + item.ToDate.ToString("MM/dd/yyyy") + "'  name='Dateto13' type='text' id='Dateto13" + x + "' class='form-control'>" +
+                            "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
+                            "</div>	" +
+
+                           "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowVoluntaryWork(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
+                "</div>";
+                        // document.getElementById('dynamicInputChildren').appendChild(newdiv);
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV13.Controls.Add(newDiv);
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
+        private void HopisData()
+        {
+            try
+            {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                ImplicitKnowledge objIK = new ImplicitKnowledge();
+                List<HopisEntity> QualificationsData = objIK.GetHopis(currentUserlogin);
+                int x = 0;
+                foreach (HopisEntity item in QualificationsData)
+                {
+                    if (x == 0)
+                    {
+                        SID012.Value = item.ID.ToString();
+                        RetrevehdnsuperDIV12.Value = item.ID.ToString() + "#";
+                        Hoppy0.Value = item.Hoppy.ToString();
+                        Notes012.Value = item.Notes.ToString();
+                    }
+                    else
+                    {
+                        hdnsuperDIV12.Value = Convert.ToString(x);
+                        RetrevehdnsuperDIV12.Value += item.ID.ToString() + "#";
+                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                    "<div class='row rt'>" +
+                        "<div class='DivSID12' style=' display: none;'><input name='SID12' value='" + item.ID.ToString() + "' type='text' id='SID12" + x + "' class='form-control' placeholder=''></div> " +
+                        "<div class='col-md-5 DivHoppy'><input name='Hoppy' value='" + item.Hoppy.ToString() + "' type='text' id='Hoppy" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-6 DivNotes'><input name='Notes12' value='" + item.Notes.ToString() + "' type='text' id='Notes12" + x + "' class='form-control' placeholder=''></div>" +
+                         "<div class='col-md-1'>" +
+                                 "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowHopis(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
+                                  "</div>" +
+                            "</div>" +
+                "</div>";
+                        // document.getElementById('dynamicInputChildren').appendChild(newdiv);
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                        newDiv.Attributes.Add("class", "new");
+                        newDiv.InnerHtml = htmlrow1;
+                        superDIV12.Controls.Add(newDiv);
+
+                    }
+                    x++;
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
         private void ParticipationsData()
         {
             try
@@ -148,15 +293,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                         "<div class='DivSID11' style=' display: none;'><input name='SID11' value='" + item.ID.ToString() + "' type='text' id='SID11" + x + "' class='form-control' placeholder=''></div> " +
-                        "<div class='col-md-3 DivMembership'><input name='Membership' value='" + item.Membership.ToString() + "' type='text' id='Membership" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-2 DivMembership'><input name='Membership' value='" + item.Membership.ToString() + "' type='text' id='Membership" + x + "' class='form-control' placeholder=''></div>" +
                         "<div class='col-md-2 DivLocation'><input name='Location' value='" + item.Location.ToString() + "' type='text' id='Location" + x + "' class='form-control' placeholder=''></div>" +
-                        "<div class='col-md-2 DivField'><input name='Field11' value='" + item.Field.ToString() + "' type='text' id='Field11" + x + "' class='form-control' placeholder=''></div>" +
-                        "	<div class='col-md-1 '>" +
+                        "<div class='col-md-1 DivField'><input name='Field11' value='" + item.Field.ToString() + "' type='text' id='Field11" + x + "' class='form-control' placeholder=''></div>" +
+                        "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivFromDate' data-provide='datepicker'>" +
                             "	<input autocomplete='off' value='" + item.FromDate.ToString("MM/dd/yyyy") + "'  name='FromDate11' type='text' id='FromDate11" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
-                            "	<div class='col-md-1 '>" +
+                            "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivToDate' data-provide='datepicker'>" +
                             "	<input autocomplete='off' value='" + item.ToDate.ToString("MM/dd/yyyy") + "'  name='ToDate11' type='text' id='ToDate11" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
@@ -250,7 +395,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
 
-                        "<div class='col-md-3 DivVisitReasons'><input name='VisitReasons' value='" + item.VisitReasons.ToString() + "' type='text' id='VisitReasons" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-4 DivVisitReasons'><input name='VisitReasons' value='" + item.VisitReasons.ToString() + "' type='text' id='VisitReasons" + x + "' class='form-control' placeholder=''></div>" +
                         
                         
                              "<div class='col-md-1'>" +
@@ -651,7 +796,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                     "<div class='row rt'>" +
                         "<div class='DivSID5' style=' display: none;'><input name='SID5' value='" + item.ID.ToString() + "' type='text' id='SID5" + x + "' class='form-control' placeholder=''></div> " +
                         "<div class='col-md-5 DivSkillTheEmployeeHave'><input name='SkillTheEmployeeHave' value='" + item.SkillTheEmployeeHave.ToString() + "' type='text' id='SkillTheEmployeeHave" + x + "' class='form-control' placeholder=''></div>" +
-                        "<div class='col-md-5 DivNotes5'><input name='Notes5' value='" + item.Notes.ToString() + "' type='text' id='Notes5" + x + "' class='form-control' placeholder=''></div>" +
+                        "<div class='col-md-6 DivNotes5'><input name='Notes5' value='" + item.Notes.ToString() + "' type='text' id='Notes5" + x + "' class='form-control' placeholder=''></div>" +
                          "<div class='col-md-1'>" +
                                  "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowOtherSkills(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
                                   "</div>" +
@@ -888,6 +1033,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
             DropDownCountryResidentForMoreThan3Months.DataSource = dataC;
             DropDownCountryResidentForMoreThan3Months.DataValueField = "ID";
 
+            DropDownLocation13.DataSource = dataC;
+            DropDownLocation13.DataValueField = "ID";
+
             DropDownCountry10.DataSource = dataC;
             DropDownCountry10.DataValueField = "ID";
             if (languageCode == "ar")
@@ -896,6 +1044,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 DropDownCountry7.DataTextField = "Title";
                 DropDownCountryResidentForMoreThan3Months.DataTextField = "Title";
                 DropDownCountry10.DataTextField = "Title";
+                DropDownLocation13.DataTextField = "Title";
             }
             else
             {
@@ -903,12 +1052,14 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 DropDownCountry7.DataTextField = "TitleEN";
                 DropDownCountryResidentForMoreThan3Months.DataTextField = "TitleEN";
                 DropDownCountry10.DataTextField = "TitleEN";
+                DropDownLocation13.DataTextField = "TitleEN";
             }
 
             DropDownCountry.DataBind();
             DropDownCountry7.DataBind();
             DropDownCountryResidentForMoreThan3Months.DataBind();
             DropDownCountry10.DataBind();
+            DropDownLocation13.DataBind();
 
 
         }
@@ -1025,7 +1176,40 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
 
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+
+            if (languageCode == "ar")
+            {
+                Response.Redirect("/Ar");
+
+            }
+            else
+            {
+                Response.Redirect("/En");
+            }
+
+        }
+        protected void btnReload_Click(object sender, EventArgs e)
+        {
+
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+
+            if (languageCode == "ar")
+            {
+                Response.Redirect("/Ar/Implicit-knowledge.aspx");
+
+            }
+            else
+            {
+                Response.Redirect("/En/Implicit-knowledge.aspx");
+            }
+
+        }
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             if (!_isRefresh)
@@ -1883,6 +2067,148 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                     }
                     //////////////////////////////////13///////////////////////
+                    List<HopisEntity> list12 = new List<HopisEntity>();
+                    HopisEntity Entit12 = new HopisEntity();
+                    if (!string.IsNullOrEmpty(Hoppy0.Value))
+                    {
+
+                        Entit12.Notes = Notes012.Value;
+                        Entit12.Hoppy = Hoppy0.Value;
+                        Entit12.PID = PID;
+                        if (!string.IsNullOrEmpty(SID012.Value))
+                        {
+                            Entit12.ID = Convert.ToInt32(SID012.Value);
+                            RetrevehdnsuperDIV12.Value = RetrevehdnsuperDIV12.Value.Replace(Entit12.ID + "#", "");
+                        }
+                        Entit12.Title = currentUserlogin;
+                        list12.Add(Entit12);
+                    }
+                    if (hdnsuperDIV12.Value != "" && hdnsuperDIV12.Value != "0")
+                    {
+                        string[] SID12 = Request.Form.GetValues("SID12");
+                        string[] Hoppy = Request.Form.GetValues("Hoppy");
+                        string[] Notes12 = Request.Form.GetValues("Notes12");
+                        for (int x = 0; x < Convert.ToInt32(Hoppy.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(Hoppy[x]))
+                            {
+                                HopisEntity ob = new HopisEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;
+                                ob.Hoppy = Hoppy[x];
+                                ob.Notes = Notes12[x];
+                                if (!string.IsNullOrEmpty(SID12[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID12[x]);
+                                    RetrevehdnsuperDIV12.Value = RetrevehdnsuperDIV12.Value.Replace(ob.ID + "#", "");
+                                }
+                                list12.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdateHopis(list12);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV12.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV12.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("Hopis", ListSID1);
+                        }
+                    }
+                    //////////////////////////////////14///////////////////////
+                    List<VoluntaryWorkEntity> list13 = new List<VoluntaryWorkEntity>();
+                    VoluntaryWorkEntity Entit13 = new VoluntaryWorkEntity();
+                    if (!string.IsNullOrEmpty(ActivityName0.Value))
+                    {
+                        DateTime Date = new DateTime();
+                        if (!string.IsNullOrEmpty(Datefrom013.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(Datefrom013.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date = sDate2;
+                        }
+                        DateTime Date2 = new DateTime();
+                        if (!string.IsNullOrEmpty(Dateto013.Value))
+                        {
+                            DateTime sDate2 = DateTime.ParseExact(Dateto013.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                            Date2 = sDate2;
+                        }
+                        Entit13.FromDate = Date;
+                        Entit13.ToDate = Date2;
+                        Entit13.ActivityName = ActivityName013.Value;
+                        Entit13.LocationID = DropDownLocation13.SelectedValue;
+                        Entit13.PID = PID;
+                        if (!string.IsNullOrEmpty(SID013.Value))
+                        {
+                            Entit13.ID = Convert.ToInt32(SID013.Value);
+                            RetrevehdnsuperDIV13.Value = RetrevehdnsuperDIV13.Value.Replace(Entit13.ID + "#", "");
+                        }
+                        Entit13.Title = currentUserlogin;
+                        list13.Add(Entit13);
+                    }
+                    if (hdnsuperDIV13.Value != "" && hdnsuperDIV13.Value != "0")
+                    {
+                        string[] SID13 = Request.Form.GetValues("SID13");
+                        string[] ActivityName13 = Request.Form.GetValues("ActivityName13");
+                        string[] Location13 = Request.Form.GetValues("Location13");
+                        string[] Datefrom13 = Request.Form.GetValues("Datefrom13");
+                        string[] Dateto13 = Request.Form.GetValues("Dateto13");
+                        for (int x = 0; x < Convert.ToInt32(ActivityName13.Length); x++)
+                        {
+                            if (!string.IsNullOrEmpty(ActivityName13[x]))
+                            {
+                                VoluntaryWorkEntity ob = new VoluntaryWorkEntity();
+                                ob.PID = PID;
+                                ob.Title = currentUserlogin;
+                                DateTime Date = new DateTime();
+                                if (!string.IsNullOrEmpty(Datefrom13[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(Datefrom13[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date = sDate2;
+                                }
+                                DateTime Date2 = new DateTime();
+                                if (!string.IsNullOrEmpty(Dateto13[x]))
+                                {
+                                    DateTime sDate2 = DateTime.ParseExact(Dateto13[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                                    Date2 = sDate2;
+                                }
+                                ob.FromDate = Date;
+                                ob.ToDate = Date2;
+                                ob.ActivityName = ActivityName13[x];
+                                ob.LocationID = Location13[x];
+                                if (!string.IsNullOrEmpty(SID13[x]))
+                                {
+                                    ob.ID = Convert.ToInt32(SID13[x]);
+                                    RetrevehdnsuperDIV13.Value = RetrevehdnsuperDIV13.Value.Replace(ob.ID + "#", "");
+                                }
+                                list13.Add(ob);
+                            }
+                        }
+                    }
+                    objIK.SaveUpdateVoluntaryWork(list13);
+                    if (!string.IsNullOrEmpty(RetrevehdnsuperDIV13.Value))
+                    {
+                        string[] SIDES = RetrevehdnsuperDIV13.Value.Split('#');
+                        List<int> ListSID1 = new List<int>();
+                        foreach (string sid in SIDES)
+                        {
+                            if (Int32.TryParse(sid, out int numValue))
+                            {
+                                ListSID1.Add(Int32.Parse(sid));
+                            }
+                        }
+                        if (ListSID1.Count > 0)
+                        {
+                            objIK.DeleteitemsFromSublist("VoluntaryWork", ListSID1);
+                        }
+                    }
 
 
 
@@ -1895,7 +2221,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
 
                     if (PID>0)
                     {
-                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />";
+                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: TheInformationWasSavedSuccessfully", "Resource", SPContext.Current.Web.Language) + "<br />";
                         posts.Style.Add("display", "none");
                         SuccessMsgDiv.Style.Add("display", "block");
                     }

@@ -11,7 +11,26 @@ namespace MOJ.Business
 {
     public class ImplicitKnowledge
     {
+        public List<VoluntaryWorkEntity> GetVoluntaryWork(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetVoluntaryWork(title);
 
+        }
+        public bool SaveUpdateVoluntaryWork(List<VoluntaryWorkEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateVoluntaryWork(obj);
+
+        }
+        public List<HopisEntity> GetHopis(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetHopis(title);
+
+        }
+        public bool SaveUpdateHopis(List<HopisEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateHopis(obj);
+
+        }
         public List<MembershipEntity> GetMembership(string title)
         {
             return new ImplicitKnowledgeDataManager().GetMembership(title);

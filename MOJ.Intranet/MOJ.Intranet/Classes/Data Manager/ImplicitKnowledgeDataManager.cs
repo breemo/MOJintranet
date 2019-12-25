@@ -15,6 +15,194 @@ namespace MOJ.DataManager
     public class ImplicitKnowledgeDataManager
     {
 
+        public List<VoluntaryWorkEntity> GetVoluntaryWork(string title)
+        {
+            List<VoluntaryWorkEntity> ItemsCollection = new List<VoluntaryWorkEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.VoluntaryWorkUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    VoluntaryWorkEntity itemis = new VoluntaryWorkEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+
+                                    itemis.ActivityName = Convert.ToString(Item["ActivityName"]);
+                                    itemis.ToDate = Convert.ToDateTime(Item["ToDate"]);
+                                    itemis.FromDate = Convert.ToDateTime(Item["FromDate"]);
+                                    itemis.LocationID = Convert.ToString(Item["LocationID"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+        public bool AddOrUpdateVoluntaryWork(List<VoluntaryWorkEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.VoluntaryWorkUrl);
+                        SPListItem item = null;
+                        foreach (VoluntaryWorkEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+
+                            item["ActivityName"] = Item.ActivityName;
+                            item["LocationID"] = Item.LocationID;
+                            item["FromDate"] = Item.FromDate;
+                            item["ToDate"] = Item.ToDate;
+
+
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+        public List<HopisEntity> GetHopis(string title)
+        {
+            List<HopisEntity> ItemsCollection = new List<HopisEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.HopisUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    HopisEntity itemis = new HopisEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+
+                                    itemis.Notes = Convert.ToString(Item["Notes"]);
+                                    itemis.Hoppy = Convert.ToString(Item["Hoppy"]);
+
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+        public bool AddOrUpdateHopis(List<HopisEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.HopisUrl);
+                        SPListItem item = null;
+                        foreach (HopisEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["Title"] = Item.Title;
+
+
+                            item["Notes"] = Item.Notes;
+                            item["Hoppy"] = Item.Hoppy;
+
+
+                            item["PID"] = Item.PID;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
         public List<MembershipEntity> GetMembership(string title)
         {
             List<MembershipEntity> ItemsCollection = new List<MembershipEntity>();
@@ -30,7 +218,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -86,12 +274,12 @@ namespace MOJ.DataManager
                             item["Title"] = Item.Title;
 
 
-                            item["Membership"]= Item.Membership ;
-                             item["Location"]= Item.Location ;
-                            item["Field"]= Item.Field ;
-                            item["FromDate"]= Item.FromDate ;
-                             item["ToDate"]= Item.ToDate ;
-                             item["Notes"] = Item.Notes ;
+                            item["Membership"] = Item.Membership;
+                            item["Location"] = Item.Location;
+                            item["Field"] = Item.Field;
+                            item["FromDate"] = Item.FromDate;
+                            item["ToDate"] = Item.ToDate;
+                            item["Notes"] = Item.Notes;
 
 
                             item["PID"] = Item.PID;
@@ -130,7 +318,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -209,50 +397,50 @@ namespace MOJ.DataManager
         public int AddOrUpdateRequest(ImplicitKnowledgeEntity RequestItem)
         {
             int PID = 0;
-                using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
                 {
-                    using (SPWeb web = site.RootWeb)
+                    try
                     {
-                        try
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.ImplicitKnowledgeUrl);
+                        SPListItem item = null;
+                        if (RequestItem.ID > 0)
                         {
-                            SPUser currentUser = web.CurrentUser;
-                            web.AllowUnsafeUpdates = true;
-                            SPList list = web.GetListFromUrl(web.Url + SharedConstants.ImplicitKnowledgeUrl);
-                            SPListItem item = null;
-                            if (RequestItem.ID > 0)
-                            {
-                                item = list.GetItemById(RequestItem.ID);
+                            item = list.GetItemById(RequestItem.ID);
                             PID = RequestItem.ID;
-                            }
-                            else
-                            {
-                                item = list.AddItem();
-                            }
-                             item["Title"] = RequestItem.Name;
-                            item["EmployeeNumber"] = RequestItem.EmployeeNumber;
-                            item["DateOfBirth"] = RequestItem.DateOfBirth;
-                            item["Designation"] = RequestItem.Designation;                            
-                            item["MaritalStatus"] = RequestItem.MaritalStatus;
-                            item["Nationality"] = RequestItem.Nationality;
-                            item["UserName"] = RequestItem.UserName;
-                            item.Update();
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+                        item["Title"] = RequestItem.Name;
+                        item["EmployeeNumber"] = RequestItem.EmployeeNumber;
+                        item["DateOfBirth"] = RequestItem.DateOfBirth;
+                        item["Designation"] = RequestItem.Designation;
+                        item["MaritalStatus"] = RequestItem.MaritalStatus;
+                        item["Nationality"] = RequestItem.Nationality;
+                        item["UserName"] = RequestItem.UserName;
+                        item.Update();
                         PID = item.ID;
                     }
-                        catch (Exception ex)
-                        {
-                            LoggingService.LogError("WebParts", ex.Message);
-                            throw ex;
-                        }
-                        finally
-                        {
-                            web.AllowUnsafeUpdates = false;
-                        }
+                    catch (Exception ex)
+                    {
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
                     }
                 }
+            }
             //});
             return PID;
         }
-        
+
 
 
         public bool AddOrUpdateEmploymentHistory(List<EmploymentHistoryEntity> Items)
@@ -306,7 +494,7 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-            public bool AddOrUpdatePublications(List<PublicationsEntity> Items)
+        public bool AddOrUpdatePublications(List<PublicationsEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -357,7 +545,7 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-            public bool AddOrUpdateTrainingCourses(List<TrainingCoursesEntity> Items)
+        public bool AddOrUpdateTrainingCourses(List<TrainingCoursesEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -410,7 +598,7 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-          public bool AddOrUpdateExpertise(List<ExpertiseEntity> Items)
+        public bool AddOrUpdateExpertise(List<ExpertiseEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -442,7 +630,7 @@ namespace MOJ.DataManager
                             item["NatureOfTheJob"] = Item.NatureOfTheJob;
                             item["Notes"] = Item.Notes;
                             item["OrganizationName"] = Item.OrganizationName;
-                            item["YearsOfExperience"] = Item.YearsOfExperience;                            
+                            item["YearsOfExperience"] = Item.YearsOfExperience;
                             item["PID"] = Item.PID;
                             item.Update();
                         }
@@ -463,7 +651,7 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-         public bool AddOrUpdateTravelInformations(List<TravelInformationsEntity> Items)
+        public bool AddOrUpdateTravelInformations(List<TravelInformationsEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -495,7 +683,7 @@ namespace MOJ.DataManager
                             item["TimeperiodTo"] = Item.TimeperiodTo;
                             item["TimePeriodFrom"] = Item.TimePeriodFrom;
                             item["VisitReasons"] = Item.VisitReasons;
-                           
+
 
                             item["PID"] = Item.PID;
                             item.Update();
@@ -517,7 +705,7 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-         public bool AddOrUpdateQualifications(List<QualificationsEntity> Items)
+        public bool AddOrUpdateQualifications(List<QualificationsEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -600,7 +788,7 @@ namespace MOJ.DataManager
                             item["ReadinglevelID"] = Item.ReadinglevelID;
                             item["WritinglevelID"] = Item.WritinglevelID;
                             item["ConversationlevelID"] = Item.ConversationlevelID;
-                            item["Language"] = Item.Language;                            
+                            item["Language"] = Item.Language;
                             item["PID"] = Item.PID;
                             item.Update();
                         }
@@ -649,7 +837,7 @@ namespace MOJ.DataManager
                                 item = list.AddItem();
                             }
                             item["Title"] = Item.Title;
-                            item["SkillTheEmployeeHave"] = Item.SkillTheEmployeeHave;                           
+                            item["SkillTheEmployeeHave"] = Item.SkillTheEmployeeHave;
                             item["Notes"] = Item.Notes;
                             item["PID"] = Item.PID;
                             item.Update();
@@ -672,7 +860,7 @@ namespace MOJ.DataManager
             return isFormSaved;
         }
 
-         public bool AddOrUpdateTechnicalSkills(List<TechnicalSkillsEntity> Items)
+        public bool AddOrUpdateTechnicalSkills(List<TechnicalSkillsEntity> Items)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -741,7 +929,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -752,8 +940,8 @@ namespace MOJ.DataManager
                                     itemis.Designation = Convert.ToString(Item["Designation"]);
                                     itemis.OrganizationalUnit = Convert.ToString(Item["OrganizationalUnit"]);
                                     itemis.DateFrom = Convert.ToDateTime(Item["DateFrom"]);
-                                    itemis.DateTo = Convert.ToDateTime(Item["DateTo"]);                                    
-                                    itemis.PID = Convert.ToInt32(Item["PID"]);                                    
+                                    itemis.DateTo = Convert.ToDateTime(Item["DateTo"]);
+                                    itemis.PID = Convert.ToInt32(Item["PID"]);
                                     ItemsCollection.Add(itemis);
                                 }
 
@@ -781,7 +969,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -794,7 +982,7 @@ namespace MOJ.DataManager
                                     itemis.FromDate = Convert.ToDateTime(Item["FromDate"]);
                                     itemis.ToDate = Convert.ToDateTime(Item["ToDate"]);
                                     itemis.TrainingHours = Convert.ToString(Item["TrainingHours"]);
-                                    itemis.WithinThePlan  = Convert.ToString(Item["WithinThePlan"]);
+                                    itemis.WithinThePlan = Convert.ToString(Item["WithinThePlan"]);
                                     itemis.PID = Convert.ToInt32(Item["PID"]);
                                     ItemsCollection.Add(itemis);
                                 }
@@ -807,7 +995,7 @@ namespace MOJ.DataManager
             });
             return ItemsCollection;
         }
-         public List<ExpertiseEntity> GetExpertise(string title)
+        public List<ExpertiseEntity> GetExpertise(string title)
         {
             List<ExpertiseEntity> ItemsCollection = new List<ExpertiseEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -822,7 +1010,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -834,7 +1022,7 @@ namespace MOJ.DataManager
                                     itemis.OrganizationName = Convert.ToString(Item["OrganizationName"]);
                                     itemis.NatureOfTheJob = Convert.ToString(Item["NatureOfTheJob"]);
                                     itemis.Notes = Convert.ToString(Item["Notes"]);
-                                    itemis.CountryID = Convert.ToString(Item["CountryID"]);                                 
+                                    itemis.CountryID = Convert.ToString(Item["CountryID"]);
                                     itemis.YearsOfExperience = Convert.ToString(Item["YearsOfExperience"]);
 
                                     itemis.PID = Convert.ToInt32(Item["PID"]);
@@ -849,7 +1037,7 @@ namespace MOJ.DataManager
             });
             return ItemsCollection;
         }
-         public List<PublicationsEntity> GetPublications(string title)
+        public List<PublicationsEntity> GetPublications(string title)
         {
             List<PublicationsEntity> ItemsCollection = new List<PublicationsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -864,7 +1052,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -890,7 +1078,7 @@ namespace MOJ.DataManager
             });
             return ItemsCollection;
         }
-         public List<TravelInformationsEntity> GetTravelInformations(string title)
+        public List<TravelInformationsEntity> GetTravelInformations(string title)
         {
             List<TravelInformationsEntity> ItemsCollection = new List<TravelInformationsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -905,7 +1093,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -930,7 +1118,7 @@ namespace MOJ.DataManager
             });
             return ItemsCollection;
         }
-         public List<QualificationsEntity> GeteQualifications(string title)
+        public List<QualificationsEntity> GeteQualifications(string title)
         {
             List<QualificationsEntity> ItemsCollection = new List<QualificationsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -945,7 +1133,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -957,7 +1145,7 @@ namespace MOJ.DataManager
                                     itemis.Major = Convert.ToString(Item["Major"]);
                                     itemis.Institution = Convert.ToString(Item["Institution"]);
                                     itemis.CountryID = Convert.ToString(Item["CountryID"]);
-                                 
+
                                     itemis.GraduationYear = Convert.ToDateTime(Item["GraduationYear"]);
                                     itemis.PID = Convert.ToInt32(Item["PID"]);
                                     ItemsCollection.Add(itemis);
@@ -987,7 +1175,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -1027,7 +1215,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -1035,7 +1223,7 @@ namespace MOJ.DataManager
                                     OtherSkillsEntity itemis = new OtherSkillsEntity();
                                     itemis.Title = Convert.ToString(Item["Title"]);
                                     itemis.ID = Convert.ToInt32(Item["ID"]);
-                                    itemis.SkillTheEmployeeHave = Convert.ToString(Item["SkillTheEmployeeHave"]);;
+                                    itemis.SkillTheEmployeeHave = Convert.ToString(Item["SkillTheEmployeeHave"]); ;
                                     itemis.Notes = Convert.ToString(Item["Notes"]);
                                     itemis.PID = Convert.ToInt32(Item["PID"]);
                                     ItemsCollection.Add(itemis);
@@ -1049,7 +1237,7 @@ namespace MOJ.DataManager
             });
             return ItemsCollection;
         }
-         public List<TechnicalSkillsEntity> GetTechnicalSkills(string title)
+        public List<TechnicalSkillsEntity> GetTechnicalSkills(string title)
         {
             List<TechnicalSkillsEntity> ItemsCollection = new List<TechnicalSkillsEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -1064,7 +1252,7 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='Title'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -1093,7 +1281,7 @@ namespace MOJ.DataManager
         {
             ImplicitKnowledgeEntity itemis = new ImplicitKnowledgeEntity();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
-            {                
+            {
                 using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                 {
                     using (SPWeb oWeb = oSite.RootWeb)
@@ -1104,11 +1292,11 @@ namespace MOJ.DataManager
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
-                                string camlquery1 = "<Where><Eq><FieldRef Name='UserName'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                string camlquery1 = "<Where><Eq><FieldRef Name='UserName'  /> <Value Type='Text'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
-                                {                                   
+                                {
                                     itemis.DateOfBirth = Convert.ToString(Item["DateOfBirth"]);
                                     itemis.Designation = Convert.ToString(Item["Designation"]);
                                     itemis.EmployeeNumber = Convert.ToString(Item["EmployeeNumber"]);
@@ -1117,7 +1305,7 @@ namespace MOJ.DataManager
                                     itemis.Name = Convert.ToString(Item["Title"]);
                                     itemis.Nationality = Convert.ToString(Item["Nationality"]);
                                     itemis.UserName = Convert.ToString(Item["UserName"]);
-                                   
+
                                 }
 
                             }
@@ -1139,12 +1327,13 @@ namespace MOJ.DataManager
                     using (SPWeb oWeb = oSite.RootWeb)
                     {
                         oWeb.AllowUnsafeUpdates = true;
-                        SPList lst = oWeb.GetListFromUrl(oSite.Url + "/Lists/"+ listname + "/AllItems.aspx");
+                        SPList lst = oWeb.GetListFromUrl(oSite.Url + "/Lists/" + listname + "/AllItems.aspx");
                         foreach (int listItemId in listsid)
-                        { SPListItem itemToDelete = lst.GetItemById(listItemId);
+                        {
+                            SPListItem itemToDelete = lst.GetItemById(listItemId);
                             itemToDelete.Delete();
                         }
-                    oWeb.AllowUnsafeUpdates = false;                         
+                        oWeb.AllowUnsafeUpdates = false;
                     }
                 }
             });

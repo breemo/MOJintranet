@@ -1104,4 +1104,25 @@
   <data name="Hoppy" xml:space="preserve">
     <value>الهواية</value>
   </data>
+  <data name="VoluntaryWork" xml:space="preserve">
+    <value>اعمال تطوعية</value>
+  </data>
+  <data name="EmployeeData" xml:space="preserve">
+    <value>بيانات الموظف</value>
+  </data>
+  <data name="ImplicitKnowledge" xml:space="preserve">
+    <value>المعارف و المهارات الضمنية</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>الأجراءات</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="TheInformationWasSavedSuccessfully" xml:space="preserve">
+    <value>تم حفظ المعلومات بنجاح</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>إعادة تحميل</value>
+  </data>
 </root>

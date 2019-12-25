@@ -1104,4 +1104,25 @@
   <data name="Hoppy" xml:space="preserve">
     <value>Hoppy</value>
   </data>
+  <data name="VoluntaryWork" xml:space="preserve">
+    <value>Voluntary work</value>
+  </data>
+  <data name="EmployeeData" xml:space="preserve">
+    <value>Employee Data</value>
+  </data>
+  <data name="ImplicitKnowledge" xml:space="preserve">
+    <value>Implicit Knowledge</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TheInformationWasSavedSuccessfully" xml:space="preserve">
+    <value>The information was saved successfully</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
 </root>

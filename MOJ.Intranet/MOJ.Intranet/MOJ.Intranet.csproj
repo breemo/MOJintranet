@@ -159,6 +159,8 @@
     <Compile Include="Classes\Entities\ImplicitKnowledge\PublicationsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\ParticipationsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\MembershipEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\HopisEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\VoluntaryWorkEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\TravelInformationsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\TrainingCoursesEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\EmploymentHistoryEntity.cs" />
