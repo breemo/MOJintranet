@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using MOJ.DataManager;
@@ -20,6 +21,11 @@ namespace MOJ.Business
         {
             return new knowledgeCouncilDataManager().GetknowledgeCouncilByID(id);
         }
+        public DataTable GetCouncilType()
+        {
+            return new CouncilTypeDataManager().GetAll();
+        }
+
 
     }
 }

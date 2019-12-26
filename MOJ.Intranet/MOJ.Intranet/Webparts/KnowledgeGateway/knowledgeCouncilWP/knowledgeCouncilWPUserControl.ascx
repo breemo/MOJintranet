@@ -15,8 +15,8 @@
 <script src="/Style%20Library/MOJTheme/s/plugins.js"></script>
   <!-- Post Content
                     ============================================= -->
-                    <div class="postcontent nobottommargin col_last clearfix">
-                        <div class="boxleftbor lecboxd">
+                    <div class="">
+                        <div class="">
                             <h4>
 							    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, AnnounceForaKnowledgeCouncil%>" /></label>
                             </h4>

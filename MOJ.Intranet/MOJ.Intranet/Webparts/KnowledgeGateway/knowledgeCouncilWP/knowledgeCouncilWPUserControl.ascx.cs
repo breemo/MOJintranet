@@ -34,7 +34,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP
         {
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
-            DataTable dataC = new ImplicitKnowledge().GetCountrys();
+            DataTable dataC = new knowledgeCouncil().GetCouncilType();
             DropDownCouncilType.DataSource = dataC;
             DropDownCouncilType.DataValueField = "ID";
             if (languageCode == "ar")
@@ -92,7 +92,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP
                 try
                 {
                     string RecordPrfix = "";
-                    RecordPrfix = "knowledgeCouncil-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("knowledgeCouncil");
+                   RecordPrfix = "knowledgeCouncil-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("knowledgeCouncil");
                     knowledgeCouncilEntity itemSumbit = new knowledgeCouncilEntity();
                     DateTime CouncilDate1 = new DateTime();
                     if (!string.IsNullOrEmpty(CouncilDate.Value))
@@ -108,8 +108,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP
                     itemSumbit.DirectManager = EDirectManager.Value;
                     itemSumbit.EmployeeName = Ename.Value;
                     itemSumbit.EmployeeNumber = Enumber.Value;
-                    itemSumbit.JoiningConditions = JoiningConditions.Value;                   
+                    itemSumbit.JoiningConditions = JoiningConditions.Value;
                     itemSumbit.Title = RecordPrfix;
+                    itemSumbit.Designation = EPosition.Value;
                     knowledgeCouncil Ass = new knowledgeCouncil();
                     bool isSaved = Ass.SaveUpdate(itemSumbit);  
                     if (isSaved == true)

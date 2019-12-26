@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\CouncilTypeDataManager.cs" />
     <Compile Include="Classes\Data Manager\knowledgeCouncilDataManager.cs" />
     <Compile Include="Classes\Data Manager\levelsDataManager.cs" />
     <Compile Include="Classes\Data Manager\CountrysDataManager.cs" />

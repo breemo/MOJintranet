@@ -49,6 +49,7 @@ namespace MOJ.DataManager
                         item["EmployeeName"] = knowledgeCouncilItem.EmployeeName;
                         item["EmployeeNumber"] = knowledgeCouncilItem.EmployeeNumber;
                         item["JoiningConditions"] = knowledgeCouncilItem.JoiningConditions;
+                        item["Designation"] = knowledgeCouncilItem.Designation;
                         item.Update();
 
                         isFormSaved = true;
@@ -99,6 +100,7 @@ namespace MOJ.DataManager
                                      obitem.EmployeeName= Convert.ToString(item["EmployeeName"]);
                                      obitem.EmployeeNumber= Convert.ToString(item["EmployeeNumber"]);
                                      obitem.JoiningConditions= Convert.ToString(item["JoiningConditions"]);
+                                     obitem.Designation = Convert.ToString(item["Designation"]);
                                 }
                             }
                         }
