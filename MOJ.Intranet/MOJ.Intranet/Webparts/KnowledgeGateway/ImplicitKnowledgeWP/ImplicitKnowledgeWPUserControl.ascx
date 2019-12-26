@@ -1255,26 +1255,13 @@
 <script>
     $(document).ready(function () {
         $(".RadiB label").addClass("radio-button-click-target");
-        $(".RadiB input").addClass("radio-button");
-        var idis = $(".DivHasGovernmentHousingAllowance input").attr('id');
-        $(".DivHasGovernmentHousingAllowance label").attr('for', idis);
-        var idis2 = $(".DivHasGovernmentHousingPercentageAllowance input").attr('id');
-        $(".DivHasGovernmentHousingPercentageAllowance label").attr('for', idis2);
-
-        $(".DivHasGovernmentHousingAllowance input").addClass("checkbox");
-        $(".DivHasGovernmentHousingPercentageAllowance input").addClass("checkbox");
-
-        //$('.CheckBoxThim label').each(function () {
-        //    var valuex = "<span class='checkbox-box'></span>" + this.innerHTML;
-        //    this.innerHTML = valuex;
+        $(".RadiB input").addClass("radio-button");        
     });
-
     $('.datepicker').datepicker({
         dateFormat: 'dd/mm/yyyy',
         language: 'ar',
         rtl: true,
     });
-
     $('.timepicker').timepicker({
         timeFormat: 'h:mm p',
         interval: 60,

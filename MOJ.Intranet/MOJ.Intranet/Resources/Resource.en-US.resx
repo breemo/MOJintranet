@@ -1125,4 +1125,25 @@
   <data name="Reload" xml:space="preserve">
     <value>Reload</value>
   </data>
+  <data name="CouncilDate" xml:space="preserve">
+    <value>Council date</value>
+  </data>
+  <data name="CouncilTarget" xml:space="preserve">
+    <value>Council target</value>
+  </data>
+  <data name="CouncilTopic" xml:space="preserve">
+    <value>Council topic</value>
+  </data>
+  <data name="CouncilType" xml:space="preserve">
+    <value>Council type</value>
+  </data>
+  <data name="DirectManager" xml:space="preserve">
+    <value>Direct manager</value>
+  </data>
+  <data name="JoiningConditions" xml:space="preserve">
+    <value>Joining conditions</value>
+  </data>
+  <data name="AnnounceForaKnowledgeCouncil" xml:space="preserve">
+    <value>Announce for a knowledge council</value>
+  </data>
 </root>

@@ -1125,4 +1125,25 @@
   <data name="Reload" xml:space="preserve">
     <value>إعادة تحميل</value>
   </data>
+  <data name="CouncilDate" xml:space="preserve">
+    <value>التاريخ المحدد للمجلس</value>
+  </data>
+  <data name="CouncilTarget" xml:space="preserve">
+    <value>الهدف من المجلس</value>
+  </data>
+  <data name="CouncilTopic" xml:space="preserve">
+    <value>موضوع المجلس</value>
+  </data>
+  <data name="CouncilType" xml:space="preserve">
+    <value>نوع المجلس</value>
+  </data>
+  <data name="DirectManager" xml:space="preserve">
+    <value>الرئيس المباشر</value>
+  </data>
+  <data name="JoiningConditions" xml:space="preserve">
+    <value>شروط الأنضمام للمجلس</value>
+  </data>
+  <data name="AnnounceForaKnowledgeCouncil" xml:space="preserve">
+    <value>اعلن عن مجلس معرفة</value>
+  </data>
 </root>
