@@ -43,21 +43,16 @@ namespace MOJ.Intranet.Webparts.My_Services.HappinessHotlineWP
                    
                     if (languageCode == "ar")
                     {
-                        Ename.Value = item.employeeNameArabicField.ToString();
-                       
+                        Ename.Value = item.employeeNameArabicField.ToString();                       
                     }
                     else
                     {
-                        Ename.Value = item.employeeNameEnglishField.ToString();
-                       
-                    }
-                    
+                        Ename.Value = item.employeeNameEnglishField.ToString();                       
+                    }                    
                 }
-
             }
             catch (Exception ex)
             {
-
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }

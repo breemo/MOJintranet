@@ -101,6 +101,10 @@ namespace MOJ.DataManager
                                      obitem.EmployeeNumber= Convert.ToString(item["EmployeeNumber"]);
                                      obitem.JoiningConditions= Convert.ToString(item["JoiningConditions"]);
                                      obitem.Designation = Convert.ToString(item["Designation"]);
+                                     obitem.Status = Convert.ToString(item["Status"]);
+
+                                    obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(item["Author"]));
+                                    obitem.Created = Convert.ToDateTime(item["Created"]);
                                 }
                             }
                         }

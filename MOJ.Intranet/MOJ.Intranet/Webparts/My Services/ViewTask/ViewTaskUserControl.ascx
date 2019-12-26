@@ -36,7 +36,7 @@ background-color: #f5e9b6;
           </div>
        <div id="Edata">
                     <div class="row rt">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="row">
                                 <div class="col-md-4">
                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FullNameArabic%>" /></label>
@@ -58,7 +58,7 @@ background-color: #f5e9b6;
 					    </div>                  
                     </div>
                <div class="row rt">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="row">
                                 <div class="col-md-4">
                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeNumber%>" /></label>
@@ -83,7 +83,7 @@ background-color: #f5e9b6;
                     </div>
                  
            <div class="row rt">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="row">
                                 <div class="col-md-4">
                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Nationality%>" /></label>
@@ -107,7 +107,7 @@ background-color: #f5e9b6;
                     </div>
                
            <div class="row rt">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                            <div class="row">
                                 <div class="col-md-4">
                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, MaritalStatus%>" /></label>

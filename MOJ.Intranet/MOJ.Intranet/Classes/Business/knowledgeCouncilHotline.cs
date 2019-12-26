@@ -25,7 +25,10 @@ namespace MOJ.Business
         {
             return new CouncilTypeDataManager().GetAll();
         }
-
+        public string GetCouncilTypeByid(int id ,string language)
+        {
+            return new CouncilTypeDataManager().GetByID(id, language);
+        }
 
     }
 }

@@ -14,6 +14,7 @@ using System.Threading;
 using MOJ.Intranet.Classes.Common;
 using MOJ.Entities.ImplicitKnowledge;
 using System.Data;
+using Microsoft.Office.Server.UserProfiles;
 
 namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP
 {
@@ -54,25 +55,44 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP
         {
             try
             {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb web = site.OpenWeb())
+                        {
+                            SPUser user = SPContext.Current.Web.CurrentUser;
+                            SPUser CurrentUser = user;
+                            var userLoginName = CurrentUser.LoginName;
+                            SPServiceContext serviceContext = SPServiceContext.GetContext(site);
+                            var profileManager = new UserProfileManager(serviceContext);
+                            String[] breakApart = userLoginName.Split('|');
+                            var accountName = breakApart[1];
+                            var userProfile = profileManager.GetUserProfile(accountName);
+                            var Department = userProfile["Department"].Value != null
+                                ? userProfile["Department"].Value.ToString()
+                                : "";
+                            EDepartment.Value = Department;
+                        }
+                    }
+                });
                 CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                 string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                 List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
                 foreach (EmployeeMasterDataEntity item in EmployeeValues)
                 {
+
                     Enumber.Value = item.employeeNumberField.ToString();
                     EDirectManager.Value = item.ManagerName_DirectManager.ToString();
                     if (languageCode == "ar")
                     {
-                        Ename.Value = item.employeeNameArabicField.ToString();
-                        EDepartment.Value = item.departmentNameField_AR.ToString();
+                        Ename.Value = item.employeeNameArabicField.ToString();                       
                         EPosition.Value = item.positionNameField_US.ToString();
                     }
                     else
                     {
-                        Ename.Value = item.employeeNameEnglishField.ToString();
-                        EDepartment.Value = item.departmentNameField_AR.ToString();
-                        EPosition.Value = item.positionNameField_US.ToString();
-                       
+                        Ename.Value = item.employeeNameEnglishField.ToString();                      
+                        EPosition.Value = item.positionNameField_US.ToString();                       
                     }
                    
                 }

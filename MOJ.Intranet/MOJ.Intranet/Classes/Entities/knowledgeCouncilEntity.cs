@@ -18,6 +18,7 @@ namespace MOJ.Entities
        
         public string EmployeeNumber { get; set; }
         public string Designation { get; set; }
+        public string Status { get; set; }
 
         public string Department { get; set; }
         public string DirectManager { get; set; }
@@ -26,5 +27,9 @@ namespace MOJ.Entities
         public DateTime CouncilDate { get; set; }
         public string CouncilType { get; set; }
        
+               
+        public DateTime Created { get; set; }
+       
+        public SPFieldUserValue CreatedBy { get; set; }
     }
 }

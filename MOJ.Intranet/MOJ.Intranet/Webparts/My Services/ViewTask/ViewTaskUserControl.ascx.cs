@@ -69,6 +69,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 if (task.WorkflowName == "PeriodicalFormForGovernmentHousing")
                     GetPeriodicalFormForGovernmentHousingData(task.RequestID);
 
+                if (task.WorkflowName == "knowledgeCouncil")
+                    GetknowledgeCouncil(task.RequestID);
                 ////
                 GetTasksRequest(task.RequestID, task.WorkflowName);
 
@@ -120,6 +122,25 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
                 LoggingService.LogError("WebParts", ex.Message);
             }
+        }
+
+        public string GetknowledgeCouncil(string RequestID)
+        {
+            knowledgeCouncilEntity masteritem = new knowledgeCouncil().GetHappinessHotline(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            string CouncilTarget = "<textarea disabled name ='txtCouncilTarget' id ='txtCouncilTarget' class='form-control'cols='120' rows='3'>" + masteritem.CouncilTarget + "</textarea>";
+
+            addtopage("CouncilTarget", CouncilTarget);
+            string JoiningConditions = "<textarea disabled name ='txtCouncilTarget' id ='txtCouncilTarget' class='form-control'cols='120' rows='3'>" + masteritem.JoiningConditions + "</textarea>";
+            addtopage("JoiningConditions", JoiningConditions);
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            string CouncilTypename = new knowledgeCouncil().GetCouncilTypeByid(Convert.ToInt32(masteritem.CouncilType), languageCode);
+            
+            addtopage("CouncilDate", masteritem.CouncilDate.ToString("dd MMM yyyy"), "CouncilType", CouncilTypename);
+            return masteritem.Status;
         }
 
         public string GetPeriodicalFormForGovernmentHousingData(string RequestID)
