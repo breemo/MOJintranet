@@ -14,6 +14,12 @@ namespace MOJ.Business
         {
             return new knowledgeCouncilDataManager().AddOrUpdateknowledgeCouncil(obj);
         }
+                                                      
+        public List<knowledgeCouncilEntity> GetknowledgeCouncil(int limit = 0, string CouncilTopicvalue = "", string CouncilNovalue = "", string CouncilDatevalue = "", string Departmentvalue = "")
+        {
+            return new knowledgeCouncilDataManager().GetknowledgeCouncil(limit, CouncilTopicvalue, CouncilNovalue, CouncilDatevalue, Departmentvalue);
+        }
+ 
 
 
 

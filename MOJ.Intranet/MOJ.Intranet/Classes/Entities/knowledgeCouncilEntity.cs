@@ -14,6 +14,7 @@ namespace MOJ.Entities
         public string CouncilTopic { get; set; }
 
         public string EmployeeName { get; set; }       
+        public string Lecturer { get; set; }       
               
        
         public string EmployeeNumber { get; set; }
@@ -26,10 +27,12 @@ namespace MOJ.Entities
         public string JoiningConditions { get; set; }
         public DateTime CouncilDate { get; set; }
         public string CouncilType { get; set; }
+        public string RequestURL { get; set; }
        
                
         public DateTime Created { get; set; }
        
         public SPFieldUserValue CreatedBy { get; set; }
+        public int CouncilNo { get; set; }
     }
 }

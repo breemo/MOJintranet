@@ -1146,4 +1146,22 @@
   <data name="AnnounceForaKnowledgeCouncil" xml:space="preserve">
     <value>اعلن عن مجلس معرفة</value>
   </data>
+  <data name="Lecturer" xml:space="preserve">
+    <value>المحاضر</value>
+  </data>
+  <data name="CouncilDate1" xml:space="preserve">
+    <value>تاريخ المجلس</value>
+  </data>
+  <data name="CouncilNo" xml:space="preserve">
+    <value>رقم المجلس</value>
+  </data>
+  <data name="CouncilsHeld" xml:space="preserve">
+    <value>المجالس المنعقدة</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>تفاصيل</value>
+  </data>
+  <data name="SearchAll" xml:space="preserve">
+    <value>بحث الكل</value>
+  </data>
 </root>

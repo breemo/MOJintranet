@@ -1146,4 +1146,22 @@
   <data name="AnnounceForaKnowledgeCouncil" xml:space="preserve">
     <value>Announce for a knowledge council</value>
   </data>
+  <data name="Lecturer" xml:space="preserve">
+    <value>Lecturer</value>
+  </data>
+  <data name="CouncilDate1" xml:space="preserve">
+    <value>Council Date</value>
+  </data>
+  <data name="CouncilNo" xml:space="preserve">
+    <value>Council No</value>
+  </data>
+  <data name="CouncilsHeld" xml:space="preserve">
+    <value>Councils held</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="SearchAll" xml:space="preserve">
+    <value>Search All</value>
+  </data>
 </root>

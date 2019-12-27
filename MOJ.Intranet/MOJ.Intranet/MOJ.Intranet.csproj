@@ -469,6 +469,14 @@
     <Compile Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsListUserControl.ascx.designer.cs">
       <DependentUpon>wpOccasionsListUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWPUserControl.ascx.cs">
+      <DependentUpon>HeldCouncilWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWPUserControl.ascx.designer.cs">
+      <DependentUpon>HeldCouncilWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWP.cs" />
     <Compile Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx.cs">
       <DependentUpon>ImplicitKnowledgeWPUserControl.ascx</DependentUpon>
@@ -782,6 +790,10 @@
       <SharePointProjectItemId>{ee7746e6-f59b-4b25-94cd-075f88d5d286}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsList.webpart" />
+    <None Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\HeldCouncilWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d5a8aa72-159c-4fc4-ac43-25e9d23fae3e}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWP.webpart" />
     <None Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{e62acebd-b2b0-4ca4-9573-28e44a7120bf}</SharePointProjectItemId>
@@ -943,6 +955,8 @@
     <Content Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetailsUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\wpOccasionsList\Elements.xml" />
     <Content Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsListUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\HeldCouncilWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\Elements.xml" />
