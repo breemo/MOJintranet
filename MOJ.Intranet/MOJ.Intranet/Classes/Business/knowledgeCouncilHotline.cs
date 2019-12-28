@@ -19,7 +19,12 @@ namespace MOJ.Business
         {
             return new knowledgeCouncilDataManager().GetknowledgeCouncil(limit, CouncilTopicvalue, CouncilNovalue, CouncilDatevalue, Departmentvalue);
         }
- 
+
+        public List<knowledgeCouncilEntity> GetPlannedCouncils( string username , string language , string curentDate )
+        {
+            return new knowledgeCouncilDataManager().GetPlannedCouncils(username, language, curentDate);
+        }
+
 
 
 

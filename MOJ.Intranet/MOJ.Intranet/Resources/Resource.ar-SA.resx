@@ -1164,4 +1164,16 @@
   <data name="SearchAll" xml:space="preserve">
     <value>بحث الكل</value>
   </data>
+  <data name="TheJoinRequestHasNoBeenSent" xml:space="preserve">
+    <value>لم يتم ارسال طلب الانضمام</value>
+  </data>
+  <data name="YouHaveAlreadySentAJoinRequest" xml:space="preserve">
+    <value>لقد قمت بالرسال طلب الانضمام من قبل</value>
+  </data>
+  <data name="YourRequestToJoinSuccessfully" xml:space="preserve">
+    <value>تم ارسال طلب انضمامك بنجاح</value>
+  </data>
+  <data name="PlannedCouncils" xml:space="preserve">
+    <value>المجالس المخطط انعقدها</value>
+  </data>
 </root>

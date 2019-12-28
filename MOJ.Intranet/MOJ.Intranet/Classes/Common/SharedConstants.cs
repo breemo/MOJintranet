@@ -120,6 +120,7 @@ namespace CommonLibrary
         public const string PeriodicalFormForGovernmentHousingUrl = "/Lists/PeriodicalFormForGovernmentHousing/AllItems.aspx";
         public const string EmployeeUrl = "/Lists/EmployeesProfile/AllItems.aspx";
         public const string knowledgeCouncilUrl = "/Lists/knowledgeCouncil/AllItems.aspx";
+        public const string CouncilMembersUrl = "/Lists/CouncilMembers/AllItems.aspx";
         public const string CouncilTypeUrl = "/Lists/CouncilType/AllItems.aspx";
 
         #endregion

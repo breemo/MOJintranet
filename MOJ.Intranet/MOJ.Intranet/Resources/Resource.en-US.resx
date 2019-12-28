@@ -1164,4 +1164,16 @@
   <data name="SearchAll" xml:space="preserve">
     <value>Search All</value>
   </data>
+  <data name="TheJoinRequestHasNoBeenSent" xml:space="preserve">
+    <value>The join request has not been sent</value>
+  </data>
+  <data name="YouHaveAlreadySentAJoinRequest" xml:space="preserve">
+    <value>You have already sent a join request</value>
+  </data>
+  <data name="YourRequestToJoinSuccessfully" xml:space="preserve">
+    <value>Your request to join has been sent successfully</value>
+  </data>
+  <data name="PlannedCouncils" xml:space="preserve">
+    <value>Planned councils</value>
+  </data>
 </root>

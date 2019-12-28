@@ -1,5 +1,6 @@
 ﻿using Microsoft.SharePoint;
 using MOJ.Entities;
+using MOJ.Business;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -120,7 +121,75 @@ namespace MOJ.DataManager
             return obitem;
         }
 
-       public List<knowledgeCouncilEntity> GetknowledgeCouncil(int intRowLimit, string CouncilTopicvalue, string CouncilNovalue, string CouncilDatevalue, string Departmentvalue)
+       public List<knowledgeCouncilEntity> GetPlannedCouncils(string username, string language, string curentDate)
+        {
+            List<knowledgeCouncilEntity> ItemsCollection = new List<knowledgeCouncilEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.knowledgeCouncilUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><And>";                               
+                                camlquery1 += "<Eq><FieldRef Name='Status'></FieldRef><Value Type='Text'>Approved</Value></Eq>";
+                                ///Filterfrom  format 2019-1-1
+                                    camlquery1 += "<Leq><FieldRef Name ='CouncilDate'/><Value Type='DateTime'>" + curentDate + "</Value></Leq></And>";
+                                   camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+
+                                qry1.Query = camlquery1;
+                                
+
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    knowledgeCouncilEntity itemis = new knowledgeCouncilEntity();
+                                    itemis.Title = Convert.ToString(Item["Title"]);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.CouncilDate = Convert.ToDateTime(Item["CouncilDate"]);
+                                    itemis.CouncilNo = Convert.ToInt32(Item["CouncilNo"]);
+                                    itemis.CouncilTarget = Convert.ToString(Item["CouncilTarget"]);
+                                    itemis.CouncilTopic = Convert.ToString(Item["CouncilTopic"]);
+                                    itemis.CouncilType = Convert.ToString(Item["CouncilType"]);
+                                    itemis.Department = Convert.ToString(Item["Department"]);
+                                    itemis.Designation = Convert.ToString(Item["Designation"]);
+                                    itemis.DirectManager = Convert.ToString(Item["DirectManager"]);
+                                    itemis.EmployeeName = Convert.ToString(Item["EmployeeName"]);
+                                    itemis.EmployeeNumber = Convert.ToString(Item["EmployeeNumber"]);
+                                    itemis.JoiningConditions = Convert.ToString(Item["JoiningConditions"]);
+                                    itemis.Lecturer = Convert.ToString(Item["Lecturer"]);
+                                    CouncilMembersEntity Citem = new CouncilMembers().GetMemberID(Convert.ToInt32(Item["ID"]), username);
+                                    if (Citem.ID > 0)
+                                    {
+                                        itemis.Status = Citem.Status;
+                                    }
+                                    else
+                                    {
+                                        itemis.Status = "انضم";
+                                    }
+                                    itemis.Status = Convert.ToString(Item["Status"]);
+                                    itemis.RequestURL = "CouncilMembers.aspx?TID=" + Convert.ToInt32(Item["ID"])+"&Title="+ Convert.ToString(Item["Title"]) ;
+
+                                    ItemsCollection.Add(itemis);
+
+
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+
+         public List<knowledgeCouncilEntity> GetknowledgeCouncil(int intRowLimit, string CouncilTopicvalue, string CouncilNovalue, string CouncilDatevalue, string Departmentvalue)
         {
             List<knowledgeCouncilEntity> ItemsCollection = new List<knowledgeCouncilEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
