@@ -62,7 +62,7 @@ namespace MOJ.DataManager
        public CouncilMembersEntity GetMemberID( int knowledgeCouncilID, string loginName)
         {
             CouncilMembersEntity items = new CouncilMembersEntity();
-            items.ID = 0;
+           items.ID = 0;
             SPSecurity.RunWithElevatedPrivileges(delegate ()
             {
                 using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
@@ -71,19 +71,18 @@ namespace MOJ.DataManager
                     {
                         if (oWeb != null)
                         {
-                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.knowledgeCouncilUrl);
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.CouncilMembersUrl);
                             if (lst != null)
                             {
                                 SPQuery qry1 = new SPQuery();
                                 string camlquery1 = "<Where><And>";                                
-                                camlquery1 += "<Eq><FieldRef Name='Status'></FieldRef><Value Type='number'>"+ knowledgeCouncilID + "</Value></Eq>";                                
+                                camlquery1 += "<Eq><FieldRef Name='knowledgeCouncilID'></FieldRef><Value Type='number'>" + knowledgeCouncilID + "</Value></Eq>";                                
                                     camlquery1 += "<Eq><FieldRef Name='loginName'/><Value Type='Text'>" + loginName + "</Value></Eq></And>";                                
                             camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
                                 {
-                                    knowledgeCouncilEntity itemis = new knowledgeCouncilEntity();
                                     items.ID = Convert.ToInt32(Item["ID"]);                                  
                                     items.Status = Convert.ToString(Item["Status"]);                                  
                                     items.Title = Convert.ToString(Item["Title"]);                                  

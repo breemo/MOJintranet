@@ -24,7 +24,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CouncilMembersWP
                     string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
                      CouncilMembersEntity CouncilMembersEntity = new CouncilMembers().GetMemberID(Convert.ToInt32(Request.Params["TID"]), currentUserlogin);
                    int memberID = CouncilMembersEntity.ID;
-                    if (memberID > 0)
+                    if (memberID == 0)
                     {
                         CouncilMembersEntity CouncilMembersitem = new CouncilMembersEntity();
                         CouncilMembersitem.knowledgeCouncilID = Convert.ToInt32(Request.Params["TID"]);

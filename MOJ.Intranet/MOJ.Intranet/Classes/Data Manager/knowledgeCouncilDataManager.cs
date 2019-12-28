@@ -139,7 +139,7 @@ namespace MOJ.DataManager
                                 string camlquery1 = "<Where><And>";                               
                                 camlquery1 += "<Eq><FieldRef Name='Status'></FieldRef><Value Type='Text'>Approved</Value></Eq>";
                                 ///Filterfrom  format 2019-1-1
-                                    camlquery1 += "<Leq><FieldRef Name ='CouncilDate'/><Value Type='DateTime'>" + curentDate + "</Value></Leq></And>";
+                                  camlquery1 += "<Geq><FieldRef Name ='CouncilDate'/><Value Type='DateTime'>" + curentDate + "</Value></Geq></And>";
                                    camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
 
                                 qry1.Query = camlquery1;
@@ -164,16 +164,39 @@ namespace MOJ.DataManager
                                     itemis.JoiningConditions = Convert.ToString(Item["JoiningConditions"]);
                                     itemis.Lecturer = Convert.ToString(Item["Lecturer"]);
                                     CouncilMembersEntity Citem = new CouncilMembers().GetMemberID(Convert.ToInt32(Item["ID"]), username);
-                                    if (Citem.ID > 0)
+                                    itemis.Status = "join";
+
+                                    if (Citem.ID != 0)
                                     {
                                         itemis.Status = Citem.Status;
                                     }
-                                    else
+                                    if (language == "ar")
                                     {
                                         itemis.Status = "انضم";
+                                        if (Citem.ID != 0)
+                                        {
+                                            if (Citem.Status == "Approved")
+                                            {
+                                                itemis.Status = "موافق عليه";
+
+                                            }
+                                            if (Citem.Status == "Rejected")
+                                            {
+                                                itemis.Status = "مرفوض";
+
+                                            }
+                                            if (Citem.Status == "Pending")
+                                            {
+                                                itemis.Status = "قيد الانتظار";
+
+                                            }
+
+                                        }
+
+
                                     }
-                                    itemis.Status = Convert.ToString(Item["Status"]);
-                                    itemis.RequestURL = "CouncilMembers.aspx?TID=" + Convert.ToInt32(Item["ID"])+"&Title="+ Convert.ToString(Item["Title"]) ;
+
+                                    itemis.RequestURL = "CouncilMembers.aspx?TID=" + Convert.ToInt32(Item["ID"])+"&Title="+ Convert.ToString(Item["CouncilTopic"]) ;
 
                                     ItemsCollection.Add(itemis);
 

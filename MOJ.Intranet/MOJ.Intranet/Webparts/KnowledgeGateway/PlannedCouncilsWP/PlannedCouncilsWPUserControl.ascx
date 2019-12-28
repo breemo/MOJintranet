@@ -10,7 +10,8 @@
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
      <!-- Post Content
                     ============================================= -->
-                    <div class="">
+                   
+                        <div class="">
                         <div class="">
                             <h4>
 							    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, PlannedCouncils%>" /></label>
@@ -42,7 +43,7 @@
 													<td><%#  Convert.ToDateTime(Eval("CouncilDate")).ToString("dd/MM/yyyy")%></td> 
 													<td><%# Eval("Lecturer") %></td> 
 													<td><%# Eval("JoiningConditions") %></td> 													                                       
-													<td><a href="<%# Eval("RequestURL") %>"><%# Eval("Status") %></a></td>
+													<td><a class="bddgicb" style="color: #fff !important;" href="<%# Eval("RequestURL") %>"><%# Eval("Status") %></a></td>
 													</tr>     
 												</ItemTemplate>
 												
@@ -78,9 +79,11 @@
 							</a>
 						</li>
 					</ul>
+			
+			
 			</div>
                             </div><!-- #posts end -->
-                        </div>
+                      </div>
                     <!-- Sidebar
                     ============================================= -->
 					<div id="SuccessMsgDiv" runat="server" style="display:none">
@@ -117,11 +120,7 @@ background-color: #f5e9b6;
     color: #ffffff;
 }
 
-.active {
-   
-    background-color: #e9ecef;
-   
-}
+ 
 .table-responsive tr:nth-child(even) {
     padding: 0.8em 0.75rem;
     vertical-align: middle;

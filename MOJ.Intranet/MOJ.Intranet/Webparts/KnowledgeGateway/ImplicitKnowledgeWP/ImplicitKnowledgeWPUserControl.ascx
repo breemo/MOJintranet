@@ -1251,6 +1251,13 @@
     align-items: center;
     align-items: center;
 }
+.bgdivindfx {
+    background-color: whitesmoke;
+}
+.conentbgdivd {
+    border-right: 1px solid #e1e1e1;
+    border-left: 1px solid #e1e1e1;
+}
 </style>
 <script>
     $(document).ready(function () {

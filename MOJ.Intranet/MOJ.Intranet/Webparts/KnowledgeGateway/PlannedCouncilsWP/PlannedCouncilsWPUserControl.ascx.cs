@@ -89,13 +89,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.PlannedCouncilsWP
                 {
                     CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                     string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
-                    string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
-                    string curentDate;
-                    DateTime today = DateTime.Today;                    
-                        DateTime sDate = DateTime.ParseExact(Convert.ToString(today), "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                    curentDate = Convert.ToString(sDate.Year) + "-" + Convert.ToString(sDate.Month) + "-" + Convert.ToString(sDate.Day);                  
-
-                    List<knowledgeCouncilEntity> Requestsollection = new knowledgeCouncil().GetPlannedCouncils(currentUserlogin, languageCode, curentDate);
+                    string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;                   
+                    DateTime dateTime = DateTime.UtcNow.Date;
+                    List<knowledgeCouncilEntity> Requestsollection = new knowledgeCouncil().GetPlannedCouncils(currentUserlogin, languageCode, dateTime.ToString("yyyy-MM-dd"));
                     PagedDataSource pgitems = new PagedDataSource();
                     pgitems.AllowPaging = true;
                     //Control page size from here 
