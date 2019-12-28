@@ -177,7 +177,7 @@ namespace MOJ.DataManager
                                         {
                                             if (Citem.Status == "Approved")
                                             {
-                                                itemis.Status = "موافق عليه";
+                                                itemis.Status = "موافق";
 
                                             }
                                             if (Citem.Status == "Rejected")
@@ -187,7 +187,7 @@ namespace MOJ.DataManager
                                             }
                                             if (Citem.Status == "Pending")
                                             {
-                                                itemis.Status = "قيد الانتظار";
+                                                itemis.Status = "معلق";
 
                                             }
 

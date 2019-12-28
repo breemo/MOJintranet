@@ -99,6 +99,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetPeriodicalFormForGovernmentHousingData(RequestID);
             if (listName == "knowledgeCouncil")
                 Status = GetknowledgeCouncil(RequestID);
+            if (listName == "CouncilMembers")
+                Status = GetCouncilMembers(RequestID);
             GetTasksRequest(RequestID, listName);
 
             AllData.Text += "<hr>";
@@ -108,12 +110,22 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
          }
         }
 
+        public string GetCouncilMembers(string RequestID)
+        {
+            CouncilMembersEntity masteritem = new CouncilMembers().GetCouncilMembers(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            addtopage("CouncilTopic", masteritem.CouncilTopic);
+            return masteritem.Status;
+        }
         public string GetknowledgeCouncil(string RequestID)
         {
             knowledgeCouncilEntity masteritem = new knowledgeCouncil().GetHappinessHotline(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
             UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
             addtopage("Department", masteritem.Department);
+            addtopage("CouncilTopic", masteritem.CouncilTopic);
             string CouncilTarget = "<textarea disabled name ='txtCouncilTarget' id ='txtCouncilTarget' class='form-control'cols='120' rows='3'>" + masteritem.CouncilTarget + "</textarea>";
 
             addtopage("CouncilTarget", CouncilTarget);

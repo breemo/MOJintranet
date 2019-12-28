@@ -19,8 +19,11 @@ namespace MOJ.Business
         {
             return new CouncilMembersDataManager().GetMemberID(knowledgeCouncilID, loginName);
         }
- 
 
+        public CouncilMembersEntity GetCouncilMembers(int id)
+        {
+            return new CouncilMembersDataManager().GetCouncilMembersByID(id);
+        }
 
     }
 }

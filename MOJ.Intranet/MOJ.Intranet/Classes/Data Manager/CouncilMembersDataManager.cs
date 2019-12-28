@@ -39,8 +39,11 @@ namespace MOJ.DataManager
                             item = list.AddItem();
                         }                       
                         item["Title"] = Item.Title;
+                        item["CouncilTopic"] = Item.CouncilTopic;
                         item["knowledgeCouncilID"] = Item.knowledgeCouncilID;
                         item["loginName"] = Item.loginName;
+                        item["UserName"] = Item.UserName;
+                        item["Department"] = Item.Department;
                         item.Update();
                         isFormSaved = true;
                     }
@@ -100,6 +103,43 @@ namespace MOJ.DataManager
             return items;
         }
 
+        public CouncilMembersEntity GetCouncilMembersByID(int id)
+        {
+            CouncilMembersEntity obitem = new CouncilMembersEntity();
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.CouncilMembersUrl);
+                                if (lst != null)
+                                {
+
+                                    SPListItem item = lst.GetItemById(id);
+                                    obitem.Title = Convert.ToString(item["Title"]);                                   
+                                    obitem.CouncilTopic = Convert.ToString(item["CouncilTopic"]);                                   
+                                    obitem.Department = Convert.ToString(item["Department"]);                                   
+                                    obitem.Status = Convert.ToString(item["Status"]);
+                                    obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(item["Author"]));
+                                    obitem.Created = Convert.ToDateTime(item["Created"]);
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return obitem;
+        }
 
 
     }
