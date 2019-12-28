@@ -57,9 +57,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         SID013.Value = item.ID.ToString();
                         RetrevehdnsuperDIV13.Value = item.ID.ToString() + "#";
                         ActivityName013.Value = item.ActivityName.ToString();
-                        DropDownLocation13.SelectedValue = item.LocationID.ToString();
-                        Dateto013.Value = item.ToDate.ToString("MM/dd/yyyy");
-                        Datefrom013.Value = item.FromDate.ToString("MM/dd/yyyy");
+                        DropDownLocation13.SelectedValue = item.LocationID.ToString();                      
+                      
+                        if (item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            Dateto013.Value = item.ToDate.ToString("MM/dd/yyyy");
+                        }
+                        if (item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+
+                            Datefrom013.Value = item.FromDate.ToString("MM/dd/yyyy");
+                        }
 
                     }
                     else
@@ -92,6 +100,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
 
                             }
                         }
+                        string TimePeriodFromv = "";
+                        string TimeperiodTov = "";
+                        if (item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimePeriodFromv = item.ToDate.ToString("MM/dd/yyyy");
+                        }
+                        if (item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+
+                            TimeperiodTov = item.FromDate.ToString("MM/dd/yyyy");
+                        }
 
                         var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
@@ -106,12 +125,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         "</select></div>" +
                        "	<div class='col-md-3 '>" +
                             "	<div class='input-group date DivDatefrom' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.FromDate.ToString("MM/dd/yyyy") + "'  name='Datefrom13' type='text' id='Datefrom13" + x + "' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + TimePeriodFromv + "'  name='Datefrom13' type='text' id='Datefrom13" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
                             "	<div class='col-md-3 '>" +
                             "	<div class='input-group date DivDateto' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.ToDate.ToString("MM/dd/yyyy") + "'  name='Dateto13' type='text' id='Dateto13" + x + "' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + TimeperiodTov + "'  name='Dateto13' type='text' id='Dateto13" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
 
@@ -282,14 +301,34 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         Membership0.Value = item.Membership.ToString();
                         Location0.Value = item.Location.ToString();
                         Field011.Value = item.Field.ToString();
-                        FromDate011.Value = item.FromDate.ToString("MM/dd/yyyy");
-                        ToDate011.Value = item.ToDate.ToString("MM/dd/yyyy");
+                        
+                       
+                           if (item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            FromDate011.Value = item.FromDate.ToString("MM/dd/yyyy");
+                        }
+                        if (item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+
+                            ToDate011.Value = item.ToDate.ToString("MM/dd/yyyy");
+                        }
                         Notes011.Value = item.Notes.ToString();
                     }
                     else
                     {
                         hdnsuperDIV11.Value = Convert.ToString(x);
-                        RetrevehdnsuperDIV11.Value += item.ID.ToString() + "#"; 
+                        RetrevehdnsuperDIV11.Value += item.ID.ToString() + "#";
+                        string TimePeriodFromv = "";
+                        string TimeperiodTov = "";
+                        if (item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimePeriodFromv = item.FromDate.ToString("MM/dd/yyyy");
+                        }
+                        if (item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+
+                            TimeperiodTov = item.ToDate.ToString("MM/dd/yyyy");
+                        }
                         var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                         "<div class='DivSID11' style=' display: none;'><input name='SID11' value='" + item.ID.ToString() + "' type='text' id='SID11" + x + "' class='form-control' placeholder=''></div> " +
@@ -298,12 +337,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         "<div class='col-md-1 DivField'><input name='Field11' value='" + item.Field.ToString() + "' type='text' id='Field11" + x + "' class='form-control' placeholder=''></div>" +
                         "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivFromDate' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.FromDate.ToString("MM/dd/yyyy") + "'  name='FromDate11' type='text' id='FromDate11" + x + "' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + TimePeriodFromv + "'  name='FromDate11' type='text' id='FromDate11" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
                             "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivToDate' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.ToDate.ToString("MM/dd/yyyy") + "'  name='ToDate11' type='text' id='ToDate11" + x + "' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + TimeperiodTov + "'  name='ToDate11' type='text' id='ToDate11" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
                         "<div class='col-md-2 DivNotes'><input name='Notes11' value='" + item.Notes.ToString() + "' type='text' id='Notes11" + x + "' class='form-control' placeholder=''></div>" +
@@ -344,8 +383,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         SID09.Value = item.ID.ToString();
                         RetrevehdnsuperDIV9.Value = item.ID.ToString() + "#";
                         DropDownCountryResidentForMoreThan3Months.SelectedValue = item.CountryResidentForMoreThan3Month.ToString();
-                        TimePeriodFrom0.Value = item.TimePeriodFrom.ToString("MM/dd/yyyy");
-                        TimeperiodTo0.Value = item.TimeperiodTo.ToString("MM/dd/yyyy");
+                        if (item.TimePeriodFrom.ToString("MM/dd/yyyy")!= "01/01/0001")
+                        {
+                            TimePeriodFrom0.Value = item.TimePeriodFrom.ToString("MM/dd/yyyy");
+                        }
+                        if (item.TimeperiodTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+
+                            TimeperiodTo0.Value = item.TimeperiodTo.ToString("MM/dd/yyyy");
+                        }
                         VisitReasons0.Value = item.VisitReasons.ToString();
                     }
                     else
@@ -377,6 +423,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
 
                             }
                         }
+                        string TimePeriodFromv="";
+                        string TimeperiodTov="";
+                        if (item.TimePeriodFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimePeriodFromv = item.TimePeriodFrom.ToString("MM/dd/yyyy");
+                        }
+                        if (item.TimeperiodTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+
+                            TimeperiodTov = item.TimeperiodTo.ToString("MM/dd/yyyy");
+                        }
                         var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                         "<div class='DivSID9' style=' display: none;'><input name='SID9' value='" + item.ID.ToString() + "' type='text' id='SID9" + x + "' class='form-control' placeholder=''></div> " +
@@ -386,12 +443,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         "</select></div>" +
                         "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivTimePeriodFrom' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.TimePeriodFrom.ToString("MM/dd/yyyy") + "'  name='TimePeriodFrom' type='text' id='TimePeriodFrom" + x + "' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + TimePeriodFromv + "'  name='TimePeriodFrom' type='text' id='TimePeriodFrom" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
                             "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivTimeperiodTo' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.TimeperiodTo.ToString("MM/dd/yyyy") + "'  name='TimeperiodTo' type='text' id='TimeperiodTo" + x + "' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + TimeperiodTov + "'  name='TimeperiodTo' type='text' id='TimeperiodTo" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
 
@@ -436,14 +493,22 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         RetrevehdnsuperDIV8.Value = item.ID.ToString() + "#";
                         BookPublicationTitle0.Value = item.BookPublicationTitle.ToString();
                         Topic0.Value = item.Topic.ToString();
-                        PublishDate0.Value = item.PublishDate.ToString("MM/dd/yyyy");
+                        
+                        if (item.PublishDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            PublishDate0.Value = item.PublishDate.ToString("MM/dd/yyyy");
+                        }
                         Notes08.Value = item.Notes.ToString();
                     }
                     else
                     {
                         hdnsuperDIV8.Value = Convert.ToString(x);
                         RetrevehdnsuperDIV8.Value += item.ID.ToString() + "#";
-                       
+                        string PublishDatev = "";
+                        if (item.PublishDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            PublishDatev = item.PublishDate.ToString("MM/dd/yyyy");
+                        }
                         var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                         "<div class='DivSID8' style=' display: none;'><input name='SID8' value='" + item.ID.ToString() + "' type='text' id='SID8" + x + "' class='form-control' placeholder=''></div> " +
@@ -451,7 +516,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         "<div class='col-md-3 DivTopic'><input name='Topic' value='" + item.Topic.ToString() + "' type='text' id='Topic" + x + "' class='form-control' placeholder=''></div>" +
                        "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivPublishDate' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.PublishDate.ToString("MM/dd/yyyy") + "'  name='PublishDate' type='text' id='PublishDate" + x + "' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + PublishDatev + "'  name='PublishDate' type='text' id='PublishDate" + x + "' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
                         "<div class='col-md-3 DivNotes'><input name='Notes8' value='" + item.Notes.ToString() + "' type='text'' id='Notes8" + x + "' class='form-control' placeholder=''></div>" +                        
@@ -580,14 +645,31 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         CourseName0.Value = item.CourseName.ToString();                        
                         WithinThePlan0.Items.FindByValue(item.WithinThePlan.ToString()).Selected = true;                       
                         TrainingHours0.Value = item.TrainingHours.ToString();
-                        Datefrom06.Value = item.FromDate.ToString("MM/dd/yyyy");
-                        Dateto06.Value = item.ToDate.ToString("MM/dd/yyyy");
+                       
+                        if (item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            Datefrom06.Value = item.FromDate.ToString("MM/dd/yyyy");
+                        }
+                        if (item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")                        {
+
+                            Dateto06.Value = item.ToDate.ToString("MM/dd/yyyy");
+                        }
                         CourseLocation0.Value = item.CourseLocation.ToString();
                     }
                     else
                     {
                         hdnsuperDIV6.Value = Convert.ToString(x);
                         RetrevehdnsuperDIV6.Value += item.ID.ToString() + "#";
+                        string TimePeriodFromv = "";
+                        string TimeperiodTov = "";
+                        if (item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimePeriodFromv = item.FromDate.ToString("MM/dd/yyyy");
+                        }
+                        if (item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimeperiodTov = item.ToDate.ToString("MM/dd/yyyy");
+                        }
                         var textYes = SPUtility.GetLocalizedString("$Resources: Yes", "Resource", SPContext.Current.Web.Language);
                         var textNo = SPUtility.GetLocalizedString("$Resources: No", "Resource", SPContext.Current.Web.Language);
                         var checkedYes = "";
@@ -620,12 +702,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         "<div class='col-md-2 DiTrainingHours'><input name='TrainingHours' value='" + item.TrainingHours.ToString() + "' type='text' id='TrainingHours" + x + "' class='form-control' placeholder=''></div>" +                       
                             "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivDatefrom6' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.FromDate.ToString("MM/dd/yyyy") + "'  name='Datefrom6' type='text' id='Datefrom6' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + TimePeriodFromv + "'  name='Datefrom6' type='text' id='Datefrom6' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
                             "	<div class='col-md-2 '>" +
                             "	<div class='input-group date DivDateto6' data-provide='datepicker'>" +
-                            "	<input autocomplete='off' value='" + item.ToDate.ToString("MM/dd/yyyy") + "'  name='Dateto6' type='text' id='Dateto6' class='form-control'>" +
+                            "	<input autocomplete='off' value='" + TimeperiodTov + "'  name='Dateto6' type='text' id='Dateto6' class='form-control'>" +
                             "	<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                             "</div>	" +
                              "<div class='col-md-1 DivCourseLocation'><input name='CourseLocation' value='" + item.CourseLocation.ToString() + "' type='text'' id='CourseLocation" + x + "' class='form-control' placeholder=''></div>" +
@@ -1078,14 +1160,32 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         RetrevehdnsuperDIV1.Value=item.ID.ToString()+ "#" ;
                          Organizationalunit0.Value = item.OrganizationalUnit.ToString();
                          Designation0.Value = item.Designation.ToString();
-                         Datefrom0.Value = item.DateFrom.ToString("MM/dd/yyyy");
-                         Dateto0.Value = item.DateTo.ToString("MM/dd/yyyy");                        
+                        
+                         
+                        if (item.DateFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            Datefrom0.Value = item.DateFrom.ToString("MM/dd/yyyy");
+                        }
+                        if (item.DateTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            Dateto0.Value = item.DateTo.ToString("MM/dd/yyyy");
+                        }
                     }
                     else
                     {
                         hdnsuperDIV1.Value =Convert.ToString(x);
                         
                         RetrevehdnsuperDIV1.Value += item.ID.ToString() + "#";
+                        string TimeFromv = "";
+                        string TimeTov = "";
+                        if (item.DateFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimeFromv = item.DateFrom.ToString("MM/dd/yyyy");
+                        }
+                        if (item.DateTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimeTov = item.DateTo.ToString("MM/dd/yyyy");
+                        }
                         var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
                     "<div class='row rt'>" +
                                    "<div class=' DivSID' style=' display: none;'>" +
@@ -1096,11 +1196,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 "<div class='col-md-3 DivOrganizationalunit'><input name='Organizationalunit' value='" + item.OrganizationalUnit.ToString() + "' type='text'' id='Organizationalunit" + x + "' class='form-control' placeholder=''>" +
                                 "</div> " +
                                     "<div class='col-md-2 '>" +
-                                    "	<div class='input-group date DivDatefrom' data-provide='datepicker'><input autocomplete='off' value='" + item.DateFrom.ToString("MM/dd/yyyy") + "' name='Datefrom' type='text' id='Datefrom" + x + "' class='form-control'>" +
+                                    "	<div class='input-group date DivDatefrom' data-provide='datepicker'><input autocomplete='off' value='" + TimeFromv + "' name='Datefrom' type='text' id='Datefrom" + x + "' class='form-control'>" +
                                     "<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div>" +
                                      "</div>" +
                                     "<div class='col-md-2'>" +
-                                    "<div class='input-group date DivDateto' data-provide='datepicker'><input value='" + item.DateTo.ToString("MM/dd/yyyy") + "' autocomplete='off' name='Dateto' type='text' id='Dateto" + x + "' class='form-control'>" +
+                                    "<div class='input-group date DivDateto' data-provide='datepicker'><input value='" + TimeTov + "' autocomplete='off' name='Dateto' type='text' id='Dateto" + x + "' class='form-control'>" +
                                     "<div class='input-group-addon'><span class='icon-calendar-alt1'></span></div></div> </div>" +
                                      "<div class='col-md-1'>" +
                                  "<span style='padding-right: 25px;margin-top: -15px;' onclick='removerowEmploymenthistory(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>"+
@@ -1246,15 +1346,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         {
                             DateTime sDate = DateTime.ParseExact(Datefrom0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Datefrom = sDate;
+                            Entit1.DateFrom = Datefrom;
                         }
                         DateTime Dateto = new DateTime();
                         if (!string.IsNullOrEmpty(Dateto0.Value))
                         {
                             DateTime sDate2 = DateTime.ParseExact(Dateto0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Dateto = sDate2;
+                            Entit1.DateTo = Dateto;
                         }
-                        Entit1.DateFrom = Datefrom;
-                        Entit1.DateTo = Dateto;
+                       
+                        
                         Entit1.Designation = Designation0.Value;
                         Entit1.OrganizationalUnit = Organizationalunit0.Value;
                         Entit1.PID = PID;
@@ -1285,15 +1387,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     DateTime sDate = DateTime.ParseExact(Datefrom[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Datefroma = sDate;
+                                    ob.DateFrom = Datefroma;
                                 }
                                 DateTime Datetoa = new DateTime();
                                 if (!string.IsNullOrEmpty(Dateto[x]))
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(Dateto[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Datetoa = sDate2;
+                                    ob.DateTo = Datetoa;
                                 }
-                                ob.DateFrom = Datefroma;
-                                ob.DateTo = Datetoa;
+                                
+                               
                                 ob.Designation = Designation[x];
                                 ob.OrganizationalUnit = Organizationalunit[x];
                                 if (!string.IsNullOrEmpty(SID[x]))
@@ -1332,8 +1436,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         {
                             DateTime sDate2 = DateTime.ParseExact(GraduationYear0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date = sDate2;
+                            Entit2.GraduationYear = Date;
                         }
-                        Entit2.GraduationYear = Date;
+                        
                         Entit2.Qualification = Qualification0.Value;
                         Entit2.Major = Major0.Value;
                         Entit2.Institution = Institution0.Value;
@@ -1367,8 +1472,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(GraduationYear[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date = sDate2;
+                                    ob.GraduationYear = Date;
                                 }
-                                ob.GraduationYear = Date;
+                               
 
                                
                                 ob.Qualification = Qualification[x];
@@ -1597,15 +1703,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         {
                             DateTime sDate2 = DateTime.ParseExact(Datefrom06.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date = sDate2;
+                            Entit6.FromDate = Date;
                         }
                         DateTime Date2 = new DateTime();
                         if (!string.IsNullOrEmpty(Dateto06.Value))
                         {
                             DateTime sDate2 = DateTime.ParseExact(Dateto06.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date2 = sDate2;
+                            Entit6.ToDate = Date2;
                         }
-                        Entit6.FromDate = Date;
-                        Entit6.ToDate = Date2;
+                        
+                       
                         Entit6.CourseLocation = CourseLocation0.Value;
                         Entit6.CourseName = CourseName0.Value;
                         Entit6.TrainingHours = TrainingHours0.Value;
@@ -1640,15 +1748,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(FromDate[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date = sDate2;
+                                    ob.FromDate = Date;
                                 }
                                 DateTime Date2 = new DateTime();
                                 if (!string.IsNullOrEmpty(ToDate[x]))
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(ToDate[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date2 = sDate2;
+                                    ob.ToDate = Date2;
                                 }
-                                ob.FromDate = Date;
-                                ob.ToDate = Date2;
+                                
+                               
                                 ob.CourseLocation = CourseLocation[x];
                                 ob.CourseName = CourseName[x];
                                 ob.TrainingHours = TrainingHours[x];
@@ -1757,9 +1867,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         {
                             DateTime sDate2 = DateTime.ParseExact(PublishDate0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date = sDate2;
+                            Entit8.PublishDate = Date;
                         }
                        
-                        Entit8.PublishDate = Date;
+                       
                         Entit8.BookPublicationTitle = BookPublicationTitle0.Value;
                         Entit8.Notes = Notes08.Value;
                         Entit8.Topic = Topic0.Value;
@@ -1791,9 +1902,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(PublishDate[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date = sDate2;
+                                    ob.PublishDate = Date;
                                 }
                                
-                                ob.PublishDate = Date;
+                               
                                 
                                 ob.BookPublicationTitle = BookPublicationTitle[x];
                                 ob.Topic = Topic[x];
@@ -1830,19 +1942,22 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                     if (!string.IsNullOrEmpty(DropDownCountryResidentForMoreThan3Months.SelectedValue))
                     {
                         DateTime Date = new DateTime();
+
                         if (!string.IsNullOrEmpty(TimePeriodFrom0.Value))
                         {
                             DateTime sDate2 = DateTime.ParseExact(TimePeriodFrom0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date = sDate2;
+                            Entit9.TimePeriodFrom = Date;
                         }
                         DateTime Date2 = new DateTime();
                         if (!string.IsNullOrEmpty(TimeperiodTo0.Value))
                         {
                             DateTime sDate2 = DateTime.ParseExact(TimeperiodTo0.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date2 = sDate2;
+                            Entit9.TimeperiodTo = Date2;
                         }
-                        Entit9.TimePeriodFrom = Date;
-                        Entit9.TimeperiodTo = Date2;
+                        
+                        
                         Entit9.CountryResidentForMoreThan3Month = DropDownCountryResidentForMoreThan3Months.SelectedValue.ToString();
                         Entit9.VisitReasons = VisitReasons0.Value;                        
                         Entit9.PID = PID;
@@ -1873,15 +1988,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(TimePeriodFrom[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date = sDate2;
+                                    ob.TimePeriodFrom = Date;
                                 }
                                 DateTime Date2 = new DateTime();
                                 if (!string.IsNullOrEmpty(TimeperiodTo[x]))
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(TimeperiodTo[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date2 = sDate2;
+                                    ob.TimeperiodTo = Date2;
                                 }
-                                ob.TimePeriodFrom = Date;
-                                ob.TimeperiodTo = Date2;
+                                
+                               
                                 ob.CountryResidentForMoreThan3Month = DropDownCountryResidentForMoreThan3Months[x];
                                 ob.VisitReasons = VisitReasons[x];
                                 if (!string.IsNullOrEmpty(SID9[x]))
@@ -1984,15 +2101,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         {
                             DateTime sDate2 = DateTime.ParseExact(FromDate011.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date = sDate2;
+                            Entit11.FromDate = Date;
                         }
                         DateTime Date2 = new DateTime();
                         if (!string.IsNullOrEmpty(ToDate011.Value))
                         {
                             DateTime sDate2 = DateTime.ParseExact(ToDate011.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date2 = sDate2;
+                            Entit11.ToDate = Date2;
                         }
-                        Entit11.FromDate = Date;
-                        Entit11.ToDate = Date2;
+                       
+                       
                         Entit11.Membership = Membership0.Value;
                         Entit11.Location = Location0.Value;
                         Entit11.Field = Field011.Value;
@@ -2027,15 +2146,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(FromDate11[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date = sDate2;
+                                    ob.FromDate = Date;
                                 }
                                 DateTime Date2 = new DateTime();
                                 if (!string.IsNullOrEmpty(ToDate11[x]))
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(ToDate11[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date2 = sDate2;
+                                    ob.ToDate = Date2;
                                 }
-                                ob.FromDate = Date;
-                                ob.ToDate = Date2;
+                                
+                               
                                 ob.Membership = Membership[x];
                                 ob.Location = Location[x];
                                 ob.Field = Field11[x];
@@ -2133,15 +2254,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         {
                             DateTime sDate2 = DateTime.ParseExact(Datefrom013.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date = sDate2;
+                            Entit13.FromDate = Date;
                         }
                         DateTime Date2 = new DateTime();
                         if (!string.IsNullOrEmpty(Dateto013.Value))
                         {
                             DateTime sDate2 = DateTime.ParseExact(Dateto013.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                             Date2 = sDate2;
+                            Entit13.ToDate = Date2;
                         }
-                        Entit13.FromDate = Date;
-                        Entit13.ToDate = Date2;
+                       
+                        
                         Entit13.ActivityName = ActivityName013.Value;
                         Entit13.LocationID = DropDownLocation13.SelectedValue;
                         Entit13.PID = PID;
@@ -2172,15 +2295,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(Datefrom13[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date = sDate2;
+                                    ob.FromDate = Date;
                                 }
                                 DateTime Date2 = new DateTime();
                                 if (!string.IsNullOrEmpty(Dateto13[x]))
                                 {
                                     DateTime sDate2 = DateTime.ParseExact(Dateto13[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date2 = sDate2;
+                                    ob.ToDate = Date2;
                                 }
-                                ob.FromDate = Date;
-                                ob.ToDate = Date2;
+                                
+                               
                                 ob.ActivityName = ActivityName13[x];
                                 ob.LocationID = Location13[x];
                                 if (!string.IsNullOrEmpty(SID13[x]))

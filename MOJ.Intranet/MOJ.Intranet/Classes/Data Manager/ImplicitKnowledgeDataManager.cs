@@ -85,8 +85,15 @@ namespace MOJ.DataManager
 
                             item["ActivityName"] = Item.ActivityName;
                             item["LocationID"] = Item.LocationID;
-                            item["FromDate"] = Item.FromDate;
-                            item["ToDate"] = Item.ToDate;
+                            if (Item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["FromDate"] = Item.FromDate;
+                            }
+                            if (Item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+
+                                item["ToDate"] = Item.ToDate;
+                            }
 
 
                             item["PID"] = Item.PID;
@@ -277,8 +284,14 @@ namespace MOJ.DataManager
                             item["Membership"] = Item.Membership;
                             item["Location"] = Item.Location;
                             item["Field"] = Item.Field;
-                            item["FromDate"] = Item.FromDate;
-                            item["ToDate"] = Item.ToDate;
+                            if (Item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["FromDate"] = Item.FromDate;
+                            }
+                            if (Item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["ToDate"] = Item.ToDate;
+                            }
                             item["Notes"] = Item.Notes;
 
 
@@ -393,7 +406,6 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-
         public int AddOrUpdateRequest(ImplicitKnowledgeEntity RequestItem)
         {
             int PID = 0;
@@ -441,8 +453,6 @@ namespace MOJ.DataManager
             return PID;
         }
 
-
-
         public bool AddOrUpdateEmploymentHistory(List<EmploymentHistoryEntity> Items)
         {
             bool isFormSaved = false;
@@ -472,8 +482,15 @@ namespace MOJ.DataManager
                             item["Title"] = Item.Title;
                             item["Designation"] = Item.Designation;
                             item["OrganizationalUnit"] = Item.OrganizationalUnit;
-                            item["DateFrom"] = Item.DateFrom;
-                            item["DateTo"] = Item.DateTo;
+                            if (Item.DateFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["DateFrom"] = Item.DateFrom;
+                            }
+                            if (Item.DateTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                               
+                                   item["DateTo"] = Item.DateTo;
+                            }
                             item["PID"] = Item.PID;
                             item.Update();
                         }
@@ -523,7 +540,10 @@ namespace MOJ.DataManager
                             item["Title"] = Item.Title;
                             item["BookPublicationTitle"] = Item.BookPublicationTitle;
                             item["Notes"] = Item.Notes;
-                            item["PublishDate"] = Item.PublishDate;
+                            if (Item.PublishDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["PublishDate"] = Item.PublishDate;
+                            }
                             item["Topic"] = Item.Topic;
                             item["PID"] = Item.PID;
                             item.Update();
@@ -574,8 +594,14 @@ namespace MOJ.DataManager
                             item["Title"] = Item.Title;
                             item["CourseLocation"] = Item.CourseLocation;
                             item["CourseName"] = Item.CourseName;
-                            item["FromDate"] = Item.FromDate;
-                            item["ToDate"] = Item.ToDate;
+                            if (Item.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["FromDate"] = Item.FromDate;
+                            }
+                            if (Item.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["ToDate"] = Item.ToDate;
+                            }
                             item["TrainingHours"] = Item.TrainingHours;
                             item["WithinThePlan"] = Item.WithinThePlan;
                             item["PID"] = Item.PID;
@@ -680,8 +706,14 @@ namespace MOJ.DataManager
                             item["Title"] = Item.Title;
 
                             item["CountryResidentForMoreThan3Month"] = Item.CountryResidentForMoreThan3Month;
-                            item["TimeperiodTo"] = Item.TimeperiodTo;
-                            item["TimePeriodFrom"] = Item.TimePeriodFrom;
+                            if (Item.TimeperiodTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["TimeperiodTo"] = Item.TimeperiodTo;
+                            }
+                            if (Item.TimePeriodFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["TimePeriodFrom"] = Item.TimePeriodFrom;
+                            }
                             item["VisitReasons"] = Item.VisitReasons;
 
 
@@ -735,7 +767,10 @@ namespace MOJ.DataManager
                             item["Qualification"] = Item.Qualification;
                             item["Major"] = Item.Major;
                             item["Institution"] = Item.Institution;
-                            item["GraduationYear"] = Item.GraduationYear;
+                            if (Item.GraduationYear.ToString("MM/dd/yyyy") != "01/01/0001")
+                            {
+                                item["GraduationYear"] = Item.GraduationYear;
+                            }
                             item["CountryID"] = Item.CountryID;
                             item["PID"] = Item.PID;
                             item.Update();
@@ -757,7 +792,6 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-
         public bool AddOrUpdateLanguageSkills(List<LanguageSkillsEntity> Items)
         {
             bool isFormSaved = false;
@@ -809,7 +843,6 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-
         public bool AddOrUpdateOtherSkills(List<OtherSkillsEntity> Items)
         {
             bool isFormSaved = false;
@@ -859,7 +892,6 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-
         public bool AddOrUpdateTechnicalSkills(List<TechnicalSkillsEntity> Items)
         {
             bool isFormSaved = false;
@@ -911,9 +943,6 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-
-
-
         public List<EmploymentHistoryEntity> GeteEmploymentHistory(string title)
         {
             List<EmploymentHistoryEntity> ItemsCollection = new List<EmploymentHistoryEntity>();
@@ -1316,8 +1345,6 @@ namespace MOJ.DataManager
             });
             return itemis;
         }
-
-
         public bool DeleteitemsFromSublist(string listname, List<int> listsid)
         {
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -1339,10 +1366,6 @@ namespace MOJ.DataManager
             });
             return true;
         }
-
-
-
-
 
     }
 }

@@ -159,8 +159,7 @@
                                                         <div class="tidtleheadbox">
                                                             <div class="widt98">
                                                                 <div class="row mrcx">
-                                                                    <div class="col-md-1">
-                                                                    </div>
+                                                                    
                                                                     <div class="col-md-4">
                                                                         <label class="forlaxbe">
                                                                           <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Designation%>" /></label>
@@ -235,12 +234,12 @@
                                                                 <div class="tidtleheadbox">
                                                                     <div class="widt98">
                                                                         <div class="row mrcx">                                                                            
-                                                                            <div class="col-md-2">
+                                                                            <div class="col-md-3">
                                                                                 <label class="forlaxbe">
                                                                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Qualification%>" /></label>
                                                                                 </label>
                                                                             </div>
-                                                                            <div class="col-md-3">
+                                                                            <div class="col-md-2">
                                                                                 <label class="forlaxbe">
                                                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Major%>" /></label>
                                                                                 </label>
