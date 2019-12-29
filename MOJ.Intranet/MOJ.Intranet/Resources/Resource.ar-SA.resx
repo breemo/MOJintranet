@@ -1176,4 +1176,31 @@
   <data name="PlannedCouncils" xml:space="preserve">
     <value>المجالس المخطط انعقدها</value>
   </data>
+  <data name="ADetailedExplanationOfTheCouncil" xml:space="preserve">
+    <value>شرح تفصيلي عن المجلس</value>
+  </data>
+  <data name="CouncilExam" xml:space="preserve">
+    <value>امتحان المجلس</value>
+  </data>
+  <data name="CouncilHeldDate" xml:space="preserve">
+    <value>تاريخ انعقاد المجلس</value>
+  </data>
+  <data name="DevelopmentProposalsForCouncil" xml:space="preserve">
+    <value>مقترحات تطويرية للمجلس</value>
+  </data>
+  <data name="Propose" xml:space="preserve">
+    <value>تقديم</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>السؤال</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>عودة</value>
+  </data>
+  <data name="SubjectCouncilCanBeDone" xml:space="preserve">
+    <value>موضوع لمجلس معرفة يمكن القيام به</value>
+  </data>
+  <data name="TheBenefitFromTheCouncil" xml:space="preserve">
+    <value>مدي الأستفادة من المجلس</value>
+  </data>
 </root>

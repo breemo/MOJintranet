@@ -1176,4 +1176,31 @@
   <data name="PlannedCouncils" xml:space="preserve">
     <value>Planned councils</value>
   </data>
+  <data name="ADetailedExplanationOfTheCouncil" xml:space="preserve">
+    <value>A detailed explanation of the Council</value>
+  </data>
+  <data name="CouncilExam" xml:space="preserve">
+    <value>Council Exam</value>
+  </data>
+  <data name="CouncilHeldDate" xml:space="preserve">
+    <value>Council Held Date</value>
+  </data>
+  <data name="DevelopmentProposalsForCouncil" xml:space="preserve">
+    <value>Development proposals for Council</value>
+  </data>
+  <data name="Propose" xml:space="preserve">
+    <value>Propose</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="SubjectCouncilCanBeDone" xml:space="preserve">
+    <value>Subject The Council can be done</value>
+  </data>
+  <data name="TheBenefitFromTheCouncil" xml:space="preserve">
+    <value>The benefit from the Council</value>
+  </data>
 </root>

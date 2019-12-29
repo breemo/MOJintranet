@@ -76,6 +76,7 @@
     <Compile Include="Classes\Business\AddEmployeeDepartmentBL.cs" />
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
     <Compile Include="Classes\Business\CouncilMembers.cs" />
+    <Compile Include="Classes\Business\CouncilFeedback.cs" />
     <Compile Include="Classes\Business\knowledgeCouncilHotline.cs" />
     <Compile Include="Classes\Business\ImplicitKnowledge.cs" />
     <Compile Include="Classes\Business\EmployeeProfileBL.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
     <Compile Include="Classes\Data Manager\CouncilTypeDataManager.cs" />
     <Compile Include="Classes\Data Manager\CouncilMembersDataManager.cs" />
+    <Compile Include="Classes\Data Manager\CouncilFeedbackDataManager.cs" />
     <Compile Include="Classes\Data Manager\knowledgeCouncilDataManager.cs" />
     <Compile Include="Classes\Data Manager\levelsDataManager.cs" />
     <Compile Include="Classes\Data Manager\CountrysDataManager.cs" />
@@ -158,6 +160,7 @@
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
+    <Compile Include="Classes\Entities\CouncilFeedbackEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeProfileEntity.cs" />
     <Compile Include="Classes\Entities\CouncilMembersEntity.cs" />
@@ -479,6 +482,14 @@
     </Compile>
     <Compile Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWPUserControl.ascx.designer.cs">
       <DependentUpon>CouncilMembersWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWPUserControl.ascx.cs">
+      <DependentUpon>HeldCouncilsDetailWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWPUserControl.ascx.designer.cs">
+      <DependentUpon>HeldCouncilsDetailWPUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWP.cs" />
     <Compile Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWPUserControl.ascx.cs">
@@ -813,6 +824,10 @@
     <None Include="Webparts\KnowledgeGateway\CouncilMembersWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{aba27578-433f-46d7-895c-195418d99632}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{28dff4d5-6023-4f62-8bf4-5eadfd077f4e}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWP.webpart" />
     <None Include="Webparts\KnowledgeGateway\HeldCouncilWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{d5a8aa72-159c-4fc4-ac43-25e9d23fae3e}</SharePointProjectItemId>
@@ -984,6 +999,8 @@
     <Content Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsListUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\CouncilMembersWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\HeldCouncilWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\Elements.xml" />

@@ -105,6 +105,7 @@ namespace MOJ.DataManager
                                      obitem.Designation = Convert.ToString(item["Designation"]);
                                      obitem.Lecturer = Convert.ToString(item["Lecturer"]);
                                      obitem.Status = Convert.ToString(item["Status"]);
+                                     obitem.CouncilNo = Convert.ToInt32(item["CouncilNo"]);
 
                                     obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(item["Author"]));
                                     obitem.Created = Convert.ToDateTime(item["Created"]);
