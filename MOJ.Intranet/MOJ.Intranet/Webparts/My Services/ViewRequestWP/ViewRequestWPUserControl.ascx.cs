@@ -121,7 +121,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         }
         public string GetknowledgeCouncil(string RequestID)
         {
-            knowledgeCouncilEntity masteritem = new knowledgeCouncil().GetHappinessHotline(Convert.ToInt32(RequestID));
+            knowledgeCouncilEntity masteritem = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
             UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
             addtopage("Department", masteritem.Department);

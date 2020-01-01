@@ -165,7 +165,9 @@
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\AskAnExpertAnswerEntity.cs" />
+    <Compile Include="Classes\Entities\CouncilExaminersEntity.cs" />
     <Compile Include="Classes\Entities\CouncilExamEntity.cs" />
+    <Compile Include="Classes\Entities\CouncilExamAnswerEntity.cs" />
     <Compile Include="Classes\Entities\ExpertsEntity.cs" />
     <Compile Include="Classes\Entities\CouncilFeedbackEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeEntity.cs" />

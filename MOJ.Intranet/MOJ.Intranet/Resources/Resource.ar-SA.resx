@@ -1218,4 +1218,10 @@
   <data name="ChooseTheAnswer" xml:space="preserve">
     <value>إختر الإجابة</value>
   </data>
+  <data name="TheExamResultIsFailed" xml:space="preserve">
+    <value>نتيجة الامتحان راسب</value>
+  </data>
+  <data name="TheExamResultIsSuccessful" xml:space="preserve">
+    <value>نتيجة الامتحان ناجح</value>
+  </data>
 </root>

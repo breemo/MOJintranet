@@ -128,6 +128,8 @@ namespace CommonLibrary
         public const string StatusAskAnExpertUrl = "/Lists/StatusAskAnExpert/AllItems.aspx";
         public const string AskAnExpertUrl = "/Lists/AskAnExpert/AllItems.aspx";
         public const string AskAnExpertAnswerUrl = "/Lists/AskAnExpertAnswer/AllItems.aspx";
+        public const string CouncilExamAnswerUrl = "/Lists/CouncilExamAnswer/AllItems.aspx";
+        public const string CouncilExaminersUrl = "/Lists/CouncilExaminers/AllItems.aspx";
 
         #endregion
 

@@ -14,7 +14,115 @@ namespace MOJ.DataManager
 {
     public class knowledgeCouncilDataManager
     {
-        public bool AddOrUpdateknowledgeCouncil(knowledgeCouncilEntity knowledgeCouncilItem)
+        public bool AddOrUpdateCouncilExamAnswer(List<CouncilExamAnswerEntity> lItemsList)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.CouncilExamAnswerUrl);
+                        foreach (CouncilExamAnswerEntity lItems in lItemsList) { 
+                            SPListItem item = null;
+                        if (lItems.ID > 0)
+                        {
+                            item = list.GetItemById(lItems.ID);
+                            isUpdate = true;
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+
+                        item["Answer"] = lItems.Answer;
+                        item["AnswerID"] = lItems.AnswerID;
+                        item["ExamID"] = lItems.ExamID;
+                        item["knowledgeCouncilID"] = lItems.knowledgeCouncilID;
+                        item["loginName"] = lItems.loginName;
+                        item["Question"] = lItems.Question;
+                        item["Result"] = lItems.Result;
+
+                        item.Update();
+                    }
+
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+          public bool AddOrUpdateCouncilExaminers(CouncilExaminersEntity Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.CouncilExaminersUrl);
+                        SPListItem item = null;
+                        if (Items.ID > 0)
+                        {
+                            item = list.GetItemById(Items.ID);
+                            isUpdate = true;
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+                       
+                        item["knowledgeCouncilID"] = Items.knowledgeCouncilID;
+                        item["knowledgeCouncil"] = Items.knowledgeCouncil;
+                        item["loginName"] = Items.loginName;
+                        item["percentage"] = Items.percentage;
+                        item["Resalt"] = Items.Resalt;
+                        //item["Resalt"] = Items.;
+                       
+                        item.Update();
+
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+         public bool AddOrUpdateknowledgeCouncil(knowledgeCouncilEntity knowledgeCouncilItem)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -74,7 +182,99 @@ namespace MOJ.DataManager
         }
 
 
-        public knowledgeCouncilEntity GetknowledgeCouncilByID(int id)
+        public CouncilExaminersEntity GeCouncilExaminersByID(int id , string loginname)
+        {
+            CouncilExaminersEntity itemis = new CouncilExaminersEntity();
+            itemis.ID = 0;
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.CouncilExaminersUrl);
+                                if (lst != null)
+                                {
+
+                                    SPQuery qry1 = new SPQuery();
+                                    string camlquery1 = "<Where><And>";
+                                    camlquery1 += "<Eq><FieldRef Name='loginName'/><Value Type='Text'>" + loginname + "</Value></Eq>";
+                                    camlquery1 += "<Eq><FieldRef Name='knowledgeCouncilID'/><Value Type='Text'>" + id + "</Value></Eq></And>";
+                                    camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+
+                                    qry1.Query = camlquery1;
+                                    SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                    foreach (SPListItem Item in listItemsCollection1)
+                                    {
+                                        itemis.ID = Convert.ToInt32(Item["ID"]);
+                                        itemis.knowledgeCouncilID = Convert.ToInt32(Item["knowledgeCouncilID"]);
+                                        itemis.loginName = Convert.ToString(Item["loginName"]);
+                                        itemis.percentage = Convert.ToString(Item["percentage"]);
+                                        itemis.Resalt = Convert.ToString(Item["Resalt"]);
+
+                                        SPFieldLookupValue fieldLookupValue = new SPFieldLookupValue(Item["knowledgeCouncilID"].ToString());
+                                        int lookupID = fieldLookupValue.LookupId;
+                                        itemis.knowledgeCouncil = lookupID;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return itemis;
+        }
+        public CouncilExamEntity GeCouncilExamByID(int id)
+        {
+            CouncilExamEntity itemis = new CouncilExamEntity();
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        //using (SPWeb oWeb = oSite.OpenWeb(SPContext.Current.Web.ServerRelativeUrl))
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.CouncilExamUrl);
+                                if (lst != null)
+                                {                                  
+
+                                    SPListItem Item = lst.GetItemById(id);
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.Answer = Convert.ToInt32(Item["Answer"]);
+                                    itemis.possibility1 = Convert.ToString(Item["possibility1"]);
+                                    itemis.possibility2 = Convert.ToString(Item["possibility2"]);
+                                    itemis.possibility3 = Convert.ToString(Item["possibility3"]);
+                                    itemis.possibility4 = Convert.ToString(Item["possibility4"]);
+                                    itemis.Question = Convert.ToString(Item["Question"]);
+                                    SPFieldLookupValue fieldLookupValue = new SPFieldLookupValue(Item["knowledgeCouncilID"].ToString());
+                                    int lookupID = fieldLookupValue.LookupId;
+                                    itemis.knowledgeCouncilID = lookupID;
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return itemis;
+        }
+         public knowledgeCouncilEntity GetknowledgeCouncilByID(int id)
         {
             knowledgeCouncilEntity obitem = new knowledgeCouncilEntity();
             try
@@ -109,6 +309,17 @@ namespace MOJ.DataManager
                                      obitem.Status = Convert.ToString(item["Status"]);
                                      obitem.CouncilNo = Convert.ToInt32(item["CouncilNo"]);
 
+                                    if (!string.IsNullOrEmpty(Convert.ToString(item["PassPercentage"])))
+                                    {
+                                        obitem.PassPercentage = Convert.ToInt32(item["PassPercentage"]);
+                                    }
+                                    else
+                                    {
+                                        obitem.PassPercentage = 50;
+                                    }
+                                   
+
+
                                     obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(item["Author"]));
                                     obitem.Created = Convert.ToDateTime(item["Created"]);
                                 }
@@ -124,7 +335,49 @@ namespace MOJ.DataManager
             return obitem;
         }
 
-       public List<CouncilExamEntity> GetCouncilExam(int ckID)
+       public CouncilExamAnswerEntity GetCouncilExamAnswer(int ckID ,string loginName)
+        {
+            CouncilExamAnswerEntity ItemsCollection = new CouncilExamAnswerEntity();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.CouncilExamAnswerUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where>";
+                                camlquery1 += "<And><Eq><FieldRef Name='loginName' ></FieldRef><Value Type='Text'>" + loginName + "</Value></Eq>";
+
+                                camlquery1 += "<Eq><FieldRef Name='ExamID' ></FieldRef><Value Type='Text'>" + ckID + "</Value></Eq>";
+                                camlquery1 += "</And></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    ItemsCollection.ID = Convert.ToInt32(Item["ID"]);
+                                    ItemsCollection.Answer = Convert.ToString(Item["Answer"]);
+                                    ItemsCollection.AnswerID = Convert.ToString(Item["AnswerID"]);
+                                    ItemsCollection.ExamID = Convert.ToString(Item["ExamID"]);
+                                    ItemsCollection.knowledgeCouncilID = Convert.ToString(Item["knowledgeCouncilID"]);
+                                    ItemsCollection.loginName = Convert.ToString(Item["loginName"]);
+                                    ItemsCollection.Question = Convert.ToString(Item["Question"]);
+                                    ItemsCollection.Result = Convert.ToInt32(Item["Result"]);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+
+         public List<CouncilExamEntity> GetCouncilExam(int ckID)
         {
             List<CouncilExamEntity> ItemsCollection = new List<CouncilExamEntity>();
             SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -148,7 +401,7 @@ namespace MOJ.DataManager
                                 {
                                     CouncilExamEntity itemis = new CouncilExamEntity();
                                     itemis.ID = Convert.ToInt32(Item["ID"]);
-                                    itemis.knowledgeCouncilID = Convert.ToInt32(Item["knowledgeCouncilID"]);
+                                    itemis.knowledgeCouncilID = ckID;
                                     itemis.Answer = Convert.ToInt32(Item["Answer"]);
                                     itemis.possibility1 = Convert.ToString(Item["possibility1"]);
                                     itemis.possibility2 = Convert.ToString(Item["possibility2"]);

@@ -16,6 +16,7 @@
                         <div class="">
                             <div class="d-flex justify-content-between">
                                 <h4>
+                                   
                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilsHeld%>" /></label>
                                 </h4>
                                 <a  "href="#" style="height: 38px;" class="modelexean" data-toggle="modal" data-target=".bs-example-modal-sm">
@@ -36,19 +37,20 @@
                                             </div>
                                             <div class="modal-body insdpad poll-popup-body">
                                                 <form id="smiley2s">
-                                                    <div class="row">
                                                         <!--Start QUestion and answer -->
                                                         <div  runat="server" id="QUestion" >
 
 
                                                         </div>
-                                                        <!--End QUestion and answer -->                                                   
+                                                        <!--End QUestion and answer --> 
+                                                  
+                                                       <span class="resalt"><asp:Literal ID="LBresalt" runat="server"></asp:Literal></span>
                                                         <div class="pollBtns-popup" style="margin-bottom: 26px;">
 															   <asp:Button Text="<%$ Resources:Resource, Propose%>" CssClass="pollBtna" runat="server" ID="btnsubmitexam" OnClick="btnsubmitexam_Click" />
 															<button id="btnClosePopup" class="pollBtn"><label style="padding-top: 5px;"><asp:Literal runat="server" Text="<%$ Resources:Resource, cancel%>" /></label></button>
                                                           
 														</div>
-                                                    </div>
+                                                   
                                                 </form>
                                             </div>
                                         </div>
@@ -275,6 +277,15 @@
 		letter-spacing: 0.9px;
 		color: #bd995d !important;
 	}
+    .CBOD .poll-popup-answ input[type="radio"]:checked + .radio-button-click-target .radio-button-circle {   
+        right: -20px !important;
+    top: 18px !important;
+}
+    .resalt {
+    color: #BD995D;
+    font-size: 22px;
+    font-weight: bold;
+}
 	</style>
 		<script>
             $(document).ready(function () {
@@ -298,4 +309,7 @@
                 dropdown: true,
                 scrollbar: true
             });
+            function handleChange(ID, radio1) {
+                $("#" + ID).val(radio1)
+            }
 </script>

@@ -14,7 +14,15 @@ namespace MOJ.Business
         {
             return new knowledgeCouncilDataManager().AddOrUpdateknowledgeCouncil(obj);
         }
-                                                      
+        public bool SaveUpdateCouncilExaminers(CouncilExaminersEntity obj)
+        {
+            return new knowledgeCouncilDataManager().AddOrUpdateCouncilExaminers(obj);
+        }
+        public bool SaveUpdateCouncilExamAnswer(List<CouncilExamAnswerEntity> obj)
+        {
+            return new knowledgeCouncilDataManager().AddOrUpdateCouncilExamAnswer(obj);
+        }
+
         public List<knowledgeCouncilEntity> GetknowledgeCouncil(int limit = 0, string CouncilTopicvalue = "", string CouncilNovalue = "", string CouncilDatevalue = "", string Departmentvalue = "")
         {
             return new knowledgeCouncilDataManager().GetknowledgeCouncil(limit, CouncilTopicvalue, CouncilNovalue, CouncilDatevalue, Departmentvalue);
@@ -29,10 +37,21 @@ namespace MOJ.Business
         {
             return new knowledgeCouncilDataManager().GetCouncilExam(ckID);
         }
+        public CouncilExaminersEntity GeCouncilExaminersByID(int id ,string loginName)
+        {
+            return new knowledgeCouncilDataManager().GeCouncilExaminersByID(id, loginName);
+        }
+        public CouncilExamAnswerEntity GetCouncilExamAnswer(int id ,string loginName)
+        {
+            return new knowledgeCouncilDataManager().GetCouncilExamAnswer(id, loginName);
+        }
+        public CouncilExamEntity GetCouncilExamBYID(int id)
+        {
+            return new knowledgeCouncilDataManager().GeCouncilExamByID(id);
+        }
 
 
-
-        public knowledgeCouncilEntity GetHappinessHotline(int id)
+        public knowledgeCouncilEntity GetknowledgeCouncilByID(int id)
         {
             return new knowledgeCouncilDataManager().GetknowledgeCouncilByID(id);
         }
