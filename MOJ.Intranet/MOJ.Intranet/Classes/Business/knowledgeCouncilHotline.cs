@@ -25,6 +25,10 @@ namespace MOJ.Business
             return new knowledgeCouncilDataManager().GetPlannedCouncils(username, language, curentDate);
         }
 
+        public List<CouncilExamEntity> GetCouncilExam(int ckID)
+        {
+            return new knowledgeCouncilDataManager().GetCouncilExam(ckID);
+        }
 
 
 

@@ -28,6 +28,7 @@ namespace MOJ.Entities
         public DateTime CouncilDate { get; set; }
         public string CouncilType { get; set; }
         public string RequestURL { get; set; }
+        public string ADetailedExplanationOfTheCouncil { get; set; }
        
                
         public DateTime Created { get; set; }

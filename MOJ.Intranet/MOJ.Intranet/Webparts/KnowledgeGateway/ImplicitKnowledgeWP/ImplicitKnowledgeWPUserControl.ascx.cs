@@ -397,7 +397,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                     else
                     {
                         hdnsuperDIV9.Value = Convert.ToString(x);
-                        RetrevehdnsuperDIV9.Value += item.ID.ToString() + "#"; CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                        RetrevehdnsuperDIV9.Value += item.ID.ToString() + "#";
+                        CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                         string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                         DataTable dataC = new ImplicitKnowledge().GetCountrys();
                         string options = "";

@@ -44,6 +44,7 @@ namespace MOJ.DataManager
                         item["CouncilDate"] = knowledgeCouncilItem.CouncilDate;
                         item["CouncilTarget"] = knowledgeCouncilItem.CouncilTarget;
                         item["CouncilTopic"] = knowledgeCouncilItem.CouncilTopic;
+                        item["ADetailedExplanationOfTheCouncil"] = knowledgeCouncilItem.ADetailedExplanationOfTheCouncil;
                         item["CouncilType"] = knowledgeCouncilItem.CouncilType;
                         item["Department"] = knowledgeCouncilItem.Department;
                         item["DirectManager"] = knowledgeCouncilItem.DirectManager;
@@ -96,6 +97,7 @@ namespace MOJ.DataManager
                                      obitem.CouncilDate= Convert.ToDateTime(item["CouncilDate"] );
                                     obitem.CouncilTarget = Convert.ToString(item["CouncilTarget"] );
                                      obitem.CouncilTopic = Convert.ToString(item["CouncilTopic"]);
+                                     obitem.ADetailedExplanationOfTheCouncil = Convert.ToString(item["ADetailedExplanationOfTheCouncil"]);
                                      obitem.CouncilType = Convert.ToString(item["CouncilType"]);
                                      obitem.Department= Convert.ToString(item["Department"]);
                                     obitem.DirectManager = Convert.ToString(item["DirectManager"]);
@@ -122,6 +124,51 @@ namespace MOJ.DataManager
             return obitem;
         }
 
+       public List<CouncilExamEntity> GetCouncilExam(int ckID)
+        {
+            List<CouncilExamEntity> ItemsCollection = new List<CouncilExamEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.CouncilExamUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where>";                               
+                                camlquery1 += "<Eq><FieldRef Name='knowledgeCouncilID' LookupId='TRUE'></FieldRef><Value Type='Lookup'>" + ckID + "</Value></Eq>";                                
+                                  camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                qry1.Query = camlquery1;  
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    CouncilExamEntity itemis = new CouncilExamEntity();
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.knowledgeCouncilID = Convert.ToInt32(Item["knowledgeCouncilID"]);
+                                    itemis.Answer = Convert.ToInt32(Item["Answer"]);
+                                    itemis.possibility1 = Convert.ToString(Item["possibility1"]);
+                                    itemis.possibility2 = Convert.ToString(Item["possibility2"]);
+                                    itemis.possibility3 = Convert.ToString(Item["possibility3"]);
+                                    itemis.possibility4 = Convert.ToString(Item["possibility4"]);
+                                    itemis.Question = Convert.ToString(Item["Question"]);
+                                                                       
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+
+        
        public List<knowledgeCouncilEntity> GetPlannedCouncils(string username, string language, string curentDate)
         {
             List<knowledgeCouncilEntity> ItemsCollection = new List<knowledgeCouncilEntity>();
@@ -156,6 +203,7 @@ namespace MOJ.DataManager
                                     itemis.CouncilNo = Convert.ToInt32(Item["CouncilNo"]);
                                     itemis.CouncilTarget = Convert.ToString(Item["CouncilTarget"]);
                                     itemis.CouncilTopic = Convert.ToString(Item["CouncilTopic"]);
+                                    itemis.ADetailedExplanationOfTheCouncil = Convert.ToString(Item["ADetailedExplanationOfTheCouncil"]);
                                     itemis.CouncilType = Convert.ToString(Item["CouncilType"]);
                                     itemis.Department = Convert.ToString(Item["Department"]);
                                     itemis.Designation = Convert.ToString(Item["Designation"]);
@@ -281,6 +329,7 @@ namespace MOJ.DataManager
                                     itemis.CouncilNo = Convert.ToInt32(Item["CouncilNo"]);
                                     itemis.CouncilTarget = Convert.ToString(Item["CouncilTarget"]);
                                     itemis.CouncilTopic = Convert.ToString(Item["CouncilTopic"]);
+                                    itemis.ADetailedExplanationOfTheCouncil = Convert.ToString(Item["ADetailedExplanationOfTheCouncil"]);
                                     itemis.CouncilType = Convert.ToString(Item["CouncilType"]);
                                     itemis.Department = Convert.ToString(Item["Department"]);
                                     itemis.Designation = Convert.ToString(Item["Designation"]);

@@ -75,7 +75,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilWP
                                     DropDownCouncilTopic.Items.AddRange(items2.ToArray());
                                 }
                                 SPList lst2 = oWeb.GetListFromUrl(oSite.Url + SharedConstants.DepartmentsUrl);
-                                if (lst != null)
+                                if (lst2 != null)
                                 {
                                     List<ListItem> items = new List<ListItem>();
                                     items.Add(new ListItem("", ""));

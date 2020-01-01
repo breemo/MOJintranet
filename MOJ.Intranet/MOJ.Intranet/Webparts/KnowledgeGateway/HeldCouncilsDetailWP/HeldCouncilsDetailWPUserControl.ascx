@@ -38,24 +38,9 @@
                                                 <form id="smiley2s">
                                                     <div class="row">
                                                         <!--Start QUestion and answer -->
-                                                        <div class="qa">
-                                                            <div class="q-row">
-                                                                <h2><label><asp:Literal runat="server" Text="<%$ Resources:Resource, Question%>" /></label></h2>
-                                                                <span>
-                                                                    رئيس الدولة يصدر مرسوماً اتحادياً بتعيين قاضيتين في القضاء رئيس الدولة يصدر مرسوماً اتحادياً بتعيين قاضيتين في القضاء رئيس الدولة يصدر مرسوماً اتحادياً بتعيين قاضيتين في القضاء
-                                                                    رئيس الدولة يصدر
-                                                                </span>
-                                                            </div>
-                                                            <h2 class="answerTitle">إختر الإجابة</h2>
-                                                            <div class="poll-popup-answ">
-                                                                <div class="radioComponent">
-                                                                    <input type="radio" name="common-radio-name" id="radio-1" class="radio-button" />
-                                                                    <label for="radio-1"
-                                                                           class="radio-button-click-target">
-                                                                        <span class="radio-button-circle"></span>إجابة 1
-                                                                    </label>
-                                                                </div>                                                                
-                                                            </div>
+                                                        <div  runat="server" id="QUestion" >
+
+
                                                         </div>
                                                         <!--End QUestion and answer -->                                                   
                                                         <div class="pollBtns-popup" style="margin-bottom: 26px;">
@@ -98,48 +83,9 @@
                                 <div class="illsudiv">
                                     <h6 class="nclvf"><label><asp:Literal runat="server" Text="<%$ Resources:Resource, ADetailedExplanationOfTheCouncil%>" /></label></h6>
                                     <p>
-                                        إنشاء نيابة متخصصة في تنفيذ الأحكام القضائية. أكد سعادة المستشار الدكتور حمد سيف الشامسي النائب العام للدولة أن مبادرة إنشاء نيابة متخصصة لتنفيذ الأحكام القضائية تأتي انطلاقا من فلسـفة العدالـة في جوهرها ومفهومها القائم على معنى " إعطاء كل ذي حق حقـه
-                                        إنشاء نيابة متخصصة في تنفيذ الأحكام القضائية. أكد سعادة المستشار الدكتور حمد سيف الشامسي النائب العام للدولة أن مبادرة إنشاء نيابة متخصصة لتنفيذ الأحكام القضائية تأتي انطلاقا من فلسـفة العدالـة في جوهرها ومفهومها القائم على معنى " إعطاء كل ذي حق حقـه
-                                    </p>
+<asp:Literal ID="ADetailedExplanationOfTheCouncil" runat="server"></asp:Literal></p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover table-bordered newtableb newtableb2 ">
-                                                <thead>
-                                                    <tr>
-                                                        <th>الاسم</th>
-                                                        <th>المسمي الوظيفي</th>
-                                                        <th>الدور</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>----</td>
-                                                        <td>----</td>
-                                                        <td>----</td>
-													</tr>                                                 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="table-responsive">
-                                            <table class="table table-hover table-bordered newtableb newtableb2 ">
-                                                <thead>
-                                                    <tr>
-                                                        <th><label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilNo%>" /></label></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1001</td>
-                                                    </tr>                                                    
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="fileboxs">
                                     <div class="row incfs">
 									<div class="onefive">

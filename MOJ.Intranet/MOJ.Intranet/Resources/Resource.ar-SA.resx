@@ -1203,4 +1203,19 @@
   <data name="TheBenefitFromTheCouncil" xml:space="preserve">
     <value>مدي الأستفادة من المجلس</value>
   </data>
+  <data name="AskAnExpert" xml:space="preserve">
+    <value>أسال خبير</value>
+  </data>
+  <data name="ExpertName" xml:space="preserve">
+    <value>اسم الخبير</value>
+  </data>
+  <data name="QuestionDetails" xml:space="preserve">
+    <value>تفاصيل السؤال</value>
+  </data>
+  <data name="QuestionTitle" xml:space="preserve">
+    <value>عنوان السؤال</value>
+  </data>
+  <data name="ChooseTheAnswer" xml:space="preserve">
+    <value>إختر الإجابة</value>
+  </data>
 </root>

@@ -1203,4 +1203,19 @@
   <data name="TheBenefitFromTheCouncil" xml:space="preserve">
     <value>The benefit from the Council</value>
   </data>
+  <data name="AskAnExpert" xml:space="preserve">
+    <value>Ask an Expert</value>
+  </data>
+  <data name="ExpertName" xml:space="preserve">
+    <value>Expert Name</value>
+  </data>
+  <data name="QuestionDetails" xml:space="preserve">
+    <value>Question details</value>
+  </data>
+  <data name="QuestionTitle" xml:space="preserve">
+    <value>Question title</value>
+  </data>
+  <data name="ChooseTheAnswer" xml:space="preserve">
+    <value>Choose the answer</value>
+  </data>
 </root>
