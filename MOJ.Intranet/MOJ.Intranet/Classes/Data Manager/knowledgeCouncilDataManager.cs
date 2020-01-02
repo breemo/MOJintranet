@@ -317,9 +317,25 @@ namespace MOJ.DataManager
                                     {
                                         obitem.PassPercentage = 50;
                                     }
-                                   
 
-
+                                    SPAttachmentCollection attchmentcollection = item.Attachments;
+                                    string URLatt = "";
+                                    int conter = 0;
+                                    foreach (var itematt in attchmentcollection)
+                                    {
+                                        if (conter == attchmentcollection.Count - 1)
+                                        {
+                                            URLatt += attchmentcollection.UrlPrefix + itematt;
+                                            
+                                        }
+                                        else
+                                        {
+                                            URLatt += attchmentcollection.UrlPrefix + itematt + "#";
+                                        }
+                                        conter++;
+                                    }
+                                    
+                                    obitem.URLAttachments = URLatt;
                                     obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(item["Author"]));
                                     obitem.Created = Convert.ToDateTime(item["Created"]);
                                 }

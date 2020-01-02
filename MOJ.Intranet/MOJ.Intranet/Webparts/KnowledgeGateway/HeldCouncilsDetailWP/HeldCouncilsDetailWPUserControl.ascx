@@ -15,6 +15,8 @@
                     <div class="">
                         <div class="">
                             <div class="d-flex justify-content-between">
+                                 <span class="resalt"><asp:Literal ID="LBresalt" runat="server"></asp:Literal></span>
+                                                       
                                 <h4>
                                    
                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilsHeld%>" /></label>
@@ -44,7 +46,7 @@
                                                         </div>
                                                         <!--End QUestion and answer --> 
                                                   
-                                                       <span class="resalt"><asp:Literal ID="LBresalt" runat="server"></asp:Literal></span>
+                                                       <span class="resalt"><asp:Literal ID="LBresalt2" runat="server"></asp:Literal></span>
                                                         <div class="pollBtns-popup" style="margin-bottom: 26px;">
 															   <asp:Button Text="<%$ Resources:Resource, Propose%>" CssClass="pollBtna" runat="server" ID="btnsubmitexam" OnClick="btnsubmitexam_Click" />
 															<button id="btnClosePopup" class="pollBtn"><label style="padding-top: 5px;"><asp:Literal runat="server" Text="<%$ Resources:Resource, cancel%>" /></label></button>
@@ -89,107 +91,12 @@
                                 </div>
                                 
                                 <div class="fileboxs">
-                                    <div class="row incfs">
-									<div class="onefive">
-                                            <div class="boxfoo">
-                                                <img src="images/wofi.png" />
-                                                <p>
-                                                    <a href="#">
-                                                        اهداف المجلس
-                                                    </a>
-                                                </p>
-                                                <div class="buttonbottom">
-                                                    <a href="#" class="firicon">
-                                                        <span class="icon-eye1">
-                                                        </span>
-                                                    </a>
-                                                    <a href="#" class="secicon">
-                                                        <span class="icon-download">
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="onefive">
-                                            <div class="boxfoo">
-                                                <img src="images/pdfile.png" />
-                                                <p>
-                                                    <a href="#">
-                                                        اهداف المجلس
-                                                    </a>
-                                                </p>
-                                                <div class="buttonbottom">
-                                                    <a href="#" class="firicon">
-                                                        <span class="icon-eye1">
-                                                        </span>
-                                                    </a>
-                                                    <a href="#" class="secicon">
-                                                        <span class="icon-download">
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="onefive">
-                                            <div class="boxfoo">
-                                                <img src="images/wofi.png" />
-                                                <p>
-                                                    <a href="#">
-                                                        اهداف المجلس
-                                                    </a>
-                                                </p>
-                                                <div class="buttonbottom">
-                                                    <a href="#" class="firicon">
-                                                        <span class="icon-eye1">
-                                                        </span>
-                                                    </a>
-                                                    <a href="#" class="secicon">
-                                                        <span class="icon-download">
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="onefive">
-                                            <div class="boxfoo">
-                                                <img src="images/pdfile.png" />
-                                                <p>
-												<a href="#">
-                                                        اهداف المجلس
-                                                    </a>
-                                                </p>
-                                                <div class="buttonbottom">
-                                                    <a href="#" class="firicon">
-                                                        <span class="icon-eye1">
-                                                        </span>
-                                                    </a>
-                                                    <a href="#" class="secicon">
-                                                        <span class="icon-download">
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="onefive">
-                                            <div class="boxfoo">
-                                                <img src="images/viico.png" />
-                                                <p>
-                                                    <a href="#">
-                                                        اهداف المجلس
-                                                    </a>
-                                                </p>
-                                                <div class="buttonbottom">
-                                                    <a href="#" class="firicon">
-                                                        <span class="icon-eye1">
-                                                        </span>
-                                                    </a>
-                                                    <a href="#" class="secicon">
-                                                        <span class="icon-download">
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="row " id="AttachmentDiv" runat="server">
+									
+                                       
+                                       
+                                   
+                                      
                                         <div class="clear"></div>
                                     </div>
                                 </div>
@@ -285,6 +192,11 @@
     color: #BD995D;
     font-size: 22px;
     font-weight: bold;
+}
+    .onefive {
+ 
+    margin-left: 5px;
+    margin-right: 5px;
 }
 	</style>
 		<script>

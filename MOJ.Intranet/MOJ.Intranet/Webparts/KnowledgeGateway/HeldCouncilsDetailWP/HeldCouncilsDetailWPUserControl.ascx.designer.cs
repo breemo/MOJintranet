@@ -13,6 +13,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
     public partial class HeldCouncilsDetailWPUserControl {
         
         /// <summary>
+        /// LBresalt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LBresalt;
+        
+        /// <summary>
         /// QUestion control.
         /// </summary>
         /// <remarks>
@@ -22,13 +31,13 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl QUestion;
         
         /// <summary>
-        /// LBresalt control.
+        /// LBresalt2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LBresalt;
+        protected global::System.Web.UI.WebControls.Literal LBresalt2;
         
         /// <summary>
         /// btnsubmitexam control.
@@ -92,6 +101,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal ADetailedExplanationOfTheCouncil;
+        
+        /// <summary>
+        /// AttachmentDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AttachmentDiv;
         
         /// <summary>
         /// feedbak control.

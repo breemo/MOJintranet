@@ -29,6 +29,50 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     CouncilHeldDate.Text = item.CouncilDate.ToString("dd/MM/yyyy");
                     Department.Text = Convert.ToString(item.Department);
                     Lecturer.Text = Convert.ToString(item.Lecturer);
+
+                    if (!string.IsNullOrEmpty(item.URLAttachments))
+                    {
+                        string data = item.URLAttachments;
+                        string[] arr = data.Split("#".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                        foreach (string URLAtt in arr)
+                        {
+                           // int firstindex = URLAtt.LastIndexOf("/");
+                            string[] arr1 = URLAtt.Split("/".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                             string URLAttTitle = arr1[arr1.Length - 1];
+                            string iconfiles = "icon-files";
+
+                            if (URLAttTitle.Contains("doc"))
+                            {
+                                iconfiles = "icon-file-word1";
+                            }
+                            if (URLAttTitle.Contains("pdf"))
+                            {
+                                iconfiles = "icon-file-pdf1";
+                            }
+                            int lastindex = URLAttTitle.LastIndexOf('.');
+                            string URLtitle = URLAttTitle.Substring(0, lastindex);
+                            string HtmlAttachment ="<div class='boxfoo'>" +
+                                                   "<span class='"+ iconfiles + "' style='font-size: 64px;color: #0d65b1;'></span>" +
+                                                    "<p>" +
+                                                        "<a href='#'>" + URLtitle + "</a>" +
+                                                    "</p>" +
+                                                    "<div class='buttonbottom'>" +
+                                                        "<a href='"+ URLAtt + "' class='firicon'>" +
+                                                            "<span class='icon-eye1' style='color:white;'>" +
+                                                            "</span>" +
+                                                       "</a>" +
+                                                        "<a href='/_layouts/15/download.aspx?SourceUrl="+ URLAtt + "' class='secicon'>" +
+                                                           " <span class='icon-download'>" +
+                                                          "  </span>" +
+                                                       " </a>" +
+                                                   " </div>" +                                               
+                                            "</div>";
+                            System.Web.UI.HtmlControls.HtmlGenericControl newDiv = new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
+                            newDiv.Attributes.Add("class", "onefive");
+                            newDiv.InnerHtml = HtmlAttachment;
+                            AttachmentDiv.Controls.Add(newDiv);
+                        }
+                    }
                     CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                     string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                     string CouncilTypename = new knowledgeCouncil().GetCouncilTypeByid(Convert.ToInt32(item.CouncilType), languageCode);
@@ -65,8 +109,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 CouncilExaminersEntity Examiners = new knowledgeCouncil().GeCouncilExaminersByID(CkID,currentUserlogin);
                 string disabled = "";
                 if (Examiners.ID != 0)
-                {
-                   
+                {                  
                     btnsubmitexam.Enabled = false;
                     btnsubmitexam.Visible = false;
                     disabled = "disabled";
@@ -75,17 +118,16 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     if (Examiners.Resalt== "Success")
                     {
                         LBresalt.Text = SuccessfulMSG;
+                        LBresalt2.Text = SuccessfulMSG;
                     }
                     else
                     {
                         LBresalt.Text = FailedMSG;
+                        LBresalt2.Text = FailedMSG;
                     }
-
                     LBresalt.Text +=  " (" + Examiners .percentage+ ") ";
+                    LBresalt2.Text +=  " (" + Examiners .percentage+ ") ";
                 }
-
-
-
                 List<CouncilExamEntity> itemData = new knowledgeCouncil().GetCouncilExam(CkID);
                 if(itemData.Count <= 0){
                     btnsubmitexam.Enabled = false;
@@ -122,9 +164,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     if (!string.IsNullOrEmpty(postin))
                     {
                         htmlrow1 += "<input name='QuestionID' value='"+ item.ID + "' type='text' id='QuestionID" + x + "' style='display:none' placeholder=''>" +
-
                         "<input name='AnswerIs' value='' type='text' id='AnswerIs" + x + "' style='display:none' placeholder=''>" +
-
                          "<div class='radioComponent'><input "+ disabled + " type='radio' "+ checked1 + " onchange=\"handleChange('AnswerIs" + x + "','1');\"  name='common-radio-name" + x + "' id='radio-" + x + "' class='radio-button' />" +
                         "<label for='radio-" + x + "' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + postin + "</label></div>";
                     }
@@ -240,27 +280,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 bool saveAnswer2 = new knowledgeCouncil().SaveUpdateCouncilExaminers(Examiners);
                 btnsubmitexam.Enabled = false;
                 btnsubmitexam.Visible = false;
-                getExam(Convert.ToInt32(Request.Params["RID"]));
-                var SuccessfulMSG = SPUtility.GetLocalizedString("$Resources: TheExamResultIsSuccessful", "Resource", SPContext.Current.Web.Language);
-                var FailedMSG = SPUtility.GetLocalizedString("$Resources: TheExamResultIsFailed", "Resource", SPContext.Current.Web.Language);
-                string ResaltMSG = "";
-                if (Examiners.Resalt == "Success")
-                {
-                    ResaltMSG = SuccessfulMSG;
-                }
-                else
-                {
-                    ResaltMSG = FailedMSG;
-                }
-
-                ResaltMSG += " (" + per + "%" + ") ";
-                string script = string.Format(@"
-                                alert('ResaltMSG');
-                                window.location = '{0}';
-                                ", "");
-
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Success", script, true);
-
+                
+             
 
               
                 CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
