@@ -1224,4 +1224,16 @@
   <data name="TheExamResultIsSuccessful" xml:space="preserve">
     <value>The exam result is successful</value>
   </data>
+  <data name="Answered" xml:space="preserve">
+    <value>Answered</value>
+  </data>
+  <data name="PendingExpertAnswer" xml:space="preserve">
+    <value>Pending expert answer</value>
+  </data>
+  <data name="CloseTheQuestion" xml:space="preserve">
+    <value>close the question</value>
+  </data>
+  <data name="Resend" xml:space="preserve">
+    <value>Resend</value>
+  </data>
 </root>

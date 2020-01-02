@@ -15,6 +15,10 @@ namespace MOJ.Business
         {
             return new AskAnExpertDataManager().GetAskAnExpert(limit, Departmentvalue, Titlevalue);
         }
+        public AskAnExpertEntity GetAskAnExpertbyid(int id)
+        {
+            return new AskAnExpertDataManager().GetAskAnExpertbyid(id);
+        }
         public List<ExpertsEntity> GetExpertsFromTo( string Departmentvalue , string curentDate)
         {
             return new ExpertsDataManager().GetExpertsFromTo( Departmentvalue, curentDate);
@@ -27,12 +31,26 @@ namespace MOJ.Business
         {
             return new AskAnExpertDataManager().GetAskAnExpertAnswerByID(IDis);
         }
+
          public bool AddOrUpdate(AskAnExpertEntity item )
         {
             return new AskAnExpertDataManager().AddOrUpdate(item);
         }
+         public bool AddOrUpdateAskAnExpertAnswer(AskAnExpertAnswerEntity item )
+        {
+            return new AskAnExpertDataManager().AddOrUpdateAskAnExpertAnswer(item);
+        }
+          public bool CloseTheQuestion(int id )
+        {
+            return new AskAnExpertDataManager().CloseTheQuestion(id);
+        }
+        public bool Resend(int id)
+        {
+            return new AskAnExpertDataManager().Resend(id);
+        }
 
-      
+
+
 
     }
 }

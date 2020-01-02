@@ -73,6 +73,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     GetknowledgeCouncil(task.RequestID);
                 if (task.WorkflowName == "CouncilMembers")
                     GetCouncilMembers(task.RequestID);
+                if (task.WorkflowName == "AskAnExpert")
+                    GetAskAnExpert(task.RequestID);
                 ////
                 GetTasksRequest(task.RequestID, task.WorkflowName);
 
@@ -86,6 +88,19 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
         }
 
+        public string GetAskAnExpert(string RequestID)
+        {
+            AskAnExpertEntity masteritem = new AskAnExpert().GetAskAnExpertbyid(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            addtopage("QuestionTitle", masteritem.QuestionTitle);
+            string QuestionDetails = "<textarea disabled name ='txtQuestionDetails' id ='txtQuestionDetails' class='form-control'cols='120' rows='3'>" + masteritem.QuestionDetails + "</textarea>";
+
+            addtopage("QuestionDetails", QuestionDetails);
+            btReject.Visible = false;
+            return masteritem.Status;
+        }
         private void UserData(string userloginName)
         {
             try
@@ -587,6 +602,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         private void CompleteTask(string Outcome ,string OutcomeArab)
         {
             TaskEntity Taskitem = new Task().GetTask(Convert.ToInt32(Request.Params["TID"]));
+            if (Taskitem.WorkflowName == "AskAnExpert")
+                AskAnExpertAnswer(Taskitem.RequestID);
             Taskitem.Comment = txtMission.Value;
             Taskitem.WorkflowOutcome = Outcome;
             Taskitem.WorkflowOutcomeAr = OutcomeArab;
@@ -601,6 +618,24 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
             }
+
+        }
+      
+        private void AskAnExpertAnswer(string RequestID)
+        {
+            AskAnExpertEntity item = new AskAnExpert().GetAskAnExpertbyid(Convert.ToInt32(RequestID));
+            AskAnExpertAnswerEntity AskAnExpertAnsweris = new AskAnExpertAnswerEntity();
+            AskAnExpertAnsweris.Answer = txtMission.Value;
+            AskAnExpertAnsweris.AskAnExpertID = RequestID;
+            AskAnExpertAnsweris.Title = item.QuestionTitle;
+            ExpertsEntity Expertsitem = new AskAnExpert().GetExpertsByID(Convert.ToInt32(item.ExpertID));
+            string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+            AskAnExpertAnsweris.ExpertLoginName = currentUserlogin;
+            AskAnExpertAnsweris.ExpertName = Expertsitem.ExpertName;
+            AskAnExpertAnsweris.ExpertPosition = Expertsitem.ExpertPosition;
+
+            bool isSaved =new  AskAnExpert().AddOrUpdateAskAnExpertAnswer(AskAnExpertAnsweris);
+           
 
         }
     }

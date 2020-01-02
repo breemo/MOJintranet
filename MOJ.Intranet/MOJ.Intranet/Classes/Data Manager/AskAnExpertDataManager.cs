@@ -13,6 +13,46 @@ namespace MOJ.DataManager
 {
     public class AskAnExpertDataManager
     {
+        public AskAnExpertEntity GetAskAnExpertbyid(int id)
+        {
+            AskAnExpertEntity itemis = new AskAnExpertEntity();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.AskAnExpertUrl);
+                            if (lst != null)
+                            {
+                                SPListItem Item = lst.GetItemById(id);
+                                itemis.Title = Convert.ToString(Item["Title"]);
+                                itemis.QuestionTitle = Convert.ToString(Item["QuestionTitle"]);
+                                itemis.ID = Convert.ToInt32(Item["ID"]);
+                                itemis.Department = Convert.ToString(Item["Department"]);
+                                itemis.ExpertID = Convert.ToString(Item["ExpertID"]);
+                                itemis.QuestionDetails = Convert.ToString(Item["QuestionDetails"]);
+                                itemis.loginName = Convert.ToString(Item["loginName"]);
+                                itemis.Status = Convert.ToString(Item["Status"]);
+                                itemis.CloseTheQuestion = Convert.ToString(Item["CloseTheQuestion"]);
+                                itemis.EmployeeName = Convert.ToString(Item["EmployeeName"]);
+                                itemis.EmployeePosition = Convert.ToString(Item["EmployeePosition"]);
+                                itemis.EmployeeLoginName = new SPFieldUserValue(oWeb, Convert.ToString(Item["EmployeeLoginName"]));
+                                itemis.Created = Convert.ToDateTime(Item["Created"]);
+                                itemis.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return itemis;
+        }
+
         public List<AskAnExpertEntity> GetAskAnExpert(int intRowLimit, string Departmentvalue, string Titlevalue)
         {
             List<AskAnExpertEntity> ItemsCollection = new List<AskAnExpertEntity>();
@@ -112,10 +152,9 @@ namespace MOJ.DataManager
                                     itemis.AskAnExpertID = Convert.ToString(Item["AskAnExpertID"]);
                                     itemis.ExpertName = Convert.ToString(Item["ExpertName"]);
                                     itemis.ExpertLoginName = Convert.ToString(Item["ExpertLoginName"]);
+                                    itemis.ExpertPosition = Convert.ToString(Item["ExpertPosition"]);
                                     itemis.Created = Convert.ToDateTime(Item["Created"]);
                                     ItemsCollection.Add(itemis);
-
-
                                 }
 
                             }
@@ -127,7 +166,78 @@ namespace MOJ.DataManager
             return ItemsCollection;
         }
 
-        public bool AddOrUpdate(AskAnExpertEntity Item)
+        public bool Resend(int id)
+        {
+            bool isFormSaved = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.AskAnExpertUrl);
+                        SPListItem item = null;                      
+                            item = list.GetItemById(id);                     
+                        item["StartWF"] ="1";
+                        item.Update();
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+        public bool CloseTheQuestion(int id)
+        {
+            bool isFormSaved = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.AskAnExpertUrl);
+                        SPListItem item = null;                      
+                            item = list.GetItemById(id);                     
+                        item["CloseTheQuestion"] ="1";
+                        item.Update();
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+          public bool AddOrUpdate(AskAnExpertEntity Item)
         {
             bool isFormSaved = false;
 
@@ -161,6 +271,7 @@ namespace MOJ.DataManager
                         item["loginName"] = Item.loginName;
                         item["QuestionDetails"] = Item.QuestionDetails;
                         item["Title"] = Item.Title;
+                        item["StartWF"] = Item.StartWF;
                         item["QuestionTitle"] = Item.QuestionTitle;
                         item.Update();
 
@@ -181,6 +292,58 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
+
+        public bool AddOrUpdateAskAnExpertAnswer(AskAnExpertAnswerEntity Item)
+        {
+            bool isFormSaved = false;
+
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.AskAnExpertAnswerUrl);
+                        SPListItem item = null;
+                        if (Item.ID > 0)
+                        {
+                            item = list.GetItemById(Item.ID);
+
+                        }
+                        else
+                        {
+                            item = list.AddItem();
+                        }
+                        item["Answer"] = Item.Answer;
+                        item["AskAnExpertID"] = Item.AskAnExpertID;
+                        item["ExpertLoginName"] = Item.ExpertLoginName;
+                        item["ExpertName"] = Item.ExpertName;
+                        item["ExpertPosition"] = Item.ExpertPosition;
+                        item["Title"] = Item.Title;
+                        item.Update();
+
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
 
 
 

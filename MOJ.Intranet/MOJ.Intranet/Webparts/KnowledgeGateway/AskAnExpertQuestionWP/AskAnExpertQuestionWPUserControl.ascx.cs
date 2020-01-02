@@ -122,6 +122,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.AskAnExpertQuestionWP
                     AskAnExpert.ExpertID = DropDownExpertName.SelectedValue;
                     AskAnExpert.loginName = currentUserlogin;
                     AskAnExpert.QuestionDetails = QuestionDetails.Value;
+                    AskAnExpert.StartWF = "1";
                     RecordPrfix = "AskAnExpert-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("AskAnExpert");
 
                     AskAnExpert.Title = RecordPrfix;

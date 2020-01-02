@@ -17,8 +17,10 @@ namespace MOJ.Entities
         public string QuestionDetails { get; set; }
         public string loginName { get; set; }
         public string Status { get; set; }
+        public string CloseTheQuestion { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeePosition { get; set; }
+        public string StartWF { get; set; }
         public SPFieldUserValue EmployeeLoginName { get; set; }
         public DateTime Created { get; set; }
         public SPFieldUserValue CreatedBy { get; set; }

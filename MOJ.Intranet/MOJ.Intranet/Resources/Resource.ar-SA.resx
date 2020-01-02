@@ -1224,4 +1224,16 @@
   <data name="TheExamResultIsSuccessful" xml:space="preserve">
     <value>نتيجة الامتحان ناجح</value>
   </data>
+  <data name="Answered" xml:space="preserve">
+    <value>تمت الاجابة</value>
+  </data>
+  <data name="PendingExpertAnswer" xml:space="preserve">
+    <value>في انتظار إجابة الخبير</value>
+  </data>
+  <data name="CloseTheQuestion" xml:space="preserve">
+    <value>أغلق السؤال</value>
+  </data>
+  <data name="Resend" xml:space="preserve">
+    <value>إعادة إرسال</value>
+  </data>
 </root>
