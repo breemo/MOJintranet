@@ -17,8 +17,8 @@ namespace MOJ.DataManager
             List<StickyNotesEntities> StickyNoteLst = new List<StickyNotesEntities>();
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate ()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate ()
+                //{
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.RootWeb)
@@ -28,33 +28,52 @@ namespace MOJ.DataManager
                                 SPList lstStickyNote = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.StickyNotesListUrl);
                                 if (lstStickyNote != null)
                                 {
+                                    var userId = SPContext.Current.Web.CurrentUser.ID;
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.StickyNotesQuery;
+                                    oQuery.Query =@"<Query>
+                                                   <Where>
+                                                          <And>
+                                                             <Neq>
+                                                                <FieldRef Name='IsDeleted' />
+                                                                <Value Type='Boolean'>False</Value>
+                                                             </Neq>
+                                                             <Eq>
+                                                                <FieldRef Name='Author' LookupId='True' />
+                                                                <Value Type='User'>"+ userId + @"</Value>
+                                                             </Eq>
+                                                          </And>
+                                                       </Where>
+                                                   <OrderBy>
+                                                      <FieldRef Name = 'Created' Ascending='False' />
+                                                   </OrderBy>
+                                                </Query>";
                                     oQuery.ViewFields = SharedConstants.StickyNotesViewfields;
 
                                     oQuery.RowLimit = 6;
 
                                     SPListItemCollection lstItems = lstStickyNote.GetItems(oQuery);
 
-                                    string userName = "";
-                                    string CurrentUser = "";
-                                    string CurrentUserWithoutDot = "";
-                                    SPContext currentContext;
-                                    currentContext = SPContext.Current;
+                                    //string userName = "";
+                                    //string CurrentUser = "";
+                                    //string CurrentUserWithoutDot = "";
+                                    //SPContext currentContext;
+                                    //currentContext = SPContext.Current;
 
+                                    //var userId = SPContext.Current.Web.CurrentUser.ID;
 
-                                    if (currentContext != null && currentContext.Web.CurrentUser != null)
-                                    {
-                                        userName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1].ToLower();
-                                        CurrentUserWithoutDot = userName.Contains(".") ? userName.Replace(".", null).ToLower() : userName.ToLower();
-                                    }
+                                    //if (currentContext != null && currentContext.Web.CurrentUser != null)
+                                    //{
+                                    //    userName = SPContext.Current.Web.CurrentUser.LoginName.Split('\\')[1].ToLower();
+                                    //    CurrentUserWithoutDot = userName.Contains(".") ? userName.Replace(".", null).ToLower() : userName.ToLower();
+                                    //}
 
 
                                     foreach (SPListItem lstItem in lstItems)
                                     {
-                                        CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
-                                        if (lstItem["IsDeleted"].ToString() == "False" && CurrentUser == CurrentUserWithoutDot)
-                                        {
+                                        //CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
+                                        //if (lstItem["IsDeleted"].ToString() == "False" && CurrentUser == CurrentUserWithoutDot)
+                                        //if (lstItem["IsDeleted"].ToString() == "False")
+                                        //{
                                             StickyNotesEntities sticky = new StickyNotesEntities();
                                             //sticky.TitleAr = Convert.ToString(lstItem[SharedConstants.TitleAr]);
                                             //sticky.TitleEn = Convert.ToString(lstItem[SharedConstants.TitleEn]);
@@ -64,14 +83,14 @@ namespace MOJ.DataManager
                                             sticky.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
 
                                             StickyNoteLst.Add(sticky);
-                                        }
+                                        //}
 
                                     }
                                 }
                             }
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             {
