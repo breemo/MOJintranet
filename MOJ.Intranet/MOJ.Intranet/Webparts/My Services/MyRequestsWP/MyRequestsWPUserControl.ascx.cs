@@ -102,7 +102,7 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
             string ServiceType = SPUtility.GetLocalizedString("$Resources: ServiceType", "Resource", SPContext.Current.Web.Language);
             string AssignTo = SPUtility.GetLocalizedString("$Resources: AssignTo", "Resource", SPContext.Current.Web.Language);
             string Result = SPUtility.GetLocalizedString("$Resources: Result", "Resource", SPContext.Current.Web.Language); ;
-            string TaskDate = SPUtility.GetLocalizedString("$Resources: TaskDate", "Resource", SPContext.Current.Web.Language);
+            string TaskDate = SPUtility.GetLocalizedString("$Resources: RequestDate", "Resource", SPContext.Current.Web.Language);
             string Show = SPUtility.GetLocalizedString("$Resources: Show", "Resource", SPContext.Current.Web.Language);
                        GridViewRow row2 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
             TableHeaderCell cell2 = new TableHeaderCell();
