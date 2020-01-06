@@ -71,7 +71,7 @@ namespace CommonLibrary
 
         public const string CarOrderServiceName = "CarOrderService";
 
-        public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
+        public const string StickyNotesListUrl = "/Lists/Sticky Notes/My Stiky Notes.aspx";
 
         public const string MeetingsListUrl = "/Lists/Meetings/calendar.aspx";
 
@@ -185,8 +185,8 @@ namespace CommonLibrary
                                                    </OrderBy>
                                                 </Query>";
 
-
-        public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Title_x0020_En'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
+        //<FieldRef Name='Title_x0020_En'/>
+        public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Author'/><FieldRef Name='IsDeleted'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
 
         public const string MeetingsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
         public const string MeetingsViewfields = "<FieldRef Name='Title'/><FieldRef Name='EventDate'/><FieldRef Name='Author'/>";
