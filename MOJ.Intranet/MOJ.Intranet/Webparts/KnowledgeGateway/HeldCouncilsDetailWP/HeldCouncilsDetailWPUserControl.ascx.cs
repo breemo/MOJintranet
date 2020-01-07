@@ -104,6 +104,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
 
             try
             {
+                btnCreateExam.Enabled = false;
+                btnCreateExam.Visible = false;
 
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
                 CouncilExaminersEntity Examiners = new knowledgeCouncil().GeCouncilExaminersByID(CkID,currentUserlogin);
@@ -132,6 +134,19 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 if(itemData.Count <= 0){
                     btnsubmitexam.Enabled = false;
                     btnsubmitexam.Visible = false;
+
+                  
+                    ///////////////////////////////////////creatExiam/////
+                    knowledgeCouncilEntity KCEntity = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
+                   
+                    Departments Department = new Departments();
+                    DepartmentsEntity DEnitiy= Department.GetbyDepartments(KCEntity.Department);
+                    if(DEnitiy.DepartmentAdmin.User.LoginName == currentUserlogin)
+                    {
+                        btnCreateExam.Enabled = true;
+                        btnCreateExam.Visible = true;
+
+                    }
                 }
                 int x = 0;
                 foreach (CouncilExamEntity item in itemData)
@@ -210,6 +225,19 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
             else
             {
                 Response.Redirect("/En/HeldCouncil.aspx");
+            }
+        }
+        protected void btnCreateExam_Click(object sender, EventArgs e)
+        {
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                Response.Redirect("/Ar/KnowledgeGateway/Pages/CreateExam.aspx?RID="+ Convert.ToString(Request.Params["RID"]));
+            }
+            else
+            {
+                Response.Redirect("/En/KnowledgeGateway/Pages/CreateExam.aspx?RID="+ Convert.ToString(Request.Params["RID"]));
             }
         }
         protected void btnsubmitexam_Click(object sender, EventArgs e)

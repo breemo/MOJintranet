@@ -85,7 +85,7 @@ namespace MOJ.DataManager
                                 }
                                 if (Titlevalue != "")
                                 {
-                                    camlquery1 += "<Contains><FieldRef Name='Title'/><Value Type='Text'>" + Titlevalue + "</Value></Contains></And>";
+                                    camlquery1 += "<Contains><FieldRef Name='QuestionTitle'/><Value Type='Text'>" + Titlevalue + "</Value></Contains></And>";
                                 }
                                 camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
                                 qry1.Query = camlquery1;

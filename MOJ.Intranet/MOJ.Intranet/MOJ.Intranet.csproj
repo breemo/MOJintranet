@@ -75,6 +75,8 @@
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeDepartmentBL.cs" />
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\Departments.cs" />
+    <Compile Include="Classes\Business\CreateExam.cs" />
     <Compile Include="Classes\Business\CouncilMembers.cs" />
     <Compile Include="Classes\Business\CouncilFeedback.cs" />
     <Compile Include="Classes\Business\knowledgeCouncilHotline.cs" />
@@ -118,8 +120,10 @@
     </Compile>
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\DepartmentsDataManager.cs" />
     <Compile Include="Classes\Data Manager\AskAnExpertDataManager.cs" />
     <Compile Include="Classes\Data Manager\ExpertsDataManager.cs" />
+    <Compile Include="Classes\Data Manager\CreateExamDataManager.cs" />
     <Compile Include="Classes\Data Manager\StatusAskAnExpertDataManager.cs" />
     <Compile Include="Classes\Data Manager\CouncilTypeDataManager.cs" />
     <Compile Include="Classes\Data Manager\CouncilMembersDataManager.cs" />
@@ -168,6 +172,7 @@
     <Compile Include="Classes\Entities\CouncilExaminersEntity.cs" />
     <Compile Include="Classes\Entities\CouncilExamEntity.cs" />
     <Compile Include="Classes\Entities\CouncilExamAnswerEntity.cs" />
+    <Compile Include="Classes\Entities\DepartmentsEntity.cs" />
     <Compile Include="Classes\Entities\ExpertsEntity.cs" />
     <Compile Include="Classes\Entities\CouncilFeedbackEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeEntity.cs" />
@@ -508,6 +513,14 @@
     </Compile>
     <Compile Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWPUserControl.ascx.designer.cs">
       <DependentUpon>CouncilMembersWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWPUserControl.ascx.cs">
+      <DependentUpon>CreateExamWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWPUserControl.ascx.designer.cs">
+      <DependentUpon>CreateExamWPUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWP.cs" />
     <Compile Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWPUserControl.ascx.cs">
@@ -858,6 +871,10 @@
     <None Include="Webparts\KnowledgeGateway\CouncilMembersWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{aba27578-433f-46d7-895c-195418d99632}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\CreateExamWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{38a2a949-d2de-49dc-948d-838320f42fbd}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWP.webpart" />
     <None Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{28dff4d5-6023-4f62-8bf4-5eadfd077f4e}</SharePointProjectItemId>
@@ -1037,6 +1054,8 @@
     <Content Include="Webparts\KnowledgeGateway\AskAnExpertWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\CouncilMembersWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\CreateExamWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\HeldCouncilWP\Elements.xml" />

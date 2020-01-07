@@ -7,154 +7,100 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
+namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP {
     
     
-    public partial class HeldCouncilsDetailWPUserControl {
+    public partial class CreateExamWPUserControl {
         
         /// <summary>
-        /// LBresalt control.
+        /// hdnsuperDIV1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LBresalt;
+        protected global::System.Web.UI.WebControls.HiddenField hdnsuperDIV1;
         
         /// <summary>
-        /// QUestion control.
+        /// posts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl QUestion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
-        /// LBresalt2 control.
+        /// superDIV2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LBresalt2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl superDIV2;
         
         /// <summary>
-        /// btnsubmitexam control.
+        /// Question0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnsubmitexam;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Question0;
         
         /// <summary>
-        /// btnCreateExam control.
+        /// Possibility1_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateExam;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility1_0;
         
         /// <summary>
-        /// CouncilNo control.
+        /// Possibility2_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal CouncilNo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility2_0;
         
         /// <summary>
-        /// CouncilHeldDate control.
+        /// Possibility3_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal CouncilHeldDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility3_0;
         
         /// <summary>
-        /// Department control.
+        /// Possibility4_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Department;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility4_0;
         
         /// <summary>
-        /// Lecturer control.
+        /// DropDownAnswer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Lecturer;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownAnswer;
         
         /// <summary>
-        /// CouncilType control.
+        /// DropDownPassPercentage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal CouncilType;
-        
-        /// <summary>
-        /// ADetailedExplanationOfTheCouncil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ADetailedExplanationOfTheCouncil;
-        
-        /// <summary>
-        /// AttachmentDiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AttachmentDiv;
-        
-        /// <summary>
-        /// feedbak control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl feedbak;
-        
-        /// <summary>
-        /// TheBenefitFromTheCouncil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect TheBenefitFromTheCouncil;
-        
-        /// <summary>
-        /// DevelopmentProposalsForCouncil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea DevelopmentProposalsForCouncil;
-        
-        /// <summary>
-        /// SubjectCouncilCanBeDone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea SubjectCouncilCanBeDone;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownPassPercentage;
         
         /// <summary>
         /// btnsubmit control.
@@ -166,12 +112,39 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
         protected global::System.Web.UI.WebControls.Button btnsubmit;
         
         /// <summary>
-        /// btnBack control.
+        /// SuccessMsgDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SuccessMsgDiv;
+        
+        /// <summary>
+        /// lblSuccessMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblSuccessMsg;
+        
+        /// <summary>
+        /// Div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        
+        /// <summary>
+        /// Literal1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal1;
     }
 }

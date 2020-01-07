@@ -49,6 +49,7 @@
                                                        <span class="resalt"><asp:Literal ID="LBresalt2" runat="server"></asp:Literal></span>
                                                         <div class="pollBtns-popup" style="margin-bottom: 26px;">
 															   <asp:Button Text="<%$ Resources:Resource, Propose%>" CssClass="pollBtna" runat="server" ID="btnsubmitexam" OnClick="btnsubmitexam_Click" />
+															   <asp:Button Text="<%$ Resources:Resource, CreateExam%>" CssClass="pollBtna" runat="server" ID="btnCreateExam" OnClick="btnCreateExam_Click" />
 															<button id="btnClosePopup" class="pollBtn"><label style="padding-top: 5px;"><asp:Literal runat="server" Text="<%$ Resources:Resource, cancel%>" /></label></button>
                                                           
 														</div>

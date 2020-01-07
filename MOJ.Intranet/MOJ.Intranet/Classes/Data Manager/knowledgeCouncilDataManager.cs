@@ -14,6 +14,45 @@ namespace MOJ.DataManager
 {
     public class knowledgeCouncilDataManager
     {
+        public bool UpdatePassPercentage(knowledgeCouncilEntity knowledgeCouncilItem)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.knowledgeCouncilUrl);
+                        SPListItem item = null;                        
+                            item = list.GetItemById(knowledgeCouncilItem.ID);                 
+                       
+                        item["PassPercentage"] = knowledgeCouncilItem.PassPercentage;                        
+                        item.Update();
+
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+
         public bool AddOrUpdateCouncilExamAnswer(List<CouncilExamAnswerEntity> lItemsList)
         {
             bool isFormSaved = false;
@@ -370,7 +409,7 @@ namespace MOJ.DataManager
                                 camlquery1 += "<And><Eq><FieldRef Name='loginName' ></FieldRef><Value Type='Text'>" + loginName + "</Value></Eq>";
 
                                 camlquery1 += "<Eq><FieldRef Name='ExamID' ></FieldRef><Value Type='Text'>" + ckID + "</Value></Eq>";
-                                camlquery1 += "</And></Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                camlquery1 += "</And></Where><OrderBy><FieldRef Name='ID' Ascending='true' /></OrderBy>";
                                 qry1.Query = camlquery1;
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)
@@ -410,7 +449,7 @@ namespace MOJ.DataManager
                                 SPQuery qry1 = new SPQuery();
                                 string camlquery1 = "<Where>";                               
                                 camlquery1 += "<Eq><FieldRef Name='knowledgeCouncilID' LookupId='TRUE'></FieldRef><Value Type='Lookup'>" + ckID + "</Value></Eq>";                                
-                                  camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='false' /></OrderBy>";
+                                  camlquery1 += "</Where><OrderBy><FieldRef Name='ID' Ascending='true' /></OrderBy>";
                                 qry1.Query = camlquery1;  
                                 SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
                                 foreach (SPListItem Item in listItemsCollection1)

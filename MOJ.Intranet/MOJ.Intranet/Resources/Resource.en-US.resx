@@ -1236,4 +1236,25 @@
   <data name="Resend" xml:space="preserve">
     <value>Resend</value>
   </data>
+  <data name="CreateExam" xml:space="preserve">
+    <value>Create Exam</value>
+  </data>
+  <data name="FirstPossibility" xml:space="preserve">
+    <value>First Possibility</value>
+  </data>
+  <data name="FourthPossibility" xml:space="preserve">
+    <value>Fourth Possibility</value>
+  </data>
+  <data name="SecondPossibility" xml:space="preserve">
+    <value>Second Possibility</value>
+  </data>
+  <data name="ThirdPossibility" xml:space="preserve">
+    <value>Third Possibility</value>
+  </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="PassPercentage" xml:space="preserve">
+    <value>Pass Percentage</value>
+  </data>
 </root>

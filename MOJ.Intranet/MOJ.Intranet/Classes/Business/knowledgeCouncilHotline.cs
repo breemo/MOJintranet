@@ -13,7 +13,7 @@ namespace MOJ.Business
         public bool SaveUpdate(knowledgeCouncilEntity obj)
         {
             return new knowledgeCouncilDataManager().AddOrUpdateknowledgeCouncil(obj);
-        }
+        } 
         public bool SaveUpdateCouncilExaminers(CouncilExaminersEntity obj)
         {
             return new knowledgeCouncilDataManager().AddOrUpdateCouncilExaminers(obj);

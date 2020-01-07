@@ -8,7 +8,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AskAnExpertWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.KnowledgeGateway.AskAnExpertWP.AskAnExpertWPUserControl" %>
         <section id="content" style="margin-bottom: 0px;">
             <div class="content-wrap">
-                <div class="container-fullwidth clearfix">
+                <div class="">
                     <!-- Post Content
                 ============================================= -->
                     <div class="">

@@ -1236,4 +1236,25 @@
   <data name="Resend" xml:space="preserve">
     <value>إعادة إرسال</value>
   </data>
+  <data name="CreateExam" xml:space="preserve">
+    <value>إنشاء امتحان</value>
+  </data>
+  <data name="FirstPossibility" xml:space="preserve">
+    <value>الاحتمال الاول</value>
+  </data>
+  <data name="FourthPossibility" xml:space="preserve">
+    <value>الاحتمال الرابع</value>
+  </data>
+  <data name="SecondPossibility" xml:space="preserve">
+    <value>الاحتمال الثاني</value>
+  </data>
+  <data name="ThirdPossibility" xml:space="preserve">
+    <value>الاحتمال الثالث</value>
+  </data>
+  <data name="Answer" xml:space="preserve">
+    <value>الاجابة</value>
+  </data>
+  <data name="PassPercentage" xml:space="preserve">
+    <value>نسبة النجاح</value>
+  </data>
 </root>
