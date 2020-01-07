@@ -1257,4 +1257,7 @@
   <data name="PassPercentage" xml:space="preserve">
     <value>نسبة النجاح</value>
   </data>
+  <data name="TheExamWasCreatedSuccessfully" xml:space="preserve">
+    <value>تم انشاء الامتحان بنجاح</value>
+  </data>
 </root>

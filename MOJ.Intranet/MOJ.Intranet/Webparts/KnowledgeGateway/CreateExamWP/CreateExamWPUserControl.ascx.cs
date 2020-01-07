@@ -55,6 +55,23 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP
                 }
             }
         }
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+
+            if (languageCode == "ar")
+            {
+                Response.Redirect("/Ar/KnowledgeGateway/Pages/HeldCouncilsDetail.aspx?RID="+ Convert.ToString(Request.Params["RID"]));
+
+            }
+            else
+            {
+                Response.Redirect("/En/KnowledgeGateway/Pages/HeldCouncilsDetail.aspx?RID="+ Convert.ToString(Request.Params["RID"]));
+            }
+
+        }
         private void AddAnswer()
         {
             string Possibility1 = SPUtility.GetLocalizedString("$Resources: FirstPossibility", "Resource", SPContext.Current.Web.Language);
@@ -130,7 +147,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP
 
                     if (issave)
                     {
-                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: TheInformationWasSavedSuccessfully", "Resource", SPContext.Current.Web.Language) + "<br />";
+                        lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: TheExamWasCreatedSuccessfully", "Resource", SPContext.Current.Web.Language) + "<br />";
                         posts.Style.Add("display", "none");
                         SuccessMsgDiv.Style.Add("display", "block");
                     }
