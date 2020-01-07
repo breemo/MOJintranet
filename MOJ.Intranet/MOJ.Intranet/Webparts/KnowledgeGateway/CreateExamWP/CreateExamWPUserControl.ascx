@@ -120,10 +120,11 @@
                 </div>
 				</div>
 	  
-<div id="SuccessMsgDiv" runat="server" style="display:none">
+<div id="SuccessMsgDiv" runat="server" style="display:none; background-color: white;">
     <h4 class="ta3m" style="text-align: center;"><asp:Literal ID="lblSuccessMsg" runat="server"></asp:Literal></h4>	
 	 <div class="row cf">
-													
+	 <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Back%>" CssClass="btnclass bgicb nwckss" runat="server" ID="btnBack2" OnClick="btnBack_Click" />
+           										
                                             </div>
 	
 </div>
