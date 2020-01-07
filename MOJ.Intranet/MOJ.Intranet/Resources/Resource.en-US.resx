@@ -1257,4 +1257,7 @@
   <data name="PassPercentage" xml:space="preserve">
     <value>Pass Percentage</value>
   </data>
+  <data name="TheExamWasCreatedSuccessfully" xml:space="preserve">
+    <value>The exam was created successfully</value>
+  </data>
 </root>
