@@ -11,6 +11,46 @@ namespace MOJ.Business
 {
     public class ImplicitKnowledge
     {
+        public List<VoluntaryWorkEntity> GetVoluntaryWork(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetVoluntaryWork(title);
+
+        }
+        public bool SaveUpdateVoluntaryWork(List<VoluntaryWorkEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateVoluntaryWork(obj);
+
+        }
+        public List<HopisEntity> GetHopis(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetHopis(title);
+
+        }
+        public bool SaveUpdateHopis(List<HopisEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateHopis(obj);
+
+        }
+        public List<MembershipEntity> GetMembership(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetMembership(title);
+
+        }
+        public bool SaveUpdateMembership(List<MembershipEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateMembership(obj);
+
+        }
+        public List<ParticipationsEntity> GetParticipations(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetParticipations(title);
+
+        }
+        public bool SaveUpdateParticipations(List<ParticipationsEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateParticipations(obj);
+
+        }
         public DataTable GetCountrys()
         {
             return new CountrysDataManager().GetAll();
@@ -37,6 +77,26 @@ namespace MOJ.Business
             return new ImplicitKnowledgeDataManager().GeteQualifications(title);
 
         }
+        public List<TravelInformationsEntity> GetTravelInformations(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetTravelInformations(title);
+
+        }
+        public List<PublicationsEntity> GetPublications(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetPublications(title);
+
+        }
+        public List<ExpertiseEntity> GeteExpertise(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetExpertise(title);
+
+        }
+        public List<TrainingCoursesEntity> GetTrainingCourses(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetTrainingCourses(title);
+
+        }
         public List<LanguageSkillsEntity> GeteLanguageSkills(string title)
         {
             return new ImplicitKnowledgeDataManager().GeteLanguageSkills(title);
@@ -45,6 +105,11 @@ namespace MOJ.Business
         public List<TechnicalSkillsEntity> GeteTechnicalSkills(string title)
         {
             return new ImplicitKnowledgeDataManager().GetTechnicalSkills(title);
+
+        }
+         public List<OtherSkillsEntity> GeteOtherSkills(string title)
+        {
+            return new ImplicitKnowledgeDataManager().GetOtherSkills(title);
 
         }
         
@@ -68,6 +133,26 @@ namespace MOJ.Business
             return new ImplicitKnowledgeDataManager().AddOrUpdateQualifications(obj);
 
         }
+        public bool SaveUpdateTravelInformations(List<TravelInformationsEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateTravelInformations(obj);
+
+        }
+        public bool SaveUpdateExpertise(List<ExpertiseEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateExpertise(obj);
+
+        }
+        public bool SaveUpdateTrainingCourses(List<TrainingCoursesEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateTrainingCourses(obj);
+
+        }
+        public bool SaveUpdatePublications(List<PublicationsEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdatePublications(obj);
+
+        }
         public bool SaveUpdateLanguageSkills(List<LanguageSkillsEntity> obj)
         {
             return new ImplicitKnowledgeDataManager().AddOrUpdateLanguageSkills(obj);
@@ -79,6 +164,12 @@ namespace MOJ.Business
             return new ImplicitKnowledgeDataManager().AddOrUpdateTechnicalSkills(obj);
 
         }
+         public bool SaveUpdateOtherSkills(List<OtherSkillsEntity> obj)
+        {
+            return new ImplicitKnowledgeDataManager().AddOrUpdateOtherSkills(obj);
+
+        }
+
 
         //public AffirmationSocialSituationEntity GetAffirmationSocialSituation(int id)
         //{

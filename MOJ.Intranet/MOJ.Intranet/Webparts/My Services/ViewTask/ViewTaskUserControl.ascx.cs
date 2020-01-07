@@ -69,6 +69,12 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 if (task.WorkflowName == "PeriodicalFormForGovernmentHousing")
                     GetPeriodicalFormForGovernmentHousingData(task.RequestID);
 
+                if (task.WorkflowName == "knowledgeCouncil")
+                    GetknowledgeCouncil(task.RequestID);
+                if (task.WorkflowName == "CouncilMembers")
+                    GetCouncilMembers(task.RequestID);
+                if (task.WorkflowName == "AskAnExpert")
+                    GetAskAnExpert(task.RequestID);
                 ////
                 GetTasksRequest(task.RequestID, task.WorkflowName);
 
@@ -82,6 +88,19 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
         }
 
+        public string GetAskAnExpert(string RequestID)
+        {
+            AskAnExpertEntity masteritem = new AskAnExpert().GetAskAnExpertbyid(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            addtopage("QuestionTitle", masteritem.QuestionTitle);
+            string QuestionDetails = "<textarea disabled name ='txtQuestionDetails' id ='txtQuestionDetails' class='form-control'cols='120' rows='3'>" + masteritem.QuestionDetails + "</textarea>";
+
+            addtopage("QuestionDetails", QuestionDetails);
+            btReject.Visible = false;
+            return masteritem.Status;
+        }
         private void UserData(string userloginName)
         {
             try
@@ -120,6 +139,35 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
                 LoggingService.LogError("WebParts", ex.Message);
             }
+        }
+
+        public string GetCouncilMembers(string RequestID)
+        {
+            CouncilMembersEntity masteritem = new CouncilMembers().GetCouncilMembers(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            addtopage("CouncilTopic", masteritem.CouncilTopic);
+            return masteritem.Status;
+        }
+        public string GetknowledgeCouncil(string RequestID)
+        {
+            knowledgeCouncilEntity masteritem = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            addtopage("CouncilTopic", masteritem.CouncilTopic);
+            string CouncilTarget = "<textarea disabled name ='txtCouncilTarget' id ='txtCouncilTarget' class='form-control'cols='120' rows='3'>" + masteritem.CouncilTarget + "</textarea>";
+
+            addtopage("CouncilTarget", CouncilTarget);
+            string JoiningConditions = "<textarea disabled name ='txtCouncilTarget' id ='txtCouncilTarget' class='form-control'cols='120' rows='3'>" + masteritem.JoiningConditions + "</textarea>";
+            addtopage("JoiningConditions", JoiningConditions);
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            string CouncilTypename = new knowledgeCouncil().GetCouncilTypeByid(Convert.ToInt32(masteritem.CouncilType), languageCode);
+            
+            addtopage("CouncilDate", masteritem.CouncilDate.ToString("dd MMM yyyy"), "CouncilType", CouncilTypename);
+            return masteritem.Status;
         }
 
         public string GetPeriodicalFormForGovernmentHousingData(string RequestID)
@@ -554,6 +602,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         private void CompleteTask(string Outcome ,string OutcomeArab)
         {
             TaskEntity Taskitem = new Task().GetTask(Convert.ToInt32(Request.Params["TID"]));
+            if (Taskitem.WorkflowName == "AskAnExpert")
+                AskAnExpertAnswer(Taskitem.RequestID);
             Taskitem.Comment = txtMission.Value;
             Taskitem.WorkflowOutcome = Outcome;
             Taskitem.WorkflowOutcomeAr = OutcomeArab;
@@ -568,6 +618,24 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 posts.Style.Add("display", "none");
                 SuccessMsgDiv.Style.Add("display", "block");
             }
+
+        }
+      
+        private void AskAnExpertAnswer(string RequestID)
+        {
+            AskAnExpertEntity item = new AskAnExpert().GetAskAnExpertbyid(Convert.ToInt32(RequestID));
+            AskAnExpertAnswerEntity AskAnExpertAnsweris = new AskAnExpertAnswerEntity();
+            AskAnExpertAnsweris.Answer = txtMission.Value;
+            AskAnExpertAnsweris.AskAnExpertID = RequestID;
+            AskAnExpertAnsweris.Title = item.QuestionTitle;
+            ExpertsEntity Expertsitem = new AskAnExpert().GetExpertsByID(Convert.ToInt32(item.ExpertID));
+            string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+            AskAnExpertAnsweris.ExpertLoginName = currentUserlogin;
+            AskAnExpertAnsweris.ExpertName = Expertsitem.ExpertName;
+            AskAnExpertAnsweris.ExpertPosition = Expertsitem.ExpertPosition;
+
+            bool isSaved =new  AskAnExpert().AddOrUpdateAskAnExpertAnswer(AskAnExpertAnsweris);
+           
 
         }
     }

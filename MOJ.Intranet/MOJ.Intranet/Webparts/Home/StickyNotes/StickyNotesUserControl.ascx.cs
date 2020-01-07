@@ -66,7 +66,7 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
                                         <span aria-hidden='true'>×</span>
                                     </button>
                                 </div>
-                            </div>", SPUtility.GetLocalizedString("$Resources: remind", "Resource", SPContext.Current.Web.Language), item.TitleAr, Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"));
+                            </div>", SPUtility.GetLocalizedString("$Resources: remind", "Resource", SPContext.Current.Web.Language), item.Title, Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"));
 
                 }
             }
@@ -81,32 +81,34 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
 
         protected void btnSubmitNewItem_Click(object sender, EventArgs e)
         {
-            //if (!_isRefresh)
-            //{
-            //    try
-            //    {
-            //        StickyNotesEntities itemSumbit = new StickyNotesEntities();
-            //        itemSumbit.TitleAr = txtTitleAr.Value;
-            //        itemSumbit.TitleEn = txtTitleEn.Value;
-            //        DateTime sDate = DateTime.ParseExact(txtDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-            //        itemSumbit.Date = sDate;
+            if (!_isRefresh)
+            {
+                try
+                {
+                    StickyNotesEntities itemSumbit = new StickyNotesEntities();
+                    itemSumbit.Title = txtTitleAr.Value;
+                    //itemSumbit.TitleEn = txtTitleEn.Value;
+                    DateTime sDate = DateTime.ParseExact(txtDate.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    itemSumbit.Date = sDate;
 
-            //        StickyNote SN = new StickyNote();
-            //        bool isSaved = SN.SaveUpdate(itemSumbit);
+                    StickyNote SN = new StickyNote();
+                    bool isSaved = SN.SaveUpdate(itemSumbit);
 
-            //        if (isSaved == true)
-            //        {
-            //            ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
-            //            BindData();
-            //        }
+                    if (isSaved == true)
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
+                        BindData();
+                        txtTitleAr.Value = "";
+                        txtDate.Value = "";
+                    }
 
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        LoggingService.LogError("WebParts", ex.Message);
-            //    }
-            //}
+                }
+                catch (Exception ex)
+                {
+                    LoggingService.LogError("WebParts", ex.Message);
+                }
+            }
         }
     }
 }

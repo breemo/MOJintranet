@@ -71,7 +71,7 @@ namespace CommonLibrary
 
         public const string CarOrderServiceName = "CarOrderService";
 
-        public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
+        public const string StickyNotesListUrl = "/Lists/Sticky Notes/My Stiky Notes.aspx";
 
         public const string MeetingsListUrl = "/Lists/Meetings/calendar.aspx";
 
@@ -84,13 +84,23 @@ namespace CommonLibrary
 
         public const string HostingRequestUrl = "/Lists/HostingRequest/AllItems.aspx";
         public const string DepartmentsUrl = "/Lists/Departments/AllItems.aspx";
+        public const string ExpertsUrl = "/Lists/Experts/AllItems.aspx";
         public const string RoomBookingUrl = "/Lists/RoomBooking/AllItems.aspx";
         public const string AffirmationSocialSituationUrl = "/Lists/AffirmationSocialSituation/AllItems.aspx";
         public const string ImplicitKnowledgeUrl = "/Lists/ImplicitKnowledge/AllItems.aspx";
         public const string EmploymentHistoryUrl = "/Lists/EmploymentHistory/AllItems.aspx";
         public const string QualificationsUrl = "/Lists/Qualifications/AllItems.aspx";
+        public const string TravelInformationsUrl = "/Lists/TravelInformations/AllItems.aspx";
+        public const string ParticipationsUrl = "/Lists/Participations/AllItems.aspx";
+        public const string MembershipUrl = "/Lists/Membership/AllItems.aspx";
+        public const string HopisUrl = "/Lists/Hopis/AllItems.aspx";
+        public const string VoluntaryWorkUrl = "/Lists/VoluntaryWork/AllItems.aspx";
+        public const string PublicationsUrl = "/Lists/Publications/AllItems.aspx";
+        public const string ExpertiseUrl = "/Lists/Expertise/AllItems.aspx";
+        public const string TrainingCoursesUrl = "/Lists/TrainingCourses/AllItems.aspx";
         public const string LanguageSkillsUrl = "/Lists/LanguageSkills/AllItems.aspx";
         public const string TechnicalSkillsUrl = "/Lists/TechnicalSkills/AllItems.aspx";
+        public const string OtherSkillsUrl = "/Lists/OtherSkills/AllItems.aspx";
         public const string HusbandORWifeUrl = "/Lists/HusbandORWife/AllItems.aspx";
         public const string HappinessHotlineUrl = "/Lists/HappinessHotline/AllItems.aspx";
         public const string SonsUrl = "/Lists/Sons/AllItems.aspx";
@@ -110,6 +120,16 @@ namespace CommonLibrary
         public const string ReturnToDutyNoticeMembersOfTheJudiciaryUrl = "/Lists/ReturnToDutyNoticeMembersOfTheJudiciary/AllItems.aspx";
         public const string PeriodicalFormForGovernmentHousingUrl = "/Lists/PeriodicalFormForGovernmentHousing/AllItems.aspx";
         public const string EmployeeUrl = "/Lists/EmployeesProfile/AllItems.aspx";
+        public const string knowledgeCouncilUrl = "/Lists/knowledgeCouncil/AllItems.aspx";
+        public const string CouncilExamUrl = "/Lists/CouncilExam/AllItems.aspx";
+        public const string CouncilFeedbackUrl = "/Lists/CouncilFeedback/AllItems.aspx";
+        public const string CouncilMembersUrl = "/Lists/CouncilMembers/AllItems.aspx";
+        public const string CouncilTypeUrl = "/Lists/CouncilType/AllItems.aspx";
+        public const string StatusAskAnExpertUrl = "/Lists/StatusAskAnExpert/AllItems.aspx";
+        public const string AskAnExpertUrl = "/Lists/AskAnExpert/AllItems.aspx";
+        public const string AskAnExpertAnswerUrl = "/Lists/AskAnExpertAnswer/AllItems.aspx";
+        public const string CouncilExamAnswerUrl = "/Lists/CouncilExamAnswer/AllItems.aspx";
+        public const string CouncilExaminersUrl = "/Lists/CouncilExaminers/AllItems.aspx";
 
         #endregion
 
@@ -165,8 +185,8 @@ namespace CommonLibrary
                                                    </OrderBy>
                                                 </Query>";
 
-
-        public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Title_x0020_En'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
+        //<FieldRef Name='Title_x0020_En'/>
+        public const string StickyNotesViewfields = "<FieldRef Name='Title'/><FieldRef Name='Author'/><FieldRef Name='IsDeleted'/><FieldRef Name='Date'/><FieldRef Name='ID'/>";
 
         public const string MeetingsQuery = "<OrderBy><FieldRef Name='ID' Ascending='False' /></OrderBy>";
         public const string MeetingsViewfields = "<FieldRef Name='Title'/><FieldRef Name='EventDate'/><FieldRef Name='Author'/>";

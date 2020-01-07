@@ -75,9 +75,15 @@
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeDepartmentBL.cs" />
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\Departments.cs" />
+    <Compile Include="Classes\Business\CreateExam.cs" />
+    <Compile Include="Classes\Business\CouncilMembers.cs" />
+    <Compile Include="Classes\Business\CouncilFeedback.cs" />
+    <Compile Include="Classes\Business\knowledgeCouncilHotline.cs" />
     <Compile Include="Classes\Business\ImplicitKnowledge.cs" />
     <Compile Include="Classes\Business\EmployeeProfileBL.cs" />
     <Compile Include="Classes\Business\LeaveBalanceBL.cs" />
+    <Compile Include="Classes\Business\AskAnExpert.cs" />
     <Compile Include="Classes\Business\PeriodicalFormForGovernmentHousing.cs" />
     <Compile Include="Classes\Business\GovernmentHousing.cs" />
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
@@ -114,6 +120,15 @@
     </Compile>
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\DepartmentsDataManager.cs" />
+    <Compile Include="Classes\Data Manager\AskAnExpertDataManager.cs" />
+    <Compile Include="Classes\Data Manager\ExpertsDataManager.cs" />
+    <Compile Include="Classes\Data Manager\CreateExamDataManager.cs" />
+    <Compile Include="Classes\Data Manager\StatusAskAnExpertDataManager.cs" />
+    <Compile Include="Classes\Data Manager\CouncilTypeDataManager.cs" />
+    <Compile Include="Classes\Data Manager\CouncilMembersDataManager.cs" />
+    <Compile Include="Classes\Data Manager\CouncilFeedbackDataManager.cs" />
+    <Compile Include="Classes\Data Manager\knowledgeCouncilDataManager.cs" />
     <Compile Include="Classes\Data Manager\levelsDataManager.cs" />
     <Compile Include="Classes\Data Manager\CountrysDataManager.cs" />
     <Compile Include="Classes\Data Manager\EmployeeProfileDataManager.cs" />
@@ -153,13 +168,32 @@
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
+    <Compile Include="Classes\Entities\AskAnExpertAnswerEntity.cs" />
+    <Compile Include="Classes\Entities\CouncilExaminersEntity.cs" />
+    <Compile Include="Classes\Entities\CouncilExamEntity.cs" />
+    <Compile Include="Classes\Entities\CouncilExamAnswerEntity.cs" />
+    <Compile Include="Classes\Entities\DepartmentsEntity.cs" />
+    <Compile Include="Classes\Entities\ExpertsEntity.cs" />
+    <Compile Include="Classes\Entities\CouncilFeedbackEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeEntity.cs" />
     <Compile Include="Classes\Entities\EmployeeProfileEntity.cs" />
+    <Compile Include="Classes\Entities\CouncilMembersEntity.cs" />
+    <Compile Include="Classes\Entities\knowledgeCouncilEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\ExpertiseEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\PublicationsEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\ParticipationsEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\MembershipEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\HopisEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\VoluntaryWorkEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\TravelInformationsEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\TrainingCoursesEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\EmploymentHistoryEntity.cs" />
+    <Compile Include="Classes\Entities\ImplicitKnowledge\OtherSkillsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\TechnicalSkillsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\LanguageSkillsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\QualificationsEntity.cs" />
     <Compile Include="Classes\Entities\ImplicitKnowledge\ImplicitKnowledgeEntity.cs" />
+    <Compile Include="Classes\Entities\AskAnExpertEntity.cs" />
     <Compile Include="Classes\Entities\PeriodicalFormForGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\DaysEntity.cs" />
     <Compile Include="Classes\Entities\ReturnToDutyNoticeMembersOfTheJudiciaryEntity.cs" />
@@ -456,6 +490,54 @@
     <Compile Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsListUserControl.ascx.designer.cs">
       <DependentUpon>wpOccasionsListUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\AskAnExpertQuestionWP\AskAnExpertQuestionWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\AskAnExpertQuestionWP\AskAnExpertQuestionWPUserControl.ascx.cs">
+      <DependentUpon>AskAnExpertQuestionWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\AskAnExpertQuestionWP\AskAnExpertQuestionWPUserControl.ascx.designer.cs">
+      <DependentUpon>AskAnExpertQuestionWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\AskAnExpertWP\AskAnExpertWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\AskAnExpertWP\AskAnExpertWPUserControl.ascx.cs">
+      <DependentUpon>AskAnExpertWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\AskAnExpertWP\AskAnExpertWPUserControl.ascx.designer.cs">
+      <DependentUpon>AskAnExpertWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWPUserControl.ascx.cs">
+      <DependentUpon>CouncilMembersWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWPUserControl.ascx.designer.cs">
+      <DependentUpon>CouncilMembersWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWPUserControl.ascx.cs">
+      <DependentUpon>CreateExamWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWPUserControl.ascx.designer.cs">
+      <DependentUpon>CreateExamWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWPUserControl.ascx.cs">
+      <DependentUpon>HeldCouncilsDetailWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWPUserControl.ascx.designer.cs">
+      <DependentUpon>HeldCouncilsDetailWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWPUserControl.ascx.cs">
+      <DependentUpon>HeldCouncilWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWPUserControl.ascx.designer.cs">
+      <DependentUpon>HeldCouncilWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWP.cs" />
     <Compile Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx.cs">
       <DependentUpon>ImplicitKnowledgeWPUserControl.ascx</DependentUpon>
@@ -463,6 +545,22 @@
     </Compile>
     <Compile Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx.designer.cs">
       <DependentUpon>ImplicitKnowledgeWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\knowledgeCouncilWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\knowledgeCouncilWPUserControl.ascx.cs">
+      <DependentUpon>knowledgeCouncilWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\knowledgeCouncilWPUserControl.ascx.designer.cs">
+      <DependentUpon>knowledgeCouncilWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWPUserControl.ascx.cs">
+      <DependentUpon>PlannedCouncilsWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWPUserControl.ascx.designer.cs">
+      <DependentUpon>PlannedCouncilsWPUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWP.cs" />
     <Compile Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx.cs">
@@ -761,9 +859,41 @@
       <SharePointProjectItemId>{ee7746e6-f59b-4b25-94cd-075f88d5d286}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsList.webpart" />
+    <None Include="Webparts\KnowledgeGateway\AskAnExpertQuestionWP\AskAnExpertQuestionWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\AskAnExpertQuestionWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e5e30ad4-7e1c-44b1-932f-e629710b43bb}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\KnowledgeGateway\AskAnExpertWP\AskAnExpertWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\AskAnExpertWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{375105a8-0652-4e34-b462-c6f684bbde37}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\CouncilMembersWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{aba27578-433f-46d7-895c-195418d99632}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\CreateExamWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{38a2a949-d2de-49dc-948d-838320f42fbd}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{28dff4d5-6023-4f62-8bf4-5eadfd077f4e}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\HeldCouncilWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d5a8aa72-159c-4fc4-ac43-25e9d23fae3e}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWP.webpart" />
     <None Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{e62acebd-b2b0-4ca4-9573-28e44a7120bf}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\knowledgeCouncilWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9ebe660b-ee0b-4d75-b288-2c8b8767d031}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b60386dc-ad75-4ec7-b6bb-935a48688f29}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\LiveEventsWP\LiveEventsWP.webpart" />
     <None Include="Webparts\LiveEventsWP\SharePointProjectItem.spdata">
@@ -918,8 +1048,24 @@
     <Content Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetailsUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\wpOccasionsList\Elements.xml" />
     <Content Include="Webparts\Inner Pages\wpOccasionsList\wpOccasionsListUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\AskAnExpertQuestionWP\AskAnExpertQuestionWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\AskAnExpertQuestionWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\AskAnExpertWP\AskAnExpertWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\AskAnExpertWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\CouncilMembersWP\CouncilMembersWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\CouncilMembersWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\CreateExamWP\CreateExamWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\CreateExamWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\HeldCouncilsDetailWP\HeldCouncilsDetailWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\HeldCouncilWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\HeldCouncilWP\HeldCouncilWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\knowledgeCouncilWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWPUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />
     <Content Include="Webparts\LiveEventsWP\LiveEventsWPUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\AffirmationReceiptGovernmentHousingWPUserControl.ascx" />

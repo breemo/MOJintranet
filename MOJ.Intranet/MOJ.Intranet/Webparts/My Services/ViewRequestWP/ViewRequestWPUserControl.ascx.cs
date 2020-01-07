@@ -32,8 +32,38 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                      }
                
         }
+        protected void btnResend_Click(object sender, EventArgs e)
+        {
+            string RequestID = Convert.ToString(Request.Params["RID"]);
+            bool masteritem = new AskAnExpert().Resend(Convert.ToInt32(RequestID));
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                Response.Redirect("/Ar/MyServices/Pages/MyRequests.aspx");
+            }
+            else
+            {
+                Response.Redirect("/En/MyServices/Pages/MyRequests.aspx");
+            }
+        }
+        protected void btnCloseTheQuestion_Click(object sender, EventArgs e)
+        {
+            string RequestID = Convert.ToString(Request.Params["RID"]);    
+           bool masteritem = new AskAnExpert().CloseTheQuestion(Convert.ToInt32(RequestID));
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                Response.Redirect("/Ar/MyServices/Pages/MyRequests.aspx");
+            }
+            else
+            {
+                Response.Redirect("/En/MyServices/Pages/MyRequests.aspx");
+            }
 
-        protected void btnCanceledworkflow_Click(object sender, EventArgs e)
+        }
+            protected void btnCanceledworkflow_Click(object sender, EventArgs e)
         {
             string listNameC = Convert.ToString(Request.Params["list"]);
             string RequestIDC = Convert.ToString(Request.Params["RID"]);
@@ -76,6 +106,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             string listName = Convert.ToString(Request.Params["list"]);
             string RequestID = Convert.ToString(Request.Params["RID"]);
             string Status = "";
+            btnCloseTheQuestion.Visible = false;
+            btnResend.Visible = false;
             // add new workflow-----------------------------------
             if (listName == "RoomBooking")
                 Status = GetRoomBookingData(RequestID);
@@ -97,6 +129,12 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetReturnNoticeData(RequestID);
             if (listName == "PeriodicalFormForGovernmentHousing")
                 Status = GetPeriodicalFormForGovernmentHousingData(RequestID);
+            if (listName == "knowledgeCouncil")
+                Status = GetknowledgeCouncil(RequestID);
+            if (listName == "CouncilMembers")
+                Status = GetCouncilMembers(RequestID);
+            if (listName == "AskAnExpert")
+                Status = GetAskAnExpert(RequestID);
             GetTasksRequest(RequestID, listName);
 
             AllData.Text += "<hr>";
@@ -104,10 +142,56 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             if (Status == "Canceled") { 
             btnCanceled.Visible = false;
          }
+           
+        }
+        public string GetAskAnExpert(string RequestID)
+        {
+            AskAnExpertEntity masteritem = new AskAnExpert().GetAskAnExpertbyid(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            addtopage("QuestionTitle", masteritem.QuestionTitle);
+           string QuestionDetails = "<textarea disabled name ='txtQuestionDetails' id ='txtQuestionDetails' class='form-control'cols='120' rows='3'>" + masteritem.QuestionDetails + "</textarea>";
+
+           if (masteritem.Status== "Answered"&& masteritem.CloseTheQuestion !="1")
+           {
+                btnCloseTheQuestion.Visible = true;
+                btnResend.Visible = true;
+            }            
+            
+            addtopage("QuestionDetails", QuestionDetails);
+            return masteritem.Status;
         }
 
+        public string GetCouncilMembers(string RequestID)
+        {
+            CouncilMembersEntity masteritem = new CouncilMembers().GetCouncilMembers(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            addtopage("CouncilTopic", masteritem.CouncilTopic);
+            return masteritem.Status;
+        }
+        public string GetknowledgeCouncil(string RequestID)
+        {
+            knowledgeCouncilEntity masteritem = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(RequestID));
+            addtopage("RequestNumber", masteritem.Title, "RequestDate", masteritem.Created.ToString("dd MMM yyyy"), "title");
+            UserData(Convert.ToString(masteritem.CreatedBy.User.LoginName));
+            addtopage("Department", masteritem.Department);
+            addtopage("CouncilTopic", masteritem.CouncilTopic);
+            string CouncilTarget = "<textarea disabled name ='txtCouncilTarget' id ='txtCouncilTarget' class='form-control'cols='120' rows='3'>" + masteritem.CouncilTarget + "</textarea>";
 
-       
+            addtopage("CouncilTarget", CouncilTarget);
+            string JoiningConditions = "<textarea disabled name ='txtCouncilTarget' id ='txtCouncilTarget' class='form-control'cols='120' rows='3'>" + masteritem.JoiningConditions + "</textarea>";
+            addtopage("JoiningConditions", JoiningConditions);
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            string CouncilTypename = new knowledgeCouncil().GetCouncilTypeByid(Convert.ToInt32(masteritem.CouncilType), languageCode);
+
+            addtopage("CouncilDate", masteritem.CouncilDate.ToString("dd MMM yyyy"), "CouncilType", CouncilTypename);
+            return masteritem.Status;
+        }
+
         private void UserData(string userloginName)
         {
             try

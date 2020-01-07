@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="AskAnExpertQuestionWP" List="113" Url="_catalogs/wp">
+    <File Path="AskAnExpertQuestionWP\AskAnExpertQuestionWP.webpart" Url="MOJ.Intranet_AskAnExpertQuestionWP.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="MOJ.KnowledgeGateway" />
+    </File>
+  </Module>
+</Elements>

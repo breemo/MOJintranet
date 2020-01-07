@@ -1008,4 +1008,253 @@
   <data name="TechnicalSkills" xml:space="preserve">
     <value>Technical skills</value>
   </data>
+  <data name="CourseLocation" xml:space="preserve">
+    <value>Course location</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Course Name</value>
+  </data>
+  <data name="OtherSkills" xml:space="preserve">
+    <value>Other skills</value>
+  </data>
+  <data name="SkillTheEmployeeHave" xml:space="preserve">
+    <value>Skill the employee have</value>
+  </data>
+  <data name="TrainingCourses" xml:space="preserve">
+    <value>Training courses</value>
+  </data>
+  <data name="TrainingHours" xml:space="preserve">
+    <value>Training hours</value>
+  </data>
+  <data name="WithinThePlan" xml:space="preserve">
+    <value>Within the plan ?</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="ActivityName" xml:space="preserve">
+    <value>Activity name</value>
+  </data>
+  <data name="BookPublicationTitle" xml:space="preserve">
+    <value>Book/ publication title</value>
+  </data>
+  <data name="CountryResidentForMoreThan3Months" xml:space="preserve">
+    <value>Country resident for more than 3 months</value>
+  </data>
+  <data name="Expertise" xml:space="preserve">
+    <value>Expertise</value>
+  </data>
+  <data name="Field" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Membership" xml:space="preserve">
+    <value>Membership</value>
+  </data>
+  <data name="NatureOfTheJob" xml:space="preserve">
+    <value>Nature of the job</value>
+  </data>
+  <data name="NatureOfTheParticipation" xml:space="preserve">
+    <value>Nature of the participation</value>
+  </data>
+  <data name="OrganizationName" xml:space="preserve">
+    <value>Organization name</value>
+  </data>
+  <data name="Participations" xml:space="preserve">
+    <value>Participations</value>
+  </data>
+  <data name="Publications" xml:space="preserve">
+    <value>Publications</value>
+  </data>
+  <data name="PublishDate" xml:space="preserve">
+    <value>Publish date</value>
+  </data>
+  <data name="Sponsor" xml:space="preserve">
+    <value>Sponsor</value>
+  </data>
+  <data name="TimePeriodFrom" xml:space="preserve">
+    <value>Time period from</value>
+  </data>
+  <data name="TimeperiodTo" xml:space="preserve">
+    <value>Time period to</value>
+  </data>
+  <data name="Topic" xml:space="preserve">
+    <value>Topic</value>
+  </data>
+  <data name="TravelInformations" xml:space="preserve">
+    <value>Travel information’s</value>
+  </data>
+  <data name="VisitReasons" xml:space="preserve">
+    <value>Visit reasons</value>
+  </data>
+  <data name="YearsOfExperience" xml:space="preserve">
+    <value>Years of experience</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Hopis" xml:space="preserve">
+    <value>Hopis</value>
+  </data>
+  <data name="Hoppy" xml:space="preserve">
+    <value>Hoppy</value>
+  </data>
+  <data name="VoluntaryWork" xml:space="preserve">
+    <value>Voluntary work</value>
+  </data>
+  <data name="EmployeeData" xml:space="preserve">
+    <value>Employee Data</value>
+  </data>
+  <data name="ImplicitKnowledge" xml:space="preserve">
+    <value>Implicit Knowledge</value>
+  </data>
+  <data name="Process" xml:space="preserve">
+    <value>Process</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TheInformationWasSavedSuccessfully" xml:space="preserve">
+    <value>The information was saved successfully</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="CouncilDate" xml:space="preserve">
+    <value>Council date</value>
+  </data>
+  <data name="CouncilTarget" xml:space="preserve">
+    <value>Council target</value>
+  </data>
+  <data name="CouncilTopic" xml:space="preserve">
+    <value>Council topic</value>
+  </data>
+  <data name="CouncilType" xml:space="preserve">
+    <value>Council type</value>
+  </data>
+  <data name="DirectManager" xml:space="preserve">
+    <value>Direct manager</value>
+  </data>
+  <data name="JoiningConditions" xml:space="preserve">
+    <value>Joining conditions</value>
+  </data>
+  <data name="AnnounceForaKnowledgeCouncil" xml:space="preserve">
+    <value>Announce for a knowledge council</value>
+  </data>
+  <data name="Lecturer" xml:space="preserve">
+    <value>Lecturer</value>
+  </data>
+  <data name="CouncilDate1" xml:space="preserve">
+    <value>Council Date</value>
+  </data>
+  <data name="CouncilNo" xml:space="preserve">
+    <value>Council No</value>
+  </data>
+  <data name="CouncilsHeld" xml:space="preserve">
+    <value>Councils held</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="SearchAll" xml:space="preserve">
+    <value>Search All</value>
+  </data>
+  <data name="TheJoinRequestHasNoBeenSent" xml:space="preserve">
+    <value>The join request has not been sent</value>
+  </data>
+  <data name="YouHaveAlreadySentAJoinRequest" xml:space="preserve">
+    <value>You have already sent a join request</value>
+  </data>
+  <data name="YourRequestToJoinSuccessfully" xml:space="preserve">
+    <value>Your request to join has been sent successfully</value>
+  </data>
+  <data name="PlannedCouncils" xml:space="preserve">
+    <value>Planned councils</value>
+  </data>
+  <data name="ADetailedExplanationOfTheCouncil" xml:space="preserve">
+    <value>A detailed explanation of the Council</value>
+  </data>
+  <data name="CouncilExam" xml:space="preserve">
+    <value>Council Exam</value>
+  </data>
+  <data name="CouncilHeldDate" xml:space="preserve">
+    <value>Council Held Date</value>
+  </data>
+  <data name="DevelopmentProposalsForCouncil" xml:space="preserve">
+    <value>Development proposals for Council</value>
+  </data>
+  <data name="Propose" xml:space="preserve">
+    <value>Propose</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Return</value>
+  </data>
+  <data name="SubjectCouncilCanBeDone" xml:space="preserve">
+    <value>Subject The Council can be done</value>
+  </data>
+  <data name="TheBenefitFromTheCouncil" xml:space="preserve">
+    <value>The benefit from the Council</value>
+  </data>
+  <data name="AskAnExpert" xml:space="preserve">
+    <value>Ask an Expert</value>
+  </data>
+  <data name="ExpertName" xml:space="preserve">
+    <value>Expert Name</value>
+  </data>
+  <data name="QuestionDetails" xml:space="preserve">
+    <value>Question details</value>
+  </data>
+  <data name="QuestionTitle" xml:space="preserve">
+    <value>Question title</value>
+  </data>
+  <data name="ChooseTheAnswer" xml:space="preserve">
+    <value>Choose the answer</value>
+  </data>
+  <data name="TheExamResultIsFailed" xml:space="preserve">
+    <value>The exam result is failed</value>
+  </data>
+  <data name="TheExamResultIsSuccessful" xml:space="preserve">
+    <value>The exam result is successful</value>
+  </data>
+  <data name="Answered" xml:space="preserve">
+    <value>Answered</value>
+  </data>
+  <data name="PendingExpertAnswer" xml:space="preserve">
+    <value>Pending expert answer</value>
+  </data>
+  <data name="CloseTheQuestion" xml:space="preserve">
+    <value>close the question</value>
+  </data>
+  <data name="Resend" xml:space="preserve">
+    <value>Resend</value>
+  </data>
+  <data name="CreateExam" xml:space="preserve">
+    <value>Create Exam</value>
+  </data>
+  <data name="FirstPossibility" xml:space="preserve">
+    <value>First Possibility</value>
+  </data>
+  <data name="FourthPossibility" xml:space="preserve">
+    <value>Fourth Possibility</value>
+  </data>
+  <data name="SecondPossibility" xml:space="preserve">
+    <value>Second Possibility</value>
+  </data>
+  <data name="ThirdPossibility" xml:space="preserve">
+    <value>Third Possibility</value>
+  </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="PassPercentage" xml:space="preserve">
+    <value>Pass Percentage</value>
+  </data>
 </root>

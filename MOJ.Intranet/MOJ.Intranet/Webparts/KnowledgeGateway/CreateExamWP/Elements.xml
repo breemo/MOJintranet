@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="CreateExamWP" List="113" Url="_catalogs/wp">
+    <File Path="CreateExamWP\CreateExamWP.webpart" Url="MOJ.Intranet_CreateExamWP.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="MOJ.KnowledgeGateway" />
+    </File>
+  </Module>
+</Elements>
