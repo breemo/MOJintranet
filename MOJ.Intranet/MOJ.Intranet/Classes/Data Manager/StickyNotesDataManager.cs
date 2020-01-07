@@ -48,7 +48,7 @@ namespace MOJ.DataManager
                                                 </Query>";
                                 oQuery.ViewFields = SharedConstants.StickyNotesViewfields;
 
-                                oQuery.RowLimit = 6;
+                                //oQuery.RowLimit = 6;
 
                                 SPListItemCollection lstItems = lstStickyNote.GetItems(oQuery);
 

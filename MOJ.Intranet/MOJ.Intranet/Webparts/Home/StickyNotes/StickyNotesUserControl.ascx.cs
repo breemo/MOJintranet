@@ -54,9 +54,11 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
                 int Count = 0;
                 foreach (StickyNotesEntities item in StickyNotesLst)
                 {
-                    Count++;
-                    lblDrawItems.Text +=
-                        string.Format(@"
+                    if (Count < 6)
+                    {
+                        Count++;
+                        lblDrawItems.Text +=
+                            string.Format(@"
                             <div class='col-sm-4'>
                                 <div class='STICKB STCIKEY_C" + Count + @" alert  fade show' role='alert'>
                                     <p>
@@ -67,7 +69,7 @@ namespace MOJ.Intranet.Webparts.Home.StickyNotes
                                     </button>
                                 </div>
                             </div>", SPUtility.GetLocalizedString("$Resources: remind", "Resource", SPContext.Current.Web.Language), item.Title, Convert.ToDateTime(item.Date).ToString("dd-MMM-yyyy"));
-
+                    }
                 }
             }
             catch (Exception ex)

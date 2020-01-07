@@ -71,7 +71,7 @@ namespace CommonLibrary
 
         public const string CarOrderServiceName = "CarOrderService";
 
-        public const string StickyNotesListUrl = "/Lists/Sticky Notes/My Stiky Notes.aspx";
+        public const string StickyNotesListUrl = "/Lists/Sticky%20Notes/AllItems.aspx";
 
         public const string MeetingsListUrl = "/Lists/Meetings/calendar.aspx";
 
