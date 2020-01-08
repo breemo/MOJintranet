@@ -9,6 +9,8 @@
 
 
 <asp:HiddenField ClientIDMode="Static" runat="server" ID="LeaveBalanceValue" />
+<asp:HiddenField ClientIDMode="Static" runat="server" ID="SickLeaveBalanceValue" />
+<asp:HiddenField ClientIDMode="Static" runat="server" ID="PermitLeaveBalanceValue" />
 
 <h4 class="TitleHead">
     <asp:Literal runat="server" Text="<%$ Resources:Resource, Attendees%>" /></h4>
@@ -75,15 +77,27 @@
 
         var bgColor = '#fff';
         var Leave = LeaveBalanceValue.value;
+        var SickLeave = LeaveBalanceValue.value;
+        var PermitLeave = LeaveBalanceValue.value;
+
+
         //alert(Leave);
         if (Leave == "")
             Leave = "0.0";
+
+        if (SickLeave == "")
+            SickLeave = "0.0";
+
+        if (PermitLeave == "")
+            PermitLeave = "0.0";
+
+
         var containers = document.getElementsByClassName('chart');
         var options = [{
-            series: [{
+            series: [{ // الاجازات المرضية
                 type: 'liquidFill',
-                data: [0.0, {
-                    value: 0.0,
+                data: [SickLeave, {
+                    value: SickLeave,
                     direction: 'left',
                     itemStyle: {
                         color: '#219e78',
@@ -137,7 +151,7 @@
 
             }]
         }, {
-            series: [{
+            series: [{ //رصيد الاجازات
                 type: 'liquidFill',
                 data: [Leave, {
                     value: Leave,
@@ -184,10 +198,10 @@
             }]
 
         }, {
-            series: [{
+            series: [{ //المغادرات
                 type: 'liquidFill',
-                data: [0.0, {
-                    value: 0.0,
+                data: [PermitLeave, {
+                    value: PermitLeave,
                     direction: 'left',
                     itemStyle: {
                         color: '#728aeb',
