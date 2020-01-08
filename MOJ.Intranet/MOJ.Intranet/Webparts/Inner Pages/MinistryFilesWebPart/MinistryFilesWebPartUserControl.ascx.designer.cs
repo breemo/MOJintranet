@@ -40,6 +40,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PaginUI;
         
         /// <summary>
+        /// lbFirst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbFirst;
+        
+        /// <summary>
         /// lbPrevious control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbNext;
+        
+        /// <summary>
+        /// lbLast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbLast;
         
         /// <summary>
         /// ddlCategory control.
