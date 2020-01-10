@@ -89,6 +89,7 @@
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
     <Compile Include="Classes\Business\ContactWithHR.cs" />
     <Compile Include="Classes\Business\AffirmationReceiptGovernmentHousing.cs" />
+    <Compile Include="Classes\Business\RequestAVacation.cs" />
     <Compile Include="Classes\Business\ReturnToDutyNoticeMembersOfTheJudiciary.cs" />
     <Compile Include="Classes\Business\ReserveHotel.cs" />
     <Compile Include="Classes\Business\MyRequestsB.cs" />
@@ -120,10 +121,13 @@
     </Compile>
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\RequestAVacationDataManger.cs" />
+    <Compile Include="Classes\Data Manager\VacationsTypesDataManager.cs" />
     <Compile Include="Classes\Data Manager\DepartmentsDataManager.cs" />
     <Compile Include="Classes\Data Manager\AskAnExpertDataManager.cs" />
     <Compile Include="Classes\Data Manager\ExpertsDataManager.cs" />
     <Compile Include="Classes\Data Manager\CreateExamDataManager.cs" />
+    <Compile Include="Classes\Data Manager\PushFAHRLeaveApplicationRequestDataManager.cs" />
     <Compile Include="Classes\Data Manager\StatusAskAnExpertDataManager.cs" />
     <Compile Include="Classes\Data Manager\CouncilTypeDataManager.cs" />
     <Compile Include="Classes\Data Manager\CouncilMembersDataManager.cs" />
@@ -167,6 +171,7 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\RequestAVacationEntity.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\AskAnExpertAnswerEntity.cs" />
     <Compile Include="Classes\Entities\CouncilExaminersEntity.cs" />
@@ -649,6 +654,14 @@
     <Compile Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\PeriodicalFormForGovernmentHousingWPUserControl.ascx.designer.cs">
       <DependentUpon>PeriodicalFormForGovernmentHousingWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\RequestAVacationWP\RequestAVacationWP.cs" />
+    <Compile Include="Webparts\My Services\RequestAVacationWP\RequestAVacationWPUserControl.ascx.cs">
+      <DependentUpon>RequestAVacationWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\RequestAVacationWP\RequestAVacationWPUserControl.ascx.designer.cs">
+      <DependentUpon>RequestAVacationWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWP.cs" />
     <Compile Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx.cs">
       <DependentUpon>ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx</DependentUpon>
@@ -939,6 +952,10 @@
     <None Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{716f623c-c9d0-4cae-b125-87c86e767fd0}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\RequestAVacationWP\RequestAVacationWP.webpart" />
+    <None Include="Webparts\My Services\RequestAVacationWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b51cb213-7c99-4d15-9987-23c6d9dcc1bf}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWP.webpart" />
     <None Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fe29b231-4329-498a-82b5-7572ef087018}</SharePointProjectItemId>
@@ -1091,6 +1108,8 @@
     <Content Include="Webparts\My Services\myTasks\myTasksUserControl.ascx" />
     <Content Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\Elements.xml" />
     <Content Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\PeriodicalFormForGovernmentHousingWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\RequestAVacationWP\Elements.xml" />
+    <Content Include="Webparts\My Services\RequestAVacationWP\RequestAVacationWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\Elements.xml" />
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewRequestWP\Elements.xml" />

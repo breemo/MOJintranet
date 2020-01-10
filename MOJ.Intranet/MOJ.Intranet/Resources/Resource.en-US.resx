@@ -1260,4 +1260,13 @@
   <data name="TheExamWasCreatedSuccessfully" xml:space="preserve">
     <value>The exam was created successfully</value>
   </data>
+  <data name="AlternateEmployee" xml:space="preserve">
+    <value>Alternate Employee</value>
+  </data>
+  <data name="RequestAVacation" xml:space="preserve">
+    <value>Request a vacation</value>
+  </data>
+  <data name="VacationsTypes" xml:space="preserve">
+    <value>Vacations Types</value>
+  </data>
 </root>
