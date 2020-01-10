@@ -15,6 +15,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
 {
     public partial class MinistryFilesWebPartUserControl : UserControl
     {
+        int _firstIndex, _lastIndex;
         public int PageNumber
         {
             get
@@ -93,6 +94,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
                     {
                         pages.Add((i + 1).ToString());
                     }
+                    ViewState["TotalPages"] = pgitems.PageCount;
                     rptPaging.DataSource = pages;
                     rptPaging.DataBind();
                 }
@@ -104,11 +106,41 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
 
                 grdBookslsts.DataSource = pgitems;
                 grdBookslsts.DataBind();
+                HandlePaging();
             }
             catch (Exception ex)
             {
                 LoggingService.LogError("WebParts", ex.Message);
             }
+        }
+        private void HandlePaging()
+        {
+            ArrayList pages = new ArrayList();
+
+
+            _firstIndex = PageNumber - 5;
+            if (PageNumber > 5)
+                _lastIndex = PageNumber + 5;
+            else
+                _lastIndex = 10;
+
+            if (_lastIndex > Convert.ToInt32(ViewState["TotalPages"]))
+            {
+                _lastIndex = Convert.ToInt32(ViewState["TotalPages"]);
+                _firstIndex = _lastIndex - 10;
+            }
+
+            if (_firstIndex < 0)
+                _firstIndex = 0;
+
+            // Now creating page number based on above first and last page index
+            for (var i = _firstIndex; i < _lastIndex; i++)
+            {
+                pages.Add((i + 1).ToString());
+            }
+
+            rptPaging.DataSource = pages;
+            rptPaging.DataBind();
         }
         protected void rptPaging_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
@@ -122,6 +154,16 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
                 PageNumber -= 1;
                 BindData();
             }
+        }
+        protected void lbFirst_Click(object sender, EventArgs e)
+        {
+            PageNumber = 0;
+            BindData();
+        }
+        protected void lbLast_Click(object sender, EventArgs e)
+        {
+            PageNumber = rptPaging.Items.Count - 1;
+            BindData();
         }
         protected void lbNext_Click(object sender, EventArgs e)
         {

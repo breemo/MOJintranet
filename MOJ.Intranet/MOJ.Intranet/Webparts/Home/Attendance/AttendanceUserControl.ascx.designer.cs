@@ -20,5 +20,23 @@ namespace MOJ.Intranet.Webparts.Home.Attendance {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField LeaveBalanceValue;
+        
+        /// <summary>
+        /// SickLeaveBalanceValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField SickLeaveBalanceValue;
+        
+        /// <summary>
+        /// PermitLeaveBalanceValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField PermitLeaveBalanceValue;
     }
 }

@@ -37,6 +37,27 @@ namespace MOJ.Intranet.Webparts.Home.Attendance
                     else
                         LeaveBalanceValue.Value = "0.0";
 
+                    //sick leave balance
+                    string sickLeaveBalance = LeaveB.SickLeaveBalance(EmployeeNumber);
+                    if (sickLeaveBalance != "")
+                    {
+                        float NumberOfSickLeave = float.Parse(sickLeaveBalance);
+                        float BalanceNumberSickLeaves = NumberOfSickLeave / 100;
+                        SickLeaveBalanceValue.Value = BalanceNumberSickLeaves.ToString();
+                    }
+                    else
+                        SickLeaveBalanceValue.Value = "0.0";
+
+                    //exit permit
+                    string exitPermitLeaveBalance = LeaveB.ExitPermitBalance(EmployeeNumber);
+                    if (LeaveBalance != "")
+                    {
+                        float NumberOfPermitLeave = float.Parse(exitPermitLeaveBalance);
+                        float PermitBalanceNumber = NumberOfPermitLeave / 100;
+                        PermitLeaveBalanceValue.Value = PermitBalanceNumber.ToString();
+                    }
+                    else
+                        PermitLeaveBalanceValue.Value = "0.0";
 
                 }
 

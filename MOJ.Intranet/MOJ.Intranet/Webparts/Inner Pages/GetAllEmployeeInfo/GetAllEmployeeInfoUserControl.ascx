@@ -356,8 +356,12 @@ function setTab3()
         </div>
         <div class="pagi">
             <ul class="pagination" id="PaginUI" runat="server">
-                <li class="page-item">
+                <li class="page-item" style="display:inline-flex">
                     <%--<a class="page-link pageright" href="#">--%>
+                    <asp:LinkButton ID="lbFirst" CssClass="page-link pageright" runat="server" OnClick="lbFirst_Click">
+                                <i class="icon-angle-right"></i>
+                                <i class="icon-angle-right"></i>
+                    </asp:LinkButton>
                     <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
                                 <i class="icon-angle-right"></i>
                     </asp:LinkButton>
@@ -387,9 +391,14 @@ function setTab3()
                 </asp:Repeater>
 
 
-                <li class="page-item">
+                <li class="page-item" style="display:inline-flex">
                     <%--<a class="page-link pageleft" href="#">--%>
+                     
                     <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
+                                <i class="icon-angle-left"></i>
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lbLast" CssClass="page-link pageleft" runat="server" OnClick="lbLast_Click">
+                                <i class="icon-angle-left"></i>
                                 <i class="icon-angle-left"></i>
                     </asp:LinkButton>
                     <%--</a>--%>
