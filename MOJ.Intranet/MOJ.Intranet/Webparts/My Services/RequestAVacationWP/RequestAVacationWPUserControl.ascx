@@ -100,7 +100,7 @@
 								<div class="col-md-2">
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, from%>" /></label>
 								</div>
-								<div class="col-md-4 inskdnew ">
+								<div class="col-md-4  ">
 									<div class="input-group date DivDateApportionmentDate" data-provide="datepicker">
 										<input autocomplete="off"  type="text" runat="server" id="from" class="form-control">
 										<div class="input-group-addon">
@@ -114,7 +114,7 @@
 								<div class="col-md-2">
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, to%>" /></label>
 								</div>
-								<div class="col-md-4 inskdnew ">
+								<div class="col-md-4  ">
 									<div class="input-group date DivDateApportionmentDate" data-provide="datepicker">
 										<input autocomplete="off"  type="text" runat="server" id="to" class="form-control">
 										<div class="input-group-addon">
