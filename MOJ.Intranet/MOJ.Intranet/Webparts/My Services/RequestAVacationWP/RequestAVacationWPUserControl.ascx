@@ -162,10 +162,7 @@
      margin-bottom: 1px;
 
 }
-.rt {
-    margin-bottom: 1px;
-   
-}
+
 </style>
 
 <script src="/Style%20Library/MOJTheme/js/functions.js"></script>
