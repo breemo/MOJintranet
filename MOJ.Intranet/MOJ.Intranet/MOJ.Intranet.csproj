@@ -89,6 +89,7 @@
     <Compile Include="Classes\Business\FazaaCardRequest.cs" />
     <Compile Include="Classes\Business\ContactWithHR.cs" />
     <Compile Include="Classes\Business\AffirmationReceiptGovernmentHousing.cs" />
+    <Compile Include="Classes\Business\CertificateToWhomItMayConcern.cs" />
     <Compile Include="Classes\Business\RequestAVacation.cs" />
     <Compile Include="Classes\Business\ReturnToDutyNoticeMembersOfTheJudiciary.cs" />
     <Compile Include="Classes\Business\ReserveHotel.cs" />
@@ -121,6 +122,11 @@
     </Compile>
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
+    <Compile Include="Classes\Data Manager\CertificateToWhomItMayConcernDataManger.cs" />
+    <Compile Include="Classes\Data Manager\OrganizationTypeDataManager .cs" />
+    <Compile Include="Classes\Data Manager\RequestTypeDataManager.cs" />
+    <Compile Include="Classes\Data Manager\SpeechLanguageDataManager.cs" />
+    <Compile Include="Classes\Data Manager\SpeechTypeDataManager.cs" />
     <Compile Include="Classes\Data Manager\RequestAVacationDataManger.cs" />
     <Compile Include="Classes\Data Manager\VacationsTypesDataManager.cs" />
     <Compile Include="Classes\Data Manager\DepartmentsDataManager.cs" />
@@ -171,6 +177,7 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\CertificateToWhomItMayConcernEntity.cs" />
     <Compile Include="Classes\Entities\RequestAVacationEntity.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\AskAnExpertAnswerEntity.cs" />
@@ -590,6 +597,14 @@
     <Compile Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx.designer.cs">
       <DependentUpon>AffirmationSocialSituationUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\CertificateToWhomItMayConcernWP\CertificateToWhomItMayConcernWP.cs" />
+    <Compile Include="Webparts\My Services\CertificateToWhomItMayConcernWP\CertificateToWhomItMayConcernWPUserControl.ascx.cs">
+      <DependentUpon>CertificateToWhomItMayConcernWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\CertificateToWhomItMayConcernWP\CertificateToWhomItMayConcernWPUserControl.ascx.designer.cs">
+      <DependentUpon>CertificateToWhomItMayConcernWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWP.cs" />
     <Compile Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWPUserControl.ascx.cs">
       <DependentUpon>ContactWithHRWPUserControl.ascx</DependentUpon>
@@ -920,6 +935,10 @@
     <None Include="Webparts\My Services\AffirmationSocialSituation\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{5a3ffcae-d7a3-4496-80a4-cb538a1d63ef}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\CertificateToWhomItMayConcernWP\CertificateToWhomItMayConcernWP.webpart" />
+    <None Include="Webparts\My Services\CertificateToWhomItMayConcernWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{804781b6-a011-4182-8d26-8bd4ad23072f}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWP.webpart" />
     <None Include="Webparts\My Services\ContactWithHRWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{68a3856a-1fe5-4002-8d65-badeba7d1305}</SharePointProjectItemId>
@@ -1089,6 +1108,8 @@
     <Content Include="Webparts\My Services\AffirmationReceiptGovernmentHousingWP\Elements.xml" />
     <Content Include="Webparts\My Services\AffirmationSocialSituation\AffirmationSocialSituationUserControl.ascx" />
     <Content Include="Webparts\My Services\AffirmationSocialSituation\Elements.xml" />
+    <Content Include="Webparts\My Services\CertificateToWhomItMayConcernWP\CertificateToWhomItMayConcernWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\CertificateToWhomItMayConcernWP\Elements.xml" />
     <Content Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ContactWithHRWP\Elements.xml" />
     <Content Include="Webparts\My Services\FazaaCardRequestWP\Elements.xml" />

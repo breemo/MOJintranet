@@ -1269,4 +1269,25 @@
   <data name="VacationsTypes" xml:space="preserve">
     <value>نوع الاجازة</value>
   </data>
+  <data name="CertificateToWhomItMayConcern" xml:space="preserve">
+    <value>شهادة لمن يهمه الأمر</value>
+  </data>
+  <data name="OrganizationType" xml:space="preserve">
+    <value>نوع الجهة</value>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>نوع الطلب</value>
+  </data>
+  <data name="SpeechLanguage" xml:space="preserve">
+    <value>لغة الخطاب</value>
+  </data>
+  <data name="SpeechType" xml:space="preserve">
+    <value>نوع الخطاب</value>
+  </data>
+  <data name="TheSpeechDirectedTo" xml:space="preserve">
+    <value>الجهة الموجه لها الخطاب</value>
+  </data>
+  <data name="TravelCountry" xml:space="preserve">
+    <value>دولة السفر</value>
+  </data>
 </root>
