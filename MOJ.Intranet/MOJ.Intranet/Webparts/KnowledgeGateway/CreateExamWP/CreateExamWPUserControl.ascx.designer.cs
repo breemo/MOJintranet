@@ -49,6 +49,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Question0;
         
         /// <summary>
+        /// QuestionEN0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText QuestionEN0;
+        
+        /// <summary>
         /// Possibility1_0 control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,42 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility4_0;
+        
+        /// <summary>
+        /// PossibilityEN1_0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText PossibilityEN1_0;
+        
+        /// <summary>
+        /// PossibilityEN2_0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText PossibilityEN2_0;
+        
+        /// <summary>
+        /// PossibilityEN3_0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText PossibilityEN3_0;
+        
+        /// <summary>
+        /// PossibilityEN4_0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText PossibilityEN4_0;
         
         /// <summary>
         /// DropDownAnswer control.

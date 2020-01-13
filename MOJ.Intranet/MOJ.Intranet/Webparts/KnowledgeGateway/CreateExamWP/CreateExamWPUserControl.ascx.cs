@@ -78,6 +78,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP
             string Possibility2 = SPUtility.GetLocalizedString("$Resources: SecondPossibility", "Resource", SPContext.Current.Web.Language);
             string Possibility3 = SPUtility.GetLocalizedString("$Resources: ThirdPossibility", "Resource", SPContext.Current.Web.Language);
             string Possibility4 = SPUtility.GetLocalizedString("$Resources: FourthPossibility", "Resource", SPContext.Current.Web.Language);
+
             List<ListItem> items = new List<ListItem>();
             items.Add(new ListItem(Possibility1, "1"));
             items.Add(new ListItem(Possibility2, "2"));
@@ -110,6 +111,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP
                         Entit1.possibility2 = Possibility2_0.Value;
                         Entit1.possibility3 = Possibility3_0.Value;
                         Entit1.possibility4 = Possibility4_0.Value;
+                        Entit1.QuestionEN = QuestionEN0.Value;
+                        Entit1.possibilityEN1 = PossibilityEN1_0.Value;
+                        Entit1.possibilityEN2 = PossibilityEN2_0.Value;
+                        Entit1.possibilityEN3 = PossibilityEN3_0.Value;
+                        Entit1.possibilityEN4 = PossibilityEN4_0.Value;
                         Entit1.Answer = Convert.ToInt32(DropDownAnswer.SelectedValue);
                         list1.Add(Entit1);
                     }
@@ -120,6 +126,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP
                         string[] Possibility2 = Request.Form.GetValues("Possibility2");
                         string[] Possibility3 = Request.Form.GetValues("Possibility3");
                         string[] Possibility4 = Request.Form.GetValues("Possibility4");
+                        string[] QuestionEN = Request.Form.GetValues("QuestionEN");
+                        string[] PossibilityEN1 = Request.Form.GetValues("PossibilityEN1");
+                        string[] PossibilityEN2 = Request.Form.GetValues("PossibilityEN2");
+                        string[] PossibilityEN3 = Request.Form.GetValues("PossibilityEN3");
+                        string[] PossibilityEN4 = Request.Form.GetValues("PossibilityEN4");
                         string[] DropDownAnswer = Request.Form.GetValues("DropDownAnswer");
                         for (int x = 0; x < Convert.ToInt32(Question.Length); x++)
                         {
@@ -132,6 +143,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP
                                 Entit2.possibility2 = Possibility2[x];
                                 Entit2.possibility3 = Possibility3[x];
                                 Entit2.possibility4 = Possibility4[x];
+                                Entit2.QuestionEN = QuestionEN[x];
+                                Entit2.possibilityEN1 = PossibilityEN1[x];
+                                Entit2.possibilityEN2 = PossibilityEN2[x];
+                                Entit2.possibilityEN3 = PossibilityEN3[x];
+                                Entit2.possibilityEN4 = PossibilityEN4[x];
                                 Entit2.Answer = Convert.ToInt32(DropDownAnswer[x]);
                                 list1.Add(Entit2);
                             }

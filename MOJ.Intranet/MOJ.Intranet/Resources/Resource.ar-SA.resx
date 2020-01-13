@@ -1239,17 +1239,17 @@
   <data name="CreateExam" xml:space="preserve">
     <value>إنشاء امتحان</value>
   </data>
-  <data name="FirstPossibility" xml:space="preserve">
-    <value>الاحتمال الاول</value>
+  <data name="FirstPossibilityArabic" xml:space="preserve">
+    <value>الاحتمال الاول عربي</value>
   </data>
-  <data name="FourthPossibility" xml:space="preserve">
-    <value>الاحتمال الرابع</value>
+  <data name="FourthPossibilityArabic" xml:space="preserve">
+    <value>الاحتمال الرابع عربي</value>
   </data>
-  <data name="SecondPossibility" xml:space="preserve">
-    <value>الاحتمال الثاني</value>
+  <data name="SecondPossibilityArabic" xml:space="preserve">
+    <value>الاحتمال الثاني عربي</value>
   </data>
-  <data name="ThirdPossibility" xml:space="preserve">
-    <value>الاحتمال الثالث</value>
+  <data name="ThirdPossibilityArabic" xml:space="preserve">
+    <value>الاحتمال الثالث عربي</value>
   </data>
   <data name="Answer" xml:space="preserve">
     <value>الاجابة</value>
@@ -1272,11 +1272,35 @@
   <data name="CertificateToWhomItMayConcern" xml:space="preserve">
     <value>شهادة لمن يهمه الأمر</value>
   </data>
+  <data name="FirstPossibility" xml:space="preserve">
+    <value>الاحتمال الاول </value>
+  </data>
+  <data name="FirstPossibilityEnglish" xml:space="preserve">
+    <value>الاحتمال الاول انجليزي</value>
+  </data>
+  <data name="FourthPossibility" xml:space="preserve">
+    <value>الاحتمال الرابع </value>
+  </data>
+  <data name="FourthPossibilityEnglish" xml:space="preserve">
+    <value>الاحتمال الرابع انجليزي</value>
+  </data>
   <data name="OrganizationType" xml:space="preserve">
     <value>نوع الجهة</value>
   </data>
+  <data name="QuestionArabic" xml:space="preserve">
+    <value>السؤال عربي</value>
+  </data>
+  <data name="QuestionEnglish" xml:space="preserve">
+    <value>السؤال انجليزي</value>
+  </data>
   <data name="RequestType" xml:space="preserve">
     <value>نوع الطلب</value>
+  </data>
+  <data name="SecondPossibility" xml:space="preserve">
+    <value>الاحتمال الثاني </value>
+  </data>
+  <data name="SecondPossibilityEnglish" xml:space="preserve">
+    <value>الاحتمال الثاني انجليزي</value>
   </data>
   <data name="SpeechLanguage" xml:space="preserve">
     <value>لغة الخطاب</value>
@@ -1286,6 +1310,12 @@
   </data>
   <data name="TheSpeechDirectedTo" xml:space="preserve">
     <value>الجهة الموجه لها الخطاب</value>
+  </data>
+  <data name="ThirdPossibility" xml:space="preserve">
+    <value>الاحتمال الثالث </value>
+  </data>
+  <data name="ThirdPossibilityEnglish" xml:space="preserve">
+    <value>الاحتمال الثالث انجليزي</value>
   </data>
   <data name="TravelCountry" xml:space="preserve">
     <value>دولة السفر</value>

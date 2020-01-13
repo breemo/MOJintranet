@@ -149,6 +149,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     }
                 }
                 int x = 0;
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                 foreach (CouncilExamEntity item in itemData)
                 {
                     CouncilExamAnswerEntity ExamAnswer = new knowledgeCouncil().GetCouncilExamAnswer(item.ID, currentUserlogin);
@@ -168,14 +170,34 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     checked4 = "checked ='checked'";
                     var Question = SPUtility.GetLocalizedString("$Resources: Question", "Resource", SPContext.Current.Web.Language);
                     var ChooseTheAnswer = SPUtility.GetLocalizedString("$Resources: ChooseTheAnswer", "Resource", SPContext.Current.Web.Language);
+                    string Questionis = "";
+                    if (languageCode == "ar")
+                    {
+                        Questionis = item.Question;
+                    }
+                    else
+                    {
+                        Questionis = item.QuestionEN;
+                    }
+
+
                     var htmlrow1 = "<div class='q-row'>" +
                             "<h2><label><asp:Literal runat='server' Text='" + Question + "' /></label></h2>" +
-                            "<span>" + item.Question + "</span>" +
+                            "<span>" + Questionis + "</span>" +
                         "</div>" +
                         "<h2 class='answerTitle'>" + ChooseTheAnswer + "</h2>" +
                         "<div class='poll-popup-answ'>";
                     string postin;
-                    postin = item.possibility1;
+                   
+                    if (languageCode == "ar")
+                    {
+                        postin = item.possibility1;
+                    }
+                    else
+                    {
+                        postin = item.possibilityEN1;
+                    }
+                    
                     if (!string.IsNullOrEmpty(postin))
                     {
                         htmlrow1 += "<input name='QuestionID' value='"+ item.ID + "' type='text' id='QuestionID" + x + "' style='display:none' placeholder=''>" +
@@ -183,19 +205,40 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                          "<div class='radioComponent'><input "+ disabled + " type='radio' "+ checked1 + " onchange=\"handleChange('AnswerIs" + x + "','1');\"  name='common-radio-name" + x + "' id='radio-" + x + "' class='radio-button' />" +
                         "<label for='radio-" + x + "' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + postin + "</label></div>";
                     }
-                    postin = item.possibility2;
+                    if (languageCode == "ar")
+                    {
+                        postin = item.possibility2;
+                    }
+                    else
+                    {
+                        postin = item.possibilityEN2;
+                    }
                     if (!string.IsNullOrEmpty(postin))
                     {
                         htmlrow1 += "<div class='radioComponent'><input " + disabled + " type='radio' " + checked2+ " onchange=\"handleChange('AnswerIs" + x + "','2');\"  name='common-radio-name" + x + "' id='radio-" + x + "' class='radio-button' />" +
                        "<label for='radio-" + x + "' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + postin + "</label></div>";
                     }
-                    postin = item.possibility3;
+                    if (languageCode == "ar")
+                    {
+                        postin = item.possibility3;
+                    }
+                    else
+                    {
+                        postin = item.possibilityEN3;
+                    }
                     if (!string.IsNullOrEmpty(postin))
                     {
                         htmlrow1 += "<div class='radioComponent'><input " + disabled + " type='radio' " + checked3+ " onchange=\"handleChange('AnswerIs" + x + "','3');\"  name='common-radio-name" + x + "' id='radio-" + x + "' class='radio-button' />" +
                        "<label for='radio-" + x + "' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + postin + "</label></div>";
                     }
-                    postin = item.possibility4;
+                    if (languageCode == "ar")
+                    {
+                        postin = item.possibility4;
+                    }
+                    else
+                    {
+                        postin = item.possibilityEN4;
+                    }
                     if (!string.IsNullOrEmpty(postin))
                     {
                         htmlrow1 += "<div class='radioComponent'><input " + disabled + " type='radio' " + checked4+ "  onchange=\"handleChange('AnswerIs" + x + "','4');\"  name='common-radio-name" + x + "' id='radio-" + x + "' class='radio-button' />" +

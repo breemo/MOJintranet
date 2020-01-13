@@ -1239,17 +1239,17 @@
   <data name="CreateExam" xml:space="preserve">
     <value>Create Exam</value>
   </data>
-  <data name="FirstPossibility" xml:space="preserve">
-    <value>First Possibility</value>
+  <data name="FirstPossibilityArabic" xml:space="preserve">
+    <value>First Possibility Arabic</value>
   </data>
-  <data name="FourthPossibility" xml:space="preserve">
-    <value>Fourth Possibility</value>
+  <data name="FourthPossibilityArabic" xml:space="preserve">
+    <value>Fourth Possibility Arabic</value>
   </data>
-  <data name="SecondPossibility" xml:space="preserve">
-    <value>Second Possibility</value>
+  <data name="SecondPossibilityArabic" xml:space="preserve">
+    <value>Second Possibility Arabic</value>
   </data>
-  <data name="ThirdPossibility" xml:space="preserve">
-    <value>Third Possibility</value>
+  <data name="ThirdPossibilityArabic" xml:space="preserve">
+    <value>Third Possibility Arabic</value>
   </data>
   <data name="Answer" xml:space="preserve">
     <value>Answer</value>
@@ -1272,11 +1272,35 @@
   <data name="CertificateToWhomItMayConcern" xml:space="preserve">
     <value>Certificate to whom It may concern</value>
   </data>
+  <data name="FirstPossibility" xml:space="preserve">
+    <value>First Possibility</value>
+  </data>
+  <data name="FirstPossibilityEnglish" xml:space="preserve">
+    <value>First PossibilityEnglish</value>
+  </data>
+  <data name="FourthPossibility" xml:space="preserve">
+    <value>Fourth Possibility</value>
+  </data>
+  <data name="FourthPossibilityEnglish" xml:space="preserve">
+    <value>Fourth Possibility English</value>
+  </data>
   <data name="OrganizationType" xml:space="preserve">
     <value>Organization Type</value>
   </data>
+  <data name="QuestionArabic" xml:space="preserve">
+    <value>Question Arabic</value>
+  </data>
+  <data name="QuestionEnglish" xml:space="preserve">
+    <value>Question English</value>
+  </data>
   <data name="RequestType" xml:space="preserve">
     <value>Request Type</value>
+  </data>
+  <data name="SecondPossibility" xml:space="preserve">
+    <value>Second Possibility</value>
+  </data>
+  <data name="SecondPossibilityEnglish" xml:space="preserve">
+    <value>Second Possibility English</value>
   </data>
   <data name="SpeechLanguage" xml:space="preserve">
     <value>Speech Language</value>
@@ -1286,6 +1310,12 @@
   </data>
   <data name="TheSpeechDirectedTo" xml:space="preserve">
     <value>The speech directed to</value>
+  </data>
+  <data name="ThirdPossibility" xml:space="preserve">
+    <value>Third Possibility</value>
+  </data>
+  <data name="ThirdPossibilityEnglish" xml:space="preserve">
+    <value>Third Possibility English</value>
   </data>
   <data name="TravelCountry" xml:space="preserve">
     <value>Travel Country</value>

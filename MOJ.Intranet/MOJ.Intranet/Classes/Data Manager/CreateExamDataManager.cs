@@ -43,10 +43,15 @@ namespace MOJ.DataManager
                             item["knowledgeCouncilID"] = Item.knowledgeCouncilID;
                             item["Answer"] = Item.Answer;
                             item["Question"] = Item.Question;
+                            item["QuestionEN"] = Item.QuestionEN;
                             item["possibility1"] = Item.possibility1; 
                             item["possibility2"] = Item.possibility2; 
                             item["possibility3"] = Item.possibility3; 
                             item["possibility4"] = Item.possibility4;                             
+                            item["possibilityEN1"] = Item.possibilityEN1;                             
+                            item["possibilityEN2"] = Item.possibilityEN2;                             
+                            item["possibilityEN3"] = Item.possibilityEN3;                             
+                            item["possibilityEN4"] = Item.possibilityEN4;                             
                             item.Update();
                         }
                         isFormSaved = true;

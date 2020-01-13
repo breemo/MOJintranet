@@ -298,6 +298,11 @@ namespace MOJ.DataManager
                                     itemis.possibility3 = Convert.ToString(Item["possibility3"]);
                                     itemis.possibility4 = Convert.ToString(Item["possibility4"]);
                                     itemis.Question = Convert.ToString(Item["Question"]);
+                                    itemis.QuestionEN = Convert.ToString(Item["QuestionEN"]);
+                                    itemis.possibilityEN1 = Convert.ToString(Item["possibilityEN1"]);
+                                    itemis.possibilityEN2 = Convert.ToString(Item["possibilityEN2"]);
+                                    itemis.possibilityEN3 = Convert.ToString(Item["possibilityEN3"]);
+                                    itemis.possibilityEN4 = Convert.ToString(Item["possibilityEN4"]);
                                     SPFieldLookupValue fieldLookupValue = new SPFieldLookupValue(Item["knowledgeCouncilID"].ToString());
                                     int lookupID = fieldLookupValue.LookupId;
                                     itemis.knowledgeCouncilID = lookupID;
@@ -463,7 +468,12 @@ namespace MOJ.DataManager
                                     itemis.possibility3 = Convert.ToString(Item["possibility3"]);
                                     itemis.possibility4 = Convert.ToString(Item["possibility4"]);
                                     itemis.Question = Convert.ToString(Item["Question"]);
-                                                                       
+                                    itemis.QuestionEN = Convert.ToString(Item["QuestionEN"]);
+                                    itemis.possibilityEN1 = Convert.ToString(Item["possibilityEN1"]);
+                                    itemis.possibilityEN2 = Convert.ToString(Item["possibilityEN2"]);
+                                    itemis.possibilityEN3 = Convert.ToString(Item["possibilityEN3"]);
+                                    itemis.possibilityEN4 = Convert.ToString(Item["possibilityEN4"]);
+
                                     ItemsCollection.Add(itemis);
                                 }
 

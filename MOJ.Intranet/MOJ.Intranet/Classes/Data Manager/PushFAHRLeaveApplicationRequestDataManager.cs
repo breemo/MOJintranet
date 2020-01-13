@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
+
 namespace MOJ.DataManager
 {
     public class PushFAHRLeaveApplicationRequestDataManager
@@ -21,6 +22,8 @@ namespace MOJ.DataManager
             bool responseMsg = false;
             try
             {
+                
+
                 var client = new RestClient(ConfigurationManager.AppSettings["PushFAHRLeaveApplicationRequest"].ToString());
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("content-type", "text/xml");
@@ -36,6 +39,8 @@ namespace MOJ.DataManager
                     "<Notes>?</Notes>\r\n" +
                     "</EAIHeader>\r\n<EAIBody>\r\n           " +
                     " <SessionID>-1</SessionID>\r\n" +
+                    " <TransactionID>-1</TransactionID>\r\n" +
+                    " <AbsenceType>17267</AbsenceType>\r\n" +
                     "<Language>US</Language>\r\n" +
                     "<EmployeeID>" + EmployeeNumber + "</EmployeeID>\r\n" +
                     "<FromDate>" + FromDate + "</FromDate>\r\n" +
