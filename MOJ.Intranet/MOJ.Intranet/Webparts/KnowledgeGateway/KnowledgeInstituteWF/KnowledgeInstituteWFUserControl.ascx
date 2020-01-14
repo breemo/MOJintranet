@@ -12,11 +12,11 @@
         ============================================= -->
         <section id="content">
             <div class="content-wrap">
-                <div class="container-fullwidth clearfix">
+                <div class="">
                     <!-- Post Content
                     ============================================= -->
-                    <div class="postcontent nobottommargin col_last clearfix">
-                        <div class="boxleftbor">
+                    <div class="">
+                        <div class="">
                             <h4>
                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, KnowledgeInstitue%>" /></label>
                             </h4>
@@ -25,7 +25,7 @@
                                     <div class="col-md-4">
                                         <div class="boxitemdiv">
                                             <div class="imvbo">
-                                                <img src="images/picon1.png" class="img-fluid" />
+                                                <img src="/SiteAssets/picon1.png" class="img-fluid" />
                                             </div>
                                             <h6>
 										 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchForAWay%>" /></label>
@@ -39,14 +39,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input type="button" class="bgicb" value="<%$ Resources:Resource, Search%>">
+                                            <input type="button" class="bgicb" value="Search">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="boxitemdiv">
                                             <div class="imvbo">
 
-                                                <img src="images/picon2.png" class="img-fluid" />
+                                                <img src="/SiteAssets/picon2.png" class="img-fluid" />
                                             </div>
                                             <h6>
                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchADepartment%>" /></label>
@@ -60,13 +60,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input type="button" class="bgicb" value="<%$ Resources:Resource, Search%>">
+                                            <input type="button" class="bgicb" value="Search">
 											</div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="boxitemdiv">
                                             <div class="imvbo">
-                                                <img src="images/picon3.png" class="img-fluid" />
+                                                <img src="/SiteAssets/picon3.png" class="img-fluid" />
                                             </div>
                                             <h6>
                                               <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchForWorkPlace%>" /></label>
@@ -80,7 +80,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <input type="button" class="bgicb" value="<%$ Resources:Resource, Search%>">
+                                            <input type="button" class="bgicb" value="Search">
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@
                                                     <li>
                                                         <span class="lvl-b NEWCL">
                                                             <strong>
-                                                            <a href="#">
+                                                            <a style="color: white;" href="#">
                                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Minister%>" /></label>
                                                             </a>
                                                             </strong>
