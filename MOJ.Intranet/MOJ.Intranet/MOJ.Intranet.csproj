@@ -568,6 +568,14 @@
     <Compile Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\knowledgeCouncilWPUserControl.ascx.designer.cs">
       <DependentUpon>knowledgeCouncilWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\KnowledgeInstituteWF.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\KnowledgeInstituteWFUserControl.ascx.cs">
+      <DependentUpon>KnowledgeInstituteWFUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\KnowledgeInstituteWFUserControl.ascx.designer.cs">
+      <DependentUpon>KnowledgeInstituteWFUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWP.cs" />
     <Compile Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWPUserControl.ascx.cs">
       <DependentUpon>PlannedCouncilsWPUserControl.ascx</DependentUpon>
@@ -921,6 +929,10 @@
     <None Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9ebe660b-ee0b-4d75-b288-2c8b8767d031}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\KnowledgeInstituteWF.webpart" />
+    <None Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d657d82b-81c8-4b01-91ae-ffc3c0ea8560}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWP.webpart" />
     <None Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{b60386dc-ad75-4ec7-b6bb-935a48688f29}</SharePointProjectItemId>
@@ -1102,6 +1114,8 @@
     <Content Include="Webparts\KnowledgeGateway\ImplicitKnowledgeWP\ImplicitKnowledgeWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\knowledgeCouncilWPUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\KnowledgeInstituteWFUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWPUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />
@@ -1156,9 +1170,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Resource.en-US.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

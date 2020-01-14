@@ -1320,4 +1320,97 @@
   <data name="TravelCountry" xml:space="preserve">
     <value>دولة السفر</value>
   </data>
+  <data name="AdministrationOfWelfareOfMinorsAndAbsentees" xml:space="preserve">
+    <value>ادارة رعاية اموال القصر والغائبين</value>
+  </data>
+  <data name="AssistantUndersecretaryForFatwaAndLegislationAffairs" xml:space="preserve">
+    <value>الوكيل المساعد لشئون الفتوي والتشريع قضايا الدولة</value>
+  </data>
+  <data name="AssistantUndersecretaryForSupportServicesAffairs" xml:space="preserve">
+    <value>الوكيل المساعد لشئون الخدمات المساندة</value>
+  </data>
+  <data name="AssistantUndersecretaryForTechnicalAffairsAndInternationalCooperation" xml:space="preserve">
+    <value>الوكيل المساعد للشؤون الفنية والتعاون الدولي</value>
+  </data>
+  <data name="Consultants" xml:space="preserve">
+    <value>مستشارو الوزير</value>
+  </data>
+  <data name="CoordinationAndFollowUpUnit" xml:space="preserve">
+    <value>وحدة التنسيق والمتابعة</value>
+  </data>
+  <data name="CourtsAndProsecutors" xml:space="preserve">
+    <value>المحاكم والنيابات</value>
+  </data>
+  <data name="DepartmentOfStateIssues" xml:space="preserve">
+    <value>ادارة قضايا الدولة</value>
+  </data>
+  <data name="FatwaAndLegislationDepartment" xml:space="preserve">
+    <value>ادراة الفتوي والتشريع</value>
+  </data>
+  <data name="FinancialResourcesAndProcurementManagement" xml:space="preserve">
+    <value>ادراة الموارد المالية والمشتريات</value>
+  </data>
+  <data name="ForensicMedicineDepartment" xml:space="preserve">
+    <value>ادراة الطب الشرعي</value>
+  </data>
+  <data name="GovernmentCommunicationDepartment" xml:space="preserve">
+    <value>ادراة الاتصال الحكومي</value>
+  </data>
+  <data name="HumanResourceManagement" xml:space="preserve">
+    <value>ادارة الموارد البشرية</value>
+  </data>
+  <data name="InformationTechnologyDepartment" xml:space="preserve">
+    <value>ادراة تقنية المعلومات</value>
+  </data>
+  <data name="InternalAudit" xml:space="preserve">
+    <value>مكتب التدقيق الداخلي</value>
+  </data>
+  <data name="InternationalCooperationDepartment" xml:space="preserve">
+    <value>ادراة التعاون الدولي</value>
+  </data>
+  <data name="JudicialEvacuationDepartment" xml:space="preserve">
+    <value>دائرة التفنيش القضائي</value>
+  </data>
+  <data name="JudicialTrainingInstitute" xml:space="preserve">
+    <value>معهد التدريب القضائي</value>
+  </data>
+  <data name="KnowledgeInstitue" xml:space="preserve">
+    <value>المعارف المؤسسية</value>
+  </data>
+  <data name="LawyersAndTranslatorsAffairsDepartment" xml:space="preserve">
+    <value>ادارة شئون المحامين والمترجمين</value>
+  </data>
+  <data name="Minister" xml:space="preserve">
+    <value>الوزير</value>
+  </data>
+  <data name="MinistersOffice" xml:space="preserve">
+    <value>مكتب الوزير</value>
+  </data>
+  <data name="NotaryAdministrationAndRatifications" xml:space="preserve">
+    <value>ادارة كاتب العدل والتصديقات</value>
+  </data>
+  <data name="OfficeOfTheUndersecretary" xml:space="preserve">
+    <value>مكتب وكيل الوزراة</value>
+  </data>
+  <data name="ResearchAndStudiesDepartment" xml:space="preserve">
+    <value>ادارة البحوث والدراسات</value>
+  </data>
+  <data name="SearchADepartment" xml:space="preserve">
+    <value>البحث عن ادارة</value>
+  </data>
+  <data name="SearchForAWay" xml:space="preserve">
+    <value>البحث عن طريق</value>
+  </data>
+  <data name="SearchForWorkPlace" xml:space="preserve">
+    <value>البحث عن مكان العمل</value>
+  </data>
+  <data name="StrategyAndFutureManagement" xml:space="preserve">
+    <value>ادراة الاستراتيجية والمستقبل</value>
+  </data>
+  <data name="TechnicalExpertsAffairsDepartment" xml:space="preserve">
+    <value>ادارة شئون الخبراء الفنيين</value>
+  </data>
+  <data name="Undersecretary" xml:space="preserve">
+    <value>وكيل الوزارة</value>
+  </data>
 </root>
