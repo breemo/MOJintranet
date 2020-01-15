@@ -123,12 +123,11 @@ namespace MOJ.Intranet.Webparts.My_Services.CertificateToWhomItMayConcernWP
                 itemSumbit.SpeechType = DropDownSpeechType.SelectedValue.ToString();
                 itemSumbit.TravelCountry = DropDownTravelCountry.SelectedValue.ToString();
                 itemSumbit.TheSpeechDirectedTo = TheSpeechDirectedTo.Value.ToString();
-                             
-                //PushFAHRLeaveApplicationRequestDataManager PushLeave = new PushFAHRLeaveApplicationRequestDataManager();
-                //string fromdate = Convert.ToDateTime(from.Value).ToString("yyy-MM-dd");
-                //string todate = Convert.ToDateTime(to.Value).ToString("yyy-MM-dd");
 
-                bool isSavedwebserves = false;// = PushLeave.PushFAHRLeaveApplicationRequest(Enumber.Value, Notes.Value.ToString(), fromdate, todate);
+                LetterRequestRequesttDataManager Letter = new LetterRequestRequesttDataManager();
+                
+
+                bool isSavedwebserves  = Letter.LetterRequestRequest(Enumber.Value, DropDownTravelCountry.SelectedValue, DropDownSpeechType.SelectedValue, DropDownRequestType.SelectedValue, DropDownSpeechLanguage.SelectedValue, DropDownOrganizationType.SelectedValue, TheSpeechDirectedTo.Value);
                 if (isSavedwebserves == true)
                 {
                     itemSumbit.ResponseMsg = "Success";
