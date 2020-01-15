@@ -130,13 +130,13 @@
     <value>صورنا</value>
   </data>
   <data name="HeadNews" xml:space="preserve">
-    <value>العلوم</value>
+    <value>علومنا</value>
   </data>
   <data name="more" xml:space="preserve">
     <value>المزيد</value>
   </data>
   <data name="MoreNews" xml:space="preserve">
-    <value>المزيد من العلوم</value>
+    <value>المزيد</value>
   </data>
   <data name="MorePictures" xml:space="preserve">
     <value>المزيد من الصور</value>
@@ -220,13 +220,13 @@
     <value>Book Title</value>
   </data>
   <data name="HeadPopularNews" xml:space="preserve">
-    <value>أهم العلوم</value>
+    <value>أهم علومنا</value>
   </data>
   <data name="HeadRelatedNews" xml:space="preserve">
-    <value>العلوم المتعلقة</value>
+    <value>علومنا المتعلقة</value>
   </data>
   <data name="HeadSrchNews" xml:space="preserve">
-    <value>بحث العلوم</value>
+    <value>بحث علومنا</value>
   </data>
   <data name="month" xml:space="preserve">
     <value>الشهر</value>
@@ -793,7 +793,7 @@
     <value>اختر ادارتك</value>
   </data>
   <data name="Departure" xml:space="preserve">
-    <value>المغادرات</value>
+    <value>الاستئذانات</value>
   </data>
   <data name="SickVacation" xml:space="preserve">
     <value>الاجازات المرضية</value>
