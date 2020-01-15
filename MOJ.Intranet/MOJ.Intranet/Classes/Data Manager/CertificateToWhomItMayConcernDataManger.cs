@@ -26,7 +26,7 @@ namespace MOJ.DataManager
                 {
                     try
                     {
-                       
+
 
                         web.AllowUnsafeUpdates = true;
                         SPList list = web.GetListFromUrl(web.Url + SharedConstants.CertificateToWhomItMayConcernUrl);
@@ -34,12 +34,12 @@ namespace MOJ.DataManager
                         if (Item.ID > 0)
                         {
                             item = list.GetItemById(Item.ID);
-                            
+
                         }
                         else
                         {
                             item = list.AddItem();
-                        }                   
+                        }
                         item["Title"] = Item.Title;
                         item["ResponseMsgAR"] = Item.ResponseMsgAR;
                         item["ResponseMsg"] = Item.ResponseMsg;
@@ -47,7 +47,13 @@ namespace MOJ.DataManager
                         item["RequestType"] = Item.RequestType;
                         item["SpeechLanguage"] = Item.SpeechLanguage;
                         item["SpeechType"] = Item.SpeechType;
-                        item["TravelCountry"] = Item.TravelCountry;                       
+                        if (Item.TravelCountry != "0") { 
+                            item["TravelCountry"] = Item.TravelCountry;
+                        }
+                        else
+                        {
+                            item["TravelCountry"] = "";
+                        }
                         item["TheSpeechDirectedTo"] = Item.TheSpeechDirectedTo;                       
 
                         item.Update();

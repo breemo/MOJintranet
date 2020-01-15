@@ -21,6 +21,12 @@ namespace MOJ.DataManager
             dt.Columns.Add("ID", typeof(Int32));
             dt.Columns.Add("Title", typeof(string));
             dt.Columns.Add("TitleEN", typeof(string));
+            DataRow Firstdr = dt.NewRow();
+            Firstdr["ID"] = "0";
+            Firstdr["Title"] = "الرجاء الاختيار";
+            Firstdr["TitleEN"] = "Please choose";
+            dt.Rows.Add(Firstdr);
+
             SPSecurity.RunWithElevatedPrivileges(delegate ()
             {
                 using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
@@ -50,6 +56,38 @@ namespace MOJ.DataManager
                 }
             });
             return dt;
+        }
+
+
+        public string GetCode(int id)
+        {
+            string Code = "";
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.CountrysUrl);
+                                if (lst != null)
+                                {
+                                    SPListItem Item = lst.GetItemById(id);
+                                    Code = Convert.ToString(Item["Code"]);
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return Code;
         }
     }
 }

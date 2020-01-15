@@ -125,9 +125,35 @@ namespace MOJ.Intranet.Webparts.My_Services.CertificateToWhomItMayConcernWP
                 itemSumbit.TheSpeechDirectedTo = TheSpeechDirectedTo.Value.ToString();
 
                 LetterRequestRequesttDataManager Letter = new LetterRequestRequesttDataManager();
-                
+                CertificateToWhomItMayConcern GetCODE = new CertificateToWhomItMayConcern();
 
-                bool isSavedwebserves  = Letter.LetterRequestRequest(Enumber.Value, DropDownTravelCountry.SelectedValue, DropDownSpeechType.SelectedValue, DropDownRequestType.SelectedValue, DropDownSpeechLanguage.SelectedValue, DropDownOrganizationType.SelectedValue, TheSpeechDirectedTo.Value);
+                string CSpeechLanguage = "";
+                string COrganizationType = "";
+                string CRequestType = "";
+                string CSpeechType = "";
+                string CTravelCountry = "";
+                if (!string.IsNullOrEmpty(DropDownSpeechLanguage.SelectedValue.ToString()))
+                {
+                    CSpeechLanguage = GetCODE.GetSpeechLanguageCode(Convert.ToInt32(DropDownSpeechLanguage.SelectedValue));
+                }
+                if (!string.IsNullOrEmpty(DropDownOrganizationType.SelectedValue.ToString()))
+                {
+                    COrganizationType = GetCODE.GetOrganizationTypeCode(Convert.ToInt32(DropDownOrganizationType.SelectedValue));
+                }
+                if (!string.IsNullOrEmpty(DropDownRequestType.SelectedValue.ToString()))
+                {
+                    CRequestType = GetCODE.GetRequestTypeCode(Convert.ToInt32(DropDownRequestType.SelectedValue));
+                }
+                if (!string.IsNullOrEmpty(DropDownSpeechType.SelectedValue.ToString()))
+                {
+                    CSpeechType = GetCODE.GetSpeechTypeCode(Convert.ToInt32(DropDownSpeechType.SelectedValue));
+                }
+
+                if (DropDownTravelCountry.SelectedValue.ToString()!="0")
+                {
+                    CTravelCountry = GetCODE.GetTravelCountryCode(Convert.ToInt32(DropDownTravelCountry.SelectedValue));
+                }
+                bool isSavedwebserves  = Letter.LetterRequestRequest(Enumber.Value, CTravelCountry, CSpeechType, CRequestType, CSpeechLanguage, COrganizationType, TheSpeechDirectedTo.Value);
                 if (isSavedwebserves == true)
                 {
                     itemSumbit.ResponseMsg = "Success";
