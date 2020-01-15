@@ -158,126 +158,129 @@ namespace MOJ.DataManager
                                     SPListItemCollection listItemsCollection1 = lsttask.GetItems(qry1);
                                     foreach (SPListItem Item in listItemsCollection1)
                                     {
-                                        SPFieldUserValueCollection itemAssignedTo = new SPFieldUserValueCollection(Item.Web.Site.RootWeb, Item["AssignedTo"].ToString());
-                                        foreach (SPFieldUserValue singlevalue in itemAssignedTo)
+                                        if (Item["AssignedTo"]!=null)
                                         {
-                                            if (singlevalue.User == null) // value is a SharePoint group if User is null
+                                            SPFieldUserValueCollection itemAssignedTo = new SPFieldUserValueCollection(Item.Web.Site.RootWeb, Item["AssignedTo"].ToString());
+                                            foreach (SPFieldUserValue singlevalue in itemAssignedTo)
                                             {
-                                                SPGroup group = oWeb.Groups[singlevalue.LookupValue];
-                                                SPUser user = SPContext.Current.Web.CurrentUser;
-                                                bool userExsists = user.Groups.Cast<SPGroup>().Any(g => g.Name.ToLower() == group.Name.ToLower());
-                                                if (userExsists)
+                                                if (singlevalue.User == null) // value is a SharePoint group if User is null
                                                 {
-                                                    TaskEntity task = new TaskEntity();
-
-                                                    task.id = Convert.ToInt32(Item["ID"]);
-                                                    task.Status = Convert.ToString(Item["Status"]);
-                                                    task.Comment = Convert.ToString(Item["Comment"]);
-                                                    task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
-
-                                                    string WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
-                                                    string WorkflowOutcomeAr = Convert.ToString(Item["WorkflowOutcomeAr"]);
-                                                    string Title = Convert.ToString(Item["Title"]);
-                                                    string TitleAr = Convert.ToString(Item["TitleAr"]);
-                                                    string ServiceName = Convert.ToString(Item["ServiceName"]);
-                                                    string ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
-
-                                                    task.WorkflowOutcome = WorkflowOutcome;
-                                                    task.WorkflowOutcomeAr = WorkflowOutcomeAr;
-                                                    task.Title = Title;
-                                                    task.TitleAr = TitleAr;
-                                                    task.ServiceName = ServiceName;
-                                                    task.ServiceNameAr = ServiceNameAr;
-
-
-                                                    if (Currentlanguage == "ar")
+                                                    SPGroup group = oWeb.Groups[singlevalue.LookupValue];
+                                                    SPUser user = SPContext.Current.Web.CurrentUser;
+                                                    bool userExsists = user.Groups.Cast<SPGroup>().Any(g => g.Name.ToLower() == group.Name.ToLower());
+                                                    if (userExsists)
                                                     {
-                                                        task.WorkflowOutcomeLG = WorkflowOutcomeAr;
-                                                        task.TitleLG = TitleAr;
-                                                        task.ServiceNameLG = ServiceNameAr;
-                                                    }
-                                                    else
-                                                    {
-                                                        task.WorkflowOutcomeLG = WorkflowOutcome;
-                                                        task.TitleLG = Title;
-                                                        task.ServiceNameLG = ServiceName;
-                                                    }
+                                                        TaskEntity task = new TaskEntity();
 
-                                                    task.Created = Convert.ToDateTime(Item["Created"]);
-                                                    if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["AnswerDate"]))) { 
-                                                    task.ActionDate = Convert.ToDateTime(Item["AnswerDate"]);
+                                                        task.id = Convert.ToInt32(Item["ID"]);
+                                                        task.Status = Convert.ToString(Item["Status"]);
+                                                        task.Comment = Convert.ToString(Item["Comment"]);
+                                                        task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
+
+                                                        string WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
+                                                        string WorkflowOutcomeAr = Convert.ToString(Item["WorkflowOutcomeAr"]);
+                                                        string Title = Convert.ToString(Item["Title"]);
+                                                        string TitleAr = Convert.ToString(Item["TitleAr"]);
+                                                        string ServiceName = Convert.ToString(Item["ServiceName"]);
+                                                        string ServiceNameAr = Convert.ToString(Item["ServiceNameAr"]);
+
+                                                        task.WorkflowOutcome = WorkflowOutcome;
+                                                        task.WorkflowOutcomeAr = WorkflowOutcomeAr;
+                                                        task.Title = Title;
+                                                        task.TitleAr = TitleAr;
+                                                        task.ServiceName = ServiceName;
+                                                        task.ServiceNameAr = ServiceNameAr;
+
+
+                                                        if (Currentlanguage == "ar")
+                                                        {
+                                                            task.WorkflowOutcomeLG = WorkflowOutcomeAr;
+                                                            task.TitleLG = TitleAr;
+                                                            task.ServiceNameLG = ServiceNameAr;
+                                                        }
+                                                        else
+                                                        {
+                                                            task.WorkflowOutcomeLG = WorkflowOutcome;
+                                                            task.TitleLG = Title;
+                                                            task.ServiceNameLG = ServiceName;
+                                                        }
+
+                                                        task.Created = Convert.ToDateTime(Item["Created"]);
+                                                        if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["AnswerDate"])))
+                                                        {
+                                                            task.ActionDate = Convert.ToDateTime(Item["AnswerDate"]);
+                                                        }
+                                                        SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
+                                                        String Requestlink = Convert.ToString(spfvRequest.Url);
+                                                        string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
+                                                        task.RequestID = Convert.ToString(Request[1]);
+                                                        task.RequestName = Convert.ToString(spfvRequest.Description);
+                                                        task.TaskURL = "ViewTask.aspx?TID=" + Convert.ToInt32(Item["ID"]);
+                                                        TaskCollection.Add(task);
+                                                    }
                                                 }
-                                                    SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
-                                                    String Requestlink = Convert.ToString(spfvRequest.Url);
-                                                    string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
-                                                    task.RequestID = Convert.ToString(Request[1]);
-                                                    task.RequestName = Convert.ToString(spfvRequest.Description);
-                                                    task.TaskURL = "ViewTask.aspx?TID=" + Convert.ToInt32(Item["ID"]);
-                                                    TaskCollection.Add(task);
-                                                }
-                                            }
-                                            else
-                                            {
-                                                string currentUser = SPContext.Current.Web.CurrentUser.Name.ToLower();
-                                                string singlevalueis = singlevalue.User.Name.ToLower();
-                                                if (singlevalueis.Equals(currentUser))
+                                                else
                                                 {
-                                                    TaskEntity task = new TaskEntity();                                             
-                                                    task.id = Convert.ToInt32(Item["ID"]);                                                 
-                                                    task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
-                                                    task.Status = Convert.ToString(Item["Status"]);
-                                                    task.Comment = Convert.ToString(Item["Comment"]);
-                                                    string WorkflowOutcome2 = Convert.ToString(Item["WorkflowOutcome"]);
-                                                    string WorkflowOutcomeAr2 = Convert.ToString(Item["WorkflowOutcomeAr"]);
-                                                    string Title2 = Convert.ToString(Item["Title"]);
-                                                    string TitleAr2 = Convert.ToString(Item["TitleAr"]);
-                                                    string ServiceName2 = Convert.ToString(Item["ServiceName"]);
-                                                    string ServiceNameAr2 = Convert.ToString(Item["ServiceNameAr"]);
-
-                                                    task.WorkflowOutcome = WorkflowOutcome2;
-                                                    task.WorkflowOutcomeAr = WorkflowOutcomeAr2;
-                                                    task.Title = Title2;
-                                                    task.TitleAr = TitleAr2;
-                                                    task.ServiceName = ServiceName2;
-                                                    task.ServiceNameAr = ServiceNameAr2;
-
-                                                    if (Currentlanguage == "ar")
+                                                    string currentUser = SPContext.Current.Web.CurrentUser.Name.ToLower();
+                                                    string singlevalueis = singlevalue.User.Name.ToLower();
+                                                    if (singlevalueis.Equals(currentUser))
                                                     {
-                                                        task.WorkflowOutcomeLG = WorkflowOutcomeAr2;
-                                                        task.TitleLG = TitleAr2;
-                                                        task.ServiceNameLG = ServiceNameAr2;
+                                                        TaskEntity task = new TaskEntity();
+                                                        task.id = Convert.ToInt32(Item["ID"]);
+                                                        task.WorkflowName = Convert.ToString(Item["WorkflowName"]);
+                                                        task.Status = Convert.ToString(Item["Status"]);
+                                                        task.Comment = Convert.ToString(Item["Comment"]);
+                                                        string WorkflowOutcome2 = Convert.ToString(Item["WorkflowOutcome"]);
+                                                        string WorkflowOutcomeAr2 = Convert.ToString(Item["WorkflowOutcomeAr"]);
+                                                        string Title2 = Convert.ToString(Item["Title"]);
+                                                        string TitleAr2 = Convert.ToString(Item["TitleAr"]);
+                                                        string ServiceName2 = Convert.ToString(Item["ServiceName"]);
+                                                        string ServiceNameAr2 = Convert.ToString(Item["ServiceNameAr"]);
+
+                                                        task.WorkflowOutcome = WorkflowOutcome2;
+                                                        task.WorkflowOutcomeAr = WorkflowOutcomeAr2;
+                                                        task.Title = Title2;
+                                                        task.TitleAr = TitleAr2;
+                                                        task.ServiceName = ServiceName2;
+                                                        task.ServiceNameAr = ServiceNameAr2;
+
+                                                        if (Currentlanguage == "ar")
+                                                        {
+                                                            task.WorkflowOutcomeLG = WorkflowOutcomeAr2;
+                                                            task.TitleLG = TitleAr2;
+                                                            task.ServiceNameLG = ServiceNameAr2;
+                                                        }
+                                                        else
+                                                        {
+                                                            task.WorkflowOutcomeLG = WorkflowOutcome2;
+                                                            task.TitleLG = Title2;
+                                                            task.ServiceNameLG = ServiceName2;
+                                                        }
+
+                                                        task.Created = Convert.ToDateTime(Item["Created"]);
+                                                        if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["AnswerDate"])))
+                                                        {
+                                                            task.ActionDate = Convert.ToDateTime(Item["AnswerDate"]);
+                                                        }
+                                                        SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
+                                                        String Requestlink = Convert.ToString(spfvRequest.Url);
+                                                        string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
+                                                        task.RequestID = Convert.ToString(Request[1]);
+                                                        task.RequestName = Convert.ToString(spfvRequest.Description);
+                                                        task.TaskURL = "ViewTask.aspx?TID=" + Convert.ToInt32(Item["ID"]);
+
+
+
+                                                        TaskCollection.Add(task);
+
                                                     }
-                                                    else
-                                                    {
-                                                        task.WorkflowOutcomeLG = WorkflowOutcome2;
-                                                        task.TitleLG = Title2;
-                                                        task.ServiceNameLG = ServiceName2;
-                                                    }
-
-                                                    task.Created = Convert.ToDateTime(Item["Created"]);
-                                                    if (!string.IsNullOrWhiteSpace(Convert.ToString(Item["AnswerDate"])))
-                                                    {
-                                                        task.ActionDate = Convert.ToDateTime(Item["AnswerDate"]);
-                                                    }
-                                                    SPFieldUrlValue spfvRequest = new SPFieldUrlValue(Item["WorkflowLink"].ToString());
-                                                    String Requestlink = Convert.ToString(spfvRequest.Url);
-                                                    string[] Request = Requestlink.Split(new string[] { "ID=" }, StringSplitOptions.None);
-                                                    task.RequestID = Convert.ToString(Request[1]);
-                                                    task.RequestName = Convert.ToString(spfvRequest.Description);
-                                                    task.TaskURL = "ViewTask.aspx?TID=" + Convert.ToInt32(Item["ID"]);
-
-
-
-                                                    TaskCollection.Add(task);
 
                                                 }
 
                                             }
-
                                         }
-
                                     }
-
+                                    
                                 }
                             }
 

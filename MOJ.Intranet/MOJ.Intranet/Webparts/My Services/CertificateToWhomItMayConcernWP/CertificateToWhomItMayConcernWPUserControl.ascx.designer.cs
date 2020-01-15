@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP {
+namespace MOJ.Intranet.Webparts.My_Services.CertificateToWhomItMayConcernWP {
     
     
-    public partial class CreateExamWPUserControl {
-        
-        /// <summary>
-        /// hdnsuperDIV1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnsuperDIV1;
+    public partial class CertificateToWhomItMayConcernWPUserControl {
         
         /// <summary>
         /// posts control.
@@ -31,121 +22,130 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
-        /// superDIV2 control.
+        /// Ename control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl superDIV2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Ename;
         
         /// <summary>
-        /// Question0 control.
+        /// Enumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Question0;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Enumber;
         
         /// <summary>
-        /// QuestionEN0 control.
+        /// Edepartment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText QuestionEN0;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Edepartment;
         
         /// <summary>
-        /// Possibility1_0 control.
+        /// DropDownRequestType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility1_0;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownRequestType;
         
         /// <summary>
-        /// Possibility2_0 control.
+        /// RequiredFieldValidatorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility2_0;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage;
         
         /// <summary>
-        /// Possibility3_0 control.
+        /// DropDownSpeechType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility3_0;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownSpeechType;
         
         /// <summary>
-        /// Possibility4_0 control.
+        /// RequiredFieldValidatorMessage2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Possibility4_0;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage2;
         
         /// <summary>
-        /// PossibilityEN1_0 control.
+        /// DropDownSpeechLanguage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText PossibilityEN1_0;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownSpeechLanguage;
         
         /// <summary>
-        /// PossibilityEN2_0 control.
+        /// RequiredFieldValidatorMessage3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText PossibilityEN2_0;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage3;
         
         /// <summary>
-        /// PossibilityEN3_0 control.
+        /// DropDownOrganizationType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText PossibilityEN3_0;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownOrganizationType;
         
         /// <summary>
-        /// PossibilityEN4_0 control.
+        /// RequiredFieldValidatorMessage4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText PossibilityEN4_0;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage4;
         
         /// <summary>
-        /// DropDownAnswer control.
+        /// DropDownTravelCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownAnswer;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownTravelCountry;
         
         /// <summary>
-        /// DropDownPassPercentage control.
+        /// TheSpeechDirectedTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownPassPercentage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TheSpeechDirectedTo;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// btnsubmit control.
@@ -155,6 +155,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnsubmit;
+        
+        /// <summary>
+        /// Literal1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal1;
         
         /// <summary>
         /// SuccessMsgDiv control.
@@ -173,32 +182,5 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblSuccessMsg;
-        
-        /// <summary>
-        /// btnBack2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack2;
-        
-        /// <summary>
-        /// Div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
-        
-        /// <summary>
-        /// Literal1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal1;
     }
 }

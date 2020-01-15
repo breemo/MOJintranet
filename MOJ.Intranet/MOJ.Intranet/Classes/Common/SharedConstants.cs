@@ -115,6 +115,7 @@ namespace CommonLibrary
         public const string ReserveHotelPeopleUrl = "/Lists/ReserveHotelPeople/AllItems.aspx";
         public const string AffirmationReceiptGovernmentHousingUrl = "/Lists/AffirmationReceiptGovernmentHousing/AllItems.aspx";
         public const string DaysUrl = "/Lists/Days/AllItems.aspx";
+        public const string VacationsTypesUrl = "/Lists/VacationsTypes/AllItems.aspx";
         public const string CountrysUrl = "/Lists/Countrys/AllItems.aspx";
         public const string levelsUrl = "/Lists/level/AllItems.aspx";
         public const string ReturnToDutyNoticeMembersOfTheJudiciaryUrl = "/Lists/ReturnToDutyNoticeMembersOfTheJudiciary/AllItems.aspx";
@@ -130,6 +131,12 @@ namespace CommonLibrary
         public const string AskAnExpertAnswerUrl = "/Lists/AskAnExpertAnswer/AllItems.aspx";
         public const string CouncilExamAnswerUrl = "/Lists/CouncilExamAnswer/AllItems.aspx";
         public const string CouncilExaminersUrl = "/Lists/CouncilExaminers/AllItems.aspx";
+        public const string RequestAVacationUrl = "/Lists/RequestAVacation/AllItems.aspx";
+        public const string SpeechTypeUrl = "/Lists/SpeechType/AllItems.aspx";
+        public const string CertificateToWhomItMayConcernUrl = "/Lists/CertificateToWhomItMayConcern/AllItems.aspx";
+        public const string SpeechLanguageUrl = "/Lists/SpeechLanguage/AllItems.aspx";
+        public const string RequestTypeUrl = "/Lists/RequestType/AllItems.aspx";
+        public const string OrganizationTypeUrl = "/Lists/OrganizationType/AllItems.aspx";
 
         #endregion
 

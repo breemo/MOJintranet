@@ -1239,17 +1239,17 @@
   <data name="CreateExam" xml:space="preserve">
     <value>Create Exam</value>
   </data>
-  <data name="FirstPossibility" xml:space="preserve">
-    <value>First Possibility</value>
+  <data name="FirstPossibilityArabic" xml:space="preserve">
+    <value>First Possibility Arabic</value>
   </data>
-  <data name="FourthPossibility" xml:space="preserve">
-    <value>Fourth Possibility</value>
+  <data name="FourthPossibilityArabic" xml:space="preserve">
+    <value>Fourth Possibility Arabic</value>
   </data>
-  <data name="SecondPossibility" xml:space="preserve">
-    <value>Second Possibility</value>
+  <data name="SecondPossibilityArabic" xml:space="preserve">
+    <value>Second Possibility Arabic</value>
   </data>
-  <data name="ThirdPossibility" xml:space="preserve">
-    <value>Third Possibility</value>
+  <data name="ThirdPossibilityArabic" xml:space="preserve">
+    <value>Third Possibility Arabic</value>
   </data>
   <data name="Answer" xml:space="preserve">
     <value>Answer</value>
@@ -1259,5 +1259,158 @@
   </data>
   <data name="TheExamWasCreatedSuccessfully" xml:space="preserve">
     <value>The exam was created successfully</value>
+  </data>
+  <data name="AlternateEmployee" xml:space="preserve">
+    <value>Alternate Employee</value>
+  </data>
+  <data name="RequestAVacation" xml:space="preserve">
+    <value>Request a vacation</value>
+  </data>
+  <data name="VacationsTypes" xml:space="preserve">
+    <value>Vacations Types</value>
+  </data>
+  <data name="CertificateToWhomItMayConcern" xml:space="preserve">
+    <value>Certificate to whom It may concern</value>
+  </data>
+  <data name="FirstPossibility" xml:space="preserve">
+    <value>First Possibility</value>
+  </data>
+  <data name="FirstPossibilityEnglish" xml:space="preserve">
+    <value>First PossibilityEnglish</value>
+  </data>
+  <data name="FourthPossibility" xml:space="preserve">
+    <value>Fourth Possibility</value>
+  </data>
+  <data name="FourthPossibilityEnglish" xml:space="preserve">
+    <value>Fourth Possibility English</value>
+  </data>
+  <data name="OrganizationType" xml:space="preserve">
+    <value>Organization Type</value>
+  </data>
+  <data name="QuestionArabic" xml:space="preserve">
+    <value>Question Arabic</value>
+  </data>
+  <data name="QuestionEnglish" xml:space="preserve">
+    <value>Question English</value>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>Request Type</value>
+  </data>
+  <data name="SecondPossibility" xml:space="preserve">
+    <value>Second Possibility</value>
+  </data>
+  <data name="SecondPossibilityEnglish" xml:space="preserve">
+    <value>Second Possibility English</value>
+  </data>
+  <data name="SpeechLanguage" xml:space="preserve">
+    <value>Speech Language</value>
+  </data>
+  <data name="SpeechType" xml:space="preserve">
+    <value>Speech Type</value>
+  </data>
+  <data name="TheSpeechDirectedTo" xml:space="preserve">
+    <value>The speech directed to</value>
+  </data>
+  <data name="ThirdPossibility" xml:space="preserve">
+    <value>Third Possibility</value>
+  </data>
+  <data name="ThirdPossibilityEnglish" xml:space="preserve">
+    <value>Third Possibility English</value>
+  </data>
+  <data name="TravelCountry" xml:space="preserve">
+    <value>Travel Country</value>
+  </data>
+  <data name="AdministrationOfWelfareOfMinorsAndAbsentees" xml:space="preserve">
+    <value>Administration of Welfare of Minors and Absentees</value>
+  </data>
+  <data name="AssistantUndersecretaryForFatwaAndLegislationAffairs" xml:space="preserve">
+    <value>Assistant Undersecretary for Fatwa and Legislation Affairs</value>
+  </data>
+  <data name="AssistantUndersecretaryForSupportServicesAffairs" xml:space="preserve">
+    <value> Assistant Undersecretary for Support Services Affairs</value>
+  </data>
+  <data name="AssistantUndersecretaryForTechnicalAffairsAndInternationalCooperation" xml:space="preserve">
+    <value>Assistant Undersecretary for Technical Affairs and International Cooperation</value>
+  </data>
+  <data name="Consultants" xml:space="preserve">
+    <value>Consultants</value>
+  </data>
+  <data name="CoordinationAndFollowUpUnit" xml:space="preserve">
+    <value>Coordination and Follow-up Unit</value>
+  </data>
+  <data name="CourtsAndProsecutors" xml:space="preserve">
+    <value>Courts and prosecutors</value>
+  </data>
+  <data name="DepartmentOfStateIssues" xml:space="preserve">
+    <value>Department of State Issues</value>
+  </data>
+  <data name="FatwaAndLegislationDepartment" xml:space="preserve">
+    <value>Fatwa and Legislation Department</value>
+  </data>
+  <data name="FinancialResourcesAndProcurementManagement" xml:space="preserve">
+    <value>Financial resources and procurement management</value>
+  </data>
+  <data name="ForensicMedicineDepartment" xml:space="preserve">
+    <value>Forensic Medicine Department</value>
+  </data>
+  <data name="GovernmentCommunicationDepartment" xml:space="preserve">
+    <value>Government Communication Department</value>
+  </data>
+  <data name="HumanResourceManagement" xml:space="preserve">
+    <value>Human Resource Management</value>
+  </data>
+  <data name="InformationTechnologyDepartment" xml:space="preserve">
+    <value>Information Technology Department</value>
+  </data>
+  <data name="InternalAudit" xml:space="preserve">
+    <value>Internal Audit</value>
+  </data>
+  <data name="InternationalCooperationDepartment" xml:space="preserve">
+    <value>International Cooperation Department</value>
+  </data>
+  <data name="JudicialEvacuationDepartment" xml:space="preserve">
+    <value>Judicial Evacuation Department</value>
+  </data>
+  <data name="JudicialTrainingInstitute" xml:space="preserve">
+    <value> Judicial Training Institute</value>
+  </data>
+  <data name="KnowledgeInstitue" xml:space="preserve">
+    <value>Knowledge Institue</value>
+  </data>
+  <data name="LawyersAndTranslatorsAffairsDepartment" xml:space="preserve">
+    <value>Lawyers and translators affairs department</value>
+  </data>
+  <data name="Minister" xml:space="preserve">
+    <value>Minister</value>
+  </data>
+  <data name="MinistersOffice" xml:space="preserve">
+    <value>Minister's Office</value>
+  </data>
+  <data name="NotaryAdministrationAndRatifications" xml:space="preserve">
+    <value>Notary administration and ratifications</value>
+  </data>
+  <data name="OfficeOfTheUndersecretary" xml:space="preserve">
+    <value>Office of the Undersecretary</value>
+  </data>
+  <data name="ResearchAndStudiesDepartment" xml:space="preserve">
+    <value>Research and Studies Department</value>
+  </data>
+  <data name="SearchADepartment" xml:space="preserve">
+    <value>Search a Department</value>
+  </data>
+  <data name="SearchForAWay" xml:space="preserve">
+    <value>Search for A way</value>
+  </data>
+  <data name="SearchForWorkPlace" xml:space="preserve">
+    <value>Search For Work place</value>
+  </data>
+  <data name="StrategyAndFutureManagement" xml:space="preserve">
+    <value>Strategy and Future Management</value>
+  </data>
+  <data name="TechnicalExpertsAffairsDepartment" xml:space="preserve">
+    <value>Technical Experts Affairs Department</value>
+  </data>
+  <data name="Undersecretary" xml:space="preserve">
+    <value>Undersecretary</value>
   </data>
 </root>

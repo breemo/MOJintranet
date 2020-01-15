@@ -40,46 +40,88 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="row">
-                                            <div class="col-md-1">
-                                               <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Question%>" /></label>																								 
+                                            <div class="col-md-2">
+                                               <label><asp:Literal runat="server" Text="<%$ Resources:Resource, QuestionArabic%>" /></label>																								 
                                             </div>
-                                            <div class="col-md-11 DivQuestion">
-											<input type="text" name="Question" runat="server" id="Question0" class="form-control" placeholder="">
+                                            <div class="col-md-10 DivQuestion">
+											<input type="text" required  name="Question" runat="server" id="Question0" class="form-control" placeholder="">
 											</div>																			
                                         </div>
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                               <label><asp:Literal runat="server" Text="<%$ Resources:Resource, QuestionEnglish%>" /></label>																								 
+                                            </div>
+                                            <div class="col-md-10 DivQuestionEN">
+											<input type="text" required name="QuestionEN" runat="server" id="QuestionEN0" class="form-control" placeholder="">
+											</div>																			
+                                        </div>
+                                    </div>
+
+
                                     <div class="col-md-12">
                                         <div class="row">
                                             <div class="col-md-1">
-                                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FirstPossibility%>" /></label>
+                                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FirstPossibilityArabic%>" /></label>
 											</div>
                                            <div class="col-md-2 DivPossibility1">
-										<input type="text" name="Possibility1" runat="server" id="Possibility1_0" class="form-control" placeholder="">
+										<input type="text" required  name="Possibility1" runat="server" id="Possibility1_0" class="form-control" placeholder="">
 										</div>
 											<div class="col-md-1 ">
-											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SecondPossibility%>" /></label>
+											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SecondPossibilityArabic%>" /></label>
 											 </div>
 											<div class="col-md-2 DivPossibility2">
 											<input type="text" name="Possibility2" runat="server" id="Possibility2_0" class="form-control" placeholder="">
 											</div>
 											
 											<div class="col-md-1 ">
-											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ThirdPossibility%>" /></label>
+											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ThirdPossibilityArabic%>" /></label>
 											 </div>
 											<div class="col-md-2 DivPossibility3">
 											<input type="text" name="Possibility3" runat="server" id="Possibility3_0" class="form-control" placeholder="">
 											</div>
 											<div class="col-md-1 ">
-											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FourthPossibility%>" /></label>
+											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FourthPossibilityArabic%>" /></label>
 											 </div>
 											<div class="col-md-2 DivPossibility4" >
 											<input type="text" name="Possibility4" runat="server" id="Possibility4_0" class="form-control" placeholder="">
 											</div>								
                                         </div>
                                     </div>
+                                                         <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                             <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FirstPossibilityEnglish%>" /></label>
+											</div>
+                                           <div class="col-md-2 DivPossibilityEN1">
+										<input type="text" required name="PossibilityEN1" runat="server" id="PossibilityEN1_0" class="form-control" placeholder="">
+										</div>
+											<div class="col-md-1 ">
+											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SecondPossibilityEnglish%>" /></label>
+											 </div>
+											<div class="col-md-2 DivPossibilityEN2">
+											<input type="text" name="PossibilityEN2" runat="server" id="PossibilityEN2_0" class="form-control" placeholder="">
+											</div>
+											
+											<div class="col-md-1 ">
+											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ThirdPossibilityEnglish%>" /></label>
+											 </div>
+											<div class="col-md-2 DivPossibilityEN3">
+											<input type="text" name="PossibilityEN3" runat="server" id="PossibilityEN3_0" class="form-control" placeholder="">
+											</div>
+											<div class="col-md-1 ">
+											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, FourthPossibilityEnglish%>" /></label>
+											 </div>
+											<div class="col-md-2 DivPossibilityEN4" >
+											<input type="text" name="PossibilityEN4" runat="server" id="PossibilityEN4_0" class="form-control" placeholder="">
+											</div>								
+                                        </div>
+                                    </div>
 									<div class="col-md-12">
                                         <div class="row">
-                                           <div class="col-md-1 ">
+                                           <div class="col-md-2 ">
 											 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Answer%>" /></label>
 											 </div>																						
 												<div class="col-md-3 DivAnswer ">																								                         
@@ -246,11 +288,18 @@
         counter2++;
         $("#FirstItemAA2")[0].innerHTML = $("#FirstItem2")[0].innerHTML;
         var Itemhtml = $("#FirstItemAA2");
-        Itemhtml.find(".DivQuestion")[0].innerHTML = "<input name='Question' type=text' id='Question" + counter2 + "' class='form-control' placeholder=''>";
-        Itemhtml.find(".DivPossibility1")[0].innerHTML = "<input name='Possibility1' type=text' id='Possibility1" + counter2 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivQuestion")[0].innerHTML = "<input required name='Question' type=text' id='Question" + counter2 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivPossibility1")[0].innerHTML = "<input required  name='Possibility1' type=text' id='Possibility1" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivPossibility2")[0].innerHTML = "<input name='Possibility2' type=text' id='Possibility2" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivPossibility3")[0].innerHTML = "<input name='Possibility3' type=text' id='Possibility3" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivPossibility4")[0].innerHTML = "<input name='Possibility4' type=text' id='Possibility4" + counter2 + "' class='form-control' placeholder=''>";
+
+        Itemhtml.find(".DivQuestionEN")[0].innerHTML = "<input required name='QuestionEN' type=text' id='QuestionEN" + counter2 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivPossibilityEN1")[0].innerHTML = "<input required name='PossibilityEN1' type=text' id='PossibilityEN1" + counter2 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivPossibilityEN2")[0].innerHTML = "<input name='PossibilityEN2' type=text' id='PossibilityEN2" + counter2 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivPossibilityEN3")[0].innerHTML = "<input name='PossibilityEN3' type=text' id='PossibilityEN3" + counter2 + "' class='form-control' placeholder=''>";
+        Itemhtml.find(".DivPossibilityEN4")[0].innerHTML = "<input name='PossibilityEN4' type=text' id='PossibilityEN4" + counter2 + "' class='form-control' placeholder=''>";
+
 
         Itemhtml.find(".DivAnswer select")[0].setAttribute("name", "DropDownAnswer");
         Itemhtml.find(".DivAnswer select")[0].setAttribute("id", "DropDownAnswer" + counter2 + "");

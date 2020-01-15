@@ -17,6 +17,11 @@ namespace MOJ.Entities
         public string possibility2 { get; set; }        
         public string possibility3 { get; set; }        
         public string possibility4 { get; set; }        
+        public string QuestionEN { get; set; }        
+        public string possibilityEN1 { get; set; }        
+        public string possibilityEN2 { get; set; }        
+        public string possibilityEN3 { get; set; }        
+        public string possibilityEN4 { get; set; }        
            
 
     }
