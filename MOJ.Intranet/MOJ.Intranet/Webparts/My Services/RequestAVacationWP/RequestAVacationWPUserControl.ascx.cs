@@ -107,8 +107,14 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                 PushFAHRLeaveApplicationRequestDataManager PushLeave = new PushFAHRLeaveApplicationRequestDataManager();
                 string fromdate = Convert.ToDateTime(from.Value).ToString("yyy-MM-dd");
                 string todate = Convert.ToDateTime(to.Value).ToString("yyy-MM-dd");
+                string Vacation = "";
+                RequestAVacation Vacationobj = new RequestAVacation();      
                
-                bool isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(Enumber.Value, Notes.Value.ToString(), fromdate, todate);
+                if (!string.IsNullOrEmpty(DropDownVacationsTypes.SelectedValue.ToString()))
+                {
+                    Vacation = Vacationobj.GetVacationsTypesCode(Convert.ToInt32(DropDownVacationsTypes.SelectedValue));
+                }
+                bool isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(Enumber.Value, Notes.Value.ToString(), fromdate, todate, Vacation);
                 if (isSavedwebserves == true)
                 {
                     itemSumbit.ResponseMsg = "Success";

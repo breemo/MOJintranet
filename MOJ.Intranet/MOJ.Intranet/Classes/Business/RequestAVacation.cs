@@ -15,6 +15,10 @@ namespace MOJ.Business
         {
             return new VacationsTypesDataManager().GetAll();
         }
+        public string GetVacationsTypesCode(int id)
+        {
+            return new VacationsTypesDataManager().GetCode(id);
+        }
         public bool SaveUpdate(RequestAVacationEntity obj)
         {
             return new RequestAVacationDataManager().AddOrUpdate(obj);

@@ -17,7 +17,7 @@ namespace MOJ.DataManager
         //True – For Success
         //False - For Error
 
-        public bool PushFAHRLeaveApplicationRequest(string EmployeeNumber, string LeaveReason, string FromDate, string ToDate)
+        public bool PushFAHRLeaveApplicationRequest(string EmployeeNumber, string LeaveReason, string FromDate, string ToDate, string AbsenceType)
         {
             bool responseMsg = false;
             try
@@ -41,7 +41,7 @@ namespace MOJ.DataManager
                     "<SessionID>-1</SessionID>\r\n" +
                     "<TransactionID>-1</TransactionID>\r\n" +
                     "<EmployeeID>" + EmployeeNumber + "</EmployeeID>\r\n" +
-                    "<AbsenceType>17267</AbsenceType>\r\n" +
+                    "<AbsenceType>"+ AbsenceType + "</AbsenceType>\r\n" +
                     "<FromDate>" + FromDate + "</FromDate>\r\n" +
                     "<TimeStart></TimeStart>\r\n" +
                     "<ToDate>" + ToDate + "</ToDate>\r\n" +

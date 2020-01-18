@@ -1413,4 +1413,7 @@
   <data name="Undersecretary" xml:space="preserve">
     <value>وكيل الوزارة</value>
   </data>
+  <data name="Participated" xml:space="preserve">
+    <value>شارك</value>
+  </data>
 </root>

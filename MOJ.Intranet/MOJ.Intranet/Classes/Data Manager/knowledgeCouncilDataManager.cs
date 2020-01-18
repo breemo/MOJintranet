@@ -532,6 +532,7 @@ namespace MOJ.DataManager
                                     itemis.Lecturer = Convert.ToString(Item["Lecturer"]);
                                     CouncilMembersEntity Citem = new CouncilMembers().GetMemberID(Convert.ToInt32(Item["ID"]), username);
                                     itemis.Status = "join";
+                                    itemis.RequestURL = "href='CouncilMembers.aspx?TID=" + Convert.ToInt32(Item["ID"]) + "&Title=" + Convert.ToString(Item["CouncilTopic"]) + "'";
 
                                     if (Citem.ID != 0)
                                     {
@@ -544,17 +545,54 @@ namespace MOJ.DataManager
                                         {
                                             if (Citem.Status == "Approved")
                                             {
-                                                itemis.Status = "موافق";
+                                               // itemis.Status = "موافق";
+                                                itemis.Status = "شارك";
+                                                itemis.RequestURL = "";
+
 
                                             }
                                             if (Citem.Status == "Rejected")
                                             {
-                                                itemis.Status = "مرفوض";
+                                                //  itemis.Status = "مرفوض";
+                                                itemis.Status = "شارك";
+                                                itemis.RequestURL = "";
 
                                             }
                                             if (Citem.Status == "Pending")
                                             {
-                                                itemis.Status = "معلق";
+                                                // itemis.Status = "معلق";
+                                                itemis.Status = "شارك";
+                                                itemis.RequestURL = "";
+
+                                            }
+
+                                        }
+
+
+                                    }
+                                    else
+                                    {
+                                        if (Citem.ID != 0)
+                                        {
+                                            if (Citem.Status == "Approved")
+                                            {
+                                                // itemis.Status = "موافق";
+                                                itemis.Status = "Participated";
+                                                itemis.RequestURL = "";
+
+                                            }
+                                            if (Citem.Status == "Rejected")
+                                            {
+                                                //  itemis.Status = "مرفوض";
+                                                itemis.Status = "Participated";
+                                                itemis.RequestURL = "";
+
+                                            }
+                                            if (Citem.Status == "Pending")
+                                            {
+                                                // itemis.Status = "معلق";
+                                                itemis.Status = "Participated";
+                                                itemis.RequestURL = "";
 
                                             }
 
@@ -563,8 +601,7 @@ namespace MOJ.DataManager
 
                                     }
 
-                                    itemis.RequestURL = "CouncilMembers.aspx?TID=" + Convert.ToInt32(Item["ID"])+"&Title="+ Convert.ToString(Item["CouncilTopic"]) ;
-
+                                   
                                     ItemsCollection.Add(itemis);
 
 

@@ -43,7 +43,7 @@
 													<td><%#  Convert.ToDateTime(Eval("CouncilDate")).ToString("dd/MM/yyyy")%></td> 
 													<td><%# Eval("Lecturer") %></td> 
 													<td><%# Eval("JoiningConditions") %></td> 													                                       
-													<td><a class="bddgicb" style="color: #fff !important;" href="<%# Eval("RequestURL") %>"><%# Eval("Status") %></a></td>
+													<td><a class="bddgicb" style="color: #fff !important;" <%# Eval("RequestURL") %> ><%# Eval("Status") %></a></td>
 													</tr>     
 												</ItemTemplate>
 												
