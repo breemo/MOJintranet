@@ -55,7 +55,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.PlannedCouncilsWP
             string CouncilDate = SPUtility.GetLocalizedString("$Resources: CouncilDate", "Resource", SPContext.Current.Web.Language); ;
             string Lecturer = SPUtility.GetLocalizedString("$Resources: Lecturer", "Resource", SPContext.Current.Web.Language);
             string JoiningConditions = SPUtility.GetLocalizedString("$Resources: JoiningConditions", "Resource", SPContext.Current.Web.Language);
-            string Details = SPUtility.GetLocalizedString("$Resources: Details", "Resource", SPContext.Current.Web.Language);
+            string Details = SPUtility.GetLocalizedString("$Resources: Participate", "Resource", SPContext.Current.Web.Language);
             GridViewRow row2 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
             TableHeaderCell cell2 = new TableHeaderCell();
             cell2.Text = CouncilNo;

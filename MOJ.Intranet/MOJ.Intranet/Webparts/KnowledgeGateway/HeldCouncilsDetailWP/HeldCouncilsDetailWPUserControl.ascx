@@ -6,7 +6,8 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HeldCouncilsDetailWPUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP.HeldCouncilsDetailWPUserControl" %>
-
+ <label class="confirmMSG" style="display: none;"><asp:Literal runat="server" Text="<%$ Resources:Resource, confirmMSGexam%>" /></label>
+                               
    <section id="content" style="margin-bottom: 0px;">
             <div class="">
                 <div class="">
@@ -48,9 +49,9 @@
                                                   
                                                        <span class="resalt"><asp:Literal ID="LBresalt2" runat="server"></asp:Literal></span>
                                                         <div class="pollBtns-popup" style="margin-bottom: 26px;">
-															   <asp:Button Text="<%$ Resources:Resource, Propose%>" CssClass="pollBtna" runat="server" ID="btnsubmitexam" OnClick="btnsubmitexam_Click" />
+															   <asp:Button Text="<%$ Resources:Resource, Propose%>" CssClass="pollBtna" runat="server" ID="btnsubmitexam" OnClientClick="if ( ! ConfirmationMessage()) return false;" OnClick="btnsubmitexam_Click" />
 															   <asp:Button Text="<%$ Resources:Resource, CreateExam%>" CssClass="pollBtna" runat="server" ID="btnCreateExam" OnClick="btnCreateExam_Click" />
-															<button id="btnClosePopup" class="pollBtn"><label style="padding-top: 5px;"><asp:Literal runat="server" Text="<%$ Resources:Resource, cancel%>" /></label></button>
+															<span id="btnClosePopup" class="pollBtn"><label style="padding-top: 5px;"><asp:Literal runat="server" Text="<%$ Resources:Resource, cancel%>" /></label></span>
                                                           
 														</div>
                                                    
@@ -143,9 +144,7 @@
                                         <div class="col-md-12">
                                             <div class="newfloa">                                             
 												         <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Propose%>" CssClass="pollBtna" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
-           												     <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Back%>" CssClass="pollBtnb" runat="server" ID="btnBack" OnClick="btnBack_Click" />
-           
-                                                 
+           												                                                  
                                             </div>                                           
                                         </div>
                                     </div>
@@ -199,12 +198,32 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+     .pollBtns-popup span.pollBtn {
+        background: #fff;
+        color: #be9136;
+        border-radius: 18px;
+        padding: 2px 27px 2px 27px;
+        font-weight: bold;
+        font-size: 10px !important;
+        line-height: 14px;
+        -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border: 1px solid #be9136;
+        text-align: center;
+        height: 30px;
+        margin-top: 4px;
+        min-width: 120px;
+        margin: 0px 1px;
+    }
 	</style>
 		<script>
             $(document).ready(function () {
-                $("#btnClosePopup").click(function () {
-                    $("#Satisfay2").modal("hide");
+
+                $('#btnClosePopup').click(function () {
+
+                    $('.bs-example-modal-sm').modal('hide');
                 });
+              
             });
             $('.datepicker').datepicker({
                 dateFormat: 'dd/mm/yyyy',
@@ -223,6 +242,22 @@
                 scrollbar: true
             });
             function handleChange(ID, radio1) {
+              
                 $("#" + ID).val(radio1)
+            }
+
+            function ConfirmationMessage() {
+                var isempty = "No";
+                $("input[name='AnswerIs']").each(function () {
+                    if ($(this).val().length === 0) {
+                        isempty = "Yes";
+                    }
+                });
+                if (isempty == "No") {
+                    var MSG = $(".confirmMSG")[0].innerHTML;
+                    return confirm(MSG);
+                } else {
+                    return true;
+                }
             }
 </script>

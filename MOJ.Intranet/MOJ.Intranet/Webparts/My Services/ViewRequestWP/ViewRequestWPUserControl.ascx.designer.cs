@@ -148,15 +148,6 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP {
         protected global::System.Web.UI.WebControls.Button btnCanceled;
         
         /// <summary>
-        /// btnResend control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResend;
-        
-        /// <summary>
         /// btnCloseTheQuestion control.
         /// </summary>
         /// <remarks>
@@ -164,6 +155,33 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCloseTheQuestion;
+        
+        /// <summary>
+        /// ResendDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ResendDiv;
+        
+        /// <summary>
+        /// txtMission control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtMission;
+        
+        /// <summary>
+        /// btnResend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnResend;
         
         /// <summary>
         /// MSGcancelID control.

@@ -134,8 +134,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 if(itemData.Count <= 0){
                     btnsubmitexam.Enabled = false;
                     btnsubmitexam.Visible = false;
+                    var ThereIsNoTestForThisCouncilMSG = SPUtility.GetLocalizedString("$Resources: ThereIsNoTestForThisCouncil", "Resource", SPContext.Current.Web.Language);
 
-                  
+                    LBresalt2.Text = ThereIsNoTestForThisCouncilMSG;
+
                     ///////////////////////////////////////creatExiam/////
                     knowledgeCouncilEntity KCEntity = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
                    
@@ -215,7 +217,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     }
                     if (!string.IsNullOrEmpty(postin))
                     {
-                        htmlrow1 += "<div class='radioComponent'><input " + disabled + " type='radio' " + checked2+ " onchange=\"handleChange('AnswerIs" + x + "','2');\"  name='common-radio-name" + x + "' id='radio-" + x + "' class='radio-button' />" +
+                        htmlrow1 += "<div class='radioComponent'><input required " + disabled + " type='radio' " + checked2+ " onchange=\"handleChange('AnswerIs" + x + "','2');\"  name='common-radio-name" + x + "' id='radio-" + x + "' class='radio-button' />" +
                        "<label for='radio-" + x + "' class='radio-button-click-target'> <span class='radio-button-circle'></span>" + postin + "</label></div>";
                     }
                     if (languageCode == "ar")
@@ -257,19 +259,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
-            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
-            if (languageCode == "ar")
-            {
-                Response.Redirect("/Ar/HeldCouncil.aspx");
-            }
-            else
-            {
-                Response.Redirect("/En/HeldCouncil.aspx");
-            }
-        }
+       
         protected void btnCreateExam_Click(object sender, EventArgs e)
         {
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;

@@ -22,6 +22,21 @@ background-color: #f5e9b6;
     font-size: 19px;
     padding-right: 3px;
 }
+.Resendb{
+    border: 1px solid #d8d8d8;
+    background: #fff;
+    color: #be9136;
+    border-radius: 18px;
+    padding: 5px 20px 5px 20px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    box-shadow: -3px 0px 9px rgba(13,13,13,0.07);
+    line-height: 14px;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-right: 1em;
+
+}
 
 </style>
 <h4>
@@ -148,10 +163,32 @@ background-color: #f5e9b6;
      <div class="row rt  botx">
                 <asp:Button Text="<%$ Resources:Resource, MyRequests%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnGoToMyRequests_Click" />
           <asp:Button OnClientClick="return confirmcancel();" Text="<%$ Resources:Resource, cancel%>" CssClass="morebutovn2" runat="server" ID="btnCanceled" OnClick="btnCanceledworkflow_Click" />
-                   <asp:Button Text="<%$ Resources:Resource, Resend%>" CssClass="morebutovn2" runat="server" ID="btnResend" OnClick="btnResend_Click" />
                 <asp:Button Text="<%$ Resources:Resource, CloseTheQuestion%>" CssClass="morebutovn2" runat="server" ID="btnCloseTheQuestion" OnClick="btnCloseTheQuestion_Click" />
                
      </div>
+    <div  id="ResendDiv" runat="server" style="display: none" class="row rt  botx">        
+        <span class="Resendb" onclick="ResendFunction()">
+                    <span id="plus" > + </span>
+        <span id="minus" style="display: none;"> - </span>
+           <span><asp:Literal runat="server" Text="<%$ Resources:Resource, Resend%>" /></span></span>
+        <hr />
+         <div id="ResendDivchild" style="display: none;">        
+             <div class="row rt">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Notes%>" /></label>
+                                </div>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" runat="server" id="txtMission" rows="3"></textarea>
+                                </div>
+                             </div>
+                            </div>
+                         </div>
+              <asp:Button Text="<%$ Resources:Resource, Resend%>" CssClass="morebutovn2" runat="server" ID="btnResend" OnClick="btnResend_Click" />
+           
+     </div>    
+     </div>    
 
     </div>
 
@@ -166,5 +203,25 @@ background-color: #f5e9b6;
     function confirmcancel() {
        var msg= $(".MSGcancel").html()
         return confirm(msg);
-   }
+    }
+    function ResendFunction() {
+        var x = document.getElementById("ResendDivchild");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        var x2 = document.getElementById("plus");
+        if (x2.style.display === "none") {
+            x2.style.display = "inline";
+        } else {
+            x2.style.display = "none";
+        }
+        var x3 = document.getElementById("minus");
+        if (x3.style.display === "none") {
+            x3.style.display = "inline";
+        } else {
+            x3.style.display = "none";
+        }
+    }
 </script>

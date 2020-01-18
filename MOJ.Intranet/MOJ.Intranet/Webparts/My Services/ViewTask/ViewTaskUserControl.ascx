@@ -34,6 +34,9 @@ background-color: #f5e9b6;
                     <asp:Label id="TitleData" runat="server"></asp:Label>
                     </div>
           </div>
+    <h4 style="margin-bottom: 10px;">
+    <asp:Literal runat="server" Text="<%$ Resources:Resource, ApplicantInformation%>" />
+</h4>
        <div id="Edata">
                     <div class="row rt">
                         <div class="col-md-5">

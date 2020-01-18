@@ -36,8 +36,40 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
         {
             string RequestID = Convert.ToString(Request.Params["RID"]);
             bool masteritem = new AskAnExpert().Resend(Convert.ToInt32(RequestID));
+
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            AskAnExpertEntity item = new AskAnExpert().GetAskAnExpertbyid(Convert.ToInt32(RequestID));
+            AskAnExpertAnswerEntity AskAnExpertAnsweris = new AskAnExpertAnswerEntity();
+            AskAnExpertAnsweris.Answer = txtMission.Value;
+            AskAnExpertAnsweris.AskAnExpertID = RequestID;
+            AskAnExpertAnsweris.Title = item.QuestionTitle;
+            string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+            AskAnExpertAnsweris.ExpertLoginName = currentUserlogin;
+           AskAnExpertAnsweris.ExpertPosition = EPosition.Value;
+            if (languageCode == "ar")
+            {
+                if (!string.IsNullOrEmpty(EFullNameArabic.Value))
+                {
+                    AskAnExpertAnsweris.ExpertName = EFullNameArabic.Value;
+                }
+                else
+                {
+                    AskAnExpertAnsweris.ExpertName = SPContext.Current.Web.CurrentUser.Name;
+                }    
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(EFullNameEnglish.Value))
+                {
+                    AskAnExpertAnsweris.ExpertName = EFullNameEnglish.Value;
+                }
+                else
+                {
+                    AskAnExpertAnsweris.ExpertName = SPContext.Current.Web.CurrentUser.Name;
+                }
+            }
+            bool isSaved = new AskAnExpert().AddOrUpdateAskAnExpertAnswer(AskAnExpertAnsweris);
             if (languageCode == "ar")
             {
                 Response.Redirect("/Ar/MyServices/Pages/MyRequests.aspx");
@@ -108,6 +140,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             string Status = "";
             btnCloseTheQuestion.Visible = false;
             btnResend.Visible = false;
+            
             // add new workflow-----------------------------------
             if (listName == "RoomBooking")
                 Status = GetRoomBookingData(RequestID);
@@ -136,9 +169,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             if (listName == "AskAnExpert")
                 Status = GetAskAnExpert(RequestID);
             GetTasksRequest(RequestID, listName);
-
             AllData.Text += "<hr>";
-            addtopage(Status, "");
+            addtopageStatus("RequestStatus", Status);
             if (Status == "Canceled") { 
             btnCanceled.Visible = false;
          }
@@ -157,8 +189,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
            {
                 btnCloseTheQuestion.Visible = true;
                 btnResend.Visible = true;
-            }            
-            
+                ResendDiv.Style.Add("display", "block");
+            }
             addtopage("QuestionDetails", QuestionDetails);
             return masteritem.Status;
         }
@@ -429,8 +461,13 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 string Answer  = item.AnswerBy.LookupValue;
                 if (string.IsNullOrEmpty(item.AnswerBy.LookupValue))
                     Answer = item.AssignedToOneUserValue.LookupValue;
-                addtopage("AssignTo", Answer, OutcomeWf, "");
-                addtopage("ActionDate", ActionDate);
+
+                string outcomevalue = SPUtility.GetLocalizedString("$Resources: " + OutcomeWf, "Resource", SPContext.Current.Web.Language);
+
+                addtopage("AssignTo", Answer, "TaskStatus", outcomevalue);
+                if (item.Status == "Completed") {
+                    addtopage("ActionDate", ActionDate);
+                }
                 string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' cols='70' rows='3'>" + item.Comment + "</textarea>";
 
                 addtopage("Comment", Commenthtm);
@@ -610,6 +647,24 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                     </div>";
             if (title != "")
                 AllData.Text += "</div>";
+        }
+        protected void addtopageStatus(string text, string value)
+        {
+            string textla = SPUtility.GetLocalizedString("$Resources: " + text, "Resource", SPContext.Current.Web.Language);
+            string valuela = SPUtility.GetLocalizedString("$Resources: " + value, "Resource", SPContext.Current.Web.Language);
+           
+            AllData.Text += @"<div class='row rt'>
+                        <div class='col-md-12'>
+                            <div class='row'>
+                                <div class='col-md-3'>
+                                <label >" + textla + @"</label>
+                               </div>
+                                <div class='col-md-9'>
+                        <label >" + valuela + @"</label>                               
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>";            
         }
         protected void addtopage(string text, string value, string text2, string value2, string title = "")
         {

@@ -1416,4 +1416,19 @@
   <data name="Participated" xml:space="preserve">
     <value>شارك</value>
   </data>
+  <data name="ThereIsNoTestForThisCouncil" xml:space="preserve">
+    <value>لا يوجد امتحان لهذا المجلس</value>
+  </data>
+  <data name="ApplicantInformation" xml:space="preserve">
+    <value>معلومات مقدم الطلب</value>
+  </data>
+  <data name="RequestStatus" xml:space="preserve">
+    <value>حالة الطلب</value>
+  </data>
+  <data name="TaskStatus" xml:space="preserve">
+    <value>حالة المهمة</value>
+  </data>
+  <data name="confirmMSGexam" xml:space="preserve">
+    <value>هل انت متاكد من انهاء الامتحان ؟</value>
+  </data>
 </root>
