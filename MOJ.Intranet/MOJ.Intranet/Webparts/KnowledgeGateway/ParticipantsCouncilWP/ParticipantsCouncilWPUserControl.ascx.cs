@@ -81,7 +81,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ParticipantsCouncilWP
                         hdnsuperDIV1.Value = Convert.ToString(x);
                         RetrevehdnsuperDIV1.Value += item.ID.ToString() + "#";
 
-                        var htmlrow1 = "<div class='rowI cnrtnheadbox2'> " +
+                        var htmlrow1 = "<div class='rowI '> " +
 
                         " <div class='row'> <div class='col-md-1 DiveDelete '>" +
                                  "<span style='padding-right: 25px;margin-top: -15px;' onclick='removeParticipants(this);'><span class='icon-remove' style='color: red;font-size: 15px;'></span></span>" +
@@ -102,7 +102,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ParticipantsCouncilWP
                         // document.getElementById('dynamicInputChildren').appendChild(newdiv);
                         System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
      new System.Web.UI.HtmlControls.HtmlGenericControl("DIV");
-                        newDiv.Attributes.Add("class", "new");
+                        newDiv.Attributes.Add("class", "cnrtnheadbox2");
                         newDiv.InnerHtml = htmlrow1;
                         superDIV2.Controls.Add(newDiv);
 
@@ -172,13 +172,13 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ParticipantsCouncilWP
                             if (!string.IsNullOrEmpty(ArabicName[x]))
                             {
                                 ParticipantsCouncilEntity ob = new ParticipantsCouncilEntity();
-                                Entit.JobTitle = ArabicJobTitle[x];
-                                Entit.JobTitleEN = EnglishJobTitle[x];
-                                Entit.knowledgeCouncil = Convert.ToInt32(knowledgeCouncilID);
-                                Entit.Name = ArabicName[x];
-                                Entit.NameEN = EnglishName[x];
-                                Entit.Role = ArabicRole[x];
-                                Entit.RoleEN = EnglishRole[x];
+                                ob.JobTitle = ArabicJobTitle[x];
+                                ob.JobTitleEN = EnglishJobTitle[x];
+                                ob.knowledgeCouncil = Convert.ToInt32(knowledgeCouncilID);
+                                ob.Name = ArabicName[x];
+                                ob.NameEN = EnglishName[x];
+                                ob.Role = ArabicRole[x];
+                                ob.RoleEN = EnglishRole[x];
                            
                                 if (!string.IsNullOrEmpty(SID[x]))
                                 {

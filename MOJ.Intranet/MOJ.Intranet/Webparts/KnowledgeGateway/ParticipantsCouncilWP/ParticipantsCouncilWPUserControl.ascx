@@ -30,7 +30,7 @@
                                     <section id="faqs" class="">
                                         <div class="Participants">  </div>
 										 <div class="col-md-12">
-                                        <div class="row">
+                                        <div class="row" style=" font-size: 9px;">
                                             <div class="col-md-2">
                                              <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ArabicName%>" /></label>
 											</div>
@@ -193,7 +193,7 @@
         counter2++;
         $("#FirstItemAA2")[0].innerHTML = $("#FirstItem2")[0].innerHTML;
         var Itemhtml = $("#FirstItemAA2");
-		Itemhtml.find(".DivSID")[0].innerHTML = "<input name='SID' type=text' id='SID" + counter1 + "' class='form-control' placeholder=''>";        
+        Itemhtml.find(".DivSID")[0].innerHTML = "<input name='SID' type=text' id='SID" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivArabicName")[0].innerHTML = "<input required name='ArabicName' type=text' id='ArabicName" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivEnglishName")[0].innerHTML = "<input required  name='EnglishName' type=text' id='EnglishName" + counter2 + "' class='form-control' placeholder=''>";
         Itemhtml.find(".DivArabicJobTitle")[0].innerHTML = "<input name='ArabicJobTitle' type=text' id='ArabicJobTitle" + counter2 + "' class='form-control' placeholder=''>";
@@ -205,9 +205,9 @@
 
         var newdiv = document.createElement('div');
         var att = document.createAttribute("class");
-        att.value = "new";
+        att.value = "cnrtnheadbox2";
         newdiv.setAttributeNode(att);
-        var allhtml = "<div class='rowI cnrtnheadbox2'>" + Itemhtml[0].innerHTML + "</div>";
+        var allhtml = "<div class='rowI '>" + Itemhtml[0].innerHTML + "</div>";
         newdiv.innerHTML = allhtml;
         document.getElementsByClassName("superDIV2")[0].appendChild(newdiv);
         document.getElementById('hdnsuperDIV1').value = counter2;
@@ -216,7 +216,7 @@
     function removeParticipants(thi) {
         counter2--;
         document.getElementById('hdnsuperDIV1').value = counter2;
-        thi.closest('.new').remove();
+        thi.closest('.cnrtnheadbox2').remove();
     }
 
 </script>
