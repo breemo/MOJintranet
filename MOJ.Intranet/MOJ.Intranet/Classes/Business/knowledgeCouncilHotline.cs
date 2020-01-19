@@ -10,6 +10,16 @@ namespace MOJ.Business
 {
     public class knowledgeCouncil
     {
+        public bool SaveUpdateParticipantsCouncil(List<ParticipantsCouncilEntity> obj)
+        {
+            return new knowledgeCouncilDataManager().SaveUpdateParticipantsCouncil(obj);
+        }
+        public bool DeleteitemsFromSublist(string listname, List<int> listsid)
+        {
+            return new knowledgeCouncilDataManager().DeleteitemsFromSublist(listname, listsid);
+        }
+
+
         public bool SaveUpdate(knowledgeCouncilEntity obj)
         {
             return new knowledgeCouncilDataManager().AddOrUpdateknowledgeCouncil(obj);
@@ -55,6 +65,11 @@ namespace MOJ.Business
         {
             return new knowledgeCouncilDataManager().GetknowledgeCouncilByID(id);
         }
+        public List<ParticipantsCouncilEntity> GetParticipants(string title)
+        {
+            return new knowledgeCouncilDataManager().GetParticipants(title);
+
+        }
         public DataTable GetCouncilType()
         {
             return new CouncilTypeDataManager().GetAll();
@@ -63,6 +78,10 @@ namespace MOJ.Business
         {
             return new CouncilTypeDataManager().GetByID(id, language);
         }
+
+
+
+
 
     }
 }

@@ -48,8 +48,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             bool havePermission = new Task().HavePermission(Convert.ToInt32(Request.Params["TID"]));
             if (havePermission)
             { // add new workflow-----------------------------------
-                if(task.WorkflowName == "RoomBooking")
-                GetRoomBookingData(task.RequestID);
+                if (task.WorkflowName == "RoomBooking")
+                    GetRoomBookingData(task.RequestID);
                 if (task.WorkflowName == "AffirmationSocialSituation")
                     GetAffirmationSocialSituationData(task.RequestID);
                 if (task.WorkflowName == "HappinessHotline")
@@ -76,7 +76,10 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                 if (task.WorkflowName == "AskAnExpert")
                     GetAskAnExpert(task.RequestID);
                 ////
-                GetTasksRequest(task.RequestID, task.WorkflowName);
+               
+                if (task.WorkflowName != "AskAnExpert") {
+                    GetTasksRequest(task.RequestID, task.WorkflowName);
+                }
 
             }
             else
@@ -99,8 +102,41 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
             addtopage("QuestionDetails", QuestionDetails);
             btReject.Visible = false;
+            GetAskAnExpertAnswer(RequestID);
             return masteritem.Status;
         }
+        public void GetAskAnExpertAnswer(string RequestID)
+        {
+           
+           
+            AllData.Text += "<hr>";
+            addtopage("Tasks", "", "title");
+          
+            try
+            {
+                int i = 0;
+                List<AskAnExpertAnswerEntity> CollectionAnswer = new AskAnExpert().GetAskAnExpertAnswerByID(Convert.ToInt32(RequestID));
+                foreach (AskAnExpertAnswerEntity itemAnswer in CollectionAnswer)
+                {
+                    if (i % 2 == 0)
+                        AllData.Text += "<div>";
+                    else
+                        AllData.Text += "<div class='evenRow'>";
+                    addtopage("ExpertName", itemAnswer.ExpertName, "Position", itemAnswer.ExpertPosition);
+                    string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' cols='70' rows='3'>" + itemAnswer.Answer + "</textarea>";
+                    addtopage("Comment", Commenthtm);
+                    AllData.Text += "</div>";
+                    i++;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
+
         private void UserData(string userloginName)
         {
             try

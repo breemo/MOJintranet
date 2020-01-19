@@ -7,10 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP {
+namespace MOJ.Intranet.Webparts.KnowledgeGateway.ParticipantsCouncilWP {
     
     
-    public partial class RequestAVacationWPUserControl {
+    public partial class ParticipantsCouncilWPUserControl {
+        
+        /// <summary>
+        /// hdnsuperDIV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnsuperDIV1;
+        
+        /// <summary>
+        /// RetrevehdnsuperDIV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField RetrevehdnsuperDIV1;
         
         /// <summary>
         /// posts control.
@@ -22,139 +40,76 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
         
         /// <summary>
-        /// Ename control.
+        /// superDIV2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Ename;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl superDIV2;
         
         /// <summary>
-        /// Enumber control.
+        /// SID0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Enumber;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SID0;
         
         /// <summary>
-        /// Edepartment control.
+        /// ArabicName_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Edepartment;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ArabicName_0;
         
         /// <summary>
-        /// DropDownVacationsTypes control.
+        /// EnglishName_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownVacationsTypes;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EnglishName_0;
         
         /// <summary>
-        /// RequiredFieldValidatorMessage control.
+        /// ArabicJobTitle_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ArabicJobTitle_0;
         
         /// <summary>
-        /// AlternateEmployee control.
+        /// EnglishJobTitle_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText AlternateEmployee;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EnglishJobTitle_0;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// ArabicRole_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ArabicRole_0;
         
         /// <summary>
-        /// from control.
+        /// EnglishRole_0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText from;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// to control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText to;
-        
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
-        /// isGreaterDateTo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText isGreaterDateTo;
-        
-        /// <summary>
-        /// CompareValidatorDateofbirth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorDateofbirth;
-        
-        /// <summary>
-        /// Notes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Notes;
-        
-        /// <summary>
-        /// RequiredFieldValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EnglishRole_0;
         
         /// <summary>
         /// btnsubmit control.
@@ -164,15 +119,6 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnsubmit;
-        
-        /// <summary>
-        /// Literal1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal1;
         
         /// <summary>
         /// SuccessMsgDiv control.
@@ -191,5 +137,32 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblSuccessMsg;
+        
+        /// <summary>
+        /// btnBack2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack2;
+        
+        /// <summary>
+        /// Div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        
+        /// <summary>
+        /// Literal1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal1;
     }
 }

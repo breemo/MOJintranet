@@ -100,8 +100,8 @@
 								<div class="col-md-2">
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, from%>" /></label>
 								</div>
-								<div class="col-md-4  ">
-									<div class="input-group date DivDateApportionmentDate" data-provide="datepicker">
+								<div class="col-md-4  " >
+									<div id="toFrom"  class="input-group date DivDateApportionmentDate" data-provide="datepicker">
 										<input autocomplete="off"  type="text" runat="server" id="from" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
@@ -115,7 +115,7 @@
 									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, to%>" /></label>
 								</div>
 								<div class="col-md-4  ">
-									<div class="input-group date DivDateApportionmentDate" data-provide="datepicker">
+									<div id="toDate" class="input-group date DivDateApportionmentDate" data-provide="datepicker">
 										<input autocomplete="off"  type="text" runat="server" id="to" class="form-control">
 										<div class="input-group-addon">
 											<span class="icon-calendar-alt1"></span>
@@ -129,6 +129,27 @@
                 </div>   
 				
             </div>   
+       			<div class="row rt">
+                <div class="col-md-12">
+                     <div class="row">															
+								<div class="col-md-2">
+									<div  id="isGreaterThanDateTime">
+                                        <input type="text" style="display: none;" runat="server" id="isGreaterDateTo" class="form-control">
+										</div>	
+								</div>
+								<div class="col-md-4  ">
+									  <asp:CompareValidator ID="CompareValidatorDateofbirth" runat="server" 
+                                    ErrorMessage="<%$ Resources:Resource, ToDateGreaterFromDate%>"
+                                    ControlToValidate="isGreaterDateTo" ValueToCompare="dateerror"
+                                    Type="String" Operator="NotEqual" ForeColor="Red"
+                                    SetFocusOnError="true"
+                                    Display="Dynamic">
+									</asp:CompareValidator>
+									
+								</div>							
+                           </div>
+					</div> 				
+            </div> 
 			   <div class="row rt">
                 <div class="col-md-12">
                      <div class="row">
@@ -147,7 +168,7 @@
 			
 			
             <div class="row rt  botx">
-                <asp:Button Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+                <asp:Button Text="<%$ Resources:Resource, Submit%>" OnClientClick="isGreaterThanDateTime()"  CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
             </div>
         </div>
 <asp:Literal ID="Literal1" runat="server"></asp:Literal>
@@ -172,5 +193,14 @@
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 
 
+<script>
 
+    function isGreaterThanDateTime() {
+        if (new Date($("#toDate input").val()) >= new Date($("#toFrom input").val())) {
+            $('#isGreaterThanDateTime input').val("Done");           
+        } else {
 
+            $('#isGreaterThanDateTime input').val("dateerror");
+        }
+		} 
+</script>

@@ -43,8 +43,8 @@ namespace MOJ.DataManager
                         item["Title"] = Item.Title;
                         item["ResponseMsgAR"] = Item.ResponseMsgAR;
                         item["ResponseMsg"] = Item.ResponseMsg;
-                        item["FromDate"] = Item.FromDate;
-                        item["ToDate"] = Item.ToDate;
+                        item["FromDate"] = Item.FromDate; 
+                        item["ToDate"] = Item.ToDate; 
                         item["Comments"] = Item.Comments;
                         item["SubstituteEmployee"] = Item.SubstituteEmployee;
                         item["VacationType"] = Item.VacationType;

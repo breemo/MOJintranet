@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="ParticipantsCouncilWP" List="113" Url="_catalogs/wp">
+    <File Path="ParticipantsCouncilWP\ParticipantsCouncilWP.webpart" Url="MOJ.Intranet_ParticipantsCouncilWP.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="MOJ.KnowledgeGateway" />
+    </File>
+  </Module>
+</Elements>

@@ -1431,4 +1431,28 @@
   <data name="confirmMSGexam" xml:space="preserve">
     <value>Are you sure that the exam is finished?</value>
   </data>
+  <data name="ArabicJobTitle" xml:space="preserve">
+    <value>Arabic Job Title</value>
+  </data>
+  <data name="ArabicName" xml:space="preserve">
+    <value>Arabic Name</value>
+  </data>
+  <data name="ArabicRole" xml:space="preserve">
+    <value>Arabic Role</value>
+  </data>
+  <data name="EnglishJobTitle" xml:space="preserve">
+    <value>English Job Title</value>
+  </data>
+  <data name="EnglishName" xml:space="preserve">
+    <value>English Name</value>
+  </data>
+  <data name="EnglishRole" xml:space="preserve">
+    <value>English Role</value>
+  </data>
+  <data name="Participants" xml:space="preserve">
+    <value>Participants</value>
+  </data>
+  <data name="ParticipantsHaveBeenAdded" xml:space="preserve">
+    <value>Participants have been added</value>
+  </data>
 </root>

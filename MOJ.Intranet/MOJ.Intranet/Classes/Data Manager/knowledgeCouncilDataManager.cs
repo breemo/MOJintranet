@@ -161,7 +161,85 @@ namespace MOJ.DataManager
             //});
             return isFormSaved;
         }
-         public bool AddOrUpdateknowledgeCouncil(knowledgeCouncilEntity knowledgeCouncilItem)
+
+        public bool DeleteitemsFromSublist(string listname, List<int> listsid)
+        {
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        oWeb.AllowUnsafeUpdates = true;
+                        SPList lst = oWeb.GetListFromUrl(oSite.Url + "/Lists/" + listname + "/AllItems.aspx");
+                        foreach (int listItemId in listsid)
+                        {
+                            SPListItem itemToDelete = lst.GetItemById(listItemId);
+                            itemToDelete.Delete();
+                        }
+                        oWeb.AllowUnsafeUpdates = false;
+                    }
+                }
+            });
+            return true;
+        }
+        public bool SaveUpdateParticipantsCouncil(List<ParticipantsCouncilEntity> Items)
+        {
+            bool isFormSaved = false;
+            bool isUpdate = false;
+            //SPSecurity.RunWithElevatedPrivileges(delegate ()
+            //{
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.ParticipantsCouncilUrl);
+                        SPListItem item = null;
+                        foreach (ParticipantsCouncilEntity Item in Items)
+                        {
+                            if (Item.ID > 0)
+                            {
+                                item = list.GetItemById(Item.ID);
+                                isUpdate = true;
+                            }
+                            else
+                            {
+                                item = list.AddItem();
+                            }
+                            item["JobTitle"] = Item.JobTitle;
+                            item["JobTitleEN"] = Item.JobTitleEN;
+                            item["knowledgeCouncil"] = Item.knowledgeCouncil;
+                            item["Name"] = Item.Name;
+                            item["NameEN"] = Item.NameEN;
+                            item["Role"] = Item.Role;
+                            item["RoleEN"] = Item.RoleEN;
+                            item.Update();
+                        }
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            //});
+            return isFormSaved;
+        }
+
+
+
+
+        public bool AddOrUpdateknowledgeCouncil(knowledgeCouncilEntity knowledgeCouncilItem)
         {
             bool isFormSaved = false;
             bool isUpdate = false;
@@ -395,7 +473,50 @@ namespace MOJ.DataManager
             return obitem;
         }
 
-       public CouncilExamAnswerEntity GetCouncilExamAnswer(int ckID ,string loginName)
+
+        public List<ParticipantsCouncilEntity> GetParticipants(string title)
+        {
+            List<ParticipantsCouncilEntity> ItemsCollection = new List<ParticipantsCouncilEntity>();
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.ParticipantsCouncilUrl);
+                            if (lst != null)
+                            {
+                                SPQuery qry1 = new SPQuery();
+                                string camlquery1 = "<Where><Eq><FieldRef Name='knowledgeCouncil'  LookupId='TRUE' /> <Value Type='Lookup'>" + title + "</Value></Eq></Where><OrderBy><FieldRef Name='ID' Ascending='true'' /></OrderBy>";
+                                qry1.Query = camlquery1;
+                                SPListItemCollection listItemsCollection1 = lst.GetItems(qry1);
+                                foreach (SPListItem Item in listItemsCollection1)
+                                {
+                                    ParticipantsCouncilEntity itemis = new ParticipantsCouncilEntity();                                    
+                                    itemis.ID = Convert.ToInt32(Item["ID"]);
+                                    itemis.knowledgeCouncil = Convert.ToInt32(title);
+                                    itemis.JobTitle = Convert.ToString(Item["JobTitle"]); ;
+                                    itemis.JobTitleEN = Convert.ToString(Item["JobTitleEN"]);
+                                    itemis.Name = Convert.ToString(Item["Name"]);
+                                    itemis.NameEN = Convert.ToString(Item["NameEN"]);
+                                    itemis.Role = Convert.ToString(Item["Role"]);
+                                    itemis.RoleEN = Convert.ToString(Item["RoleEN"]);
+                                    ItemsCollection.Add(itemis);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            });
+            return ItemsCollection;
+        }
+
+
+        public CouncilExamAnswerEntity GetCouncilExamAnswer(int ckID ,string loginName)
         {
             CouncilExamAnswerEntity ItemsCollection = new CouncilExamAnswerEntity();
             SPSecurity.RunWithElevatedPrivileges(delegate ()

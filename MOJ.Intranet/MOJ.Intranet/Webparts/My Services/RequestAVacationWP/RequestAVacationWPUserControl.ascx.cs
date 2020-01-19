@@ -94,19 +94,23 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                 itemSumbit.VacationType = DropDownVacationsTypes.SelectedValue.ToString();
                 itemSumbit.SubstituteEmployee = AlternateEmployee.Value.ToString();
                 itemSumbit.Comments = Notes.Value.ToString();
+                DateTime Date = new DateTime();
                 if (!string.IsNullOrEmpty(from.Value))
                 {
-                    DateTime sDate = DateTime.ParseExact(from.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                    itemSumbit.FromDate = sDate;
+                    DateTime sDate = DateTime.ParseExact(from.Value.ToString(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    Date = sDate;
+                    itemSumbit.FromDate = Date;
                 }
+                DateTime Date2 = new DateTime();
                 if (!string.IsNullOrEmpty(to.Value))
                 {
-                    DateTime sDate2 = DateTime.ParseExact(to.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-                    itemSumbit.ToDate = sDate2;
+                    DateTime sDate2 = DateTime.ParseExact(to.Value.ToString(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    Date2 = sDate2;
+                    itemSumbit.ToDate = Date2;
                 }
                 PushFAHRLeaveApplicationRequestDataManager PushLeave = new PushFAHRLeaveApplicationRequestDataManager();
-                string fromdate = Convert.ToDateTime(from.Value).ToString("yyy-MM-dd");
-                string todate = Convert.ToDateTime(to.Value).ToString("yyy-MM-dd");
+                string fromdate = Date.ToString("yyy-MM-dd");
+                string todate = Date2.ToString("yyy-MM-dd");
                 string Vacation = "";
                 RequestAVacation Vacationobj = new RequestAVacation();      
                
@@ -127,7 +131,7 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
 
                 }
                 RequestAVacation rb = new RequestAVacation();
-                bool isSaved = rb.SaveUpdate(itemSumbit);
+                bool isSaved =  rb.SaveUpdate(itemSumbit);
                 if (isSaved == true)
                 {
 

@@ -180,13 +180,15 @@ background-color: #f5e9b6;
                                     <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Notes%>" /></label>
                                 </div>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" runat="server" id="txtMission" rows="3"></textarea>
+                                    <textarea cols="82" runat="server" id="txtMission" rows="3"></textarea>
                                 </div>
                              </div>
                             </div>
                          </div>
+               <div class="row rt  botx">
               <asp:Button Text="<%$ Resources:Resource, Resend%>" CssClass="morebutovn2" runat="server" ID="btnResend" OnClick="btnResend_Click" />
            
+     </div>    
      </div>    
      </div>    
 

@@ -181,6 +181,7 @@
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
     <Compile Include="Classes\Entities\CertificateToWhomItMayConcernEntity.cs" />
+    <Compile Include="Classes\Entities\ParticipantsCouncilEntity.cs" />
     <Compile Include="Classes\Entities\RequestAVacationEntity.cs" />
     <Compile Include="Classes\Entities\AffirmationReceiptGovernmentHousingEntity.cs" />
     <Compile Include="Classes\Entities\AskAnExpertAnswerEntity.cs" />
@@ -577,6 +578,14 @@
     <Compile Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\KnowledgeInstituteWFUserControl.ascx.designer.cs">
       <DependentUpon>KnowledgeInstituteWFUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\ParticipantsCouncilWP\ParticipantsCouncilWP.cs" />
+    <Compile Include="Webparts\KnowledgeGateway\ParticipantsCouncilWP\ParticipantsCouncilWPUserControl.ascx.cs">
+      <DependentUpon>ParticipantsCouncilWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\KnowledgeGateway\ParticipantsCouncilWP\ParticipantsCouncilWPUserControl.ascx.designer.cs">
+      <DependentUpon>ParticipantsCouncilWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWP.cs" />
     <Compile Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWPUserControl.ascx.cs">
       <DependentUpon>PlannedCouncilsWPUserControl.ascx</DependentUpon>
@@ -934,6 +943,10 @@
     <None Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{d657d82b-81c8-4b01-91ae-ffc3c0ea8560}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\KnowledgeGateway\ParticipantsCouncilWP\ParticipantsCouncilWP.webpart" />
+    <None Include="Webparts\KnowledgeGateway\ParticipantsCouncilWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a58a7498-65bc-478c-b81b-57047f4437e6}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWP.webpart" />
     <None Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{b60386dc-ad75-4ec7-b6bb-935a48688f29}</SharePointProjectItemId>
@@ -1117,6 +1130,8 @@
     <Content Include="Webparts\KnowledgeGateway\knowledgeCouncilWP\knowledgeCouncilWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\KnowledgeInstituteWF\KnowledgeInstituteWFUserControl.ascx" />
+    <Content Include="Webparts\KnowledgeGateway\ParticipantsCouncilWP\Elements.xml" />
+    <Content Include="Webparts\KnowledgeGateway\ParticipantsCouncilWP\ParticipantsCouncilWPUserControl.ascx" />
     <Content Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\Elements.xml" />
     <Content Include="Webparts\KnowledgeGateway\PlannedCouncilsWP\PlannedCouncilsWPUserControl.ascx" />
     <Content Include="Webparts\LiveEventsWP\Elements.xml" />

@@ -212,16 +212,21 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 }               
             }
             try
-            {                
+            {
+                int i = 0;      
                     List<AskAnExpertAnswerEntity> CollectionAnswer = new AskAnExpert().GetAskAnExpertAnswerByID(Convert.ToInt32(RequestID));
                     foreach (AskAnExpertAnswerEntity itemAnswer in CollectionAnswer)
                     {
-
+                    if (i % 2 == 0)
+                        AllData.Text += "<div>";
+                    else
+                        AllData.Text += "<div class='evenRow'>";
+                    addtopage("ExpertName", itemAnswer.ExpertName, "Position", itemAnswer.ExpertPosition);
                     string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' cols='70' rows='3'>" + itemAnswer.Answer + "</textarea>";
                     addtopage("Comment", Commenthtm);
-                    addtopage("ExpertName", itemAnswer.ExpertName, "Position", itemAnswer.ExpertPosition);
-                   
-                    }
+                    AllData.Text += "</div>";
+                    i++;
+                }
                 
             }
             catch (Exception ex)
