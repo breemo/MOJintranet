@@ -140,7 +140,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             string Status = "";
             btnCloseTheQuestion.Visible = false;
             btnResend.Visible = false;
-            
+
             // add new workflow-----------------------------------
             if (listName == "RoomBooking")
                 Status = GetRoomBookingData(RequestID);
@@ -168,7 +168,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetCouncilMembers(RequestID);
             if (listName == "AskAnExpert")
                 Status = GetAskAnExpert(RequestID);
-            GetTasksRequest(RequestID, listName);
+            if (listName != "AskAnExpert") { 
+                GetTasksRequest(RequestID, listName);
+                }
             AllData.Text += "<hr>";
             addtopageStatus("RequestStatus", Status);
             if (Status == "Canceled") { 
@@ -192,8 +194,42 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 ResendDiv.Style.Add("display", "block");
             }
             addtopage("QuestionDetails", QuestionDetails);
+            GetAskAnExpertAnswer();
             return masteritem.Status;
         }
+        public void GetAskAnExpertAnswer( )
+        {
+            string RequestName = Convert.ToString(Request.Params["list"]);
+            string RequestID = Convert.ToString(Request.Params["RID"]);
+            AllData.Text += "<hr>";
+            addtopage("Tasks", "", "title");
+            List<TaskEntity> task = new Task().GetTasksRequest(RequestID, RequestName);
+            foreach (TaskEntity item in task)
+            {  
+                if (item.Status == "Completed")
+                {                    
+                    btnCanceled.Visible = false;
+                }               
+            }
+            try
+            {                
+                    List<AskAnExpertAnswerEntity> CollectionAnswer = new AskAnExpert().GetAskAnExpertAnswerByID(Convert.ToInt32(RequestID));
+                    foreach (AskAnExpertAnswerEntity itemAnswer in CollectionAnswer)
+                    {
+
+                    string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' cols='70' rows='3'>" + itemAnswer.Answer + "</textarea>";
+                    addtopage("Comment", Commenthtm);
+                    addtopage("ExpertName", itemAnswer.ExpertName, "Position", itemAnswer.ExpertPosition);
+                   
+                    }
+                
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
 
         public string GetCouncilMembers(string RequestID)
         {
