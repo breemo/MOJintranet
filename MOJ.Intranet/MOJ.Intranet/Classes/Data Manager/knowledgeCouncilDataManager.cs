@@ -269,7 +269,10 @@ namespace MOJ.DataManager
                         item["CouncilDate"] = knowledgeCouncilItem.CouncilDate;
                         item["CouncilTarget"] = knowledgeCouncilItem.CouncilTarget;
                         item["CouncilTopic"] = knowledgeCouncilItem.CouncilTopic;
-                        item["ADetailedExplanationOfTheCouncil"] = knowledgeCouncilItem.ADetailedExplanationOfTheCouncil;
+                        item["CouncilDescription"] = knowledgeCouncilItem.CouncilDescription;
+                        item["CouncilDescriptionEN"] = knowledgeCouncilItem.CouncilDescriptionEN;
+                        item["CouncilGoals"] = knowledgeCouncilItem.CouncilGoals;
+                        item["CouncilGoalsEN"] = knowledgeCouncilItem.CouncilGoalsEN;
                         item["CouncilType"] = knowledgeCouncilItem.CouncilType;
                         item["Department"] = knowledgeCouncilItem.Department;
                         item["DirectManager"] = knowledgeCouncilItem.DirectManager;
@@ -278,6 +281,7 @@ namespace MOJ.DataManager
                         item["JoiningConditions"] = knowledgeCouncilItem.JoiningConditions;
                         item["Designation"] = knowledgeCouncilItem.Designation;
                         item["Lecturer"] = knowledgeCouncilItem.Lecturer;
+                        item["LecturerEN"] = knowledgeCouncilItem.LecturerEN;
                         item.Update();
 
                         isFormSaved = true;
@@ -419,7 +423,10 @@ namespace MOJ.DataManager
                                      obitem.CouncilDate= Convert.ToDateTime(item["CouncilDate"] );
                                     obitem.CouncilTarget = Convert.ToString(item["CouncilTarget"] );
                                      obitem.CouncilTopic = Convert.ToString(item["CouncilTopic"]);
-                                     obitem.ADetailedExplanationOfTheCouncil = Convert.ToString(item["ADetailedExplanationOfTheCouncil"]);
+                                     obitem.CouncilDescription = Convert.ToString(item["CouncilDescription"]);
+                                     obitem.CouncilDescriptionEN = Convert.ToString(item["CouncilDescriptionEN"]);
+                                     obitem.CouncilGoals = Convert.ToString(item["CouncilGoals"]);
+                                     obitem.CouncilGoalsEN = Convert.ToString(item["CouncilGoalsEN"]);
                                      obitem.CouncilType = Convert.ToString(item["CouncilType"]);
                                      obitem.Department= Convert.ToString(item["Department"]);
                                     obitem.DirectManager = Convert.ToString(item["DirectManager"]);
@@ -428,6 +435,7 @@ namespace MOJ.DataManager
                                      obitem.JoiningConditions= Convert.ToString(item["JoiningConditions"]);
                                      obitem.Designation = Convert.ToString(item["Designation"]);
                                      obitem.Lecturer = Convert.ToString(item["Lecturer"]);
+                                     obitem.LecturerEN = Convert.ToString(item["LecturerEN"]);
                                      obitem.Status = Convert.ToString(item["Status"]);
                                      obitem.CouncilNo = Convert.ToInt32(item["CouncilNo"]);
 
@@ -642,7 +650,10 @@ namespace MOJ.DataManager
                                     itemis.CouncilNo = Convert.ToInt32(Item["CouncilNo"]);
                                     itemis.CouncilTarget = Convert.ToString(Item["CouncilTarget"]);
                                     itemis.CouncilTopic = Convert.ToString(Item["CouncilTopic"]);
-                                    itemis.ADetailedExplanationOfTheCouncil = Convert.ToString(Item["ADetailedExplanationOfTheCouncil"]);
+                                    itemis.CouncilDescription = Convert.ToString(Item["CouncilDescription"]);
+                                    itemis.CouncilDescriptionEN = Convert.ToString(Item["CouncilDescriptionEN"]);
+                                    itemis.CouncilGoals = Convert.ToString(Item["CouncilGoals"]);
+                                    itemis.CouncilGoalsEN = Convert.ToString(Item["CouncilGoalsEN"]);
                                     itemis.CouncilType = Convert.ToString(Item["CouncilType"]);
                                     itemis.Department = Convert.ToString(Item["Department"]);
                                     itemis.Designation = Convert.ToString(Item["Designation"]);
@@ -651,6 +662,7 @@ namespace MOJ.DataManager
                                     itemis.EmployeeNumber = Convert.ToString(Item["EmployeeNumber"]);
                                     itemis.JoiningConditions = Convert.ToString(Item["JoiningConditions"]);
                                     itemis.Lecturer = Convert.ToString(Item["Lecturer"]);
+                                    itemis.LecturerEN = Convert.ToString(Item["LecturerEN"]);
                                     CouncilMembersEntity Citem = new CouncilMembers().GetMemberID(Convert.ToInt32(Item["ID"]), username);
                                     itemis.Status = "join";
                                     itemis.RequestURL = "href='CouncilMembers.aspx?TID=" + Convert.ToInt32(Item["ID"]) + "&Title=" + Convert.ToString(Item["CouncilTopic"]) + "'";
@@ -805,7 +817,10 @@ namespace MOJ.DataManager
                                     itemis.CouncilNo = Convert.ToInt32(Item["CouncilNo"]);
                                     itemis.CouncilTarget = Convert.ToString(Item["CouncilTarget"]);
                                     itemis.CouncilTopic = Convert.ToString(Item["CouncilTopic"]);
-                                    itemis.ADetailedExplanationOfTheCouncil = Convert.ToString(Item["ADetailedExplanationOfTheCouncil"]);
+                                    itemis.CouncilDescription = Convert.ToString(Item["CouncilDescription"]);
+                                    itemis.CouncilDescriptionEN = Convert.ToString(Item["CouncilDescriptionEN"]);
+                                    itemis.CouncilGoals = Convert.ToString(Item["CouncilGoals"]);
+                                    itemis.CouncilGoalsEN = Convert.ToString(Item["CouncilGoalsEN"]);
                                     itemis.CouncilType = Convert.ToString(Item["CouncilType"]);
                                     itemis.Department = Convert.ToString(Item["Department"]);
                                     itemis.Designation = Convert.ToString(Item["Designation"]);
@@ -814,6 +829,7 @@ namespace MOJ.DataManager
                                     itemis.EmployeeNumber = Convert.ToString(Item["EmployeeNumber"]);
                                     itemis.JoiningConditions = Convert.ToString(Item["JoiningConditions"]);
                                     itemis.Lecturer = Convert.ToString(Item["Lecturer"]);
+                                    itemis.LecturerEN = Convert.ToString(Item["LecturerEN"]);
                                     itemis.Status = Convert.ToString(Item["Status"]);
                                     itemis.RequestURL = "HeldCouncilsDetail.aspx?RID=" + Convert.ToInt32(Item["ID"]) ;
 

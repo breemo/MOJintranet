@@ -89,7 +89,34 @@
                                 <div class="illsudiv">
                                     <h6 class="nclvf"><label><asp:Literal runat="server" Text="<%$ Resources:Resource, ADetailedExplanationOfTheCouncil%>" /></label></h6>
                                     <p>
-<asp:Literal ID="ADetailedExplanationOfTheCouncil" runat="server"></asp:Literal></p>
+                                            <asp:Literal ID="ADetailedExplanationOfTheCouncil" runat="server"></asp:Literal></p>
+                                </div>
+                                  <div class="illsudiv">
+                                    <h6 class="nclvf"><label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilGoals%>" /></label></h6>
+                                    <p>
+                                            <asp:Literal ID="CouncilGoals" runat="server"></asp:Literal></p>
+                                </div>
+                                	   <asp:Button Text="<%$ Resources:Resource, AddParticipants%>" CssClass="pollBtna" runat="server" ID="AddParticipants" OnClick="AddParticipants_Click" />
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover table-bordered newtableb newtableb2 ">
+                                                <thead>
+                                                    <tr>
+                                                        <th> <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label></th>
+                                                        <th> <label><asp:Literal runat="server" Text="<%$ Resources:Resource, JobTitle%>" /></label></th>
+                                                        <th> <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Role%>" /></label></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <div  runat="server" id="DivParticipants" >
+
+
+                                                        </div>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>                                   
                                 </div>
                                 
                                 <div class="fileboxs">
@@ -223,7 +250,7 @@
 
                     $('.bs-example-modal-sm').modal('hide');
                 });
-              
+
             });
             $('.datepicker').datepicker({
                 dateFormat: 'dd/mm/yyyy',
@@ -242,7 +269,7 @@
                 scrollbar: true
             });
             function handleChange(ID, radio1) {
-              
+
                 $("#" + ID).val(radio1)
             }
 

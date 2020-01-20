@@ -1455,4 +1455,13 @@
   <data name="ParticipantsHaveBeenAdded" xml:space="preserve">
     <value>Participants have been added</value>
   </data>
+  <data name="AddParticipants" xml:space="preserve">
+    <value>Add Participants </value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="CouncilGoals" xml:space="preserve">
+    <value>Council Goals</value>
+  </data>
 </root>

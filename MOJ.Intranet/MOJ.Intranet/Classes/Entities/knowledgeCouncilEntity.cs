@@ -15,6 +15,7 @@ namespace MOJ.Entities
 
         public string EmployeeName { get; set; }       
         public string Lecturer { get; set; }       
+        public string LecturerEN { get; set; }       
               
        
         public string EmployeeNumber { get; set; }
@@ -29,6 +30,10 @@ namespace MOJ.Entities
         public string CouncilType { get; set; }
         public string RequestURL { get; set; }
         public string ADetailedExplanationOfTheCouncil { get; set; }
+        public string CouncilDescription { get; set; }
+        public string CouncilDescriptionEN { get; set; }
+        public string CouncilGoals { get; set; }
+        public string CouncilGoalsEN { get; set; }
        
                
         public DateTime Created { get; set; }

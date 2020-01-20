@@ -1455,4 +1455,13 @@
   <data name="ParticipantsHaveBeenAdded" xml:space="preserve">
     <value>تمت إضافة المشاركين</value>
   </data>
+  <data name="AddParticipants" xml:space="preserve">
+    <value>أضف مشاركين</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>الدور</value>
+  </data>
+  <data name="CouncilGoals" xml:space="preserve">
+    <value>أهداف المجلس</value>
+  </data>
 </root>

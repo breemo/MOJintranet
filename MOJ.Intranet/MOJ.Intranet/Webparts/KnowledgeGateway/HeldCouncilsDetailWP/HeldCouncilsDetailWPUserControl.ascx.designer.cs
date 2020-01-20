@@ -112,6 +112,33 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
         protected global::System.Web.UI.WebControls.Literal ADetailedExplanationOfTheCouncil;
         
         /// <summary>
+        /// CouncilGoals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal CouncilGoals;
+        
+        /// <summary>
+        /// AddParticipants control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddParticipants;
+        
+        /// <summary>
+        /// DivParticipants control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivParticipants;
+        
+        /// <summary>
         /// AttachmentDiv control.
         /// </summary>
         /// <remarks>

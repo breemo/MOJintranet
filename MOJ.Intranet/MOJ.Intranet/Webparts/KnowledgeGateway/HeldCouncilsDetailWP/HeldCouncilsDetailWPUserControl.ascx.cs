@@ -22,13 +22,29 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
             {
                 if (!string.IsNullOrEmpty(Request.Params["RID"]))
                 {
+                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                    AddParticipants.Enabled = false;
+                    AddParticipants.Visible = false;
                     getExam(Convert.ToInt32(Request.Params["RID"]));
                     knowledgeCouncilEntity item = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
                     CouncilNo.Text = Convert.ToString(item.CouncilNo);
-                    ADetailedExplanationOfTheCouncil.Text = Convert.ToString(item.ADetailedExplanationOfTheCouncil);
+                    if (languageCode == "ar")
+                    {
+                        ADetailedExplanationOfTheCouncil.Text = Convert.ToString(item.CouncilDescription);
+                        Lecturer.Text = Convert.ToString(item.Lecturer);
+                        CouncilGoals.Text = Convert.ToString(item.CouncilGoals);
+                    }
+                    else
+                    {
+                        ADetailedExplanationOfTheCouncil.Text = Convert.ToString(item.CouncilDescriptionEN);
+                        Lecturer.Text = Convert.ToString(item.LecturerEN);
+                        CouncilGoals.Text = Convert.ToString(item.CouncilGoalsEN);
+                    }
+                  
                     CouncilHeldDate.Text = item.CouncilDate.ToString("dd/MM/yyyy");
                     Department.Text = Convert.ToString(item.Department);
-                    Lecturer.Text = Convert.ToString(item.Lecturer);
+                   
 
                     if (!string.IsNullOrEmpty(item.URLAttachments))
                     {
@@ -73,8 +89,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                             AttachmentDiv.Controls.Add(newDiv);
                         }
                     }
-                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
-                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                    
                     string CouncilTypename = new knowledgeCouncil().GetCouncilTypeByid(Convert.ToInt32(item.CouncilType), languageCode);
 
                     CouncilType.Text = CouncilTypename;
@@ -96,9 +111,61 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         DevelopmentProposalsForCouncil.Disabled = true;
                         SubjectCouncilCanBeDone.Disabled = true;
                     }
+                    ParticipantsData();
+
                 }
             }
         }
+        private void ParticipantsData()
+        {
+            try
+            {
+                
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                knowledgeCouncil objKC = new knowledgeCouncil();
+                List<ParticipantsCouncilEntity> ParticipantsData = objKC.GetParticipants(Convert.ToString(Request.Params["RID"]));
+          
+                foreach (ParticipantsCouncilEntity item in ParticipantsData)
+                {
+                    var nameis = "";
+                    var JobTitleis = "";
+                    var Roleis = "";
+                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                    if (languageCode == "ar")
+                    {
+                        nameis = item.Name.ToString();
+                        JobTitleis = item.JobTitle.ToString();
+                        Roleis = item.Role.ToString();
+
+                    }
+                    else
+                    {
+                        nameis = item.NameEN.ToString();
+                        JobTitleis = item.JobTitleEN.ToString();
+                        Roleis = item.RoleEN.ToString();
+
+                    }
+
+
+                    var htmlrow1 = "<td>" + nameis + "<td>" +
+                            "<td>" + JobTitleis + "<td>" +
+                            "<td>" + Roleis + "<td>";                    
+
+                           
+                        System.Web.UI.HtmlControls.HtmlGenericControl newDiv =
+     new System.Web.UI.HtmlControls.HtmlGenericControl("tr");
+                       
+                        newDiv.InnerHtml = htmlrow1;
+                    DivParticipants.Controls.Add(newDiv); 
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
+
         protected void getExam(int CkID)
         {
 
@@ -147,6 +214,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     {
                         btnCreateExam.Enabled = true;
                         btnCreateExam.Visible = true;
+                        AddParticipants.Enabled = true;
+                        AddParticipants.Visible = true;
 
                     }
                 }
@@ -271,6 +340,19 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
             else
             {
                 Response.Redirect("/En/KnowledgeGateway/Pages/CreateExam.aspx?RID="+ Convert.ToString(Request.Params["RID"]));
+            }
+        }
+        protected void AddParticipants_Click(object sender, EventArgs e)
+        {
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                Response.Redirect("/Ar/KnowledgeGateway/Pages/ParticipantsCouncil.aspx?RID=" + Convert.ToString(Request.Params["RID"]));
+            }
+            else
+            {
+                Response.Redirect("/En/KnowledgeGateway/Pages/ParticipantsCouncil.aspx?RID=" + Convert.ToString(Request.Params["RID"]));
             }
         }
         protected void btnsubmitexam_Click(object sender, EventArgs e)
