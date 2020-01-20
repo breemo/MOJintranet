@@ -132,8 +132,62 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP
                     itemSumbit.Title = RecordPrfix;
                     itemSumbit.Designation = EPosition.Value;
                     knowledgeCouncil Ass = new knowledgeCouncil();
-                    bool isSaved = Ass.SaveUpdate(itemSumbit);  
-                    if (isSaved == true)
+                    int knowledgeCouncilID = Ass.SaveUpdate(itemSumbit);
+
+                    SPSecurity.RunWithElevatedPrivileges(delegate ()
+                    {
+
+                        string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                        CouncilMembersEntity CouncilMembersitem = new CouncilMembersEntity();
+                        CouncilMembersitem.knowledgeCouncilID = Convert.ToInt32(knowledgeCouncilID);
+                        string RecordPrfixMember = "";
+                        RecordPrfixMember = "CouncilMembers-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("CouncilMembers");
+                        CouncilMembersitem.Title = RecordPrfixMember;
+                        CouncilMembersitem.CouncilTopic = Convert.ToString(CouncilTopic.Value);
+                        CouncilMembersitem.loginName = currentUserlogin;
+                        CouncilMembersitem.Status = "Approved";
+                        try
+                        {
+                            ImplicitKnowledge objIK = new ImplicitKnowledge();
+                            ImplicitKnowledgeEntity Employment = objIK.GetImplicitKnowledge(currentUserlogin);
+                            if (Employment.ID > 0)
+                            {
+                                CouncilMembersitem.UserName = Employment.Name.ToString();
+                            }
+                            SPSecurity.RunWithElevatedPrivileges(delegate ()
+                            {
+                                using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+                                {
+                                    using (SPWeb web = site.OpenWeb())
+                                    {
+                                        SPUser user = SPContext.Current.Web.CurrentUser;
+                                        SPUser CurrentUser = user;
+                                        var userLoginName = CurrentUser.LoginName;
+                                        SPServiceContext serviceContext = SPServiceContext.GetContext(site);
+                                        var profileManager = new UserProfileManager(serviceContext);
+                                        String[] breakApart = userLoginName.Split('|');
+                                        var accountName = breakApart[1];
+                                        var userProfile = profileManager.GetUserProfile(accountName);
+                                        var Department = userProfile["Department"].Value != null
+                                            ? userProfile["Department"].Value.ToString()
+                                            : "";
+                                        CouncilMembersitem.Department = Department;
+                                    }
+                                }
+                            });
+                        }
+                        catch (Exception ex)
+                        {
+
+                            LoggingService.LogError("WebParts", ex.Message);
+                        }
+
+                        bool isSave = new CouncilMembers().SaveUpdate(CouncilMembersitem);
+
+                    });
+
+
+                    if (knowledgeCouncilID > 0)
                     {
                         lblSuccessMsg.Text = SPUtility.GetLocalizedString("$Resources: successfullyMsg", "Resource", SPContext.Current.Web.Language) + "<br />" + SPUtility.GetLocalizedString("$Resources: YourRequestNumber", "Resource", SPContext.Current.Web.Language) + "<br />" + RecordPrfix;
                         posts.Style.Add("display", "none");

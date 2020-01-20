@@ -137,20 +137,16 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         nameis = item.Name.ToString();
                         JobTitleis = item.JobTitle.ToString();
                         Roleis = item.Role.ToString();
-
                     }
                     else
                     {
                         nameis = item.NameEN.ToString();
                         JobTitleis = item.JobTitleEN.ToString();
                         Roleis = item.RoleEN.ToString();
-
                     }
-
-
-                    var htmlrow1 = "<td>" + nameis + "<td>" +
-                            "<td>" + JobTitleis + "<td>" +
-                            "<td>" + Roleis + "<td>";                    
+                    var htmlrow1 = "<td>" + nameis + "</td>" +
+                            "<td>" + JobTitleis + "</td>" +
+                            "<td>" + Roleis + "</td>";                    
 
                            
                         System.Web.UI.HtmlControls.HtmlGenericControl newDiv =

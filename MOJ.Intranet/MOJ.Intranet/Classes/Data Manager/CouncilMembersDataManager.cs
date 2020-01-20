@@ -44,6 +44,11 @@ namespace MOJ.DataManager
                         item["loginName"] = Item.loginName;
                         item["UserName"] = Item.UserName;
                         item["Department"] = Item.Department;
+                        if (!string.IsNullOrEmpty(Item.Status))
+                        {
+                            item["Status"] = Item.Status;
+                        }
+                       
                         item.Update();
                         isFormSaved = true;
                     }

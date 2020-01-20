@@ -20,7 +20,7 @@ namespace MOJ.Business
         }
 
 
-        public bool SaveUpdate(knowledgeCouncilEntity obj)
+        public int SaveUpdate(knowledgeCouncilEntity obj)
         {
             return new knowledgeCouncilDataManager().AddOrUpdateknowledgeCouncil(obj);
         } 

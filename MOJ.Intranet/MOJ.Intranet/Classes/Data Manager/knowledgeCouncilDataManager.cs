@@ -239,8 +239,9 @@ namespace MOJ.DataManager
 
 
 
-        public bool AddOrUpdateknowledgeCouncil(knowledgeCouncilEntity knowledgeCouncilItem)
+        public int AddOrUpdateknowledgeCouncil(knowledgeCouncilEntity knowledgeCouncilItem)
         {
+            int itemID = 0;
             bool isFormSaved = false;
             bool isUpdate = false;
             //SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -283,7 +284,7 @@ namespace MOJ.DataManager
                         item["Lecturer"] = knowledgeCouncilItem.Lecturer;
                         item["LecturerEN"] = knowledgeCouncilItem.LecturerEN;
                         item.Update();
-
+                         itemID= item.ID;
                         isFormSaved = true;
                     }
                     catch (Exception ex)
@@ -299,7 +300,7 @@ namespace MOJ.DataManager
                 }
             }
             //});
-            return isFormSaved;
+            return itemID;
         }
 
 
