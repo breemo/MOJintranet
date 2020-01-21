@@ -41,26 +41,18 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                     if (languageCode == "ar")
                     {
                         Ename.Value = item.employeeNameArabicField.ToString();
-
                         Edepartment.Value = item.departmentNameField_AR.ToString();
-
                     }
                     else
                     {
                         Ename.Value = item.employeeNameEnglishField.ToString();
-
                         Edepartment.Value = item.employeeNameEnglishField.ToString();
-
                     }
-
-
-
                 }
 
             }
             catch (Exception ex)
             {
-
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
@@ -118,15 +110,15 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                 {
                     Vacation = Vacationobj.GetVacationsTypesCode(Convert.ToInt32(DropDownVacationsTypes.SelectedValue));
                 }
-                bool isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(Enumber.Value, Notes.Value.ToString(), fromdate, todate, Vacation);
-                if (isSavedwebserves == true)
+                string isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(Enumber.Value, Notes.Value.ToString(), fromdate, todate, Vacation);
+                if (isSavedwebserves == "SUCCESS")
                 {
                     itemSumbit.ResponseMsg = "Success";
                     itemSumbit.ResponseMsgAR = "نجح الارسال";
                 }
                 else
                 {
-                    itemSumbit.ResponseMsg = "Error";
+                    itemSumbit.ResponseMsg = isSavedwebserves;
                     itemSumbit.ResponseMsgAR = "فشل الارسال";
 
                 }

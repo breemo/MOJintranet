@@ -17,9 +17,9 @@ namespace MOJ.DataManager
         //True – For Success
         //False - For Error
 
-        public bool LetterRequestRequest(string EmployeeNumber, string CountryCode, string LetterType, string RequestType, string SpeechLanguage, string OrganizationType, string TheSpeechDirectedTo)
+        public string LetterRequestRequest(string EmployeeNumber, string CountryCode, string LetterType, string RequestType, string SpeechLanguage, string OrganizationType, string TheSpeechDirectedTo)
         {
-            bool responseMsg = false;
+            string responseMsg = "";
             try
             {                var client = new RestClient(ConfigurationManager.AppSettings["LetterRequestRequest"].ToString());
                 var request = new RestRequest(Method.POST);
@@ -68,8 +68,8 @@ namespace MOJ.DataManager
                         //((System.Xml.XmlElement)((System.Xml.XmlElement)node).NextSibling).InnerText
 
                        string AcceptedValues=  node.LastChild.InnerText;
-                        if (AcceptedValues == "SUCCESS")
-                            responseMsg = true;
+                       // if (AcceptedValues == "SUCCESS")
+                            responseMsg = AcceptedValues;
                     }
                 }
 

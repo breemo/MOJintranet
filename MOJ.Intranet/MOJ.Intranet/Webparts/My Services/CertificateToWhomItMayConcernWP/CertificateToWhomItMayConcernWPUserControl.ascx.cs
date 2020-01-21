@@ -153,15 +153,15 @@ namespace MOJ.Intranet.Webparts.My_Services.CertificateToWhomItMayConcernWP
                 {
                     CTravelCountry = GetCODE.GetTravelCountryCode(Convert.ToInt32(DropDownTravelCountry.SelectedValue));
                 }
-                bool isSavedwebserves  = Letter.LetterRequestRequest(Enumber.Value, CTravelCountry, CSpeechType, CRequestType, CSpeechLanguage, COrganizationType, TheSpeechDirectedTo.Value);
-                if (isSavedwebserves == true)
+                string isSavedwebserves  = Letter.LetterRequestRequest(Enumber.Value, CTravelCountry, CSpeechType, CRequestType, CSpeechLanguage, COrganizationType, TheSpeechDirectedTo.Value);
+                if (isSavedwebserves == "SUCCESS")
                 {
                     itemSumbit.ResponseMsg = "Success";
                     itemSumbit.ResponseMsgAR = "نجح الارسال";
                 }
                 else
                 {
-                    itemSumbit.ResponseMsg = "Error";
+                    itemSumbit.ResponseMsg = isSavedwebserves;
                     itemSumbit.ResponseMsgAR = "فشل الارسال";
 
                 }
