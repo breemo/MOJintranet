@@ -1467,4 +1467,7 @@
   <data name="Attachments" xml:space="preserve">
     <value>المرفقات</value>
   </data>
+  <data name="knowledgeInstitutional" xml:space="preserve">
+    <value>المعرفة المؤسسية</value>
+  </data>
 </root>

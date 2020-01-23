@@ -52,6 +52,9 @@ function setTab3()
     .active {
         background-color: #e9ecef;
     }
+    .boxleftbor {
+    padding: 0px !important;
+}
 </style>
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
@@ -59,7 +62,7 @@ function setTab3()
 
 <div class="boxsh">
     <h3>
-        <asp:Literal runat="server" Text="<%$ Resources:Resource, OrgSubject%>" /></h3>
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, knowledgeInstitutional%>" /></h3>
 
 
     <div class="insidebox insidebox2">
