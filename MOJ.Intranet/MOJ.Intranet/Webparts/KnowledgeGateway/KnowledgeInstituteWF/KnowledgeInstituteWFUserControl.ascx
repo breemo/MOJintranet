@@ -7,336 +7,437 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="KnowledgeInstituteWFUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.KnowledgeGateway.KnowledgeInstituteWF.KnowledgeInstituteWFUserControl" %>
 
-<!-- #page-title end -->
-        <!-- Content
-        ============================================= -->
-        <section id="content">
-            <div class="content-wrap">
-                <div class="">
-                    <!-- Post Content
-                    ============================================= -->
-                    <div class="">
-                        <div class="">
-                            <h4>
-                               <label><asp:Literal runat="server" Text="<%$ Resources:Resource, KnowledgeInstitue%>" /></label>
-                            </h4>
-                            <div id="posts" class="small-thumbs alt">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="boxitemdiv">
-                                            <div class="imvbo">
-                                                <img src="/SiteAssets/picon1.png" class="img-fluid" />
-                                            </div>
-                                            <h6>
-										 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchForAWay%>" /></label>
-                                            </h6>
-                                            <div class="srachbic">
-                                                <div class="main">
-                                                    <!-- Actual search box -->
-                                                    <div class="form-group has-search">
-                                                        <span class="icon-line-search smicon"></span>
-                                                        <input type="text" class="form-control" placeholder="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="button" class="bgicb" value="Search">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="boxitemdiv">
-                                            <div class="imvbo">
 
-                                                <img src="/SiteAssets/picon2.png" class="img-fluid" />
-                                            </div>
-                                            <h6>
-                                               <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchADepartment%>" /></label>
-                                            </h6>
-                                            <div class="srachbic">
-                                                <div class="main">
-												<!-- Actual search box -->
-                                                    <div class="form-group has-search">
-                                                        <span class="icon-line-search smicon"></span>
-                                                        <input type="text" class="form-control" placeholder="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="button" class="bgicb" value="Search">
-											</div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="boxitemdiv">
-                                            <div class="imvbo">
-                                                <img src="/SiteAssets/picon3.png" class="img-fluid" />
-                                            </div>
-                                            <h6>
-                                              <label><asp:Literal runat="server" Text="<%$ Resources:Resource, SearchForWorkPlace%>" /></label>
-                                            </h6>
-                                            <div class="srachbic">
-                                                <div class="main">
-                                                    <!-- Actual search box -->
-                                                    <div class="form-group has-search">
-                                                        <span class="icon-line-search smicon"></span>
-                                                        <input type="text" class="form-control" placeholder="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="button" class="bgicb" value="Search">
+<%-- -<script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>-%>
+<%--<script language="javascript" type="text/javascript">  
+    function showModalPopUp() {
+        //Set options for Modal PopUp  
+        var options = {
+            url: '/Ar/Pages/AddEmployeeNumber.aspx?IsDlg=1', //Set the url of the page  
+            title: 'Enter Employee Number', //Set the title for the pop up  
+            allowMaximize: false,
+            showClose: true,
+            width: 600,
+            height: 400
+        };
+        //Invoke the modal dialog by passing in the options array variable  
+        SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
+        return false;
+
+    } 
+</script>--%>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            var tabId = document.getElementById('Tab').value;
+			window.history.pushState(null, null, "#" + tabId);
+        });
+</script>
+<script type="text/javascript">
+function setTab1()
+{
+    document.getElementById('Tab').value = "tab-responsive-1";
+}
+function setTab2()
+{
+    document.getElementById('Tab').value = "tab-responsive-2";
+}
+function setTab3()
+{
+    document.getElementById('Tab').value = "tab-responsive-3";
+}
+</script>
+
+<style>
+    .active {
+        background-color: #e9ecef;
+    }
+</style>
+
+<asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
+<asp:HiddenField ClientIDMode="Static" ID="Tab" runat="server" />
+
+<div class="boxsh">
+    <h3>
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, OrgSubject%>" /></h3>
+
+
+    <div class="insidebox insidebox2">
+
+
+        <div class="tabs tabs-responsive clearfix fullwidthtabs fullwidthtabs2">
+
+            <ul class="tab-nav  clearfix">
+                <li>
+                    <a href="#tab-responsive-1" aria-controls="tab-responsive-1" onclick="setTab1();">
+                        <span class="nameicon">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByName%>" />
+                        </span>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#tab-responsive-2" aria-controls="tab-responsive-2" onclick="setTab2();">
+                        <span class="depicon">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByDept%>" />
+                        </span>
+
+
+                    </a>
+                </li>
+                <li>
+                    <a href="#tab-responsive-3" aria-controls="tab-responsive-3" onclick="setTab3();">
+                        <span class="woho">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, SearchByPlace%>" />
+                        </span>
+
+
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-container">
+
+                <div class="tab-content clearfix" id="tab-responsive-1">
+
+                    <div class="inskdnew inskdnew2">
+                        <div class="inskdnew">
+
+                            <div class="row rt">
+
+                                <div class="col-md-10 col-sm-12">
+
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-6 col-sm-12">
+
+                                            <input type="text" class="form-control" value="" runat="server" id="txtNameSearch" placeholder="<%$ Resources:Resource, PrimaryWordsName%>">
                                         </div>
+
+                                        <div class="col-md-2">
+                                            <%--<button class="detailbtn">بحث</button>--%>
+                                            <asp:Button ID="btnNameSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWordsName%>" OnClick="btnNameSearch_Click" />
+                                        </div>
+
                                     </div>
+
+
+
+
                                 </div>
-                                <div class="Institution-knowledge">
-                                    <div class="content">
-                                        <figure class="org-chart cf">
-                                            <div class="board">
-                                                <ul class="columnOne ">
-                                                    <li>
-                                                        <span class="lvl-b NEWCL">
-                                                            <strong>
-                                                            <a style="color: white;" href="#">
-                                                               <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Minister%>" /></label>
-                                                            </a>
-                                                            </strong>
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                                <ul class="columnTwo DAHSED2">
-                                                    <li>
-                                                        <span>
-                                                            <strong>
-                                                                <a href="#">
-                                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CourtsAndProsecutors%>" /></label>
-                                                                </a>                                                            
-                                                            </strong>
-                                                        </span>
-                                                    </li>
-                                                    <li>
-                                                        <span>
-                                                            <strong>
-                                                                <a href="#">
-                                                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Consultants%>" /></label>
-                                                                </a>
-                                                            </strong>
-                                                        </span>
-                                                    </li>
-                                                </ul>                                                
-                                                <ul class="columnTwo ">
-                                                    <li>
-                                                        <span>
-                                                            <strong>
-                                                                <a href="#">
-                                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, InternalAudit%>" /></label>
-                                                                </a>
-                                                            </strong>
-                                                        </span>
-                                                    </li>
-                                                    <li>
-                                                        <span>
-                                                            <strong>
-                                                                <a href="#">
-                                                                      <label><asp:Literal runat="server" Text="<%$ Resources:Resource, MinistersOffice%>" /></label>
-                                                                </a>
-                                                            </strong>
-                                                        </span>                                           
-                                                    </li>
-                                                </ul>
-                                                <div class="board2">
-                                                    <ul class="columnTwo BOBED">
-                                                        <li class="BORDRNOD">
-                                                        </li>
-                                                        <li class="NEFVV">
-                                                            <span>
-                                                                <strong>
-                                                                    <a href="#">
-                                                                         <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CoordinationAndFollowUpUnit%>" /></label>
-                                                                    </a>
-                                                                </strong>
-                                                            </span>
-															</li>
-                                                    </ul>
-                                                </div>                                                    
-                                                    <ul class="columnTwo">
-                                                        <li>
-                                                            <span>
-                                                                <strong>
-                                                                    <a href="#">
-                                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, StrategyAndFutureManagement%>" /></label>
-                                                                    </a>
-                                                                </strong>                                                            
-                                                            </span>
-                                                        </li>
-                                                        <li>
-                                                            <span>
-                                                                <strong>
-                                                                    <a href="#">
-                                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, JudicialEvacuationDepartment%>" /></label>
-                                                                    </a>
-                                                                </strong>
-                                                            </span>
-                                                        </li>
-                                                    </ul>
-                                                    <ul class="columnTwo">
-                                                        <li>
-                                                            <span>
-                                                                <strong>
-                                                                    <a href="#">
-                                                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, GovernmentCommunicationDepartment%>" /></label>
-                                                                    </a>
-                                                                </strong>                                                           
-                                                            </span>
-                                                        </li>
-                                                        <li>
-                                                            <span>
-                                                                <strong>
-                                                                    <a href="#">
-                                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ForensicMedicineDepartment%>" /></label>
-                                                                    </a>
-                                                                </strong>
-                                                            </span>
-                                                        </li>
-														</ul>
-                                                    <ul class="columnOne">
-                                                        <li>
-                                                            <span class="lvl-b">
-                                                                <strong>
-                                                                    <a href="#">
-                                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Undersecretary%>" /></label>
-                                                                    </a>
-                                                                </strong>  
-                                                            </span>
-                                                        </li>
-                                                    </ul>
-                                                    <ul class="columnTwo">
-                                                        <li>
-                                                            <span>
-                                                                <strong>
-                                                                    <a href="#">
-                                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, OfficeOfTheUndersecretary%>" /></label>
-                                                                    </a>
-                                                                </strong>
-                                                            </span>
-                                                        </li>
-                                                        <li>
-                                                            <span>
-                                                                <strong>
-                                                                    <a href="#">
-                                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, JudicialTrainingInstitute%>" /></label>
-                                                                    </a>
-                                                                </strong>
-                                                            </span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            <ul class="departments ">
-                                                <li class="department "> 
-                                                        <div class="NEWXCI">
-                                                            <span class="lvl-b insidechrt">
-                                                                <strong>
-                                                                    <a href="#">
-                                                                        <label><asp:Literal runat="server" Text="<%$ Resources:Resource, AssistantUndersecretaryForTechnicalAffairsAndInternationalCooperation%>" /></label>
-                                                                    </a>
-                                                                </strong>
-                                                            </span>
-                                                        </div>
-                                                    <ul class="sections">
-                                                        <li class="section">
-                                                            <span>
-                                                                <strong>
-                                                                    <a href="#">
-                                                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, AdministrationOfWelfareOfMinorsAndAbsentees%>" /></label>
-                                                                    </a>
-                                                                </strong>
-                                                            </span>
-                                                        </li>
-                                                        <li class="section">
-                                                            <span>
-                                                                <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, LawyersAndTranslatorsAffairsDepartment%>" /></label></strong>
-                                                            </span>
-                                                        </li>
-                                                        <li class="section">
-                                                            <span>
-                                                               <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, TechnicalExpertsAffairsDepartment%>" /></label></strong>                                                              
-                                                            </span>
-                                                        </li>
-                                                        <li class="section">
-                                                            <span>
-                                                               <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, NotaryAdministrationAndRatifications%>" /></label></strong>                                                                 
-                                                            </span>
-                                                        </li>
-                                                        <li class="section">
-                                                            <span>
-                                                                <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, InternationalCooperationDepartment%>" /></label></strong>                                                             
-                                                            </span>
-                                                        </li>                                                 
-                                                    </ul>
-                                                </li>
-                                                <li class="department central">
-                                                    <div class="NEWXCI">
-                                                        <span class="lvl-b insidechrt">                                                           
-                                                            <strong>
-                                                                <a href="#">
-																<label><asp:Literal runat="server" Text="<%$ Resources:Resource, AssistantUndersecretaryForFatwaAndLegislationAffairs%>" /></label>                                                              
-															  </a>
-                                                            </strong>
-                                                        </span>
-                                                    </div>
-                                                    <ul class="sections">
-                                                        <li class="section">
-                                                            <span>
-                                                                <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, FatwaAndLegislationDepartment%>" /></label></strong>                                                                
-                                                            </span>
-                                                        </li>
-                                                        <li class="section">
-                                                            <span>
-                                                                <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, DepartmentOfStateIssues%>" /></label></strong>                                                              
-                                                            </span>
-                                                        </li>
-                                                        <li class="section">
-                                                            <span>
-                                                                <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, ResearchAndStudiesDepartment%>" /></label></strong>    
-                                                            </span>
-                                                        </li>                                                        
-                                                    </ul>
-                                                </li>
-                                                <li class="department ">
-                                                                   <div class="NEWXCI">
-                                                        <span class="lvl-b insidechrt">
-                                                                <strong>
-                                                                    <a href="#">
-                                                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, AssistantUndersecretaryForSupportServicesAffairs%>" /></label>   
-                                                                    </a>
-                                                                </strong>
-                                                        </span>
-                                                    </div>                                          
-                                                    <ul class="sections">
-                                                        <li class="section">
-                                                            <span>
-                                                                <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, HumanResourceManagement%>" /></label></strong>                                                                
-                                                            </span>
-                                                        </li>
-                                                        <li class="section">
-                                                            <span>
-                                                                 <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, FinancialResourcesAndProcurementManagement%>" /></label></strong>  
-                                                            </span>
-                                                        </li>
-                                                        <li class="section">
-                                                            <span>
-                                                                  <strong><label><asp:Literal runat="server" Text="<%$ Resources:Resource, InformationTechnologyDepartment%>" /></label></strong>  
-                                                            </span>
-                                                        </li>
-                                                        
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </figure>
-                                    </div>
+                                <div class="col-md-2">
                                 </div>
-                            </div><!-- #posts end -->
+                            </div>
                         </div>
-                    </div><!-- .postcontent end -->
-                    <!-- Sidebar
-                    ============================================= -->
-                    
+
+
+                    </div>
+
+
                 </div>
+                <div class="tab-content clearfix" id="tab-responsive-2">
+                    <div class="inskdnew inskdnew2">
+                        <div class="inskdnew">
+
+                            <div class="row rt">
+
+                                <div class="col-md-10 col-sm-12">
+
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-6 col-sm-12">
+
+                                            <%--<input type="text" class="form-control" value="" runat="server" id="txtDepartmentSearch" placeholder="<%$ Resources:Resource, PrimaryWordsDept%>">--%>
+                                       
+                                             <asp:DropDownList ID="DropDownDepartment" runat="server" class="form-control">
+																</asp:DropDownList>
+
+
+                                            </div>
+
+                                        <div class="col-md-2">
+                                            <%--<button class="detailbtn">بحث</button>--%>
+                                            <asp:Button ID="btnDepartmentSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWordsDept%>" OnClick="btnDepartmentSearch_Click" />
+                                        
+
+
+                                        
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="tab-content clearfix" id="tab-responsive-3">
+                    <div class="inskdnew inskdnew2">
+                        <div class="inskdnew">
+
+                            <div class="row rt">
+
+                                <div class="col-md-10 col-sm-12">
+
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-6 col-sm-12">
+                                            <input type="text" class="form-control" value="" runat="server" id="txtOffileLocation" placeholder="<%$ Resources:Resource, PrimaryWordsWorkPlace%>">
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <%--<button class="detailbtn">بحث</button>--%>
+                                            <asp:Button ID="btnOfficeLocationSearch" CssClass="detailbtn" Text="<%$ Resources:Resource, Search%>" runat="server" placeholder="<%$ Resources:Resource, PrimaryWordsWorkPlace%>" OnClick="btnOfficeLocationSearch_Click" />
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-md-2">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
             </div>
-          
-        </section><!-- #content end -->     
+
+        </div>
+
+        	 <div runat="server"  class="DepartmentsDescription" id="DepartmentsDescription"> </div>
+
+        <div class="ndl row">
+
+            <asp:Repeater ID="grdPoeplelsts" runat="server">
+                <HeaderTemplate>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <div class="col-md-4 col-sm-12 ">
+
+                        <div class="bgdivindf">
+
+                            <div class="titleheadnew">
+                                <h4>
+                                    <asp:Literal runat="server" Text="<%$ Resources:Resource, BusinessECard%>" /></h4>
+                            </div>
+
+                            <div class="conentbgdivd">
+
+                                <div class="row">
+                                    <div class="col-sm-12 jdivd">
+
+                                        <div class="mtopc">
+                                            <img src="/Style%20Library/MOJTheme/images/icons/avatar.jpg" class="img-fluid" />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="dininfo">
+
+                                        <table>
+
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" />
+                                                    </p>
+                                                </td>
+                                                <td>
+
+                                                    <span class="nnamele">
+                                                        <%# Eval("AccountName") %>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" />
+                                                    </p>
+                                                </td>
+                                                <td>
+
+
+
+                                                    <span class="nnamele">
+                                                        <%# Eval("Department") %>
+                                                    </span>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, JobTitle%>" />
+                                                    </p>
+                                                </td>
+                                                <td>
+
+                                                    <span class="nnamele">
+                                                        <%# Eval("JobTitle") %>
+                                                    </span>
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, Email%>" />
+                                                    </p>
+                                                </td>
+                                                <td>
+
+                                                    <span class="nnamele">
+                                                        <%# Eval("WorkEmail") %>
+                                                    </span>
+
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td>
+                                                    <p class="rmae">
+                                                        <asp:Literal runat="server" Text="<%$ Resources:Resource, WorkPhone%>" />
+                                                    </p>
+                                                </td>
+                                                <td>
+
+                                                    <span class="nnamele">
+                                                        <%# Eval("OfficeNumber") %>
+                                                    </span>
+
+                                                </td>
+                                            </tr>
+                                        </table>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </ItemTemplate>
+                <FooterTemplate>
+                    <tr id="trEmpty" runat="server" visible="false">
+                        <td>
+                            <br />
+                        </td>
+                        <td colspan="3" align="center">
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, EmptyData%>" />
+                        </td>
+                    </tr>
+                </FooterTemplate>
+            </asp:Repeater>
+
+
+
+
+        </div>
+        <div class="pagi">
+            <ul class="pagination" id="PaginUI" runat="server">
+                <li class="page-item" style="display:inline-flex">
+                    <%--<a class="page-link pageright" href="#">--%>
+                    <asp:LinkButton ID="lbFirst" CssClass="page-link pageright" runat="server" OnClick="lbFirst_Click">
+                                <i class="icon-angle-right"></i>
+                                <i class="icon-angle-right"></i>
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
+                                <i class="icon-angle-right"></i>
+                    </asp:LinkButton>
+                    <%--</a>--%>
+                </li>
+
+
+
+                <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+                    <ItemTemplate>
+
+                        <li class="page-item">
+
+                            <asp:LinkButton ID="btnPage"
+                                CssClass="page-link"
+                                CommandName="Page" CommandArgument="<%# Container.DataItem %>"
+                                runat="server" ForeColor="White" Font-Bold="True">
+                                         <%# Container.DataItem %> </asp:LinkButton>
+
+                        </li>
+
+
+
+
+
+                    </ItemTemplate>
+                </asp:Repeater>
+
+
+                <li class="page-item" style="display:inline-flex">
+                    <%--<a class="page-link pageleft" href="#">--%>
+                     
+                    <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
+                                <i class="icon-angle-left"></i>
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lbLast" CssClass="page-link pageleft" runat="server" OnClick="lbLast_Click">
+                                <i class="icon-angle-left"></i>
+                                <i class="icon-angle-left"></i>
+                    </asp:LinkButton>
+                    <%--</a>--%>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+</div>
+
+
+<script>
+
+var valuepage=  document.getElementById('hdnPage').value;
+ $(".pagination a").each(function(){
+if($(this).text()== valuepage) 
+  $(this).addClass("active");
+    });
+
+</script>
+
+
+
+

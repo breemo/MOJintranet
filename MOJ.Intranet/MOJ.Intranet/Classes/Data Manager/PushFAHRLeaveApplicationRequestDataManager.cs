@@ -17,7 +17,7 @@ namespace MOJ.DataManager
         //True – For Success
         //False - For Error
 
-        public string PushFAHRLeaveApplicationRequest(string EmployeeNumber, string LeaveReason, string FromDate, string ToDate, string AbsenceType)
+        public string PushFAHRLeaveApplicationRequest(string EmployeeNumber, string LeaveReason, string FromDate, string ToDate, string AbsenceType, string fileName, string fileType,byte[] fileContents)
         {
             string responseMsg = "";
             try
@@ -28,10 +28,27 @@ namespace MOJ.DataManager
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("content-type", "text/xml");
                 var ExitPermitReason = "<ExitPermitReason></ExitPermitReason>";
+                var Attachis = "<Attach>\r\n" +
+                     "<FileName></FileName>\r\n" +
+                     "<FileType></FileType>\r\n" +
+                     "<File></File>\r\n" +
+                    "</Attach>\r\n";
                 if (AbsenceType== "17292")
                 {
                     ExitPermitReason = "<ExitPermitReason>"+ LeaveReason + "</ExitPermitReason>";
                 }
+                if (fileName != "")
+                {
+                    //String imageAsString = Base64.encodeToString(fileContents, Base64.DEFAULT);
+                    String imageAsString = System.Convert.ToBase64String(fileContents);
+                    Attachis = "<Attach>\r\n" +
+                     "<FileName>"+ fileName + "</FileName>\r\n" +
+                     "<FileType>"+ fileType + "</FileType>\r\n" +
+                     "<File>"+ imageAsString + "</File>\r\n" +
+                    "</Attach>\r\n";
+                }
+
+
                 request.AddParameter("text/xml", "" +
                     "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:fah=\"http://esb.bayanati.gov.ae/services/FAHRLeaveService/\">\r\n   " +
                     "<soapenv:Header>\r\n "+
@@ -57,18 +74,14 @@ namespace MOJ.DataManager
                     "\r\n" +
                     "<Comments>" + LeaveReason + "</Comments>\r\n" +
                     "<Notes></Notes>\r\n" +
-                    "<SickLeaveReason></SickLeaveReason>\r\n" +
-                    "<IssuiingAuthority></IssuiingAuthority>\r\n" +
+                    "<SickLeaveReason>"+ LeaveReason + "</SickLeaveReason>\r\n" +
+                    "<IssuiingAuthority>MOJ</IssuiingAuthority>\r\n" +
                     "<ChildBirthDate></ChildBirthDate>\r\n" +
                     "<ChildPlaceOfBirth></ChildPlaceOfBirth>\r\n" +
                     "<Language>US</Language>\r\n" +
                     "<AdvanceRequest></AdvanceRequest>\r\n" +
                     "<Attachments>\r\n" +
-                     "<Attach>\r\n" +
-                      "<FileName></FileName>\r\n" +
-                      "<FileType></FileType>\r\n" +
-                      "<File></File>\r\n" +
-                     "</Attach>\r\n" +
+                   Attachis+
                     "</Attachments>\r\n" +
                     " </EAIBody>\r\n" +
                     "</fah:PushFAHRLeaveApplicationRequest>\r\n" +

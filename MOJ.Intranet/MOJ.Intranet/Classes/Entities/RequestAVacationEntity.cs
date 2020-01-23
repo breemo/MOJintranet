@@ -21,6 +21,9 @@ namespace MOJ.Entities
         public string Comments { get; set; }
         public string SubstituteEmployee { get; set; }
         public string VacationType { get; set; }
+        public string fileName { get; set; }
+        public byte[] fileContents { get; set; }
+       
 
 
         public SPFieldUserValue CreatedBy { get; set; }

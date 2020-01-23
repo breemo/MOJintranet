@@ -1464,4 +1464,7 @@
   <data name="CouncilGoals" xml:space="preserve">
     <value>أهداف المجلس</value>
   </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
 </root>

@@ -48,7 +48,11 @@ namespace MOJ.DataManager
                         item["Comments"] = Item.Comments;
                         item["SubstituteEmployee"] = Item.SubstituteEmployee;
                         item["VacationType"] = Item.VacationType;
-
+                        if(Item.fileName!=""&& Item.fileName != null)
+                        {
+                            SPAttachmentCollection attachments = item.Attachments;
+                            attachments.Add(Item.fileName, Item.fileContents);
+                        }
                         item.Update();
                       
                         isFormSaved = true;

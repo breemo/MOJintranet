@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -104,26 +105,53 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                 string fromdate = Date.ToString("yyy-MM-dd");
                 string todate = Date2.ToString("yyy-MM-dd");
                 string Vacation = "";
-                RequestAVacation Vacationobj = new RequestAVacation();      
-               
+                string fileType = "";
+                string fileName = "";
+                byte[] fileContents=null;
+                RequestAVacation Vacationobj = new RequestAVacation();
+                if (FileUploadControl.HasFile)
+                {
+                    Stream fs = FileUploadControl.PostedFile.InputStream;
+                    fileContents = new byte[fs.Length];
+                    fs.Read(fileContents, 0, (int)fs.Length);
+                    fs.Close();
+                     fileName = "File_" + Path.GetFileName(FileUploadControl.PostedFile.FileName);
+                    string  fileType1 =  Path.GetFileName(FileUploadControl.FileName);
+                    string[] fileTypearr = fileType1.Split('.');
+                    fileType = fileTypearr[1];
+                    itemSumbit.fileName = fileName;
+                    itemSumbit.fileContents = fileContents;                    
+                }
+
                 if (!string.IsNullOrEmpty(DropDownVacationsTypes.SelectedValue.ToString()))
                 {
                     Vacation = Vacationobj.GetVacationsTypesCode(Convert.ToInt32(DropDownVacationsTypes.SelectedValue));
                 }
-                string isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(Enumber.Value, Notes.Value.ToString(), fromdate, todate, Vacation);
+                string isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(
+                    Enumber.Value, Notes.Value.ToString(), fromdate, todate, Vacation, fileName, fileType, fileContents);
+                bool isSaved = false;
                 if (isSavedwebserves == "SUCCESS")
                 {
                     itemSumbit.ResponseMsg = "Success";
                     itemSumbit.ResponseMsgAR = "نجح الارسال";
+                    RequestAVacation rb = new RequestAVacation();
+
+                     isSaved = rb.SaveUpdate(itemSumbit);
                 }
                 else
                 {
                     itemSumbit.ResponseMsg = isSavedwebserves;
                     itemSumbit.ResponseMsgAR = "فشل الارسال";
+                    if (isSavedwebserves=="HR absence cannot be zero")
+                    {
+                        MSG.InnerText = "** " + isSavedwebserves  + " : holiday " + " **";
+                    }
+                    else
+                    {
+                        MSG.InnerText = "** " + isSavedwebserves + " **";
+                    }                 
 
-                }
-                RequestAVacation rb = new RequestAVacation();
-                bool isSaved =  rb.SaveUpdate(itemSumbit);
+                }                
                 if (isSaved == true)
                 {
 

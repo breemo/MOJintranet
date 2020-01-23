@@ -16,9 +16,9 @@ namespace MOJ.DataManager
         //True – For Success
         //False - For Error
 
-        public bool ReturnFromLeaveService(string EmployeeNumber, string LeaveReason)
+        public string ReturnFromLeaveService(string EmployeeNumber, string LeaveReason ,string ResumeDate)
         {
-            bool responseMsg = false;
+            string responseMsg = "";
             try
             {
                 var client = new RestClient(ConfigurationManager.AppSettings["ReturnFromLeaveService"].ToString());
@@ -39,7 +39,7 @@ namespace MOJ.DataManager
                     "<Language>US</Language>\r\n" +
                     "<EmployeeID>" + EmployeeNumber + "</EmployeeID>\r\n" +
                     "<AbsenceID>15326386</AbsenceID>\r\n" +
-                    "<ResumeDate>2019-01-25</ResumeDate>\r\n" +
+                    "<ResumeDate>" + ResumeDate + "</ResumeDate>\r\n" +
                     "<Reason>" + LeaveReason + "</Reason>\r\n" +
                     "<XAttribute>\r\n" +
                     "<Attribute1></Attribute1>\r\n" +
@@ -55,20 +55,18 @@ namespace MOJ.DataManager
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.Load(new StringReader(content));
-                    string xmlPathPattern = "//ResponseDate";
+                    string xmlPathPattern = "//ReplyMessage";
 
                     XmlNodeList myNodeList = xmlDoc.SelectNodes(xmlPathPattern);
                     foreach (XmlNode node in myNodeList)
                     {
                         //((System.Xml.XmlElement)((System.Xml.XmlElement)node).NextSibling).InnerText
-
-                        XmlNode Accepted = node.NextSibling;
-                        string AcceptedValues = Accepted.InnerText;
-                        if (AcceptedValues == "True")
-                            responseMsg = true;
+                        string AcceptedValues = node.LastChild.InnerText;
+                        //if (AcceptedValues == "SUCCESS")
+                        responseMsg = AcceptedValues;
                     }
-                }
 
+                }
             }
             catch (Exception ex)
             {

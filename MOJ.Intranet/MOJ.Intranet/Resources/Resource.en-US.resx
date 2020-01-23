@@ -1464,4 +1464,7 @@
   <data name="CouncilGoals" xml:space="preserve">
     <value>Council Goals</value>
   </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>Attachments</value>
+  </data>
 </root>

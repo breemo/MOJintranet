@@ -164,6 +164,31 @@
 								</div>						
                            </div>
                 </div>   			
+            </div>  
+			   <div class="row rt">
+                <div class="col-md-12">
+                     <div class="row">
+								<div class="col-md-2">
+									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, Attachments%>" /></label>
+								</div>
+								<div class="col-md-9  ">
+									     
+                                    <asp:FileUpload ID="FileUploadControl" runat="server" />
+								</div>						
+                           </div>
+                </div>   			
+            </div> 
+			   <div class="row rt">
+                <div class="col-md-12">
+                     <div class="row">
+								<div class="col-md-2">
+								</div>
+								<div class="col-md-9  ">
+									     
+                                   <div runat="server" style="color:red;" class="MSG" id="MSG"> </div>
+								</div>						
+                           </div>
+                </div>   			
             </div>   	
 			
 			

@@ -95,22 +95,24 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnToDutyNoticeMembersOfTheTudici
                 ReturnToDutyNoticeMembersOfTheJudiciaryEntity itemSumbit = new ReturnToDutyNoticeMembersOfTheJudiciaryEntity();
                 itemSumbit.RequestNumber = RecordPrfix;
                 itemSumbit.DayID = DropDownDay.SelectedValue.ToString();
-
+                DateTime Date2 = new DateTime();
                 if (!string.IsNullOrEmpty(Date.Value))
                 {
                     DateTime sDate = DateTime.ParseExact(Date.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-
+                    Date2 = sDate;
                     itemSumbit.date = sDate;
                 }
+                string ResumeDate = Date2.ToString("yyy-MM-dd");
                 ReturnFromLeaveServiceDataManager RLeave = new ReturnFromLeaveServiceDataManager();
-                bool isSavedwebserves = RLeave.ReturnFromLeaveService(Enumber.Value, "");
-                if (isSavedwebserves == true) { 
-                itemSumbit.ResponseMsg = "Success";
+                string isSavedwebserves = RLeave.ReturnFromLeaveService(Enumber.Value, "", ResumeDate);
+                if (isSavedwebserves == "SUCCESS")
+                {
+                    itemSumbit.ResponseMsg = "Success";
                 itemSumbit.ResponseMsgAR = "نجح الارسال";
                 }
                 else
                 {
-                    itemSumbit.ResponseMsg = "Error";
+                    itemSumbit.ResponseMsg = isSavedwebserves;
                     itemSumbit.ResponseMsgAR = "فشل الارسال";
 
                 }
