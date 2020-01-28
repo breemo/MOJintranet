@@ -30,7 +30,7 @@
         </ul>
 
         <div class="tab-container">
-              <div id="Edata"           style="display: none;">
+              <div id="Edata">
                     <div class="row rt">
                         <div class="col-md-6">
                             <div class="row">
