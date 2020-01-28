@@ -14,6 +14,13 @@ namespace MOJ.Business
         public DataTable GetVacationsTypes()
         {
             return new VacationsTypesDataManager().GetAll();
+        } public DataTable GetExitPermitReason()
+        {
+            return new ExitPermitReasonDataManager().GetAll();
+        }
+        public string GetTitleExitPermitReason(int id)
+        {
+            return new ExitPermitReasonDataManager().GetTitle(id);
         }
         public string GetVacationsTypesCode(int id)
         {

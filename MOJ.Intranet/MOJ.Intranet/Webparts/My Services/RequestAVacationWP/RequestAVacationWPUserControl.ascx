@@ -72,8 +72,11 @@
 								<div class="col-md-2">
                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, VacationsTypes%>" /></label>
                                 </div>
-                                <div class="col-md-4">                                                        
-                                    <asp:DropDownList ID="DropDownVacationsTypes" runat="server" class="form-control">
+                                <div class="col-md-4">  				
+
+
+								
+                                    <asp:DropDownList ID="DropDownVacationsTypes" AutoPostBack="true" OnSelectedIndexChanged="VacationsTypes_Change"  runat="server" class="form-control">
 									</asp:DropDownList>
 																		<asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server" 
 									ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="DropDownVacationsTypes" Display="Dynamic" >
@@ -150,6 +153,73 @@
                            </div>
 					</div> 				
             </div> 
+
+ <div class="row rt" runat="server" id="Father" style="display: none;">
+                <div class="col-md-12">
+                     <div class="row">
+								<div class="col-md-2">
+									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, DateOfBirthOfTheChild%>" /></label>
+								</div>
+								<div class="col-md-4  " >
+									<div id="DateBirthOfTheChild"  class="input-group date" data-provide="datepicker">
+										<input autocomplete="off"  type="text" runat="server" id="DateOfBirthOfTheChild" class="form-control">
+										<div class="input-group-addon">
+											<span class="icon-calendar-alt1"></span>
+										</div>
+									</div>
+								
+								</div>								
+								<div class="col-md-2">
+									<label><asp:Literal runat="server" Text="<%$ Resources:Resource, PlaceOfBirthOfTheChild%>" /></label>
+								</div>
+								<div class="col-md-4  ">
+									  <input type="text"  name="PlaceOfBirthOfTheChild" runat="server" id="PlaceOfBirthOfTheChild" class="form-control" placeholder="">    
+								
+								</div>
+                           </div>
+                </div>  
+                </div>  
+				
+				
+				 <div class="row rt" runat="server" id="permission" style="display: none;">
+                <div class="col-md-12 ">
+                  <div class="row">
+				  <div class="col-md-2">
+                                      <label><asp:Literal runat="server" Text="<%$ Resources:Resource, StartTime%>" /></label>
+                                </div>
+                                <div class="col-md-4">                                                     
+                                  <input type="text"  name="StartTime" runat="server" id="StartTime" class="form-control" placeholder="11:00">    
+									                          
+							  </div>
+							  <div class="col-md-2">
+                                      <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EndTime%>" /></label>
+                                </div>
+                                <div class="col-md-4">                                                     
+                                  <input type="text"  name="EndTime" runat="server" id="EndTime" class="form-control" placeholder="13:00">    
+									                          
+							  </div>
+                                
+								  							
+                 </div>
+				  <div class="row">			
+								<div class="col-md-2">
+                                      <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TypeofPermission%>" /></label>
+                                </div>
+                                <div class="col-md-4">
+                                    <asp:DropDownList ID="DropDownTypeofPermission"   runat="server" class="form-control">
+									</asp:DropDownList>
+                                </div>	  							
+                 </div>
+                </div>
+				</div>   
+				
+				
+				
+				
+				
+				
+				
+				
 			   <div class="row rt">
                 <div class="col-md-12">
                      <div class="row">
@@ -222,10 +292,10 @@
 
     function isGreaterThanDateTime() {
         if (new Date($("#toDate input").val()) >= new Date($("#toFrom input").val())) {
-            $('#isGreaterThanDateTime input').val("Done");           
+            $('#isGreaterThanDateTime input').val("Done");
         } else {
 
             $('#isGreaterThanDateTime input').val("dateerror");
         }
-		} 
+    } 
 </script>

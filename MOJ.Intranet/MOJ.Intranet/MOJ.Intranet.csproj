@@ -133,6 +133,7 @@
     <Compile Include="Classes\Data Manager\SpeechLanguageDataManager.cs" />
     <Compile Include="Classes\Data Manager\SpeechTypeDataManager.cs" />
     <Compile Include="Classes\Data Manager\RequestAVacationDataManger.cs" />
+    <Compile Include="Classes\Data Manager\ExitPermitReasonDataManager.cs" />
     <Compile Include="Classes\Data Manager\VacationsTypesDataManager.cs" />
     <Compile Include="Classes\Data Manager\DepartmentsDataManager.cs" />
     <Compile Include="Classes\Data Manager\AskAnExpertDataManager.cs" />

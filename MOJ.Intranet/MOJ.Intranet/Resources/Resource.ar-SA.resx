@@ -1470,4 +1470,19 @@
   <data name="knowledgeInstitutional" xml:space="preserve">
     <value>المعرفة المؤسسية</value>
   </data>
+  <data name="DateOfBirthOfTheChild" xml:space="preserve">
+    <value>تاريخ ميلاد الطفل</value>
+  </data>
+  <data name="PlaceOfBirthOfTheChild" xml:space="preserve">
+    <value>محل ميلاد الطفل</value>
+  </data>
+  <data name="EndTime" xml:space="preserve">
+    <value>وقت النهاية</value>
+  </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>وقت البداية</value>
+  </data>
+  <data name="TypeofPermission" xml:space="preserve">
+    <value>نوع الاستئذان</value>
+  </data>
 </root>

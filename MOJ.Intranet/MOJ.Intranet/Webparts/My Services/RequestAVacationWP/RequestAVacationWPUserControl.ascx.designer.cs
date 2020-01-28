@@ -139,6 +139,69 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorDateofbirth;
         
         /// <summary>
+        /// Father control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Father;
+        
+        /// <summary>
+        /// DateOfBirthOfTheChild control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText DateOfBirthOfTheChild;
+        
+        /// <summary>
+        /// PlaceOfBirthOfTheChild control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText PlaceOfBirthOfTheChild;
+        
+        /// <summary>
+        /// permission control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl permission;
+        
+        /// <summary>
+        /// StartTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText StartTime;
+        
+        /// <summary>
+        /// EndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EndTime;
+        
+        /// <summary>
+        /// DropDownTypeofPermission control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownTypeofPermission;
+        
+        /// <summary>
         /// Notes control.
         /// </summary>
         /// <remarks>

@@ -17,25 +17,38 @@ namespace MOJ.DataManager
         //True – For Success
         //False - For Error
 
-        public string PushFAHRLeaveApplicationRequest(string EmployeeNumber, string LeaveReason, string FromDate, string ToDate, string AbsenceType, string fileName, string fileType,byte[] fileContents)
+        public string PushFAHRLeaveApplicationRequest(string EmployeeNumber, string LeaveReason,
+            string FromDate, string ToDate, string AbsenceType, string fileName,
+            string fileType,byte[] fileContents,string BirthOfTheChild,string PlaceOfBirthOfTheChild
+           ,string TitleExitPermitReason, string StartTime, string EndTime
+            )
         {
             string responseMsg = "";
             try
             {
-
-
                 var client = new RestClient(ConfigurationManager.AppSettings["FAHRLeaveService"].ToString());
                 var request = new RestRequest(Method.POST);
-                request.AddHeader("content-type", "text/xml");
-                var ExitPermitReason = "<ExitPermitReason></ExitPermitReason>";
+                request.AddHeader("content-type", "text/xml");               
                 var Attachis = "<Attach>\r\n" +
                      "<FileName></FileName>\r\n" +
                      "<FileType></FileType>\r\n" +
                      "<File></File>\r\n" +
                     "</Attach>\r\n";
-                if (AbsenceType== "17292")
+                var BirthChild = "<ChildBirthDate></ChildBirthDate>\r\n";
+                var PlaceChild = "<ChildPlaceOfBirth> </ChildPlaceOfBirth>\r\n";              
+                if (AbsenceType == "17278")
                 {
-                    ExitPermitReason = "<ExitPermitReason>"+ LeaveReason + "</ExitPermitReason>";
+                    BirthChild = "<ChildBirthDate>" + BirthOfTheChild + "</ChildBirthDate>\r\n";
+                    PlaceChild = "<ChildPlaceOfBirth>" + PlaceOfBirthOfTheChild + "</ChildPlaceOfBirth>\r\n";
+                }
+                var TimeStartV = "<TimeStart></TimeStart>\r\n";
+                var TimeEndV = "<TimeEnd></TimeEnd>\r\n";
+                var ExitPermitReason = "<ExitPermitReason></ExitPermitReason>\r\n";
+                if (AbsenceType == "17292")
+                {
+                    TimeStartV = "<TimeStart>" + StartTime + "</TimeStart>\r\n";
+                    TimeEndV= "<TimeEnd>" + EndTime + "</TimeEnd>\r\n";
+                    ExitPermitReason = "<ExitPermitReason>" + TitleExitPermitReason + "</ExitPermitReason>\r\n";
                 }
                 if (fileName != "")
                 {
@@ -47,8 +60,6 @@ namespace MOJ.DataManager
                      "<File>"+ imageAsString + "</File>\r\n" +
                     "</Attach>\r\n";
                 }
-
-
                 request.AddParameter("text/xml", "" +
                     "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:fah=\"http://esb.bayanati.gov.ae/services/FAHRLeaveService/\">\r\n   " +
                     "<soapenv:Header>\r\n "+
@@ -66,9 +77,9 @@ namespace MOJ.DataManager
                     "<EmployeeeID>" + EmployeeNumber + "</EmployeeeID>\r\n" +
                     "<AbsenceType>"+ AbsenceType + "</AbsenceType>\r\n" +
                     "<FromDate>" + FromDate + "</FromDate>\r\n" +
-                    "<TimeStart></TimeStart>\r\n" +
+                    TimeStartV +
                     "<ToDate>" + ToDate + "</ToDate>\r\n" +
-                    "<TimeEnd></TimeEnd>\r\n" +
+                    TimeEndV +
                     "<ReplacementPerID></ReplacementPerID>\r\n" +
                     ExitPermitReason+
                     "\r\n" +
@@ -76,8 +87,8 @@ namespace MOJ.DataManager
                     "<Notes></Notes>\r\n" +
                     "<SickLeaveReason>"+ LeaveReason + "</SickLeaveReason>\r\n" +
                     "<IssuiingAuthority>MOJ</IssuiingAuthority>\r\n" +
-                    "<ChildBirthDate></ChildBirthDate>\r\n" +
-                    "<ChildPlaceOfBirth></ChildPlaceOfBirth>\r\n" +
+                    BirthChild +
+                    PlaceChild +
                     "<Language>US</Language>\r\n" +
                     "<AdvanceRequest></AdvanceRequest>\r\n" +
                     "<Attachments>\r\n" +

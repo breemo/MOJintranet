@@ -25,9 +25,33 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
             {
                 currentUserData();
                 GetDropDownVacationsTypes();
+                GetDropDownExitPermitReason();
             }
         }
+        protected void VacationsTypes_Change(object sender, EventArgs e)
+        {
+            Father.Style.Add("display", "none");
+            permission.Style.Add("display", "none");
 
+
+
+            string Vacation = "";
+            if (!string.IsNullOrEmpty(DropDownVacationsTypes.SelectedValue.ToString()))
+            {
+                RequestAVacation Vacationobj = new RequestAVacation();
+                Vacation = Vacationobj.GetVacationsTypesCode(Convert.ToInt32(DropDownVacationsTypes.SelectedValue));
+            }
+            if (Vacation == "17278")
+            {
+                Father.Style.Add("display", "block");
+            }
+            if (Vacation == "17292")
+            {
+                permission.Style.Add("display", "block");
+            }
+
+
+        }
         private void currentUserData()
         {
             try
@@ -76,6 +100,24 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
 
             DropDownVacationsTypes.DataBind();
         }
+        private void GetDropDownExitPermitReason()
+        {
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            DataTable dataC = new RequestAVacation().GetExitPermitReason();
+            DropDownTypeofPermission.DataSource = dataC;
+            DropDownTypeofPermission.DataValueField = "ID";
+            if (languageCode == "ar")
+            {
+                DropDownTypeofPermission.DataTextField = "Title";
+            }
+            else
+            {
+                DropDownTypeofPermission.DataTextField = "TitleEN";
+            }
+
+            DropDownTypeofPermission.DataBind();
+        }
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             if (!_isRefresh)
@@ -87,6 +129,9 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                 itemSumbit.VacationType = DropDownVacationsTypes.SelectedValue.ToString();
                 itemSumbit.SubstituteEmployee = AlternateEmployee.Value.ToString();
                 itemSumbit.Comments = Notes.Value.ToString();
+                itemSumbit.ChildPlaceOfBirth = PlaceOfBirthOfTheChild.Value.ToString();
+                itemSumbit.StartTime = StartTime.Value.ToString();
+                itemSumbit.EndTime = EndTime.Value.ToString();
                 DateTime Date = new DateTime();
                 if (!string.IsNullOrEmpty(from.Value))
                 {
@@ -101,12 +146,22 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                     Date2 = sDate2;
                     itemSumbit.ToDate = Date2;
                 }
+                string BirthOfTheChild = "";
+                DateTime Date3 = new DateTime();
+                if (!string.IsNullOrEmpty(DateOfBirthOfTheChild.Value))
+                {
+                    DateTime sDate3 = DateTime.ParseExact(DateOfBirthOfTheChild.Value.ToString(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                    Date3 = sDate3;
+                    itemSumbit.ChildBirthDate = Date3;
+                     BirthOfTheChild = Date3.ToString("dd-MM-yyyy");
+                }
                 PushFAHRLeaveApplicationRequestDataManager PushLeave = new PushFAHRLeaveApplicationRequestDataManager();
                 string fromdate = Date.ToString("yyy-MM-dd");
                 string todate = Date2.ToString("yyy-MM-dd");
                 string Vacation = "";
                 string fileType = "";
                 string fileName = "";
+                string TitleExitPermitReason = "";
                 byte[] fileContents=null;
                 RequestAVacation Vacationobj = new RequestAVacation();
                 if (FileUploadControl.HasFile)
@@ -126,9 +181,27 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                 if (!string.IsNullOrEmpty(DropDownVacationsTypes.SelectedValue.ToString()))
                 {
                     Vacation = Vacationobj.GetVacationsTypesCode(Convert.ToInt32(DropDownVacationsTypes.SelectedValue));
+                    itemSumbit.code = Vacation;
                 }
-                string isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(
-                    Enumber.Value, Notes.Value.ToString(), fromdate, todate, Vacation, fileName, fileType, fileContents);
+                if (!string.IsNullOrEmpty(DropDownTypeofPermission.SelectedValue.ToString())  && Vacation== "17292")
+                {
+                    TitleExitPermitReason = Vacationobj.GetTitleExitPermitReason(Convert.ToInt32(DropDownTypeofPermission.SelectedValue));
+                    itemSumbit.TitleExitPermitReason = DropDownTypeofPermission.SelectedValue;
+                }
+                string isSavedwebserves = "";
+                if ((string.IsNullOrEmpty(EndTime.Value) || string.IsNullOrEmpty(StartTime.Value)) && Vacation == "17292")
+                {
+                    isSavedwebserves = "Please enter the time in the 24 hour format   HH:MM ";
+                }
+                else
+                {
+                    isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(
+                       Enumber.Value, Notes.Value.ToString(), fromdate, todate, Vacation,
+                       fileName, fileType, fileContents, BirthOfTheChild, PlaceOfBirthOfTheChild.Value,
+                       TitleExitPermitReason, StartTime.Value, EndTime.Value
+
+                       );
+                }
                 bool isSaved = false;
                 if (isSavedwebserves == "SUCCESS")
                 {

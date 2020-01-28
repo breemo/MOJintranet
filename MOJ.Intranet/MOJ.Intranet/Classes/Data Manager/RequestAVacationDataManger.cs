@@ -48,6 +48,19 @@ namespace MOJ.DataManager
                         item["Comments"] = Item.Comments;
                         item["SubstituteEmployee"] = Item.SubstituteEmployee;
                         item["VacationType"] = Item.VacationType;
+                       
+                        if (Item.code == "17278")
+                        {
+                            item["ChildBirthDate"] = Item.ChildBirthDate;
+                            item["ChildPlaceOfBirth"] = Item.ChildPlaceOfBirth;
+                            
+                        } if (Item.code == "17292")
+                        {
+                            item["TimeEnd"] = Item.StartTime;
+                            item["TimeStart"] = Item.EndTime;
+                            item["ExitPermitReason"] = Item.TitleExitPermitReason;
+                        }
+                       
                         if(Item.fileName!=""&& Item.fileName != null)
                         {
                             SPAttachmentCollection attachments = item.Attachments;
