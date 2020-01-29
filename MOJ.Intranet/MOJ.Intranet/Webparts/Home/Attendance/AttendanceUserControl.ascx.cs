@@ -50,7 +50,7 @@ namespace MOJ.Intranet.Webparts.Home.Attendance
 
                     //exit permit
                     string exitPermitLeaveBalance = LeaveB.ExitPermitBalance(EmployeeNumber);
-                    if (LeaveBalance != "")
+                    if (exitPermitLeaveBalance != "")
                     {
                         float NumberOfPermitLeave = float.Parse(exitPermitLeaveBalance);
                         float PermitBalanceNumber = NumberOfPermitLeave / 100;
@@ -58,13 +58,10 @@ namespace MOJ.Intranet.Webparts.Home.Attendance
                     }
                     else
                         PermitLeaveBalanceValue.Value = "0.0";
-
                 }
-
             }
             catch (Exception ex)
             {
-
             }
         }
     }

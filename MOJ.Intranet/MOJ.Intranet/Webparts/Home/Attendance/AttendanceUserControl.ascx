@@ -77,8 +77,8 @@
 
         var bgColor = '#fff';
         var Leave = LeaveBalanceValue.value;
-        var SickLeave = LeaveBalanceValue.value;
-        var PermitLeave = LeaveBalanceValue.value;
+        var SickLeave = SickLeaveBalanceValue.value;
+        var PermitLeave = PermitLeaveBalanceValue.value;
 
 
         //alert(Leave);
