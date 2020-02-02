@@ -1468,7 +1468,7 @@
     <value>Attachments</value>
   </data>
   <data name="knowledgeInstitutional" xml:space="preserve">
-    <value>knowledge Institutional</value>
+    <value>Institution knowledge</value>
   </data>
   <data name="DateOfBirthOfTheChild" xml:space="preserve">
     <value>Date of birth of the child</value>
@@ -1484,5 +1484,8 @@
   </data>
   <data name="TypeofPermission" xml:space="preserve">
     <value>Type of Permission</value>
+  </data>
+  <data name="TheGrantingOfTheSickLeaveCertificate" xml:space="preserve">
+    <value>The granting of the sick leave certificate</value>
   </data>
 </root>

@@ -202,6 +202,24 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP {
         protected global::System.Web.UI.WebControls.DropDownList DropDownTypeofPermission;
         
         /// <summary>
+        /// sick control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sick;
+        
+        /// <summary>
+        /// IssuingAuthority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText IssuingAuthority;
+        
+        /// <summary>
         /// Notes control.
         /// </summary>
         /// <remarks>

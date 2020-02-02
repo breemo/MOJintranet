@@ -19,6 +19,7 @@ namespace MOJ.Entities
         public string ResponseMsgAR { get; set; }
         public string ChildPlaceOfBirth { get; set; }
         public string ExitPermitReason { get; set; }
+        public string IssuingAuthority { get; set; }
         public string code { get; set; }
         public string TitleExitPermitReason { get; set; }
         public string StartTime { get; set; }

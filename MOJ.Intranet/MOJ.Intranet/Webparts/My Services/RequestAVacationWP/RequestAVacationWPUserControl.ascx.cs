@@ -32,6 +32,7 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
         {
             Father.Style.Add("display", "none");
             permission.Style.Add("display", "none");
+            sick.Style.Add("display", "none");
 
 
 
@@ -48,6 +49,10 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
             if (Vacation == "17292")
             {
                 permission.Style.Add("display", "block");
+            }
+            if (Vacation == "17279"|| Vacation == "17280")
+            {
+                sick.Style.Add("display", "block");
             }
 
 
@@ -132,6 +137,7 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                 itemSumbit.ChildPlaceOfBirth = PlaceOfBirthOfTheChild.Value.ToString();
                 itemSumbit.StartTime = StartTime.Value.ToString();
                 itemSumbit.EndTime = EndTime.Value.ToString();
+                itemSumbit.IssuingAuthority = IssuingAuthority.Value.ToString();
                 DateTime Date = new DateTime();
                 if (!string.IsNullOrEmpty(from.Value))
                 {
@@ -198,7 +204,7 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                     isSavedwebserves = PushLeave.PushFAHRLeaveApplicationRequest(
                        Enumber.Value, Notes.Value.ToString(), fromdate, todate, Vacation,
                        fileName, fileType, fileContents, BirthOfTheChild, PlaceOfBirthOfTheChild.Value,
-                       TitleExitPermitReason, StartTime.Value, EndTime.Value
+                       TitleExitPermitReason, StartTime.Value, EndTime.Value, IssuingAuthority.Value
 
                        );
                 }

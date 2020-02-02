@@ -1485,4 +1485,7 @@
   <data name="TypeofPermission" xml:space="preserve">
     <value>نوع الاستئذان</value>
   </data>
+  <data name="TheGrantingOfTheSickLeaveCertificate" xml:space="preserve">
+    <value>منح شهادة الإجازة المرضية</value>
+  </data>
 </root>

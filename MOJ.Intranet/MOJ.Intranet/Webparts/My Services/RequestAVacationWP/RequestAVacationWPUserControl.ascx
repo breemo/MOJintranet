@@ -213,13 +213,19 @@
                 </div>
 				</div>   
 				
-				
-				
-				
-				
-				
-				
-				
+				 <div class="row rt" runat="server" id="sick" style="display: none;">
+                <div class="col-md-12 ">
+                  <div class="row">
+				  <div class="col-md-2">
+                          <label><asp:Literal runat="server" Text="<%$ Resources:Resource, TheGrantingOfTheSickLeaveCertificate%>" /></label>
+                     </div>
+                       <div class="col-md-4">                                                     
+                        <input type="text"  name="IssuingAuthority" runat="server" id="IssuingAuthority" class="form-control" placeholder="">    
+					        
+					 </div>							
+                 </div>
+                </div>
+				</div>
 			   <div class="row rt">
                 <div class="col-md-12">
                      <div class="row">

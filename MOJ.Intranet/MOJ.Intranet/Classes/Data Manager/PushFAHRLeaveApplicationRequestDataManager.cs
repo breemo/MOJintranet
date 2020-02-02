@@ -20,7 +20,7 @@ namespace MOJ.DataManager
         public string PushFAHRLeaveApplicationRequest(string EmployeeNumber, string LeaveReason,
             string FromDate, string ToDate, string AbsenceType, string fileName,
             string fileType,byte[] fileContents,string BirthOfTheChild,string PlaceOfBirthOfTheChild
-           ,string TitleExitPermitReason, string StartTime, string EndTime
+           ,string TitleExitPermitReason, string StartTime, string EndTime, string IssuingAuthority
             )
         {
             string responseMsg = "";
@@ -49,6 +49,11 @@ namespace MOJ.DataManager
                     TimeStartV = "<TimeStart>" + StartTime + "</TimeStart>\r\n";
                     TimeEndV= "<TimeEnd>" + EndTime + "</TimeEnd>\r\n";
                     ExitPermitReason = "<ExitPermitReason>" + TitleExitPermitReason + "</ExitPermitReason>\r\n";
+                }
+                var IssuingAuthorityV = "<IssuiingAuthority></IssuiingAuthority>\r\n";
+                if (AbsenceType == "17279"|| AbsenceType == "17280")
+                {
+                    IssuingAuthorityV = "<IssuiingAuthority>" + IssuingAuthority + "</IssuiingAuthority>\r\n";
                 }
                 if (fileName != "")
                 {
@@ -86,7 +91,7 @@ namespace MOJ.DataManager
                     "<Comments>" + LeaveReason + "</Comments>\r\n" +
                     "<Notes></Notes>\r\n" +
                     "<SickLeaveReason>"+ LeaveReason + "</SickLeaveReason>\r\n" +
-                    "<IssuiingAuthority>MOJ</IssuiingAuthority>\r\n" +
+                    IssuingAuthorityV+
                     BirthChild +
                     PlaceChild +
                     "<Language>US</Language>\r\n" +
