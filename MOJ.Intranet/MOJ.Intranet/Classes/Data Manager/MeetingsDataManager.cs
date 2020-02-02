@@ -28,20 +28,32 @@ namespace MOJ.DataManager
                                 SPList lstMeetings = oWeb.GetListFromUrl(oWeb.Url + SharedConstants.MeetingsListUrl);
                                 if (lstMeetings != null)
                                 {
-                                    SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.MeetingsQuery;
-                                    oQuery.ViewFields = SharedConstants.MeetingsViewfields;
+                                    SPContext currentContext;
+                                    currentContext = SPContext.Current;
+                                    string uName = currentContext.Web.CurrentUser.Name;
 
-                                    oQuery.RowLimit = 2;
+                                    SPQuery oQuery = new SPQuery();
+                                    //oQuery.Query = @"
+                                    //   <Where>
+                                    //      <Eq>
+                                    //         <FieldRef Name='Author' />
+                                    //         <Value Type='User'> " + uName + @" </Value>
+                                    //      </Eq>
+                                    //   </Where>
+                                    //    <OrderBy>
+                                    //       <FieldRef Name='Created' Ascending='False' />
+                                    //    </OrderBy>";
+
+                                    oQuery.Query = SharedConstants.MeetingsQuery;
+
+                                    //oQuery.ViewFields = SharedConstants.MeetingsViewfields;
+                                    //oQuery.RowLimit = 2;
 
                                     SPListItemCollection lstItems = lstMeetings.GetItems(oQuery);
 
                                     string userName = "";
                                     string CurrentUser = "";
                                     string CurrentUserWithoutDot = "";
-                                    SPContext currentContext;
-                                    currentContext = SPContext.Current;
-
 
                                     if (currentContext != null && currentContext.Web.CurrentUser != null)
                                     {
@@ -49,20 +61,24 @@ namespace MOJ.DataManager
                                         CurrentUserWithoutDot = userName.Contains(".") ? userName.Replace(".", null).ToLower() : userName.ToLower();
                                     }
 
+                                    int currentItem = 0;
 
                                     foreach (SPListItem lstItem in lstItems)
                                     {
                                         CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
                                         if (CurrentUser == CurrentUserWithoutDot)
                                         {
-                                            MeetingsEntity Meeting = new MeetingsEntity();
-                                            Meeting.Title = Convert.ToString(lstItem[SharedConstants.Title]);
-                                            Meeting.StartTime = Convert.ToDateTime(lstItem["Start Time"]);
-                                            Meeting.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
+                                            if (currentItem < 2)
+                                            {
+                                                MeetingsEntity Meeting = new MeetingsEntity();
+                                                Meeting.Title = Convert.ToString(lstItem[SharedConstants.Title]);
+                                                Meeting.StartTime = Convert.ToDateTime(lstItem["Start Time"]);
+                                                Meeting.ID = Convert.ToInt16(lstItem[SharedConstants.ID]);
 
-                                            MeetingsLst.Add(Meeting);
+                                                MeetingsLst.Add(Meeting);
+                                                currentItem++;
+                                            }
                                         }
-
                                     }
                                 }
                             }

@@ -31,7 +31,7 @@ namespace MOJ.Intranet.Webparts.Home.Attendance
                     if (LeaveBalance != "")
                     {
                         float NumberOfLeave = float.Parse(LeaveBalance);
-                        float BalanceNumber = NumberOfLeave;// / 100;
+                        float BalanceNumber = NumberOfLeave / 100;
                         LeaveBalanceValue.Value = BalanceNumber.ToString();
                     }
                     else
@@ -42,7 +42,7 @@ namespace MOJ.Intranet.Webparts.Home.Attendance
                     if (sickLeaveBalance != "")
                     {
                         float NumberOfSickLeave = float.Parse(sickLeaveBalance);
-                        float BalanceNumberSickLeaves = NumberOfSickLeave;// / 100;
+                        float BalanceNumberSickLeaves = NumberOfSickLeave / 100;
                         SickLeaveBalanceValue.Value = BalanceNumberSickLeaves.ToString();
                     }
                     else
@@ -53,7 +53,7 @@ namespace MOJ.Intranet.Webparts.Home.Attendance
                     if (exitPermitLeaveBalance != "")
                     {
                         float NumberOfPermitLeave = float.Parse(exitPermitLeaveBalance);
-                        float PermitBalanceNumber = NumberOfPermitLeave;// / 100;
+                        float PermitBalanceNumber = NumberOfPermitLeave / 100;
                         PermitLeaveBalanceValue.Value = PermitBalanceNumber.ToString();
                     }
                     else
