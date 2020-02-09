@@ -412,7 +412,7 @@
                 <div class="col-md-6">
                 </div>
             </div>
-
+     <hr />
     <div class="row rt">
                 <div class="col-md-12">
                      <div class="row">

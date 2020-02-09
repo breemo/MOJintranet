@@ -610,6 +610,16 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage("RelationshipType", AffirmationSocial.RelationshipType);
             addtopage("ChangeReason", AffirmationSocial.ChangeReason);
             addtopage("ChangeDate", Convert.ToDateTime(AffirmationSocial.ChangeDate).ToString("dd MMM yyyy"));
+
+           
+
+            if(!string.IsNullOrEmpty(AffirmationSocial.AttachmentUrl))
+            {
+                AllData.Text += "<hr>";
+                //--------------------------------------
+                string AttachmentUrlHTL = "<a href='/_layouts/15/download.aspx?SourceUrl="+ AffirmationSocial.AttachmentUrl + "' class='secicon'> <span class='icon-download'></span></a>";
+                addtopage("Attachments", AttachmentUrlHTL);
+            }
             return AffirmationSocial.Status;
         }
         public string GetRoomBookingData(string RequestID)

@@ -106,6 +106,7 @@ namespace MOJ.DataManager
                                     obitem.Status = Convert.ToString(Item["Status"]);
                                     obitem.Created = Convert.ToDateTime(Item["Created"]);
                                     obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+                                    obitem.AttachmentUrl = GetAttachmentUrls(Item);
                                 }
                             }
                         }
@@ -119,6 +120,27 @@ namespace MOJ.DataManager
             return obitem;
         }
 
+
+        private string GetAttachmentUrls(SPListItem oItem)
+        {
+
+            string path = string.Empty;
+
+            try
+
+            {
+
+                path = (from string file in oItem.Attachments
+                        orderby file
+                        select SPUrlUtility.CombineUrl(oItem.Attachments.UrlPrefix, file)).FirstOrDefault();
+                return path;
+            }
+            catch
+            {
+                return string.Empty;
+            }
+
+        }
 
     }
 }
