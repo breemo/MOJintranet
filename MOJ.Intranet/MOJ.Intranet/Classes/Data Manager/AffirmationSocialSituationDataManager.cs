@@ -52,6 +52,11 @@ namespace MOJ.DataManager
                             item["ChangeReason"] = HostingRequestItem.ChangeReason;
                             item["HusbandORWife"] = HostingRequestItem.HusbandORWife;                            
                             item["Title"] = HostingRequestItem.RequestNumber;
+                         if(HostingRequestItem.fileName!=""&& HostingRequestItem.fileName != null)
+                        {
+                            SPAttachmentCollection attachments = item.Attachments;
+                            attachments.Add(HostingRequestItem.fileName, HostingRequestItem.fileContents);
+                        }
                             item.Update();
                            
                             isFormSaved = true;

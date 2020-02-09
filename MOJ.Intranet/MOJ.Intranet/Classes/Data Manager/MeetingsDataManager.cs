@@ -29,7 +29,18 @@ namespace MOJ.DataManager
                                 if (lstMeetings != null)
                                 {
                                     SPQuery oQuery = new SPQuery();
-                                    oQuery.Query = SharedConstants.MeetingsQuery;
+                                    oQuery.Query = @"
+                                       <Where>
+                                          <Eq>
+                                             <FieldRef Name='Author' />
+                                             <Value Type='User'> "+ currentContext.Web.CurrentUser.Name + @" </Value>
+                                          </Eq>
+                                       </Where>
+                                       <OrderBy>
+                                          <FieldRef Name='Created' Ascending='False' />
+                                       </OrderBy>";
+
+                                    //oQuery.Query = SharedConstants.MeetingsQuery;
                                     oQuery.ViewFields = SharedConstants.MeetingsViewfields;
 
                                     oQuery.RowLimit = 2;

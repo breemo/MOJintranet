@@ -12,6 +12,7 @@ using Microsoft.SharePoint.Utilities;
 using System.Collections.Generic;
 using System.Threading;
 using MOJ.Intranet.Classes.Common;
+using System.IO;
 
 namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
 {
@@ -146,6 +147,24 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation
                     itemSumbit.Name = txtName.Value;
                     itemSumbit.RelationshipType = RelationshipType.Value;
                     itemSumbit.RequestNumber = RecordPrfix;
+
+                    string fileName = "";
+                    string fileType = "";
+                    byte[] fileContents = null;
+                  
+                    if (FileUploadControl.HasFile)
+                    {
+                        Stream fs = FileUploadControl.PostedFile.InputStream;
+                        fileContents = new byte[fs.Length];
+                        fs.Read(fileContents, 0, (int)fs.Length);
+                        fs.Close();
+                        fileName = "File_" + Path.GetFileName(FileUploadControl.PostedFile.FileName);
+                        string fileType1 = Path.GetFileName(FileUploadControl.FileName);
+                        string[] fileTypearr = fileType1.Split('.');
+                        fileType = fileTypearr[1];
+                        itemSumbit.fileName = fileName;
+                        itemSumbit.fileContents = fileContents;
+                    }
 
                     AffirmationSocialSituationB Ass = new AffirmationSocialSituationB();
                     bool isSaved = Ass.SaveUpdate(itemSumbit);
