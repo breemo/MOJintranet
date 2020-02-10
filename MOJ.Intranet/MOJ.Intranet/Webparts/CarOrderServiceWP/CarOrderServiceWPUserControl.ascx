@@ -100,13 +100,12 @@
                     <h5>
                         <asp:Literal runat="server" Text="<%$ Resources:Resource, Carwith%>" />
                     </h5>
-                    <div class="CheckBoxThim">                      
-                        <asp:CheckBoxList required ID="cbTravelNeeds" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
-                            <asp:ListItem Text="<%$ Resources:Resource, WithDriver%>" Value="WithDriver" />
-                            <asp:ListItem Text="<%$ Resources:Resource, WithoutDriver%>" Value="WithoutDriver" />
-                            <asp:ListItem Text="<%$ Resources:Resource, insideAbuDhabi%>" Value="InsideAbuDhabi" />
-                            <asp:ListItem Text="<%$ Resources:Resource, outsideAbuDhabi%>" Value="OutSideAbuDhabi" />
-                        </asp:CheckBoxList>
+                    <div class="RadiB">                    
+                      
+                        <asp:RadioButtonList required ID="cbTravelNeedsR" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
+                                    
+                         
+                        </asp:RadioButtonList>
                     </div>
                 </div>
             </div>
@@ -276,6 +275,11 @@
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 <script>
     $(document).ready(function () {
+       
+
+            $(".RadiB label").addClass("radio-button-click-target");
+            $(".RadiB input").addClass("radio-button");
+
         $(".CheckBoxThim label").addClass("checkbox-click-target");
         $(".CheckBoxThim input").addClass("checkbox");
         $('.CheckBoxThim label').each(function () {
@@ -329,5 +333,8 @@
 }
 div#dynamicInput div {
     margin-top: 14px;
+}
+.RadiB table {
+    margin-bottom: 0px;
 }
 </style>

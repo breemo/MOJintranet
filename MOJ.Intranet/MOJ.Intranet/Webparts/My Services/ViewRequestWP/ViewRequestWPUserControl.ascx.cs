@@ -470,7 +470,14 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             CarOrderServiceEntity caritem = new CarOrderServiceBL().GetCarOrderServiceByID(Convert.ToInt32(RequestID));
             addtopage("RequestNumber", caritem.RequestNumber, "RequestDate", caritem.Created.ToString("dd MMM yyyy"), "title");
             UserData(Convert.ToString(caritem.CreatedBy.User.LoginName));
-            addtopage("Carwith", caritem.TravelNeeds);
+            string TravelNeed = "";
+            if (!string.IsNullOrEmpty(caritem.TravelNeeds))
+            {
+                TravelNeed = SPUtility.GetLocalizedString("$Resources: " + caritem.TravelNeeds, "Resource", SPContext.Current.Web.Language);
+            }
+            addtopage("Carwith", TravelNeed);
+
+
             addtopage("GoingTo", caritem.TravelTo);
             addtopage("PassengerName", caritem.NameOfPassengers);
             addtopage("TravelReason", caritem.TravelReason, "CarPlace", caritem.CarPlace);
@@ -499,9 +506,21 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 }
                 if (string.IsNullOrEmpty(OutcomeWf))                
                     OutcomeWf = "Pending";
-                string Answer  = item.AnswerBy.LookupValue;
-                if (string.IsNullOrEmpty(item.AnswerBy.LookupValue))
-                    Answer = item.AssignedToOneUserValue.LookupValue;
+               string Answer  = item.AnswerBy.LookupValue;  
+                    if (string.IsNullOrEmpty(item.AnswerBy.LookupValue))
+                    {
+                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                    if (languageCode == "ar")
+                    {
+                        Answer = item.TitleAr;
+                    }
+                    else
+                    {
+                        Answer = item.Title;
+                    }
+                }
+                  
 
                 string outcomevalue = SPUtility.GetLocalizedString("$Resources: " + OutcomeWf, "Resource", SPContext.Current.Web.Language);
 
