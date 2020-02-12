@@ -54,6 +54,7 @@ namespace MOJ.DataManager
                                     string userName = "";
                                     string CurrentUser = "";
                                     string CurrentUserWithoutDot = "";
+                                    string currentUserName = "";
 
                                     if (currentContext != null && currentContext.Web.CurrentUser != null)
                                     {
@@ -65,8 +66,12 @@ namespace MOJ.DataManager
 
                                     foreach (SPListItem lstItem in lstItems)
                                     {
-                                        CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
-                                        if (CurrentUser == CurrentUserWithoutDot)
+                                        //CurrentUser = lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Contains(" ") ? lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().Replace(" ", null).ToLower() : lstItem["Created By"].ToString().Split('#')[1].ToString().Trim().ToLower();
+                                        currentUserName = lstItem["Created By"].ToString().Split('#')[1];
+
+
+                                        //if (CurrentUser == CurrentUserWithoutDot)
+                                        if (currentUserName == uName)
                                         {
                                             if (currentItem < 2)
                                             {

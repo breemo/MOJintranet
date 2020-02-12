@@ -317,5 +317,77 @@ namespace CommonLibrary
 
             return userDept;
         }
+
+        public static string translateBayanatiErrorMessage(string englishMsg)
+        {
+            string ArabicMessage = "";
+
+            if (englishMsg.ToLower().Contains("medical report issuing authority"))
+            {
+                ArabicMessage = "عربي 1";
+            }
+            else if (englishMsg.ToLower().Contains("ora-06508: pl/sql: could not find program unit being calledora-06512: at"))
+            {
+                ArabicMessage = "عربي 1";
+            }
+            else
+            {
+                switch (englishMsg.ToLower())
+                {
+                    case "attachment is mandatory for absence type: sick.":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "future dated sick leave is not allowed.":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "hr absence cannot be zero":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "hajj leave duration should not be more than fifteen days ":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "the total days permitted for sick leave per year is fifteen days. The remaining days are  15":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "you have entered a value that makes the annual leave balance negative. negative balances are not allowed.":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "duration for compassionate leave (1st level relatives) should not be more than five calendar days":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "duration for compassionate leave (2nd level relatives) should not be more than three calendar days":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "leave Cannot be taken after system date":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "please enter date of birth of the child.":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "please enter place of birth of child.":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "paternity leave duration should not be more than three working days":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "please enter the time in the 24 hour format   hh mm":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "please enter the time in the 24 hour format   hh:mm":
+                        ArabicMessage = "عربي 1";
+                        break;
+                    case "the actual end time must be after the actual start time.":
+                        ArabicMessage = "عربي 1";
+                        break;
+                        //case "please enter ""medical report issuing authority"". it is a mandatory for sick leave.":
+                        //ArabicMessage = "عربي 1";
+                        //    break;
+                        //case "ora-06508: pl/sql: could not find program unit being calledORA-06512: at "apps.xxfahr_self_service_ws_pkg", line 2026":
+                        //ArabicMessage = "عربي 1";
+                        //    break;
+                }
+            }
+            return ArabicMessage;
+        }
     }
 }
