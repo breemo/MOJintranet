@@ -95,6 +95,7 @@ namespace MOJ.DataManager
                                 {
                                     SPListItem Item = lsttask.GetItemById(id);
                                     task.Title = Convert.ToString(Item["Title"]);
+                                    task.TitleAr = Convert.ToString(Item["TitleAr"]);
                                     task.id = id;
                                     task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);                                    
                                     task.ServiceName = Convert.ToString(Item["ServiceName"]);
@@ -320,6 +321,7 @@ namespace MOJ.DataManager
                                             
                                     TaskEntity task = new TaskEntity();
                                     task.Title = Convert.ToString(Item["Title"]);
+                                    task.TitleAr = Convert.ToString(Item["TitleAr"]);
                                     task.id = Convert.ToInt32(Item["ID"]);
                                     task.WorkflowOutcome = Convert.ToString(Item["WorkflowOutcome"]);
                                     task.WorkflowName = Convert.ToString(Item["WorkflowName"]);

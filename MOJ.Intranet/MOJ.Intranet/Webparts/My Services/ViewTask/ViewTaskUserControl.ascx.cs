@@ -35,7 +35,17 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
         private void GetTaskandRequest()
         {
             TaskEntity task = new Task().GetTask(Convert.ToInt32(Request.Params["TID"]));
-            ValTaskName.Text = task.Title; 
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            if (languageCode == "ar")
+            {
+                ValTaskName.Text = task.TitleAr;
+            }
+            else
+            {
+                ValTaskName.Text = task.Title;
+            }
+           
            
             if (task.Status == "Completed")
             {
@@ -380,7 +390,18 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     OutcomeWf = "Pending";
                 string Answer = item.AnswerBy.LookupValue;
                 if (string.IsNullOrEmpty(item.AnswerBy.LookupValue))
-                    Answer = item.AssignedToOneUserValue.LookupValue;
+                {
+                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                    if (languageCode == "ar")
+                    {
+                        Answer = item.TitleAr;
+                    }
+                    else
+                    {
+                        Answer = item.Title;
+                    }
+                }
                 addtopage("AssignTo", Answer, OutcomeWf, "");
                 string Commenthtm = "<textarea disabled name ='txtComment' id ='txtComment' class='form-control'cols='120' rows='3'>" + item.Comment + "</textarea>";
 
@@ -415,6 +436,13 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
 
             UserData(Convert.ToString(caritem.CreatedBy.User.LoginName));
             addtopage("Carwith", caritem.TravelNeeds);
+
+            string TravelNeed = "";
+            if (!string.IsNullOrEmpty(caritem.TravelNeeds))
+            {
+                TravelNeed = SPUtility.GetLocalizedString("$Resources: " + caritem.TravelNeeds, "Resource", SPContext.Current.Web.Language);
+            }
+            addtopage("Carwith", TravelNeed);
             addtopage("GoingTo", caritem.TravelTo);
             addtopage("PassengerName", caritem.NameOfPassengers);
             addtopage("TravelReason", caritem.TravelReason, "CarPlace", caritem.CarPlace);
@@ -501,6 +529,17 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             addtopage("RelationshipType", AffirmationSocial.RelationshipType);
             addtopage("ChangeReason", AffirmationSocial.ChangeReason);
             addtopage("ChangeDate", Convert.ToDateTime(AffirmationSocial.ChangeDate).ToString("dd MMM yyyy"));
+
+           
+            if (!string.IsNullOrEmpty(AffirmationSocial.AttachmentUrl))
+            {
+                AllData.Text += "<hr>";
+                //--------------------------------------
+
+                string AttachmentUrlHTL = "<a href='/_layouts/15/download.aspx?SourceUrl=" + AffirmationSocial.AttachmentUrl + "' class='secicon'> <span class='icon-download'></span></a>";
+                addtopage("Attachments", AttachmentUrlHTL);
+            }
+
             return AffirmationSocial.Status;
         }
 

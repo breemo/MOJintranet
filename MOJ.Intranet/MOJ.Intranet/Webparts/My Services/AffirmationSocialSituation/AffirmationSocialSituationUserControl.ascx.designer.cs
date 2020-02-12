@@ -283,6 +283,15 @@ namespace MOJ.Intranet.Webparts.My_Services.AffirmationSocialSituation {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorChangeDate;
         
         /// <summary>
+        /// FileUploadControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadControl;
+        
+        /// <summary>
         /// btnsubmit control.
         /// </summary>
         /// <remarks>

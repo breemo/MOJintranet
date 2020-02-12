@@ -52,6 +52,11 @@ namespace MOJ.DataManager
                             item["ChangeReason"] = HostingRequestItem.ChangeReason;
                             item["HusbandORWife"] = HostingRequestItem.HusbandORWife;                            
                             item["Title"] = HostingRequestItem.RequestNumber;
+                         if(HostingRequestItem.fileName!=""&& HostingRequestItem.fileName != null)
+                        {
+                            SPAttachmentCollection attachments = item.Attachments;
+                            attachments.Add(HostingRequestItem.fileName, HostingRequestItem.fileContents);
+                        }
                             item.Update();
                            
                             isFormSaved = true;
@@ -101,6 +106,7 @@ namespace MOJ.DataManager
                                     obitem.Status = Convert.ToString(Item["Status"]);
                                     obitem.Created = Convert.ToDateTime(Item["Created"]);
                                     obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+                                    obitem.AttachmentUrl = GetAttachmentUrls(Item);
                                 }
                             }
                         }
@@ -114,6 +120,27 @@ namespace MOJ.DataManager
             return obitem;
         }
 
+
+        private string GetAttachmentUrls(SPListItem oItem)
+        {
+
+            string path = string.Empty;
+
+            try
+
+            {
+
+                path = (from string file in oItem.Attachments
+                        orderby file
+                        select SPUrlUtility.CombineUrl(oItem.Attachments.UrlPrefix, file)).FirstOrDefault();
+                return path;
+            }
+            catch
+            {
+                return string.Empty;
+            }
+
+        }
 
     }
 }

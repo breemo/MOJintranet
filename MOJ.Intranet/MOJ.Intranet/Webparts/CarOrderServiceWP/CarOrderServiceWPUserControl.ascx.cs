@@ -22,11 +22,47 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
             if (!Page.IsPostBack)
             {
                 currentUserData();
+                TravelNeeds();
                
 
             }
         }
 
+
+
+        private void TravelNeeds()
+        {
+            try
+            {
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+
+                var word1 = "WithDriver";
+                var placetext = SPUtility.GetLocalizedString("$Resources: "+ word1, "Resource", SPContext.Current.Web.Language);
+                placetext = "<span class='radio-button-circle'></span>" + placetext;
+                cbTravelNeedsR.Items.Add(new ListItem(placetext, word1));
+                var word2 = "WithoutDriver";
+                 placetext = SPUtility.GetLocalizedString("$Resources: " + word2, "Resource", SPContext.Current.Web.Language);
+                placetext = "<span class='radio-button-circle'></span>" + placetext;
+                cbTravelNeedsR.Items.Add(new ListItem(placetext, word2));
+                var word3 = "insideAbuDhabi";
+                 placetext = SPUtility.GetLocalizedString("$Resources: " + word3, "Resource", SPContext.Current.Web.Language);
+                placetext = "<span class='radio-button-circle'></span>" + placetext;
+                cbTravelNeedsR.Items.Add(new ListItem(placetext, word3));
+                var word4 = "outsideAbuDhabi";
+                 placetext = SPUtility.GetLocalizedString("$Resources: " + word4, "Resource", SPContext.Current.Web.Language);
+                placetext = "<span class='radio-button-circle'></span>" + placetext;
+                cbTravelNeedsR.Items.Add(new ListItem(placetext, word4));
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+        }
 
         public string mangerName
         {
@@ -151,10 +187,10 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
                             RecordPrfix = "Car-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("CarOrderService");
                             string TravelNeedsValues = string.Empty;
                             string tPassengerNames = string.Empty;
-                            foreach (ListItem item in this.cbTravelNeeds.Items)
-                                if (item.Selected)
-                                    TravelNeedsValues += item + ",";
-
+                            //foreach (ListItem item in this.cbTravelNeedsR.Items)
+                            //    if (item.Selected)
+                            //        TravelNeedsValues += item + ",";
+                            TravelNeedsValues = cbTravelNeedsR.SelectedValue;
                             DateTime TravelDate = new DateTime(); ;
 
                             if (!string.IsNullOrEmpty(txtTravelDate.Value))

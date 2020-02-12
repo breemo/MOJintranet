@@ -58,13 +58,13 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText EDepartment;
         
         /// <summary>
-        /// cbTravelNeeds control.
+        /// cbTravelNeedsR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList cbTravelNeeds;
+        protected global::System.Web.UI.WebControls.RadioButtonList cbTravelNeedsR;
         
         /// <summary>
         /// txtTravelTo control.

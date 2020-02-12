@@ -26,6 +26,19 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                     AddParticipants.Enabled = false;
                     AddParticipants.Visible = false;
+                    string currentUserloginp = SPContext.Current.Web.CurrentUser.LoginName;
+                    ///////////////////////////////////////AddParticipants/////
+                    knowledgeCouncilEntity KCEntityp = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
+
+                    Departments Departmentp = new Departments();
+                    DepartmentsEntity DEnitiyp = Departmentp.GetbyDepartments(KCEntityp.Department);
+                    if (DEnitiyp.DepartmentAdmin.User.LoginName == currentUserloginp)
+                    {
+                        AddParticipants.Enabled = true;
+                        AddParticipants.Visible = true;
+
+                    }
+
                     getExam(Convert.ToInt32(Request.Params["RID"]));
                     knowledgeCouncilEntity item = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
                     CouncilNo.Text = Convert.ToString(item.CouncilNo);
@@ -167,10 +180,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
 
             try
             {
+                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
                 btnCreateExam.Enabled = false;
                 btnCreateExam.Visible = false;
-
-                string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+               
+              
                 CouncilExaminersEntity Examiners = new knowledgeCouncil().GeCouncilExaminersByID(CkID,currentUserlogin);
                 string disabled = "";
                 if (Examiners.ID != 0)
@@ -210,11 +224,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     {
                         btnCreateExam.Enabled = true;
                         btnCreateExam.Visible = true;
-                        AddParticipants.Enabled = true;
-                        AddParticipants.Visible = true;
+                        
 
                     }
                 }
+               
                 int x = 0;
                 CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
                 string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
@@ -457,6 +471,16 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 bool resalt = new CouncilFeedback().SaveUpdate(item);
                 btnsubmit.Enabled = false;
                 btnsubmit.Visible = false;
+                CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                if (languageCode == "ar")
+                {
+                    Response.Redirect("/Ar/KnowledgeGateway/Pages/HeldCouncilsDetail.aspx?RID=" + Convert.ToString(Request.Params["RID"]));
+                }
+                else
+                {
+                    Response.Redirect("/En/KnowledgeGateway/Pages/HeldCouncilsDetail.aspx?RID=" + Convert.ToString(Request.Params["RID"]));
+                }
             }
         }
     }

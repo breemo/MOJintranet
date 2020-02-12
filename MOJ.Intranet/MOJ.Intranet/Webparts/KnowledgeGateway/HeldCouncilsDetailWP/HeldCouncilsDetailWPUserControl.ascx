@@ -96,7 +96,7 @@
                                     <p>
                                             <asp:Literal ID="CouncilGoals" runat="server"></asp:Literal></p>
                                 </div>
-                                	   <asp:Button Text="<%$ Resources:Resource, AddParticipants%>" CssClass="pollBtna" runat="server" ID="AddParticipants" OnClick="AddParticipants_Click" />
+                                	   <asp:Button Text="<%$ Resources:Resource, AddParticipants%>" CssClass="pollBtna" formnovalidate runat="server" ID="AddParticipants" OnClick="AddParticipants_Click" />
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="table-responsive">
@@ -170,7 +170,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="newfloa">                                             
-												         <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Propose%>" CssClass="pollBtna" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+												         <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Propose%>" CssClass="pollBtna" runat="server" ID="btnsubmit" formnovalidate OnClick="btnsubmit_Click" />
            												                                                  
                                             </div>                                           
                                         </div>

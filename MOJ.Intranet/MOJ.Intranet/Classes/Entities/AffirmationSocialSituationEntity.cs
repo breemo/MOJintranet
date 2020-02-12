@@ -23,6 +23,9 @@ namespace MOJ.Entities
         public string RelationshipType { get; set; }
         public string ChangeReason { get; set; }
         public string HusbandORWife { get; set; }
+        public string AttachmentUrl { get; set; }
+        public string fileName { get; set; }
+        public byte[] fileContents { get; set; }
 
         public SPFieldUserValue CreatedBy { get; set; }
     }
