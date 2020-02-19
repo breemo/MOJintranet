@@ -59,13 +59,20 @@
 				</div>                    
 
 <div class="pagi" runat="server" id="pgng">
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link pageright" href="#">
-                <i class="icon-angle-right"></i>
-            </a>
-        </li>
-        <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
+    <ul class="pagination" id="PaginUI" runat="server">
+                <li class="page-item" style="display:inline-flex">
+                    <%--<a class="page-link pageright" href="#">--%>
+                    <asp:LinkButton ID="lbFirst" CssClass="page-link pageright" runat="server" OnClick="lbFirst_Click">
+                                <i class="icon-angle-right"></i>
+                                <i class="icon-angle-right"></i>
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lbPrevious" CssClass="page-link pageright" runat="server" OnClick="lbPrevious_Click">
+                                <i class="icon-angle-right"></i>
+                    </asp:LinkButton>
+                    <%--</a>--%>
+                </li>          
+				
+						<asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
             <ItemTemplate>
                 <li class="page-item">
                     <asp:LinkButton ID="btnPage"
@@ -76,12 +83,18 @@
                 </li>
             </ItemTemplate>
         </asp:Repeater>
-        <li class="page-item">
-            <a class="page-link pageleft" href="#">
-                <i class="icon-angle-left"></i>
-            </a>
-        </li>
-    </ul>
+                <li class="page-item" style="display:inline-flex">
+                    <%--<a class="page-link pageleft" href="#">--%>                     
+                    <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
+                                <i class="icon-angle-left"></i>
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lbLast" CssClass="page-link pageleft" runat="server" OnClick="lbLast_Click">
+                                <i class="icon-angle-left"></i>
+                                <i class="icon-angle-left"></i>
+                    </asp:LinkButton>
+                    <%--</a>--%>
+                </li>
+            </ul>
 </div>
  </div>
 		   <div class="tab-content clearfix" id="tab-responsive-2">
@@ -123,13 +136,19 @@
 				
 				
 				<div class="pagi" runat="server" id="pgng2">
-					<ul class="pagination">
-						<li class="page-item">
-							<a class="page-link pageright" href="#">
-								<i class="icon-angle-right"></i>
-							</a>
-						</li>
-						<asp:Repeater ID="rpt2Paging" runat="server" OnItemCommand="rpt2Paging_ItemCommand">
+					 <ul class="pagination" id="PaginUI2" runat="server">
+                <li class="page-item" style="display:inline-flex">
+                    <%--<a class="page-link pageright" href="#">--%>
+                    <asp:LinkButton ID="lbFirst2" CssClass="page-link pageright" runat="server" OnClick="lbFirst2_Click">
+                                <i class="icon-angle-right"></i>
+                                <i class="icon-angle-right"></i>
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lbPrevious2" CssClass="page-link pageright" runat="server" OnClick="lbPrevious2_Click">
+                                <i class="icon-angle-right"></i>
+                    </asp:LinkButton>
+                    <%--</a>--%>
+                </li>          
+				<asp:Repeater ID="rpt2Paging" runat="server" OnItemCommand="rpt2Paging_ItemCommand">
 							<ItemTemplate>
 								<li class="page-item">
 									<asp:LinkButton ID="btn2Page"
@@ -140,12 +159,18 @@
 								</li>
 							</ItemTemplate>
 						</asp:Repeater>
-						<li class="page-item">
-							<a class="page-link pageleft" href="#">
-								<i class="icon-angle-left"></i>
-							</a>
-						</li>
-					</ul>
+                <li class="page-item" style="display:inline-flex">
+                    <%--<a class="page-link pageleft" href="#">--%>                     
+                    <asp:LinkButton ID="lbNext2" CssClass="page-link pageleft" runat="server" OnClick="lbNext2_Click">
+                                <i class="icon-angle-left"></i>
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lbLast2" CssClass="page-link pageleft" runat="server" OnClick="lbLast2_Click">
+                                <i class="icon-angle-left"></i>
+                                <i class="icon-angle-left"></i>
+                    </asp:LinkButton>
+                    <%--</a>--%>
+                </li>
+            </ul>
 			</div>
 			</div>
     </div>
@@ -199,7 +224,7 @@
         dropdown: true,
         scrollbar: true
     });
-  
+
 
     var valuepage = document.getElementById('hdnPage').value;
     $("#tab-responsive-1 .pagination a").each(function () {
@@ -212,7 +237,7 @@
         if ($(this).text() == valuepage2)
             $(this).addClass("active");
     });
-        
+
 
 </script>
 

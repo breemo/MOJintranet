@@ -221,9 +221,11 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                 {
                     itemSumbit.ResponseMsg = isSavedwebserves;
                     itemSumbit.ResponseMsgAR = "فشل الارسال";
-                    if (isSavedwebserves=="HR absence cannot be zero")
+                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                    if (languageCode == "ar")
                     {
-                        MSG.InnerText = "** " + isSavedwebserves  + " : holiday " + " **";
+                        MSG.InnerText = "** " + Methods.translateBayanatiErrorMessage(isSavedwebserves) + " **";
                     }
                     else
                     {

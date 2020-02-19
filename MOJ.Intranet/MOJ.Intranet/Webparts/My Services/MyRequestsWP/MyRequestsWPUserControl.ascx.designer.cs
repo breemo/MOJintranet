@@ -103,6 +103,33 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pgng2;
         
         /// <summary>
+        /// PaginUI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PaginUI;
+        
+        /// <summary>
+        /// lbFirst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbFirst;
+        
+        /// <summary>
+        /// lbPrevious control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbPrevious;
+        
+        /// <summary>
         /// rpt2Paging control.
         /// </summary>
         /// <remarks>
@@ -110,6 +137,24 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpt2Paging;
+        
+        /// <summary>
+        /// lbNext control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbNext;
+        
+        /// <summary>
+        /// lbLast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbLast;
         
         /// <summary>
         /// SuccessMsgDiv control.
