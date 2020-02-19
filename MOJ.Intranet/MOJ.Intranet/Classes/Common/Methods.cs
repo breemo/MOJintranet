@@ -324,67 +324,74 @@ namespace CommonLibrary
 
             if (englishMsg.ToLower().Contains("medical report issuing authority"))
             {
-                ArabicMessage = "عربي 1";
+                ArabicMessage = "منح شهادة الإجازة المرضية اجباري";
             }
             else if (englishMsg.ToLower().Contains("ora-06508: pl/sql: could not find program unit being calledora-06512: at"))
             {
-                ArabicMessage = "عربي 1";
+                ArabicMessage = "لا يوجد اتصال في الويب سيرفس بيتنا ";
+            }
+            else if (englishMsg.ToLower().Contains("the total days permitted for sick leave per year is fifteen days"))
+            {
+                ArabicMessage = "إجمالي أيام الإجازة المرضية المسموح بها سنويًا هو خمسة عشر يومًا";
             }
             else
             {
                 switch (englishMsg.ToLower())
                 {
                     case "attachment is mandatory for absence type: sick.":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "المرفق إلزامي";
                         break;
                     case "future dated sick leave is not allowed.":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "إجازة مرضية مؤرخة في المستقبل غير مسموح بها";
                         break;
                     case "hr absence cannot be zero":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "لا يمكن أن يكون الغياب صفرًا في يوم جمعة او يوم سبت";
                         break;
                     case "hajj leave duration should not be more than fifteen days ":
-                        ArabicMessage = "عربي 1";
-                        break;
-                    case "the total days permitted for sick leave per year is fifteen days. The remaining days are  15":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "يجب ألا تزيد مدة إجازة الحج عن خمسة عشر يومًا";
                         break;
                     case "you have entered a value that makes the annual leave balance negative. negative balances are not allowed.":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "لقد أدخلت قيمة تجعل رصيد الإجازة السنوية سالبًا. الأرصدة السلبية غير مسموح بها.";
                         break;
                     case "duration for compassionate leave (1st level relatives) should not be more than five calendar days":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "مدة إجازة الحداد (أقارب المستوى الأول) يجب ألا تزيد عن خمسة أيام تقويمية";
                         break;
                     case "duration for compassionate leave (2nd level relatives) should not be more than three calendar days":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "مدة إجازة الحداد (أقارب المستوى الثاني) يجب ألا تزيد عن ثلاثة أيام تقويمية";
                         break;
                     case "leave Cannot be taken after system date":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "لا يمكن اتخاذ إجازة  بعد تاريخ الحالي";
                         break;
                     case "please enter date of birth of the child.":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "الرجاء إدخال تاريخ ميلاد الطفل";
                         break;
                     case "please enter place of birth of child.":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "الرجاء إدخال مكان ولادة الطفل";
                         break;
                     case "paternity leave duration should not be more than three working days":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "يجب ألا تزيد مدة إجازة الأبوة عن ثلاثة أيام عمل";
                         break;
                     case "please enter the time in the 24 hour format   hh mm":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "الرجاء إدخال الوقت بتنسيق 24 ساعة hh: mm";
                         break;
                     case "please enter the time in the 24 hour format   hh:mm":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "الرجاء إدخال الوقت بتنسيق 24 ساعة hh: mm";
                         break;
                     case "the actual end time must be after the actual start time.":
-                        ArabicMessage = "عربي 1";
+                        ArabicMessage = "يجب أن يكون وقت الانتهاء الفعلي بعد وقت البدء الفعلي";
                         break;
-                        //case "please enter ""medical report issuing authority"". it is a mandatory for sick leave.":
-                        //ArabicMessage = "عربي 1";
-                        //    break;
-                        //case "ora-06508: pl/sql: could not find program unit being calledORA-06512: at "apps.xxfahr_self_service_ws_pkg", line 2026":
-                        //ArabicMessage = "عربي 1";
-                        //    break;
+                    case "please enter \"sick leave reason\". it is a mandatory for sick leave.":
+                        ArabicMessage = "الرجاء إدخال سبب الإجازة المرضية. في حقل الملاحظات";
+                        break;
+                    //case "please enter ""medical report issuing authority"". it is a mandatory for sick leave.":
+                    //ArabicMessage = "عربي 1";
+                    //    break;
+                    //case "ora-06508: pl/sql: could not find program unit being calledORA-06512: at "apps.xxfahr_self_service_ws_pkg", line 2026":
+                    //ArabicMessage = "عربي 1";
+                    //    break;
+                    default:
+                        ArabicMessage = englishMsg;
+                        break;
                 }
             }
             return ArabicMessage;
