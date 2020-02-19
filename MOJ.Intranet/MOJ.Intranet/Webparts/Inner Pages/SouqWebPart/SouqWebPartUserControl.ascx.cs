@@ -42,6 +42,11 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
                 BindData();
             }
         }
+        protected void CheckBoxRequired_ServerValidate(object sender, ServerValidateEventArgs e)
+        {
+            e.IsValid = cbConfirm.Checked;
+        }
+
         protected void lbPrevious_Click(object sender, EventArgs e)
         {
             if (PageNumber < rptPaging.Items.Count - 1)

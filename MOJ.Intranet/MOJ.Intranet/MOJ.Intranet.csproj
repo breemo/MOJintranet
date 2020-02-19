@@ -439,6 +439,14 @@
     <Compile Include="Webparts\Inner Pages\AllMemos\AllMemosUserControl.ascx.designer.cs">
       <DependentUpon>AllMemosUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\Inner Pages\InnovationGate\InnovationGate.ascx.cs">
+      <DependentUpon>InnovationGate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\InnovationGate\InnovationGate.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InnovationGate.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\Inner Pages\ItemDetails\ItemDetails.cs" />
     <Compile Include="Webparts\Inner Pages\ItemDetails\ItemDetailsUserControl.ascx.cs">
       <DependentUpon>ItemDetailsUserControl.ascx</DependentUpon>
@@ -493,6 +501,14 @@
     </Compile>
     <Compile Include="Webparts\Inner Pages\wpAlbumsList\wpAlbumsListUserControl.ascx.designer.cs">
       <DependentUpon>wpAlbumsListUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\wpInnovationGate\wpInnovationGate.cs" />
+    <Compile Include="Webparts\Inner Pages\wpInnovationGate\wpInnovationGateUserControl.ascx.cs">
+      <DependentUpon>wpInnovationGateUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\Inner Pages\wpInnovationGate\wpInnovationGateUserControl.ascx.designer.cs">
+      <DependentUpon>wpInnovationGateUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetails.cs" />
     <Compile Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetailsUserControl.ascx.cs">
@@ -875,6 +891,10 @@
     <None Include="Webparts\Inner Pages\AllMemos\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{21e85882-a096-4e2c-a5cf-133dffd86f93}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\Inner Pages\InnovationGate\InnovationGate.webpart" />
+    <None Include="Webparts\Inner Pages\InnovationGate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4b7dec0c-a22a-4efb-a893-d7780f44b6dd}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\Inner Pages\ItemDetails\ItemDetails.webpart" />
     <None Include="Webparts\Inner Pages\ItemDetails\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6811b4d5-443e-4b19-9895-3433873d3b9b}</SharePointProjectItemId>
@@ -903,6 +923,10 @@
       <SharePointProjectItemId>{49385f67-5010-4615-a090-c6c622aede19}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\Inner Pages\wpAlbumsList\wpAlbumsList.webpart" />
+    <None Include="Webparts\Inner Pages\wpInnovationGate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{82c896c2-1cd9-4bb5-90c0-d05f07cfb91f}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\Inner Pages\wpInnovationGate\wpInnovationGate.webpart" />
     <None Include="Webparts\Inner Pages\wpOccasionDetails\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9c4c1d62-8071-438c-9920-b9160107e17c}</SharePointProjectItemId>
     </None>
@@ -1098,6 +1122,11 @@
     <Content Include="Webparts\Home\StickyNotes\StickyNotesUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\AllMemos\AllMemosUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\AllMemos\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\InnovationGate\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\InnovationGate\InnovationGate.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>InnovationGate.ascx.g.cs</LastGenOutput>
+    </Content>
     <Content Include="Webparts\Inner Pages\ItemDetails\Elements.xml" />
     <Content Include="Webparts\Inner Pages\ItemDetails\ItemDetailsUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\MinistryFilesWebPart\Elements.xml" />
@@ -1112,6 +1141,8 @@
     <Content Include="Webparts\Inner Pages\wpAlbumFiles\wpAlbumFilesUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\wpAlbumsList\Elements.xml" />
     <Content Include="Webparts\Inner Pages\wpAlbumsList\wpAlbumsListUserControl.ascx" />
+    <Content Include="Webparts\Inner Pages\wpInnovationGate\Elements.xml" />
+    <Content Include="Webparts\Inner Pages\wpInnovationGate\wpInnovationGateUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\wpOccasionDetails\Elements.xml" />
     <Content Include="Webparts\Inner Pages\wpOccasionDetails\wpOccasionDetailsUserControl.ascx" />
     <Content Include="Webparts\Inner Pages\wpOccasionsList\Elements.xml" />

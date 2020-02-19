@@ -22,6 +22,24 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart {
         protected global::System.Web.UI.WebControls.HiddenField hdnPage;
         
         /// <summary>
+        /// cbConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbConfirm;
+        
+        /// <summary>
+        /// CheckBoxRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CheckBoxRequired;
+        
+        /// <summary>
         /// txtTitle control.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtTitle;
+        
+        /// <summary>
+        /// rfvTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTitle;
         
         /// <summary>
         /// exampleFormControlTextarea1 control.

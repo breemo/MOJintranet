@@ -1488,4 +1488,13 @@
   <data name="TheGrantingOfTheSickLeaveCertificate" xml:space="preserve">
     <value>منح شهادة الإجازة المرضية</value>
   </data>
+  <data name="SouqConfirmMsg" xml:space="preserve">
+    <value>لا تتحمل "وزارة العدل "، بأي حال من الأحوال، المسؤولية عن الأضرار العرضية أو المباشرة أو غير المباشرة أو الخاصة أو العقابية أو النموذجية أو الناشئة، التي قد تبرز نتيجة لعرض اعلانك في هذه الصفحة.</value>
+  </data>
+  <data name="SouqIConfirm" xml:space="preserve">
+    <value>أقر بأن وزارة العدل لا تتحمل أي مسؤولية عن رفع هذا الإعلان</value>
+  </data>
+  <data name="SouqMustConfirm" xml:space="preserve">
+    <value>الرجاء الموافقة على تحمل المسؤولية</value>
+  </data>
 </root>

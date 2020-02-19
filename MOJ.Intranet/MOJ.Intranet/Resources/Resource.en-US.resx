@@ -1488,4 +1488,13 @@
   <data name="TheGrantingOfTheSickLeaveCertificate" xml:space="preserve">
     <value>The granting of the sick leave certificate</value>
   </data>
+  <data name="SouqConfirmMsg" xml:space="preserve">
+    <value>The Ministry of Justice is not responsible, in any way, for the accidental, direct, indirect, special, punitive, exemplary or consequential damages that may arise as a result of the display of your advertisement on this page.</value>
+  </data>
+  <data name="SouqIConfirm" xml:space="preserve">
+    <value>أقر بأن وزارة العدل لا تتحمل أي مسؤولية عن رفع هذا الإعلان</value>
+  </data>
+  <data name="SouqMustConfirm" xml:space="preserve">
+    <value>الرجاء الموافقة على تحمل المسؤولية</value>
+  </data>
 </root>

@@ -47,6 +47,40 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="inskdnew modalpordc">
+
+                                        <div class="row rt">
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label>
+                                                            <asp:Literal runat="server" Text="<%$ Resources:Resource, SouqConfirmMsg%>" />
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:CheckBox ID="cbConfirm" runat="server" Text="<%$ Resources:Resource, SouqIConfirm%>" CssClass="AcceptedAgreement"/>
+                                                    </div>
+                                                </div>
+                                                 <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:CustomValidator runat="server" ID="CheckBoxRequired" EnableClientScript="true"
+                                                            OnServerValidate="CheckBoxRequired_ServerValidate"
+                                                            ClientValidationFunction="CheckBoxRequired_ClientValidate" 
+                                                            ErrorMessage="<%$ Resources:Resource, SouqMustConfirm%>"
+                                                            ForeColor="Red"></asp:CustomValidator>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
                                         <div class="row rt">
 
                                             <div class="col-md-12">
@@ -60,6 +94,7 @@
 
                                                     <div class="col-md-7">
                                                         <input runat="server" id="txtTitle" type="text" class="form-control" placeholder="">
+                                                        <asp:RequiredFieldValidator ID="rfvTitle" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtTitle"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
 
@@ -132,6 +167,8 @@
 
 
                                                 <input runat="server" id="txtprice" type="text" class="form-control" placeholder="">
+                                                <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
+                                                        ControlToValidate="txtprice" ErrorMessage="Value must be a whole number" />
                                             </div>
                                         </div>
 
@@ -506,14 +543,18 @@
             $(this).addClass("active");
     });
 
+    function CheckBoxRequired_ClientValidate(sender, e) {
+        e.IsValid = jQuery(".AcceptedAgreement input:checkbox").is(':checked');
+    }
+
 </script>
 
 <style>
 
 @media all and (-ms-high-contrast:none)
      {
-     .col-md-12 { padding-top: 100px } /* IE10 */
-     *::-ms-backdrop, .col-md-12 { padding-top: 100px } /* IE11 */
+     /*.col-md-12 { padding-top: 100px }*/ /* IE10 */
+     /**::-ms-backdrop, .col-md-12 { padding-top: 100px } *//* IE11 */
      }
 	 
 
