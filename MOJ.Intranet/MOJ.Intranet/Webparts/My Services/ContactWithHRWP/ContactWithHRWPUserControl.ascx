@@ -63,7 +63,7 @@
                             <label> <asp:Literal runat="server" Text="<%$ Resources:Resource, ContactReason%>" /></label>
                         </div>
                         <div class="col-md-9 RadioButto">
-                       <asp:RadioButtonList ID="RBContactReason" CssClass="checkbox-click-target" RepeatDirection="Horizontal" runat="server" Width="100%">
+                       <asp:RadioButtonList ID="RBContactReason" CssClass="checkbox-click-target" RepeatDirection="Vertical" runat="server" Width="100%">
 
                                     </asp:RadioButtonList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorRBContactReason" runat="server" 

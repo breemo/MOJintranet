@@ -24,7 +24,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             {
                 BindDataCompleted();
                 BindDataNOTCompleted();
-              
+
             }
         }
         public void HeaderRowG()
@@ -64,7 +64,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             string Result = SPUtility.GetLocalizedString("$Resources: Result", "Resource", SPContext.Current.Web.Language); ;
             string TaskDate = SPUtility.GetLocalizedString("$Resources: TaskDate", "Resource", SPContext.Current.Web.Language);
             string Edit = SPUtility.GetLocalizedString("$Resources: Edit", "Resource", SPContext.Current.Web.Language);
-          
+
 
             GridViewRow row2 = new GridViewRow(0, 0, DataControlRowType.Header, DataControlRowState.Normal);
             TableHeaderCell cell2 = new TableHeaderCell();
@@ -94,15 +94,162 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
             PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
             BindDataCompleted();
             BindDataNOTCompleted();
-          
+
         }
         protected void rpt2Paging_ItemCommand(object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
             PageNumber2 = Convert.ToInt32(e.CommandArgument) - 1;
             BindDataCompleted();
             BindDataNOTCompleted();
-            
+
         }
+        protected void lbPrevious_Click(object sender, EventArgs e)
+        {
+            if (PageNumber != 0)
+            {
+                PageNumber -= 1;
+                BindDataCompleted();
+                BindDataNOTCompleted();
+            }
+            else
+            {
+                BindDataCompleted();
+                BindDataNOTCompleted();
+            }
+        }
+        protected void lbFirst_Click(object sender, EventArgs e)
+        {
+            PageNumber = 0;
+            BindDataCompleted();
+            BindDataNOTCompleted();
+        }
+        protected void lbLast_Click(object sender, EventArgs e)
+        {
+            PageNumber = Convert.ToInt32(ViewState["TotalTaskPages"]) - 1;
+            BindDataCompleted();
+            BindDataNOTCompleted();
+        }
+        protected void lbNext_Click(object sender, EventArgs e)
+        {
+            if (PageNumber < rptPaging.Items.Count - 1)
+            {
+                PageNumber += 1;
+                BindDataCompleted();
+                BindDataNOTCompleted();
+            }
+            else
+            {
+                BindDataCompleted();
+                BindDataNOTCompleted();
+            }
+
+        }
+
+
+
+        protected void lbPrevious2_Click(object sender, EventArgs e)
+        {
+            if (PageNumber2 != 0)
+            {
+                PageNumber2 -= 1;
+                BindDataCompleted();
+                BindDataNOTCompleted();
+            }
+            else
+            {
+                BindDataCompleted();
+                BindDataNOTCompleted();
+            }
+        }
+        protected void lbFirst2_Click(object sender, EventArgs e)
+        {
+            PageNumber2 = 0;
+            BindDataCompleted();
+            BindDataNOTCompleted();
+        }
+        protected void lbLast2_Click(object sender, EventArgs e)
+        {
+            PageNumber2 = Convert.ToInt32(ViewState["TotalTaskPages2"]) - 1;
+            BindDataCompleted();
+            BindDataNOTCompleted();
+        }
+        protected void lbNext2_Click(object sender, EventArgs e)
+        {
+            if (PageNumber2 < rpt2Paging.Items.Count - 1)
+            {
+                PageNumber2 += 1;
+                BindDataCompleted();
+                BindDataNOTCompleted();
+            }
+            else
+            {
+                BindDataCompleted();
+                BindDataNOTCompleted();
+            }
+
+        }
+
+        private void HandlePaging()
+        {
+            ArrayList pages = new ArrayList();
+
+
+            _firstIndex = PageNumber - 5;
+            if (PageNumber > 5)
+                _lastIndex = PageNumber + 5;
+            else
+                _lastIndex = 10;
+
+            if (_lastIndex > Convert.ToInt32(ViewState["TotalTaskPages"]))
+            {
+                _lastIndex = Convert.ToInt32(ViewState["TotalTaskPages"]);
+                _firstIndex = _lastIndex - 10;
+            }
+
+            if (_firstIndex < 0)
+                _firstIndex = 0;
+
+            // Now creating page number based on above first and last page index
+            for (var i = _firstIndex; i < _lastIndex; i++)
+            {
+                pages.Add((i + 1).ToString());
+            }
+
+            rptPaging.DataSource = pages;
+            rptPaging.DataBind();
+        }
+        private void HandlePaging2()
+        {
+            ArrayList pages2 = new ArrayList();
+
+
+            _firstIndex2 = PageNumber2 - 5;
+            if (PageNumber2 > 5)
+                _lastIndex2 = PageNumber2 + 5;
+            else
+                _lastIndex2 = 10;
+
+            if (_lastIndex2 > Convert.ToInt32(ViewState["TotalTaskPages2"]))
+            {
+                _lastIndex2 = Convert.ToInt32(ViewState["TotalTaskPages2"]);
+                _firstIndex2 = _lastIndex2 - 10;
+            }
+
+            if (_firstIndex2 < 0)
+                _firstIndex2 = 0;
+
+            // Now creating page number based on above first and last page index
+            for (var i = _firstIndex2; i < _lastIndex2; i++)
+            {
+                pages2.Add((i + 1).ToString());
+            }
+
+            rpt2Paging.DataSource = pages2;
+            rpt2Paging.DataBind();
+        }
+
+
+        int _firstIndex, _lastIndex, _firstIndex2, _lastIndex2;
         public int PageNumber
         {
             get
@@ -151,7 +298,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                 pgitems.AllowPaging = true;
                 //Control page size from here 
                 pgitems.PageSize = 8;
-                hdnPage.Value = Convert.ToString(PageNumber+1);
+                hdnPage.Value = Convert.ToString(PageNumber + 1);
                 pgitems.CurrentPageIndex = PageNumber;
                 if (pgitems.PageCount > 1)
                 {
@@ -161,6 +308,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                     {
                         pages.Add((i + 1).ToString());
                     }
+                    ViewState["TotalTaskPages"] = pgitems.PageCount;
                     rptPaging.DataSource = pages;
                     rptPaging.DataBind();
                 }
@@ -176,9 +324,10 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                 {
                     HeaderRowG();
                 }
+                HandlePaging();
 
             }
-           
+
             catch (Exception ex)
             {
                 LoggingService.LogError("WebParts", ex.Message);
@@ -198,7 +347,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                 pgitems.AllowPaging = true;
                 //Control page size from here 
                 pgitems.PageSize = 8;
-                hdnPage2.Value = Convert.ToString(PageNumber2+1);
+                hdnPage2.Value = Convert.ToString(PageNumber2 + 1);
                 pgitems.CurrentPageIndex = PageNumber2;
                 if (pgitems.PageCount > 1)
                 {
@@ -208,6 +357,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                     {
                         pages.Add((i + 1).ToString());
                     }
+                    ViewState["TotalTaskPages2"] = pgitems.PageCount;
                     rpt2Paging.DataSource = pages;
                     rpt2Paging.DataBind();
                 }
@@ -222,6 +372,7 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks
                 {
                     HeaderRowGAccomplished();
                 }
+                HandlePaging2();
             }
             catch (Exception ex)
             {

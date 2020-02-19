@@ -58,6 +58,33 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pgng;
         
         /// <summary>
+        /// PaginUI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PaginUI;
+        
+        /// <summary>
+        /// lbFirst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbFirst;
+        
+        /// <summary>
+        /// lbPrevious control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbPrevious;
+        
+        /// <summary>
         /// rptPaging control.
         /// </summary>
         /// <remarks>
@@ -65,6 +92,24 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptPaging;
+        
+        /// <summary>
+        /// lbNext control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbNext;
+        
+        /// <summary>
+        /// lbLast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbLast;
         
         /// <summary>
         /// grdMyAccomplishedTasks control.
@@ -85,6 +130,33 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pgng2;
         
         /// <summary>
+        /// PaginUI2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PaginUI2;
+        
+        /// <summary>
+        /// lbFirst2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbFirst2;
+        
+        /// <summary>
+        /// lbPrevious2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbPrevious2;
+        
+        /// <summary>
         /// rpt2Paging control.
         /// </summary>
         /// <remarks>
@@ -92,6 +164,24 @@ namespace MOJ.Intranet.Webparts.My_Services.myTasks {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpt2Paging;
+        
+        /// <summary>
+        /// lbNext2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbNext2;
+        
+        /// <summary>
+        /// lbLast2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbLast2;
         
         /// <summary>
         /// SuccessMsgDiv control.

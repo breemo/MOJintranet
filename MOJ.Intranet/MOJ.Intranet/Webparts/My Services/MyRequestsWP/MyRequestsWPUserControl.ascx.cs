@@ -154,6 +154,9 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
             {
                 PageNumber2 -= 1;
                 BindData();
+            }else 
+            {
+                BindData();
             }
         }
         protected void lbFirst_Click(object sender, EventArgs e)
@@ -163,7 +166,7 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
         }
         protected void lbLast_Click(object sender, EventArgs e)
         {
-            PageNumber2 = _lastIndex - 1;
+            PageNumber2 = Convert.ToInt32(ViewState["TotalPages"]) - 1;
             BindData();
         }
         protected void lbNext_Click(object sender, EventArgs e)
@@ -171,6 +174,11 @@ namespace MOJ.Intranet.Webparts.My_Services.MyRequestsWP
             if (PageNumber2 < rpt2Paging.Items.Count - 1)
             {
                 PageNumber2 += 1;
+                BindData();
+            }
+            else
+            {
+               
                 BindData();
             }
 
