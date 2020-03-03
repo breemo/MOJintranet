@@ -33,19 +33,32 @@ namespace MOJ.DataManager
                                     SPQuery oQuery = new SPQuery();
                                     SPUser currentUser = oWeb.CurrentUser;
 
-                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
-                                    {
-                                        string newsQuery = @"<Where>
-                                                              <Contains>
-                                                                 <FieldRef Name='Department' />
-                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
-                                                              </Contains>
+                                if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                {
+                                    //string newsQuery = @"<Where>
+                                    //                      <Contains>
+                                    //                         <FieldRef Name='Department' />
+                                    //                         <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                    //                      </Contains>
+                                    //                   </Where>";
+
+                                    string newsQuery = @"<Where>
+                                                              <And>
+                                                                 <Contains>
+                                                                     <FieldRef Name='Department' />
+                                                                     <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                                 </Contains>
+                                                                 <Eq>
+                                                                    <FieldRef Name='NewsAppr' />
+                                                                    <Value Type='WorkflowStatus'>16</Value>
+                                                                 </Eq>
+                                                              </And>
                                                            </Where>";
 
-                                        oQuery.Query = newsQuery + SharedConstants.NewsQuery;
-                                    }
-                                    else
-                                    { oQuery.Query = SharedConstants.NewsQuery; }
+                                    oQuery.Query = newsQuery + SharedConstants.NewsQuery;
+                                }
+                                else
+                                { oQuery.Query = SharedConstants.NewsQuery; }
 
                                     oQuery.ViewFields = SharedConstants.NewsViewfields;
                                     SPListItemCollection lstItems = lstNews.GetItems(oQuery);
@@ -109,19 +122,32 @@ namespace MOJ.DataManager
                                     SPQuery oQuery = new SPQuery();
                                     SPUser currentUser = oWeb.CurrentUser;
 
-                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
-                                    {
-                                        string newsQuery = @"<Where>
-                                                              <Contains>
-                                                                 <FieldRef Name='Department' />
-                                                                 <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
-                                                              </Contains>
+                                if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                {
+                                    //string newsQuery = @"<Where>
+                                    //                      <Contains>
+                                    //                         <FieldRef Name='Department' />
+                                    //                         <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                    //                      </Contains>
+                                    //                   </Where>";
+
+                                    string newsQuery = @"<Where>
+                                                              <And>
+                                                                 <Contains>
+                                                                     <FieldRef Name='Department' />
+                                                                     <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                                                 </Contains>
+                                                                 <Eq>
+                                                                    <FieldRef Name='NewsAppr' />
+                                                                    <Value Type='WorkflowStatus'>16</Value>
+                                                                 </Eq>
+                                                              </And>
                                                            </Where>";
 
-                                        oQuery.Query = newsQuery + SharedConstants.NewsQuery;
-                                    }
-                                    else
-                                    { oQuery.Query = SharedConstants.NewsQuery; }
+                                    oQuery.Query = newsQuery + SharedConstants.NewsQuery;
+                                }
+                                else
+                                { oQuery.Query = SharedConstants.NewsQuery; }
 
                                     
                                     oQuery.ViewFields = SharedConstants.NewsViewfields;

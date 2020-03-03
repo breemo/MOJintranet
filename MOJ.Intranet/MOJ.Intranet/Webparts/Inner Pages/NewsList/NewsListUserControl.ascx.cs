@@ -22,7 +22,10 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                 FillRelatedNewsCarousel();
                 FillRelatedNewsCarouselInner();
 
-                for (int startYear = 2019; startYear >= 2015; startYear--)
+                DateTime currentDate = DateTime.Now;
+                int currentYear = currentDate.Year;
+
+                for (int startYear = currentYear; startYear >= 2018; startYear--)
                 {
                     ddlYear.Items.Add(new ListItem(startYear.ToString(), startYear.ToString()));
                 }

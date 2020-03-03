@@ -249,6 +249,12 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
                 bool isSaved = souq.SaveUpdate(itemSumbit);
                 if (isSaved == true)
                 {
+                    txtTitle.Value = "";
+                    GetCategory();
+                    txtprice.Value = "";
+                    exampleFormControlTextarea1.Value = "";
+                    txtContactNum.Value = "";
+
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
                 }
             }

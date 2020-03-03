@@ -1497,4 +1497,7 @@
   <data name="SouqMustConfirm" xml:space="preserve">
     <value>الرجاء الموافقة على تحمل المسؤولية</value>
   </data>
+  <data name="priceValidation" xml:space="preserve">
+    <value>السعر يقبل رقم فقط</value>
+  </data>
 </root>

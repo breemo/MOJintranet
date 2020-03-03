@@ -232,40 +232,40 @@
     <value>Month</value>
   </data>
   <data name="Month1" xml:space="preserve">
-    <value>يناير</value>
+    <value>January</value>
   </data>
   <data name="Month10" xml:space="preserve">
-    <value>أكتوبر</value>
+    <value>October</value>
   </data>
   <data name="Month11" xml:space="preserve">
-    <value>نوفمبر</value>
+    <value>November</value>
   </data>
   <data name="Month12" xml:space="preserve">
-    <value>ديسمبر</value>
+    <value>December</value>
   </data>
   <data name="Month2" xml:space="preserve">
-    <value>فبراير</value>
+    <value>February</value>
   </data>
   <data name="Month3" xml:space="preserve">
-    <value>مارس</value>
+    <value>March</value>
   </data>
   <data name="Month4" xml:space="preserve">
-    <value>ابريل</value>
+    <value>April</value>
   </data>
   <data name="Month5" xml:space="preserve">
-    <value>مايو</value>
+    <value>May</value>
   </data>
   <data name="Month6" xml:space="preserve">
-    <value>يونيو</value>
+    <value>June</value>
   </data>
   <data name="Month7" xml:space="preserve">
-    <value>يوليو</value>
+    <value>July</value>
   </data>
   <data name="Month8" xml:space="preserve">
-    <value>أغسطس</value>
+    <value>August</value>
   </data>
   <data name="Month9" xml:space="preserve">
-    <value>سبتمبر</value>
+    <value>September</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
@@ -1492,9 +1492,12 @@
     <value>The Ministry of Justice is not responsible, in any way, for the accidental, direct, indirect, special, punitive, exemplary or consequential damages that may arise as a result of the display of your advertisement on this page.</value>
   </data>
   <data name="SouqIConfirm" xml:space="preserve">
-    <value>أقر بأن وزارة العدل لا تتحمل أي مسؤولية عن رفع هذا الإعلان</value>
+    <value>I acknowledged that the Ministry of Justice does not assume any responsibility for raising this Declaration</value>
   </data>
   <data name="SouqMustConfirm" xml:space="preserve">
-    <value>الرجاء الموافقة على تحمل المسؤولية</value>
+    <value>Please Approve terms and coditions</value>
+  </data>
+  <data name="priceValidation" xml:space="preserve">
+    <value>Price must be a number</value>
   </data>
 </root>

@@ -11,6 +11,24 @@
     .active {
         background-color: #e9ecef;
     }
+    div#sidebarmenubox {
+        min-height: 888px;
+    }
+    .AcceptedAgreement label {
+        padding: 10px;
+    }
+    .col-md-7 input ,
+    .col-md-7 select,
+    .col-md-10 textarea{
+        font-size: 15px !important;
+        color: gray !important;
+    }
+    .col-md-10 textarea{
+        padding-top: 10px !important;
+    }
+    .sidebar.nobottommargin.clearfix {
+        top: 40px;
+    }
 </style>
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -59,7 +77,8 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <asp:CheckBox ID="cbConfirm" runat="server" Text="<%$ Resources:Resource, SouqIConfirm%>" CssClass="AcceptedAgreement"/>
+                                                        <asp:CheckBox ID="cbConfirm" runat="server" Text="<%$ Resources:Resource, SouqIConfirm%>" CssClass="AcceptedAgreement"
+                                                            />
                                                     </div>
                                                 </div>
                                                  <div class="row">
@@ -167,8 +186,11 @@
 
 
                                                 <input runat="server" id="txtprice" type="text" class="form-control" placeholder="">
-                                                <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" 
-                                                        ControlToValidate="txtprice" ErrorMessage="Value must be a whole number" />
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" 
+                                                    ForeColor="Red" ControlToValidate="txtprice"></asp:RequiredFieldValidator>
+                                                <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" ForeColor="Red"  
+                                                        ControlToValidate="txtprice" ErrorMessage="<%$ Resources:Resource, priceValidation%>" />
+
                                             </div>
                                         </div>
 

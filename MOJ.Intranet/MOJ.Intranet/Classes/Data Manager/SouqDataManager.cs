@@ -41,7 +41,7 @@ namespace MOJ.DataManager
                                         Souq.Category = Convert.ToString(lstItem["Category"]);
                                         Souq.Description = Convert.ToString(lstItem["Description"]);
                                         Souq.ContactNumber = Convert.ToString(lstItem["Contact Number"]);
-                                        Souq.Price = Convert.ToInt16(lstItem["Price"]);
+                                        Souq.Price = Convert.ToInt32(lstItem["Price"]);
                                         Souq.CreatedBy = CreatedUser;
 
                                         string FileUrl = Methods.ReturnAttachmentFile(oWeb, lstItem);
