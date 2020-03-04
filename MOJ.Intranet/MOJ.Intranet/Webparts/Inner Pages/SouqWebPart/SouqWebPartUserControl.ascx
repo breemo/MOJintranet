@@ -8,6 +8,14 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SouqWebPartUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart.SouqWebPartUserControl" %>
 
 <style>
+    input[type="radio"], input[type="checkbox"] {
+        border: 1px solid #ccc;
+        height: 22px;
+        cursor: pointer;
+        width: 22px !important;
+        margin: 10px;
+    }
+
     .active {
         background-color: #e9ecef;
     }
@@ -35,25 +43,18 @@
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
 
+<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
 <div class="container-fullwidth clearfix">
 
     <!-- Post Content
                     ============================================= -->
     <div class="postcontent nobottommargin col_last clearfix">
-
-
-
         <div class="nflexc">
-
-
             <a href="#" class="btnclasscdd radix" data-toggle="modal" data-target=".bs-example-modal-lg">
                 <asp:Literal runat="server" Text="<%$ Resources:Resource, AddAdvertisment%>" />
                 <span class="icon-plus1 pad"></span>
             </a>
-
-
-
-
             <div id="MyPopup" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-body">
@@ -92,14 +93,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
-
-
-
-
-
                                         <div class="row rt">
 
                                             <div class="col-md-12">
@@ -116,45 +109,24 @@
                                                         <asp:RequiredFieldValidator ID="rfvTitle" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtTitle"></asp:RequiredFieldValidator>
                                                     </div>
                                                 </div>
-
-
                                             </div>
-
                                         </div>
-
                                         <div class="row rt ">
-
                                             <div class="col-md-2">
-
                                                 <label>
                                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Descreption%>" /></label>
-
-
                                             </div>
                                             <div class="col-md-10">
-
                                                 <textarea runat="server" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-
-
-
-
-
                                             </div>
                                         </div>
-
-
                                         <div class="row rt">
-
                                             <div class="col-md-12">
-
                                                 <div class="row">
-
                                                     <div class="col-md-2">
                                                         <label>
                                                             <asp:Literal runat="server" Text="<%$ Resources:Resource, Category%>" /></label>
                                                     </div>
-
                                                     <div class="col-md-7">
                                                         <%--   <select class="form-control">
                                                             <option>الفئة</option>
@@ -165,53 +137,32 @@
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
-
-
                                             </div>
-
                                         </div>
-
-
-
                                         <div class="row rt ">
-
                                             <div class="col-md-2">
-
                                                 <label>
                                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Price%>" /></label>
-
-
                                             </div>
                                             <div class="col-md-7">
-
-
                                                 <input runat="server" id="txtprice" type="text" class="form-control" placeholder="">
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" 
                                                     ForeColor="Red" ControlToValidate="txtprice"></asp:RequiredFieldValidator>
                                                 <asp:CompareValidator runat="server" Operator="DataTypeCheck" Type="Integer" ForeColor="Red"  
                                                         ControlToValidate="txtprice" ErrorMessage="<%$ Resources:Resource, priceValidation%>" />
-
                                             </div>
                                         </div>
-
-
                                         <div class="row rt ">
-
                                             <div class="col-md-2">
-
                                                 <label>
                                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Picture%>" /></label>
-
-
                                             </div>
                                             <div class="col-md-7">
-
                                                 <%--  <div class="input-group file-upload">
                                                     <span class="wpcf7-form-control-wrap file-801 file-input">
                                                         <input type="file" name="file-801" size="40" class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" id="cv_file" accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.ppt,.pptx,.odt,.avi,.ogg,.m4a,.mov,.mp3,.mp4,.mpg,.wav,.wmv" aria-required="true" aria-invalid="false">
                                                     </span>
                                                     <label></label>
-
                                                 </div>--%>
                                                 <asp:FileUpload ID="fu" runat="server" CssClass="wpcf7-form-control wpcf7-file wpcf7-validates-as-required form-control-file" />
                                             </div>
@@ -221,47 +172,23 @@
                                                 </a>
                                             </div>--%>
                                         </div>
-
-
-
                                         <div class="row rt ">
-
                                             <div class="col-md-2">
-
                                                 <label>
                                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, ContactPhone%>" /></label>
-
-
                                             </div>
                                             <div class="col-md-7">
-
-
                                                 <input type="text" runat="server" id="txtContactNum" class="form-control" placeholder="">
                                             </div>
                                         </div>
-
-
-
-
-
-
-
-
                                         <div class="row rt mt-5 botx">
-
                                             <%--<a href="#" class="wicnewdiv">تقديم</a>--%>
                                             <asp:Button ID="btnSubmitNewItem" runat="server" CssClass="wicnewdiv" Text="<%$ Resources:Resource, Submit%>" OnClick="btnSubmitNewItem_Click" />
-
-
-
-
                                             <%--  <a href="#" data-dismiss="modal"
                                                 aria-hidden="true" class="wicnewdiv">الغاء
-
                                             </a>--%>
                                             <asp:Button ID="btnCancel" runat="server" data-dismiss="modal" aria-hidden="true" CssClass="wicnewdiv" Text="<%$ Resources:Resource, cancel%>" />
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -270,21 +197,12 @@
                 </div>
             </div>
         </div>
-
-
         <div class="boxleftbor">
             <h4>
                 <asp:Literal runat="server" Text="<%$ Resources:Resource, Souqtitle%>" />
             </h4>
-
-
-
             <div id="posts" class="small-thumbs alt">
-
                 <div class="booksearchitems">
-
-
-
                     <div class="row">
 
                         <!--Item book-->
@@ -532,6 +450,9 @@
     <!-- .sidebar end -->
 
 </div>
+
+    </ContentTemplate>
+</asp:UpdatePanel>
 
 <script>
    $(document).ready(function () {

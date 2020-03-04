@@ -14,10 +14,15 @@ namespace MOJ.Business
         {
             return new SouqDataManager().GetSouqData();
         }
-        public List<SouqEntity> GetSouqDataFromCategories(string Category1, string Category2, string Category3, string Category4)
+        //public List<SouqEntity> GetSouqDataFromCategories(string Category1, string Category2, string Category3, string Category4)
+        //{
+        //    return new SouqDataManager().GetSouqDataFromCategories(Category1, Category2, Category3, Category4);
+        //}
+        public List<SouqEntity> GetSouqDataFromCategories(string orQuery)
         {
-            return new SouqDataManager().GetSouqDataFromCategories(Category1, Category2, Category3, Category4);
+            return new SouqDataManager().GetSouqDataFromCategories(orQuery);
         }
+
         public bool SaveUpdate(SouqEntity obj)
         {
             return new SouqDataManager().AddOrUpdate(obj);

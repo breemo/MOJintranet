@@ -127,7 +127,7 @@
     <value>Circulars</value>
   </data>
   <data name="HeadGallery" xml:space="preserve">
-    <value>Photo Gallery</value>
+    <value>MOJ Gallery</value>
   </data>
   <data name="HeadNews" xml:space="preserve">
     <value>News</value>
@@ -346,7 +346,7 @@
     <value>Inside AbuDhabi</value>
   </data>
   <data name="MinistryFiles" xml:space="preserve">
-    <value>Ministry Files</value>
+    <value>Ministry Library</value>
   </data>
   <data name="outsideAbuDhabi" xml:space="preserve">
     <value>Outside AbuDhabi</value>
@@ -859,7 +859,7 @@
     <value>Search for the work place</value>
   </data>
   <data name="Souqtitle" xml:space="preserve">
-    <value>Your Souq</value>
+    <value>Your Market</value>
   </data>
   <data name="GeneralCabinetoftheMinistry" xml:space="preserve">
     <value>General Cabinet of the Ministry</value>
