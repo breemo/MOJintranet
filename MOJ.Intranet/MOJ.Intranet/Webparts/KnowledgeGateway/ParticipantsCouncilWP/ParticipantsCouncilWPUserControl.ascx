@@ -181,7 +181,12 @@
     border-right: 1px solid #e1e1e1;
     border-left: 1px solid #e1e1e1;
 }
+.faqhead label {
+    font-size: inherit !important;
+    font-weight: 700 !important;
+}
 </style>
+
 
 <script>
     /////////////////////////////////////2----------------------------------------------------

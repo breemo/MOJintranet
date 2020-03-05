@@ -10,7 +10,7 @@
      <!-- Post Content
                     ============================================= -->
                     <div class="">
-                        <div class="">
+                        <div class="faqhead1">
                             <h4>
 							    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilsHeld%>" /></label>
                             </h4>
@@ -197,12 +197,17 @@ background-color: #f5e9b6;
 
 tr.firstrow th {
       text-align: center;
-    font-size: 1.2em;
+  
     vertical-align: middle !important;
     background-color: #be9136;
     color: #fff;
     border: 0px;
     padding: 25px;
+}
+
+.faqhead1 label {
+    font-size: inherit !important;
+    font-weight: 700 !important;
 }
 </style>
 <script>

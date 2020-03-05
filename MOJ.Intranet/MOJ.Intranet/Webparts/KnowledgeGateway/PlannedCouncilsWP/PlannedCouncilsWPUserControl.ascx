@@ -12,8 +12,8 @@
                     ============================================= -->
                    
                         <div class="">
-                        <div class="">
-                            <h4>
+                        <div >
+                            <h4 class="faqhead1">
 							    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, PlannedCouncils%>" /></label>
                             </h4>
                             <div id="posts" class="small-thumbs alt">
@@ -148,6 +148,13 @@ tr.firstrow th {
     color: #fff;
     border: 0px;
     padding: 25px;
+}
+
+
+
+.faqhead1 label {
+    font-size: inherit !important;
+    font-weight: 700 !important;
 }
 </style>
 <script>

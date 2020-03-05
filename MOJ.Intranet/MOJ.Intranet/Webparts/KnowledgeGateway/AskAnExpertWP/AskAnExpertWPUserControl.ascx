@@ -124,6 +124,10 @@ tr.firstrow th {
     border: 0px;
     padding: 25px;
 }
+.faqhead label {
+    font-size: inherit !important;
+    font-weight: 700 !important;
+}
 </style>
 <script>
     $("#faqs dt:first-child").addClass("active");

@@ -18,7 +18,7 @@
                             <div class="d-flex justify-content-between">
                                  <span class="resalt"><asp:Literal ID="LBresalt" runat="server"></asp:Literal></span>
                                                        
-                                <h4>
+                                <h4 class="faqhead1">
                                    
                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilsHeld%>" /></label>
                                 </h4>
@@ -99,7 +99,7 @@
                                 	   <asp:Button Text="<%$ Resources:Resource, AddParticipants%>" CssClass="pollBtna" formnovalidate runat="server" ID="AddParticipants" OnClick="AddParticipants_Click" />
                                 <div class="row">
                                     <div class="col-md-9">
-                                        <div class="table-responsive">
+                                        <div class="table-responsive"  runat="server" id="tableParticipants" style="display: none;">
                                             <table class="table table-hover table-bordered newtableb newtableb2 ">
                                                 <thead>
                                                     <tr>
@@ -109,7 +109,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <div  runat="server" id="DivParticipants" >
+                                                    <div runat="server" id="DivParticipants">
 
 
                                                         </div>
@@ -210,10 +210,15 @@
 		letter-spacing: 0.9px;
 		color: #bd995d !important;
 	}
-    .CBOD .poll-popup-answ input[type="radio"]:checked + .radio-button-click-target .radio-button-circle {   
-        right: -20px !important;
-    top: 18px !important;
+   .radioComponent input {
+   margin-top: -6px;
 }
+    .CBOD .poll-popup-answ input[type="radio"]:checked + .radio-button-click-target .radio-button-circle {   
+    right: -19px !important;
+    left: -19px;
+    
+}
+
     .resalt {
     color: #BD995D;
     font-size: 22px;
@@ -249,6 +254,15 @@
     position: relative;
     height: 43px;
 }
+     select.aspNetDisabled {
+    width: 100%;
+}
+
+.faqhead1 label {
+    font-size: inherit !important;
+    font-weight: 700 !important;
+}
+
 	</style>
 		<script>
             $(document).ready(function () {

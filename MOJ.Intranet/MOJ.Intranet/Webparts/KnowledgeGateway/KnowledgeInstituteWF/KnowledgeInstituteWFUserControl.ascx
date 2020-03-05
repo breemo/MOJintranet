@@ -28,7 +28,22 @@
 </script>--%>
 
 <script type="text/javascript">
-        $(document).ready(function () {
+    $(document).ready(function () {
+        $("#sidebarmenubox a[href*='ViewTask']").closest("li").css({ "display": "none" });
+        $("#sidebarmenubox a[href*='ViewRequest']").closest("li").css({ "display": "none" });
+        $("#sidebarmenubox a[href*='AnnounceForaKnowledgeCouncil']").closest("li").css({ "display": "none" });
+        $("#sidebarmenubox a[href*='HeldCouncil']").closest("li").css({ "display": "none" });
+        $("#sidebarmenubox a[href*='PlannedCouncils']").closest("li").css({ "display": "none" });
+
+        $("#sidebarmenubox a[href*='HeldCouncilsDetail']").closest("li").css({ "display": "none" });
+        $("#sidebarmenubox a[href*='CouncilMembers']").closest("li").css({ "display": "none" });
+        $("#sidebarmenubox a[href*='AskAnExpertQuestion']").closest("li").css({ "display": "none" });
+        $("#sidebarmenubox a[href*='CreateExam']").closest("li").css({ "display": "none" });
+        $("#sidebarmenubox a[href*='ParticipantsCouncil']").closest("li").css({ "display": "none" });
+
+
+
+
             var tabId = document.getElementById('Tab').value;
 			window.history.pushState(null, null, "#" + tabId);
         });
@@ -55,6 +70,17 @@ function setTab3()
     .boxleftbor {
     padding: 0px !important;
 }
+
+    .bgdivindf {
+    min-height: 100%;
+}
+    .dininfo {
+    margin-top: 0px;
+}
+   .ndl   .col-md-4.col-sm-12 {
+    margin-bottom: 5px;
+}
+
 </style>
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />

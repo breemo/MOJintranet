@@ -16,7 +16,7 @@
   <!-- Post Content
                     ============================================= -->
                     <div class="">
-                        <div class="">
+                        <div class="faqhead1">
                             <h4>
 							    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, AnnounceForaKnowledgeCouncil%>" /></label>
                             </h4>
@@ -197,6 +197,10 @@ background-color: #f5e9b6;
 }
 #Edata .rt{
      margin-bottom: 1px;
+}
+.faqhead1 label {
+    font-size: inherit !important;
+    font-weight: 700 !important;
 }
 </style>
 <script>

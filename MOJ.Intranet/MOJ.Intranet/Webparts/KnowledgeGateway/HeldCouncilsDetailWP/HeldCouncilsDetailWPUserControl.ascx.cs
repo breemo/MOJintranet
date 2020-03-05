@@ -194,7 +194,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
      new System.Web.UI.HtmlControls.HtmlGenericControl("tr");
                        
                         newDiv.InnerHtml = htmlrow1;
-                    DivParticipants.Controls.Add(newDiv); 
+                    DivParticipants.Controls.Add(newDiv);
+
+                    tableParticipants.Style.Add("display", "block");
                 }
             }
             catch (Exception ex)
