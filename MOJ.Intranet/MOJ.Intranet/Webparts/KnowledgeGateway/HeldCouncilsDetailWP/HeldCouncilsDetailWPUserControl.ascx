@@ -137,11 +137,10 @@
                                                     <label class="lbel"><label><asp:Literal runat="server" Text="<%$ Resources:Resource, TheBenefitFromTheCouncil%>" /></label></label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <select  runat="server" id="TheBenefitFromTheCouncil" class="form-control">
-                                                        <option>اختر</option>
-                                                        <option>2018</option>
-                                                        <option>3</option>
-                                                    </select>
+                                                   
+
+                                                    <asp:DropDownList ID="TheBenefitFromTheCouncil"  runat="server" class="form-control">
+									</asp:DropDownList>
                                                 </div>                                                
                                             </div>
                                         </div>
@@ -242,6 +241,14 @@
         min-width: 120px;
         margin: 0px 1px;
     }
+
+     .boxfoo p {
+  
+
+    overflow: hidden;
+    position: relative;
+    height: 43px;
+}
 	</style>
 		<script>
             $(document).ready(function () {

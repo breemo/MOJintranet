@@ -225,7 +225,7 @@ namespace MOJ.Intranet.Webparts.My_Services.RequestAVacationWP
                     string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                     if (languageCode == "ar")
                     {
-                        MSG.InnerText = "** " + Methods.translateBayanatiErrorMessage(isSavedwebserves) + " **";
+                        MSG.InnerText = "** "+ Methods.translateBayanatiErrorMessage(isSavedwebserves) + " **";
                     }
                     else
                     {

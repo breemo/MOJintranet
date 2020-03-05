@@ -6,6 +6,7 @@ using MOJ.Entities;
 using MOJ.Intranet.Classes.Common;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Threading;
 using System.Web.UI;
@@ -20,6 +21,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
         {
             if (!Page.IsPostBack)
             {
+                GetDropDownTheBenefitFromTheCouncil();
+
                 if (!string.IsNullOrEmpty(Request.Params["RID"]))
                 {
                     CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
@@ -118,9 +121,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         btnsubmit.Enabled = false;
                         btnsubmit.Visible = false;
                         SubjectCouncilCanBeDone.Value = Convert.ToString(resalt.SubjectCouncilCanBeDone);
-                        TheBenefitFromTheCouncil.Value = Convert.ToString(resalt.TheBenefitFromTheCouncil);
+                        TheBenefitFromTheCouncil.SelectedValue = Convert.ToString(resalt.TheBenefitFromTheCouncil);
                         DevelopmentProposalsForCouncil.Value = Convert.ToString(resalt.DevelopmentProposalsForCouncil);
-                        TheBenefitFromTheCouncil.Disabled = true;
+                       
+                        TheBenefitFromTheCouncil.Enabled = false;
                         DevelopmentProposalsForCouncil.Disabled = true;
                         SubjectCouncilCanBeDone.Disabled = true;
                     }
@@ -128,6 +132,30 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
 
                 }
             }
+        }
+        private void GetDropDownTheBenefitFromTheCouncil()
+        {
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            //DataTable dataC = new RequestAVacation().GetVacationsTypes();
+            DataTable dataC = new CouncilFeedback().GetBenefitFromTheCouncil();
+
+
+
+
+
+            TheBenefitFromTheCouncil.DataSource = dataC;
+            TheBenefitFromTheCouncil.DataValueField = "ID";
+            if (languageCode == "ar")
+            {
+                TheBenefitFromTheCouncil.DataTextField = "Title";
+            }
+            else
+            {
+                TheBenefitFromTheCouncil.DataTextField = "TitleEN";
+            }
+
+            TheBenefitFromTheCouncil.DataBind();
         }
         private void ParticipantsData()
         {
@@ -466,7 +494,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
                 item.loginName = currentUserlogin;
                 item.SubjectCouncilCanBeDone = Convert.ToString(SubjectCouncilCanBeDone.Value);
-                item.TheBenefitFromTheCouncil = Convert.ToString(TheBenefitFromTheCouncil.Value);
+                item.TheBenefitFromTheCouncil = Convert.ToString(TheBenefitFromTheCouncil.SelectedValue);
                 item.DevelopmentProposalsForCouncil = Convert.ToString(DevelopmentProposalsForCouncil.Value);
                 bool resalt = new CouncilFeedback().SaveUpdate(item);
                 btnsubmit.Enabled = false;

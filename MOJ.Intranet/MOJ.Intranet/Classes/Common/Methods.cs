@@ -383,9 +383,9 @@ namespace CommonLibrary
                     case "please enter \"sick leave reason\". it is a mandatory for sick leave.":
                         ArabicMessage = "الرجاء إدخال سبب الإجازة المرضية. في حقل الملاحظات";
                         break;
-                    //case "please enter ""medical report issuing authority"". it is a mandatory for sick leave.":
-                    //ArabicMessage = "عربي 1";
-                    //    break;
+                    case "no connection to the web service bytna":
+                    ArabicMessage = "لا يوجد اتصال في الويب سيرفس بيتنا ";
+                        break;
                     //case "ora-06508: pl/sql: could not find program unit being calledORA-06512: at "apps.xxfahr_self_service_ws_pkg", line 2026":
                     //ArabicMessage = "عربي 1";
                     //    break;

@@ -127,6 +127,10 @@ namespace MOJ.DataManager
                         responseMsg = AcceptedValues;
                     }
                 }
+                else
+                {
+                    responseMsg = "No connection to the web service bytna";
+                }
 
             }
             catch (Exception ex)

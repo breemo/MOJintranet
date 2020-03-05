@@ -21,6 +21,12 @@ namespace MOJ.Business
         }
 
 
+       
+            public DataTable GetBenefitFromTheCouncil()
+        {
+            return new BenefitFromTheCouncilFeedbackDataManager().GetAll();
+        }
+
 
 
     }
