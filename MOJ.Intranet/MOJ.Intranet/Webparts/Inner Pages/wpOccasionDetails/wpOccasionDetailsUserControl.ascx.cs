@@ -87,6 +87,12 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
                 string OccasionID = Request.QueryString["OccasionId"].ToString();
                 OccasionsEntity occasionItem = new Occasions().GetOccasionById(Convert.ToInt32(OccasionID));
 
+                //ContentPlaceHolder contentPlaceHolder = (ContentPlaceHolder)Page.Master.FindControl("PlaceHolderPageTitle");
+                //contentPlaceHolder.Controls.Clear();
+                //LiteralControl literalControl = new LiteralControl();
+                //literalControl.Text = occasionItem.Title;
+                //contentPlaceHolder.Controls.Add(literalControl);
+
                 lblOccasionBody.Text = occasionItem.Description;
                 lblPublishDate.Text = Convert.ToDateTime(occasionItem.Created).ToString("dd MMM yyyy"); // "10 ديسمبر 2012";
                 lblPublishedBy.Text = occasionItem.CreatedBy.Split('#')[1];

@@ -172,17 +172,94 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
                     {
                         Categories.Add(item.Text);
                     }
-                    else
-                        Categories.Add(" ");
+                    //else
+                    //    Categories.Add(" ");
                 }
 
-                FillData(Categories[0].ToString(), Categories[1].ToString(), Categories[2].ToString(), Categories[3].ToString());
+                string orQuery = "";
+                if (Categories.Count == 1)
+                {
+                    orQuery = @"
+                                     <Contains>
+                                        <FieldRef Name='Category' />
+                                        <Value Type='Choice'>" + Categories[0].ToString() + @"</Value>
+                                     </Contains>";
+                }
+                else if (Categories.Count == 2)
+                {
+                    orQuery = @"<Or>
+                                     <Contains>
+                                        <FieldRef Name='Category' />
+                                        <Value Type='Choice'>" + Categories[0].ToString() + @"</Value>
+                                     </Contains>
+                                     <Contains>
+                                        <FieldRef Name='Category' />
+                                        <Value Type='Choice'>" + Categories[1].ToString() + @"</Value>
+                                     </Contains>
+                                </Or>";
+                }
+                else if (Categories.Count == 3)
+                {
+                    orQuery = @"<Or>
+                                     <Contains>
+                                        <FieldRef Name='Category' />
+                                        <Value Type='Choice'>" + Categories[0].ToString() + @"</Value>
+                                     </Contains>
+                                    <Or>
+                                         <Contains>
+                                            <FieldRef Name='Category' />
+                                            <Value Type='Choice'>" + Categories[1].ToString() + @"</Value>
+                                         </Contains>
+                                         <Contains>
+                                            <FieldRef Name='Category' />
+                                            <Value Type='Choice'>" + Categories[2].ToString() + @"</Value>
+                                         </Contains>
+                                    </Or>
+                                </Or>";
+                }
+                else
+                {
+                    //orQuery = "";
+                    int numOfCloseOrs = 0;
+
+                    //foreach(string item in Categories)
+                    for (int index = Categories.Count - 1; index > 1; index--)
+                    {
+                        orQuery += @"<Or>
+                                        <Contains>
+                                            <FieldRef Name='Category' />
+                                            <Value Type='Choice'>" + Categories[index] + @"</Value>
+                                        </Contains>";
+
+                        numOfCloseOrs++;
+                    }
+
+                    orQuery += @"<Or>
+                                     <Contains>
+                                        <FieldRef Name='Category' />
+                                        <Value Type='Choice'>" + Categories[0].ToString() + @"</Value>
+                                     </Contains>
+                                     <Contains>
+                                        <FieldRef Name='Category' />
+                                        <Value Type='Choice'>" + Categories[1].ToString() + @"</Value>
+                                     </Contains>
+                                </Or>";
+
+                    for(int orIndex=0; orIndex< numOfCloseOrs; orIndex++)
+                    {
+                        orQuery += "</Or>";
+                    }
+                }
+
+                //FillData(Categories[0].ToString(), Categories[1].ToString(), Categories[2].ToString(), Categories[3].ToString());
+                FillData(orQuery);
             }
 
         }
-        private void FillData(string Category1, string Category2, string Category3, string Category4)
+
+        private void FillData(string _orQuery)
         {
-            List<SouqEntity> Souqs = new Souq().GetSouqDataFromCategories(Category1, Category2, Category3, Category4);
+            List<SouqEntity> Souqs = new Souq().GetSouqDataFromCategories(_orQuery);
             if (Souqs.Count != 0)
             {
                 PagedDataSource pgitems = new PagedDataSource();
@@ -223,6 +300,50 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
                 FooterTemplate.FindControl("trEmpty").Visible = true;
             }
         }
+
+        //private void FillData(string Category1, string Category2, string Category3, string Category4)
+        //{
+        //    List<SouqEntity> Souqs = new Souq().GetSouqDataFromCategories(Category1, Category2, Category3, Category4);
+        //    if (Souqs.Count != 0)
+        //    {
+        //        PagedDataSource pgitems = new PagedDataSource();
+        //        pgitems.DataSource = Souqs;
+        //        pgitems.AllowPaging = true;
+        //        pgitems.PageSize = 12;
+        //        pgitems.CurrentPageIndex = PageNumber;
+
+        //        if (pgitems.PageCount > 1)
+        //        {
+        //            rptPaging.Visible = true;
+        //            ArrayList pages = new ArrayList();
+        //            for (int i = 0; i <= pgitems.PageCount - 1; i++)
+        //            {
+        //                pages.Add((i + 1).ToString());
+        //            }
+        //            rptPaging.DataSource = pages;
+        //            rptPaging.DataBind();
+        //        }
+        //        else
+        //        {
+        //            rptPaging.Visible = false;
+        //            PaginUI.Visible = false;
+        //        }
+        //        grdSouqlsts.DataSource = pgitems;
+        //        grdSouqlsts.DataBind();
+        //    }
+        //    else
+        //    {
+        //        rptPaging.Visible = false;
+        //        PaginUI.Visible = false;
+
+        //        DataTable dt = new DataTable();
+        //        grdSouqlsts.DataSource = dt;
+        //        grdSouqlsts.DataBind();
+
+        //        Control FooterTemplate = grdSouqlsts.Controls[grdSouqlsts.Controls.Count - 1].Controls[0];
+        //        FooterTemplate.FindControl("trEmpty").Visible = true;
+        //    }
+        //}
 
         protected void btnSubmitNewItem_Click(object sender, EventArgs e)
         {
