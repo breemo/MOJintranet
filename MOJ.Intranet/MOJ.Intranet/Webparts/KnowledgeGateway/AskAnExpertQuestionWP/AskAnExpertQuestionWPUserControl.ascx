@@ -14,7 +14,7 @@
   <!-- Post Content
                     ============================================= -->
                     <div class="">
-                        <div class="">
+                        <div class="faqhead1">
                             <h4>
 							    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, AskAnExpert%>" /></label>
                             </h4>
@@ -116,6 +116,10 @@ background-color: #f5e9b6;
     margin-bottom: 1px;
     margin-top: 1px;
     padding: 1px;
+}
+.faqhead1 label {
+    font-size: inherit !important;
+    font-weight: 700 !important;
 }
 </style>
 <script>

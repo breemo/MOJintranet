@@ -39,7 +39,7 @@
 <asp:HiddenField ClientIDMode="Static" id="RetrevehdnsuperDIV13" runat="server" />
      <!-- Content
         ============================================= -->
-        <section id="content">          
+               
 			<div id="posts" runat="server" class="small-thumbs alt content-wrap">
                 <div class="">
 				<div class="boxsh">
@@ -49,7 +49,7 @@
                             </h3>
                         </div>
                         <div class="">
-                            <div class="">
+                           
 							 <!--          ==============     Edata=============================== -->
                                 <div class="ndl" id="Edata">
 								 <div class=" DivPID" style=" display: none;">
@@ -219,6 +219,7 @@
 																		</div>	
 																</div>
 															</div>															                                               
+                                                    </div>
                                                     </div>
 													<div>
 													  	<a  onclick="addEmploymenthistory();" class="addmorebtn"><span class="icon-plus-circle" style="font-size: 12px;padding: 0px 0px 0px 5px;"></span><asp:Literal runat="server" Text="<%$ Resources:Resource, Add%>" /></a>
@@ -1131,9 +1132,7 @@
 																						</div>
 														 </dd> 
 										 </dl>
-                                            <div class="bottomsaction">
-											    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Process%>" /></label>
-                                            </div>
+                                           
                                             <div class="row cf">
                                                
 												     <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Save%>" CssClass="btnclass bgicb nwckss" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
@@ -1149,8 +1148,8 @@
 					</div>
                     </div>
                 </div>
-				</div>
-	</div>   
+				
+	
 <div id="SuccessMsgDiv" runat="server" style="display:none">
     <h4 class="ta3m" style="text-align: center;"><asp:Literal ID="lblSuccessMsg" runat="server"></asp:Literal></h4>	
 	 <div class="row cf">
@@ -1207,12 +1206,7 @@
     margin-top: 8px !important;
     margin-bottom: 30px !important;
 }
-.postcontent.nobottommargin.col_last.clearfix {
-    width: 95%;
-}
-.sidebar.nobottommargin.clearfix {
-    display: none;
-}
+
 .boxleftbor {
     padding: 0;
     box-shadow: none;
@@ -1256,6 +1250,10 @@
 .conentbgdivd {
     border-right: 1px solid #e1e1e1;
     border-left: 1px solid #e1e1e1;
+}
+.faqhead label {
+    font-size: inherit !important;
+    font-weight: 700 !important;
 }
 </style>
 <script>
