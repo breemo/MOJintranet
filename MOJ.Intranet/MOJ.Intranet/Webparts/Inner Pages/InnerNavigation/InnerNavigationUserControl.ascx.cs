@@ -52,7 +52,7 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
                 foreach (var page in pages)
                 {
                     string CurrentPage = Path.GetFileName(Request.Url.AbsolutePath);
-                    if (page.Name != "default.aspx") //ToDO Remove this Page :AddEmployeeNumber.aspx
+                    if (page.Name != "default.aspx") //ToDO Remove this Page :AddEmployeeNumber.aspx  library / directory / market
                     {
                         if (page.Name != "AddEmployeeNumber.aspx")
                         {
@@ -66,15 +66,22 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
                                         {
                                             if (page.Name != "OccasionDetails.aspx")
                                             {
-
-                                                if (CurrentPage == page.Name)
-                                                { Class = "<li class='uk-active'>"; }
-                                                else { Class = "<li>"; }
-                                                lblDrawItems.Text +=
-                                                     string.Format(@"
-                                    " + Class + @"<a href='{0}' >{1}</a></li>
-                                    ", page.Uri, page.Title);
-
+                                                if (page.Name != "Souq.aspx")
+                                                {
+                                                    if (page.Name != "UserInformation.aspx")
+                                                    {
+                                                        if (page.Name != "Files.aspx")
+                                                        {
+                                                            if (CurrentPage.ToLower() == page.Name.ToLower())
+                                                            { Class = "<li class='uk-active'>"; }
+                                                            else { Class = "<li>"; }
+                                                            lblDrawItems.Text +=
+                                                                 string.Format(@"
+                                                                                " + Class + @"<a href='{0}' >{1}</a></li>
+                                                                                ", page.Uri, page.Title);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
@@ -82,7 +89,6 @@ namespace MOJ.Intranet.Webparts.Home.InnerNavigation
                             }
                         }
                     }
-
                 }
             }
             catch (Exception ex)
