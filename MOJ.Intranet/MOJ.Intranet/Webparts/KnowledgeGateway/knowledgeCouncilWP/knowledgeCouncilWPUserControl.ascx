@@ -25,7 +25,7 @@
                                 <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
                                             </div>
                                             <div class="col-md-9">
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeNumber%>" /></label>
                                             </div>
                                             <div class="col-md-9">
@@ -47,7 +47,7 @@
                                 <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
 												    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>     
                                             </div>
                                             <div class="col-md-9">
@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" /></label>  
                                             </div>
 
@@ -70,7 +70,7 @@
                                 <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, DirectManager%>" /></label>  
                                             </div>
                                             <div class="col-md-9">
@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilTopic%>" /></label>  
                                             </div>
 
@@ -96,7 +96,7 @@
                                 <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilTarget%>" /></label>  
                                             </div>
@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, JoiningConditions%>" /></label>  
                                             </div>
                                             <div class="col-md-9">
@@ -126,7 +126,7 @@
                                     <div class="row rt">                                                    
                                         <div class="col-md-6">
                                             <div class="row">
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
 													<label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilDate%>" /></label>  
                                                 </div>
                                                 <div class="col-md-9">
@@ -145,7 +145,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">
-                                                <div class="col-md-2">											
+                                                <div class="col-md-3">											
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilType%>" /></label>  
                                                 </div>
                                                 <div class="col-md-9">

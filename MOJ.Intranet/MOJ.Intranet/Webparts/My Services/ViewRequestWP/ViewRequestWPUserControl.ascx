@@ -170,7 +170,7 @@ background-color: #f5e9b6;
     <div  id="ResendDiv" runat="server" style="display: none" class="row rt  botx">        
         <span class="Resendb" onclick="ResendFunction()">
                     <span id="plus" > + </span>
-        <span id="minus" style="display: none;"> - </span>
+        <span id="minus" style="display: none;">  </span>
            <span><asp:Literal runat="server" Text="<%$ Resources:Resource, Resend%>" /></span></span>
         <hr />
          <div id="ResendDivchild" style="display: none;">        
