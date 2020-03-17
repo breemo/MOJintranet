@@ -72,7 +72,7 @@
 
 
 
-                            </div>
+                            </div> 
 
                         </div>--%>
 
@@ -91,10 +91,10 @@
                                         </div>
                                         <div class="titlebook">
                                             <h4>
-                                                <%# Eval("BookTitle") %>
+                                                <%# CommonLibrary.LimitCharacters.Limit(Eval("BookTitle"), 29) %>
                                             </h4>
                                             <span class="desco">
-                                                <%# Eval("BookDescAr") %>
+                                                <%# CommonLibrary.LimitCharacters.Limit(Eval("BookDescAr"), 29) %>
                                             </span>
                                         </div>
 

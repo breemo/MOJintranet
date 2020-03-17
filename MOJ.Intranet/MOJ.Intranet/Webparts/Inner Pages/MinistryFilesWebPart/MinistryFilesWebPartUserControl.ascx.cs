@@ -237,7 +237,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
             txtAuthor.Value = "";
             txtSearchBookName.Value = "";
             txtSearchCreatedby.Value = "";
-            //BindData();
+            BindData();
         }
     }
 }
