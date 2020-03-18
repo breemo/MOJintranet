@@ -7,8 +7,13 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wpInnovationGateUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.wpInnovationGate.wpInnovationGateUserControl" %>
 
-
 <style>
+    .boxleftbor {
+        min-height: 360px;
+    }
+</style>
+
+<%--<style>
 #content p {
 text-align:center;
 
@@ -40,4 +45,34 @@ min-height:200px !important;
             </div>
         </div>
     </div>
-</div>
+</div>--%>
+
+<div id="posts" runat="server" class="small-thumbs alt">
+
+                <div class="row rt">
+                <div class="col-md-12 ">
+                    <div class="row">
+						<div class="col-md-2">
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, InnovationGate%>" /></label>
+                        </div>
+                        <div class="col-md-4">  				
+                            <asp:DropDownList ID="ddlInnovationTypes" AutoPostBack="true" runat="server" class="form-control">
+                                 <asp:listitem text="<%$ Resources:Resource, ddlSelect%>" value="1"></asp:listitem>
+                                 <asp:listitem text="<%$ Resources:Resource, InnovationPlatform%>" value="2"></asp:listitem>
+                                 <asp:listitem text="<%$ Resources:Resource, InnovationTools%>" value="3"></asp:listitem>
+                                 <asp:listitem text="<%$ Resources:Resource, MinistryInnovationStrategy%>" value="4"></asp:listitem>
+                                 <asp:listitem text="<%$ Resources:Resource, GovernmentInnovationFramework%>" value="5"></asp:listitem>
+							</asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server" InitialValue="1"
+							    ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="ddlInnovationTypes" Display="Dynamic">
+							</asp:RequiredFieldValidator>   
+                        </div>
+                    </div>
+                </div>
+				</div>       
+			
+			
+            <div class="row rt  botx">
+                <asp:Button Text="<%$ Resources:Resource, Submit%>" OnClientClick="isGreaterThanDateTime()"  CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+            </div>
+        </div>

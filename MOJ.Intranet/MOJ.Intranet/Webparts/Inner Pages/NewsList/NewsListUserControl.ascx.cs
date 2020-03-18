@@ -1,5 +1,6 @@
 ﻿using CommonLibrary;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 using MOJ.Business;
 using MOJ.Entities;
 using System;
@@ -29,6 +30,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
                 {
                     ddlYear.Items.Add(new ListItem(startYear.ToString(), startYear.ToString()));
                 }
+                ddlYear.Items.Add(new ListItem(SPUtility.GetLocalizedString("$Resources: SearchAll", "Resource", SPContext.Current.Web.Language), "0"));
+                ddlYear.SelectedValue = "0";
 
                 int year = int.Parse(ddlYear.SelectedValue);
                 FillData(year.ToString(), "1", "12", "1", "31");
@@ -38,7 +41,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
         {
             int year = int.Parse(ddlYear.SelectedValue);
 
-            if (ddlMonth.SelectedValue != "0")
+            if (ddlMonth.SelectedValue != "0" && year != 0)
             {
                 int month = int.Parse(ddlMonth.SelectedValue);
                 int daysInMonth = DateTime.DaysInMonth(year, month);
@@ -56,7 +59,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
             PageNumber = Convert.ToInt32(e.CommandArgument) - 1;
 
             int year = int.Parse(ddlYear.SelectedValue);
-            if (ddlMonth.SelectedValue != "0")
+
+            if (ddlMonth.SelectedValue != "0" && year != 0)
             {
                 int month = int.Parse(ddlMonth.SelectedValue);
                 int daysInMonth = DateTime.DaysInMonth(year, month);
@@ -92,7 +96,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
             {
                 PageNumber -= 1;
                 int year = int.Parse(ddlYear.SelectedValue);
-                if (ddlMonth.SelectedValue != "0")
+
+                if (ddlMonth.SelectedValue != "0" && year != 0)
                 {
                     int month = int.Parse(ddlMonth.SelectedValue);
                     int daysInMonth = DateTime.DaysInMonth(year, month);
@@ -111,7 +116,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.NewsList
             {
                 PageNumber += 1;
                 int year = int.Parse(ddlYear.SelectedValue);
-                if (ddlMonth.SelectedValue != "0")
+
+                if (ddlMonth.SelectedValue != "0" && year != 0)
                 {
                     int month = int.Parse(ddlMonth.SelectedValue);
                     int daysInMonth = DateTime.DaysInMonth(year, month);

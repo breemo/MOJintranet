@@ -27,6 +27,9 @@
      .col-md-2 {
         top: 5px;
     }
+     img.img-fluid.d-block {
+        min-height: 219px;
+    }
 </style>
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />

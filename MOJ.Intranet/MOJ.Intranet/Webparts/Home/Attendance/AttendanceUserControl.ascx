@@ -26,7 +26,24 @@
 
             <div class="chart" style="width: 100%">
             </div>
-            <div class="titilxde"> <asp:Literal runat="server" Text="<%$ Resources:Resource, SickVacation%>" /></div>
+
+            <%--<div class="titilxde" title="الاجازات المرضية" alt="الاجازات المرضية"> 
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, SickVacation%>" />
+            </div>--%>
+
+            <% if (Convert.ToString(SPUtility.GetLocalizedString("$Resources: SiteURL", "Resource", SPContext.Current.Web.Language)).ToLower() == "ar")
+            { %>    
+               <div class="titilxde" title="الاجازات المرضية" alt="الاجازات المرضية"> 
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, SickVacation%>" />
+            </div>
+            <%} %>
+            <%else
+            { %>
+                <div class="titilxde" title="Sick Vacation" alt="Sick Vacation"> 
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, SickVacation%>" />
+            </div>
+            <%} %>
+
         </div>
 
 
@@ -35,7 +52,26 @@
 
             <div class="chart" style="width: 100%">
             </div>
-            <div class="titilxde"> <asp:Literal runat="server" Text="<%$ Resources:Resource, VacationBalance%>" /></div>
+
+
+
+            
+
+             <% if (Convert.ToString(SPUtility.GetLocalizedString("$Resources: SiteURL", "Resource", SPContext.Current.Web.Language)).ToLower() == "ar")
+            { %>    
+               <div class="titilxde" title="رصيد الاجازات" alt="رصيد الاجازات"> 
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, VacationBalance%>" />
+            </div>
+            <%} %>
+            <%else
+            { %>
+                <div class="titilxde" title="Vacation Balance" alt="Vacation Balance"> 
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, VacationBalance%>" />
+            </div>
+            <%} %>
+
+
+
         </div>
 
         <div class="col-md-4">
@@ -43,7 +79,27 @@
 
             <div class="chart" style="width: 100%">
             </div>
-            <div class="titilxde"> <asp:Literal runat="server" Text="<%$ Resources:Resource, Departure%>" /></div>
+
+
+
+           
+
+            <% if (Convert.ToString(SPUtility.GetLocalizedString("$Resources: SiteURL", "Resource", SPContext.Current.Web.Language)).ToLower() == "ar")
+            { %>    
+                <div class="titilxde" title="الاستئذانات" alt="الاستئذانات"> 
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, Departure%>" />
+            </div>
+            <%} %>
+            <%else
+            { %>
+                 <div class="titilxde" title="Departure" alt="Departure"> 
+                <asp:Literal runat="server" Text="<%$ Resources:Resource, Departure%>" />
+            </div>
+            <%} %>
+
+
+
+
         </div>
 
 
@@ -63,7 +119,13 @@
         document.querySelector('#result').innerHTML = e.target.value;
     }
 
-    INPUTS.forEach(el => el.addEventListener('click', (e) => updateValue(e)));
+    //INPUTS.forEach(el => el.addEventListener('click', (e) => updateValue(e)));
+
+    INPUTS.forEach(function (el) {
+        el.addEventListener('click', function (e) {
+            updateValue(e);
+        })
+    });
     </script>
 
 
