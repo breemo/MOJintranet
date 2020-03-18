@@ -208,6 +208,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             addtopage("CouncilTarget", CouncilTarget);
             string JoiningConditions = "<textarea disabled name ='txtCouncilTarget' id ='txtCouncilTarget' class='form-control'cols='120' rows='3'>" + masteritem.JoiningConditions + "</textarea>";
             addtopage("JoiningConditions", JoiningConditions);
+            string TargetGroup = "<textarea disabled name ='txtTargetGroup' id ='txtTargetGroup' class='form-control'cols='120' rows='3'>" + masteritem.TargetGroup + "</textarea>";
+            addtopage("TargetGroup", TargetGroup);
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
             string CouncilTypename = new knowledgeCouncil().GetCouncilTypeByid(Convert.ToInt32(masteritem.CouncilType), languageCode);

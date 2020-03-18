@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Threading;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
@@ -29,19 +30,30 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
                     AddParticipants.Enabled = false;
                     AddParticipants.Visible = false;
+                    ModifyCouncil.Enabled = false;
+                    ModifyCouncil.Visible = false;
+                    
+
                     string currentUserloginp = SPContext.Current.Web.CurrentUser.LoginName;
+                    if (currentUserloginp.ToLower().Equals(@"sharepoint\system"))
+                    {
+                        currentUserloginp = "i:" + HttpContext.Current.User.Identity.Name;
+
+                    }
+
                     ///////////////////////////////////////AddParticipants/////
                     knowledgeCouncilEntity KCEntityp = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
 
                     Departments Departmentp = new Departments();
                     DepartmentsEntity DEnitiyp = Departmentp.GetbyDepartments(KCEntityp.Department);
-                    if (DEnitiyp.DepartmentAdmin.User.LoginName == currentUserloginp)
+           
+                    if (DEnitiyp.DepartmentAdmin.User.LoginName.ToLower() == currentUserloginp.ToLower())
                     {
                         AddParticipants.Enabled = true;
                         AddParticipants.Visible = true;
-
+                        ModifyCouncil.Enabled = true;
+                        ModifyCouncil.Visible = true;
                     }
-
                     getExam(Convert.ToInt32(Request.Params["RID"]));
                     knowledgeCouncilEntity item = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
                     CouncilNo.Text = Convert.ToString(item.CouncilNo);
@@ -56,11 +68,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         ADetailedExplanationOfTheCouncil.Text = Convert.ToString(item.CouncilDescriptionEN);
                         Lecturer.Text = Convert.ToString(item.LecturerEN);
                         CouncilGoals.Text = Convert.ToString(item.CouncilGoalsEN);
-                    }
-                  
+                    }                  
                     CouncilHeldDate.Text = item.CouncilDate.ToString("dd/MM/yyyy");
-                    Department.Text = Convert.ToString(item.Department);
-                   
+                    Department.Text = Convert.ToString(item.Department);               
 
                     if (!string.IsNullOrEmpty(item.URLAttachments))
                     {
@@ -112,7 +122,14 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     /////////////////////////////////////////
                     CouncilFeedbackEntity item2 = new CouncilFeedbackEntity();
                     item2.knowledgeCouncilID = Convert.ToString(Request.Params["RID"]);
+
                     string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                    if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
+                    {
+                        currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+
+                    }
+
                     item2.loginName = currentUserlogin;
 
                     CouncilFeedbackEntity resalt = new CouncilFeedback().GetCouncilFeedback(item2);
@@ -161,8 +178,14 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
         {
             try
             {
-                
+
+
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
+                {
+                    currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+
+                }
                 knowledgeCouncil objKC = new knowledgeCouncil();
                 List<ParticipantsCouncilEntity> ParticipantsData = objKC.GetParticipants(Convert.ToString(Request.Params["RID"]));
           
@@ -211,6 +234,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
             try
             {
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
+                {
+                    currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+
+                    }
                 btnCreateExam.Enabled = false;
                 btnCreateExam.Visible = false;
                
@@ -250,7 +278,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                    
                     Departments Department = new Departments();
                     DepartmentsEntity DEnitiy= Department.GetbyDepartments(KCEntity.Department);
-                    if(DEnitiy.DepartmentAdmin.User.LoginName == currentUserlogin)
+                   if (DEnitiy.DepartmentAdmin.User.LoginName.ToLower() == currentUserlogin.ToLower())
                     {
                         btnCreateExam.Enabled = true;
                         btnCreateExam.Visible = true;
@@ -395,11 +423,24 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 Response.Redirect("/En/KnowledgeGateway/Pages/ParticipantsCouncil.aspx?RID=" + Convert.ToString(Request.Params["RID"]));
             }
         }
+        protected void ModifyCouncil_Click(object sender, EventArgs e)
+        {
+            
+                Response.Redirect("/Lists/knowledgeCouncil/EditForm.aspx?ID=" + Convert.ToString(Request.Params["RID"]));
+           
+        }
         protected void btnsubmitexam_Click(object sender, EventArgs e)
         {
             if (!_isRefresh)
             {
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+
+               
+                if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
+                {
+                    currentUserlogin = "i:"  + HttpContext.Current.User.Identity.Name;
+
+                }
                 List<CouncilExamAnswerEntity> list6 = new List<CouncilExamAnswerEntity>();
                 int AllResult = 0;
                 string[] QuestionID = Request.Form.GetValues("QuestionID");
@@ -493,7 +534,14 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
             {
                 CouncilFeedbackEntity item = new CouncilFeedbackEntity();//.GetHappinessHotline(Convert.ToInt32(Request.Params["RID"]));
                 item.knowledgeCouncilID = Convert.ToString(Request.Params["RID"]);
+
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
+                {
+                    currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+
+                }
+
                 item.loginName = currentUserlogin;
                 item.SubjectCouncilCanBeDone = Convert.ToString(SubjectCouncilCanBeDone.Value);
                 item.TheBenefitFromTheCouncil = Convert.ToString(TheBenefitFromTheCouncil.SelectedValue);

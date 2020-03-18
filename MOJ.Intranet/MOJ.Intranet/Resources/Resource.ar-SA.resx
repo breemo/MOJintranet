@@ -1500,4 +1500,13 @@
   <data name="priceValidation" xml:space="preserve">
     <value>السعر يقبل رقم فقط</value>
   </data>
+  <data name="ConcernedDepartment" xml:space="preserve">
+    <value>الإدارة المعنية</value>
+  </data>
+  <data name="ModifyCouncil" xml:space="preserve">
+    <value>تعديل المجلس</value>
+  </data>
+  <data name="TargetGroup" xml:space="preserve">
+    <value>الفئة المستهدفة</value>
+  </data>
 </root>

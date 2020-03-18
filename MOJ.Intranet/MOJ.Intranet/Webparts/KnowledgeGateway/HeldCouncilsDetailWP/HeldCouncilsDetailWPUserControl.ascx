@@ -17,7 +17,7 @@
                         <div class="">
                             <div class="d-flex justify-content-between">
                                  <span class="resalt"><asp:Literal ID="LBresalt" runat="server"></asp:Literal></span>
-                                                       
+                                                     
                                 <h4 class="faqhead1">
                                    
                                  <label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilsHeld%>" /></label>
@@ -96,7 +96,11 @@
                                     <p>
                                             <asp:Literal ID="CouncilGoals" runat="server"></asp:Literal></p>
                                 </div>
-                                	   <asp:Button Text="<%$ Resources:Resource, AddParticipants%>" CssClass="pollBtna" formnovalidate runat="server" ID="AddParticipants" OnClick="AddParticipants_Click" />
+                                	   <asp:Button style="width: 200px;" Text="<%$ Resources:Resource, AddParticipants%>" CssClass="pollBtna" formnovalidate runat="server" ID="AddParticipants" OnClick="AddParticipants_Click" />
+                                 	  
+                                <br />
+                                <br />
+                                <asp:Button style="width: 200px;" Text="<%$ Resources:Resource, ModifyCouncil%>" CssClass="pollBtna" formnovalidate runat="server" ID="ModifyCouncil" OnClick="ModifyCouncil_Click" />
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="table-responsive"  runat="server" id="tableParticipants" style="display: none;">

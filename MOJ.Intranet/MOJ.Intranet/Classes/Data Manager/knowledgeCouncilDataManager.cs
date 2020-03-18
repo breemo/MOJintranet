@@ -275,8 +275,9 @@ namespace MOJ.DataManager
                         item["CouncilGoals"] = knowledgeCouncilItem.CouncilGoals;
                         item["CouncilGoalsEN"] = knowledgeCouncilItem.CouncilGoalsEN;
                         item["CouncilType"] = knowledgeCouncilItem.CouncilType;
-                        item["Department"] = knowledgeCouncilItem.Department;
+                        item["Department"] = knowledgeCouncilItem.Department;                       
                         item["DirectManager"] = knowledgeCouncilItem.DirectManager;
+                        item["TargetGroup"] = knowledgeCouncilItem.TargetGroup;
                         item["EmployeeName"] = knowledgeCouncilItem.EmployeeName;
                         item["EmployeeNumber"] = knowledgeCouncilItem.EmployeeNumber;
                         item["JoiningConditions"] = knowledgeCouncilItem.JoiningConditions;
@@ -429,8 +430,9 @@ namespace MOJ.DataManager
                                      obitem.CouncilGoals = Convert.ToString(item["CouncilGoals"]);
                                      obitem.CouncilGoalsEN = Convert.ToString(item["CouncilGoalsEN"]);
                                      obitem.CouncilType = Convert.ToString(item["CouncilType"]);
-                                     obitem.Department= Convert.ToString(item["Department"]);
+                                     obitem.Department= Convert.ToString(item["Department"]);                                    
                                     obitem.DirectManager = Convert.ToString(item["DirectManager"]);
+                                    obitem.TargetGroup = Convert.ToString(item["TargetGroup"]);
                                      obitem.EmployeeName= Convert.ToString(item["EmployeeName"]);
                                      obitem.EmployeeNumber= Convert.ToString(item["EmployeeNumber"]);
                                      obitem.JoiningConditions= Convert.ToString(item["JoiningConditions"]);
@@ -656,9 +658,10 @@ namespace MOJ.DataManager
                                     itemis.CouncilGoals = Convert.ToString(Item["CouncilGoals"]);
                                     itemis.CouncilGoalsEN = Convert.ToString(Item["CouncilGoalsEN"]);
                                     itemis.CouncilType = Convert.ToString(Item["CouncilType"]);
-                                    itemis.Department = Convert.ToString(Item["Department"]);
+                                    itemis.Department = Convert.ToString(Item["Department"]);                                  
                                     itemis.Designation = Convert.ToString(Item["Designation"]);
                                     itemis.DirectManager = Convert.ToString(Item["DirectManager"]);
+                                    itemis.TargetGroup = Convert.ToString(Item["TargetGroup"]);
                                     itemis.EmployeeName = Convert.ToString(Item["EmployeeName"]);
                                     itemis.EmployeeNumber = Convert.ToString(Item["EmployeeNumber"]);
                                     itemis.JoiningConditions = Convert.ToString(Item["JoiningConditions"]);
@@ -823,9 +826,10 @@ namespace MOJ.DataManager
                                     itemis.CouncilGoals = Convert.ToString(Item["CouncilGoals"]);
                                     itemis.CouncilGoalsEN = Convert.ToString(Item["CouncilGoalsEN"]);
                                     itemis.CouncilType = Convert.ToString(Item["CouncilType"]);
-                                    itemis.Department = Convert.ToString(Item["Department"]);
+                                    itemis.Department = Convert.ToString(Item["Department"]);                                   
                                     itemis.Designation = Convert.ToString(Item["Designation"]);
                                     itemis.DirectManager = Convert.ToString(Item["DirectManager"]);
+                                    itemis.TargetGroup = Convert.ToString(Item["TargetGroup"]);
                                     itemis.EmployeeName = Convert.ToString(Item["EmployeeName"]);
                                     itemis.EmployeeNumber = Convert.ToString(Item["EmployeeNumber"]);
                                     itemis.JoiningConditions = Convert.ToString(Item["JoiningConditions"]);

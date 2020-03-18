@@ -14,6 +14,8 @@ using System.Threading;
 using MOJ.Intranet.Classes.Common;
 using MOJ.Entities.ImplicitKnowledge;
 using System.Data;
+using System.Web;
+
 namespace MOJ.Intranet.Webparts.KnowledgeGateway.ParticipantsCouncilWP
 {
     public partial class ParticipantsCouncilWPUserControl : SiteUI
@@ -31,7 +33,13 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ParticipantsCouncilWP
                 }
                 else
                 {
+                    
                     string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                    if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
+                    {
+                        currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+
+                    }
                     knowledgeCouncilEntity KCEntity = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
 
                     Departments Department = new Departments();
@@ -59,6 +67,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ParticipantsCouncilWP
             try
             {
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+               
+                if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
+                {
+                    currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+
+                }
                 knowledgeCouncil objKC = new knowledgeCouncil();
                 List<ParticipantsCouncilEntity> ParticipantsData = objKC.GetParticipants(Convert.ToString(Request.Params["RID"]));
                 int x = 0;

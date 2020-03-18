@@ -49,15 +49,6 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText EPosition;
         
         /// <summary>
-        /// EDepartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText EDepartment;
-        
-        /// <summary>
         /// EDirectManager control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,24 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText EDirectManager;
+        
+        /// <summary>
+        /// EDepartment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EDepartment;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// CouncilTopic control.
@@ -119,6 +128,24 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// TargetGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea TargetGroup;
+        
+        /// <summary>
+        /// RequiredFieldValidatorMessage2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage2;
         
         /// <summary>
         /// CouncilDate control.

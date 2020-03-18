@@ -1500,4 +1500,13 @@
   <data name="priceValidation" xml:space="preserve">
     <value>Price must be a number</value>
   </data>
+  <data name="ConcernedDepartment" xml:space="preserve">
+    <value>Concerned Department</value>
+  </data>
+  <data name="ModifyCouncil" xml:space="preserve">
+    <value>Modify Council</value>
+  </data>
+  <data name="TargetGroup" xml:space="preserve">
+    <value>Target group</value>
+  </data>
 </root>
