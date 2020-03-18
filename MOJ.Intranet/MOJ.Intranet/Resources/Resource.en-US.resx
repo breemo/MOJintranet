@@ -1527,4 +1527,16 @@
   <data name="urlMinistryInnovationStrategy" xml:space="preserve">
     <value>/Documents/%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%20%D9%84%D9%84%D8%A7%D8%A8%D8%AA%D9%83%D8%A7%D8%B1%20%202017-2021.pdf</value>
   </data>
+  <data name="ConcernedDepartment" xml:space="preserve">
+    <value>Concerned Department</value>
+  </data>
+  <data name="ModifyCouncil" xml:space="preserve">
+    <value>Modify Council</value>
+  </data>
+  <data name="TargetGroup" xml:space="preserve">
+    <value>Target group</value>
+  </data>
+  <data name="NumberOfParticipants" xml:space="preserve">
+    <value>Participants number</value>
+  </data>
 </root>

@@ -14,6 +14,7 @@ using System.Threading;
 using MOJ.Intranet.Classes.Common;
 using MOJ.Entities.ImplicitKnowledge;
 using System.Data;
+using System.Web;
 
 namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP
 {
@@ -31,7 +32,14 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.CreateExamWP
                     btnsubmit.Visible = false;
                 }
                 else {
+                 
                     string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                    if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
+                    {
+                        currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+
+                    }
+
                     knowledgeCouncilEntity KCEntity = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
 
                     Departments Department = new Departments();

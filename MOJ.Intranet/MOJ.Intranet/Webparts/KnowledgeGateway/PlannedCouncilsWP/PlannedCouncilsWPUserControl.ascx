@@ -43,6 +43,7 @@
 													<td><%#  Convert.ToDateTime(Eval("CouncilDate")).ToString("dd/MM/yyyy")%></td> 
 													<td><%# Eval("Lecturer") %></td> 
 													<td><%# Eval("JoiningConditions") %></td> 													                                       
+													<td><%# Eval("TargetGroup") %></td> 													                                       
 													<td><a class="bddgicb" style="color: #fff !important;" <%# Eval("RequestURL") %> ><%# Eval("Status") %></a></td>
 													</tr>     
 												</ItemTemplate>
@@ -131,7 +132,7 @@ background-color: #f5e9b6;
     border-right: 1px solid #dee2e6;
         border-left: 1px solid #dee2e6;
         text-align: center;
-        font-size: 1em;
+        font-size: 0.8em;
 }
 .table-responsive tr {
     border: 1px solid #dee2e6;
@@ -142,7 +143,7 @@ background-color: #f5e9b6;
 
 tr.firstrow th {
       text-align: center;
-    font-size: 1.2em;
+    font-size: 0.9em;
     vertical-align: middle !important;
     background-color: #be9136;
     color: #fff;

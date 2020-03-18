@@ -25,7 +25,7 @@
                                 <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
                                             </div>
                                             <div class="col-md-9">
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EmployeeNumber%>" /></label>
                                             </div>
                                             <div class="col-md-9">
@@ -47,7 +47,7 @@
                                 <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
 												    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>     
                                             </div>
                                             <div class="col-md-9">
@@ -57,20 +57,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
-                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" /></label>  
-                                            </div>
-
-                                            <div class="col-md-9">
-                                                 <input type="text" disabled name="EDepartment" runat="server" id="EDepartment" class="form-control" placeholder="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row rt">
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                   <label><asp:Literal runat="server" Text="<%$ Resources:Resource, DirectManager%>" /></label>  
                                             </div>
                                             <div class="col-md-9">
@@ -78,9 +65,30 @@
                                             </div>
 											</div>
                                     </div>
+                                    </div>
+                                    
+                                <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
+                                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ConcernedDepartment%>" /></label>  
+                                            </div>
+
+                                            <div class="col-md-9">
+                                            <asp:DropDownList ID="EDepartment" runat="server" class="form-control">
+																</asp:DropDownList>
+                                                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+								ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="EDepartment" Display="Dynamic" >
+								</asp:RequiredFieldValidator>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                                    
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-3">
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilTopic%>" /></label>  
                                             </div>
 
@@ -93,10 +101,11 @@
                                         </div>
                                     </div>
 									</div>
+                                
                                 <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilTarget%>" /></label>  
                                             </div>
@@ -111,7 +120,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, JoiningConditions%>" /></label>  
                                             </div>
                                             <div class="col-md-9">
@@ -122,11 +131,37 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>    
+                                <div class="row rt">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                
+												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, TargetGroup%>" /></label>  
+                                            </div>
+                                            <div class="col-md-9">
+											<textarea class="form-control" runat="server" id="TargetGroup" rows="4"></textarea>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage2" runat="server" 
+								ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="TargetGroup" Display="Dynamic" >
+								</asp:RequiredFieldValidator>  
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-3">
+											</div>
+                                            <div class="col-md-9">
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>                                            
                                     <div class="row rt">                                                    
                                         <div class="col-md-6">
                                             <div class="row">
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
 													<label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilDate%>" /></label>  
                                                 </div>
                                                 <div class="col-md-9">
@@ -145,7 +180,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row">
-                                                <div class="col-md-2">											
+                                                <div class="col-md-3">											
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilType%>" /></label>  
                                                 </div>
                                                 <div class="col-md-9">

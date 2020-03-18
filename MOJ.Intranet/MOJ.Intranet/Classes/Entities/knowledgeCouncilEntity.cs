@@ -24,6 +24,7 @@ namespace MOJ.Entities
 
         public string Department { get; set; }
         public string DirectManager { get; set; }
+        public string TargetGroup { get; set; }
         public string CouncilTarget { get; set; }
         public string JoiningConditions { get; set; }
         public DateTime CouncilDate { get; set; }
@@ -40,6 +41,7 @@ namespace MOJ.Entities
        
         public SPFieldUserValue CreatedBy { get; set; }
         public int CouncilNo { get; set; }
+        public int NumberOfParticipants { get; set; }
         public int PassPercentage { get; set; }
         public string URLAttachments { get; set; }
     }
