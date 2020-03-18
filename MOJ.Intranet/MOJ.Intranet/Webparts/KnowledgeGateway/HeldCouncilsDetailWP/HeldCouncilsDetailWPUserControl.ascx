@@ -83,6 +83,9 @@
                                         <div class="bxl">
                                             <p><label><asp:Literal runat="server" Text="<%$ Resources:Resource, CouncilType%>" /></label></p>
                                             <span><asp:Literal ID="CouncilType" runat="server"></asp:Literal></span>
+                                        </div><div class="bxl">
+                                            <p><label><asp:Literal runat="server" Text="<%$ Resources:Resource, NumberOfParticipants%>" /></label></p>
+                                            <span><asp:Literal ID="NumberOfParticipants" runat="server"></asp:Literal></span>
                                         </div>
                                     </div>
                                 </div>
@@ -266,7 +269,10 @@
     font-size: inherit !important;
     font-weight: 700 !important;
 }
+.finc .bxl{
 
+    min-width: 15%!important;
+}
 	</style>
 		<script>
             $(document).ready(function () {

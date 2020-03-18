@@ -41,6 +41,7 @@ namespace MOJ.Entities
        
         public SPFieldUserValue CreatedBy { get; set; }
         public int CouncilNo { get; set; }
+        public int NumberOfParticipants { get; set; }
         public int PassPercentage { get; set; }
         public string URLAttachments { get; set; }
     }

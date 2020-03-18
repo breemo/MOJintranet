@@ -1509,4 +1509,7 @@
   <data name="TargetGroup" xml:space="preserve">
     <value>الفئة المستهدفة</value>
   </data>
+  <data name="NumberOfParticipants" xml:space="preserve">
+    <value>عدد المشاركين</value>
+  </data>
 </root>

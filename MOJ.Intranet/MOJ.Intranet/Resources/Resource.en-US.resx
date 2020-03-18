@@ -1509,4 +1509,7 @@
   <data name="TargetGroup" xml:space="preserve">
     <value>Target group</value>
   </data>
+  <data name="NumberOfParticipants" xml:space="preserve">
+    <value>Participants number</value>
+  </data>
 </root>

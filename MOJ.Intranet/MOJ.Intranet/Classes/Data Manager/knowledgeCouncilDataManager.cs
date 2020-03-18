@@ -441,6 +441,7 @@ namespace MOJ.DataManager
                                      obitem.LecturerEN = Convert.ToString(item["LecturerEN"]);
                                      obitem.Status = Convert.ToString(item["Status"]);
                                      obitem.CouncilNo = Convert.ToInt32(item["CouncilNo"]);
+                                     obitem.NumberOfParticipants = Convert.ToInt32(item["NumberOfParticipants"]);
 
                                     if (!string.IsNullOrEmpty(Convert.ToString(item["PassPercentage"])))
                                     {
@@ -651,6 +652,7 @@ namespace MOJ.DataManager
                                     itemis.ID = Convert.ToInt32(Item["ID"]);
                                     itemis.CouncilDate = Convert.ToDateTime(Item["CouncilDate"]);
                                     itemis.CouncilNo = Convert.ToInt32(Item["CouncilNo"]);
+                                    itemis.NumberOfParticipants = Convert.ToInt32(Item["NumberOfParticipants"]);
                                     itemis.CouncilTarget = Convert.ToString(Item["CouncilTarget"]);
                                     itemis.CouncilTopic = Convert.ToString(Item["CouncilTopic"]);
                                     itemis.CouncilDescription = Convert.ToString(Item["CouncilDescription"]);
@@ -819,6 +821,7 @@ namespace MOJ.DataManager
                                     itemis.ID = Convert.ToInt32(Item["ID"]);
                                     itemis.CouncilDate = Convert.ToDateTime(Item["CouncilDate"]);
                                     itemis.CouncilNo = Convert.ToInt32(Item["CouncilNo"]);
+                                    itemis.NumberOfParticipants = Convert.ToInt32(Item["NumberOfParticipants"]);
                                     itemis.CouncilTarget = Convert.ToString(Item["CouncilTarget"]);
                                     itemis.CouncilTopic = Convert.ToString(Item["CouncilTopic"]);
                                     itemis.CouncilDescription = Convert.ToString(Item["CouncilDescription"]);

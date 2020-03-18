@@ -56,6 +56,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     }
                     getExam(Convert.ToInt32(Request.Params["RID"]));
                     knowledgeCouncilEntity item = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
+                    NumberOfParticipants.Text = Convert.ToString(item.NumberOfParticipants);
                     CouncilNo.Text = Convert.ToString(item.CouncilNo);
                     if (languageCode == "ar")
                     {

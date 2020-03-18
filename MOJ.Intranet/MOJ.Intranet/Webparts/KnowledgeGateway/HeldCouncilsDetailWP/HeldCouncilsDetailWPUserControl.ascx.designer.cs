@@ -103,6 +103,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
         protected global::System.Web.UI.WebControls.Literal CouncilType;
         
         /// <summary>
+        /// NumberOfParticipants control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal NumberOfParticipants;
+        
+        /// <summary>
         /// ADetailedExplanationOfTheCouncil control.
         /// </summary>
         /// <remarks>
