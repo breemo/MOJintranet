@@ -17,68 +17,33 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpInnovationGate
         {
             if (!Page.IsPostBack)
             {
-                try
-                {
-                    BindData();
-                }
-                catch (Exception ex)
-                {
-                    LoggingService.LogError("WebParts", ex.Message);
-                }
             }
         }
-        private void BindData()
+
+        protected void btnsubmit_Click(object sender, EventArgs e)
         {
-            try
+            switch (ddlInnovationTypes.SelectedValue)
             {
-                List<DepartmentDocumentsEntity> DepartmentDocumentsEntityLst = new DepartmentDocumentsBL().GetAllDocuments();
-                lblDrawItems.Text = "";
-                string siteURL = SPContext.Current.Web.Url;
-                foreach (DepartmentDocumentsEntity item in DepartmentDocumentsEntityLst)
-                {
-                    string[] FileNameAndFileType = item.Title.ToString().Split('.');
-                    string FileType = FileNameAndFileType[1].ToString();
-                    string classname = "";
-
-                    switch (FileType)
+                case "2":
                     {
-                        case "doc":
-                        case "docx":
-                            classname = "wfnew";
-                            break;
-
-                        case "xlsx":
-                            classname = "ef";
-                            break;
-
-                        case "pdf":
-                            classname = "pf";
-                            break;
-
-                        default:
-                            break;
+                        this.Response.Redirect(SPUtility.GetLocalizedString("$Resources: urlInnovationPlatform", "Resource", SPContext.Current.Web.Language));
+                        break;
                     }
-
-                    lblDrawItems.Text +=
-                                      string.Format(@"
-                                            <div class='col-md-2 col-sm-4'>
-
-                                                <div class='filuo'>
-                                                    <a href='" + siteURL + @"/InnovationFiles/" + item.Title + @"'>
-                                                    <div class='" + classname + @"'>
-                                                        <p>
-                                                           " + FileNameAndFileType[0].ToString() + @"
-                                                        </p>
-                                                    </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                    ");
-                }
-            }
-            catch (Exception ex)
-            {
-                LoggingService.LogError("WebParts", ex.Message);
+                case "3":
+                    {
+                        this.Response.Redirect(SPUtility.GetLocalizedString("$Resources: urlInnovationTools", "Resource", SPContext.Current.Web.Language));
+                        break;
+                    }
+                case "4":
+                    {
+                        this.Response.Redirect(SPUtility.GetLocalizedString("$Resources: urlMinistryInnovationStrategy", "Resource", SPContext.Current.Web.Language));
+                        break;
+                    }
+                case "5":
+                    {
+                        this.Response.Redirect(SPUtility.GetLocalizedString("$Resources: urlGovernmentInnovationFramework", "Resource", SPContext.Current.Web.Language));
+                        break;
+                    }
             }
         }
     }

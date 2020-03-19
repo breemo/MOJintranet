@@ -65,6 +65,8 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
         }
         private void GetCategory()
         {
+            ddlCategorySubmit.Items.Clear();
+
             try
             {
                 SPSecurity.RunWithElevatedPrivileges(delegate ()
@@ -371,12 +373,15 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
                 if (isSaved == true)
                 {
                     txtTitle.Value = "";
-                    GetCategory();
+                    //GetCategory();
                     txtprice.Value = "";
                     exampleFormControlTextarea1.Value = "";
                     txtContactNum.Value = "";
 
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "HidePopup", "$('#MyPopup').modal('hide')", true);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "ReloadPage", "location.reload()", true);
+
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "myalert", "window.location.reload();", true);
                 }
             }
         }

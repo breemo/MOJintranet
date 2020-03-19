@@ -13,12 +13,39 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpInnovationGate {
     public partial class wpInnovationGateUserControl {
         
         /// <summary>
-        /// lblDrawItems control.
+        /// posts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal lblDrawItems;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl posts;
+        
+        /// <summary>
+        /// ddlInnovationTypes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlInnovationTypes;
+        
+        /// <summary>
+        /// RequiredFieldValidatorMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage;
+        
+        /// <summary>
+        /// btnsubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnsubmit;
     }
 }

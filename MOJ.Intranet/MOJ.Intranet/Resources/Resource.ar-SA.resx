@@ -1500,6 +1500,33 @@
   <data name="priceValidation" xml:space="preserve">
     <value>السعر يقبل رقم فقط</value>
   </data>
+  <data name="GovernmentInnovationFramework" xml:space="preserve">
+    <value>إطار الأبتكار الحكومي</value>
+  </data>
+  <data name="InnovationGate" xml:space="preserve">
+    <value>بوابة الابتكار</value>
+  </data>
+  <data name="InnovationPlatform" xml:space="preserve">
+    <value>منصة الابتكار</value>
+  </data>
+  <data name="InnovationTools" xml:space="preserve">
+    <value>أدوات الابتكار</value>
+  </data>
+  <data name="MinistryInnovationStrategy" xml:space="preserve">
+    <value>إستراتيجية الوزارة للابتكار</value>
+  </data>
+  <data name="urlGovernmentInnovationFramework" xml:space="preserve">
+    <value>/Documents/%D8%A5%D8%B7%D8%A7%D8%B1%D9%80%D8%A7%D9%84%D8%A7%D8%A8%D8%AA%D9%83%D8%A7%D8%B1_%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D9%8A.pdf</value>
+  </data>
+  <data name="urlInnovationPlatform" xml:space="preserve">
+    <value>http://innovation.moj.gov.ae/</value>
+  </data>
+  <data name="urlInnovationTools" xml:space="preserve">
+    <value>/Documents/ادوات الابتكار.pdf</value>
+  </data>
+  <data name="urlMinistryInnovationStrategy" xml:space="preserve">
+    <value>/Documents/%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84%20%D9%84%D9%84%D8%A7%D8%A8%D8%AA%D9%83%D8%A7%D8%B1%20%202017-2021.pdf</value>
+  </data>
   <data name="ConcernedDepartment" xml:space="preserve">
     <value>الإدارة المعنية</value>
   </data>

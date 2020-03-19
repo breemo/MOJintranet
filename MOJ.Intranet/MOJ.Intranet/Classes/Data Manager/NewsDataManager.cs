@@ -331,7 +331,9 @@ namespace MOJ.DataManager
                                     SPQuery oQuery = new SPQuery();
                                     SPUser currentUser = oWeb.CurrentUser;
 
-                                    if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                if (!string.IsNullOrEmpty(Methods.GetEmployeeDepartment(currentUser)))
+                                {
+                                    if (year != "0")
                                     {
                                         oQuery.Query = @"<Where>
                                           <And>
@@ -354,7 +356,19 @@ namespace MOJ.DataManager
                                     }
                                     else
                                     {
-                                        oQuery.Query = @" < Where>
+                                        oQuery.Query = @"<Where>
+                                             <Contains>
+                                                <FieldRef Name='Department' />
+                                                <Value Type='LookupMulti'>" + Methods.GetEmployeeDepartment(currentUser) + @"</Value>
+                                             </Contains>
+                                       </Where>";
+                                    }
+                                }
+                                else
+                                {
+                                    if (year != "0")
+                                    {
+                                        oQuery.Query = @" <Where>
                                                       <And>
                                                          <Geq>
                                                             <FieldRef Name='Created' />
@@ -367,6 +381,11 @@ namespace MOJ.DataManager
                                                       </And>
                                                    </Where>";
                                     }
+                                    else
+                                    {
+                                        oQuery.Query = "";
+                                    }
+                                }
                                     
                                     oQuery.ViewFields = SharedConstants.MemosViewfields;
 

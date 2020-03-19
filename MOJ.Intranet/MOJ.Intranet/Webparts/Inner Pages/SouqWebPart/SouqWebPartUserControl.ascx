@@ -12,7 +12,7 @@
         border: 1px solid #ccc;
         height: 22px;
         cursor: pointer;
-        width: 22px !important;
+        width: 22px;
         margin: 10px;
     }
 
@@ -43,8 +43,8 @@
 
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
 
-<asp:UpdatePanel ID="UpdatePanel1" runat="server">
-    <ContentTemplate>
+<%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>--%>
 <div class="container-fullwidth clearfix">
 
     <!-- Post Content
@@ -451,8 +451,8 @@
 
 </div>
 
-    </ContentTemplate>
-</asp:UpdatePanel>
+<%--    </ContentTemplate>
+</asp:UpdatePanel>--%>
 
 <script>
    $(document).ready(function () {
