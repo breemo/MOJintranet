@@ -104,6 +104,9 @@
                                 <br />
                                 <br />
                                 <asp:Button style="width: 200px;" Text="<%$ Resources:Resource, ModifyCouncil%>" CssClass="pollBtna" formnovalidate runat="server" ID="ModifyCouncil" OnClick="ModifyCouncil_Click" />
+                                  <br />
+                                <br />
+                                <asp:Button style="width: 200px;" Text="<%$ Resources:Resource, AllFeedback%>" CssClass="pollBtna" formnovalidate runat="server" ID="AllFeedback" OnClick="AllFeedback_Click" />
                                 <div class="row">
                                     <div class="col-md-9">
                                         <div class="table-responsive"  runat="server" id="tableParticipants" style="display: none;">

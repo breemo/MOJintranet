@@ -1133,10 +1133,29 @@
 														 </dd> 
 										 </dl>
                                            
+                                            <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:CheckBox ID="cbConfirm" runat="server" Text="<%$ Resources:Resource, ImplicitknowledgeConfirm%>" CssClass="AcceptedAgreement"
+                                                            />
+                                                    </div>
+                                                </div>
+                                                 <div class="row">
+                                                    <div class="col-md-12">
+                                                        <asp:CustomValidator runat="server" ID="CheckBoxRequired" EnableClientScript="true"
+                                                            OnServerValidate="CheckBoxRequired_ServerValidate"
+                                                            ClientValidationFunction="CheckBoxRequired_ClientValidate" 
+                                                            ErrorMessage="<%$ Resources:Resource, SouqMustConfirm%>"
+                                                            ForeColor="Red"
+                                                            validationgroup="impGroup"></asp:CustomValidator>
+
+                                                    </div>
+                                                </div>
+
+
                                             <div class="row cf">
                                                
-												     <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Save%>" CssClass="btnclass bgicb nwckss" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
-           												     <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Back%>" CssClass="btnclass bgicb nwckss" runat="server" ID="btnBack" OnClick="btnBack_Click" />
+						 <asp:Button  validationgroup="impGroup" style="margin-top: 15px;" Text="<%$ Resources:Resource, Save%>" CssClass="btnclass bgicb nwckss" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />
+           						 <asp:Button style="margin-top: 15px;" Text="<%$ Resources:Resource, Back%>" CssClass="btnclass bgicb nwckss" runat="server" ID="btnBack" OnClick="btnBack_Click" />
            
                                              
                                             </div>
@@ -1170,6 +1189,13 @@
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ar.min.js" charset="UTF-8"></script>
 <style>
+    .AcceptedAgreement input{
+        border: 1px solid #ccc;
+    height: 22px;
+    cursor: pointer;
+    width: 22px !important;
+    margin: 10px;
+    }
 .nwckss {
     margin-top: 20px;
     margin-left: 5px;
@@ -1256,6 +1282,15 @@
     font-weight: 700 !important;
 }
 </style>
+<script>
+
+  
+
+    function CheckBoxRequired_ClientValidate(sender, e) {
+        e.IsValid = jQuery(".AcceptedAgreement input:checkbox").is(':checked');
+    }
+
+</script>
 <script>
     $(document).ready(function () {
         $(".RadiB label").addClass("radio-button-click-target");

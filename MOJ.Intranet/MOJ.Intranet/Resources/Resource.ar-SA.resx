@@ -1512,4 +1512,10 @@
   <data name="NumberOfParticipants" xml:space="preserve">
     <value>عدد المشاركين</value>
   </data>
+  <data name="AllFeedback" xml:space="preserve">
+    <value>التقيمات</value>
+  </data>
+  <data name="ImplicitknowledgeConfirm" xml:space="preserve">
+    <value>أقر بأن وزارة العدل لا تتحمل أي مسؤولية عن البيانات المدخلة</value>
+  </data>
 </root>

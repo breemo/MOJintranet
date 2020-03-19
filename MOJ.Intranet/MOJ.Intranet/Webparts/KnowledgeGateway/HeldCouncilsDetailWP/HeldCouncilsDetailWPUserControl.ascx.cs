@@ -32,6 +32,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     AddParticipants.Visible = false;
                     ModifyCouncil.Enabled = false;
                     ModifyCouncil.Visible = false;
+                    AllFeedback.Enabled = false;
+                    AllFeedback.Visible = false;
                     
 
                     string currentUserloginp = SPContext.Current.Web.CurrentUser.LoginName;
@@ -53,6 +55,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         AddParticipants.Visible = true;
                         ModifyCouncil.Enabled = true;
                         ModifyCouncil.Visible = true;
+                        AllFeedback.Enabled = true;
+                        AllFeedback.Visible = true;
                     }
                     getExam(Convert.ToInt32(Request.Params["RID"]));
                     knowledgeCouncilEntity item = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
@@ -428,6 +432,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
         {
             
                 Response.Redirect("/Lists/knowledgeCouncil/EditForm.aspx?ID=" + Convert.ToString(Request.Params["RID"]));
+           
+        } protected void AllFeedback_Click(object sender, EventArgs e)
+        {
+            
+                Response.Redirect("/Lists/CouncilFeedback/AllItems.aspx#InplviewHash288ec745-79c3-4849-9c63-dbb6a9b220b2=FilterField1%3DknowledgeCouncilID-FilterValue1%3D" + Convert.ToString(Request.Params["RID"]));
            
         }
         protected void btnsubmitexam_Click(object sender, EventArgs e)

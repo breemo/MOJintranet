@@ -41,6 +41,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 VoluntaryWorkData();
             }
         }
+        protected void CheckBoxRequired_ServerValidate(object sender, ServerValidateEventArgs e)
+        {
+            e.IsValid = cbConfirm.Checked;
+        }
         private void VoluntaryWorkData()
         {
             try

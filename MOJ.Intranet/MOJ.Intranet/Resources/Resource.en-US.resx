@@ -1512,4 +1512,10 @@
   <data name="NumberOfParticipants" xml:space="preserve">
     <value>Participants number</value>
   </data>
+  <data name="AllFeedback" xml:space="preserve">
+    <value>All feedback</value>
+  </data>
+  <data name="ImplicitknowledgeConfirm" xml:space="preserve">
+    <value>I acknowledged that the Ministry of Justice does not assume any responsibility for the data entered</value>
+  </data>
 </root>

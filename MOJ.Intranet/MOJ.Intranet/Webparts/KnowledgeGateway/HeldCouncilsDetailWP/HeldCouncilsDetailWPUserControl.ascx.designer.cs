@@ -148,6 +148,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
         protected global::System.Web.UI.WebControls.Button ModifyCouncil;
         
         /// <summary>
+        /// AllFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AllFeedback;
+        
+        /// <summary>
         /// tableParticipants control.
         /// </summary>
         /// <remarks>
