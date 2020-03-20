@@ -607,12 +607,18 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
 
                     string ExamResult = "The Exam Result Is Successful "+"("+ Examiners.percentage+ ")";
                     StringBuilder sb = new StringBuilder();
+                   
                     sb.Append("<header class='clearfix'>");
+                    sb.Append("<br/>");
                     sb.Append("<h1> Certificate</h1>");
+                    sb.Append("<hr>");
                     sb.Append("<div id='company' class='clearfix'>");
+                    sb.Append("<br/>");
                     sb.Append("<div>Minsitry of Justice United Arab Emirates</div>");
-                
+                    sb.Append("<br/>");
+
                     sb.Append("<div> Council No : " + CouncilNo.Text + "</div>");
+                    sb.Append("<br/>");
                     sb.Append("<div>"+ ExamResult + "</div>");
                    
                     sb.Append("</div>");
@@ -651,7 +657,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         // Gets or sets the HTTP MIME type of the output stream.
                         Response.ContentType = "application/pdf";
                         // Adds an HTTP header to the output stream
-                        Response.AddHeader("Content-Disposition", "attachment; filename=Invoice.pdf");
+                        Response.AddHeader("Content-Disposition", "attachment; filename=Certificate_Council.pdf");
 
                         //Gets or sets a value indicating whether to buffer output and send it after
                         // the complete response is finished processing.
