@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
                                 <br />
-                                 <asp:Button style="width: 200px;" Text="<%$ Resources:Resource, ModifyCouncil%>" CssClass="pollBtna" formnovalidate runat="server" ID="btn_PDFEmail" OnClick="btn_PDFEmail_Click" />
+                                 <asp:Button style="width: 200px;" Text="<%$ Resources:Resource, PrintCertificate%>" CssClass="pollBtna" formnovalidate runat="server" ID="btn_PDFEmail" OnClick="btn_PDFEmail_Click" />
                                   <br />
                                 <br />
                                 <div class="illsudiv">

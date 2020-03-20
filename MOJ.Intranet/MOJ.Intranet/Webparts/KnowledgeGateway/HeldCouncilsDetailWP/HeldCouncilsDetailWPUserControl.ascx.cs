@@ -21,7 +21,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
-
+using iTextSharp.text;
 
 namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
 {
@@ -660,7 +660,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
 
                     StringReader sr = new StringReader(sb.ToString());
 
-                    iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 10f, 10f, 10f, 0f);
+                   Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
                     //iTextSharp.text.html.simpleparser.HTMLWorker jj;
                     iTextSharp.text.html.simpleparser.HTMLWorker htmlparser = new iTextSharp.text.html.simpleparser.HTMLWorker(pdfDoc);
                     using (MemoryStream memoryStream = new MemoryStream())

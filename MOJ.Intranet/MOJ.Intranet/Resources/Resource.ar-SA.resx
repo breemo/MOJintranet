@@ -1545,4 +1545,7 @@
   <data name="ImplicitknowledgeConfirm" xml:space="preserve">
     <value>أقر بأن وزارة العدل لا تتحمل أي مسؤولية عن البيانات المدخلة</value>
   </data>
+  <data name="PrintCertificate" xml:space="preserve">
+    <value>طباعة الشهادة</value>
+  </data>
 </root>

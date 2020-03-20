@@ -1545,4 +1545,7 @@
   <data name="ImplicitknowledgeConfirm" xml:space="preserve">
     <value>I acknowledged that the Ministry of Justice does not assume any responsibility for the data entered</value>
   </data>
+  <data name="PrintCertificate" xml:space="preserve">
+    <value>Print certificate</value>
+  </data>
 </root>
