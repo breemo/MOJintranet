@@ -112,6 +112,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP {
         protected global::System.Web.UI.WebControls.Literal NumberOfParticipants;
         
         /// <summary>
+        /// btn_PDFEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_PDFEmail;
+        
+        /// <summary>
         /// ADetailedExplanationOfTheCouncil control.
         /// </summary>
         /// <remarks>

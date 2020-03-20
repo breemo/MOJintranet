@@ -8,11 +8,20 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.IO;
+using System.Text;
 using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
+
+using System.Configuration;
+
+using System.Linq;
+using System.Net;
+using System.Net.Mail;
+
 
 namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
 {
@@ -34,7 +43,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     ModifyCouncil.Visible = false;
                     AllFeedback.Enabled = false;
                     AllFeedback.Visible = false;
-                    
+                    btn_PDFEmail.Enabled = false;
+                    btn_PDFEmail.Visible = false;
 
                     string currentUserloginp = SPContext.Current.Web.CurrentUser.LoginName;
                     if (currentUserloginp.ToLower().Equals(@"sharepoint\system"))
@@ -261,6 +271,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     {
                         LBresalt.Text = SuccessfulMSG;
                         LBresalt2.Text = SuccessfulMSG;
+
+                        btn_PDFEmail.Enabled = true;
+                        btn_PDFEmail.Visible = true;
                     }
                     else
                     {
@@ -538,20 +551,20 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
             }
 
         }
+
+
+
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             if (!_isRefresh)
             {
                 CouncilFeedbackEntity item = new CouncilFeedbackEntity();//.GetHappinessHotline(Convert.ToInt32(Request.Params["RID"]));
                 item.knowledgeCouncilID = Convert.ToString(Request.Params["RID"]);
-
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
                 if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
                 {
                     currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
-
                 }
-
                 item.loginName = currentUserlogin;
                 item.SubjectCouncilCanBeDone = Convert.ToString(SubjectCouncilCanBeDone.Value);
                 item.TheBenefitFromTheCouncil = Convert.ToString(TheBenefitFromTheCouncil.SelectedValue);
@@ -569,6 +582,124 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 {
                     Response.Redirect("/En/KnowledgeGateway/Pages/HeldCouncilsDetail.aspx?RID=" + Convert.ToString(Request.Params["RID"]));
                 }
+            }
+        }
+
+        [Obsolete]
+        protected void btn_PDFEmail_Click(object sender, EventArgs e)
+        {
+            if (!_isRefresh)
+            {
+                if (!DesignMode)
+
+                {
+                    //add your initializing code (for runtime!) here
+
+
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append("<header class='clearfix'>");
+                    sb.Append("<h1>INVOICE</h1>");
+                    sb.Append("<div id='company' class='clearfix'>");
+                    sb.Append("<div>Company Name</div>");
+                    sb.Append("<div>455 John Tower,<br /> AZ 85004, US</div>");
+                    sb.Append("<div>(602) 519-0450</div>");
+                    sb.Append("<div><a href='mailto:naser_asad@hotmail.com'>naser_asad@hotmail.com</a></div>");
+                    sb.Append("</div>");
+                    sb.Append("<div id='project'>");
+                    sb.Append("<div><span>PROJECT</span> Website development</div>");
+                    sb.Append("<div><span>CLIENT</span> John Doe</div>");
+                    sb.Append("<div><span>ADDRESS</span> 796 Silver Harbour, TX 79273, US</div>");
+                    sb.Append("<div><span>EMAIL</span> <a href='mailto:naser_asad@hotmail.com'>naser_asad@hotmail.com</a></div>");
+                    sb.Append("<div><span>DATE</span> April 13, 2016</div>");
+                    sb.Append("<div><span>DUE DATE</span> May 13, 2016</div>");
+                    sb.Append("</div>");
+                    sb.Append("</header>");
+                    sb.Append("<main>");
+                    sb.Append("<table>");
+                    sb.Append("<thead>");
+                    sb.Append("<tr>");
+                    sb.Append("<th class='service'>SERVICE</th>");
+                    sb.Append("<th class='desc'>DESCRIPTION</th>");
+                    sb.Append("<th>PRICE</th>");
+                    sb.Append("<th>QTY</th>");
+                    sb.Append("<th>TOTAL</th>");
+                    sb.Append("</tr>");
+                    sb.Append("</thead>");
+                    sb.Append("<tbody>");
+                    sb.Append("<tr>");
+                    sb.Append("<td class='service'>Design</td>");
+                    sb.Append("<td class='desc'>Creating a recognizable design solution based on the company's existing visual identity</td>");
+                    sb.Append("<td class='unit'>$400.00</td>");
+                    sb.Append("<td class='qty'>2</td>");
+                    sb.Append("<td class='total'>$800.00</td>");
+                    sb.Append("</tr>");
+                    sb.Append("<tr>");
+                    sb.Append("<td colspan='4'>SUBTOTAL</td>");
+                    sb.Append("<td class='total'>$800.00</td>");
+                    sb.Append("</tr>");
+                    sb.Append("<tr>");
+                    sb.Append("<td colspan='4'>TAX 25%</td>");
+                    sb.Append("<td class='total'>$200.00</td>");
+                    sb.Append("</tr>");
+                    sb.Append("<tr>");
+                    sb.Append("<td colspan='4' class='grand total'>GRAND TOTAL</td>");
+                    sb.Append("<td class='grand total'>$1,000.00</td>");
+                    sb.Append("</tr>");
+                    sb.Append("</tbody>");
+                    sb.Append("</table>");
+                    sb.Append("<div id='notices'>");
+                    sb.Append("<div>NOTICE:</div>");
+                    sb.Append("<div class='notice'>A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>");
+                    sb.Append("</div>");
+                    sb.Append("</main>");
+                    sb.Append("<footer>");
+                    sb.Append("Invoice was created on a computer and is valid without the signature and seal.");
+                    sb.Append("</footer>");
+
+
+                    //StringReader sr = new StringReader(sb.ToString());
+
+                    //iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(iTextSharp.text.PageSize.A4, 10f, 10f, 10f, 0f);
+                    ////iTextSharp.text.html.simpleparser.HTMLWorker jj;
+                    //iTextSharp.text.html.simpleparser.HTMLWorker htmlparser = new iTextSharp.text.html.simpleparser.HTMLWorker(pdfDoc);
+                    //using (MemoryStream memoryStream = new MemoryStream())
+                    //{
+                    //    iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, memoryStream);
+                    //    pdfDoc.Open();
+
+                    //    htmlparser.Parse(sr);
+                    //    pdfDoc.Close();
+
+                    //    byte[] bytes = memoryStream.ToArray();
+                    //    memoryStream.Close();
+
+
+                    //    // Clears all content output from the buffer stream                 
+                    //    Response.Clear();
+                    //    // Gets or sets the HTTP MIME type of the output stream.
+                    //    Response.ContentType = "application/pdf";
+                    //    // Adds an HTTP header to the output stream
+                    //    Response.AddHeader("Content-Disposition", "attachment; filename=Invoice.pdf");
+
+                    //    //Gets or sets a value indicating whether to buffer output and send it after
+                    //    // the complete response is finished processing.
+                    //    Response.Buffer = true;
+                    //    // Sets the Cache-Control header to one of the values of System.Web.HttpCacheability.
+                    //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                    //    // Writes a string of binary characters to the HTTP output stream. it write the generated bytes .
+                    //    Response.BinaryWrite(bytes);
+                    //    // Sends all currently buffered output to the client, stops execution of the
+                    //    // page, and raises the System.Web.HttpApplication.EndRequest event.
+
+                    //    Response.End();
+                    //    // Closes the socket connection to a client. it is a necessary step as you must close the response after doing work.its best approach.
+                    //    Response.Close();
+                    //}
+
+
+                }
+
             }
         }
     }

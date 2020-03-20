@@ -187,7 +187,7 @@ background-color: #f5e9b6;
     border-right: 1px solid #dee2e6;
         border-left: 1px solid #dee2e6;
         text-align: center;
-        font-size: 0.8em;
+        font-size: 0.7em;
 }
 .table-responsive tr {
     border: 1px solid #dee2e6;
@@ -198,7 +198,7 @@ background-color: #f5e9b6;
 
 tr.firstrow th {
       text-align: center;
-  font-size: 0.9em;
+  font-size: 0.7em;
     vertical-align: middle !important;
     background-color: #be9136;
     color: #fff;

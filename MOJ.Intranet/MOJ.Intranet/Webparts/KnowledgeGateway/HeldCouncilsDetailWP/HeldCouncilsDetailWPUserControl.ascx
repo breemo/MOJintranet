@@ -89,6 +89,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br />
+                                 <asp:Button style="width: 200px;" Text="<%$ Resources:Resource, ModifyCouncil%>" CssClass="pollBtna" formnovalidate runat="server" ID="btn_PDFEmail" OnClick="btn_PDFEmail_Click" />
+                                  <br />
+                                <br />
                                 <div class="illsudiv">
                                     <h6 class="nclvf"><label><asp:Literal runat="server" Text="<%$ Resources:Resource, ADetailedExplanationOfTheCouncil%>" /></label></h6>
                                     <p>
