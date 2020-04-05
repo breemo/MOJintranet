@@ -43,6 +43,7 @@ namespace MOJ.Entities
         public int CouncilNo { get; set; }
         public int NumberOfParticipants { get; set; }
         public int PassPercentage { get; set; }
+        public int NumberOfTrainingHours { get; set; }
         public string URLAttachments { get; set; }
     }
 }

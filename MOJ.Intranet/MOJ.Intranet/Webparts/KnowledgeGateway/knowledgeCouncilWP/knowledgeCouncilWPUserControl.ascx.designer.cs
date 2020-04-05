@@ -148,6 +148,24 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage2;
         
         /// <summary>
+        /// NumberOfTrainingHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText NumberOfTrainingHours;
+        
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
         /// CouncilDate control.
         /// </summary>
         /// <remarks>

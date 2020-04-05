@@ -15,6 +15,7 @@
                     ============================================= -->
                     <div class="">
                         <div class="">
+                           
                             <div class="d-flex justify-content-between">
                                  <span class="resalt"><asp:Literal ID="LBresalt" runat="server"></asp:Literal></span>
                                                      
@@ -62,6 +63,19 @@
                                 </div>
                             </div>
                             <div id="posts" class="small-thumbs alt">
+                                <div class="row">
+                                 <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, NumberOfTrainingHours%>" /></label>  
+                                            <label><asp:Literal ID="NumberOfTrainingHours" runat="server"></asp:Literal></label>
+
+                                                </div>
+
+                                           
+                                        </div>
+                                    </div>
+                                    </div>
                                 <div class="boxtablesx">
                                     <div class="row finc">
                                         <div class="bxl">

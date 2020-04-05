@@ -172,6 +172,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.knowledgeCouncilWP
                     itemSumbit.JoiningConditions = JoiningConditions.Value;
                     itemSumbit.Title = RecordPrfix;
                     itemSumbit.Designation = EPosition.Value;
+                    itemSumbit.NumberOfTrainingHours =Convert.ToInt32(NumberOfTrainingHours.Value);
                     knowledgeCouncil Ass = new knowledgeCouncil();
                     int knowledgeCouncilID = Ass.SaveUpdate(itemSumbit);
 

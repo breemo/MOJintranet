@@ -103,6 +103,7 @@ namespace CommonLibrary
         public const string OtherSkillsUrl = "/Lists/OtherSkills/AllItems.aspx";
         public const string HusbandORWifeUrl = "/Lists/HusbandORWife/AllItems.aspx";
         public const string ParticipantsCouncilUrl = "/Lists/ParticipantsCouncil/AllItems.aspx";
+        public const string SiteAssetsUrl = "/SiteAssets/Forms/AllItems.aspx";
         public const string HappinessHotlineUrl = "/Lists/HappinessHotline/AllItems.aspx";
         public const string SonsUrl = "/Lists/Sons/AllItems.aspx";
         public const string WorkflowTasksUrl = "/WorkflowTasks/AllItems.aspx";

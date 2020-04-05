@@ -1548,4 +1548,7 @@
   <data name="PrintCertificate" xml:space="preserve">
     <value>طباعة الشهادة</value>
   </data>
+  <data name="NumberOfTrainingHours" xml:space="preserve">
+    <value>عدد الساعات التدريبية</value>
+  </data>
 </root>

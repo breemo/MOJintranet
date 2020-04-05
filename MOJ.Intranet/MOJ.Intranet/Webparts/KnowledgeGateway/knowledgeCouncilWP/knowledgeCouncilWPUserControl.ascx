@@ -132,9 +132,9 @@
                                         </div>
                                     </div>
                                 </div>    
-                                <div class="row rt">
+                                <div class="row rt" style="align-items:normal;margin-top: 12px;">
                                     <div class="col-md-6">
-                                        <div class="row">
+                                        <div class="row" style="align-items: normal;">
                                             <div class="col-md-3">
                                                 
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, TargetGroup%>" /></label>  
@@ -148,12 +148,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="row" style="align-items: normal;">
                                             <div class="col-md-3">
-											</div>
+												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, NumberOfTrainingHours%>" /></label>  
+                                            </div>
+
                                             <div class="col-md-9">
-                                               
+						<input type="text" runat="server"  id="NumberOfTrainingHours"  class="form-control only-numeric" placeholder="">
+							   <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+									ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="NumberOfTrainingHours" Display="Dynamic" >
+									</asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -240,6 +245,18 @@ background-color: #f5e9b6;
 </style>
 <script>
     $(document).ready(function () {
+
+        $(".only-numeric").bind("keypress", function (e) {
+            var keyCode = e.which ? e.which : e.keyCode
+
+            if (!(keyCode >= 48 && keyCode <= 57)) {
+                $(".error").css("display", "inline");
+                return false;
+            } else {
+                $(".error").css("display", "none");
+            }
+        });
+
         $(".RadiB label").addClass("radio-button-click-target");
         $(".RadiB input").addClass("radio-button");
     });

@@ -284,6 +284,7 @@ namespace MOJ.DataManager
                         item["Designation"] = knowledgeCouncilItem.Designation;
                         item["Lecturer"] = knowledgeCouncilItem.Lecturer;
                         item["LecturerEN"] = knowledgeCouncilItem.LecturerEN;
+                        item["NumberOfTrainingHours"] = knowledgeCouncilItem.NumberOfTrainingHours;
                         item.Update();
                          itemID= item.ID;
                         isFormSaved = true;
@@ -339,6 +340,7 @@ namespace MOJ.DataManager
                                         itemis.loginName = Convert.ToString(Item["loginName"]);
                                         itemis.percentage = Convert.ToString(Item["percentage"]);
                                         itemis.Resalt = Convert.ToString(Item["Resalt"]);
+                                        itemis.Created = Convert.ToDateTime(Item["Created"]);
 
                                         SPFieldLookupValue fieldLookupValue = new SPFieldLookupValue(Item["knowledgeCouncilID"].ToString());
                                         int lookupID = fieldLookupValue.LookupId;
@@ -442,6 +444,7 @@ namespace MOJ.DataManager
                                      obitem.Status = Convert.ToString(item["Status"]);
                                      obitem.CouncilNo = Convert.ToInt32(item["CouncilNo"]);
                                      obitem.NumberOfParticipants = Convert.ToInt32(item["NumberOfParticipants"]);
+                                     obitem.NumberOfTrainingHours = Convert.ToInt32(item["NumberOfTrainingHours"]);
 
                                     if (!string.IsNullOrEmpty(Convert.ToString(item["PassPercentage"])))
                                     {

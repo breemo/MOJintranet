@@ -1548,4 +1548,7 @@
   <data name="PrintCertificate" xml:space="preserve">
     <value>Print certificate</value>
   </data>
+  <data name="NumberOfTrainingHours" xml:space="preserve">
+    <value>Number of training hours</value>
+  </data>
 </root>

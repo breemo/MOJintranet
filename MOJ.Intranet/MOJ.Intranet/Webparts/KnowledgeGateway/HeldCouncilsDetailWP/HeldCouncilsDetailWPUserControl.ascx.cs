@@ -22,6 +22,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
 
 namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
 {
@@ -77,13 +79,20 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         ADetailedExplanationOfTheCouncil.Text = Convert.ToString(item.CouncilDescription);
                         Lecturer.Text = Convert.ToString(item.Lecturer);
                         CouncilGoals.Text = Convert.ToString(item.CouncilGoals);
+
+                     
+                       
                     }
                     else
                     {
                         ADetailedExplanationOfTheCouncil.Text = Convert.ToString(item.CouncilDescriptionEN);
                         Lecturer.Text = Convert.ToString(item.LecturerEN);
                         CouncilGoals.Text = Convert.ToString(item.CouncilGoalsEN);
-                    }                  
+                    }
+
+                    NumberOfTrainingHours.Text =" : "+ Convert.ToString(item.NumberOfTrainingHours);
+
+
                     CouncilHeldDate.Text = item.CouncilDate.ToString("dd/MM/yyyy");
                     Department.Text = Convert.ToString(item.Department);               
 
@@ -598,61 +607,144 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
                     {
                         currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+                    }
+                    string Ename = "";
+                    
+                    List<EmployeeMasterDataEntity> EmployeeValues = new EmployeeMasterData().GetCurrentEmployeeMasterDataByEmployeeNumber();
+                    foreach (EmployeeMasterDataEntity item2 in EmployeeValues)
+                    {                      
+                            Ename = item2.employeeNameArabicField.ToString();
+                    }
+                    CouncilExaminersEntity Examiners = new knowledgeCouncil().GeCouncilExaminersByID(Convert.ToInt32(Request.Params["RID"]), currentUserlogin);
+                     string Created= Examiners.Created.ToString("yyyy/MM/dd");
 
+                    knowledgeCouncilEntity item = new knowledgeCouncil().GetknowledgeCouncilByID(Convert.ToInt32(Request.Params["RID"]));
+                   string CouncilDate = item.CouncilDate.ToString("yyyy/MM/dd");
+                   string itemNumberOfTrainingHours = Convert.ToString(item.NumberOfTrainingHours);
+                   string CouncilTopic = Convert.ToString(item.CouncilTopic);
+                    // string imageFilePath = Server.MapPath(".") + "/SiteAssets/bgcertificate.jpg";
+                    byte[] imageby=null;
+                    try
+                    {
+                        SPSecurity.RunWithElevatedPrivileges(delegate ()
+                    {
+                        using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                        {
+                            using (SPWeb oWeb = oSite.RootWeb)
+                            {
+                                if (oWeb != null)
+                                {
+                                    SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.SiteAssetsUrl);
+                                    if (lst != null)
+                                    {
+                                        SPQuery qry1 = new SPQuery();
+                                        string camlquery1 = "<Where><Eq><FieldRef Name='LinkFilename' /><Value Type='Text'>bgcertificate.jpg</Value></Eq></Where>";
+                                        qry1.Query = camlquery1;
+                                        SPListItemCollection files = lst.GetItems(qry1);
+
+                                        if (files.Count > 0)
+                                        {
+                                            imageby = files[0].File.OpenBinary(SPOpenBinaryOptions.None);
+
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    });
+                    }
+                    catch (Exception ex)
+                    {
+                        LoggingService.LogError("WebParts", ex.Message);
                     }
 
 
-                    CouncilExaminersEntity Examiners = new knowledgeCouncil().GeCouncilExaminersByID(Convert.ToInt32(Request.Params["RID"]), currentUserlogin);
 
-
-                    string ExamResult = "The Exam Result Is Successful "+"("+ Examiners.percentage+ ")";
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("<header class='clearfix'>");
-                    sb.Append("<h1> Certificate</h1>");
-                    sb.Append("<div id='company' class='clearfix'>");
-                    sb.Append("<div>Minsitry of Justice United Arab Emirates</div>");
-                
-                    sb.Append("<div> Council No : " + CouncilNo.Text + "</div>");
-                    sb.Append("<div>"+ ExamResult + "</div>");
-                   
-                    sb.Append("</div>");
-                    sb.Append("</header>");
-                    sb.Append("<main>");
-                   
-                    //sb.Append("<div id='notices'>");
-                    //sb.Append("<div>NOTICE:</div>");
-                    //sb.Append("<div class='notice'>A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>");
-                    //sb.Append("</div>");
-                    //sb.Append("</main>");
-                    //sb.Append("<footer>");
-                    //sb.Append("Invoice was created on a computer and is valid without the signature and seal.");
-                    //sb.Append("</footer>");
-
-
-                    StringReader sr = new StringReader(sb.ToString());
-
-                   Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+                    iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(imageby);
+                    //For give the size to image
+                    jpg.ScaleToFit(850, 1200);
+                    //If you want to choose image as background then,
+                    jpg.Alignment = iTextSharp.text.Image.UNDERLYING;
+                    //If you want to give absolute/specified fix position to image.
+                    jpg.SetAbsolutePosition(1, -5);
+                    Document pdfDoc = new Document(PageSize.A4.Rotate(), 10f, 10f, 10f, 0f);
                     //iTextSharp.text.html.simpleparser.HTMLWorker jj;
                     iTextSharp.text.html.simpleparser.HTMLWorker htmlparser = new iTextSharp.text.html.simpleparser.HTMLWorker(pdfDoc);
                     using (MemoryStream memoryStream = new MemoryStream())
                     {
-                        iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, memoryStream);
-                        pdfDoc.Open();
+                        // iTextSharp.text.pdf.PdfWriter writer = iTextSharp.text.pdf.PdfWriter.GetInstance(pdfDoc, memoryStream);
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, memoryStream);
+                        writer.RunDirection=PdfWriter.RUN_DIRECTION_RTL;
+                        string ARIALUNI_TFF = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arabtype.TTF");
+                        BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);                       
+                        pdfDoc.Open();                      
+                        pdfDoc.Add(jpg);                        
+                        Paragraph p = new Paragraph(string.Format(  "\n\r" + "\n\r"+ "\n\r" + "\n\r" + "\n\r"+ "\n\r" + "\n\r" + "\n\r"+ "\n\r" + "\n\r" + "\n\r"+ "\n\r" + "\n\r" + "\n\r"));
+                     
+                        pdfDoc.Add(p);                        
+                        BaseColor coleris = new BaseColor(137, 1,3);
+                        Font f = new Font(bf, 30,1, coleris);
+                        PdfPTable table = new PdfPTable(1); // a table with 1 cell                                          
+                        Phrase text = new Phrase(Ename, f);
+                        PdfPCell cell = new PdfPCell(text);
+                        cell.BorderWidth = 0;
+                        cell.PaddingRight = 250f;                      
+                        cell.PaddingTop = 10f;                      
+                        table.RunDirection = PdfWriter.RUN_DIRECTION_RTL; // can also be set on the cell
+                        table.AddCell(cell);
+                        table.TotalWidth = 700f;                     
+                       pdfDoc.Add(table);
+                        //--------------------------  
+                        BaseColor colerblak = new BaseColor(34, 28, 40);
+                        Font f2 = new Font(bf, 28, 1, colerblak);
+                        PdfPTable table2 = new PdfPTable(1); // a table with 1 cell                                          
+                        Phrase text2 = new Phrase(CouncilTopic, f2);
+                        PdfPCell cell2 = new PdfPCell(text2);
+                        cell2.BorderWidth = 0;
+                        cell2.PaddingRight = 240f;
+                        cell2.PaddingTop = 15f;
+                        table2.RunDirection = PdfWriter.RUN_DIRECTION_RTL; // can also be set on the cell
+                        table2.AddCell(cell2);
+                        table2.TotalWidth = 700f;
+                        pdfDoc.Add(table2);
+                        //--------------------------                        
+                        Font f3 = new Font(bf, 24, 1, colerblak);
+                        PdfPTable table3 = new PdfPTable(1); // a table with 1 cell                                          
+                        Phrase text3 = new Phrase(CouncilDate, f3);
+                        PdfPCell cell3 = new PdfPCell(text3);
+                        cell3.BorderWidth = 0;
+                        cell3.PaddingRight = 310f;
+                        cell3.PaddingTop = 10f;
+                        table3.RunDirection = PdfWriter.RUN_DIRECTION_RTL; // can also be set on the cell
+                        table3.AddCell(cell3);
+                        table3.TotalWidth = 700f;
+                        pdfDoc.Add(table3);
+                        //--------------------------                        
+                        Font f4 = new Font(bf, 23, 1, colerblak);
+                        PdfPTable table4 = new PdfPTable(1); // a table with 1 cell                                          
+                        Phrase text4 = new Phrase(Created+"                       "+ itemNumberOfTrainingHours, f4);
+                        PdfPCell cell4 = new PdfPCell(text4);
+                        cell4.BorderWidth = 0;
+                        cell4.PaddingRight = 201f;
+                        cell4.PaddingTop = 14f;
+                        table4.RunDirection = PdfWriter.RUN_DIRECTION_RTL; // can also be set on the cell
+                        table4.AddCell(cell4);
+                        table4.TotalWidth = 700f;
+                        pdfDoc.Add(table4);
 
-                        htmlparser.Parse(sr);
+
+
+
                         pdfDoc.Close();
-
                         byte[] bytes = memoryStream.ToArray();
                         memoryStream.Close();
-
-
                         // Clears all content output from the buffer stream                 
                         Response.Clear();
                         // Gets or sets the HTTP MIME type of the output stream.
                         Response.ContentType = "application/pdf";
                         // Adds an HTTP header to the output stream
                         Response.AddHeader("Content-Disposition", "attachment; filename=Certificate.pdf");
-
                         //Gets or sets a value indicating whether to buffer output and send it after
                         // the complete response is finished processing.
                         Response.Buffer = true;
@@ -662,17 +754,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         Response.BinaryWrite(bytes);
                         // Sends all currently buffered output to the client, stops execution of the
                         // page, and raises the System.Web.HttpApplication.EndRequest event.
-
                         Response.End();
                         // Closes the socket connection to a client. it is a necessary step as you must close the response after doing work.its best approach.
                         Response.Close();
                     }
-
-
                 }
-
             }
         }
+
+
     }
 }
 

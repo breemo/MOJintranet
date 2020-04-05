@@ -15,6 +15,7 @@ namespace MOJ.Entities
         public string loginName { get; set; }        
         public string Resalt { get; set; }        
         public string percentage { get; set; }    
+        public DateTime Created { get; set; }    
            
 
     }
