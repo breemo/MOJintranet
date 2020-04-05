@@ -723,10 +723,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                         //--------------------------                        
                         Font f4 = new Font(bf, 23, 1, colerblak);
                         PdfPTable table4 = new PdfPTable(1); // a table with 1 cell                                          
-                        Phrase text4 = new Phrase(Created+"                       "+ itemNumberOfTrainingHours, f4);
+                        Phrase text4 = new Phrase(Created+"                        "+ itemNumberOfTrainingHours, f4);
                         PdfPCell cell4 = new PdfPCell(text4);
                         cell4.BorderWidth = 0;
-                        cell4.PaddingRight = 201f;
+                        cell4.PaddingRight = 202f;
                         cell4.PaddingTop = 14f;
                         table4.RunDirection = PdfWriter.RUN_DIRECTION_RTL; // can also be set on the cell
                         table4.AddCell(cell4);
