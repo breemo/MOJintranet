@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="Classes\Business\AddEmployeeDepartmentBL.cs" />
     <Compile Include="Classes\Business\AddEmployeeNumberBL.cs" />
+    <Compile Include="Classes\Business\ReturnFromLeave.cs" />
     <Compile Include="Classes\Business\DepartmentsDescription.cs" />
     <Compile Include="Classes\Business\Departments.cs" />
     <Compile Include="Classes\Business\CreateExam.cs" />
@@ -127,6 +128,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Classes\Data Manager\AddEmployeeDepartmentDataManager.cs" />
+    <Compile Include="Classes\Data Manager\ReturnFromLeaveDataManger.cs" />
     <Compile Include="Classes\Data Manager\AffirmationReceiptGovernmentHousingDataManger.cs" />
     <Compile Include="Classes\Data Manager\DepartmentsDescriptionDataManager.cs" />
     <Compile Include="Classes\Data Manager\CertificateToWhomItMayConcernDataManger.cs" />
@@ -187,6 +189,7 @@
     <Compile Include="Classes\Data Manager\NewsDataManager.cs" />
     <Compile Include="Classes\Data Manager\ServicesListManager.cs" />
     <Compile Include="Classes\Data Manager\StickyNotesDataManager.cs" />
+    <Compile Include="Classes\Entities\ReturnFromLeaveEntity.cs" />
     <Compile Include="Classes\Entities\DepartmentsDescriptionEntity.cs" />
     <Compile Include="Classes\Entities\CertificateToWhomItMayConcernEntity.cs" />
     <Compile Include="Classes\Entities\ParticipantsCouncilEntity.cs" />
@@ -721,6 +724,14 @@
     <Compile Include="Webparts\My Services\RequestAVacationWP\RequestAVacationWPUserControl.ascx.designer.cs">
       <DependentUpon>RequestAVacationWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\ReturnNoticeFromLeaveWP\ReturnNoticeFromLeaveWP.cs" />
+    <Compile Include="Webparts\My Services\ReturnNoticeFromLeaveWP\ReturnNoticeFromLeaveWPUserControl.ascx.cs">
+      <DependentUpon>ReturnNoticeFromLeaveWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\ReturnNoticeFromLeaveWP\ReturnNoticeFromLeaveWPUserControl.ascx.designer.cs">
+      <DependentUpon>ReturnNoticeFromLeaveWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWP.cs" />
     <Compile Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx.cs">
       <DependentUpon>ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx</DependentUpon>
@@ -1035,6 +1046,10 @@
     <None Include="Webparts\My Services\RequestAVacationWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{b51cb213-7c99-4d15-9987-23c6d9dcc1bf}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\ReturnNoticeFromLeaveWP\ReturnNoticeFromLeaveWP.webpart" />
+    <None Include="Webparts\My Services\ReturnNoticeFromLeaveWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0aa6b8b3-815f-482a-a21e-e4c5d080800b}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWP.webpart" />
     <None Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fe29b231-4329-498a-82b5-7572ef087018}</SharePointProjectItemId>
@@ -1202,6 +1217,8 @@
     <Content Include="Webparts\My Services\PeriodicalFormForGovernmentHousingWP\PeriodicalFormForGovernmentHousingWPUserControl.ascx" />
     <Content Include="Webparts\My Services\RequestAVacationWP\Elements.xml" />
     <Content Include="Webparts\My Services\RequestAVacationWP\RequestAVacationWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\ReturnNoticeFromLeaveWP\Elements.xml" />
+    <Content Include="Webparts\My Services\ReturnNoticeFromLeaveWP\ReturnNoticeFromLeaveWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\Elements.xml" />
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewRequestWP\Elements.xml" />

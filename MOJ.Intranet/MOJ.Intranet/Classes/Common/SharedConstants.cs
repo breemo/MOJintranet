@@ -116,6 +116,7 @@ namespace CommonLibrary
         public const string ReserveHotelUrl = "/Lists/ReserveHotel/AllItems.aspx";
         public const string ReserveHotelPeopleUrl = "/Lists/ReserveHotelPeople/AllItems.aspx";
         public const string AffirmationReceiptGovernmentHousingUrl = "/Lists/AffirmationReceiptGovernmentHousing/AllItems.aspx";
+        public const string ReturnFromLeaveUrl = "/Lists/ReturnFromLeave/AllItems.aspx";
         public const string DaysUrl = "/Lists/Days/AllItems.aspx";
         public const string VacationsTypesUrl = "/Lists/VacationsTypes/AllItems.aspx";
         public const string BenefitFromTheCouncilFeedbackUrl = "/Lists/BenefitFromTheCouncilFeedback/AllItems.aspx";

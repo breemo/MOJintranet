@@ -1551,4 +1551,22 @@
   <data name="NumberOfTrainingHours" xml:space="preserve">
     <value>Number of training hours</value>
   </data>
+  <data name="ApprovedVacation" xml:space="preserve">
+    <value>Approved vacation</value>
+  </data>
+  <data name="EndDateVacation" xml:space="preserve">
+    <value>The date of the end of the vacation</value>
+  </data>
+  <data name="ReturnDateFromVacation" xml:space="preserve">
+    <value>Return date from vacation</value>
+  </data>
+  <data name="ReturnFromLeave" xml:space="preserve">
+    <value>Return from leave</value>
+  </data>
+  <data name="RreasonForTheDelay" xml:space="preserve">
+    <value>The reason for the delay</value>
+  </data>
+  <data name="StartDateVacation" xml:space="preserve">
+    <value>The start date of the vacation</value>
+  </data>
 </root>

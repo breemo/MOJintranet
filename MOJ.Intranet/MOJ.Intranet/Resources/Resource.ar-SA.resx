@@ -1551,4 +1551,22 @@
   <data name="NumberOfTrainingHours" xml:space="preserve">
     <value>عدد الساعات التدريبية</value>
   </data>
+  <data name="ApprovedVacation" xml:space="preserve">
+    <value>الاجازة المعتمدة</value>
+  </data>
+  <data name="EndDateVacation" xml:space="preserve">
+    <value>تاريخ نهاية الاجازة</value>
+  </data>
+  <data name="ReturnDateFromVacation" xml:space="preserve">
+    <value>تاريخ العودة من الاجازة</value>
+  </data>
+  <data name="ReturnFromLeave" xml:space="preserve">
+    <value>إشعار عودة من الإجازة</value>
+  </data>
+  <data name="RreasonForTheDelay" xml:space="preserve">
+    <value>سبب التأحير</value>
+  </data>
+  <data name="StartDateVacation" xml:space="preserve">
+    <value>تاريخ بدء الاجازة</value>
+  </data>
 </root>
