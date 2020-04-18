@@ -1569,4 +1569,7 @@
   <data name="StartDateVacation" xml:space="preserve">
     <value>تاريخ بدء الاجازة</value>
   </data>
+  <data name="Topics" xml:space="preserve">
+    <value>الموضوعات</value>
+  </data>
 </root>

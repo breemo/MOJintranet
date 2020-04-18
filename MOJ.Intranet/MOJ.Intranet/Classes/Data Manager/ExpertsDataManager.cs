@@ -90,6 +90,8 @@ namespace MOJ.DataManager
                                     obitem.ExpertLoginName = new SPFieldUserValue(oWeb, Convert.ToString(Item["ExpertLoginName"]));
                                     obitem.ExpertName = Convert.ToString(Item["ExpertName"]);
                                     obitem.ExpertPosition = Convert.ToString(Item["ExpertPosition"]);
+                                    obitem.Topics = Convert.ToString(Item["Topics"]);
+                                    obitem.TopicsAR = Convert.ToString(Item["TopicsAR"]);
                                     obitem.From = Convert.ToDateTime(Item["From"]);
                                     obitem.To = Convert.ToDateTime(Item["To"]);
                                   

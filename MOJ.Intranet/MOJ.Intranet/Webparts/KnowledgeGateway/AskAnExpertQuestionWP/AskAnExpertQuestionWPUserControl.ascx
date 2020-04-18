@@ -23,10 +23,10 @@
                                 <div class="row rt">
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" /></label>
                                             </div>
-                                            <div class="col-md-9">
+                                            <div class="col-md-8">
                                              <asp:DropDownList ID="DropDownDepartment" AutoPostBack="true" OnSelectedIndexChanged="myListDropDown_Change" runat="server" class="form-control">
 																</asp:DropDownList>
 												<asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server" 
@@ -37,11 +37,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ExpertName%>" /></label>
                                             </div>
-                                            <div class="col-md-9">
-                                            <asp:DropDownList ID="DropDownExpertName" runat="server" class="form-control">
+                                            <div class="col-md-8">
+                                            <asp:DropDownList ID="DropDownExpertName"  AutoPostBack="true"  OnSelectedIndexChanged="ExpertName_Change" runat="server" class="form-control">
 																</asp:DropDownList>
 																	<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
 								ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="DropDownExpertName" Display="Dynamic" >
@@ -51,12 +51,23 @@
                                     </div>
                                 </div>
                                 <div class="row rt">
+                                      <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-3">
+												    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Topics%>" /></label>     
+                                            </div>
+                                            <div class="col-md-8">
+                                              <input disabled type="text"  name="Topics" runat="server" id="Topics" class="form-control" placeholder="">
+								                                          
+										   </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
 												    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, QuestionTitle%>" /></label>     
                                             </div>
-                                            <div class="col-md-9">
+                                            <div class="col-md-8">
                                               <input type="text"  name="QuestionTitle" runat="server" id="QuestionTitle" class="form-control" placeholder="">
 								<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
 								ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="QuestionTitle" Display="Dynamic" >
@@ -74,7 +85,7 @@
                                                 
 												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, QuestionDetails%>" /></label>  
                                             </div>
-                                            <div class="col-md-11">
+                                            <div class="col-md-11" style="padding-right: 50px;padding-left: 50px;">
 											<textarea class="form-control" runat="server" id="QuestionDetails" rows="4"></textarea>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
 								ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="QuestionDetails" Display="Dynamic" >

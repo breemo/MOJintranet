@@ -1569,4 +1569,7 @@
   <data name="StartDateVacation" xml:space="preserve">
     <value>The start date of the vacation</value>
   </data>
+  <data name="Topics" xml:space="preserve">
+    <value>Topics</value>
+  </data>
 </root>

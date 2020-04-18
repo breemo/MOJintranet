@@ -71,7 +71,7 @@
                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ApprovedVacation%>" /></label>
                                 </div>
                                 <div class="col-md-4">                                                        
-                                    <asp:DropDownList ID="DropDownApprovedVacation" runat="server" class="form-control">
+                                    <asp:DropDownList ID="DropDownApprovedVacation" runat="server"  AutoPostBack="true" OnSelectedIndexChanged="ApprovedVacation_Change"  class="form-control">
 									</asp:DropDownList>
 																		<asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server" 
 									ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="DropDownApprovedVacation" Display="Dynamic" >
@@ -135,7 +135,7 @@
                                 <div class="col-md-2">
                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, RreasonForTheDelay%>" /></label>
                                 </div>
-                                <div class="col-md-4">                                                     
+                                <div class="col-md-6">                                                     
                                   <input type="text"  name="RreasonForTheDelay" runat="server" id="RreasonForTheDelay" class="form-control" placeholder="">    
 									<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
 									ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="RreasonForTheDelay" Display="Dynamic" >

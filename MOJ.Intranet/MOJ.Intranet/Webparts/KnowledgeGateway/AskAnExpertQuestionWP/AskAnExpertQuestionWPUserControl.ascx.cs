@@ -89,6 +89,34 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.AskAnExpertQuestionWP
         protected void myListDropDown_Change(object sender, EventArgs e)
         {
             GetExpertName();
+        }  protected void ExpertName_Change(object sender, EventArgs e)
+        {
+            try
+            {
+                Topics.Value = "";
+                if (!string.IsNullOrEmpty(DropDownExpertName.SelectedValue))
+                {
+                   
+                    AskAnExpert Esxpert = new AskAnExpert();
+                    ExpertsEntity objExpert = Esxpert.GetExpertsByID(Convert.ToInt32(DropDownExpertName.SelectedValue));
+                    CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+                    string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+                   
+                    if (languageCode == "ar")
+                    {
+                        Topics.Value = objExpert.TopicsAR;
+                    }
+                    else
+                    {
+                        Topics.Value = objExpert.Topics;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
         }
         protected void btnsubmit_Click(object sender, EventArgs e)
         {

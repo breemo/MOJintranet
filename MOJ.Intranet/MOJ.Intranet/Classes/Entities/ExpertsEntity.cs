@@ -17,6 +17,8 @@ namespace MOJ.Entities
         public string ExpertName { get; set; }
         public SPFieldUserValue ExpertLoginName { get; set; }
         public string ExpertPosition { get; set; }
+        public string Topics { get; set; }
+        public string TopicsAR { get; set; }
         public DateTime Created { get; set; }
         public SPFieldUserValue CreatedBy { get; set; }
     }

@@ -26,7 +26,13 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnNoticeFromLeaveWP
                 GetDropDown();
             }
         }
-        private void GetDropDown()
+        protected void ApprovedVacation_Change(object sender, EventArgs e)
+        {
+
+            StartDateVacation.Value = "1/1/2020";
+            EndDateVacation.Value = "5/1/2020";
+        }
+            private void GetDropDown()
         {
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
