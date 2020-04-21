@@ -54,9 +54,19 @@ namespace MOJ.Business
         public DataTable GetCountrys()
         {
             return new CountrysDataManager().GetAll();
-        } public DataTable Getlevels()
+        }
+
+        public string GetCountriesTitle(int id)
+        {
+            return new CountrysDataManager().GetTitle(id);
+        }
+        public DataTable Getlevels()
         {
             return new levelsDataManager().GetAll();
+        }
+        public string GetlevelsTitle(int id)
+        {
+            return new levelsDataManager().GetTitle(id);
         }
         public int SaveUpdate(ImplicitKnowledgeEntity obj)
         {

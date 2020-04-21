@@ -91,6 +91,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     }
 
                     NumberOfTrainingHours.Text =" : "+ Convert.ToString(item.NumberOfTrainingHours);
+                    TargetGroup.Text =" : "+ Convert.ToString(item.TargetGroup);
 
 
                     CouncilHeldDate.Text = item.CouncilDate.ToString("dd/MM/yyyy");

@@ -435,6 +435,19 @@ namespace MOJ.DataManager
                         item["MaritalStatus"] = RequestItem.MaritalStatus;
                         item["Nationality"] = RequestItem.Nationality;
                         item["UserName"] = RequestItem.UserName;
+                        item["EmploymentHistory"] = RequestItem.EmploymentHistory;
+                        item["Qualifications"] = RequestItem.Qualifications;
+                        item["LanguageSkills"] = RequestItem.LanguageSkills;
+                        item["TechnicalSkills"] = RequestItem.TechnicalSkills;
+                        item["OtherSkills"] = RequestItem.OtherSkills;
+                        item["TrainingCourses"] = RequestItem.TrainingCourses;
+                        item["Expertise"] = RequestItem.Expertise;
+                        item["Publications"] = RequestItem.Publications;
+                        item["TravelInformations"] = RequestItem.TravelInformations;
+                        item["Participations"] = RequestItem.Participations;
+                        item["Membership"] = RequestItem.Membership;
+                        item["Hobbies"] = RequestItem.Hobbies;
+                        item["VoluntaryWork"] = RequestItem.VoluntaryWork;
                         item.Update();
                         PID = item.ID;
                     }
