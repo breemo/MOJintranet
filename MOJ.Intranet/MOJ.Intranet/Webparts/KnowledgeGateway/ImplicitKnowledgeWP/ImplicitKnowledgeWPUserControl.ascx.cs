@@ -1864,6 +1864,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             ToDatev = Entit6.ToDate.ToString("MM/dd/yyyy");
                         }
 
+                        AllTrainingCourses += System.Environment.NewLine;
                         AllTrainingCourses += Entit6.CourseName + " | " + WithinThePlan  +" | " 
                             + Entit6.TrainingHours + " | " 
                             + FromDatev + " | " 
@@ -1927,6 +1928,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                 {
                                     ToDatev = ob.ToDate.ToString("MM/dd/yyyy");
                                 }
+                                AllTrainingCourses += System.Environment.NewLine;
                                 AllTrainingCourses += ob.CourseName + " | " + WithinThePlan1 
                                     + " | " + ob.TrainingHours + " | " + FromDatev + " | " 
                                     + ToDatev + " | " + ob.CourseLocation;
@@ -2474,7 +2476,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit12.Title = currentUserlogin;
                         list12.Add(Entit12);
-                        AllHobbies += Entit12.Hoppy + " | " + Entit12.Notes;
+                        AllHobbies += System.Environment.NewLine + Entit12.Hoppy + " | " + Entit12.Notes;
                     }
                     if (hdnsuperDIV12.Value != "" && hdnsuperDIV12.Value != "0")
                     {
@@ -2496,7 +2498,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV12.Value = RetrevehdnsuperDIV12.Value.Replace(ob.ID + "#", "");
                                 }
                                 list12.Add(ob);
-                                AllHobbies += ob.Hoppy + " | " + ob.Notes;
+                                AllHobbies += System.Environment.NewLine + Entit12.Hoppy + ob.Hoppy + " | " + ob.Notes;
                             }
                         }
                     }

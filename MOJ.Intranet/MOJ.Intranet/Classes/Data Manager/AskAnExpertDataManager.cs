@@ -77,7 +77,7 @@ namespace MOJ.DataManager
                                 {
                                     camlquery1 += "<And>";
                                 }   
-                                camlquery1 += "<Geq><FieldRef Name='ID' /><Value Type='Number'>0</Value> </Geq>";
+                                camlquery1 += "<And><Geq><FieldRef Name='ID' /><Value Type='Number'>0</Value> </Geq><Eq><FieldRef Name='Publish' /><Value Type='Boolean'>1</Value></Eq></And>";
 
                                 if (Departmentvalue != "")
                                 {
