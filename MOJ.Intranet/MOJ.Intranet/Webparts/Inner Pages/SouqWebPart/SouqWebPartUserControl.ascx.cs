@@ -82,7 +82,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.SouqWebPart
                                 {
                                     //ddlCategorySubmit
                                     SPFieldMultiChoice CategoryChoice = (SPFieldMultiChoice)lst.Fields["Category"];
-                                    ddlCategorySubmit.Items.Insert(0, new ListItem(SPUtility.GetLocalizedString("$Resources: ddlSelect", "Resource", SPContext.Current.Web.Language), ""));
+                                    //ddlCategorySubmit.Items.Insert(0, new ListItem(SPUtility.GetLocalizedString("$Resources: ddlSelect", "Resource", SPContext.Current.Web.Language), ""));
                                     for (int i = 0; i < CategoryChoice.Choices.Count; i++)
                                     {
                                         string[] CatValue = CategoryChoice.Choices[i].ToString().Split('\\');

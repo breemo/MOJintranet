@@ -180,7 +180,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.MinistryFilesWebPart
         }
         private void FillData(string BookName, string Created, string Category, string Author)
         {
-            if (ddlCategory.SelectedIndex == 0 && string.IsNullOrEmpty(BookName) && string.IsNullOrEmpty(Created) && string.IsNullOrEmpty(Category))
+            if (ddlCategory.SelectedIndex == 0 && string.IsNullOrEmpty(BookName) && string.IsNullOrEmpty(Created) && string.IsNullOrEmpty(Category) && string.IsNullOrEmpty(Author))
             {
                 BindData();
             }

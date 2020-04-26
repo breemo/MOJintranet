@@ -93,6 +93,7 @@ namespace MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails
                 //literalControl.Text = occasionItem.Title;
                 //contentPlaceHolder.Controls.Add(literalControl);
 
+                lblTitle.Text = occasionItem.Title;
                 lblOccasionBody.Text = occasionItem.Description;
                 lblPublishDate.Text = Convert.ToDateTime(occasionItem.Created).ToString("dd MMM yyyy"); // "10 ديسمبر 2012";
                 lblPublishedBy.Text = occasionItem.CreatedBy.Split('#')[1];

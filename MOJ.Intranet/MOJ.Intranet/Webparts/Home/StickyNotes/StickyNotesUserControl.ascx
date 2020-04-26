@@ -84,7 +84,7 @@
 
     <a class="AddStickyNoteIcon" onclick="document.getElementById('id01').style.display='block'" ><img src="/Style%20Library/MOJTheme/images/add-Note.png" alt="AddStickyNote" /></a>
 
-    <a href="/Lists/Sticky%20Notes/My%20Stiky%20Notes.aspx" class="slide morebuttoncss arrow">
+    <a href="/Lists/Sticky%20Notes/My%20Stiky%20Notes.aspx" class="slide morebuttoncss arrow" target="_blank">
         <asp:Literal runat="server" Text="<%$ Resources:Resource, more%>" /></a>
 
 </div>
@@ -236,5 +236,9 @@
 
     .w3-modal-content {
         width: 100%;
+    }
+    .w3-modal {
+        padding-top: 10% !important;
+        height: 41% !important;
     }
 </style>

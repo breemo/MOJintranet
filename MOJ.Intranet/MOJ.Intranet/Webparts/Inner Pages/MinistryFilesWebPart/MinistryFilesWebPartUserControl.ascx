@@ -16,25 +16,15 @@
 <asp:HiddenField ClientIDMode="Static" ID="hdnPage" runat="server" />
 
 <div class="container-fullwidth clearfix">
-
-    <!-- Post Content
-                    ============================================= -->
+    <!-- Post Content  ============================================= -->
     <div class="postcontent nobottommargin col_last clearfix">
         <div class="boxleftbor">
             <h4>
                 <asp:Literal runat="server" Text="<%$ Resources:Resource, MinistryFiles%>" />
             </h4>
-
-
-
             <div id="posts" class="small-thumbs alt">
-
                 <div class="booksearchitems">
-
-
-
                     <div class="row">
-
                         <!--Item book-->
                         <%--<div class="col-md-4 col-sm-6">
 
@@ -80,12 +70,8 @@
                             <HeaderTemplate>
                             </HeaderTemplate>
                             <ItemTemplate>
-
-
                                 <div class="col-md-4 col-sm-6">
-
                                     <div class="boxsearchbook">
-
                                         <div class="imgboxbook">
                                             <img title='<%# Eval("BookDescAr") %>' alt='<%# Eval("BookDescAr") %>' src='<%# Eval("BookImage") %>' />
                                         </div>
@@ -97,31 +83,20 @@
                                                 <%# CommonLibrary.LimitCharacters.Limit(Eval("BookDescAr"), 29) %>
                                             </span>
                                         </div>
-
                                         <div class="uploadediv">
                                             <p>
                                                 <asp:Literal runat="server" Text="<%$ Resources:Resource, UploadedBy%>" />
                                                 <span><%# Eval("CreatedBy") %></span>
-
                                             </p>
-
-
                                         </div>
                                         <div class="dowmloadbook">
                                             <div class="row d-flex justify-content-center mt-3">
-
-
-
                                                 <a runat="server" class="btnclass2 radix" id="link" target="_blank" href='<%# Eval("AttachmentsInfo") %>'>
                                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Download%>" />
                                                 </a>
                                             </div>
                                         </div>
-
-
-
                                     </div>
-
                                 </div>
                             </ItemTemplate>
                             <FooterTemplate>
@@ -135,9 +110,7 @@
                                 </tr>
                             </FooterTemplate>
                         </asp:Repeater>
-
                     </div>
-
                 </div>
                 <div class="pagi">
                     <ul class="pagination" id="PaginUI" runat="server">
@@ -152,30 +125,17 @@
                             </asp:LinkButton>
                             <%--</a>--%>
                         </li>
-
-
-
                         <asp:Repeater ID="rptPaging" runat="server" OnItemCommand="rptPaging_ItemCommand">
                             <ItemTemplate>
-
                                 <li class="page-item">
-
                                     <asp:LinkButton ID="btnPage"
                                         CssClass="page-link"
                                         CommandName="Page" CommandArgument="<%# Container.DataItem %>"
                                         runat="server" ForeColor="White" Font-Bold="True">
                                          <%# Container.DataItem %> </asp:LinkButton>
-
                                 </li>
-
-
-
-
-
                             </ItemTemplate>
                         </asp:Repeater>
-
-
                          <li class="page-item" style="display:inline-flex">
                             <%--<a class="page-link pageleft" href="#">--%>
                             <asp:LinkButton ID="lbNext" CssClass="page-link pageleft" runat="server" OnClick="lbNext_Click">
@@ -189,10 +149,8 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
             <!-- #posts end -->
-
 
             <%--                            <div class="pagi">
                                 <ul class="pagination">
@@ -219,31 +177,23 @@
                                 </ul>
                             </div>--%>
         </div>
-
-
     </div>
     <!-- .postcontent end -->
     <!-- Sidebar
                     ============================================= -->
     <div class="sidebar nobottommargin clearfix">
         <div class="sidebar-widgets-wrap">
-
             <div id="sidebarmenubox" class="sidebarmenubox">
                 <div class="searchboxinside">
-
                     <div class="formdiv formby">
                         <h5>
                             <asp:Literal runat="server" Text="<%$ Resources:Resource, FilterBy%>" />
                         </h5>
-
-
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="labelri">
                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Category%>" />
                                 </label>
-
-
                             </div>
                             <div class="col-md-9">
                                 <asp:DropDownList ID="ddlCategory" class="form-control" runat="server">
@@ -260,55 +210,42 @@
                                 <label class="labelri">
                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, BookName%>" />
                                 </label>
-
                             </div>
                             <div class="col-md-9">
                                 <input type="text" id="txtSearchBookName" runat="server" class="form-control" placeholder="">
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="labelri">
                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, Author%>" />
                                 </label>
-
                             </div>
                             <div class="col-md-9">
                                 <input type="text" id="txtAuthor" runat="server" class="form-control" placeholder="">
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-md-3">
                                 <label class="labelri">
                                     <asp:Literal runat="server" Text="<%$ Resources:Resource, UploadedBy%>" />
                                 </label>
-
-
                             </div>
                             <div class="col-md-9">
                                 <input type="text" id="txtSearchCreatedby" runat="server" class="form-control" placeholder=" ">
                             </div>
                         </div>
-
                         <div class="row d-flex justify-content-center mt-3">
-
-
                             <%--<input type="button" class="btnclass radix" value="بحث">--%>
                             <asp:Button Text="<%$ Resources:Resource, Search%>" runat="server" CssClass="btnclass radix" OnClick="Unnamed1_Click" />
                             <asp:Button Text="<%$ Resources:Resource, btnClear%>" runat="server" CssClass="btnclass radix" ID="btnClear" OnClick="btnClear_Click" />
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
     <!-- .sidebar end -->
-
 </div>
 
 <script>

@@ -8,7 +8,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="wpOccasionDetailsUserControl.ascx.cs" Inherits="MOJ.Intranet.Webparts.Inner_Pages.wpOccasionDetails.wpOccasionDetailsUserControl" %>
 
 <h3>
-    <asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEvents%>" /></h3>
+    <%--<asp:Literal runat="server" Text="<%$ Resources:Resource, HeadEvents%>" />--%>
+    <asp:Literal ID="lblTitle" runat="server"/>
+</h3>
 
 <style>
     .col-md-3 {

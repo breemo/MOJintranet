@@ -24,7 +24,7 @@
         min-width: 0em !important;
     }
     .img-fluid{
-        max-height:287px !important;
+        /*max-height:287px !important;*/
     } 
 </style>
 
