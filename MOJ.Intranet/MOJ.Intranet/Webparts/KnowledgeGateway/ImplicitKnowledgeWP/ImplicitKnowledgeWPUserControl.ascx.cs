@@ -1324,24 +1324,46 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                 {
                     string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
                     //////////////////////////////////1///////////////////////
+                    ///
+
+                    string AllEmploymentHistory = "";
+                   string AllQualifications = "";
+                    string AllLanguageSkills = "";
+                    string AllTechnicalSkills = "";
+                    string AllOtherSkills = "";
+                    string AllTrainingCourses = "";
+                    string AllExpertise = "";
+                    string AllPublications = "";
+                    string AllTravelInformations = "";
+                    string AllParticipations = "";
+                    string AllMembership = "";
+                    string AllHobbies = "";
+                    string AllVoluntaryWork = "";
                     int PID = 0;
+
+
+
+                    ImplicitKnowledgeEntity itemSumbit = new ImplicitKnowledgeEntity();
+                    itemSumbit.UserName = currentUserlogin;
+                    itemSumbit.Name = Ename.Value;
+                    itemSumbit.DateOfBirth = EDateOfBirth.Value;
+                    itemSumbit.Designation = EPosition.Value;
+                    itemSumbit.EmployeeNumber = Enumber.Value;
+                    itemSumbit.MaritalStatus = EMaritalStatus.Value;
+                    itemSumbit.Nationality = ENationality.Value;
+
                     if (string.IsNullOrEmpty(TOPID.Value))
                     {
-                        ImplicitKnowledgeEntity itemSumbit = new ImplicitKnowledgeEntity();
-                        itemSumbit.UserName = currentUserlogin;
-                        itemSumbit.Name = Ename.Value;
-                        itemSumbit.DateOfBirth = EDateOfBirth.Value;
-                        itemSumbit.Designation = EPosition.Value;
-                        itemSumbit.EmployeeNumber = Enumber.Value;
-                        itemSumbit.MaritalStatus = EMaritalStatus.Value;
-                        itemSumbit.Nationality = ENationality.Value;
                         PID = objIK.SaveUpdate(itemSumbit);
                     }
                     else
                     {
                         PID = Convert.ToInt32(TOPID.Value);
                     }
+                    itemSumbit.ID = PID;
                     //////////////////////////////////2///////////////////////
+                    AllEmploymentHistory += "المسمى الوظيفي" + " | " + "الوحدة التنظيمية" + " | " + "من تاريخ" + " | " + "الى تاريخ";
+
                     List<EmploymentHistoryEntity> list1 = new List<EmploymentHistoryEntity>();
                     EmploymentHistoryEntity Entit1 = new EmploymentHistoryEntity();
                     if (!string.IsNullOrEmpty(Designation0.Value))
@@ -1372,6 +1394,22 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit1.Title = currentUserlogin;
                         list1.Add(Entit1);
+                        string FromDatev = "";
+                        if (Entit1.DateFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            FromDatev = Entit1.DateFrom.ToString("MM/dd/yyyy");
+                        }
+                        string ToDatev = "";
+                        if (Entit1.DateTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            ToDatev = Entit1.DateTo.ToString("MM/dd/yyyy");
+                        }
+
+                        AllEmploymentHistory += System.Environment.NewLine+ Entit1.Designation 
+                            + " | " + Entit1.OrganizationalUnit + " | " 
+                            + FromDatev + " | " 
+                            + ToDatev;
+                            
                     }
                     if (hdnsuperDIV1.Value != "" && hdnsuperDIV1.Value != "0")
                     {
@@ -1411,6 +1449,21 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV1.Value = RetrevehdnsuperDIV1.Value.Replace(ob.ID + "#", "");
                                  }
                                 list1.Add(ob);
+                                string FromDatev = "";
+                                if (ob.DateFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    FromDatev = ob.DateFrom.ToString("MM/dd/yyyy");
+                                }
+                                string ToDatev = "";
+                                if (ob.DateTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    ToDatev = ob.DateTo.ToString("MM/dd/yyyy");
+                                }
+                                AllEmploymentHistory += System.Environment.NewLine
+                                    + ob.Designation + " | " + ob.OrganizationalUnit + " | "
+                                    + FromDatev + " | " 
+                                    + ToDatev;
+
                             }
                         }
                     }
@@ -1430,8 +1483,12 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("EmploymentHistory", ListSID1);
                         }
                     }
-
+                    itemSumbit.EmploymentHistory = AllEmploymentHistory;
+                    //objIK.SaveUpdate(itemSumbit);
                     //////////////////////////////////3///////////////////////
+                    ///ImplicitKnowledge
+                    AllQualifications += "المؤهل العلمي" + " | " + "التخصص" + " | " + "الجهة المانحه" + " | " + "الدولة" + " | " + "سنة التخرج";
+                   
                     List<QualificationsEntity> list2 = new List<QualificationsEntity>();
                     QualificationsEntity Entit2 = new QualificationsEntity();
                     if (!string.IsNullOrEmpty(Qualification0.Value))
@@ -1456,6 +1513,18 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit2.Title = currentUserlogin;
                         list2.Add(Entit2);
+                        string GraduationYearv = "";
+                        if (Entit2.GraduationYear.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            GraduationYearv = Entit2.GraduationYear.ToString("MM/dd/yyyy");
+                        }
+                        string Countries = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(Entit2.CountryID));
+
+                        AllQualifications += System.Environment.NewLine + Entit2.Qualification 
+                            + " | " + Entit2.Major + " | " + Entit2.Institution + " | " 
+                            + Countries + " | " 
+                            + GraduationYearv;
+
                     }
                     if (hdnsuperDIV2.Value != ""&& hdnsuperDIV2.Value != "0")
                     {
@@ -1478,10 +1547,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     DateTime sDate2 = DateTime.ParseExact(GraduationYear[x], "MM/dd/yyyy", CultureInfo.InvariantCulture);
                                     Date = sDate2;
                                     ob.GraduationYear = Date;
-                                }
-                               
-
-                               
+                                }                        
                                 ob.Qualification = Qualification[x];
                                 ob.Major = Major[x];
                                 ob.Institution = Institution[x];
@@ -1492,6 +1558,17 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV2.Value = RetrevehdnsuperDIV2.Value.Replace(ob.ID + "#", "");
                                 }
                                 list2.Add(ob);
+                                string Countries = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(ob.CountryID));
+                                string GraduationYearv = "";
+                                if (ob.GraduationYear.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    GraduationYearv = ob.GraduationYear.ToString("MM/dd/yyyy");
+                                }
+                                AllQualifications += System.Environment.NewLine 
+                                    + ob.Qualification + " | " + ob.Major + " | " 
+                                    + ob.Institution + " | " + Countries + " | "
+                                    + GraduationYearv;
+
                             }
                         }
                     }
@@ -1512,8 +1589,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("Qualifications", ListSID1);
                         }
                     }
+                    itemSumbit.Qualifications = AllQualifications;
+                   
                     //////////////////////////////////4///////////////////////
-
+                    AllLanguageSkills += "اللغة" + " | " + "مستوى القراءة" + " | " + "مستوى الكتابة" + " | " + "مستوى المحادثة";
                     List<LanguageSkillsEntity> list3 = new List<LanguageSkillsEntity>();
                     LanguageSkillsEntity Entit3 = new LanguageSkillsEntity();
                     if (!string.IsNullOrEmpty(Language0.Value))
@@ -1530,6 +1609,13 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit3.Title = currentUserlogin;
                         list3.Add(Entit3);
+                        AllLanguageSkills += System.Environment.NewLine;
+                        string Reading = new ImplicitKnowledge().GetlevelsTitle(Convert.ToInt32(Entit3.ReadinglevelID));
+                        string Writing = new ImplicitKnowledge().GetlevelsTitle(Convert.ToInt32(Entit3.WritinglevelID));
+                        string Conversation = new ImplicitKnowledge().GetlevelsTitle(Convert.ToInt32(Entit3.ConversationlevelID));
+
+                        AllLanguageSkills += Entit3.Language + " | " + Reading + " | " + Writing + " | " + Conversation;
+
                     }
                     if (hdnsuperDIV3.Value != ""&& hdnsuperDIV3.Value != "0")
                     {
@@ -1556,6 +1642,14 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV3.Value = RetrevehdnsuperDIV3.Value.Replace(ob.ID + "#", "");
                                 }
                                 list3.Add(ob);
+
+                                string Reading = new ImplicitKnowledge().GetlevelsTitle(Convert.ToInt32(ob.ReadinglevelID));
+                                string Writing = new ImplicitKnowledge().GetlevelsTitle(Convert.ToInt32(ob.WritinglevelID));
+                                string Conversation = new ImplicitKnowledge().GetlevelsTitle(Convert.ToInt32(ob.ConversationlevelID));
+
+
+                                AllLanguageSkills += System.Environment.NewLine + ob.Language + " | " + Reading + " | " + Writing + " | " + Conversation;
+
                             }
                         }
                     }
@@ -1576,7 +1670,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("LanguageSkills", ListSID1);
                         }
                     }
+
+                    itemSumbit.LanguageSkills = AllLanguageSkills;
+
                     //////////////////////////////////5///////////////////////
+                    AllTechnicalSkills += "نوع المهارة" + " | " + "مستوى الكفاءة" + " | " + "مجال التطبيق" + " | " + "الملاحظات";
 
 
                     List<TechnicalSkillsEntity> list4 = new List<TechnicalSkillsEntity>();
@@ -1595,6 +1693,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit4.Title = currentUserlogin;
                         list4.Add(Entit4);
+                        AllTechnicalSkills += System.Environment.NewLine;
+                        string Skilllevel = new ImplicitKnowledge().GetlevelsTitle(Convert.ToInt32(Entit4.SkilllevelID));
+                        AllTechnicalSkills += Entit4.SkillType + " | " + Skilllevel + " | " + Entit4.AreaOfApplication + " | " + Entit4.Notes;
+
                     }
                     if (hdnsuperDIV4.Value != ""&& hdnsuperDIV4.Value != "0")
                     {
@@ -1620,6 +1722,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV4.Value = RetrevehdnsuperDIV4.Value.Replace(ob.ID + "#", "");
                                 }
                                 list4.Add(ob);
+                                AllTechnicalSkills += System.Environment.NewLine;
+                                string Skilllevel = new ImplicitKnowledge().GetlevelsTitle(Convert.ToInt32(ob.SkilllevelID));
+                                AllTechnicalSkills += ob.SkillType + " | " + Skilllevel + " | " + ob.AreaOfApplication + " | " + ob.Notes;
+
                             }
                         }
                     }
@@ -1640,8 +1746,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("TechnicalSkills", ListSID1);
                         }
                     }
-                    //////////////////////////////////6///////////////////////
+                    itemSumbit.TechnicalSkills = AllTechnicalSkills;
 
+                    //////////////////////////////////6///////////////////////
+                    AllOtherSkills += "المهلرة التي يتقنها الموظف" + " | " + "الملاحظات";
                     List<OtherSkillsEntity> list5 = new List<OtherSkillsEntity>();
                     OtherSkillsEntity Entit5 = new OtherSkillsEntity();
                     if (!string.IsNullOrEmpty(SkillTheEmployeeHave0.Value))
@@ -1656,6 +1764,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit5.Title = currentUserlogin;
                         list5.Add(Entit5);
+                        AllOtherSkills += System.Environment.NewLine;
+                        AllOtherSkills += Entit5.SkillTheEmployeeHave + " | " + Entit5.Notes ;
+
+
                     }
                     if (hdnsuperDIV5.Value != "" && hdnsuperDIV5.Value != "0")
                     {
@@ -1677,6 +1789,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV5.Value = RetrevehdnsuperDIV5.Value.Replace(ob.ID + "#", "");
                                 }
                                 list5.Add(ob);
+                                AllOtherSkills += System.Environment.NewLine;
+                                AllOtherSkills += ob.SkillTheEmployeeHave + " | " + ob.Notes;
+
                             }
                         }
                     }
@@ -1697,8 +1812,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("OtherSkills", ListSID1);
                         }
                     }
+                    itemSumbit.OtherSkills = AllOtherSkills;
                     ////////////////////////////////// 7 ///////////////////////
-                   
+                    AllTrainingCourses += "أسم الدورة" + " | " + "ضمن الخطة" + " | " + "عدد ساعات" + " | " + "من تاريخ" + " | " + "الى تاريخ" + " | " + "مكان انعقاد الدورة";
+
                     List<TrainingCoursesEntity> list6 = new List<TrainingCoursesEntity>();
                     TrainingCoursesEntity Entit6 = new TrainingCoursesEntity();
                     if (!string.IsNullOrEmpty(CourseName0.Value))
@@ -1731,6 +1848,28 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit6.Title = currentUserlogin;
                         list6.Add(Entit6);
+                        string WithinThePlan = "لا";
+                        if (Entit6.WithinThePlan== "Yes")
+                        {
+                            WithinThePlan = "نعم";
+                        }
+                        string FromDatev = "";
+                        if (Entit6.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            FromDatev = Entit6.FromDate.ToString("MM/dd/yyyy");
+                        }
+                        string ToDatev = "";
+                        if (Entit6.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            ToDatev = Entit6.ToDate.ToString("MM/dd/yyyy");
+                        }
+
+                        AllTrainingCourses += System.Environment.NewLine;
+                        AllTrainingCourses += Entit6.CourseName + " | " + WithinThePlan  +" | " 
+                            + Entit6.TrainingHours + " | " 
+                            + FromDatev + " | " 
+                            + ToDatev + " | " + Entit6.CourseLocation;
+
                     }
                     if (hdnsuperDIV6.Value != "" && hdnsuperDIV6.Value != "0")
                     {
@@ -1774,6 +1913,26 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV6.Value = RetrevehdnsuperDIV6.Value.Replace(ob.ID + "#", "");
                                 }
                                 list6.Add(ob);
+                                string WithinThePlan1 = "لا";
+                                if (ob.WithinThePlan == "Yes")
+                                {
+                                    WithinThePlan1 = "نعم";
+                                }
+                                string FromDatev = "";
+                                if (ob.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    FromDatev = ob.FromDate.ToString("MM/dd/yyyy");
+                                }
+                                string ToDatev = "";
+                                if (ob.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    ToDatev = ob.ToDate.ToString("MM/dd/yyyy");
+                                }
+                                AllTrainingCourses += System.Environment.NewLine;
+                                AllTrainingCourses += ob.CourseName + " | " + WithinThePlan1 
+                                    + " | " + ob.TrainingHours + " | " + FromDatev + " | " 
+                                    + ToDatev + " | " + ob.CourseLocation;
+
                             }
                         }
                     }
@@ -1794,7 +1953,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("TrainingCourses", ListSID1);
                         }
                     }
+                    itemSumbit.TrainingCourses = AllTrainingCourses;
+
                     //////////////////////////////////8///////////////////////
+                    AllExpertise += "اسم المؤسسة" + " | " + "طبيعة العمل" + " | " + "الدولة" + " | " + "مدة الخبرة" + " | " + "الملاحظات";
+
                     List<ExpertiseEntity> list7 = new List<ExpertiseEntity>();
                     ExpertiseEntity Entit7 = new ExpertiseEntity();
                     if (!string.IsNullOrEmpty(OrganizationName0.Value))
@@ -1812,6 +1975,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit7.Title = currentUserlogin;
                         list7.Add(Entit7);
+                        AllExpertise += System.Environment.NewLine;
+                        string CountryIS = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(Entit7.CountryID));
+                        AllExpertise += Entit7.OrganizationName + " | " + Entit7.NatureOfTheJob + " | " + CountryIS + " | " + Entit7.YearsOfExperience + " | " + Entit7.Notes;
+
+
                     }
                     if (hdnsuperDIV7.Value != "" && hdnsuperDIV7.Value != "0")
                     {
@@ -1841,6 +2009,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV7.Value = RetrevehdnsuperDIV7.Value.Replace(ob.ID + "#", "");
                                 }
                                 list7.Add(ob);
+                                AllExpertise += System.Environment.NewLine;
+                                string CountryIS = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(ob.CountryID));
+                                AllExpertise += ob.OrganizationName + " | " + ob.NatureOfTheJob + " | " + CountryIS + " | " + ob.YearsOfExperience + " | " + ob.Notes;
+
                             }
                         }
                     }
@@ -1861,8 +2033,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("Expertise", ListSID1);
                         }
                     }
+                    itemSumbit.Expertise = AllExpertise;
                     //////////////////////////////////9///////////////////////
-
+                    AllPublications += "عننوان الكتاب/ المنشورات" + " | " + "الموضوع" + " | " + "تاريخ النشر" + " | " + "الملاحظات";
                     List<PublicationsEntity> list8 = new List<PublicationsEntity>();
                     PublicationsEntity Entit8 = new PublicationsEntity();
                     if (!string.IsNullOrEmpty(BookPublicationTitle0.Value))
@@ -1887,6 +2060,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit8.Title = currentUserlogin;
                         list8.Add(Entit8);
+                        AllPublications += System.Environment.NewLine;
+                        string PublishDatev = "";
+                        if (Entit8.PublishDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            PublishDatev = Entit8.PublishDate.ToString("MM/dd/yyyy");
+                        }
+                        AllPublications += Entit8.BookPublicationTitle + " | " 
+                            + Entit8.Topic + " | " + PublishDatev + " | " + Entit8.Notes;
+
                     }
                     if (hdnsuperDIV8.Value != "" && hdnsuperDIV8.Value != "0")
                     {
@@ -1921,6 +2103,15 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV8.Value = RetrevehdnsuperDIV8.Value.Replace(ob.ID + "#", "");
                                 }
                                 list8.Add(ob);
+                                AllPublications += System.Environment.NewLine;
+                                string PublishDatev = "";
+                                if (ob.PublishDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    PublishDatev = ob.PublishDate.ToString("MM/dd/yyyy");
+                                }
+                                AllPublications += ob.BookPublicationTitle + " | " 
+                                    + ob.Topic + " | " + PublishDatev + " | " + ob.Notes;
+
                             }
                         }
                     }
@@ -1941,7 +2132,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("Publications", ListSID1);
                         }
                     }
+                    itemSumbit.Publications = AllPublications;
                     //////////////////////////////////10///////////////////////
+                     AllTravelInformations += "الدولة " + " | " + "من فترة" + " | " + "الى فترة" + " | " + "اسباب الزيارة" ;
                     List<TravelInformationsEntity> list9 = new List<TravelInformationsEntity>();
                     TravelInformationsEntity Entit9 = new TravelInformationsEntity();
                     if (!string.IsNullOrEmpty(DropDownCountryResidentForMoreThan3Months.SelectedValue))
@@ -1973,6 +2166,20 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit9.Title = currentUserlogin;
                         list9.Add(Entit9);
+                        AllTravelInformations += System.Environment.NewLine;
+                        string CountryIS = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(Entit9.CountryResidentForMoreThan3Month));
+                        string TimePeriodFrom = "";
+                        if (Entit9.TimePeriodFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimePeriodFrom = Entit9.TimePeriodFrom.ToString("MM/dd/yyyy");
+                        }
+                        string TimeperiodTo = "";
+                        if (Entit9.TimeperiodTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            TimeperiodTo = Entit9.TimeperiodTo.ToString("MM/dd/yyyy");
+                        }
+                        AllTravelInformations += CountryIS + " | " + TimePeriodFrom
+                            + " | " + TimeperiodTo + " | " + Entit9.VisitReasons;
                     }
                     if (hdnsuperDIV9.Value != "" && hdnsuperDIV9.Value != "0")
                     {
@@ -2012,6 +2219,22 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV9.Value = RetrevehdnsuperDIV9.Value.Replace(ob.ID + "#", "");
                                 }
                                 list9.Add(ob);
+                                AllTravelInformations += System.Environment.NewLine;
+                                string TimePeriodFromv = "";
+                                if (ob.TimePeriodFrom.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    TimePeriodFromv = ob.TimePeriodFrom.ToString("MM/dd/yyyy");
+                                }
+                                string TimeperiodTov = "";
+                                if (ob.TimeperiodTo.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    TimeperiodTov = ob.TimeperiodTo.ToString("MM/dd/yyyy");
+                                }
+                                string CountryIS = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(ob.CountryResidentForMoreThan3Month));
+                                AllTravelInformations += CountryIS + " | " 
+                                    
+                                    + TimePeriodFromv + " | " + TimeperiodTo + " | " + ob.VisitReasons;
+
                             }
                         }
                     }
@@ -2032,7 +2255,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("TravelInformations", ListSID1);
                         }
                     }
+                    itemSumbit.TravelInformations = AllTravelInformations;
                     //////////////////////////////////11///////////////////////
+                    AllParticipations += "اسم الفعالية" + " | " + "الجهة الراعية" + " | " + "الدولة" + " | " + "طبيعة المشاركة";
 
                     List<ParticipationsEntity> list10 = new List<ParticipationsEntity>();
                     ParticipationsEntity Entit10 = new ParticipationsEntity();
@@ -2051,6 +2276,11 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit10.Title = currentUserlogin;
                         list10.Add(Entit10);
+                        AllParticipations += System.Environment.NewLine;
+                        string CountryIS = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(Entit10.CountryID));
+                        AllParticipations += Entit10.ActivityName + " | " + Entit10.Sponsor + " | " + CountryIS + " | " + Entit10.NatureOfTheParticipation;
+
+
                     }
                     if (hdnsuperDIV10.Value != "" && hdnsuperDIV10.Value != "0")
                     {
@@ -2076,6 +2306,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV10.Value = RetrevehdnsuperDIV10.Value.Replace(ob.ID + "#", "");
                                 }
                                 list10.Add(ob);
+                                AllParticipations += System.Environment.NewLine;
+                                string CountryIS = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(ob.CountryID));
+                                AllParticipations += ob.ActivityName + " | " + ob.Sponsor + " | " + CountryIS + " | " + ob.NatureOfTheParticipation;
+
                             }
                         }
                     }
@@ -2096,7 +2330,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("Participations", ListSID1);
                         }
                     }
+                    itemSumbit.Participations = AllParticipations;
                     //////////////////////////////////12///////////////////////
+                    AllMembership += "العضوية" + " | " + "مقرها" + " | " + "المجال" + " | " + "من تاريخ" + " | " + "الى تاريخ" + " | " + "الملاحظات";
                     List<MembershipEntity> list11 = new List<MembershipEntity>();
                     MembershipEntity Entit11 = new MembershipEntity();
                     if (!string.IsNullOrEmpty(Membership0.Value))
@@ -2129,6 +2365,22 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit11.Title = currentUserlogin;
                         list11.Add(Entit11);
+                        AllMembership += System.Environment.NewLine;
+                        string FromDate = "";
+                        if (Entit11.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            FromDate = Entit11.FromDate.ToString("MM/dd/yyyy");
+                        }
+                        string ToDate = "";
+                        if (Entit11.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            ToDate = Entit11.ToDate.ToString("MM/dd/yyyy");
+                        }
+
+                        AllMembership += Entit11.Membership + " | " + Entit11.Location + 
+                            " | " + Entit11.Field + " | " 
+                            + FromDate + " | "+ ToDate + Entit11.Notes;
+
                     }
                     if (hdnsuperDIV11.Value != "" && hdnsuperDIV11.Value != "0")
                     {
@@ -2172,6 +2424,20 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV11.Value = RetrevehdnsuperDIV11.Value.Replace(ob.ID + "#", "");
                                 }
                                 list11.Add(ob);
+                                AllMembership += System.Environment.NewLine;
+                                string FromDate = "";
+                                if (ob.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    FromDate = ob.FromDate.ToString("MM/dd/yyyy");
+                                }
+                                string ToDate = "";
+                                if (ob.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    ToDate = ob.ToDate.ToString("MM/dd/yyyy");
+                                }
+                                AllMembership += ob.Membership + " | " + ob.Location + " | " 
+                                    + ob.Field + " | " + FromDate + " | " + ToDate + ob.Notes;
+
                             }
                         }
                     }
@@ -2192,7 +2458,9 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("Membership", ListSID1);
                         }
                     }
+                    itemSumbit.Membership = AllMembership;
                     //////////////////////////////////13///////////////////////
+                    AllHobbies += "الهواية" + " | " + "الملاحظات";
                     List<HopisEntity> list12 = new List<HopisEntity>();
                     HopisEntity Entit12 = new HopisEntity();
                     if (!string.IsNullOrEmpty(Hoppy0.Value))
@@ -2208,6 +2476,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit12.Title = currentUserlogin;
                         list12.Add(Entit12);
+                        AllHobbies += System.Environment.NewLine + Entit12.Hoppy + " | " + Entit12.Notes;
                     }
                     if (hdnsuperDIV12.Value != "" && hdnsuperDIV12.Value != "0")
                     {
@@ -2229,6 +2498,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV12.Value = RetrevehdnsuperDIV12.Value.Replace(ob.ID + "#", "");
                                 }
                                 list12.Add(ob);
+                                AllHobbies += System.Environment.NewLine + Entit12.Hoppy + ob.Hoppy + " | " + ob.Notes;
                             }
                         }
                     }
@@ -2249,7 +2519,10 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                             objIK.DeleteitemsFromSublist("Hopis", ListSID1);
                         }
                     }
+                    itemSumbit.Hobbies = AllHobbies;
                     //////////////////////////////////14///////////////////////
+                    AllVoluntaryWork += "اسم الفعالية" + " | " + "مقرها" + " | " + "من تاريخ" + " | " + "الى تاريخ";
+
                     List<VoluntaryWorkEntity> list13 = new List<VoluntaryWorkEntity>();
                     VoluntaryWorkEntity Entit13 = new VoluntaryWorkEntity();
                     if (!string.IsNullOrEmpty(ActivityName0.Value))
@@ -2280,6 +2553,20 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                         }
                         Entit13.Title = currentUserlogin;
                         list13.Add(Entit13);
+                        AllVoluntaryWork += System.Environment.NewLine;
+                        string CountryIS = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(Entit13.LocationID));
+                        string FromDate = "";
+                        if (Entit13.FromDate.ToString("MM/dd/yyyy")!= "01/01/0001")
+                        {
+                            FromDate = Entit13.FromDate.ToString("MM/dd/yyyy");
+                        }
+                        string ToDate = "";
+                        if (Entit13.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                        {
+                            ToDate = Entit13.ToDate.ToString("MM/dd/yyyy");
+                        }
+                        AllVoluntaryWork += Entit13.ActivityName + " | " +CountryIS + " | " + FromDate + " | " + ToDate;
+
                     }
                     if (hdnsuperDIV13.Value != "" && hdnsuperDIV13.Value != "0")
                     {
@@ -2319,6 +2606,21 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
                                     RetrevehdnsuperDIV13.Value = RetrevehdnsuperDIV13.Value.Replace(ob.ID + "#", "");
                                 }
                                 list13.Add(ob);
+                                AllVoluntaryWork += System.Environment.NewLine;
+                                string CountryIS = new ImplicitKnowledge().GetCountriesTitle(Convert.ToInt32(Entit13.LocationID));
+
+                                string FromDate = "";
+                                if (ob.FromDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    FromDate = ob.FromDate.ToString("MM/dd/yyyy");
+                                }
+                                string ToDate = "";
+                                if (ob.ToDate.ToString("MM/dd/yyyy") != "01/01/0001")
+                                {
+                                    ToDate = ob.ToDate.ToString("MM/dd/yyyy");
+                                }
+                                AllVoluntaryWork += ob.ActivityName + " | " + CountryIS + " | " + FromDate + " | " + ToDate;
+
                             }
                         }
                     }
@@ -2345,6 +2647,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.ImplicitKnowledgeWP
 
 
 
+                    itemSumbit.VoluntaryWork = AllVoluntaryWork;
+                    objIK.SaveUpdate(itemSumbit);
 
 
 

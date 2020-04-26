@@ -304,6 +304,58 @@ namespace MOJ.DataManager
             //});
             return itemID;
         }
+  public bool UpdateFeedbackinknowledgeCouncil(int ID,string Feedback)
+        {            
+            bool isFormSaved = false;           
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+            using (SPSite site = new SPSite(SPContext.Current.Site.Url))
+            {
+                using (SPWeb web = site.RootWeb)
+                {
+                    try
+                    {
+                        SPUser currentUser = web.CurrentUser;
+                        web.AllowUnsafeUpdates = true;
+                        SPList list = web.GetListFromUrl(web.Url + SharedConstants.knowledgeCouncilUrl);
+                        SPListItem item = null;
+                        item = list.GetItemById(ID);
+                            if (item["Feedback"]==null)
+                            {
+                                item["Feedback"] = Feedback;
+
+                            }
+                            else {
+                                string allFeedback;
+                                allFeedback = item["Feedback"].ToString();
+                                allFeedback += System.Environment.NewLine;
+                                allFeedback += "-------------------------";
+                                allFeedback += System.Environment.NewLine;
+                                allFeedback += Feedback;
+
+                                item["Feedback"] = allFeedback;
+                            }
+
+                            
+                        item.Update();
+                        
+                        isFormSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        isFormSaved = false;
+                        LoggingService.LogError("WebParts", ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        web.AllowUnsafeUpdates = false;
+                    }
+                }
+            }
+            });
+            return isFormSaved;
+        }
 
 
         public CouncilExaminersEntity GeCouncilExaminersByID(int id , string loginname)

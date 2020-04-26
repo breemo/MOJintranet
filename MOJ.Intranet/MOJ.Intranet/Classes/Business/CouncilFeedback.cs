@@ -28,6 +28,12 @@ namespace MOJ.Business
         }
 
 
+        public string GetBenefitFromTheCouncilTitle(int id)
+        {
+            return new BenefitFromTheCouncilFeedbackDataManager().Gettitle(id,"ar");
+        }
+
+
 
     }
 }

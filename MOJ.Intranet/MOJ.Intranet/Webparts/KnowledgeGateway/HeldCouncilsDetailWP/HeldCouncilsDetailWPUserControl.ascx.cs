@@ -91,6 +91,7 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                     }
 
                     NumberOfTrainingHours.Text =" : "+ Convert.ToString(item.NumberOfTrainingHours);
+                    TargetGroup.Text =" : "+ Convert.ToString(item.TargetGroup);
 
 
                     CouncilHeldDate.Text = item.CouncilDate.ToString("dd/MM/yyyy");
@@ -455,7 +456,8 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
             
                 Response.Redirect("/Lists/knowledgeCouncil/EditForm.aspx?ID=" + Convert.ToString(Request.Params["RID"]));
            
-        } protected void AllFeedback_Click(object sender, EventArgs e)
+        }
+        protected void AllFeedback_Click(object sender, EventArgs e)
         {
             
                 Response.Redirect("/Lists/CouncilFeedback/AllItems.aspx#InplviewHash288ec745-79c3-4849-9c63-dbb6a9b220b2=FilterField1%3DknowledgeCouncilID-FilterValue1%3D" + Convert.ToString(Request.Params["RID"]));
@@ -570,15 +572,30 @@ namespace MOJ.Intranet.Webparts.KnowledgeGateway.HeldCouncilsDetailWP
                 CouncilFeedbackEntity item = new CouncilFeedbackEntity();//.GetHappinessHotline(Convert.ToInt32(Request.Params["RID"]));
                 item.knowledgeCouncilID = Convert.ToString(Request.Params["RID"]);
                 string currentUserlogin = SPContext.Current.Web.CurrentUser.LoginName;
+                
                 if (currentUserlogin.ToLower().Equals(@"sharepoint\system"))
                 {
                     currentUserlogin = "i:" + HttpContext.Current.User.Identity.Name;
+                    
                 }
                 item.loginName = currentUserlogin;
                 item.SubjectCouncilCanBeDone = Convert.ToString(SubjectCouncilCanBeDone.Value);
                 item.TheBenefitFromTheCouncil = Convert.ToString(TheBenefitFromTheCouncil.SelectedValue);
                 item.DevelopmentProposalsForCouncil = Convert.ToString(DevelopmentProposalsForCouncil.Value);
                 bool resalt = new CouncilFeedback().SaveUpdate(item);
+
+                string GetBenefitFromTheCouncilTitle = new CouncilFeedback().GetBenefitFromTheCouncilTitle(Convert.ToInt32(item.TheBenefitFromTheCouncil));
+                string currentUserloginName = SPContext.Current.Web.CurrentUser.Name;
+                string Feedback = System.Environment.NewLine;
+                Feedback += currentUserloginName + " | " + GetBenefitFromTheCouncilTitle;
+                Feedback += System.Environment.NewLine;
+                Feedback += item.DevelopmentProposalsForCouncil;
+                Feedback += System.Environment.NewLine;
+                Feedback += item.SubjectCouncilCanBeDone;
+                Feedback += System.Environment.NewLine;
+                bool xxx = new knowledgeCouncil().UpdateFeedbackinknowledgeCouncil(Convert.ToInt32(Request.Params["RID"]), Feedback);
+
+
                 btnsubmit.Enabled = false;
                 btnsubmit.Visible = false;
                 CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;

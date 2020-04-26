@@ -89,5 +89,35 @@ namespace MOJ.DataManager
             }
             return Code;
         }
+        public string GetTitle(int id)
+        {
+            string Titleis = "";
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                    {
+                        using (SPWeb oWeb = oSite.RootWeb)
+                        {
+                            if (oWeb != null)
+                            {
+                                SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.CountrysUrl);
+                                if (lst != null)
+                                {
+                                    SPListItem Item = lst.GetItemById(id);
+                                    Titleis = Convert.ToString(Item["Title"]);
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return Titleis;
+        }
     }
 }

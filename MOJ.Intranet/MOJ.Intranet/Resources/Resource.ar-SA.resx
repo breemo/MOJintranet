@@ -1569,6 +1569,12 @@
   <data name="StartDateVacation" xml:space="preserve">
     <value>تاريخ بدء الاجازة</value>
   </data>
+  <data name="RequestorName" xml:space="preserve">
+    <value>اسم مقدم الطلب</value>
+  </data>
+  <data name="RequestorPosition" xml:space="preserve">
+    <value>وظيفة مقدم الطلب</value>
+  </data>
   <data name="Topics" xml:space="preserve">
     <value>الموضوعات</value>
   </data>

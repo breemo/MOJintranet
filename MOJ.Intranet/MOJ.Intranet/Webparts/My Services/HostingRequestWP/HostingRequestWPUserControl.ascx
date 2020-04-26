@@ -35,7 +35,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Name%>" /></label>
+                                    <label><asp:Literal runat="server" Text="<%$ Resources:Resource, RequestorName%>" /></label>
                                 </div>
                                 <div  class="col-md-8">
                                     <input type="text" name="Ename" disabled runat="server" id="Ename" class="form-control" placeholder="">
@@ -58,7 +58,7 @@
                           <div class="col-md-6">
                                <div class="row">
                                     <div class="col-md-4">
-                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>
+                                <label><asp:Literal runat="server" Text="<%$ Resources:Resource, RequestorPosition%>" /></label>
                             </div>
                             <div class="col-md-8 ">
                                       <input type="text" disabled name="EPosition" runat="server" id="EPosition" class="form-control" placeholder="">

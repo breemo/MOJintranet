@@ -76,6 +76,19 @@
                                         </div>
                                     </div>
                                     </div>
+                                           <div class="row">
+                                 <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+												<label><asp:Literal runat="server" Text="<%$ Resources:Resource, TargetGroup%>" /></label>  
+                                            <label><asp:Literal ID="TargetGroup" runat="server"></asp:Literal></label>
+
+                                                </div>
+
+                                           
+                                        </div>
+                                    </div>
+                                    </div>
                                 <div class="boxtablesx">
                                     <div class="row finc">
                                         <div class="bxl">
