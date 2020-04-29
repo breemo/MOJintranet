@@ -139,5 +139,78 @@ namespace MOJ.DataManager
             }
             return responseMsg;
         }
+
+        public string PushReturnFromLeaveRequest(string EmployeeNumber, string AbsenceID,string ReturnDate, string ReturnReason)
+        {
+            //<EmployeeID>162566</EmployeeID>
+            //<AbsenceID>15326386</AbsenceID>
+            //<SessionID>-1</SessionID>
+            //<Language>US</Language>
+            //<ResumeDate>2019-01-25</ResumeDate>
+            //<Reason>Returned early - For Testing</Reason>
+
+            string responseMsg = "";
+            try
+            {
+                var client = new RestClient(ConfigurationManager.AppSettings["ReturnFromLeaveService"].ToString());
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("content-type", "text/xml");
+                
+                request.AddParameter("text/xml", "" +
+                    "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:fah=\"http://esb.bayanati.gov.ae/services/ReturnFromLeaveService/\">\r\n   " +
+                    "<soapenv:Header>\r\n " +
+                    "</soapenv:Header>\r\n   <soapenv:Body>\r\n" +
+                    
+                     "<ret:ReturnFromLeaveRequest>                     \r\n" +
+                     "<EAIHeader versionID=\"1.0\">                    \r\n" +
+                     "<ServiceId>52</ServiceId>                        \r\n" +
+                     "<ExternalAuthorityCode>21</ExternalAuthorityCode>\r\n" +
+                     "<TransactionRefNo>14052019-2</TransactionRefNo>  \r\n" +
+                     "<TransactionSubtype>C</TransactionSubtype>       \r\n" +
+                     "<Notes></Notes>                                  \r\n" +
+                     "</EAIHeader>                                     \r\n" +
+                     "<EAIBody>                                        \r\n" +
+                     "<SessionID>-1</SessionID>                        \r\n" +
+                     "<Language>US</Language>                          \r\n" +
+                     "<EmployeeID>" + EmployeeNumber + "</EmployeeID>  \r\n" +
+                     "<AbsenceID>" + AbsenceID + "</AbsenceID>         \r\n" +
+                     "<ResumeDate>" + ReturnDate + "</ResumeDate>      \r\n" +
+                     "<Reason>" + ReturnReason + "</Reason>            \r\n" +
+                     "<XAttribute>                                     \r\n" +
+                     "<Attribute1></Attribute1>                        \r\n" +
+                     "<Attribute2></Attribute2>                        \r\n" +
+                     "<Attribute3></Attribute3>                        \r\n" +
+                     "</XAttribute>                                    \r\n" +
+                     "</EAIBody>                                       \r\n" +
+                     "</ret:ReturnFromLeaveRequest>                    \r\n" +
+                    "</soapenv:Body>\r\n</soapenv:Envelope>", ParameterType.RequestBody);
+
+                IRestResponse response = client.Execute(request);
+                string content = response.Content;
+
+                if (response.IsSuccessful)
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(new StringReader(content));
+                    string xmlPathPattern = "//ReplyMessage";
+
+                    XmlNodeList myNodeList = xmlDoc.SelectNodes(xmlPathPattern);
+                    foreach (XmlNode node in myNodeList)
+                    {
+                        string AcceptedValues = node.LastChild.InnerText;
+                        responseMsg = AcceptedValues;
+                    }
+                }
+                else
+                {
+                    responseMsg = "No connection to the web service bytna";
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return responseMsg;
+        }
     }
 }

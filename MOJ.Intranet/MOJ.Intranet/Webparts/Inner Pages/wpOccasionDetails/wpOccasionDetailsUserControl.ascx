@@ -13,7 +13,7 @@
 </h3>
 
 <style>
-    .col-md-3 {
+    .col-md-3 { 
         position: unset !important;
     }
 </style>
