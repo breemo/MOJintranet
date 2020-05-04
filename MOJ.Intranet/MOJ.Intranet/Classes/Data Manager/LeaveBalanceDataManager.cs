@@ -137,7 +137,7 @@ namespace MOJ.DataManager
                         DateTime EndDate = new DateTime(int.Parse(node.LastChild.InnerText.Split()[4].Split('-')[2]),
                             int.Parse(node.LastChild.InnerText.Split()[4].Split('-')[1]), int.Parse(node.LastChild.InnerText.Split()[4].Split('-')[0]));
 
-                        LeavesList.Add(new LeavesListObject(node.FirstChild.InnerText, startDate, EndDate));
+                        LeavesList.Add(new LeavesListObject(node.InnerText, node.FirstChild.InnerText, startDate, EndDate));
                     }
                 }
             }
@@ -152,12 +152,14 @@ namespace MOJ.DataManager
     public class LeavesListObject
     {
         private string absenceID;
+        private string description;
         private DateTime startDateVacation;
         private DateTime endDateVacation;
 
-        public LeavesListObject(string absenceID, DateTime startDateVacation, DateTime endDateVacation)
+        public LeavesListObject(string description, string absenceID, DateTime startDateVacation, DateTime endDateVacation)
         {
             this.absenceID = absenceID;
+            this.description = description;
             this.startDateVacation = startDateVacation;
             this.endDateVacation = endDateVacation;
         }
@@ -166,6 +168,12 @@ namespace MOJ.DataManager
         {
             get { return absenceID; }
             set { absenceID = value; }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
         }
 
         public DateTime StartDateVacation
