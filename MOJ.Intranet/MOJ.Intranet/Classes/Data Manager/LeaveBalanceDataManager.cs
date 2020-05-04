@@ -109,9 +109,9 @@ namespace MOJ.DataManager
             return LeaveBalance;
         }
 
-        public List<String> RETURN_FROM_LEAVE_LIST(string EmployeeNumber)
+        public List<LeavesListObject> RETURN_FROM_LEAVE_LIST(string EmployeeNumber)
         {
-            List<String> LeavesList = new List<string>();
+            List<LeavesListObject> LeavesList = new List<LeavesListObject>();
             try
             {
                 var client = new RestClient("https://esbdev.fahr.gov.ae/services/FAHRLookupService");
@@ -128,9 +128,16 @@ namespace MOJ.DataManager
                     xmlDoc.Load(new StringReader(content));
                     string xmlPathPattern = "//LookupValue";
                     XmlNodeList myNodeList = xmlDoc.SelectNodes(xmlPathPattern);
+
                     foreach (XmlNode node in myNodeList)
                     {
-                        LeavesList.Add(node.FirstChild.InnerText);
+                        DateTime startDate = new DateTime(int.Parse(node.LastChild.InnerText.Split()[2].Split('-')[2]),
+                            int.Parse(node.LastChild.InnerText.Split()[2].Split('-')[1]), int.Parse(node.LastChild.InnerText.Split()[2].Split('-')[0]));
+
+                        DateTime EndDate = new DateTime(int.Parse(node.LastChild.InnerText.Split()[4].Split('-')[2]),
+                            int.Parse(node.LastChild.InnerText.Split()[4].Split('-')[1]), int.Parse(node.LastChild.InnerText.Split()[4].Split('-')[0]));
+
+                        LeavesList.Add(new LeavesListObject(node.FirstChild.InnerText, startDate, EndDate));
                     }
                 }
             }
@@ -139,6 +146,37 @@ namespace MOJ.DataManager
                 //LoggingService.LogError("WebParts", ex.Message);
             }
             return LeavesList;
+        }
+    }
+
+    public class LeavesListObject
+    {
+        private string absenceID;
+        private DateTime startDateVacation;
+        private DateTime endDateVacation;
+
+        public LeavesListObject(string absenceID, DateTime startDateVacation, DateTime endDateVacation)
+        {
+            this.absenceID = absenceID;
+            this.startDateVacation = startDateVacation;
+            this.endDateVacation = endDateVacation;
+        }
+
+        public string AbsenceID
+        {
+            get { return absenceID; }
+            set { absenceID = value; }
+        }
+
+        public DateTime StartDateVacation
+        {
+            get { return startDateVacation; }
+            set { startDateVacation = value; }
+        }
+        public DateTime EndDateVacation
+        {
+            get { return endDateVacation; }
+            set { endDateVacation = value; }
         }
     }
 }
