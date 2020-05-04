@@ -40,9 +40,9 @@ namespace MOJ.DataManager
                         {
                             item = list.AddItem();
                         }                   
-                        item["ApprovedVacation"] = Item.ApprovedVacation;
-                        item["StartDateVacation"] = Item.StartDateVacation;
-                        item["EndDateVacation"] = Item.EndDateVacation;
+                       
+                        item["AbsenceID"] = Item.AbsenceID;
+                        item["Description"] = Item.Description;
                         item["ReturnDateFromVacation"] = Item.ReturnDateFromVacation;
                         item["RreasonForTheDelay"] = Item.RreasonForTheDelay;
                         item["ResponseMsg"] = Item.ResponseMsg;
@@ -93,9 +93,8 @@ namespace MOJ.DataManager
                                 {
                                     SPListItem Item = lst.GetItemById(id);                                                       
                                     obitem.Title = Convert.ToString(Item["Title"]);
-                                    obitem.ApprovedVacation = Convert.ToString(Item["ApprovedVacation"]);
-                                    obitem.StartDateVacation = Convert.ToString(Item["StartDateVacation"]);
-                                    obitem.EndDateVacation = Convert.ToString(Item["EndDateVacation"]);
+                                    obitem.AbsenceID = Convert.ToString(Item["AbsenceID"]);
+                                    obitem.Description = Convert.ToString(Item["Description"]);
                                     obitem.ReturnDateFromVacation = Convert.ToDateTime(Item["ReturnDateFromVacation"]);
                                     obitem.RreasonForTheDelay = Convert.ToString(Item["RreasonForTheDelay"]);
                                     obitem.ResponseMsg = Convert.ToString(Item["ResponseMsg"]);

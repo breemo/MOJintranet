@@ -67,24 +67,6 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnNoticeFromLeaveWP {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMessage;
         
         /// <summary>
-        /// StartDateVacation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText StartDateVacation;
-        
-        /// <summary>
-        /// EndDateVacation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText EndDateVacation;
-        
-        /// <summary>
         /// ReturnDateFromVacation control.
         /// </summary>
         /// <remarks>

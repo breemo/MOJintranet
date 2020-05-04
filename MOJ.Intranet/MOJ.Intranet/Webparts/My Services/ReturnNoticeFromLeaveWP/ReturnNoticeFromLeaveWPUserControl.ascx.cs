@@ -26,34 +26,23 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnNoticeFromLeaveWP
                 GetDropDown();
             }
         }
-        protected void ApprovedVacation_Change(object sender, EventArgs e)
-        {
-
-            StartDateVacation.Value = "1/1/2020";
-            EndDateVacation.Value = "5/1/2020";
-        }
+       
             private void GetDropDown()
         {
-            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
-            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
-            DataTable data1 = new CertificateToWhomItMayConcern().GetOrganizationType();
+            
+            List<LeavesListObject> data1 = new LeaveBalanceDataManager().RETURN_FROM_LEAVE_LIST(Enumber.Value);
 
 
             DropDownApprovedVacation.DataSource = data1;
 
-
-            DropDownApprovedVacation.DataValueField = "ID";
-         
-            if (languageCode == "ar")
-            {
-                DropDownApprovedVacation.DataTextField = "Title";
                
-            }
-            else
-            {
-                DropDownApprovedVacation.DataTextField = "TitleEN";
-                
-            }
+        DropDownApprovedVacation.DataValueField = "absenceID";
+         
+           
+                DropDownApprovedVacation.DataTextField = "description";
+               
+            
+            
             DropDownApprovedVacation.DataBind();
            
 
@@ -106,9 +95,9 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnNoticeFromLeaveWP
                 RecordPrfix = "ReturnFromLeave-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("CertificateToWhomItMayConcern");
                 ReturnFromLeaveEntity itemSumbit = new ReturnFromLeaveEntity();
                 itemSumbit.Title = RecordPrfix;
-                itemSumbit.ApprovedVacation = DropDownApprovedVacation.SelectedValue.ToString();
-                itemSumbit.StartDateVacation = StartDateVacation.Value.ToString();
-                itemSumbit.EndDateVacation = EndDateVacation.Value.ToString();
+                itemSumbit.AbsenceID = DropDownApprovedVacation.SelectedValue.ToString();
+                itemSumbit.Description = DropDownApprovedVacation.SelectedItem.Text;
+                
                 if (!string.IsNullOrEmpty(ReturnDateFromVacation.Value))
                 {
                     DateTime sDate = DateTime.ParseExact(ReturnDateFromVacation.Value, "MM/dd/yyyy", CultureInfo.InvariantCulture);
@@ -117,11 +106,11 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnNoticeFromLeaveWP
                 }
                
                 itemSumbit.RreasonForTheDelay = RreasonForTheDelay.Value.ToString();
-                
 
-                //LetterRequestRequesttDataManager Letter = new LetterRequestRequesttDataManager();
 
-                string isSavedwebserves = "SUCCESS";// Letter.LetterRequestRequest(Enumber.Value, CTravelCountry, CSpeechType, CRequestType, CSpeechLanguage, COrganizationType, TheSpeechDirectedTo.Value);
+                PushFAHRLeaveApplicationRequestDataManager PushFAHRL = new PushFAHRLeaveApplicationRequestDataManager();
+
+                string isSavedwebserves = PushFAHRL.PushReturnFromLeaveRequest(Enumber.Value, itemSumbit.AbsenceID, itemSumbit.ReturnDateFromVacation.ToString("dd/MM/yyyy"), itemSumbit.RreasonForTheDelay);
                 if (isSavedwebserves == "SUCCESS")
                 {
                     itemSumbit.ResponseMsg = "Success";

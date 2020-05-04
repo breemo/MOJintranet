@@ -70,8 +70,8 @@
 								<div class="col-md-2">
                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ApprovedVacation%>" /></label>
                                 </div>
-                                <div class="col-md-4">                                                        
-                                    <asp:DropDownList ID="DropDownApprovedVacation" runat="server"  AutoPostBack="true" OnSelectedIndexChanged="ApprovedVacation_Change"  class="form-control">
+                                <div class="col-md-6">                                                        
+                                    <asp:DropDownList ID="DropDownApprovedVacation" runat="server"    class="form-control">
 									</asp:DropDownList>
 																		<asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server" 
 									ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="DropDownApprovedVacation" Display="Dynamic" >
@@ -84,37 +84,11 @@
 				   
 				<div class="row rt">
                 <div class="col-md-12 ">
-                  <div class="row">
-								<div class="col-md-2">
-                                      <label><asp:Literal runat="server" Text="<%$ Resources:Resource, StartDateVacation%>" /></label>
-                                </div>
-                                <div class="col-md-4">                                                        
-                                   <input type="text" name="StartDateVacation" disabled runat="server" id="StartDateVacation" class="form-control" placeholder="">  
-                                </div>
-                               								  							
-                 </div>
-                </div>
-				</div> 
-				   <div class="row rt">
-                <div class="col-md-12 ">
-                  <div class="row">
-								<div class="col-md-2">
-                                      <label><asp:Literal runat="server" Text="<%$ Resources:Resource, EndDateVacation%>" /></label>
-                                </div>
-                                <div class="col-md-4">                                                        
-                                   <input type="text" name="EndDateVacation" disabled runat="server" id="EndDateVacation" class="form-control" placeholder="">  
-                                </div>
-                               								  							
-                 </div>
-                </div>
-				</div> 
-				 <div class="row rt">
-                <div class="col-md-12 ">
                   <div class="row">								
                                 <div class="col-md-2">
                                       <label><asp:Literal runat="server" Text="<%$ Resources:Resource, ReturnDateFromVacation%>" /></label>
                                 </div>
-                                <div class="col-md-4">                                                     
+                                <div class="col-md-6">                                                     
                                   <div class="input-group date DivReturnDateFromVacation" data-provide="datepicker">
 										<input  autocomplete="off" type="text" runat="server" id="ReturnDateFromVacation" class="form-control">
 										<div class="input-group-addon">
