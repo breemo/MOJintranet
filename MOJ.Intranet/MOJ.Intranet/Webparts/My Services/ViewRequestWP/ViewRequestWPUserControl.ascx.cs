@@ -142,6 +142,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             btnResend.Visible = false;
 
             // add new workflow-----------------------------------
+            if (listName == "ReturnFromLeave")
+                Status = GetReturnFromLeave(RequestID);
             if (listName == "RoomBooking")
                 Status = GetRoomBookingData(RequestID);
             if (listName == "AffirmationSocialSituation")
@@ -699,6 +701,24 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage("mission", Room.Mission);
             addtopage("resources", valResourcesNeeded);
              return Room.Status;
+        }
+         public string GetReturnFromLeave(string RequestID)
+        {
+
+            ReturnFromLeaveEntity FromLeave = new ReturnFromLeave().GetByID(Convert.ToInt32(RequestID));
+            
+            
+            addtopage("RequestNumber", FromLeave.Title, "RequestDate", FromLeave.Created.ToString("dd MMM yyyy"), "title");
+
+            UserData(Convert.ToString(FromLeave.CreatedBy.User.LoginName));           
+                        
+            addtopage("ApprovedVacation", FromLeave.Description);
+           
+                addtopage("ReturnDateFromVacation", Convert.ToDateTime(FromLeave.ReturnDateFromVacation).ToString("dd MMM yyyy hh:mm tt"));
+                   
+            addtopage("RreasonForTheDelay", FromLeave.RreasonForTheDelay);
+            
+             return FromLeave.Status;
         }
 
         protected void addtopage(string text, string value, string title = "")

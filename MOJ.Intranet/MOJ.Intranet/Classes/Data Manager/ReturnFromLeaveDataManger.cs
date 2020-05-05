@@ -100,7 +100,10 @@ namespace MOJ.DataManager
                                     obitem.ResponseMsg = Convert.ToString(Item["ResponseMsg"]);
                                     obitem.ResponseMsgAR = Convert.ToString(Item["ResponseMsgAR"]);
                                     obitem.Status = Convert.ToString(Item["Status"]);
-                                 
+
+                                    obitem.CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+                                    obitem.Created = Convert.ToDateTime(Item["Created"]);
+
 
                                 }
                             }

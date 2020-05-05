@@ -92,7 +92,7 @@ namespace MOJ.Intranet.Webparts.My_Services.ReturnNoticeFromLeaveWP
             if (!_isRefresh)
             {
                 string RecordPrfix = "";
-                RecordPrfix = "ReturnFromLeave-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("CertificateToWhomItMayConcern");
+                RecordPrfix = "ReturnFromLeave-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("ReturnFromLeave");
                 ReturnFromLeaveEntity itemSumbit = new ReturnFromLeaveEntity();
                 itemSumbit.Title = RecordPrfix;
                 itemSumbit.AbsenceID = DropDownApprovedVacation.SelectedValue.ToString();

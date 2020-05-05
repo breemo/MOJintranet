@@ -19,6 +19,8 @@ namespace MOJ.Entities
         public string ResponseMsg { get; set; }
         public string ResponseMsgAR { get; set; }
         public string Status { get; set; }
-        
+        public DateTime Created { get; set; }
+
+        public SPFieldUserValue CreatedBy { get; set; }
     }
 }
