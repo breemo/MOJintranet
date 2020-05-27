@@ -1564,7 +1564,7 @@
     <value>إشعار عودة من الإجازة</value>
   </data>
   <data name="RreasonForTheDelay" xml:space="preserve">
-    <value>سبب التأحير</value>
+    <value>سبب التأخير</value>
   </data>
   <data name="StartDateVacation" xml:space="preserve">
     <value>تاريخ بدء الاجازة</value>
