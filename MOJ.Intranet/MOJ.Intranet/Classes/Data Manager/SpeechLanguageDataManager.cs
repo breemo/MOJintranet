@@ -51,6 +51,45 @@ namespace MOJ.DataManager
             });
             return dt;
         }
+        public string GeTitle(int id,string lang)
+        {
+            string Code = "";
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lst = oWeb.GetListFromUrl(oSite.Url + SharedConstants.SpeechLanguageUrl);                          
+                            if (lst != null)
+                            {
+                                SPListItem Item = lst.GetItemById(id);
+                                if (lang == "ar")
+                                {
+                                    Code = Convert.ToString(Item["Title"]);
+                                }
+                                else
+                                {
+                                    Code = Convert.ToString(Item["TitleEN"]);
+                                }
+                                                             
+                            }
+                        }
+                    }
+                }
+            });
+            }
+            catch (Exception ex)
+            {
+                LoggingService.LogError("WebParts", ex.Message);
+            }
+            return Code;
+        }
+        
         public string GetCode(int id)
         {
             string Code = "";

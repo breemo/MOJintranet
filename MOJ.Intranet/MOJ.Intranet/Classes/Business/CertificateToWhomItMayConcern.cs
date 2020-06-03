@@ -19,6 +19,10 @@ namespace MOJ.Business
         {
             return new OrganizationTypeDataManager().GetCode(id);
         }
+        public string GetOrganizationTypeTitle(int id, string lang)
+        {
+            return new OrganizationTypeDataManager().GeTitle(id,lang);
+        }
         public DataTable GetRequestType()
         {
             return new RequestTypeDataManager().GetAll();
@@ -26,6 +30,10 @@ namespace MOJ.Business
         public string GetRequestTypeCode(int id)
         {
             return new RequestTypeDataManager().GetCode(id);
+        }
+        public string GetRequestTypeTitle(int id,string lang)
+        {
+            return new RequestTypeDataManager().GeTitle(id,lang);
         }
         public DataTable GetSpeechLanguage()
         {
@@ -35,6 +43,10 @@ namespace MOJ.Business
         {
             return new SpeechLanguageDataManager().GetCode(id);
         }
+        public string GetSpeechLanguageTitle(int id, string lang)
+        {
+            return new SpeechLanguageDataManager().GeTitle(id, lang);
+        }
         public DataTable GetSpeechType()
         {
             return new SpeechTypeDataManager().GetAll();
@@ -42,6 +54,10 @@ namespace MOJ.Business
         public string GetSpeechTypeCode(int id)
         {
             return new SpeechTypeDataManager().GetCode(id);
+        }
+        public string GetSpeechTypeTitle(int id, string lang)
+        {
+            return new SpeechTypeDataManager().GetTitle(id,lang);
         }
         public DataTable GetTravelCountry()
         {
@@ -51,11 +67,19 @@ namespace MOJ.Business
         {
             return new CountrysDataManager().GetCode(id);
         }
+        public string GetTravelCountryTitle(int id, string lang)
+        {
+            return new CountrysDataManager().GetTitle(id, lang);
+        }
         public bool SaveUpdate(CertificateToWhomItMayConcernEntity obj)
         {
             return new CertificateToWhomItMayConcernDataManager().AddOrUpdate(obj);
         }
-       
+        public CertificateToWhomItMayConcernEntity GetByID(int id)
+        {
+            return new CertificateToWhomItMayConcernDataManager().GetByID(id);
+        }
+
 
     }
 }

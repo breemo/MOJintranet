@@ -19,6 +19,7 @@ namespace MOJ.Entities
         public string ResponseMsgAR { get; set; }
         public string ResponseMsg { get; set; }
         public string TheSpeechDirectedTo { get; set; }
+        public string Status { get; set; }
       
         public SPFieldUserValue CreatedBy { get; set; }
         public DateTime Created { get; set; }

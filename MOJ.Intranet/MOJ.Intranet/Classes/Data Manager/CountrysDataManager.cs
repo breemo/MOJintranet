@@ -89,7 +89,7 @@ namespace MOJ.DataManager
             }
             return Code;
         }
-        public string GetTitle(int id)
+        public string GetTitle(int id,string lang="ar")
         {
             string Titleis = "";
             try
@@ -106,7 +106,15 @@ namespace MOJ.DataManager
                                 if (lst != null)
                                 {
                                     SPListItem Item = lst.GetItemById(id);
-                                    Titleis = Convert.ToString(Item["Title"]);
+                                    if (lang == "ar")
+                                    {
+                                        Titleis = Convert.ToString(Item["Title"]);
+                                    }
+                                    else
+                                    {
+                                        Titleis = Convert.ToString(Item["TitleEN"]);
+                                    }
+                                   
                                 }
                             }
                         }

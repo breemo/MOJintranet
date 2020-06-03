@@ -142,6 +142,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             btnResend.Visible = false;
 
             // add new workflow-----------------------------------
+            if (listName == "CertificateToWhomItMayConcern")
+                Status = GetCertificateToWhomItMayConcern(RequestID);
             if (listName == "ReturnFromLeave")
                 Status = GetReturnFromLeave(RequestID);
             if (listName == "RoomBooking")
@@ -719,6 +721,50 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             addtopage("RreasonForTheDelay", FromLeave.RreasonForTheDelay);
             
              return FromLeave.Status;
+        }
+          public string GetCertificateToWhomItMayConcern(string RequestID)
+        {
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string languageCode = currentCulture.TwoLetterISOLanguageName.ToLowerInvariant();
+            CertificateToWhomItMayConcernEntity CertificateToWhom = new CertificateToWhomItMayConcern().GetByID(Convert.ToInt32(RequestID));
+            
+            
+            addtopage("RequestNumber", CertificateToWhom.Title, "RequestDate", CertificateToWhom.Created.ToString("dd MMM yyyy"), "title");
+
+            UserData(Convert.ToString(CertificateToWhom.CreatedBy.User.LoginName));
+            string RequestType = "";
+            if (!string.IsNullOrEmpty(CertificateToWhom.RequestType))
+            {
+                RequestType = new CertificateToWhomItMayConcern().GetRequestTypeTitle(Convert.ToInt32(CertificateToWhom.RequestType), languageCode);
+            }
+            string SpeechType = "";
+            if (!string.IsNullOrEmpty(CertificateToWhom.SpeechType))
+            {
+                SpeechType = new CertificateToWhomItMayConcern().GetSpeechTypeTitle(Convert.ToInt32(CertificateToWhom.SpeechType), languageCode);
+            }
+            addtopage("RequestType", RequestType, "SpeechType", SpeechType);
+            string SpeechLanguage = "";
+            if (!string.IsNullOrEmpty(CertificateToWhom.SpeechLanguage))
+            {
+                SpeechLanguage = new CertificateToWhomItMayConcern().GetSpeechLanguageTitle(Convert.ToInt32(CertificateToWhom.SpeechLanguage), languageCode);
+            }
+            string OrganizationType = "";
+            if (!string.IsNullOrEmpty(CertificateToWhom.OrganizationType))
+            {
+                OrganizationType = new CertificateToWhomItMayConcern().GetOrganizationTypeTitle(Convert.ToInt32(CertificateToWhom.OrganizationType), languageCode);
+            }
+
+            addtopage("SpeechLanguage",SpeechLanguage, "OrganizationType",OrganizationType);
+            string TravelCountry = "";
+            if (!string.IsNullOrEmpty(CertificateToWhom.TravelCountry))
+            {
+                TravelCountry = new CertificateToWhomItMayConcern().GetTravelCountryTitle(Convert.ToInt32(CertificateToWhom.TravelCountry), languageCode);
+            }
+            addtopage("TravelCountry", TravelCountry, "TheSpeechDirectedTo", CertificateToWhom.TheSpeechDirectedTo);
+           
+            
+            
+             return CertificateToWhom.Status;
         }
 
         protected void addtopage(string text, string value, string title = "")
