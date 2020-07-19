@@ -28,8 +28,6 @@ namespace MOJ.Intranet.Webparts.CarOrderServiceWP
             }
         }
 
-
-
         private void TravelNeeds()
         {
             try

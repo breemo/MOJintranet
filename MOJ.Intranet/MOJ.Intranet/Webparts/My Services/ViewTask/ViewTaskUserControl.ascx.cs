@@ -91,6 +91,13 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
                     GetTasksRequest(task.RequestID, task.WorkflowName);
                 }
 
+                //latest 3 services - 19.07.2020
+                if (task.WorkflowName == "DeclarationWifeNotWork")
+                    GetDeclarationWifeNotWork(task.RequestID);
+                if (task.WorkflowName == "TrainingProgramNomination")
+                    GetTrainingProgramNomination(task.RequestID);
+                ////////////////////////////////////////
+
             }
             else
             {
@@ -714,6 +721,81 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewTask
             bool isSaved =new  AskAnExpert().AddOrUpdateAskAnExpertAnswer(AskAnExpertAnsweris);
            
 
+        }
+
+
+        /// <summary>
+        /// new 3 services - 19.07.2020
+        /// </summary>
+        /// <param name="RequestID"></param>
+        /// <returns></returns>
+        public string GetDeclarationWifeNotWork(string RequestID)
+        {
+            string status = "";
+
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.DeclarationWifeNotWorkUrl);
+                            if (lstRoom != null)
+                            {
+                                SPListItem Item = lstRoom.GetItemById(int.Parse(RequestID));
+
+                                SPFieldUserValue CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+
+                                addtopage("RequestNumber", Convert.ToString(Item["Title"]), "RequestDate", Convert.ToDateTime(Item["Created"]).ToString("dd MMM yyyy"), "title");
+                                addtopage("WifeName", Convert.ToString(Item["WifeName"]));
+                                UserData(Convert.ToString(CreatedBy.User.LoginName));
+
+                                status = Convert.ToString(Item["Status"]);
+                            }
+                        }
+                    }
+                }
+            });
+
+            return status;
+        }
+        public string GetTrainingProgramNomination(string RequestID)
+        {
+            string status = "";
+
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.TrainingProgramNominationUrl);
+                            if (lstRoom != null)
+                            {
+                                SPListItem Item = lstRoom.GetItemById(int.Parse(RequestID));
+
+                                SPFieldUserValue CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+
+                                addtopage("RequestNumber", Convert.ToString(Item["Title"]), "RequestDate", Convert.ToDateTime(Item["Created"]).ToString("dd MMM yyyy"), "title");
+                                addtopage("ProgramName", Convert.ToString(Item["CourseTitle"]));
+                                addtopage("ProgramPlace", Convert.ToString(Item["Location"]));
+                                addtopage("CourceDateFrom", Convert.ToDateTime(Convert.ToString(Item["CourseDateFrom"])).ToString("dd MMM yyyy HH:mm tt"));
+                                addtopage("CourceDateTo", Convert.ToDateTime(Convert.ToString(Item["CourseDateTo"])).ToString("dd MMM yyyy HH:mm tt"));
+
+                                UserData(Convert.ToString(CreatedBy.User.LoginName));
+
+                                status = Convert.ToString(Item["Status"]);
+                            }
+                        }
+                    }
+                }
+            });
+
+            return status;
         }
     }
 }

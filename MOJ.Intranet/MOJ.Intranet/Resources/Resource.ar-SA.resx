@@ -1578,4 +1578,55 @@
   <data name="Topics" xml:space="preserve">
     <value>الموضوعات</value>
   </data>
+  <data name="DeclarationWifeNotWork" xml:space="preserve">
+    <value>إقرار بعدم عمل الزوجة</value>
+  </data>
+  <data name="DoNotWork" xml:space="preserve">
+    <value>لا تعمل في أي جهة حكومية أو غير حكومية داخل دولة الإمارات العربية المتحدة.</value>
+  </data>
+  <data name="Acknowledgment" xml:space="preserve">
+    <value>وهذا اقرار مني بذلك</value>
+  </data>
+  <data name="MyWife" xml:space="preserve">
+    <value>بأن زوجتي / </value>
+  </data>
+  <data name="NominationForm" xml:space="preserve">
+    <value>نمـــوذج تـــرشيـح لــدورة أو بــرنامج تــدريبي</value>
+  </data>
+  <data name="ProgramDate" xml:space="preserve">
+    <value>تاريخ الإنعقاد</value>
+  </data>
+  <data name="ProgramInformation" xml:space="preserve">
+    <value>معلـومات عـن البرنامج التدريبي</value>
+  </data>
+  <data name="ProgramName" xml:space="preserve">
+    <value>إسم البرنامج</value>
+  </data>
+  <data name="ProgramPlace" xml:space="preserve">
+    <value>مكان الإنعقاد</value>
+  </data>
+  <data name="Undersigned" xml:space="preserve">
+    <value>أقر أنا الموقع أدناه</value>
+  </data>
+  <data name="ProgramTime" xml:space="preserve">
+    <value>التوقيت</value>
+  </data>
+  <data name="FromTime" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="ToTime" xml:space="preserve">
+    <value>إلى</value>
+  </data>
+  <data name="ProgramLocation" xml:space="preserve">
+    <value>مكان الإنعقاد</value>
+  </data>
+  <data name="WifeName" xml:space="preserve">
+    <value>إسم الزوجة</value>
+  </data>
+  <data name="CourceDateFrom" xml:space="preserve">
+    <value>تاريخ الإنعقاد (من)</value>
+  </data>
+  <data name="CourceDateTo" xml:space="preserve">
+    <value>تاريخ الإنعقاد (إلى)</value>
+  </data>
 </root>

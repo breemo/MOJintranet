@@ -144,6 +144,16 @@ namespace CommonLibrary
         public const string RequestTypeUrl = "/Lists/RequestType/AllItems.aspx";
         public const string OrganizationTypeUrl = "/Lists/OrganizationType/AllItems.aspx";
 
+
+        public const string DeclarationWifeNotWorkUrl = "/Lists/DeclarationWifeNotWork/AllItems.aspx";
+        public const string TrainingProgramNominationUrl = "/Lists/TrainingProgramNomination/AllItems.aspx";
+
+        public const string TrainingProgramNomination = "TrainingProgramNomination";
+        public const string DeclarationWifeNotWork = "DeclarationWifeNotWork";
+
+        //public const string DeclarationWifeNotWork = "DeclarationWifeNotWork";
+
+
         #endregion
 
         #region Query

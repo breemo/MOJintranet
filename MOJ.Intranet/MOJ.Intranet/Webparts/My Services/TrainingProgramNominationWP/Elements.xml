@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="TrainingProgramNominationWP" List="113" Url="_catalogs/wp">
+    <File Path="TrainingProgramNominationWP\TrainingProgramNominationWP.webpart" Url="MOJ.Intranet_TrainingProgramNominationWP.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>

@@ -172,15 +172,25 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetCouncilMembers(RequestID);
             if (listName == "AskAnExpert")
                 Status = GetAskAnExpert(RequestID);
-            if (listName != "AskAnExpert") { 
+            if (listName != "AskAnExpert")
+            {
                 GetTasksRequest(RequestID, listName);
-                }
+            }
+
+            //latest 3 services - 19.07.2020
+            if (listName == "DeclarationWifeNotWork")
+                Status = GetDeclarationWifeNotWork(RequestID);
+            if (listName == "TrainingProgramNomination")
+                Status = GetTrainingProgramNomination(RequestID);
+            ////////////////////////////////////////
+
             AllData.Text += "<hr>";
             addtopageStatus("RequestStatus", Status);
-            if (Status == "Canceled") { 
-            btnCanceled.Visible = false;
-         }
-           
+            if (Status == "Canceled")
+            {
+                btnCanceled.Visible = false;
+            }
+
         }
         public string GetAskAnExpert(string RequestID)
         {
@@ -864,5 +874,79 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
             }
         }
 
+
+        /// <summary>
+        /// new 3 services - 19.07.2020
+        /// </summary>
+        /// <param name="RequestID"></param>
+        /// <returns></returns>
+        public string GetDeclarationWifeNotWork(string RequestID)
+        {
+            string status = "";
+
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.DeclarationWifeNotWorkUrl);
+                            if (lstRoom != null)
+                            {
+                                SPListItem Item = lstRoom.GetItemById(int.Parse(RequestID));
+
+                                SPFieldUserValue CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+
+                                addtopage("RequestNumber", Convert.ToString(Item["Title"]), "RequestDate", Convert.ToDateTime(Item["Created"]).ToString("dd MMM yyyy"), "title");
+                                addtopage("WifeName", Convert.ToString(Item["WifeName"]));
+                                UserData(Convert.ToString(CreatedBy.User.LoginName));
+
+                                status = Convert.ToString(Item["Status"]);
+                            }
+                        }
+                    }
+                }
+            });
+
+            return status;
+        }
+        public string GetTrainingProgramNomination(string RequestID)
+        {
+            string status = "";
+
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.TrainingProgramNominationUrl);
+                            if (lstRoom != null)
+                            {
+                                SPListItem Item = lstRoom.GetItemById(int.Parse(RequestID));
+
+                                SPFieldUserValue CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+
+                                addtopage("RequestNumber", Convert.ToString(Item["Title"]), "RequestDate", Convert.ToDateTime(Item["Created"]).ToString("dd MMM yyyy"), "title");
+                                addtopage("ProgramName", Convert.ToString(Item["CourseTitle"]));
+                                addtopage("ProgramPlace", Convert.ToString(Item["Location"]));
+                                addtopage("CourceDateFrom", Convert.ToDateTime(Convert.ToString(Item["CourseDateFrom"])).ToString("dd MMM yyyy HH:mm tt"));
+                                addtopage("CourceDateTo", Convert.ToDateTime(Convert.ToString(Item["CourseDateTo"])).ToString("dd MMM yyyy HH:mm tt"));
+
+                                UserData(Convert.ToString(CreatedBy.User.LoginName));
+
+                                status = Convert.ToString(Item["Status"]);
+                            }
+                        }
+                    }
+                }
+            });
+
+            return status;
+        }
     }
 }

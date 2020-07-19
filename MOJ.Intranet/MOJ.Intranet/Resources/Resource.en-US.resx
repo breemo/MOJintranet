@@ -1578,4 +1578,55 @@
   <data name="Topics" xml:space="preserve">
     <value>Topics</value>
   </data>
+  <data name="Acknowledgment" xml:space="preserve">
+    <value>This is my acknowledgment of that</value>
+  </data>
+  <data name="DeclarationWifeNotWork" xml:space="preserve">
+    <value>A declaration that the wife does not work</value>
+  </data>
+  <data name="DoNotWork" xml:space="preserve">
+    <value>Do not work in any point of governmental or non-governmental organizations within the United Arab Emirates.</value>
+  </data>
+  <data name="MyWife" xml:space="preserve">
+    <value>My Wife /</value>
+  </data>
+  <data name="NominationForm" xml:space="preserve">
+    <value>Nomination for a course or a training program form</value>
+  </data>
+  <data name="ProgramDate" xml:space="preserve">
+    <value>Course Date</value>
+  </data>
+  <data name="ProgramInformation" xml:space="preserve">
+    <value>Program Information</value>
+  </data>
+  <data name="ProgramName" xml:space="preserve">
+    <value>Program Name</value>
+  </data>
+  <data name="ProgramPlace" xml:space="preserve">
+    <value>Course Place</value>
+  </data>
+  <data name="Undersigned" xml:space="preserve">
+    <value>I, the undersigned</value>
+  </data>
+  <data name="ProgramTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="FromTime" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="ToTime" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="ProgramLocation" xml:space="preserve">
+    <value>Program Location</value>
+  </data>
+  <data name="WifeName" xml:space="preserve">
+    <value>Wife Name</value>
+  </data>
+  <data name="CourceDateFrom" xml:space="preserve">
+    <value>Cource Date From</value>
+  </data>
+  <data name="CourceDateTo" xml:space="preserve">
+    <value>Cource Date To</value>
+  </data>
 </root>

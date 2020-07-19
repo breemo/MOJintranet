@@ -660,6 +660,14 @@
     <Compile Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWPUserControl.ascx.designer.cs">
       <DependentUpon>ContactWithHRWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\DeclarationWifeNotWorkWP\DeclarationWifeNotWorkWP.cs" />
+    <Compile Include="Webparts\My Services\DeclarationWifeNotWorkWP\DeclarationWifeNotWorkWPUserControl.ascx.cs">
+      <DependentUpon>DeclarationWifeNotWorkWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\DeclarationWifeNotWorkWP\DeclarationWifeNotWorkWPUserControl.ascx.designer.cs">
+      <DependentUpon>DeclarationWifeNotWorkWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWP.cs" />
     <Compile Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWPUserControl.ascx.cs">
       <DependentUpon>FazaaCardRequestWPUserControl.ascx</DependentUpon>
@@ -739,6 +747,14 @@
     </Compile>
     <Compile Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx.designer.cs">
       <DependentUpon>ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Webparts\My Services\TrainingProgramNominationWP\TrainingProgramNominationWP.cs" />
+    <Compile Include="Webparts\My Services\TrainingProgramNominationWP\TrainingProgramNominationWPUserControl.ascx.cs">
+      <DependentUpon>TrainingProgramNominationWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\TrainingProgramNominationWP\TrainingProgramNominationWPUserControl.ascx.designer.cs">
+      <DependentUpon>TrainingProgramNominationWPUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Webparts\My Services\ViewRequestWP\ViewRequestWP.cs" />
     <Compile Include="Webparts\My Services\ViewRequestWP\ViewRequestWPUserControl.ascx.cs">
@@ -1014,6 +1030,10 @@
     <None Include="Webparts\My Services\ContactWithHRWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{68a3856a-1fe5-4002-8d65-badeba7d1305}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\DeclarationWifeNotWorkWP\DeclarationWifeNotWorkWP.webpart" />
+    <None Include="Webparts\My Services\DeclarationWifeNotWorkWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{02957acc-a7ca-439a-816f-1bd28e43a508}</SharePointProjectItemId>
+    </None>
     <None Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWP.webpart" />
     <None Include="Webparts\My Services\FazaaCardRequestWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0e4ebd8c-c0fd-4e92-89f6-ac5163809aa7}</SharePointProjectItemId>
@@ -1054,6 +1074,10 @@
     <None Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{fe29b231-4329-498a-82b5-7572ef087018}</SharePointProjectItemId>
     </None>
+    <None Include="Webparts\My Services\TrainingProgramNominationWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fad15aad-56e1-438e-8d9a-08054ab417aa}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\My Services\TrainingProgramNominationWP\TrainingProgramNominationWP.webpart" />
     <None Include="Webparts\My Services\ViewRequestWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{547c76ae-1cff-4d4f-a95b-5b73b01f7afc}</SharePointProjectItemId>
     </None>
@@ -1198,6 +1222,8 @@
     <Content Include="Webparts\My Services\CertificateToWhomItMayConcernWP\Elements.xml" />
     <Content Include="Webparts\My Services\ContactWithHRWP\ContactWithHRWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ContactWithHRWP\Elements.xml" />
+    <Content Include="Webparts\My Services\DeclarationWifeNotWorkWP\DeclarationWifeNotWorkWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\DeclarationWifeNotWorkWP\Elements.xml" />
     <Content Include="Webparts\My Services\FazaaCardRequestWP\Elements.xml" />
     <Content Include="Webparts\My Services\FazaaCardRequestWP\FazaaCardRequestWPUserControl.ascx" />
     <Content Include="Webparts\My Services\HappinessHotlineWP\Elements.xml" />
@@ -1221,6 +1247,8 @@
     <Content Include="Webparts\My Services\ReturnNoticeFromLeaveWP\ReturnNoticeFromLeaveWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\Elements.xml" />
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\TrainingProgramNominationWP\Elements.xml" />
+    <Content Include="Webparts\My Services\TrainingProgramNominationWP\TrainingProgramNominationWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewRequestWP\Elements.xml" />
     <Content Include="Webparts\My Services\ViewRequestWP\ViewRequestWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewTask\Elements.xml" />
