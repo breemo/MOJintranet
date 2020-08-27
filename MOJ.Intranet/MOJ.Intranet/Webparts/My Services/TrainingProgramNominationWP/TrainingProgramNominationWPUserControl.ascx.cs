@@ -61,6 +61,36 @@ namespace MOJ.Intranet.Webparts.My_Services.TrainingProgramNominationWP
             }
             set { ViewState["mangerEmail"] = value; }
         }
+        public string employeeName
+        {
+            get
+            {
+                if (ViewState["employeeName"] != null)
+                {
+                    return Convert.ToString(ViewState["employeeName"]);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            set { ViewState["employeeName"] = value; }
+        }
+        public string employeeID
+        {
+            get
+            {
+                if (ViewState["employeeID"] != null)
+                {
+                    return Convert.ToString(ViewState["employeeID"]);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            set { ViewState["employeeID"] = value; }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -86,23 +116,22 @@ namespace MOJ.Intranet.Webparts.My_Services.TrainingProgramNominationWP
                         Ename.Value = item.employeeNameArabicField.ToString();
                         Edepartment.Value = item.departmentNameField_AR.ToString();
                         ENationality.Value = item.nationality_ARField.ToString();
-                        EMaritalStatus.Value = item.maritalStatus_ARField.ToString();
+                        EPosition.Value = item.positionNameField_AR.ToString();
                     }
                     else
                     {
                         Ename.Value = item.employeeNameEnglishField.ToString();
                         Edepartment.Value = item.departmentNameField_US.ToString();
                         ENationality.Value = item.nationality_USField.ToString();
-                        EMaritalStatus.Value = item.maritalStatus_USField.ToString();
+                        EPosition.Value = item.positionNameField_US.ToString();
                     }
                     mangerName = item.ManagerName_DirectManager.ToString();
                     mangerID = item.ManagerID_DirectManager.ToString();
                     mangerEmail = item.ManagerEmail_DirectManager;
+                    txtMobileNumber.Value = item.contactNumberField.ToString();
 
-                    EFinancialNumber.Value = "";/////////
-                    Ecategory.Value = "";/////
-                    EWorklocation.Value = "";////
-                    EBWorkPhoneEx.Value = "";/////
+                    employeeName = item.departmentNameField_AR.ToString() + "," + item.employeeNameEnglishField.ToString();
+                    employeeID = item.employeeNumberField.ToString();
                 }
 
             }
@@ -195,6 +224,11 @@ namespace MOJ.Intranet.Webparts.My_Services.TrainingProgramNominationWP
 
                                                 oSPListItem["CourseDateFrom"] = Convert.ToDateTime(CourseDateFrom);
                                                 oSPListItem["CourseDateTo"] = Convert.ToDateTime(CourseDateTo);
+                                                oSPListItem["EmployeeName"] = employeeName;
+                                                oSPListItem["EmployeeID"] = employeeID;
+
+                                                oSPListItem["Qualification"] = txtQualification.Value;
+                                                oSPListItem["ExtNo"] = txtExtNo.Value;
 
                                                 oSPListItem.Update();
                                                 isInserted = true;

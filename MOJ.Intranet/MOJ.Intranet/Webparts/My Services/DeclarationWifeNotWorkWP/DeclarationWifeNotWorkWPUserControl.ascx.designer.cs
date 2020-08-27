@@ -40,6 +40,15 @@ namespace MOJ.Intranet.Webparts.My_Services.DeclarationWifeNotWorkWP {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Enumber;
         
         /// <summary>
+        /// EPosition control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EPosition;
+        
+        /// <summary>
         /// EDepartment control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace MOJ.Intranet.Webparts.My_Services.DeclarationWifeNotWorkWP {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtMyWifeName;
+        
+        /// <summary>
+        /// txtDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDate;
         
         /// <summary>
         /// btnsubmit control.

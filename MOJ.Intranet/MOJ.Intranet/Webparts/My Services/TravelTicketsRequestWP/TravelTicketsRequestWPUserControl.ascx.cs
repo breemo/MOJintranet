@@ -12,9 +12,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-namespace MOJ.Intranet.Webparts.My_Services.DeclarationWifeNotWorkWP
+namespace MOJ.Intranet.Webparts.My_Services.TravelTicketsRequestWP
 {
-    public partial class DeclarationWifeNotWorkWPUserControl : SiteUI
+    public partial class TravelTicketsRequestWPUserControl : SiteUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,13 +24,14 @@ namespace MOJ.Intranet.Webparts.My_Services.DeclarationWifeNotWorkWP
                 txtDate.Value = DateTime.Now.ToString("yyyy, MMM dd");
             }
         }
+
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
             if (!_isRefresh)
             {
                 try
                 {
-                    savecurrentUserData();
+                    //savecurrentUserData();
                     using (SPSite mySitesCollection = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb myweb = mySitesCollection.OpenWeb())
@@ -39,7 +40,7 @@ namespace MOJ.Intranet.Webparts.My_Services.DeclarationWifeNotWorkWP
                             bool isInserted = false;
 
                             string RecordPrfix = "";
-                            RecordPrfix = "DeclarationWifeNotWork-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("DeclarationWifeNotWork");
+                            RecordPrfix = "TravelTicketsRequest-" + DateTime.Now.ToString("yyMMdd") + "-" + CommonLibrary.Methods.GetNextRequestNumber("TravelTicketsRequest");
 
                             try
                             {
@@ -49,15 +50,25 @@ namespace MOJ.Intranet.Webparts.My_Services.DeclarationWifeNotWorkWP
                                     {
                                         if (oWeb != null)
                                         {
-                                            SPList oList = oWeb.Lists[SharedConstants.DeclarationWifeNotWork];
+                                            SPList oList = oWeb.Lists[SharedConstants.TravelTicketsRequest];
                                             if (oList != null)
                                             {
                                                 oWeb.AllowUnsafeUpdates = true;
                                                 SPListItem oSPListItem = oList.Items.Add();
                                                 oSPListItem["Title"] = Convert.ToString(RecordPrfix);
-                                                oSPListItem["WifeName"] = txtMyWifeName.Value;
-                                                oSPListItem["EmployeeName"] = employeeName;
-                                                oSPListItem["EmployeeID"] = employeeID;
+                                                oSPListItem["Description"] = txtDescription.Value;
+
+                                                oSPListItem["OrderType"] = rbType.SelectedValue;
+                                                oSPListItem["TravelFrom"] = txtTravelFrom.Value;
+                                                oSPListItem["TravelTo"] = txtTravelTo.Value;
+                                                oSPListItem["ReturnTo"] = txtReturnTo.Value;
+
+                                                oSPListItem["TicketFor"] = rblTicketFor.SelectedValue;
+                                                oSPListItem["wife"] = txtwifefld.Value;
+                                                oSPListItem["son1"] = txtSon1.Value;
+                                                oSPListItem["son2"] = Son2.Value;
+                                                oSPListItem["son3"] = Son3.Value;
+
                                                 oSPListItem["Created By"] = currentUser;
                                                 oSPListItem.Update();
 
@@ -203,24 +214,37 @@ namespace MOJ.Intranet.Webparts.My_Services.DeclarationWifeNotWorkWP
                 LoggingService.LogError("WebParts", ex.Message);
             }
         }
-        private void savecurrentUserData()
-        {
-            try
-            {
-                EmployeeEntity EmployeeValues = new EmployeeEntity();
-                EmployeeValues.mangerName = mangerName;
 
-                EmployeeValues.mangerID = mangerID;
-                EmployeeValues.mangerEmail = mangerEmail;
-                EmployeeValues.AccountName = SPContext.Current.Web.CurrentUser.LoginName;
-                if (mangerName != null && mangerName != "")
-                {
-                    bool Emp = new Employee().SaveUpdate(EmployeeValues);
-                }
-            }
-            catch (Exception ex)
+        protected void rbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rbType.SelectedValue == "TicketsAllowance")
+                dvTicketFor.Visible = true;
+            else
             {
-                LoggingService.LogError("WebParts", ex.Message);
+                dvTicketFor.Visible = false;
+
+                dvwifefld.Visible = false;
+                dvson1.Visible = false;
+                dvson2.Visible = false;
+                dvson3.Visible = false;
+            }
+        }
+
+        protected void rblTicketFor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rblTicketFor.SelectedValue.ToLower().Contains("family"))
+            {
+                dvwifefld.Visible = true;
+                dvson1.Visible = true;
+                dvson2.Visible = true;
+                dvson3.Visible = true;
+            }
+            else
+            {
+                dvwifefld.Visible = false;
+                dvson1.Visible = false;
+                dvson2.Visible = false;
+                dvson3.Visible = false;
             }
         }
     }

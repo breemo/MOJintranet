@@ -1629,4 +1629,55 @@
   <data name="CourceDateTo" xml:space="preserve">
     <value>تاريخ الإنعقاد (إلى)</value>
   </data>
+  <data name="ExtNo" xml:space="preserve">
+    <value>رقم التحويلة</value>
+  </data>
+  <data name="RequestTravelTicketsFees" xml:space="preserve">
+    <value>طلب صرف رسوم تذاكر السفر</value>
+  </data>
+  <data name="TravelDetails" xml:space="preserve">
+    <value>بيانات السفر</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>النوع</value>
+  </data>
+  <data name="TicketsAllowance" xml:space="preserve">
+    <value>بدل تذاكر سفر</value>
+  </data>
+  <data name="WorkMission" xml:space="preserve">
+    <value>مهمة عمل</value>
+  </data>
+  <data name="RequestDescription" xml:space="preserve">
+    <value>وصف الطلب</value>
+  </data>
+  <data name="ReturnTo" xml:space="preserve">
+    <value>العودة إلى</value>
+  </data>
+  <data name="son1" xml:space="preserve">
+    <value>الابن / الابنة رقم 1</value>
+  </data>
+  <data name="son2" xml:space="preserve">
+    <value>الابن / الابنة رقم 2</value>
+  </data>
+  <data name="son3" xml:space="preserve">
+    <value>الابن / الابنة رقم 3</value>
+  </data>
+  <data name="TicketForEmployee" xml:space="preserve">
+    <value>تذكرة للموظف فقط</value>
+  </data>
+  <data name="TicketForEmployeeAndFamily" xml:space="preserve">
+    <value>تذكرة للموظف والعائلة</value>
+  </data>
+  <data name="TicketForFamily" xml:space="preserve">
+    <value>تذكرة للعائلة فقط</value>
+  </data>
+  <data name="TravelFrom" xml:space="preserve">
+    <value>الرحلة من</value>
+  </data>
+  <data name="TravelTo" xml:space="preserve">
+    <value>الرحلة إلى</value>
+  </data>
+  <data name="wifefld" xml:space="preserve">
+    <value>الزوجة</value>
+  </data>
 </root>

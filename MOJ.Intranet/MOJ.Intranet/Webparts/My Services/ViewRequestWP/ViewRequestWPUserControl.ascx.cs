@@ -182,6 +182,8 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                 Status = GetDeclarationWifeNotWork(RequestID);
             if (listName == "TrainingProgramNomination")
                 Status = GetTrainingProgramNomination(RequestID);
+            if (listName == "TravelTicketsRequest")
+                Status = GetTravelTicketsRequest(RequestID);
             ////////////////////////////////////////
 
             AllData.Text += "<hr>";
@@ -936,6 +938,57 @@ namespace MOJ.Intranet.Webparts.My_Services.ViewRequestWP
                                 addtopage("ProgramPlace", Convert.ToString(Item["Location"]));
                                 addtopage("CourceDateFrom", Convert.ToDateTime(Convert.ToString(Item["CourseDateFrom"])).ToString("dd MMM yyyy HH:mm tt"));
                                 addtopage("CourceDateTo", Convert.ToDateTime(Convert.ToString(Item["CourseDateTo"])).ToString("dd MMM yyyy HH:mm tt"));
+
+                                UserData(Convert.ToString(CreatedBy.User.LoginName));
+
+                                status = Convert.ToString(Item["Status"]);
+                            }
+                        }
+                    }
+                }
+            });
+
+            return status;
+        }
+        public string GetTravelTicketsRequest(string RequestID)
+        {
+            string status = "";
+
+            SPSecurity.RunWithElevatedPrivileges(delegate ()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+                {
+                    using (SPWeb oWeb = oSite.RootWeb)
+                    {
+                        if (oWeb != null)
+                        {
+                            SPList lstRoom = oWeb.GetListFromUrl(oSite.Url + SharedConstants.TravelTicketsRequest);
+                            if (lstRoom != null)
+                            {
+                                SPListItem Item = lstRoom.GetItemById(int.Parse(RequestID));
+
+                                SPFieldUserValue CreatedBy = new SPFieldUserValue(oWeb, Convert.ToString(Item["Author"]));
+
+                                addtopage("RequestNumber", Convert.ToString(Item["Title"]), "RequestDate", Convert.ToDateTime(Item["Created"]).ToString("dd MMM yyyy"), "title");
+                                addtopage("OrderType", SPUtility.GetLocalizedString("$Resources: " + Convert.ToString(Item["OrderType"]), "Resource", SPContext.Current.Web.Language));
+                                addtopage("TravelFrom", Convert.ToString(Item["TravelFrom"]));
+                                addtopage("TravelTo", Convert.ToString(Item["TravelTo"]));
+                                addtopage("ReturnTo", Convert.ToString(Item["ReturnTo"]));
+
+                                if (Convert.ToString(Item["OrderType"]) == "TicketsAllowance")
+                                    addtopage("TicketFor", SPUtility.GetLocalizedString("$Resources: " + Convert.ToString(Item["TicketFor"]), "Resource", SPContext.Current.Web.Language));
+
+                                addtopage("Description", Convert.ToString(Item["Description"]));
+
+                                if (Convert.ToString(Item["TicketFor"]).ToLower().Contains("family"))
+                                {
+                                    addtopage("wife", Convert.ToString(Item["wife"]));
+                                    addtopage("son1", Convert.ToString(Item["son1"]));
+                                    addtopage("son2", Convert.ToString(Item["son2"]));
+                                    addtopage("son3", Convert.ToString(Item["son3"]));
+                                }
+
+                                addtopage("RequestDate", Convert.ToDateTime(Convert.ToString(Item["Created"])).ToString("dd MMM yyyy HH:mm tt"));
 
                                 UserData(Convert.ToString(CreatedBy.User.LoginName));
 

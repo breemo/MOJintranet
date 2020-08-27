@@ -756,6 +756,14 @@
     <Compile Include="Webparts\My Services\TrainingProgramNominationWP\TrainingProgramNominationWPUserControl.ascx.designer.cs">
       <DependentUpon>TrainingProgramNominationWPUserControl.ascx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Webparts\My Services\TravelTicketsRequestWP\TravelTicketsRequestWP.cs" />
+    <Compile Include="Webparts\My Services\TravelTicketsRequestWP\TravelTicketsRequestWPUserControl.ascx.cs">
+      <DependentUpon>TravelTicketsRequestWPUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webparts\My Services\TravelTicketsRequestWP\TravelTicketsRequestWPUserControl.ascx.designer.cs">
+      <DependentUpon>TravelTicketsRequestWPUserControl.ascx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Webparts\My Services\ViewRequestWP\ViewRequestWP.cs" />
     <Compile Include="Webparts\My Services\ViewRequestWP\ViewRequestWPUserControl.ascx.cs">
       <DependentUpon>ViewRequestWPUserControl.ascx</DependentUpon>
@@ -1078,6 +1086,10 @@
       <SharePointProjectItemId>{fad15aad-56e1-438e-8d9a-08054ab417aa}</SharePointProjectItemId>
     </None>
     <None Include="Webparts\My Services\TrainingProgramNominationWP\TrainingProgramNominationWP.webpart" />
+    <None Include="Webparts\My Services\TravelTicketsRequestWP\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{89030dc7-0cf8-4867-8476-74c5d80cc96d}</SharePointProjectItemId>
+    </None>
+    <None Include="Webparts\My Services\TravelTicketsRequestWP\TravelTicketsRequestWP.webpart" />
     <None Include="Webparts\My Services\ViewRequestWP\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{547c76ae-1cff-4d4f-a95b-5b73b01f7afc}</SharePointProjectItemId>
     </None>
@@ -1249,6 +1261,8 @@
     <Content Include="Webparts\My Services\ReturnToDutyNoticeMembersOfTheTudiciaryWP\ReturnToDutyNoticeMembersOfTheTudiciaryWPUserControl.ascx" />
     <Content Include="Webparts\My Services\TrainingProgramNominationWP\Elements.xml" />
     <Content Include="Webparts\My Services\TrainingProgramNominationWP\TrainingProgramNominationWPUserControl.ascx" />
+    <Content Include="Webparts\My Services\TravelTicketsRequestWP\Elements.xml" />
+    <Content Include="Webparts\My Services\TravelTicketsRequestWP\TravelTicketsRequestWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewRequestWP\Elements.xml" />
     <Content Include="Webparts\My Services\ViewRequestWP\ViewRequestWPUserControl.ascx" />
     <Content Include="Webparts\My Services\ViewTask\Elements.xml" />
@@ -1266,7 +1280,9 @@
     <Folder Include="Images\MOJ.Intranet\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Resource.ar-SA.resx" />
+    <Content Include="Resources\Resource.ar-SA.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Resource.en-US.resx" />

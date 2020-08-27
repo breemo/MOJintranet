@@ -147,11 +147,11 @@ namespace CommonLibrary
 
         public const string DeclarationWifeNotWorkUrl = "/Lists/DeclarationWifeNotWork/AllItems.aspx";
         public const string TrainingProgramNominationUrl = "/Lists/TrainingProgramNomination/AllItems.aspx";
+        public const string TravelTicketsRequestUrl = "/Lists/TravelTicketsRequest/AllItems.aspx";
 
         public const string TrainingProgramNomination = "TrainingProgramNomination";
         public const string DeclarationWifeNotWork = "DeclarationWifeNotWork";
-
-        //public const string DeclarationWifeNotWork = "DeclarationWifeNotWork";
+        public const string TravelTicketsRequest = "TravelTicketsRequest";
 
 
         #endregion

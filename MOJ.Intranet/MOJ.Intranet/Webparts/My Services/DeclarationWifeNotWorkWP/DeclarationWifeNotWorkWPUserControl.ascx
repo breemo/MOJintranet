@@ -24,7 +24,9 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4><label><asp:Literal runat="server" Text="<%$ Resources:Resource, Undersigned%>" /></label></h4>
+                        <h4>
+                            <label>
+                                <asp:Literal runat="server" Text="<%$ Resources:Resource, Undersigned%>" /></label></h4>
                     </div>
                 </div>
             </div>
@@ -59,6 +61,17 @@
                 <div class="row">
                     <div class="col-md-4">
                         <label>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>
+                    </div>
+                    <div class="col-md-8 ">
+                        <input type="text" disabled name="EPosition" runat="server" id="EPosition" class="form-control" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
                             <asp:Literal runat="server" Text="<%$ Resources:Resource, Department%>" /></label>
                     </div>
                     <div class="col-md-8">
@@ -66,16 +79,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4">
-                    </div>
-                    <div class="col-md-8 ">
-                    </div>
-                </div>
-            </div>
         </div>
 
+        <br />
 
         <div class="row rt">
             <div class="col-md-12">
@@ -96,7 +102,9 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3><label><asp:Literal runat="server" Text="<%$ Resources:Resource, DoNotWork%>" /></label></h3>
+                        <h3>
+                            <label>
+                                <asp:Literal runat="server" Text="<%$ Resources:Resource, DoNotWork%>" /></label></h3>
                     </div>
                 </div>
             </div>
@@ -114,12 +122,36 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2><label><asp:Literal runat="server" Text="<%$ Resources:Resource, Acknowledgment%>" /></label></h2>
+                        <h2>
+                            <label>
+                                <asp:Literal runat="server" Text="<%$ Resources:Resource, Acknowledgment%>" /></label></h2>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
+
+        <div class="row rt">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, Date%>" /></label>
+                    </div>
+                    <div class="col-md-8 ">
+                        <input type="text" disabled name="Date" runat="server" id="txtDate" class="form-control" placeholder="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-8 ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row rt  botx">
         <asp:Button Style="margin-top: 15px;" Text="<%$ Resources:Resource, Submit%>" CssClass="morebutovn2" runat="server" ID="btnsubmit" OnClick="btnsubmit_Click" />

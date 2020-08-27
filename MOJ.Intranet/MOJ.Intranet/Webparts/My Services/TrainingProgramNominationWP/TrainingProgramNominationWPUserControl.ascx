@@ -61,26 +61,15 @@
                 <div class="row">
                     <div class="col-md-4">
                         <label>
-                            <asp:Literal runat="server" Text="<%$ Resources:Resource, FinancialNumber%>" /></label>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, Position%>" /></label>
                     </div>
                     <div class="col-md-8 ">
-                        <input type="text" disabled name="EFinancialNumber" runat="server" id="EFinancialNumber" class="form-control" placeholder="">
+                        <input type="text" disabled name="EPosition" runat="server" id="EPosition" class="form-control" placeholder="">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row rt">
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label>
-                            <asp:Literal runat="server" Text="<%$ Resources:Resource, Category%>" /></label>
-                    </div>
-                    <div class="col-md-8 ">
-                        <input type="text" disabled name="Ecategory" runat="server" id="Ecategory" class="form-control" placeholder="">
-                    </div>
-                </div>
-            </div>
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
@@ -89,20 +78,6 @@
                     </div>
                     <div class="col-md-8">
                         <input type="text" disabled name="EHiringDate" runat="server" id="EHiringDate" class="form-control" placeholder="">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="row rt">
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label>
-                            <asp:Literal runat="server" Text="<%$ Resources:Resource, WorkLocation%>" /></label>
-                    </div>
-                    <div class="col-md-8 ">
-                        <input type="text" disabled name="EWorklocation" runat="server" id="EWorklocation" class="form-control" placeholder="">
                     </div>
                 </div>
             </div>
@@ -117,17 +92,16 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="row rt">
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
                         <label>
-                            <asp:Literal runat="server" Text="<%$ Resources:Resource, MaritalStatus%>" /></label>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, Qualification%>" /></label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" disabled name="EMaritalStatus" runat="server" id="EMaritalStatus" class="form-control" placeholder="">
+                        <input type="text" name="txtQualification" runat="server" id="txtQualification" class="form-control" placeholder="">
                     </div>
                 </div>
             </div>
@@ -135,15 +109,26 @@
                 <div class="row">
                     <div class="col-md-4">
                         <label>
-                            <asp:Literal runat="server" Text="<%$ Resources:Resource, WorkPhoneEx%>" /></label>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, MobileNumber%>" /></label>
                     </div>
-                    <div class="col-md-8 ">
-                        <input type="text" disabled name="EWorkPhoneEx" runat="server" id="EBWorkPhoneEx" class="form-control" placeholder="">
+                    <div class="col-md-8">
+                        <input type="text" disabled name="txtMobileNumber" runat="server" id="txtMobileNumber" class="form-control" placeholder="">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row rt">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>
+                            <asp:Literal runat="server" Text="<%$ Resources:Resource, ExtNo%>" /></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" name="txtExtNo" runat="server" id="txtExtNo" class="form-control" placeholder="">
+                    </div>
+                </div>
+            </div>
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-4">
@@ -155,48 +140,46 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-            </div>
         </div>
     </div>
     <hr />
-<h3>
-    <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramInformation%>" />
-</h3>
+    <h3>
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramInformation%>" />
+    </h3>
 
-<div class="row rt">
-    <div class="col-md-6">
-        <div class="row">
-            <div class="col-md-4">
-                <label>
-                    <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramName%>" /></label>
-            </div>
-            <div class="col-md-8">
-                <input type="text" name="txtProgramName" runat="server" id="txtProgramName" class="form-control" placeholder="">
+    <div class="row rt">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>
+                        <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramName%>" /></label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" name="txtProgramName" runat="server" id="txtProgramName" class="form-control" placeholder="">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorMessage" runat="server"
                         ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="txtProgramName" Display="Dynamic">
                     </asp:RequiredFieldValidator>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="row">
-            <div class="col-md-4">
-                 <label>
-                    <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramLocation%>" /></label>
-            </div>
-            <div class="col-md-8 ">
-                 <input type="text" name="txtProgramLocation" runat="server" id="txtProgramLocation" class="form-control" placeholder="">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>
+                        <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramLocation%>" /></label>
+                </div>
+                <div class="col-md-8 ">
+                    <input type="text" name="txtProgramLocation" runat="server" id="txtProgramLocation" class="form-control" placeholder="">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
                         ErrorMessage="<%$ Resources:Resource, Mandatory%>" ForeColor="Red" ControlToValidate="txtProgramLocation" Display="Dynamic">
                     </asp:RequiredFieldValidator>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<h2>
-    <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramDate%>" />
-</h2>
+    <h2>
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramDate%>" />
+    </h2>
     <div class="row rt">
         <div class="col-md-6">
             <div class="row">
@@ -218,9 +201,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row rt">
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-4">
@@ -244,9 +224,10 @@
     </div>
 
 
-<h2>
-    <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramTime%>" />
-</h2>
+
+    <h2>
+        <asp:Literal runat="server" Text="<%$ Resources:Resource, ProgramTime%>" />
+    </h2>
     <div class="row rt">
         <div class="col-md-6">
             <div class="row">
@@ -257,7 +238,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="input-group timenew  " id="toFromT">
-                        <input autocomplete="off"  runat="server" id="txtProgramTimeFrom" class="timepicker form-control" />
+                        <input autocomplete="off" runat="server" id="txtProgramTimeFrom" class="timepicker form-control" />
                         <div class="input-group-addon">
                             <span class="icon-calendar-alt1"></span>
                         </div>
@@ -265,9 +246,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row rt">
         <div class="col-md-6">
             <div class="row">
                 <div class="col-md-4">
@@ -277,7 +255,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class="input-group timenew  " id="toT">
-                        <input autocomplete="off"  runat="server" id="txtProgramTimeTo" class="timepicker form-control" />
+                        <input autocomplete="off" runat="server" id="txtProgramTimeTo" class="timepicker form-control" />
                         <div class="input-group-addon">
                             <span class="icon-calendar-alt1"></span>
                         </div>

@@ -1629,4 +1629,55 @@
   <data name="CourceDateTo" xml:space="preserve">
     <value>Cource Date To</value>
   </data>
+  <data name="ExtNo" xml:space="preserve">
+    <value>Ext. NO</value>
+  </data>
+  <data name="RequestTravelTicketsFees" xml:space="preserve">
+    <value>Request to exchange travel tickets fees</value>
+  </data>
+  <data name="TravelDetails" xml:space="preserve">
+    <value>Travel Details</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>ReimpersmentType</value>
+  </data>
+  <data name="RequestDescription" xml:space="preserve">
+    <value>Request Description</value>
+  </data>
+  <data name="ReturnTo" xml:space="preserve">
+    <value>Return To</value>
+  </data>
+  <data name="son1" xml:space="preserve">
+    <value>Son/ daughter 1</value>
+  </data>
+  <data name="son2" xml:space="preserve">
+    <value>Son/ daughter 2</value>
+  </data>
+  <data name="son3" xml:space="preserve">
+    <value>Son/ daughter 3</value>
+  </data>
+  <data name="TicketForEmployee" xml:space="preserve">
+    <value>Ticket For Employee Only</value>
+  </data>
+  <data name="TicketForEmployeeAndFamily" xml:space="preserve">
+    <value>Ticket For Employee and Family</value>
+  </data>
+  <data name="TicketForFamily" xml:space="preserve">
+    <value>Ticket For Family Only</value>
+  </data>
+  <data name="TicketsAllowance" xml:space="preserve">
+    <value>Travel tickets allowance</value>
+  </data>
+  <data name="TravelFrom" xml:space="preserve">
+    <value>Travel From</value>
+  </data>
+  <data name="TravelTo" xml:space="preserve">
+    <value>Travel To</value>
+  </data>
+  <data name="wifefld" xml:space="preserve">
+    <value>Wife</value>
+  </data>
+  <data name="WorkMission" xml:space="preserve">
+    <value>Work Mission</value>
+  </data>
 </root>
